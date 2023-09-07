@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha](https://github.com/SouOWendel/ordemparanormal-fvtt/compare/v0.0.3-alpha...v0.1.0-alpha) (2023-09-07)
+
+
+### Features
+
+* test commit ([e9f5ef6](https://github.com/SouOWendel/ordemparanormal-fvtt/commit/e9f5ef6324d7a029047dae5114fd4bd89b07ebd0))
+
 ## [0.0.3-alpha](https://github.com/SouOWendel/ordemparanormal-fvtt/compare/v0.0.2-alpha...v0.0.3-alpha) (2023-09-07)
 
 
