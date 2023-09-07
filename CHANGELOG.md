@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.8-alpha (2023-09-07)
+## 0.0.1-alpha (2023-09-07)
 
 
 ### Features
