@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.0.2-alpha](https://github.com/SouOWendel/ordemparanormal-fvtt/compare/v1.0.0...v0.0.2-alpha) (2023-09-07)
+
+
+### Features
+
+* archive for test ([ab31893](https://github.com/SouOWendel/ordemparanormal-fvtt/commit/ab31893391f27f525b2ec726d33a2e42c82751c9))
+* initial configuration from system FoundryVTT creation ([f7aac4a](https://github.com/SouOWendel/ordemparanormal-fvtt/commit/f7aac4a3c84f31e7de6ac8288e73c4a60367bcd2))
+* system doc for FoundryVTT ([1a707f6](https://github.com/SouOWendel/ordemparanormal-fvtt/commit/1a707f627b413a2b4f69519597640bcb37a67f0a))
+* test commit ([ffe9c68](https://github.com/SouOWendel/ordemparanormal-fvtt/commit/ffe9c6841713b8051e5ccec9a558e729f5a9a254))
+
+
+### Reverts
+
+* revert for original state ([91d190b](https://github.com/SouOWendel/ordemparanormal-fvtt/commit/91d190b0a6947ab041c7436eca101c2690f31ff2))
+
+
+### Miscellaneous Chores
+
+* release 0.0.2-alpha ([21406f6](https://github.com/SouOWendel/ordemparanormal-fvtt/commit/21406f67d5723b7d036d6c0726dc52588176387d))
+
 ## 0.0.1-alpha (2023-09-07)
 
 
