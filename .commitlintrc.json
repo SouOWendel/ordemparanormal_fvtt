@@ -1,0 +1,7 @@
+{
+	"parserPreset": "conventional-changelog-conventionalcommits",
+	"extends": ["@commitlint/config-conventional"],
+	"rules": {
+		"subject-full-stop": [0, "never"]
+	}
+}
