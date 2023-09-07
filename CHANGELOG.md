@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3-alpha](https://github.com/SouOWendel/ordemparanormal-fvtt/compare/v0.0.2-alpha...v0.0.3-alpha) (2023-09-07)
+
+
+### Bug Fixes
+
+* one word missing (test) ([bcc8e29](https://github.com/SouOWendel/ordemparanormal-fvtt/commit/bcc8e290d96a430a57cbfc7e654c987f2a60c287))
+
 ## [0.0.2-alpha](https://github.com/SouOWendel/ordemparanormal-fvtt/compare/v1.0.0...v0.0.2-alpha) (2023-09-07)
 
 
