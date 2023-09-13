@@ -1,0 +1,22 @@
+{
+    "ORDEMPARANORMAL_FVTT.AbilityStr": "Strength",
+    "ORDEMPARANORMAL_FVTT.AbilityCon": "Constitution",
+    "ORDEMPARANORMAL_FVTT.AbilityDex": "Dexterity",
+    "ORDEMPARANORMAL_FVTT.AbilityInt": "Intelligence",
+    "ORDEMPARANORMAL_FVTT.AbilityWis": "Wisdom",
+    "ORDEMPARANORMAL_FVTT.AbilityCha": "Charisma",
+  
+    "ORDEMPARANORMAL_FVTT.AbilityStrAbbr": "str",
+    "ORDEMPARANORMAL_FVTT.AbilityConAbbr": "con",
+    "ORDEMPARANORMAL_FVTT.AbilityDexAbbr": "dex",
+    "ORDEMPARANORMAL_FVTT.AbilityIntAbbr": "int",
+    "ORDEMPARANORMAL_FVTT.AbilityWisAbbr": "wis",
+    "ORDEMPARANORMAL_FVTT.AbilityChaAbbr": "cha",
+  
+    "ORDEMPARANORMAL_FVTT.EffectCreate": "Create Effect",
+    "ORDEMPARANORMAL_FVTT.EffectToggle": "Toggle Effect",
+    "ORDEMPARANORMAL_FVTT.EffectEdit": "Edit Effect",
+    "ORDEMPARANORMAL_FVTT.EffectDelete": "Delete Effect",
+  
+    "ORDEMPARANORMAL_FVTT.Add": "Add"
+  }
