@@ -1,57 +1,74 @@
 {
 	"Actor": {
-		"types": ["hero", "pawn", "villain"],
-		"templates": {
-			"background": {
-				"biography": "",
-				"hairColor": "blue"
-			},
-			"resources": {
-				"health": {
-					"min": 0,
-					"value": 10,
-					"max": 10
-				},
-				"power": {
-					"min": 0,
-					"value": 1,
-					"max": 3
-				}
-			}
-		},
-		"hero": {
-			"templates": ["background", "resources"],
-			"goodness": {
-				"value": 5,
-				"max": 10
-			}
-		},
-		"pawn": {
-			"templates": ["resources"]
-		},
-		"villain": {
-			"templates": ["background", "resources"],
-			"wickedness": {
-				"value": 5,
-				"max": 100
-			}
+	  "types": ["character", "npc"],
+	  "templates": {
+		"base": {
+		  "health": {
+			"value": 10,
+			"min": 0,
+			"max": 10
+		  },
+		  "power": {
+			"value": 5,
+			"min": 0,
+			"max": 5
+		  },
+		  "biography": ""
 		}
+	  },
+	  "character": {
+		"templates": ["base"],
+		"attributes": {
+		  "level": {
+			"value": 1
+		  }
+		},
+		"abilities": {
+		  "str": {
+			"value": 10
+		  },
+		  "dex": {
+			"value": 10
+		  },
+		  "con": {
+			"value": 10
+		  },
+		  "int": {
+			"value": 10
+		  },
+		  "wis": {
+			"value": 10
+		  },
+		  "cha": {
+			"value": 10
+		  }
+		}
+	  },
+	  "npc": {
+		"templates": ["base"],
+		"cr": 0
+	  }
 	},
 	"Item": {
-		"types": ["weapon", "spell"],
-		"templates": {
-			"rarity": {
-				"rarity": "Common",
-				"price": 20
-			}
-		},
-		"weapon": {
-			"templates": ["rarity"],
-			"damage": 5
-		},
-		"spell": {
-			"templates": ["rarity"],
-			"cost": 2
+	  "types": ["item", "feature", "spell"],
+	  "templates": {
+		"base": {
+		  "description": ""
 		}
+	  },
+	  "item": {
+		"templates": ["base"],
+		"quantity": 1,
+		"weight": 0,
+		"formula": "d20 + @str.mod + ceil(@lvl / 2)"
+	  },
+	  "feature": {
+		"templates": ["base"]
+	  },
+	  "spell": {
+		"templates": ["base"],
+		"spellLevel": 1
+	  }
 	}
-}
+  }
+  

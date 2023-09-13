@@ -1,8 +1,8 @@
 {
-	"id": "mysystem",
-	"title": "Minimal World Building",
-	"description": "A human-readable description of your system.",
-	"version": "0.0.1",
+	"name": "ordemparanormal_fvtt",
+	"title": "Ordem Paranormal",
+	"description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
+	"version": "0.0.2",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "11",
@@ -15,31 +15,39 @@
 			"discord": "souowendel"
 		}
 	],
-	"scripts": ["scripts/system-script-1.js", "scripts/system-script-2.js"],
-	"esmodules": ["scripts/system-module-1.mjs"],
-	"styles": ["styles/system-styles-1.css", "styles/system-styles-2.css"],
-	"packs": [
-		{
-			"name": "monsters",
-			"label": "My Monsters",
-			"type": "Actor"
-		},
-		{
-			"name": "items",
-			"label": "My Items",
-			"type": "Item"
-		}
-	],
+	"esmodules": ["module/ordemparanormal_fvtt.mjs"],
+	"styles": ["css/ordemparanormal_fvtt.css"],
+	"scripts": [],
+	"packs": [],
 	"languages": [
 		{
 			"lang": "en",
 			"name": "English",
 			"path": "lang/en.json"
+		},
+		{
+			"lang": "pt-BR",
+      		"name": "Português (Brasil)",
+      		"path": "lang/pt-BR.json"
 		}
 	],
-	"socket": false,
+	"relationships": {
+		"requires": [
+			{
+				"id": "barbrawl",
+				"type": "module",
+				"manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/34402efe34e02991545eebb5ea56611da812a3cc/src/module.json",
+				"compatibility": {
+					"verified": "1.8.2"
+				}
+			}
+		]
+	},
 	"gridUnits": "m",
-	"primaryTokenAttribute": "resources.health",
-	"secondaryTokenAttribute": "resources.power",
-	"url": "https://github.com/SouOWendel/ordemparanormal-fvtt"
+	"primaryTokenAttribute": "health",
+	"secondaryTokenAttribute": "power",
+	"url": "https://github.com/SouOWendel/ordemparanormal-fvtt",
+	"manifest": "",
+	"download": "",
+	"license": "LICENSE.txt"
 }
