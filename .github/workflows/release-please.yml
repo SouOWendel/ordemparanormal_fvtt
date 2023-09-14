@@ -31,7 +31,7 @@ jobs:
                 echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json"
                 JSON=$(cat ./system.json)
                 echo "SYSTEM_JSON=${JSON//'%'/'%25'}"
-                } >> $GITHUB_OUTPUT
+                } >> "$GITHUB_OUTPUT"
 
             - name: Verify correct naming
               env:
