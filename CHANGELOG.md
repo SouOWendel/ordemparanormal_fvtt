@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.0-alpha](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v0.2.4-alpha...v1.0.0-alpha) (2023-09-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changes to the system file compromise compatibility by altering the entire functioning of the system.
+
+### Features
+
+* **actor-data:** added the Agente actor's data ([2787fb1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2787fb1dc64fd4459a43f939541c72e7f4d78567))
+* **actor-sheet:** new template for actor Agente and your sheet ([56ca774](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/56ca7744899974d44dc1b8423ba4ae9cdbb1e049))
+* **actor:** added modifications based on copy the character's sheet ([39cda45](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/39cda45cdfaffaf92fd4bf9fa05c55f55eda059f))
+* added: pt-BR localization, module requirement Bar Brawl, correct path os esmodule and styles ([6ad9ace](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6ad9ace6ab1d5e070888b241f918416f3f8eb601))
+* initial boilerplate to system in FoundryVTT by Matt Smith ([5d77ad1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5d77ad1e44bff59ca31169fb26cf9d44459a666a))
+* **localization:** added translations for skills and attributes data ([32eace5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/32eace5ac338d7c55a0fdb7b3afd2b3a6483539e))
+* **release-please:** added new line to input 'extra-files', an attempt to version the system.json ([10236d5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/10236d528d2b2063582262823ce9a91b83d05670))
+* **sheets:** change the window size and adaptations for new actor Agente ([32007e9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/32007e9ce8b9ebde368c6eaae3eead6bf9e6788d))
+
 ## [0.1.0-alpha](https://github.com/SouOWendel/ordemparanormal-fvtt/compare/v0.0.3-alpha...v0.1.0-alpha) (2023-09-07)
 
 
