@@ -26,6 +26,8 @@ jobs:
                 TAG=${GITHUB_REF/refs\/tags\//}
                 echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
                 echo "ZIP_NAME=$TAG.zip" >> $GITHUB_OUTPUT
+                echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/$TAG.zip" >> $GITHUB_OUTPUT
+                echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json" >> $GITHUB_OUTPUT
 
             - name: Verify correct naming
               env:
