@@ -23,8 +23,8 @@ jobs:
             - name: Set Up Variables
               id: get_vars
               run: |
-                {
                 TAG=${GITHUB_REF/refs\/tags\//}
+                {
                 echo "TAG_NAME=$TAG"
                 echo "ZIP_NAME=$TAG.zip"
                 echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/$TAG.zip"
