@@ -24,17 +24,12 @@ jobs:
               id: get_vars
               run: |
                 TAG=${GITHUB_REF/refs\/tags\//}
-                console.log(${GITHUB_REF/refs\/tags\//})
-                console.log($TAG)
-                console.log(TAG)
-                {
-                echo "TAG_NAME=$TAG"
-                echo "ZIP_NAME=$TAG.zip"
-                echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/$TAG.zip"
-                echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json"
+                echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
+                echo "ZIP_NAME=$TAG.zip" >> $GITHUB_OUTPUT
+                echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/$TAG.zip" >> $GITHUB_OUTPUT
+                echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json" >> $GITHUB_OUTPUT
                 JSON=$(cat ./system.json)
-                echo "SYSTEM_JSON=${JSON//'%'/'%25'}"
-                } >> "$GITHUB_OUTPUT"
+                echo "SYSTEM_JSON=${JSON//'%'/'%25'}" >> $GITHUB_OUTPUT
 
             - name: Verify correct naming
               env:
