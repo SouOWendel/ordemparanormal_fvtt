@@ -13,7 +13,7 @@ jobs:
     release-please:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+
             # Set up our some variables for future use
             # Adapted from https://github.community/t/how-to-get-just-the-tag-name/16241/7
             # and https://github.com/foundryvtt/dnd5e/blob/master/.github/workflows/release.yml
@@ -25,11 +25,6 @@ jobs:
               run: |
                 TAG=${GITHUB_REF/refs\/tags\//}
                 echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
-                echo "ZIP_NAME=$TAG.zip" >> $GITHUB_OUTPUT
-                echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/$TAG.zip" >> $GITHUB_OUTPUT
-                echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json" >> $GITHUB_OUTPUT
-                JSON=$(cat ./system.json)
-                echo "SYSTEM_JSON=${JSON//'%'/'%25'}" >> $GITHUB_OUTPUT
 
             - name: Verify correct naming
               env:
