@@ -23,10 +23,13 @@ jobs:
             - name: Set Up Variables
               id: get_vars
               run: |
-                console.log(${{github.ref_name}})
+                TAG=${GITHUB_REF/refs\/tags\//}
+                console.log(${GITHUB_REF/refs\/tags\//})
+                console.log($TAG)
+                console.log(TAG)
                 {
-                echo "TAG_NAME=${{github.ref_name}}"
-                echo "ZIP_NAME=${{github.ref_name}}.zip"
+                echo "TAG_NAME=$TAG"
+                echo "ZIP_NAME=$TAG.zip"
                 echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/$TAG.zip"
                 echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json"
                 JSON=$(cat ./system.json)
