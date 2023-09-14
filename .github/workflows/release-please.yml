@@ -28,7 +28,7 @@ jobs:
                 echo "ZIP_NAME=$TAG.zip" >> "$GITHUB_OUTPUT"
                 echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/$TAG.zip" >> "$GITHUB_OUTPUT"
                 echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json" >> "$GITHUB_OUTPUT"
-                JSON=$(cat $HOME/system.json)
+                JSON=$(cat system.json)
                 echo "SYSTEM_JSON=${JSON//'%'/'%25'}" >> "$GITHUB_OUTPUT"
 
             - name: Verify correct naming
