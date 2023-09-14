@@ -19,6 +19,20 @@ ORDEMPARANORMAL_FVTT.foobar = {
   "cha": "ORDEMPARANORMAL_FVTT.AbilityCha"
 };
 
+ORDEMPARANORMAL_FVTT.skills = {
+  "acrobacia": "ORDEMPARANORMAL_FVTT.SkillAcrobacia",
+  "adestramento": "ORDEMPARANORMAL_FVTT.SkillAdest",
+  "artes": "ORDEMPARANORMAL_FVTT.SkillArtes"
+};
+
+ORDEMPARANORMAL_FVTT.attributes = {
+  "Agilidade": "ORDEMPARANORMAL_FVTT.AttAgi",
+  "Inteligência": "ORDEMPARANORMAL_FVTT.AttInt",
+  "Vigor": "ORDEMPARANORMAL_FVTT.AttVig",
+  "Presença": "ORDEMPARANORMAL_FVTT.AttPre",
+  "Força": "ORDEMPARANORMAL_FVTT.AttFor",
+};
+
 ORDEMPARANORMAL_FVTT.abilityAbbreviations = {
   "str": "ORDEMPARANORMAL_FVTT.AbilityStrAbbr",
   "dex": "ORDEMPARANORMAL_FVTT.AbilityDexAbbr",
