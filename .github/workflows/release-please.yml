@@ -29,7 +29,8 @@ jobs:
                 echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/$TAG.zip" >> $GITHUB_OUTPUT
                 echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json" >> $GITHUB_OUTPUT
                 JSON=$(cat ./system.json)
-                echo "SYSTEM_JSON=$(sed -e 's/%/%25/g' <<< ${JSON})" >> $GITHUB_OUTPUT
+                JSON2=${JSON//'%'/'%25'}
+                echo "SYSTEM_JSON=JSON2" >> $GITHUB_OUTPUT
 
             - name: Verify correct naming
               env:
