@@ -13,6 +13,16 @@
     "ORDEMPARANORMAL_FVTT.AbilityWisAbbr": "Sab",
     "ORDEMPARANORMAL_FVTT.AbilityChaAbbr": "Car",
   
+    "ORDEMPARANORMAL_FVTT.SkillAcrobacia": "Acrobacia",
+    "ORDEMPARANORMAL_FVTT.SkillAdest": "Adestramento",
+    "ORDEMPARANORMAL_FVTT.SkillArtes": "Artes",
+
+    "ORDEMPARANORMAL_FVTT.AttAgi": "Agilidade",
+    "ORDEMPARANORMAL_FVTT.AttInt": "Inteligência",
+    "ORDEMPARANORMAL_FVTT.AttVig": "Vigor",
+    "ORDEMPARANORMAL_FVTT.AttPre": "Presença",
+    "ORDEMPARANORMAL_FVTT.AttFor": "Força",
+
     "ORDEMPARANORMAL_FVTT.EffectCreate": "Criar Efeito",
     "ORDEMPARANORMAL_FVTT.EffectToggle": "Trocar Efeito",
     "ORDEMPARANORMAL_FVTT.EffectEdit": "Editar Efeito",

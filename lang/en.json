@@ -12,6 +12,16 @@
     "ORDEMPARANORMAL_FVTT.AbilityIntAbbr": "int",
     "ORDEMPARANORMAL_FVTT.AbilityWisAbbr": "wis",
     "ORDEMPARANORMAL_FVTT.AbilityChaAbbr": "cha",
+
+    "ORDEMPARANORMAL_FVTT.SkillAcrobacia": "Acrobat",
+    "ORDEMPARANORMAL_FVTT.SkillAdest": "Training",
+    "ORDEMPARANORMAL_FVTT.SkillArtes": "Art",
+
+    "ORDEMPARANORMAL_FVTT.AttAgi": "Dexterity",
+    "ORDEMPARANORMAL_FVTT.AttInt": "Intelligence",
+    "ORDEMPARANORMAL_FVTT.AttVig": "Vitality",
+    "ORDEMPARANORMAL_FVTT.AttPre": "Presence",
+    "ORDEMPARANORMAL_FVTT.AttFor": "Strength",
   
     "ORDEMPARANORMAL_FVTT.EffectCreate": "Create Effect",
     "ORDEMPARANORMAL_FVTT.EffectToggle": "Toggle Effect",
