@@ -17,6 +17,6 @@ jobs:
               with:
                 release-type: node
                 package-name: release-please-action
-                prerelease: true
+                prerelease: false
                 extra-files: |
                     system.json
