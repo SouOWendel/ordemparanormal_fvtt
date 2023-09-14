@@ -25,6 +25,7 @@ jobs:
               run: |
                 TAG=${GITHUB_REF/refs\/tags\//}
                 echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
+                echo "ZIP_NAME=$TAG.zip" >> $GITHUB_OUTPUT
 
             - name: Verify correct naming
               env:
