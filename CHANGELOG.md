@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.2.0...v1.2.1) (2023-09-15)
+
+
+### Bug Fixes
+
+* **release-please:** correting the formatting and path for json file to system.json ([dd4c063](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dd4c06355f6d9e1848a403dc3d9b02ff8bdcc857))
+* **release-please:** fix the initial version for release-please ([63ab4c3](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/63ab4c324a4167a580973929ef33fcfbfaddcdf4))
+
 ## [1.2.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.1.0...v1.2.0) (2023-09-15)
 
 
