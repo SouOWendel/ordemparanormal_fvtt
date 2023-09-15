@@ -19,6 +19,7 @@ jobs:
               with:
                   release-type: node
 
+            # Adiciona o arquivo System.json as releases do sistema.
             - name: Upload Release Artifact
               if: ${{ steps.release.outputs.release_created }}
               env:
