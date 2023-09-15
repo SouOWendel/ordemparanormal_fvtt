@@ -1,5 +1,12 @@
 {
 	"packages": {
-		"path/to/pkg": {}
+		"system.json": {},
+		"extra-files": [
+			{
+				"type": "json",
+				"path": "./system.json",
+				"jsonpath": "$.version"
+			}
+		]
 	}
 }
