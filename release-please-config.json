@@ -1,10 +1,12 @@
 {
 	"plugins": [],
 	"release-type": "node",
-	"release-as": "1.6.2",
 	"packages": {
 		".": {
 			"release-type": "node",
+			"release-as": "1.6.2",
+			"include-component-in-tag": false,
+			"group-pull-request-title-pattern": "chore: release-${version}",
 			"pull-request-header": ":robot: Release candidate PR :rocket:",
 			"changelog-path": "CHANGELOG.md",
 			"options": {},
