@@ -1,6 +1,7 @@
 {
 	"plugins": [],
 	"release-type": "node",
+	"release-as": "1.6.2",
 	"packages": {
 		".": {
 			"release-type": "node",
