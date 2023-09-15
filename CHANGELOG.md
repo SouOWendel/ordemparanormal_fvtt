@@ -1,5 +1,75 @@
 # Changelog
 
+## [0.0.2-alpha](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/ordemparanormal-fvtt-v1.6.0...ordemparanormal-fvtt-v0.0.2-alpha) (2023-09-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changes to the system file compromise compatibility by altering the entire functioning of the system.
+
+### Features
+
+* **actor-data:** added the Agente actor's data ([2787fb1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2787fb1dc64fd4459a43f939541c72e7f4d78567))
+* **actor-sheet:** new template for actor Agente and your sheet ([56ca774](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/56ca7744899974d44dc1b8423ba4ae9cdbb1e049))
+* **actor:** added modifications based on copy the character's sheet ([39cda45](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/39cda45cdfaffaf92fd4bf9fa05c55f55eda059f))
+* add a gitignore and the folder 'node_modules' ([ffd7764](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ffd7764532fdbcef9999c478466c0263dd3da256))
+* add the png for Ordem Paranormal logo ([eab2962](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/eab296208f1d870fad09d5f6f554fd6b3e3d37b8))
+* added archives for ignore certain archives from prettier and eslint ([b5798ac](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b5798ac73e53ef06da8291317f6b7f0663e84f75))
+* added configuration for release please and github actions ([a27c19e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a27c19ee5d1ebf7c5449da032451910aede99f62))
+* added possible archive for prepare commit msg from husky dependency ([4778d7b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4778d7b3ca8b756c055b4c5c6d55cc46a66c75df))
+* added the eslint and prettier to standardize the code ([e740f63](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e740f6303b969678b0f322da820f03de113a00f3))
+* added: pt-BR localization, module requirement Bar Brawl, correct path os esmodule and styles ([6ad9ace](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6ad9ace6ab1d5e070888b241f918416f3f8eb601))
+* archive for test ([ab31893](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ab31893391f27f525b2ec726d33a2e42c82751c9))
+* archives for npm and initial configuration for commitizen, husky and commitlint ([6115ce1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6115ce10448f2ab143b9e9417f25fbc2ceed4902))
+* auto lint of commits with husky ([2305212](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/23052126d197726a1382a8b9273d3827e5292e56))
+* change the versions ([e28e75c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e28e75c94f912f86b01b2adf90bc7589076c5339))
+* initial boilerplate to system in FoundryVTT by Matt Smith ([5d77ad1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5d77ad1e44bff59ca31169fb26cf9d44459a666a))
+* initial configuration for commitizen ([f027e10](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f027e10b618165d8254f034799d3229276f29365))
+* initial configuration for commitlint ([af61bfe](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/af61bfecc5863c49e840345ca925507c56d22a29))
+* initial configuration from system FoundryVTT creation ([f7aac4a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f7aac4a3c84f31e7de6ac8288e73c4a60367bcd2))
+* **localization:** added translations for skills and attributes data ([32eace5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/32eace5ac338d7c55a0fdb7b3afd2b3a6483539e))
+* **manifest:** added the manifest link and download link ([cb7167d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/cb7167d385cd8b7b78e5be8e69fe2135b6a2d292))
+* **release-please:** added new line to input 'extra-files', an attempt to version the system.json ([10236d5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/10236d528d2b2063582262823ce9a91b83d05670))
+* **release-please:** added the code: command: manifest-pr ([36c234a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/36c234a91b99634206d0d5f2a20280a097b11313))
+* **release-please:** attempt to add the command release-pr for create pull requests with release-p ([0551ef6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0551ef6fc41a2af50d7f7edec5aad5e862174a8a))
+* **release-please:** configuration changes for system.json versioning and other additional settings ([995d740](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/995d740744ee013b2b7d16468da7034c44470096))
+* **release-please:** configuration for generate zip file and comments for orientation ([abc765e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/abc765ecc335e75f81c24aeb1ddc57524ddd444d))
+* **release-please:** configuration for versioning the system.json and your initial version ([2bd1fb7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2bd1fb7a238798e35f3232e7d3fb080f3b2b61c2))
+* **release-please:** copy the configurations for fvtt-system-rqg repository ([122b9e9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/122b9e9cb2d59b9148b987911e8625a2f5355a8b))
+* **release-please:** the file system.json now is added for releases ([f143919](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f14391936606baaf0f61141941a0e048676038d9))
+* **sheets:** change the window size and adaptations for new actor Agente ([32007e9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/32007e9ce8b9ebde368c6eaae3eead6bf9e6788d))
+* system doc for FoundryVTT ([1a707f6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1a707f627b413a2b4f69519597640bcb37a67f0a))
+* test commit ([e9f5ef6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e9f5ef6324d7a029047dae5114fd4bd89b07ebd0))
+* test commit ([ffe9c68](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ffe9c6841713b8051e5ccec9a558e729f5a9a254))
+* **test:** test ([00243f5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/00243f5437a9d89727d728f0e3e22bb248f2f6cc))
+
+
+### Bug Fixes
+
+* delete the command manifest ([ebd32cb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ebd32cb4ca47f1764498a3fc8568a258dc7da230))
+* fix the correct version for 1.2.2 ([4a6f115](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4a6f115fb26f12365c6b93072ea71540c488ec86))
+* one word missing (test) ([bcc8e29](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bcc8e290d96a430a57cbfc7e654c987f2a60c287))
+* **release-please:** attempt to reset and trying the command manifest again ([9794046](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9794046ace671624d4476b2b8fb04ee54878f299))
+* **release-please:** correct parse json. added the version ([09bd88e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/09bd88e554e08e4dbd02b841de03e1d3faca1596))
+* **release-please:** correting the formatting and path for json file to system.json ([dd4c063](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dd4c06355f6d9e1848a403dc3d9b02ff8bdcc857))
+* **release-please:** fix json code. packages are unnecessary because there is no package ([b772589](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b7725895f76f3b21eee8045b0faa6d8b6a545e4a))
+* **release-please:** fix the initial version for release-please ([63ab4c3](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/63ab4c324a4167a580973929ef33fcfbfaddcdf4))
+* **release-please:** fixing the illegal pathing characters in path: ./system.json ([dabfe2f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dabfe2f5c19d0f6f63fcfd3b6cf73b9dc41b9709))
+* **release-please:** one more attempt ([2890de1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2890de15b062d5a5853ffe236650455e0fcd4f6d))
+* **release-please:** one more attempt for configure the versioning the system.json file ([7aaad3d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7aaad3d7c3d40721414e115e619169eadaa744a3))
+* **release-please:** update the version ([f1d8bd6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f1d8bd691dbd22931db048f695cc20981a1f805a))
+* **rename:** fix the name. there should be a dot at the beginning of the file name ([8b6ba4f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8b6ba4fc098bad6cabd7cf390a9700e6af0513fd))
+
+
+### Reverts
+
+* revert for original state ([91d190b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/91d190b0a6947ab041c7436eca101c2690f31ff2))
+
+
+### Miscellaneous Chores
+
+* release 0.0.2-alpha ([21406f6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/21406f67d5723b7d036d6c0726dc52588176387d))
+
 ## [1.6.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/ordemparanormal-fvtt-v1.5.0...ordemparanormal-fvtt-v1.6.0) (2023-09-15)
 
 
