@@ -15,12 +15,8 @@
 			"discord": "souowendel"
 		}
 	],
-	"esmodules": [
-		"module/ordemparanormal_fvtt.mjs"
-	],
-	"styles": [
-		"css/ordemparanormal_fvtt.css"
-	],
+	"esmodules": ["module/ordemparanormal_fvtt.mjs"],
+	"styles": ["css/ordemparanormal_fvtt.css"],
 	"scripts": [],
 	"packs": [],
 	"languages": [
@@ -52,7 +48,7 @@
 	"primaryTokenAttribute": "health",
 	"secondaryTokenAttribute": "power",
 	"url": "https://github.com/SouOWendel/ordemparanormal-fvtt",
-	"manifest": "",
-	"download": "",
+	"manifest": "https://github.com/SouOWendel/ordemparanormal-fvtt/releases/latest/download/system.json",
+	"download": "https://github.com/SouOWendel/ordemparanormal-fvtt/releases/latest/download/ordem_fvtt_system.zip",
 	"license": "LICENSE.txt"
 }
