@@ -1,12 +1,10 @@
 {
-	"packages": {
-		"group-pull-request-title-pattern": "chore${scope}: release${component} v${version}",
-		"extra-files": [
-			{
-				"type": "json",
-				"path": "system.json",
-				"jsonpath": "$.version"
-			}
-		]
-	}
+	"group-pull-request-title-pattern": "chore${scope}: release${component} v${version}",
+	"extra-files": [
+		{
+			"type": "json",
+			"path": "system.json",
+			"jsonpath": "$.version"
+		}
+	]
 }
