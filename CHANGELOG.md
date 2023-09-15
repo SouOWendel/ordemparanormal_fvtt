@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.3.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.2.2...v1.3.0) (2023-09-15)
+
+
+### Features
+
+* **release-please:** added the code: command: manifest-pr ([36c234a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/36c234a91b99634206d0d5f2a20280a097b11313))
+* **test:** test ([00243f5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/00243f5437a9d89727d728f0e3e22bb248f2f6cc))
+
+
+### Bug Fixes
+
+* delete the command manifest ([ebd32cb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ebd32cb4ca47f1764498a3fc8568a258dc7da230))
+* fix the correct version for 1.2.2 ([4a6f115](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4a6f115fb26f12365c6b93072ea71540c488ec86))
+* **release-please:** fix json code. packages are unnecessary because there is no package ([b772589](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b7725895f76f3b21eee8045b0faa6d8b6a545e4a))
+* **release-please:** one more attempt ([2890de1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2890de15b062d5a5853ffe236650455e0fcd4f6d))
+
 ## [1.2.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.2.1...v1.2.2) (2023-09-15)
 
 
