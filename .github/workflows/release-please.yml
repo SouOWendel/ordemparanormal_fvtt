@@ -1,3 +1,8 @@
+# Referências para este release-please
+# https://github.com/foundryvtt/dnd5e/blob/master/.github/workflows/release.yml
+# https://github.com/sun-dragon-cult/github-workflows/blob/main/.github/workflows/release-please.yml
+# https://github.com/google-github-actions/release-please-action/blob/v3.7.11/.github/workflows/release-please.yaml
+
 on:
     push:
         branches:
@@ -15,6 +20,9 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
+            # Criar uma release e um PR (pull-request) com base no manifest (comando e arquivo).
+            # O comando manifest faz uma PR utilizando as configurações do release-please-config.json
+            # se forem validas. Dentro deste arquivo, há a configuração do system.json.
             - uses: google-github-actions/release-please-action@v3.7.11
               id: release
               with:
@@ -22,9 +30,14 @@ jobs:
                   token: ${{secrets.GITHUB_TOKEN}}
                   release-type: node
 
+            # Create a zip file with all files required by the module to add to the release
+            - run: zip ordem_fvtt_system.zip -r css lang module templates system.json template.json LICENSE.txt README.md
+
             # Adiciona o arquivo System.json as releases do sistema.
             - name: Upload Release Artifact
               if: ${{ steps.release.outputs.release_created }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: gh release upload ${{ steps.release.outputs.tag_name }} ./system.json
+              run: |
+                  gh release upload ${{ steps.release.outputs.tag_name }} ./system.json
+                  gh release upload ${{ steps.release.outputs.tag_name }} ./ordem_fvtt_system.zip
