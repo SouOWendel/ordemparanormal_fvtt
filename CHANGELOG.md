@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.2.1...v1.2.2) (2023-09-15)
+
+
+### Bug Fixes
+
+* **release-please:** one more attempt for configure the versioning the system.json file ([7aaad3d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7aaad3d7c3d40721414e115e619169eadaa744a3))
+
 ## [1.2.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.2.0...v1.2.1) (2023-09-15)
 
 
