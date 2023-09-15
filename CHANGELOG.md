@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.3.0...v1.4.0) (2023-09-15)
+
+
+### Features
+
+* **release-please:** attempt to add the command release-pr for create pull requests with release-p ([0551ef6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0551ef6fc41a2af50d7f7edec5aad5e862174a8a))
+
+
+### Bug Fixes
+
+* **release-please:** attempt to reset and trying the command manifest again ([9794046](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9794046ace671624d4476b2b8fb04ee54878f299))
+* **release-please:** correct parse json. added the version ([09bd88e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/09bd88e554e08e4dbd02b841de03e1d3faca1596))
+
 ## [1.3.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.2.2...v1.3.0) (2023-09-15)
 
 
