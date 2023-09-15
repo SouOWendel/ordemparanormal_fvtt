@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.1.0...v1.2.0) (2023-09-15)
+
+
+### Features
+
+* **release-please:** configuration for versioning the system.json and your initial version ([2bd1fb7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2bd1fb7a238798e35f3232e7d3fb080f3b2b61c2))
+
+
+### Bug Fixes
+
+* **rename:** fix the name. there should be a dot at the beginning of the file name ([8b6ba4f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8b6ba4fc098bad6cabd7cf390a9700e6af0513fd))
+
 ## [1.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.0.0...v1.1.0) (2023-09-14)
 
 
