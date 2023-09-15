@@ -19,7 +19,6 @@ jobs:
               with:
                   release-type: node
                   token: ${{secrets.GITHUB_TOKEN}}
-                  command: manifest
 
             # Adiciona o arquivo System.json as releases do sistema.
             - name: Upload Release Artifact
