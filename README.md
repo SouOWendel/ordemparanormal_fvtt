@@ -1,10 +1,16 @@
+<div align="center">
 ![](https://github.com/SouOWendel/ordemparanormal-fvtt/blob/main/op-logo.png?raw=true)
 
 # Ordem Paranormal - Sistema FoundryVTT
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+![Supported Foundry Versions](https://img.shields.io/endpoint?url=https://github.com/SouOWendel/ordemparanormal-fvtt/releases/latest/download/system.json)
 
+</div>
 Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.
+
+> [!NOTE]
+> A marca Ordem Paranormal não é de minha autoria, todos os direitos são reservados aos seus respectivos donos.
 
 ## Começando o Desenvolvimento
 
