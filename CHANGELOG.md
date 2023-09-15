@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/ordemparanormal-fvtt-v1.4.0...ordemparanormal-fvtt-v1.5.0) (2023-09-15)
+
+
+### Features
+
+* **release-please:** copy the configurations for fvtt-system-rqg repository ([122b9e9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/122b9e9cb2d59b9148b987911e8625a2f5355a8b))
+
+
+### Bug Fixes
+
+* **release-please:** update the version ([f1d8bd6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f1d8bd691dbd22931db048f695cc20981a1f805a))
+
 ## [1.4.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.3.0...v1.4.0) (2023-09-15)
 
 
