@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/ordemparanormal-fvtt-v1.5.0...ordemparanormal-fvtt-v1.6.0) (2023-09-15)
+
+
+### Features
+
+* **manifest:** added the manifest link and download link ([cb7167d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/cb7167d385cd8b7b78e5be8e69fe2135b6a2d292))
+* **release-please:** configuration for generate zip file and comments for orientation ([abc765e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/abc765ecc335e75f81c24aeb1ddc57524ddd444d))
+
 ## [1.5.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/ordemparanormal-fvtt-v1.4.0...ordemparanormal-fvtt-v1.5.0) (2023-09-15)
 
 
