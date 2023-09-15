@@ -1,11 +1,21 @@
 {
+	"plugins": [],
 	"group-pull-request-title-pattern": "chore${scope}: release${component} v${version}",
 	"release-type": "node",
-	"extra-files": [
-		{
-			"type": "json",
-			"path": "system.json",
-			"jsonpath": "$.version"
+	"packages": {
+		".": {
+			"release-type": "node",
+			"pull-request-header": ":robot: Release candidate PR :rocket:",
+			"changelog-path": "CHANGELOG.md",
+			"options": {},
+			"extra-files": [
+				"system.json",
+				{
+					"type": "json",
+					"path": "system.json",
+					"jsonpath": "$.version"
+				}
+			]
 		}
-	]
+	}
 }
