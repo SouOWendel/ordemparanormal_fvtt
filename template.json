@@ -21,15 +21,15 @@
 			"skills": {
 				"acrobacia": {
 					"value": 10,
-					"attr": "agi"
+					"attr": ["agi", 1]
 				},
 				"adestramento": {
 					"value": 10,
-					"attr": "pre"
+					"attr": ["pre", 1]
 				},
 				"artes": {
 					"value": 10,
-					"attr": "pre"
+					"attr": ["pre", 1]
 				}
 			},
 			"attributes": {

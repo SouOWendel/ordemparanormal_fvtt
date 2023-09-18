@@ -49,9 +49,20 @@ export class OrdemActor extends Actor {
 		const data = actorData.data;
 
 		// Loop through ability scores, and add their modifiers to our sheet output.
-		for (let [key, skillsName] of Object.entries(data.skills)) {
+		for (let [keySkill, skillsName] of Object.entries(data.skills)) {
 			// Calculate the modifier using d20 rules.
 			skillsName.mod = Math.floor((skillsName.value - 10) / 2);
+
+			/**
+			 * Faz um loop de todos os atributos, depois disso, se o atributo
+			 * necessário para a perícia for o mesmo que a mesma perícia em que o loop
+			 * esta no momento, este valor é atualizado para ser utilizado nas rolagens.
+			 */
+			for (let [keyAttr, attribute] of Object.entries(data.attributes)) {
+				if (skillsName.attr[0] == keyAttr) {
+					skillsName.attr[1] = attribute.value;
+				}
+			}
 		}
 	}
 

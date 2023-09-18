@@ -178,7 +178,6 @@
 						/>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</header>
@@ -205,15 +204,14 @@
 					and will create that number of columns. --}}
 					<div class="abilities flexcol">
 						{{#each data.skills as |skillsName key|}}
-						Atributo Value: {{skillsName.attr}}
-						{{@root ../data.attributes.for.value}}
+						{{skillsName.attr.[1]}}
 						<div class="ability flexrow flex-group-center">
 							<label
 								for="data.skills.{{key}}.value"
 								class="resource-label rollable flexlarge align-left"
-								data-roll="{{[../data.attributes].[skillsName.attr].value}}d20+@skills.{{key}}.mod"
+								data-roll="{{skillsName.attr.[1]}}d20kh+@skills.{{key}}.mod"
 								data-label="{{skillsName.label}}"
-								>{{skillsName.label}} {{log ../data.attributes.[@root/skillsName.attr].value}}</label
+								>{{skillsName.label}}</label
 							>
 							<input
 								type="text"
@@ -223,7 +221,7 @@
 							/>
 							<span
 								class="ability-mod rollable"
-								data-roll="{{../data.attributes.[skillsName.attr].value}}d20+@skills.{{key}}.mod"
+								data-roll="{{skillsName.attr.[1]}}d20kl+@skills.{{key}}.mod"
 								data-label="{{skillsName.label}}"
 								>{{numberFormat skillsName.mod decimals=0
 								sign=true}}</span
