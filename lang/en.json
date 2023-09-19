@@ -1,32 +1,37 @@
 {
-    "ORDEMPARANORMAL_FVTT.AbilityStr": "Strength",
-    "ORDEMPARANORMAL_FVTT.AbilityCon": "Constitution",
-    "ORDEMPARANORMAL_FVTT.AbilityDex": "Dexterity",
-    "ORDEMPARANORMAL_FVTT.AbilityInt": "Intelligence",
-    "ORDEMPARANORMAL_FVTT.AbilityWis": "Wisdom",
-    "ORDEMPARANORMAL_FVTT.AbilityCha": "Charisma",
-  
-    "ORDEMPARANORMAL_FVTT.AbilityStrAbbr": "str",
-    "ORDEMPARANORMAL_FVTT.AbilityConAbbr": "con",
-    "ORDEMPARANORMAL_FVTT.AbilityDexAbbr": "dex",
-    "ORDEMPARANORMAL_FVTT.AbilityIntAbbr": "int",
-    "ORDEMPARANORMAL_FVTT.AbilityWisAbbr": "wis",
-    "ORDEMPARANORMAL_FVTT.AbilityChaAbbr": "cha",
+	"ORDEMPARANORMAL_FVTT.PV": "Health Points",
+	"ORDEMPARANORMAL_FVTT.PE": "Stamina Points",
+	"ORDEMPARANORMAL_FVTT.San": "Sanity",
+	"ORDEMPARANORMAL_FVTT.NEX": "NEX",
 
-    "ORDEMPARANORMAL_FVTT.SkillAcrobacia": "Acrobat",
-    "ORDEMPARANORMAL_FVTT.SkillAdest": "Training",
-    "ORDEMPARANORMAL_FVTT.SkillArtes": "Art",
+	"ORDEMPARANORMAL_FVTT.AbilityStr": "Strength",
+	"ORDEMPARANORMAL_FVTT.AbilityCon": "Constitution",
+	"ORDEMPARANORMAL_FVTT.AbilityDex": "Dexterity",
+	"ORDEMPARANORMAL_FVTT.AbilityInt": "Intelligence",
+	"ORDEMPARANORMAL_FVTT.AbilityWis": "Wisdom",
+	"ORDEMPARANORMAL_FVTT.AbilityCha": "Charisma",
 
-    "ORDEMPARANORMAL_FVTT.AttAgi": "Dexterity",
-    "ORDEMPARANORMAL_FVTT.AttInt": "Intelligence",
-    "ORDEMPARANORMAL_FVTT.AttVig": "Vitality",
-    "ORDEMPARANORMAL_FVTT.AttPre": "Presence",
-    "ORDEMPARANORMAL_FVTT.AttFor": "Strength",
-  
-    "ORDEMPARANORMAL_FVTT.EffectCreate": "Create Effect",
-    "ORDEMPARANORMAL_FVTT.EffectToggle": "Toggle Effect",
-    "ORDEMPARANORMAL_FVTT.EffectEdit": "Edit Effect",
-    "ORDEMPARANORMAL_FVTT.EffectDelete": "Delete Effect",
-  
-    "ORDEMPARANORMAL_FVTT.Add": "Add"
-  }
+	"ORDEMPARANORMAL_FVTT.AbilityStrAbbr": "str",
+	"ORDEMPARANORMAL_FVTT.AbilityConAbbr": "con",
+	"ORDEMPARANORMAL_FVTT.AbilityDexAbbr": "dex",
+	"ORDEMPARANORMAL_FVTT.AbilityIntAbbr": "int",
+	"ORDEMPARANORMAL_FVTT.AbilityWisAbbr": "wis",
+	"ORDEMPARANORMAL_FVTT.AbilityChaAbbr": "cha",
+
+	"ORDEMPARANORMAL_FVTT.SkillAcrobacia": "Acrobat",
+	"ORDEMPARANORMAL_FVTT.SkillAdest": "Training",
+	"ORDEMPARANORMAL_FVTT.SkillArtes": "Art",
+
+	"ORDEMPARANORMAL_FVTT.AttAgi": "Dexterity",
+	"ORDEMPARANORMAL_FVTT.AttInt": "Intelligence",
+	"ORDEMPARANORMAL_FVTT.AttVig": "Vitality",
+	"ORDEMPARANORMAL_FVTT.AttPre": "Presence",
+	"ORDEMPARANORMAL_FVTT.AttFor": "Strength",
+
+	"ORDEMPARANORMAL_FVTT.EffectCreate": "Create Effect",
+	"ORDEMPARANORMAL_FVTT.EffectToggle": "Toggle Effect",
+	"ORDEMPARANORMAL_FVTT.EffectEdit": "Edit Effect",
+	"ORDEMPARANORMAL_FVTT.EffectDelete": "Delete Effect",
+
+	"ORDEMPARANORMAL_FVTT.Add": "Add"
+}

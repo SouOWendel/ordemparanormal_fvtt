@@ -1,32 +1,37 @@
 {
-    "ORDEMPARANORMAL_FVTT.AbilityStr": "Força",
-    "ORDEMPARANORMAL_FVTT.AbilityCon": "Constituição",
-    "ORDEMPARANORMAL_FVTT.AbilityDex": "Destreza",
-    "ORDEMPARANORMAL_FVTT.AbilityInt": "Inteligência",
-    "ORDEMPARANORMAL_FVTT.AbilityWis": "Sabedoria",
-    "ORDEMPARANORMAL_FVTT.AbilityCha": "Carisma",
-  
-    "ORDEMPARANORMAL_FVTT.AbilityStrAbbr": "For",
-    "ORDEMPARANORMAL_FVTT.AbilityConAbbr": "Con",
-    "ORDEMPARANORMAL_FVTT.AbilityDexAbbr": "Des",
-    "ORDEMPARANORMAL_FVTT.AbilityIntAbbr": "Int",
-    "ORDEMPARANORMAL_FVTT.AbilityWisAbbr": "Sab",
-    "ORDEMPARANORMAL_FVTT.AbilityChaAbbr": "Car",
-  
-    "ORDEMPARANORMAL_FVTT.SkillAcrobacia": "Acrobacia",
-    "ORDEMPARANORMAL_FVTT.SkillAdest": "Adestramento",
-    "ORDEMPARANORMAL_FVTT.SkillArtes": "Artes",
+	"ORDEMPARANORMAL_FVTT.PV": "Pontos de Vida",
+	"ORDEMPARANORMAL_FVTT.PE": "Pontos de Esforço",
+	"ORDEMPARANORMAL_FVTT.San": "Sanidade",
+	"ORDEMPARANORMAL_FVTT.NEX": "NEX",
 
-    "ORDEMPARANORMAL_FVTT.AttAgi": "Agilidade",
-    "ORDEMPARANORMAL_FVTT.AttInt": "Inteligência",
-    "ORDEMPARANORMAL_FVTT.AttVig": "Vigor",
-    "ORDEMPARANORMAL_FVTT.AttPre": "Presença",
-    "ORDEMPARANORMAL_FVTT.AttFor": "Força",
+	"ORDEMPARANORMAL_FVTT.AbilityStr": "Força",
+	"ORDEMPARANORMAL_FVTT.AbilityCon": "Constituição",
+	"ORDEMPARANORMAL_FVTT.AbilityDex": "Destreza",
+	"ORDEMPARANORMAL_FVTT.AbilityInt": "Inteligência",
+	"ORDEMPARANORMAL_FVTT.AbilityWis": "Sabedoria",
+	"ORDEMPARANORMAL_FVTT.AbilityCha": "Carisma",
 
-    "ORDEMPARANORMAL_FVTT.EffectCreate": "Criar Efeito",
-    "ORDEMPARANORMAL_FVTT.EffectToggle": "Trocar Efeito",
-    "ORDEMPARANORMAL_FVTT.EffectEdit": "Editar Efeito",
-    "ORDEMPARANORMAL_FVTT.EffectDelete": "Deletar Efeito",
-  
-    "ORDEMPARANORMAL_FVTT.Add": "Adicionar"
-  }
+	"ORDEMPARANORMAL_FVTT.AbilityStrAbbr": "For",
+	"ORDEMPARANORMAL_FVTT.AbilityConAbbr": "Con",
+	"ORDEMPARANORMAL_FVTT.AbilityDexAbbr": "Des",
+	"ORDEMPARANORMAL_FVTT.AbilityIntAbbr": "Int",
+	"ORDEMPARANORMAL_FVTT.AbilityWisAbbr": "Sab",
+	"ORDEMPARANORMAL_FVTT.AbilityChaAbbr": "Car",
+
+	"ORDEMPARANORMAL_FVTT.SkillAcrobacia": "Acrobacia",
+	"ORDEMPARANORMAL_FVTT.SkillAdest": "Adestramento",
+	"ORDEMPARANORMAL_FVTT.SkillArtes": "Artes",
+
+	"ORDEMPARANORMAL_FVTT.AttAgi": "Agilidade",
+	"ORDEMPARANORMAL_FVTT.AttInt": "Inteligência",
+	"ORDEMPARANORMAL_FVTT.AttVig": "Vigor",
+	"ORDEMPARANORMAL_FVTT.AttPre": "Presença",
+	"ORDEMPARANORMAL_FVTT.AttFor": "Força",
+
+	"ORDEMPARANORMAL_FVTT.EffectCreate": "Criar Efeito",
+	"ORDEMPARANORMAL_FVTT.EffectToggle": "Trocar Efeito",
+	"ORDEMPARANORMAL_FVTT.EffectEdit": "Editar Efeito",
+	"ORDEMPARANORMAL_FVTT.EffectDelete": "Deletar Efeito",
+
+	"ORDEMPARANORMAL_FVTT.Add": "Adicionar"
+}
