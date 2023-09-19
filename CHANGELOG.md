@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.6.0...v1.7.0) (2023-09-18)
+
+
+### Features
+
+* **actor:** system adaptations. Added the number of dice (d20) according to skill and attributes ([4a311e8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4a311e81b9d36552b167c043f783da10b21ca6b7))
+
+
+### Bug Fixes
+
+* **release-please:** correct version ([3262e7a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3262e7a5284e96ee3119a3e6a8f3823d106d58e1))
+* **release-please:** fix the next release (previous tag release is not detected) ([34e9348](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/34e93486de3220ed18559e8398d5f708d33abf20))
+
 ## [1.6.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/ordemparanormal-fvtt-v1.5.0...ordemparanormal-fvtt-v1.6.0) (2023-09-15)
 
 
