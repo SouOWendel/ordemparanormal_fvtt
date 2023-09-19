@@ -26,64 +26,62 @@
 				and it will add a small amount of padding, a border, and will
 				center all of its child elements content and text. --}}
 				<div class="resource flex-group-center">
-					<label for="data.health.value" class="resource-label"
-						>Health</label
+					<label for="data.PV.value" class="resource-label"
+						>{{localize 'ORDEMPARANORMAL_FVTT.PV'}}</label
 					>
 					<div
 						class="resource-content flexrow flex-center flex-between"
 					>
 						<input
 							type="text"
-							name="data.health.value"
-							value="{{data.health.value}}"
+							name="data.PV.value"
+							value="{{data.PV.value}}"
 							data-dtype="Number"
 						/>
 						<span> / </span>
 						<input
 							type="text"
-							name="data.health.max"
-							value="{{data.health.max}}"
+							name="data.PV.max"
+							value="{{data.PV.max}}"
 							data-dtype="Number"
 						/>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="data.power.value" class="resource-label"
-						>Power</label
+					<label for="data.SAN.value" class="resource-label"
+						>{{localize 'ORDEMPARANORMAL_FVTT.San'}}</label
 					>
 					<div
 						class="resource-content flexrow flex-center flex-between"
 					>
 						<input
 							type="text"
-							name="data.power.value"
-							value="{{data.power.value}}"
+							name="data.SAN.value"
+							value="{{data.SAN.value}}"
 							data-dtype="Number"
 						/>
 						<span> / </span>
 						<input
 							type="text"
-							name="data.power.max"
-							value="{{data.power.max}}"
+							name="data.SAN.max"
+							value="{{data.SAN.max}}"
 							data-dtype="Number"
 						/>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label
-						for="data.attributes.level.value"
-						class="resource-label"
-						>Level</label
+					<label for="data.NEX.value" class="resource-label"
+						>{{localize 'ORDEMPARANORMAL_FVTT.NEX'}}</label
 					>
 					<div
 						class="resource-content flexrow flex-center flex-between"
 					>
 						<input
 							type="text"
-							name="data.attributes.level.value"
-							value="{{data.attributes.level.value}}"
+							name="data.NEX.value"
+							value="{{data.NEX.value}}"
 							data-dtype="Number"
 						/>
 					</div>
@@ -196,7 +194,7 @@
 	<section class="sheet-body">
 		{{!-- Owned Features Tab --}}
 		<div class="tab features" data-group="primary" data-tab="features">
-			<section class="grid grid-3col">
+			<section class="grid grid-2col">
 				<aside class="sidebar">
 					{{!-- The grid classes are defined in
 					scss/global/_grid.scss. To use, use both the "grid" and
@@ -204,7 +202,6 @@
 					and will create that number of columns. --}}
 					<div class="abilities flexcol">
 						{{#each data.skills as |skillsName key|}}
-						{{skillsName.attr.[1]}}
 						<div class="ability flexrow flex-group-center">
 							<label
 								for="data.skills.{{key}}.value"
@@ -213,19 +210,31 @@
 								data-label="{{skillsName.label}}"
 								>{{skillsName.label}}</label
 							>
-							<input
+							<!-- <input
 								type="text"
 								name="data.skills.{{key}}.value"
 								value="{{skillsName.value}}"
 								data-dtype="Number"
+							/> -->
+							<select id="degree" name="trainingDegree">
+								<option value="0">Destreinado</option>
+								<option value="1">Treinado</option>
+								<option value="2">Veterano</option>
+								<option value="3">Expert</option>
+							</select>
+							<input
+								type="text"
+								name="extra"
+								value=""
+								data-dtype="Number"
 							/>
-							<span
+							<!-- <span
 								class="ability-mod rollable"
 								data-roll="{{skillsName.attr.[1]}}d20kl+@skills.{{key}}.mod"
 								data-label="{{skillsName.label}}"
 								>{{numberFormat skillsName.mod decimals=0
 								sign=true}}</span
-							>
+							> -->
 						</div>
 						{{/each}}
 					</div>
@@ -233,7 +242,7 @@
 
 				{{!-- For the main features list, span the right two columns
 				--}}
-				<section class="main grid-span-2">
+				<section class="main grid-span-1">
 					{{!-- This is a Handlebars partial. They're stored in the
 					`/parts` folder next to this sheet, and defined in
 					module/helpers/templates.mjs --}} {{>

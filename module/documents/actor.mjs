@@ -122,8 +122,8 @@ export class OrdemActor extends Actor {
 		}
 
 		// Add level for easier access, or fall back to 0.
-		if (data.attributes.level) {
-			data.lvl = data.attributes.level.value ?? 0;
+		if (data.NEX) {
+			data.lvl = data.NEX.value ?? 0;
 		}
 	}
 

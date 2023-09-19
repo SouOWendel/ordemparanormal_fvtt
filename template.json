@@ -3,21 +3,29 @@
 		"types": ["character", "npc", "Agente"],
 		"templates": {
 			"base": {
-				"health": {
+				"PV": {
 					"value": 10,
 					"min": 0,
 					"max": 10
 				},
-				"power": {
+				"SAN": {
 					"value": 5,
 					"min": 0,
 					"max": 5
+				},
+				"PE": {
+					"value": 5,
+					"min": 0,
+					"max": 5
+				},
+				"NEX": {
+					"value": 1
 				},
 				"biography": ""
 			}
 		},
 		"Agente": {
-			"templates": ["base"],
+			"templates": ["base", "NEX"],
 			"skills": {
 				"acrobacia": {
 					"value": 10,
@@ -33,9 +41,6 @@
 				}
 			},
 			"attributes": {
-				"level": {
-					"value": 1
-				},
 				"agi": {
 					"value": 1
 				},
