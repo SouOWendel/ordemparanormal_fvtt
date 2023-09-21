@@ -38,13 +38,18 @@ Em breve...
 
 ## Considerações finais.
 
-<div align="center">
-Repositório desenvolvido com muita dedicação e código! 🤓<br>
+Este repositório utiliza [Versionamento Semântico 2.0](https://semver.org/lang/pt-BR/), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), e o guia de estilo para [ESLint do Google](https://google.github.io/styleguide/jsguide.html), além disso, desenvolvido com muita dedicação e código! 🤓<br>
 <sub>
 Contate-me utilizando um destes meios:<br>
-e-mail: souowendel@gmail.com &nbsp;&nbsp;&nbsp;&nbsp; 
-discord: souowendel &nbsp;&nbsp;&nbsp;&nbsp; 
+e-mail: souowendel@gmail.com &nbsp;&nbsp;&nbsp;&nbsp;
+discord: souowendel &nbsp;&nbsp;&nbsp;&nbsp;
 twitter: eusouowendel
 
 </sub>
-</div>
+
+<!-- Links Uteis -->
+<!-- https://foundryvtt.wiki/en/development/guides/SD-tutorial -->
+<!-- https://foundryvtt.com/article/dice-advanced/ -->
+<!-- https://foundryvtt.wiki/en/development/guides/System-Development-for-Beginners/System-Development-Part-5-Wandering-in-000000 -->
+<!-- https://foundryvtt.wiki/en/development/guides/vite -->
+<!-- https://foundryvtt.wiki/en/development/guides/builtin-css -->
