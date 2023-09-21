@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.7.0...v1.8.0) (2023-09-21)
+
+
+### Features
+
+* **actor-data:** adaptations for data system based on Ordem Paranormal. (PV, NEX, PE, SAN) ([963dcc0](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/963dcc024997dd8c90dd3b85a58ff04bc0c95327))
+* **hooks-actor:** added the Hook preCreateActor for preset the bars and initial configurations ([4ed727d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4ed727d212ade6f8927cb1ad2879330b5b155767))
+* **lang:** added more localizations for English and Portuguese-Brasil ([61f5048](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/61f504866004e0c9aec3f3448f5b7d928306b0e2))
+
 ## [1.7.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.6.0...v1.7.0) (2023-09-18)
 
 
