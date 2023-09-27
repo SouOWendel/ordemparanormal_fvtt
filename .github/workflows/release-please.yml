@@ -39,7 +39,7 @@ jobs:
             - name: Set up variables
               id: get_vars
               run: |
-                TAG=${steps.release.outputs.release_created}
+                TAG=${{steps.release.outputs.release_created}}
                 echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
                 echo "ZIP_NAME=ordem_fvtt-$TAG.zip" >> $GITHUB_OUTPUT
                 echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/ordem_fvtt-$TAG.zip" >> $GITHUB_OUTPUT
