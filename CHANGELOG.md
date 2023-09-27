@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.4](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.3...v1.10.4) (2023-09-27)
+
+
+### Bug Fixes
+
+* **release-please:** one more attempt. added git-auto-commit-action@v4 for commit changes ([759ef2c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/759ef2c6803125705cd08b36218769ec27a1e221))
+
 ## [1.10.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.2...v1.10.3) (2023-09-27)
 
 
