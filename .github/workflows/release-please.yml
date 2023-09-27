@@ -54,7 +54,7 @@ jobs:
             #   run: |
             #     echo $(jq --arg a "$RELEASE_DOWNLOAD" '.download = ($a)' . system.json) > ./system.json
 
-            - name: Update package.json version
+            - name: Update system.json version
               if: ${{ steps.release.outputs.release_created }}
               uses: jossef/action-set-json-field@v2.1
               with:
