@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.1...v1.10.2) (2023-09-27)
+
+
+### Bug Fixes
+
+* **release-please:** attempt to test pretty json and change the system.json on the repo ([4f39969](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4f39969340415878bcf54dadb5c5894a56640378))
+
 ## [1.10.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.0...v1.10.1) (2023-09-27)
 
 
