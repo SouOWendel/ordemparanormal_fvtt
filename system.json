@@ -1,74 +1,74 @@
 {
-	"name": "ordemparanormal_fvtt",
-	"title": "Ordem Paranormal",
-	"description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
-	"version": "1.10.4",
-	"compatibility": {
-		"minimum": "10",
-		"verified": "11",
-		"maximum": "11"
-	},
-	"authors": [
-		{
-			"name": "Mark57449",
-			"email": "souowendel@gmail.com",
-			"discord": "souowendel"
-		}
-	],
-	"esmodules": [
-		"module/ordemparanormal_fvtt.mjs"
-	],
-	"styles": [
-		"css/ordemparanormal_fvtt.css"
-	],
-	"scripts": [],
-	"packs": [],
-	"languages": [
-		{
-			"lang": "en",
-			"name": "English",
-			"path": "lang/en.json"
-		},
-		{
-			"lang": "pt-BR",
-			"name": "Português (Brasil)",
-			"path": "lang/pt-BR.json"
-		}
-	],
-	"relationships": {
-		"requires": [
-			{
-				"id": "barbrawl",
-				"type": "module",
-				"manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/34402efe34e02991545eebb5ea56611da812a3cc/src/module.json",
-				"compatibility": {
-					"verified": "1.8.2"
-				}
-			}
-		]
-	},
-	"flags": {
-		"hotReload": {
-			"extensions": [
-				"css",
-				"html",
-				"hbs",
-				"json"
-			],
-			"paths": [
-				"templates",
-				"css",
-				"lang/en.json",
-				"lang/pt-BR.json"
-			]
-		}
-	},
-	"gridDistance": 1.5,
-	"gridUnits": "m",
-	"primaryTokenAttribute": "PV",
-	"secondaryTokenAttribute": "SAN",
-	"url": "https://github.com/SouOWendel/ordemparanormal-fvtt",
-	"manifest": "https://raw.githubusercontent.com/souowendel/ordemparanormal_fvtt/main/system.json",
-	"download": "https://github.com/SouOWendel/ordemparanormal-fvtt/releases/latest/download/ordem_fvtt_system.zip",
-	"license": "LICENSE.txt"
+  "name": "ordemparanormal_fvtt",
+  "title": "Ordem Paranormal",
+  "description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
+  "version": "1.10.4",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "11",
+    "maximum": "11"
+  },
+  "authors": [
+    {
+      "name": "Mark57449",
+      "email": "souowendel@gmail.com",
+      "discord": "souowendel"
+    }
+  ],
+  "esmodules": [
+    "module/ordemparanormal_fvtt.mjs"
+  ],
+  "styles": [
+    "css/ordemparanormal_fvtt.css"
+  ],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "barbrawl",
+        "type": "module",
+        "manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/34402efe34e02991545eebb5ea56611da812a3cc/src/module.json",
+        "compatibility": {
+          "verified": "1.8.2"
+        }
+      }
+    ]
+  },
+  "flags": {
+    "hotReload": {
+      "extensions": [
+        "css",
+        "html",
+        "hbs",
+        "json"
+      ],
+      "paths": [
+        "templates",
+        "css",
+        "lang/en.json",
+        "lang/pt-BR.json"
+      ]
+    }
+  },
+  "gridDistance": 1.5,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "PV",
+  "secondaryTokenAttribute": "SAN",
+  "url": "https://github.com/SouOWendel/ordemparanormal-fvtt",
+  "manifest": "https://raw.githubusercontent.com/souowendel/ordemparanormal_fvtt/main/system.json",
+  "download": "https://github.com/SouOWendel/ordemparanormal_fvtt/releases/download/v1.10.4/ordem_fvtt-v1.10.4.zip",
+  "license": "LICENSE.txt"
 }
