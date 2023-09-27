@@ -43,6 +43,12 @@
 			}
 		]
 	},
+	"flags": {
+		"hotReload": {
+		  	"extensions": ["css", "html", "hbs", "json"],
+		  	"paths": ["templates", "css", "lang/en.json", "lang/pt-BR.json"]
+		}
+	},
 	"gridDistance": 1.5,
 	"gridUnits": "m",
 	"primaryTokenAttribute": "PV",
