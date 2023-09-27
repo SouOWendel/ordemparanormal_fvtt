@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -29,7 +30,9 @@ export class OrdemActor extends Actor {
 	 */
 	prepareDerivedData() {
 		const actorData = this.data;
+		// eslint-disable-next-line no-unused-vars
 		const data = actorData.data;
+		// eslint-disable-next-line no-unused-vars
 		const flags = actorData.flags.ordemparanormal_fvtt || {};
 
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
@@ -49,7 +52,7 @@ export class OrdemActor extends Actor {
 		const data = actorData.data;
 
 		// Loop through ability scores, and add their modifiers to our sheet output.
-		for (let [keySkill, skillsName] of Object.entries(data.skills)) {
+		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
 			// Calculate the modifier using d20 rules.
 			skillsName.mod = Math.floor((skillsName.value - 10) / 2);
 
@@ -58,7 +61,7 @@ export class OrdemActor extends Actor {
 			 * necessário para a perícia for o mesmo que a mesma perícia em que o loop
 			 * esta no momento, este valor é atualizado para ser utilizado nas rolagens.
 			 */
-			for (let [keyAttr, attribute] of Object.entries(data.attributes)) {
+			for (const [keyAttr, attribute] of Object.entries(data.attributes)) {
 				if (skillsName.attr[0] == keyAttr) {
 					skillsName.attr[1] = attribute.value;
 				}
@@ -76,7 +79,7 @@ export class OrdemActor extends Actor {
 		const data = actorData.data;
 
 		// Loop through ability scores, and add their modifiers to our sheet output.
-		for (let [key, ability] of Object.entries(data.abilities)) {
+		for (const [key, ability] of Object.entries(data.abilities)) {
 			// Calculate the modifier using d20 rules.
 			ability.mod = Math.floor((ability.value - 10) / 2);
 		}
@@ -116,7 +119,7 @@ export class OrdemActor extends Actor {
 		// Copy the ability scores to the top level, so that rolls can use
 		// formulas like `@str.mod + 4`.
 		if (data.skills) {
-			for (let [k, v] of Object.entries(data.skills)) {
+			for (const [k, v] of Object.entries(data.skills)) {
 				data[k] = foundry.utils.deepClone(v);
 			}
 		}
@@ -136,7 +139,7 @@ export class OrdemActor extends Actor {
 		// Copy the ability scores to the top level, so that rolls can use
 		// formulas like `@str.mod + 4`.
 		if (data.abilities) {
-			for (let [k, v] of Object.entries(data.abilities)) {
+			for (const [k, v] of Object.entries(data.abilities)) {
 				data[k] = foundry.utils.deepClone(v);
 			}
 		}
@@ -155,4 +158,5 @@ export class OrdemActor extends Actor {
 
 		// Process additional NPC data here.
 	}
+
 }
