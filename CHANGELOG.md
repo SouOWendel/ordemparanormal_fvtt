@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.10.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.9.0...v1.10.0) (2023-09-27)
+
+
+### Features
+
+* **manifest:** new link of manifest more compatible of Foundry with base of DN5 System ([5a1a290](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5a1a290bd2f17d96a0ff18583b31e342ab54c50c))
+* **release-please:** attempt to add automatic release download url ([b8ae9f0](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b8ae9f0cc69153687e18c1767e86b6405d784fac))
+
+
+### Bug Fixes
+
+* **localization:** delete the symbols ([7c5c440](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7c5c440271cfe6bd204789e929623be842e03a4d))
+* **release-please:** attempt to fix the 'bad substitution' ([c3f8089](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c3f80897c39fd19bfecf57744e3ff88ad7b31dd8))
+* **release-please:** attempt to fix the download link version. Set variables and refactor some jobs ([f203b26](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f203b2671c76034c8232a914ed69a8ec1c49ade5))
+* **release-please:** attempt to fix the error: 'The template is not valid.' ([6f267c1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6f267c1eed7f97bc65752d15856aef9af20d3f99))
+
 ## [1.9.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.8.0...v1.9.0) (2023-09-27)
 
 
