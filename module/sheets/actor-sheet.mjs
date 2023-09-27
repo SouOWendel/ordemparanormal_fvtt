@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
 	onManageActiveEffect,
 	prepareActiveEffectCategories,
@@ -40,13 +41,15 @@ export class OrdemActorSheet extends ActorSheet {
 		// sheets are the actor object, the data object, whether or not it's
 		// editable, the items array, and the effects array.
 		const context = super.getData();
-
+	
 		// Use a safe clone of the actor data for further operations.
 		const actorData = this.actor.data.toObject(false);
 
 		// Add the actor's data to context.data for easier access, as well as flags.
 		context.data = actorData.data;
 		context.flags = actorData.flags;
+		context.optionObj = CONFIG.ORDEMPARANORMAL_FVTT.dropdownDegree;
+		context.system = context.data.system;
 
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'Agente') {
@@ -83,7 +86,7 @@ export class OrdemActorSheet extends ActorSheet {
 	 */
 	_prepareAgenteData(context) {
 		// Handle ability scores.
-		for (let [k, v] of Object.entries(context.data.skills)) {
+		for (const [k, v] of Object.entries(context.data.skills)) {
 			v.label =
 				game.i18n.localize(CONFIG.ORDEMPARANORMAL_FVTT.skills[k]) ?? k;
 		}
@@ -98,7 +101,7 @@ export class OrdemActorSheet extends ActorSheet {
 	 */
 	_prepareCharacterData(context) {
 		// Handle ability scores.
-		for (let [k, v] of Object.entries(context.data.abilities)) {
+		for (const [k, v] of Object.entries(context.data.abilities)) {
 			v.label =
 				game.i18n.localize(CONFIG.ORDEMPARANORMAL_FVTT.abilities[k]) ??
 				k;
@@ -130,7 +133,7 @@ export class OrdemActorSheet extends ActorSheet {
 		};
 
 		// Iterate through items, allocating to containers
-		for (let i of context.items) {
+		for (const i of context.items) {
 			i.img = i.img || DEFAULT_TOKEN;
 			// Append to gear.
 			if (i.type === 'item') {
@@ -159,6 +162,16 @@ export class OrdemActorSheet extends ActorSheet {
 	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
+
+		html.find('.trainingDegree_SB').on('change', (changeEvent) => {
+			const valueInput = $('.trainingDegree_SB').find(':selected').val();
+			const textInput = $('.trainingDegree_SB option:selected').text();
+			console.log('Valor do Input: ' + valueInput);
+			console.log('Texto do Input: ' + textInput);
+			console.log('Valor no data do actor: ' + this.actor.system.skills.acrobacia.degree.label);
+			console.log('---------------------');
+		});
+	
 
 		// Render the item sheet for viewing/editing prior to the editable check.
 		html.find('.item-edit').click((ev) => {
@@ -192,7 +205,7 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// Drag events for macros.
 		if (this.actor.owner) {
-			let handler = (ev) => this._onDragStart(ev);
+			const handler = (ev) => this._onDragStart(ev);
 			html.find('li.item').each((i, li) => {
 				if (li.classList.contains('inventory-header')) return;
 				li.setAttribute('draggable', true);
@@ -249,8 +262,8 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
-			let label = dataset.label ? `[roll] ${dataset.label}` : '';
-			let roll = new Roll(dataset.roll, this.actor.getRollData());
+			const label = dataset.label ? `[roll] ${dataset.label}` : '';
+			const roll = new Roll(dataset.roll, this.actor.getRollData());
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
