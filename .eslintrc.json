@@ -3,15 +3,17 @@
 		"browser": true,
 		"es2021": true
 	},
-	"extends": "airbnb-base",
+	"extends": ["eslint:recommended", "google", "prettier"],
 	"parserOptions": {
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
 	"rules": {
 		"indent": ["error", "tab"],
-		"linebreak-style": ["error", "windows"],
 		"quotes": ["error", "single"],
-		"semi": ["error", "always"]
+		"semi": ["error", "always"],
+		"valid-jsdoc": ["off"],
+		"no-undef": ["off"],
+		"prefer-rest-params": ["off"]
 	}
 }
