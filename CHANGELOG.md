@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.0...v1.10.1) (2023-09-27)
+
+
+### Bug Fixes
+
+* **release-please:** change the release.outputs.release_created to tag_name ([ef8cf0d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ef8cf0dad7e7d40b392b8e29487c7fc1ad88cb2c))
+
 ## [1.10.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.9.0...v1.10.0) (2023-09-27)
 
 
