@@ -51,7 +51,7 @@ jobs:
               env:
                 RELEASE_DOWNLOAD: ${{steps.get_vars.outputs.RELEASE_DOWNLOAD_URL}}
               run: |
-                echo $(jq --arg a "$RELEASE_DOWNLOAD" '.download = ($a)' system.json) > . system.json
+                echo $(jq --arg a "$RELEASE_DOWNLOAD" '.download = ($a)' system.json) > ./system.json
 
             # Create a zip file with all files required by the module to add to the release
             - name: Create Zip with Name and Release Version
