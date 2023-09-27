@@ -201,26 +201,25 @@
 					"grid-Ncol" class where "N" can be any number from 1 to 12
 					and will create that number of columns. --}}
 					<div class="abilities flexcol">
-						{{#each data.skills as |skillsName key|}}
+						{{#each data.skills as |skillName key|}}
 						<div class="ability flexrow flex-group-center">
 							<label
 								for="data.skills.{{key}}.value"
 								class="resource-label rollable flexlarge align-left"
-								data-roll="{{skillsName.attr.[1]}}d20kh+@skills.{{key}}.mod"
-								data-label="{{skillsName.label}}"
-								>{{skillsName.label}}</label
-							>
-							<!-- <input
-								type="text"
-								name="data.skills.{{key}}.value"
-								value="{{skillsName.value}}"
-								data-dtype="Number"
-							/> -->
-							<select id="degree" name="trainingDegree">
-								<option value="0">Destreinado</option>
-								<option value="1">Treinado</option>
-								<option value="2">Veterano</option>
-								<option value="3">Expert</option>
+								data-roll="{{skillName.attr.[1]}}d20kh+@skills.{{key}}.mod"
+								data-label="{{skillName.label}}"
+								>{{skillName.label}}</label>
+								
+								{{ log ../data.skills.acrobacia.degree.label}}
+								{{ log key }}
+								{{ log skillName.degree.label }}
+								
+							<select class="trainingDegree_SB" name="data.skills.{{key}}.degree.label" data-dtype="String">
+								{{
+									selectOptions ../optionObj
+									selected=skillName.degree.label 
+									localize=true
+								}}
 							</select>
 							<input
 								type="text"
@@ -228,13 +227,6 @@
 								value=""
 								data-dtype="Number"
 							/>
-							<!-- <span
-								class="ability-mod rollable"
-								data-roll="{{skillsName.attr.[1]}}d20kl+@skills.{{key}}.mod"
-								data-label="{{skillsName.label}}"
-								>{{numberFormat skillsName.mod decimals=0
-								sign=true}}</span
-							> -->
 						</div>
 						{{/each}}
 					</div>
