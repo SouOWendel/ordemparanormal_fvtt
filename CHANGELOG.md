@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.9.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.8.0...v1.9.0) (2023-09-27)
+
+
+### Features
+
+* **actor-sheet:** context consts for dropdownDegree(optionObj) and system ([e530d9a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e530d9ad5f4c7e5ddd816fdc71630f4816d614a3))
+* added multiples constants of system: dropdown, skills, attributes and base stats ([127c69b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/127c69bb8a3b5c40a472641d29b7620c7fbf9188))
+* **agente sheet:** added select with handlebars helper to Foundry API using the selectOptions ([3ab369f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3ab369f0813fb30d6d34680bb90135e68f15abeb))
+* **localization:** added translations for more skills and the degree dropdown ([b4a2db5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b4a2db5538840f779eabdb78c8fc1dbb546a5686))
+* **system:** added flags for hotrealoding the html, css and json files ([c07d508](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c07d508a0d9b0fccdfb54732cb2708c4f94393d3))
+* **template.json:** data for Agente: many skills, conditions for skills, changed some values ([e51e55a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e51e55ac9cf6059c3561ef143eb4cc3a9b9b93d4))
+
+
+### Bug Fixes
+
+* change unnecessary declarations: let -&gt; const ([167f1c5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/167f1c56634b13469bc05cbef0a3065f5529e0e9))
+
 ## [1.8.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.7.0...v1.8.0) (2023-09-21)
 
 
