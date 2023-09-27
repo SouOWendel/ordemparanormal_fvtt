@@ -20,53 +20,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
-            # Set up our some variables for future use
-            # Adapted from https://github.community/t/how-to-get-just-the-tag-name/16241/7
-            # Tag name: ${{ steps.get_vars.outputs.TAG_NAME }}
-            # Zip name: ${{ steps.get_vars.outputs.ZIP_NAME }}
-            # Expected Release Download URL: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
-            # Expected Release system.json URL: ${{ steps.get_vars.outputs.RELEASE_INSTALL_URL }}
-            # Stringified system.json contents: ${{ steps.get_vars.outputs.SYSTEM_JSON }}
-            - name: Set up variables
-              id: get_vars
-              run: |
-                TAG=${GITHUB_REF/refs\/tags\//}
-                echo ::set-output name=TAG_NAME::$TAG
-                echo ::set-output name=ZIP_NAME::ordem_fvtt_system.zip
-                echo ::set-output name=RELEASE_DOWNLOAD_URL::https://github.com/${{github.repository}}/releases/download/$TAG/ordem_fvtt_system.zip
-                echo ::set-output name=RELEASE_INSTALL_URL::https://github.com/${{github.repository}}/releases/download/$TAG/system.json
-                JSON=$(cat ./system.json)
-                echo ::set-output name=SYSTEM_JSON::${JSON//'%'/'%25'}
-            
-            # Run some tests to make sure our `system.json` is correct
-            # Exit before setting up node if not
-            - name: Verify correct naming
-              env:
-                TAG_NAME: ${{ steps.get_vars.outputs.TAG_NAME }}
-                RELEASE_DOWNLOAD: ${{steps.get_vars.outputs.RELEASE_DOWNLOAD_URL}}
-                # Extract version and download url from system.json
-                # https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
-                PACKAGE_VERSION: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).version}}
-                PACKAGE_DOWNLOAD: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).download}}
-              run: |
-                # Validate that the tag being released matches the package version.
-                if [[ ! $TAG_NAME == $PACKAGE_VERSION ]]; then
-                    echo "The system.json version does not match tag name."
-                    echo "system.json: $PACKAGE_VERSION"
-                    echo "tag name: $TAG_NAME"
-                    echo "Please fix this and push the tag again."
-                    exit 1
-                fi
-
-                # Validate that the package download url matches the release asset that will be created.
-                if [[ ! $RELEASE_DOWNLOAD == $PACKAGE_DOWNLOAD ]]; then
-                    echo "The system.json download url does not match the created release asset url."
-                    echo "system.json: $PACKAGE_DOWNLOAD"
-                    echo "release asset url: $RELEASE_DOWNLOAD"
-                    echo "Please fix this and push the tag again."
-                    exit 1
-                fi
-
             # Criar uma release e um PR (pull-request) com base no manifest (comando e arquivo).
             # O comando manifest faz uma PR utilizando as configurações do release-please-config.json
             # se forem validas. Dentro deste arquivo, há a configuração do system.json.
@@ -77,14 +30,45 @@ jobs:
                   token: ${{secrets.GITHUB_TOKEN}}
                   release-type: node
 
+                
+            # Set up our some variables for future use
+            # Adapted from https://github.community/t/how-to-get-just-the-tag-name/16241/7
+            # Release version: ${{ steps.release.outputs.release_created }}
+            # Zip name: ${{ steps.get_vars.outputs.ZIP_NAME }}
+            # Expected Release Download URL: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
+            - name: Set up variables
+              id: get_vars
+              run: |
+                TAG=${steps.release.outputs.release_created}
+                echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
+                echo "ZIP_NAME=ordem_fvtt-$TAG.zip" >> $GITHUB_OUTPUT
+                echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/ordem_fvtt-$TAG.zip" >> $GITHUB_OUTPUT
+
+            # Run some tests to make sure our `system.json` is correct
+            # Exit before setting up node if not
+            - name: Change the download link with release version created
+              shell: bash
+              env:
+                RELEASE_DOWNLOAD: ${{steps.get_vars.outputs.RELEASE_DOWNLOAD_URL}}
+                # Extract version and download url from system.json
+                # https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
+                PACKAGE_DOWNLOAD: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).download}}
+              run: |
+                if [[ ! $RELEASE_DOWNLOAD != PACKAGE_DOWNLOAD ]]; then
+                    echo $(jq --arg a "$RELEASE_DOWNLOAD" '.download = ($a)' system.json) > system.json
+
             # Create a zip file with all files required by the module to add to the release
-            - run: zip ordem_fvtt_system.zip -r css lang module templates system.json template.json LICENSE.txt README.md
+            - name: Create Zip with Name and Release Version
+              env:
+                ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
+              run: zip $ZIP_NAME -r css lang module templates system.json template.json LICENSE.txt README.md
 
             # Adiciona o arquivo System.json as releases do sistema.
-            - name: Upload Release Artifact
+            - name: Upload Release Artifacts
               if: ${{ steps.release.outputs.release_created }}
               env:
+                  ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   gh release upload ${{ steps.release.outputs.tag_name }} ./system.json
-                  gh release upload ${{ steps.release.outputs.tag_name }} ./ordem_fvtt-$TAG.zip
+                  gh release upload ${{ steps.release.outputs.tag_name }} ./$ZIP_NAME.zip
