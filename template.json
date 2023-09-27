@@ -1,115 +1,346 @@
 {
-	"Actor": {
-		"types": ["character", "npc", "Agente"],
-		"templates": {
-			"base": {
-				"PV": {
-					"value": 10,
-					"min": 0,
-					"max": 10
-				},
-				"SAN": {
-					"value": 5,
-					"min": 0,
-					"max": 5
-				},
-				"PE": {
-					"value": 5,
-					"min": 0,
-					"max": 5
-				},
-				"NEX": {
-					"value": 1
-				},
-				"biography": ""
-			}
-		},
-		"Agente": {
-			"templates": ["base", "NEX"],
-			"skills": {
-				"acrobacia": {
-					"value": 10,
-					"attr": ["agi", 1]
-				},
-				"adestramento": {
-					"value": 10,
-					"attr": ["pre", 1]
-				},
-				"artes": {
-					"value": 10,
-					"attr": ["pre", 1]
-				}
-			},
-			"attributes": {
-				"agi": {
-					"value": 1
-				},
-				"int": {
-					"value": 1
-				},
-				"vig": {
-					"value": 1
-				},
-				"pre": {
-					"value": 1
-				},
-				"for": {
-					"value": 1
-				}
-			}
-		},
-		"character": {
-			"templates": ["base"],
-			"attributes": {
-				"level": {
-					"value": 1
-				}
-			},
-			"abilities": {
-				"str": {
-					"value": 10
-				},
-				"dex": {
-					"value": 10
-				},
-				"con": {
-					"value": 10
-				},
-				"int": {
-					"value": 10
-				},
-				"wis": {
-					"value": 10
-				},
-				"cha": {
-					"value": 10
-				}
-			}
-		},
-		"npc": {
-			"templates": ["base"],
-			"cr": 0
-		}
-	},
-	"Item": {
-		"types": ["item", "feature", "spell"],
-		"templates": {
-			"base": {
-				"description": ""
-			}
-		},
-		"item": {
-			"templates": ["base"],
-			"quantity": 1,
-			"weight": 0,
-			"formula": "d20 + @str.mod + ceil(@lvl / 2)"
-		},
-		"feature": {
-			"templates": ["base"]
-		},
-		"spell": {
-			"templates": ["base"],
-			"spellLevel": 1
-		}
-	}
+  "Actor": {
+    "types": ["Agente", "character", "npc"],
+    "templates": {
+      "base": {
+        "PV": {
+          "value": 5,
+          "min": 0,
+          "max": 10
+        },
+        "SAN": {
+          "value": 5,
+          "min": 0,
+          "max": 5
+        },
+        "PE": {
+          "value": 5,
+          "min": 0,
+          "max": 5
+        },
+        "NEX": {
+          "value": 1
+        },
+        "biography": ""
+      }
+    },
+    "Agente": {
+      "templates": ["base", "NEX"],
+      "skills": {
+        "acrobacia": {
+          "value": 0,
+          "attr": ["agi", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "adestramento": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "artes": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "atletismo": {
+          "value": 0,
+          "attr": ["for", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "atualidades": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "ciencias": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "crime": {
+          "value": 0,
+          "attr": ["agi", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "diplomacia": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "enganacao": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "fortitude": {
+          "value": 0,
+          "attr": ["vig", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "furtividade": {
+          "value": 0,
+          "attr": ["agi", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "iniciativa": {
+          "value": 0,
+          "attr": ["agi", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "intimidacao": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "intuicao": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "investigacao": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "luta": {
+          "value": 0,
+          "attr": ["for", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "medicina": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "ocultismo": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "percepcao": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "pilotagem": {
+          "value": 0,
+          "attr": ["agi", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "pontaria": {
+          "value": 0,
+          "attr": ["agi", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "reflexos": {
+          "value": 0,
+          "attr": ["agi", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "religiao": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "sobrevivencia": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "tatica": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "tecnologia": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "vontade": {
+          "value": 0,
+          "attr": ["pre", 1],
+          "degree": "Destreinado",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        }
+      },
+      "attributes": {
+        "agi": {
+          "value": 1
+        },
+        "int": {
+          "value": 1
+        },
+        "vig": {
+          "value": 1
+        },
+        "pre": {
+          "value": 1
+        },
+        "for": {
+          "value": 1
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "attributes": {
+        "level": {
+          "value": 1
+        }
+      },
+      "abilities": {
+        "str": {
+          "value": 1
+        },
+        "dex": {
+          "value": 1
+        },
+        "con": {
+          "value": 1
+        },
+        "int": {
+          "value": 1
+        },
+        "wis": {
+          "value": 1
+        },
+        "cha": {
+          "value": 1
+        }
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "cr": 0
+    }
+  },
+  "Item": {
+    "types": ["item", "feature", "spell"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+    },
+    "feature": {
+      "templates": ["base"]
+    },
+    "spell": {
+      "templates": ["base"],
+      "spellLevel": 1
+    }
+  }
 }
