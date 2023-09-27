@@ -18,9 +18,33 @@
 	"ORDEMPARANORMAL_FVTT.AbilityWisAbbr": "wis",
 	"ORDEMPARANORMAL_FVTT.AbilityChaAbbr": "cha",
 
-	"ORDEMPARANORMAL_FVTT.SkillAcrobacia": "Acrobat",
-	"ORDEMPARANORMAL_FVTT.SkillAdest": "Training",
-	"ORDEMPARANORMAL_FVTT.SkillArtes": "Art",
+	"ORDEMPARANORMAL_FVTT.skillAcrobacia": "Acrobacia",
+	"ORDEMPARANORMAL_FVTT.skillAdestramento": "Adestramento*",
+	"ORDEMPARANORMAL_FVTT.skillArtes": "Artes*",
+	"ORDEMPARANORMAL_FVTT.skillAtletismo": "Atletismo",
+	"ORDEMPARANORMAL_FVTT.skillAtualidades": "Atualidades",
+	"ORDEMPARANORMAL_FVTT.skillCiencias": "Ciências*",
+	"ORDEMPARANORMAL_FVTT.skillCrime": "Crime*",
+	"ORDEMPARANORMAL_FVTT.skillDiplomacia": "Diplomacia",
+	"ORDEMPARANORMAL_FVTT.skillEnganacao": "Enganação",
+	"ORDEMPARANORMAL_FVTT.skillFortitude": "Fortitude",
+	"ORDEMPARANORMAL_FVTT.skillFurtividade": "Furtividade",
+	"ORDEMPARANORMAL_FVTT.skillIniciativa": "Iniciativa",
+	"ORDEMPARANORMAL_FVTT.skillIntimidacao": "Intimidação",
+	"ORDEMPARANORMAL_FVTT.skillIntuicao": "Intuição",
+	"ORDEMPARANORMAL_FVTT.skillInvestigacao": "Investigação",
+	"ORDEMPARANORMAL_FVTT.skillLuta": "Luta",
+	"ORDEMPARANORMAL_FVTT.skillMedicina": "Medicina",
+	"ORDEMPARANORMAL_FVTT.skillOcultismo": "Ocultismo*",
+	"ORDEMPARANORMAL_FVTT.skillPercepcao": "Percepção",
+	"ORDEMPARANORMAL_FVTT.skillPilotagem": "Pilotagem*",
+	"ORDEMPARANORMAL_FVTT.skillPontaria": "Pontaria",
+	"ORDEMPARANORMAL_FVTT.skillReflexos": "Reflexos",
+	"ORDEMPARANORMAL_FVTT.skillReligiao": "Religião*",
+	"ORDEMPARANORMAL_FVTT.skillSobrevivencia": "Sobrevivência",
+	"ORDEMPARANORMAL_FVTT.skillTatica": "Tática*",
+	"ORDEMPARANORMAL_FVTT.skillTecnologia": "Tecnologia*",
+	"ORDEMPARANORMAL_FVTT.skillVontade": "Vontade",
 
 	"ORDEMPARANORMAL_FVTT.AttAgi": "Dexterity",
 	"ORDEMPARANORMAL_FVTT.AttInt": "Intelligence",
@@ -33,5 +57,12 @@
 	"ORDEMPARANORMAL_FVTT.EffectEdit": "Edit Effect",
 	"ORDEMPARANORMAL_FVTT.EffectDelete": "Delete Effect",
 
-	"ORDEMPARANORMAL_FVTT.Add": "Add"
+	"ORDEMPARANORMAL_FVTT.Add": "Add",
+
+	"ORDEMPARANORMAL_FVTT.degreeTrainingChoices": {
+		"dest": "Untrained",
+		"trei": "Trained",
+		"vet": "Veteran",
+		"expe": "Expert"
+	}
 }
