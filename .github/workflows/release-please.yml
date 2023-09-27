@@ -37,6 +37,7 @@ jobs:
             # Zip name: ${{ steps.get_vars.outputs.ZIP_NAME }}
             # Expected Release Download URL: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
             - name: Set up variables
+              if: ${{ steps.release.outputs.release_created }}
               id: get_vars
               run: |
                 TAG=${{steps.release.outputs.tag_name}}
@@ -54,6 +55,7 @@ jobs:
             #     echo $(jq --arg a "$RELEASE_DOWNLOAD" '.download = ($a)' . system.json) > ./system.json
 
             - name: Update package.json version
+              if: ${{ steps.release.outputs.release_created }}
               uses: jossef/action-set-json-field@v2.1
               with:
                 file: system.json
@@ -62,6 +64,7 @@ jobs:
 
             # Create a zip file with all files required by the module to add to the release
             - name: Create Zip with Name and Release Version
+              if: ${{ steps.release.outputs.release_created }}
               env:
                 ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
               run: zip $ZIP_NAME -r css lang module templates system.json template.json LICENSE.txt README.md
@@ -75,3 +78,6 @@ jobs:
               run: |
                   gh release upload ${{ steps.release.outputs.tag_name }} ./system.json
                   gh release upload ${{ steps.release.outputs.tag_name }} ./$ZIP_NAME
+            
+            # Commit all changed files back to the repository
+            - uses: stefanzweifel/git-auto-commit-action@v4
