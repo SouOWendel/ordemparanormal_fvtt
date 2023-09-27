@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.4...v1.11.0) (2023-09-27)
+
+
+### Features
+
+* **release-please:** added the auto-commit for the changes on the system.json .download ([4e4ab65](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4e4ab655cefd0023b69f69d3cd7a22c9234cfd58))
+
 ## [1.10.4](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.3...v1.10.4) (2023-09-27)
 
 
