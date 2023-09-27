@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.2...v1.10.3) (2023-09-27)
+
+
+### Bug Fixes
+
+* **release-please:** one more attempt, but now using the action-set-json-field Job ([abd0458](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/abd0458bac2af6199b88f8c6151bfc8467104e3d))
+
 ## [1.10.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.1...v1.10.2) (2023-09-27)
 
 
