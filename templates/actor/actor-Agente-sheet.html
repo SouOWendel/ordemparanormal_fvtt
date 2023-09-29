@@ -206,14 +206,14 @@
 							<label
 								for="data.skills.{{key}}.value"
 								class="resource-label rollable flexlarge align-left"
-								data-roll="{{skillName.attr.[1]}}d20kh+@skills.{{key}}.mod"
+								data-roll="
+								{{ifThen skillName.attr.[1] skillName.attr.[1] 2 }}d20
+								{{ifThen skillName.attr.[1] 'kh' 'kl'}}+
+								@skills.{{key}}.mod"
 								data-label="{{skillName.label}}"
-								>{{skillName.label}}</label>
-								
-								{{ log ../data.skills.acrobacia.degree.label}}
-								{{ log key }}
-								{{ log skillName.degree.label }}
-								
+								>{{skillName.label}}{{ifThen skillName.conditions.carga "+" ""}}{{ifThen skillName.conditions.trained "*" ""}}
+								({{skillName.attr.[0]}})
+							</label>
 							<select class="trainingDegree_SB" name="data.skills.{{key}}.degree.label" data-dtype="String">
 								{{
 									selectOptions ../optionObj

@@ -49,7 +49,6 @@ export class OrdemActorSheet extends ActorSheet {
 		context.data = actorData.data;
 		context.flags = actorData.flags;
 		context.optionObj = CONFIG.ORDEMPARANORMAL_FVTT.dropdownDegree;
-		context.system = context.data.system;
 
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'Agente') {
@@ -167,8 +166,6 @@ export class OrdemActorSheet extends ActorSheet {
 			const valueInput = $('.trainingDegree_SB').find(':selected').val();
 			const textInput = $('.trainingDegree_SB option:selected').text();
 			console.log('Valor do Input: ' + valueInput);
-			console.log('Texto do Input: ' + textInput);
-			console.log('Valor no data do actor: ' + this.actor.system.skills.acrobacia.degree.label);
 			console.log('---------------------');
 		});
 	

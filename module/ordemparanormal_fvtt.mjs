@@ -193,19 +193,3 @@ Hooks.on('preCreateActor', function (actor, data) {
 		});
 	}
 });
-
-// Hooks.on('preCreateToken', function (document, data) {
-// 	console.log(document);
-// 	document.updateSource({
-// 		'flags.barbrawl.resourceBars': {
-// 			bar3: {
-// 				id: 'bar3',
-// 				mincolor: '#FF0000',
-// 				maxcolor: '#80FF00',
-// 				position: 'bottom-inner',
-// 				attribute: 'PE',
-// 				visibility: CONST.TOKEN_DISPLAY_MODES.OWNER,
-// 			},
-// 		},
-// 	});
-// });
