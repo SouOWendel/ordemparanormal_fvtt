@@ -32,7 +32,7 @@
           "attr": ["agi", 1],
           "degree": "Destreinado",
           "conditions": {
-            "carga": false,
+            "carga": true,
             "trained": false
           }
         },
@@ -42,7 +42,7 @@
           "degree": "Destreinado",
           "conditions": {
             "carga": false,
-            "trained": false
+            "trained": true
           }
         },
         "artes": {
@@ -86,8 +86,8 @@
           "attr": ["agi", 1],
           "degree": "Destreinado",
           "conditions": {
-            "carga": false,
-            "trained": false
+            "carga": true,
+            "trained": true
           }
         },
         "diplomacia": {
@@ -122,7 +122,7 @@
           "attr": ["agi", 1],
           "degree": "Destreinado",
           "conditions": {
-            "carga": false,
+            "carga": true,
             "trained": false
           }
         },
@@ -186,7 +186,7 @@
           "degree": "Destreinado",
           "conditions": {
             "carga": false,
-            "trained": false
+            "trained": true
           }
         },
         "percepcao": {
@@ -204,7 +204,7 @@
           "degree": "Destreinado",
           "conditions": {
             "carga": false,
-            "trained": false
+            "trained": true
           }
         },
         "pontaria": {
@@ -231,7 +231,7 @@
           "degree": "Destreinado",
           "conditions": {
             "carga": false,
-            "trained": false
+            "trained": true
           }
         },
         "sobrevivencia": {
@@ -249,7 +249,7 @@
           "degree": "Destreinado",
           "conditions": {
             "carga": false,
-            "trained": false
+            "trained": true
           }
         },
         "tecnologia": {
@@ -258,7 +258,7 @@
           "degree": "Destreinado",
           "conditions": {
             "carga": false,
-            "trained": false
+            "trained": true
           }
         },
         "vontade": {
