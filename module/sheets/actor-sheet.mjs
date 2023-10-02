@@ -48,7 +48,11 @@ export class OrdemActorSheet extends ActorSheet {
 		// Add the actor's data to context.data for easier access, as well as flags.
 		context.data = actorData.data;
 		context.flags = actorData.flags;
-		context.optionObj = CONFIG.ORDEMPARANORMAL_FVTT.dropdownDegree;
+
+		// Dropdown
+		context.optionDegree = CONFIG.ORDEMPARANORMAL_FVTT.dropdownDegree;
+		context.optionClass = CONFIG.ORDEMPARANORMAL_FVTT.dropdownClass;
+		context.optionTrilhas = CONFIG.ORDEMPARANORMAL_FVTT.dropdownTrilha;
 
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'Agente') {
@@ -84,10 +88,88 @@ export class OrdemActorSheet extends ActorSheet {
 	 * @return {undefined}
 	 */
 	_prepareAgenteData(context) {
-		// Handle ability scores.
-		for (const [k, v] of Object.entries(context.data.skills)) {
-			v.label =
-				game.i18n.localize(CONFIG.ORDEMPARANORMAL_FVTT.skills[k]) ?? k;
+
+		// Acesso Rápido
+
+
+		// NEX
+		const calcNEX = Math.ceil(context.data.NEX.value / 5);
+
+		// Combatente
+		if (context.data.class == 'Combatente') {
+			context.data.PV.max = 
+				(20 + context.data.attributes.vig.value) + 
+				((calcNEX > 1) ? (calcNEX-1) * (4 + context.data.attributes.vig.value) : '');
+
+			context.data.PE.max = 
+				(2 + context.data.attributes.pre.value) +
+				((calcNEX > 1) ? (calcNEX-1) * (2 + context.data.attributes.pre.value) : '');
+
+			context.data.SAN.max = (12) +
+				((calcNEX > 1) ? (calcNEX-1) * 3 : '');
+		} else if (context.data.class == 'Especialista') {
+			context.data.PV.max = 
+				(16 + context.data.attributes.vig.value) + 
+				((calcNEX > 1) ? (calcNEX-1) * (3 + context.data.attributes.vig.value) : '');
+
+			context.data.PE.max = 
+				(3 + context.data.attributes.pre.value) +
+				((calcNEX > 1) ? (calcNEX-1) * (3 + context.data.attributes.pre.value) : '');
+
+			context.data.SAN.max = (16) +
+				((calcNEX > 1) ? (calcNEX-1) * 4 : '');
+		} else if (context.data.class == 'Ocultista') {
+			context.data.PV.max = 
+				(12 + context.data.attributes.vig.value) + 
+				((calcNEX > 1) ? (calcNEX-1) * (2 + context.data.attributes.vig.value) : '');
+
+			context.data.PE.max = 
+				(4 + context.data.attributes.pre.value) +
+				((calcNEX > 1) ? (calcNEX-1) * (4 + context.data.attributes.pre.value) : '');
+
+			context.data.SAN.max = (20) +
+				((calcNEX > 1) ? (calcNEX-1) * 5 : '');
+		} else {
+			context.data.PV.max = (10);
+
+			context.data.PE.max = (10);
+
+			context.data.SAN.max = (10);
+		}
+
+		/**
+		 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
+		 * depois disso, salva o valor nas informações 
+		 * */ 
+		for (const [keySkill, skillsName] of Object.entries(context.data.skills)) {
+
+			// Definindo constantes para acesso simplificado.
+			const carga = skillsName.conditions.carga;
+			const trained = skillsName.conditions.trained;
+
+			// Formando o nome com base nas condições de carga e treino da perícia.
+			skillsName.label =
+				game.i18n.localize(CONFIG.ORDEMPARANORMAL_FVTT.skills[keySkill]) +
+				((carga) ? '+' : (trained) ? '*' : '') ?? k;
+
+			/** 
+			 * Criando o que vem antes e depois do D20 das perícias.
+			 * beforeD20Formula: verifica se o atributo da perícia é 0 ou maior do que zero.
+			 * 	Se (perícia) = 0: dois dados e pegue o menor valor;
+			 * 	Se (perícia) > 0: simplemente atribua o valor.
+			 * afterD20Formula: verifica se é preciso pegar o menor valor ou o maior valor das rolagens
+			 * além disso, atribui a soma do resultado final.
+			 * 	Se (perícia) = 0: pegue o MENOR valor como resultado;
+			 * 	Se (perícia) > 0: pegue o MAIOR valor como resultado.
+			 * */  
+			const beforeD20Formula = 
+				((skillsName.attr[1]) ? skillsName.attr[1] : 2);
+
+			const afterD20Formula = 
+				((skillsName.attr[1] != 0) ? 'kh' : 'kl') +
+				((skillsName.mod) ? '+' + skillsName.mod : '');
+
+			skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
 		}
 	}
 
@@ -259,7 +341,7 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
-			const label = dataset.label ? `[roll] ${dataset.label}` : '';
+			const label = dataset.label ? `Rolando ${dataset.label}` : '';
 			const roll = new Roll(dataset.roll, this.actor.getRollData());
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
