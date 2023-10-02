@@ -67,6 +67,36 @@ Handlebars.registerHelper('concat', function () {
 	return outStr;
 });
 
+Handlebars.registerHelper('concatObjAndStr', function () {
+	
+	const option = arguments[arguments.length-1];
+	const args = Array.prototype.slice.call(arguments, 0,arguments.length-1);
+	console.log(option.name + ' - Argumentos: ' + args);
+
+	let objects = {};
+	for (const arg in args) {
+		if (typeof arguments[arg] == 'object' || typeof arguments[arg] == 'string') {
+			// console.log('Args: ' + typeof arguments[arg]);
+			// console.log('loop: ' + arg);
+			if (arg == 0) {
+				objects = arguments[arg];
+			} else {
+				objects = objects[arguments[arg]];
+			}
+			console.log(option.name + ' - Tipo final: ' +  typeof objects);
+		}
+	}
+	return objects;
+
+	// console.log('Trilha: ' + arguments[0]);
+	// console.log('Classe: ' + arguments[1]);
+
+	// const trilha = arguments[0];
+	// const classe = arguments[1];
+
+	// return trilha[classe];
+});
+
 Handlebars.registerHelper('toLowerCase', function (str) {
 	return str.toLowerCase();
 });
