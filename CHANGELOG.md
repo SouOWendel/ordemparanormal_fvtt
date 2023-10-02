@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.12.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.11.0...v1.12.0) (2023-10-02)
+
+
+### Features
+
+* **actor agente sheet:** style and added the dropdowns and PE field. Changes for formula system ([8a1820a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8a1820a1050f634749669dd4f393a6616ce9e043))
+* **actor-sheet:** dropdowns have been added to context and class information was made dynamic ([aafe73b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/aafe73b081e517abb550f198d3e582a25166e3a4))
+* **config:** added the system constants for Trilhas and Class ([492556e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/492556e9590dcb39739484a69c22cde6b10364b0))
+* **localization:** added translates to Portuguese for className and classChoices ([891fe8f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/891fe8fd4ac281307da8e4408ea3c9a19f0779d4))
+* **template:** added the Class and Trilha data ([fd73bee](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/fd73bee20edd46e1fa165a1845eb944cf4295cb1))
+* was created the Handlebars Helper concatObjAndStr for concat multiples objects and strings ([6748f71](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6748f71a6aa63f179d50c2ab7b012c5c694bc46e))
+
+
+### Performance Improvements
+
+* **actor:** change the Loop System Attributes for prepareBaseData. Now the data is processed before ([264a272](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/264a2727a810c070ef4af553c6fd95869449ae5f))
+* clean the code of console logs and use the appropriate data for save the info ([cc32a1e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/cc32a1e0f6911309fd7e679ec8aedaa8f8bbbc19))
+
 ## [1.11.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.10.4...v1.11.0) (2023-09-27)
 
 
