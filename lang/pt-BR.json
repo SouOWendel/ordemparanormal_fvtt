@@ -64,5 +64,31 @@
 		"trei": "Treinado",
 		"vet": "Veterano",
 		"expe": "Expert"
+	},
+
+	"ORDEMPARANORMAL_FVTT.className": "Classe",
+	"ORDEMPARANORMAL_FVTT.classChoices": {
+		"combatente": "Combatente",
+		"especialista": "Especialista",
+		"ocultista": "Ocultista"
+	},
+
+	"ORDEMPARANORMAL_FVTT.trilhasName": "Trilhas",
+	"ORDEMPARANORMAL_FVTT.trilhas": {
+		"aniquilador": "Aniquilador",
+		"comandanteDeCampo": "Comandante de Campo",
+		"operacoesEspeciais": "Operações Especiais",
+		"tropaDeChoque": "Tropa de Choque",
+		"guerreiro": "Guerreiro",
+		"infiltrador": "Infiltrador",
+		"atiradorDeElite": "Atirador de Elite",
+		"medicoDeCampo": "Médico de Campo",
+		"negociador": "Negociador",
+		"tecnico": "Técnico",
+		"conduite": "Conduíte",
+		"flagelador": "Flagelador",
+		"graduado": "Graduado",
+		"intuitivo": "Intuitivo",
+		"laminaParanormal": "Lâmina Paranormal"
 	}
 }

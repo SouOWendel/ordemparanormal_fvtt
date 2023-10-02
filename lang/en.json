@@ -64,5 +64,12 @@
 		"trei": "Trained",
 		"vet": "Veteran",
 		"expe": "Expert"
+	},
+
+	"ORDEMPARANORMAL_FVTT.className": "Class",
+	"ORDEMPARANORMAL_FVTT.classChoices": {
+		"combatente": "Combatente",
+		"especialista": "Especialista",
+		"ocultista": "Ocultista"
 	}
 }
