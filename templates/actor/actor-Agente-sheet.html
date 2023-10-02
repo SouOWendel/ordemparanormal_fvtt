@@ -26,12 +26,10 @@
 				and it will add a small amount of padding, a border, and will
 				center all of its child elements content and text. --}}
 				<div class="resource flex-group-center">
-					<label for="data.PV.value" class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.PV'}}</label
-					>
-					<div
-						class="resource-content flexrow flex-center flex-between"
-					>
+					<label for="data.PV.value" class="resource-label">
+						{{localize 'ORDEMPARANORMAL_FVTT.PV'}}
+					</label>
+					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.PV.value"
@@ -50,11 +48,9 @@
 
 				<div class="resource flex-group-center">
 					<label for="data.SAN.value" class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.San'}}</label
-					>
-					<div
-						class="resource-content flexrow flex-center flex-between"
-					>
+						>{{localize 'ORDEMPARANORMAL_FVTT.San'}}
+					</label>
+					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.SAN.value"
@@ -72,12 +68,31 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="data.NEX.value" class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.NEX'}}</label
-					>
-					<div
-						class="resource-content flexrow flex-center flex-between"
-					>
+					<label for="data.PE.value" class="resource-label"
+						>{{localize 'ORDEMPARANORMAL_FVTT.PE'}}
+					</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.PE.value"
+							value="{{data.PE.value}}"
+							data-dtype="Number"
+						/>
+						<span> / </span>
+						<input
+							type="text"
+							name="data.PE.max"
+							value="{{data.PE.max}}"
+							data-dtype="Number"
+						/>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label for="data.NEX.value" class="resource-label">
+						{{localize 'ORDEMPARANORMAL_FVTT.NEX'}}
+					</label>
+					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.NEX.value"
@@ -88,14 +103,50 @@
 				</div>
 
 				<div class="resource flex-group-center">
+					<label for="data.NEX.value" class="resource-label">
+						{{localize 'ORDEMPARANORMAL_FVTT.className'}}
+					</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<select name="data.class" data-dtype="String">
+							{{
+								selectOptions optionClass
+								selected=data.class 
+								localize=true
+								blank="—"
+							}}
+						</select>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label for="data.NEX.value" class="resource-label">
+						{{localize 'ORDEMPARANORMAL_FVTT.trilhasName'}}
+					</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						{{#if data.class }}
+						<select name="data.trilha" data-dtype="String">
+							{{
+								selectOptions (concatObjAndStr optionTrilhas data.class)
+								selected=data.trilha
+								nameAttr="name" labelAttr="label"
+								blank="—"
+								localize=true
+							}}
+						</select>
+						{{else}}
+						<select disabled>
+							<option>Chegue ao NEX 10%</option>
+						</select>
+						{{/if}}
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
 					<label
 						for="data.attributes.agi.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttAgi'}}</label
-					>
-					<div
-						class="resource-content flexrow flex-center flex-between"
-					>
+						>{{localize 'ORDEMPARANORMAL_FVTT.AttAgi'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.attributes.agi.value"
@@ -109,11 +160,8 @@
 					<label
 						for="data.attributes.int.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttInt'}}</label
-					>
-					<div
-						class="resource-content flexrow flex-center flex-between"
-					>
+						>{{localize 'ORDEMPARANORMAL_FVTT.AttInt'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.attributes.int.value"
@@ -127,11 +175,8 @@
 					<label
 						for="data.attributes.vig.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttVig'}}</label
-					>
-					<div
-						class="resource-content flexrow flex-center flex-between"
-					>
+						>{{localize 'ORDEMPARANORMAL_FVTT.AttVig'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.attributes.vig.value"
@@ -145,11 +190,8 @@
 					<label
 						for="data.attributes.pre.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttPre'}}</label
-					>
-					<div
-						class="resource-content flexrow flex-center flex-between"
-					>
+						>{{localize 'ORDEMPARANORMAL_FVTT.AttPre'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.attributes.pre.value"
@@ -163,11 +205,8 @@
 					<label
 						for="data.attributes.for.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttFor'}}</label
-					>
-					<div
-						class="resource-content flexrow flex-center flex-between"
-					>
+						>{{localize 'ORDEMPARANORMAL_FVTT.AttFor'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.attributes.for.value"
@@ -206,25 +245,21 @@
 							<label
 								for="data.skills.{{key}}.value"
 								class="resource-label rollable flexlarge align-left"
-								data-roll="
-								{{ifThen skillName.attr.[1] skillName.attr.[1] 2 }}d20
-								{{ifThen skillName.attr.[1] 'kh' 'kl'}}+
-								@skills.{{key}}.mod"
+								data-roll="{{skillName.formula}}"
 								data-label="{{skillName.label}}"
-								>{{skillName.label}}{{ifThen skillName.conditions.carga "+" ""}}{{ifThen skillName.conditions.trained "*" ""}}
-								({{skillName.attr.[0]}})
+								>{{skillName.label}}
 							</label>
 							<select class="trainingDegree_SB" name="data.skills.{{key}}.degree.label" data-dtype="String">
 								{{
-									selectOptions ../optionObj
+									selectOptions ../optionDegree
 									selected=skillName.degree.label 
 									localize=true
 								}}
 							</select>
 							<input
 								type="text"
-								name="extra"
-								value=""
+								name="data.skills.{{key}}.mod"
+								value="{{skillName.mod}}"
 								data-dtype="Number"
 							/>
 						</div>
