@@ -26,6 +26,8 @@
     },
     "Agente": {
       "templates": ["base", "NEX"],
+      "class": "",
+      "trilha": "",
       "skills": {
         "acrobacia": {
           "value": 0,
