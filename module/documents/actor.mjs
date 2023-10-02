@@ -17,6 +17,40 @@ export class OrdemActor extends Actor {
 	prepareBaseData() {
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
+		const actorData = this.data;
+
+		this._prepareBaseDataAgente(actorData);
+
+	}
+
+	/**
+	 * 
+	 */
+	_prepareBaseDataAgente(actorData) {
+		if (actorData.type !== 'Agente') return;
+
+		// Make modifications to data here. For example:
+		const data = actorData.data;
+
+		// Loop through ability scores, and add their modifiers to our sheet output.
+		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
+			// Calculate the modifier using d20 rules.
+			if (!skillsName.mod) skillsName.mod = '';
+
+			/**
+			 * Faz um loop de todos os atributos, depois disso, se o atributo
+			 * necessário para a perícia for o mesmo que a mesma perícia em que o loop
+			 * esta no momento, este valor é atualizado para ser utilizado nas rolagens.
+			 */
+			for (const [keyAttr, attribute] of Object.entries(data.attributes)) {
+				// console.log('keyAttr is ' + keyAttr);
+				// console.log('skillsName.attr[0] is ' + skillsName.attr[0]);
+				if (skillsName.attr[0] == keyAttr) {
+					// console.log('attribute.value ' + attribute.value + ' data.skills[keySkill].attr[1] ' + data.skills[keySkill].attr[1]);
+					data.skills[keySkill].attr[1] = attribute.value;
+				}
+			}
+		}
 	}
 
 	/**
@@ -51,23 +85,13 @@ export class OrdemActor extends Actor {
 		// Make modifications to data here. For example:
 		const data = actorData.data;
 
+		
+
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
 			// Calculate the modifier using d20 rules.
-			skillsName.mod = 0;
-			/**
-			 * Faz um loop de todos os atributos, depois disso, se o atributo
-			 * necessário para a perícia for o mesmo que a mesma perícia em que o loop
-			 * esta no momento, este valor é atualizado para ser utilizado nas rolagens.
-			 */
-			for (const [keyAttr, attribute] of Object.entries(data.attributes)) {
-				// console.log('keyAttr is ' + keyAttr);
-				// console.log('skillsName.attr[0] is ' + skillsName.attr[0]);
-				if (skillsName.attr[0] == keyAttr) {
-					console.log('attribute.value ' + attribute.value + ' data.skills[keySkill].attr[1] ' + data.skills[keySkill].attr[1]);
-					data.skills[keySkill].attr[1] = attribute.value;
-				}
-			}
+			// if (skillsName.mod) skillsName.mod = 0;
+			
 		}
 	}
 
