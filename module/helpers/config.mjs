@@ -80,3 +80,33 @@ ORDEMPARANORMAL_FVTT.dropdownDegree = {
 	'Veterano': 'ORDEMPARANORMAL_FVTT.degreeTrainingChoices.vet',
 	'Expert': 'ORDEMPARANORMAL_FVTT.degreeTrainingChoices.expe'
 };
+
+ORDEMPARANORMAL_FVTT.dropdownClass = {
+	'Combatente': 'ORDEMPARANORMAL_FVTT.classChoices.combatente',
+	'Especialista': 'ORDEMPARANORMAL_FVTT.classChoices.especialista',
+	'Ocultista': 'ORDEMPARANORMAL_FVTT.classChoices.ocultista'
+};
+
+ORDEMPARANORMAL_FVTT.dropdownTrilha = {
+	Combatente: [
+		{name: 'aniquilador', label: 'ORDEMPARANORMAL_FVTT.trilhas.aniquilador'},
+		{name: 'comanDeCamp', label: 'ORDEMPARANORMAL_FVTT.trilhas.comandanteDeCampo'},
+		{name: 'opeEspeciais', label: 'ORDEMPARANORMAL_FVTT.trilhas.operacoesEspeciais'},
+		{name: 'tropaChoque', label: 'ORDEMPARANORMAL_FVTT.trilhas.tropaDeChoque'},
+		{name: 'guerreiro', label: 'ORDEMPARANORMAL_FVTT.trilhas.guerreiro'},
+	],
+	Especialista: [
+		{name: 'infiltrador', label: 'ORDEMPARANORMAL_FVTT.trilhas.infiltrador'},
+		{name: 'atiradorElite', label: 'ORDEMPARANORMAL_FVTT.trilhas.atiradorDeElite'},
+		{name: 'medicoCampo', label: 'ORDEMPARANORMAL_FVTT.trilhas.medicoDeCampo'},
+		{name: 'negociador', label: 'ORDEMPARANORMAL_FVTT.trilhas.negociador'},
+		{name: 'tecnico', label: 'ORDEMPARANORMAL_FVTT.trilhas.tecnico'},
+	],
+	Ocultista: [
+		{name: 'conduite', label: 'ORDEMPARANORMAL_FVTT.trilhas.conduite'},
+		{name: 'flagelador', label: 'ORDEMPARANORMAL_FVTT.trilhas.flagelador'},
+		{name: 'graduado', label: 'ORDEMPARANORMAL_FVTT.trilhas.graduado'},
+		{name: 'intuitivo', label: 'ORDEMPARANORMAL_FVTT.trilhas.intuitivo'},
+		{name: 'laminaParanormal', label: 'ORDEMPARANORMAL_FVTT.trilhas.laminaParanormal'},
+	]
+};
