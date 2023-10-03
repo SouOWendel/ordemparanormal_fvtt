@@ -13,21 +13,19 @@
 
 </div>
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y8PRQ6Z)
+
 # Sobre o Ordem Paranormal.
 
-Este é um sistema e universo de investigação paranormal criado por Rafael Lange, mais conhecido pelo seu pseudônimo Cellbit. Com base nisso, este é um **sistema não-oficial** adaptado para o FoundryVTT.
+Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado por Rafael Lange, mais conhecido pelo seu pseudônimo Cellbit. Com base nisso, este é um **sistema não-oficial** adaptado para o FoundryVTT, que utiliza dos conteúdos considerados <i>Open Game License¹</i>, conforme a licença incluída juntamente ao livro de regras. 
 
 > No universo de Ordem Paranormal, o paranormal existe, mas está separado da nossa realidade por uma membrana. Essa membrana pode ser enfraquecida pelo medo, e alguns grupos de ocultistas estão dispostos a fazer isso para invocar entidades do Outro Lado.
 > Para combater essa ameaça, foi criada a Ordo Realitas, uma organização de detetives paranormais que vivem vidas duplas. Os agentes da Ordem secretamente investigam e combatem o paranormal, protegendo a Realidade e lutando contra aqueles que querem mergulhar o mundo em caos.
 
-> [!NOTE]
-> A marca Ordem Paranormal não é de minha autoria, todos os direitos são reservados aos seus respectivos donos.
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y8PRQ6Z)
 ## Começando o Desenvolvimento.
 
-1. Clone o repositório com `git clone https://github.com/SouOWendel/ordemparanormal_fvtt.git`
-2. Instale as dependências necessárias para o desenvolvimento com `git install`
+1. Clone o repositório com `git clone https://github.com/SouOWendel/ordemparanormal_fvtt.git ordemparanormal`
+2. Instale as dependências de desenvolvimento com `git install`
 
 ## Modulos Obrigatórios.
 
@@ -36,11 +34,14 @@ Este é um sistema e universo de investigação paranormal criado por Rafael Lan
 ## Licenças e Observações.
 <sub>
 Este repositório utiliza <a href="https://semver.org/lang/pt-BR/">Versionamento Semântico 2.0</a>, <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> e o guia de estilo para <a href="https://google.github.io/styleguide/jsguide.html">ESLint do Google</a>, além disso, desenvolvido com muita dedicação e código. Se precisar, contate-me através do e-mail ou redes sociais: <a href="https://mail.google.com/mail/u/0/?fs=1&to=souowendel@gmail.com&su=Enquiry&tf=cm">souowendel@gmail.com</a>, discord: souowendel, twitter: <a href="https://twitter.com/EuSouOWendel">eusouowendel</a><br><br>
-
+</sub>
+<sub>
 This work is permitted under the Open Gaming License, the software component of this module/system is distributed under the CC BY-NC-SA 4.0 license. Sistema Ordem Paranormal para FoundryVTT © 2023 by Wendel Henrique is licensed under CC BY-NC-SA 4.0<br><br>
-
+</sub>
+<sub>
 ¹: LANGE, R. Ordem Paranormal RPG. 1a EDIÇÃO ed. Rua Coronel Genuíno, 209 • Porto Alegre, rs: Jambô Editora, 2022. v. 1p. 2, 318. "O material a seguir é Identidade do Produto: os capítulos 5, 7 e 8, todos os termos referentes ao cenário de Ordem Paranormal, incluindo a Membrana, o Outro Lado, nomes e descrições de personagens, criaturas, entidades, lugares e organizações, todas as ilustrações e todas as regras de rituais, poderes paranormais, Sanidade e dano mental. O material a seguir é Conteúdo Open Game: todo o texto de regras do livro, exceto por material previamente declarado Identidade do Produto."<br><br>
-
+</sub>
+<sub>
 Observação: A marca Ordem Paranormal não é de minha autoria, todos os direitos são reservados aos seus respectivos donos.
 </sub> 
 
