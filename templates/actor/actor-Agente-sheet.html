@@ -27,7 +27,7 @@
 				center all of its child elements content and text. --}}
 				<div class="resource flex-group-center">
 					<label for="data.PV.value" class="resource-label">
-						{{localize 'ORDEMPARANORMAL_FVTT.PV'}}
+						{{localize 'ordemparanormal.PV'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
@@ -48,7 +48,7 @@
 
 				<div class="resource flex-group-center">
 					<label for="data.SAN.value" class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.San'}}
+						>{{localize 'ordemparanormal.San'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
@@ -69,7 +69,7 @@
 
 				<div class="resource flex-group-center">
 					<label for="data.PE.value" class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.PE'}}
+						>{{localize 'ordemparanormal.PE'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
@@ -89,22 +89,32 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="data.NEX.value" class="resource-label">
-						{{localize 'ORDEMPARANORMAL_FVTT.NEX'}}
+					<label for="data.PE.value" class="resource-label"
+						>{{localize 'ordemparanormal.pePerRound'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
-							type="text"
-							name="data.NEX.value"
-							value="{{data.NEX.value}}"
+							type="number"
+							name="data.PE.perRound"
+							value="{{data.PE.perRound}}"
 							data-dtype="Number"
+							disabled
 						/>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
 					<label for="data.NEX.value" class="resource-label">
-						{{localize 'ORDEMPARANORMAL_FVTT.className'}}
+						{{localize 'ordemparanormal.NEX'}}
+					</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						{{numberInputFVTT data.NEX.value name="data.NEX.value" step=1 min=0 max=99}}
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label for="{{localize 'ordemparanormal.className'}}" class="resource-label">
+						{{localize 'ordemparanormal.className'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<select name="data.class" data-dtype="String">
@@ -119,8 +129,24 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="data.NEX.value" class="resource-label">
-						{{localize 'ORDEMPARANORMAL_FVTT.trilhasName'}}
+					<label for="{{localize 'ordemparanormal.originName'}}" class="resource-label">
+						{{localize 'ordemparanormal.originName'}}
+					</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<select name="data.origin" data-dtype="String">
+							{{
+								selectOptions optionOrigins
+								selected=data.origin 
+								localize=true
+								blank="—"
+							}}
+						</select>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label for="{{localize 'ordemparanormal.trilhasName'}}" class="resource-label">
+						{{localize 'ordemparanormal.trilhasName'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						{{#if data.class }}
@@ -143,9 +169,41 @@
 
 				<div class="resource flex-group-center">
 					<label
+						for="{{localize 'ordemparanormal.defense'}}"
+						class="resource-label"
+						>{{localize 'ordemparanormal.defense'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.defense.value"
+							value="{{data.defense.value}}"
+							data-dtype="Number" 
+							disabled
+						/>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label
+						for="{{localize 'ordemparanormal.dodge'}}"
+						class="resource-label"
+						>{{localize 'ordemparanormal.dodge'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.defense.dodge"
+							value="{{data.defense.dodge}}"
+							data-dtype="Number" 
+							disabled
+						/>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label
 						for="data.attributes.agi.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttAgi'}}</label>
+						>{{localize 'ordemparanormal.AttAgi'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
@@ -160,7 +218,7 @@
 					<label
 						for="data.attributes.int.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttInt'}}</label>
+						>{{localize 'ordemparanormal.AttInt'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
@@ -175,7 +233,7 @@
 					<label
 						for="data.attributes.vig.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttVig'}}</label>
+						>{{localize 'ordemparanormal.AttVig'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
@@ -190,7 +248,7 @@
 					<label
 						for="data.attributes.pre.value"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttPre'}}</label>
+						>{{localize 'ordemparanormal.AttPre'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
@@ -203,15 +261,31 @@
 
 				<div class="resource flex-group-center">
 					<label
-						for="data.attributes.for.value"
+						for="{{localize 'ordemparanormal.AttFor'}}"
 						class="resource-label"
-						>{{localize 'ORDEMPARANORMAL_FVTT.AttFor'}}</label>
+						>{{localize 'ordemparanormal.AttFor'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="data.attributes.for.value"
 							value="{{data.attributes.for.value}}"
 							data-dtype="Number"
+						/>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label
+						for="{{localize 'ordemparanormal.deslocamento'}}"
+						class="resource-label"
+						>{{localize 'ordemparanormal.deslocamento'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.desloc.value"
+							value="{{data.desloc.value}}"
+							data-dtype="Number"
+							disabled
 						/>
 					</div>
 				</div>
@@ -273,7 +347,7 @@
 					{{!-- This is a Handlebars partial. They're stored in the
 					`/parts` folder next to this sheet, and defined in
 					module/helpers/templates.mjs --}} {{>
-					"systems/ordemparanormal_fvtt/templates/actor/parts/actor-features.html"}}
+					"systems/ordemparanormal/templates/actor/parts/actor-features.html"}}
 				</section>
 			</section>
 		</div>
@@ -290,13 +364,13 @@
 		{{!-- Owned Items Tab --}}
 		<div class="tab items" data-group="primary" data-tab="items">
 			{{>
-			"systems/ordemparanormal_fvtt/templates/actor/parts/actor-items.html"}}
+			"systems/ordemparanormal/templates/actor/parts/actor-items.html"}}
 		</div>
 
 		{{!-- Owned Spells Tab --}}
 		<div class="tab spells" data-group="primary" data-tab="spells">
 			{{>
-			"systems/ordemparanormal_fvtt/templates/actor/parts/actor-spells.html"}}
+			"systems/ordemparanormal/templates/actor/parts/actor-spells.html"}}
 		</div>
 
 		{{!-- Active Effects Tab --}}
@@ -306,7 +380,7 @@
 			data-tab="effects"
 		>
 			{{>
-			"systems/ordemparanormal_fvtt/templates/actor/parts/actor-effects.html"}}
+			"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
 		</div>
 	</section>
 </form>
