@@ -1,112 +1,141 @@
-export const ORDEMPARANORMAL_FVTT = {};
+export const ordemparanormal = {};
 
 // Define constants here, such as:
-ORDEMPARANORMAL_FVTT.foobar = {
-	bas: 'ORDEMPARANORMAL_FVTT.bas',
-	bar: 'ORDEMPARANORMAL_FVTT.bar',
+ordemparanormal.foobar = {
+	bas: 'ordemparanormal.bas',
+	bar: 'ordemparanormal.bar',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ORDEMPARANORMAL_FVTT.base = {
-	PV: 'ORDEMPARANORMAL_FVTT.PV',
-	PE: 'ORDEMPARANORMAL_FVTT.PE',
-	San: 'ORDEMPARANORMAL_FVTT.San',
-	NEX: 'ORDEMPARANORMAL_FVTT.NEX',
+ordemparanormal.base = {
+	PV: 'ordemparanormal.PV',
+	PE: 'ordemparanormal.PE',
+	San: 'ordemparanormal.San',
+	NEX: 'ordemparanormal.NEX',
 };
 
-ORDEMPARANORMAL_FVTT.attributes = {
-	Agilidade: 'ORDEMPARANORMAL_FVTT.AttAgi',
-	Inteligancia: 'ORDEMPARANORMAL_FVTT.AttInt',
-	Vigor: 'ORDEMPARANORMAL_FVTT.AttVig',
-	Presenca: 'ORDEMPARANORMAL_FVTT.AttPre',
-	Forca: 'ORDEMPARANORMAL_FVTT.AttFor',
+ordemparanormal.attributes = {
+	Agilidade: 'ordemparanormal.AttAgi',
+	Inteligancia: 'ordemparanormal.AttInt',
+	Vigor: 'ordemparanormal.AttVig',
+	Presenca: 'ordemparanormal.AttPre',
+	Forca: 'ordemparanormal.AttFor',
 };
 
-ORDEMPARANORMAL_FVTT.skills = {
-	acrobacia: 'ORDEMPARANORMAL_FVTT.skillAcrobacia',
-	adestramento: 'ORDEMPARANORMAL_FVTT.skillAdestramento',
-	artes: 'ORDEMPARANORMAL_FVTT.skillArtes',
-	atletismo: 'ORDEMPARANORMAL_FVTT.skillAtletismo',
-	atualidades: 'ORDEMPARANORMAL_FVTT.skillAtualidades',
-	ciencias: 'ORDEMPARANORMAL_FVTT.skillCiencias',
-	crime: 'ORDEMPARANORMAL_FVTT.skillCrime',
-	diplomacia: 'ORDEMPARANORMAL_FVTT.skillDiplomacia',
-	enganacao: 'ORDEMPARANORMAL_FVTT.skillEnganacao',
-	fortitude: 'ORDEMPARANORMAL_FVTT.skillFortitude',
-	furtividade: 'ORDEMPARANORMAL_FVTT.skillFurtividade',
-	iniciativa: 'ORDEMPARANORMAL_FVTT.skillIniciativa',
-	intimidacao: 'ORDEMPARANORMAL_FVTT.skillIntimidacao',
-	intuicao: 'ORDEMPARANORMAL_FVTT.skillIntuicao',
-	investigacao: 'ORDEMPARANORMAL_FVTT.skillInvestigacao',
-	luta: 'ORDEMPARANORMAL_FVTT.skillLuta',
-	medicina: 'ORDEMPARANORMAL_FVTT.skillMedicina',
-	ocultismo: 'ORDEMPARANORMAL_FVTT.skillOcultismo',
-	percepcao: 'ORDEMPARANORMAL_FVTT.skillPercepcao',
-	pilotagem: 'ORDEMPARANORMAL_FVTT.skillPilotagem',
-	pontaria: 'ORDEMPARANORMAL_FVTT.skillPontaria',
-	reflexos: 'ORDEMPARANORMAL_FVTT.skillReflexos',
-	religiao: 'ORDEMPARANORMAL_FVTT.skillReligiao',
-	sobrevivencia: 'ORDEMPARANORMAL_FVTT.skillSobrevivencia',
-	tatica: 'ORDEMPARANORMAL_FVTT.skillTatica',
-	tecnologia: 'ORDEMPARANORMAL_FVTT.skillTecnologia',
-	vontade: 'ORDEMPARANORMAL_FVTT.skillVontade',
+ordemparanormal.skills = {
+	acrobacia: 'ordemparanormal.skillAcrobacia',
+	adestramento: 'ordemparanormal.skillAdestramento',
+	artes: 'ordemparanormal.skillArtes',
+	atletismo: 'ordemparanormal.skillAtletismo',
+	atualidades: 'ordemparanormal.skillAtualidades',
+	ciencias: 'ordemparanormal.skillCiencias',
+	crime: 'ordemparanormal.skillCrime',
+	diplomacia: 'ordemparanormal.skillDiplomacia',
+	enganacao: 'ordemparanormal.skillEnganacao',
+	fortitude: 'ordemparanormal.skillFortitude',
+	furtividade: 'ordemparanormal.skillFurtividade',
+	iniciativa: 'ordemparanormal.skillIniciativa',
+	intimidacao: 'ordemparanormal.skillIntimidacao',
+	intuicao: 'ordemparanormal.skillIntuicao',
+	investigacao: 'ordemparanormal.skillInvestigacao',
+	luta: 'ordemparanormal.skillLuta',
+	medicina: 'ordemparanormal.skillMedicina',
+	ocultismo: 'ordemparanormal.skillOcultismo',
+	percepcao: 'ordemparanormal.skillPercepcao',
+	pilotagem: 'ordemparanormal.skillPilotagem',
+	pontaria: 'ordemparanormal.skillPontaria',
+	reflexos: 'ordemparanormal.skillReflexos',
+	religiao: 'ordemparanormal.skillReligiao',
+	sobrevivencia: 'ordemparanormal.skillSobrevivencia',
+	tatica: 'ordemparanormal.skillTatica',
+	tecnologia: 'ordemparanormal.skillTecnologia',
+	vontade: 'ordemparanormal.skillVontade',
 };
 
-ORDEMPARANORMAL_FVTT.abilities = {
-	str: 'ORDEMPARANORMAL_FVTT.AbilityStr',
-	dex: 'ORDEMPARANORMAL_FVTT.AbilityDex',
-	con: 'ORDEMPARANORMAL_FVTT.AbilityCon',
-	int: 'ORDEMPARANORMAL_FVTT.AbilityInt',
-	wis: 'ORDEMPARANORMAL_FVTT.AbilityWis',
-	cha: 'ORDEMPARANORMAL_FVTT.AbilityCha',
+ordemparanormal.abilities = {
+	str: 'ordemparanormal.AbilityStr',
+	dex: 'ordemparanormal.AbilityDex',
+	con: 'ordemparanormal.AbilityCon',
+	int: 'ordemparanormal.AbilityInt',
+	wis: 'ordemparanormal.AbilityWis',
+	cha: 'ordemparanormal.AbilityCha',
 };
 
 
-ORDEMPARANORMAL_FVTT.abilityAbbreviations = {
-	str: 'ORDEMPARANORMAL_FVTT.AbilityStrAbbr',
-	dex: 'ORDEMPARANORMAL_FVTT.AbilityDexAbbr',
-	con: 'ORDEMPARANORMAL_FVTT.AbilityConAbbr',
-	int: 'ORDEMPARANORMAL_FVTT.AbilityIntAbbr',
-	wis: 'ORDEMPARANORMAL_FVTT.AbilityWisAbbr',
-	cha: 'ORDEMPARANORMAL_FVTT.AbilityChaAbbr',
+ordemparanormal.abilityAbbreviations = {
+	str: 'ordemparanormal.AbilityStrAbbr',
+	dex: 'ordemparanormal.AbilityDexAbbr',
+	con: 'ordemparanormal.AbilityConAbbr',
+	int: 'ordemparanormal.AbilityIntAbbr',
+	wis: 'ordemparanormal.AbilityWisAbbr',
+	cha: 'ordemparanormal.AbilityChaAbbr',
 };
 
-ORDEMPARANORMAL_FVTT.dropdownDegree = {
-	'Destreinado': 'ORDEMPARANORMAL_FVTT.degreeTrainingChoices.dest',
-	'Treinado': 'ORDEMPARANORMAL_FVTT.degreeTrainingChoices.trei',
-	'Veterano': 'ORDEMPARANORMAL_FVTT.degreeTrainingChoices.vet',
-	'Expert': 'ORDEMPARANORMAL_FVTT.degreeTrainingChoices.expe'
+ordemparanormal.dropdownDegree = {
+	'Destreinado': 'ordemparanormal.degreeTrainingChoices.dest',
+	'Treinado': 'ordemparanormal.degreeTrainingChoices.trei',
+	'Veterano': 'ordemparanormal.degreeTrainingChoices.vet',
+	'Expert': 'ordemparanormal.degreeTrainingChoices.expe'
 };
 
-ORDEMPARANORMAL_FVTT.dropdownClass = {
-	'Combatente': 'ORDEMPARANORMAL_FVTT.classChoices.combatente',
-	'Especialista': 'ORDEMPARANORMAL_FVTT.classChoices.especialista',
-	'Ocultista': 'ORDEMPARANORMAL_FVTT.classChoices.ocultista'
+ordemparanormal.dropdownClass = {
+	'Combatente': 'ordemparanormal.classChoices.combatente',
+	'Especialista': 'ordemparanormal.classChoices.especialista',
+	'Ocultista': 'ordemparanormal.classChoices.ocultista'
 };
 
-ORDEMPARANORMAL_FVTT.dropdownTrilha = {
+ordemparanormal.dropdownTrilha = {
 	Combatente: [
-		{name: 'aniquilador', label: 'ORDEMPARANORMAL_FVTT.trilhas.aniquilador'},
-		{name: 'comanDeCamp', label: 'ORDEMPARANORMAL_FVTT.trilhas.comandanteDeCampo'},
-		{name: 'opeEspeciais', label: 'ORDEMPARANORMAL_FVTT.trilhas.operacoesEspeciais'},
-		{name: 'tropaChoque', label: 'ORDEMPARANORMAL_FVTT.trilhas.tropaDeChoque'},
-		{name: 'guerreiro', label: 'ORDEMPARANORMAL_FVTT.trilhas.guerreiro'},
+		{name: 'aniquilador', label: 'ordemparanormal.trilhas.aniquilador'},
+		{name: 'comanDeCamp', label: 'ordemparanormal.trilhas.comandanteDeCampo'},
+		{name: 'opeEspeciais', label: 'ordemparanormal.trilhas.operacoesEspeciais'},
+		{name: 'tropaChoque', label: 'ordemparanormal.trilhas.tropaDeChoque'},
+		{name: 'guerreiro', label: 'ordemparanormal.trilhas.guerreiro'},
 	],
 	Especialista: [
-		{name: 'infiltrador', label: 'ORDEMPARANORMAL_FVTT.trilhas.infiltrador'},
-		{name: 'atiradorElite', label: 'ORDEMPARANORMAL_FVTT.trilhas.atiradorDeElite'},
-		{name: 'medicoCampo', label: 'ORDEMPARANORMAL_FVTT.trilhas.medicoDeCampo'},
-		{name: 'negociador', label: 'ORDEMPARANORMAL_FVTT.trilhas.negociador'},
-		{name: 'tecnico', label: 'ORDEMPARANORMAL_FVTT.trilhas.tecnico'},
+		{name: 'infiltrador', label: 'ordemparanormal.trilhas.infiltrador'},
+		{name: 'atiradorElite', label: 'ordemparanormal.trilhas.atiradorDeElite'},
+		{name: 'medicoCampo', label: 'ordemparanormal.trilhas.medicoDeCampo'},
+		{name: 'negociador', label: 'ordemparanormal.trilhas.negociador'},
+		{name: 'tecnico', label: 'ordemparanormal.trilhas.tecnico'},
 	],
 	Ocultista: [
-		{name: 'conduite', label: 'ORDEMPARANORMAL_FVTT.trilhas.conduite'},
-		{name: 'flagelador', label: 'ORDEMPARANORMAL_FVTT.trilhas.flagelador'},
-		{name: 'graduado', label: 'ORDEMPARANORMAL_FVTT.trilhas.graduado'},
-		{name: 'intuitivo', label: 'ORDEMPARANORMAL_FVTT.trilhas.intuitivo'},
-		{name: 'laminaParanormal', label: 'ORDEMPARANORMAL_FVTT.trilhas.laminaParanormal'},
+		{name: 'conduite', label: 'ordemparanormal.trilhas.conduite'},
+		{name: 'flagelador', label: 'ordemparanormal.trilhas.flagelador'},
+		{name: 'graduado', label: 'ordemparanormal.trilhas.graduado'},
+		{name: 'intuitivo', label: 'ordemparanormal.trilhas.intuitivo'},
+		{name: 'laminaParanormal', label: 'ordemparanormal.trilhas.laminaParanormal'},
 	]
+};
+
+ordemparanormal.dropdownOrigins = {
+	'academico': 'ordemparanormal.originsChoices.academico',
+	'agenteDeSaude': 'ordemparanormal.originsChoices.agenteDeSaude',
+	'amnesico': 'ordemparanormal.originsChoices.amnesico',
+	'artista': 'ordemparanormal.originsChoices.artista',
+	'atleta': 'ordemparanormal.originsChoices.atleta',
+	'chef': 'ordemparanormal.originsChoices.chef',
+	'criminoso': 'ordemparanormal.originsChoices.criminoso',
+	'cultistaArrependido': 'ordemparanormal.originsChoices.cultistaArrependido',
+	'desgarrado': 'ordemparanormal.originsChoices.desgarrado',
+	'engenheiro': 'ordemparanormal.originsChoices.engenheiro',
+	'executivo': 'ordemparanormal.originsChoices.executivo',
+	'investigador': 'ordemparanormal.originsChoices.investigador',
+	'lutador': 'ordemparanormal.originsChoices.lutador',
+	'magnata': 'ordemparanormal.originsChoices.magnata',
+	'mercenario': 'ordemparanormal.originsChoices.mercenario',
+	'militar': 'ordemparanormal.originsChoices.militar',
+	'operario': 'ordemparanormal.originsChoices.operario',
+	'policial': 'ordemparanormal.originsChoices.policial',
+	'religioso': 'ordemparanormal.originsChoices.religioso',
+	'servidorPublico': 'ordemparanormal.originsChoices.servidorPublico',
+	'teóricoDaConspiracao': 'ordemparanormal.originsChoices.teóricoDaConspiracao',
+	'TI.': 'ordemparanormal.originsChoices.TI',
+	'trabalhadorRural': 'ordemparanormal.originsChoices.trabalhadorRural',
+	'trambiqueiro': 'ordemparanormal.originsChoices.trambiqueiro',
+	'universitario': 'ordemparanormal.originsChoices.universitario',
+	'vítima': 'ordemparanormal.originsChoices.vítima'
 };
