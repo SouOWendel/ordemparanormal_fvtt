@@ -7,30 +7,31 @@ import { OrdemActorSheet } from './sheets/actor-sheet.mjs';
 import { OrdemItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
-import { ORDEMPARANORMAL_FVTT } from './helpers/config.mjs';
+import { ordemparanormal } from './helpers/config.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
 
 Hooks.once('init', async function () {
+	CONFIG.debug.hooks = true;
 	// Add utility classes to the global game object so that they're more easily
 	// accessible in global contexts.
-	game.ordemparanormal_fvtt = {
+	game.ordemparanormal = {
 		OrdemActor,
 		OrdemItem,
 		rollItemMacro,
 	};
 
 	// Add custom constants for configuration.
-	CONFIG.ORDEMPARANORMAL_FVTT = ORDEMPARANORMAL_FVTT;
+	CONFIG.ordemparanormal = ordemparanormal;
 
 	/**
 	 * Set an initiative formula for the system
 	 * @type {String}
 	 */
 	CONFIG.Combat.initiative = {
-		formula: '1d20 + @abilities.dex.mod',
+		formula: '(@skills.attributos.agi.value)d20 + @skills.iniciativa.value',
 		decimals: 2,
 	};
 
@@ -40,11 +41,11 @@ Hooks.once('init', async function () {
 
 	// Register sheet application classes
 	Actors.unregisterSheet('core', ActorSheet);
-	Actors.registerSheet('ordemparanormal_fvtt', OrdemActorSheet, {
+	Actors.registerSheet('ordemparanormal', OrdemActorSheet, {
 		makeDefault: true,
 	});
 	Items.unregisterSheet('core', ItemSheet);
-	Items.registerSheet('ordemparanormal_fvtt', OrdemItemSheet, {
+	Items.registerSheet('ordemparanormal', OrdemItemSheet, {
 		makeDefault: true,
 	});
 
@@ -71,7 +72,7 @@ Handlebars.registerHelper('concatObjAndStr', function () {
 	
 	const option = arguments[arguments.length-1];
 	const args = Array.prototype.slice.call(arguments, 0,arguments.length-1);
-	console.log(option.name + ' - Argumentos: ' + args);
+	console.log('ORDEM PARANORMAL FVTT | ' + option.name + ' - Argumentos: ' + args);
 
 	let objects = {};
 	for (const arg in args) {
@@ -83,7 +84,7 @@ Handlebars.registerHelper('concatObjAndStr', function () {
 			} else {
 				objects = objects[arguments[arg]];
 			}
-			console.log(option.name + ' - Tipo final: ' +  typeof objects);
+			console.log('ORDEM PARANORMAL FVTT | ' + option.name + ' - Tipo final: ' +  typeof objects);
 		}
 	}
 	return objects;
@@ -95,6 +96,24 @@ Handlebars.registerHelper('concatObjAndStr', function () {
 	// const classe = arguments[1];
 
 	// return trilha[classe];
+});
+
+Handlebars.registerHelper('numberInputFVTT', function (value, options) {
+	const properties = [];
+	for ( const k of ['class', 'name', 'placeholder', 'min', 'max'] ) {
+		if ( k in options.hash ) properties.push(`${k}="${options.hash[k]}"`);
+	}
+	const step = options.hash.step ?? 'any';
+	properties.unshift(`step="${step}"`);
+
+	// Disabled = True or False
+	if ( options.hash.disabled === true ) properties.push('disabled'); 
+
+	let safe = Number.isNumeric(value) ? Number(value) : '';
+	if ( Number.isNumeric(step) && (typeof safe === 'number') ) {
+		safe = safe.toNearest(Number(step));
+	}
+	return new Handlebars.SafeString(`<input type="number" value="${safe}" ${properties.join(' ')}>`);
 });
 
 Handlebars.registerHelper('toLowerCase', function (str) {
@@ -130,7 +149,7 @@ async function createItemMacro(data, slot) {
 	const item = data.data;
 
 	// Create the macro command
-	const command = `game.ordemparanormal_fvtt.rollItemMacro("${item.name}");`;
+	const command = `game.ordemparanormal.rollItemMacro("${item.name}");`;
 	let macro = game.macros.find(
 		(m) => m.name === item.name && m.command === command,
 	);
@@ -140,7 +159,7 @@ async function createItemMacro(data, slot) {
 			type: 'script',
 			img: item.img,
 			command: command,
-			flags: { 'ordemparanormal_fvtt.itemMacro': true },
+			flags: { 'ordemparanormal.itemMacro': true },
 		});
 	}
 	game.user.assignHotbarMacro(macro, slot);
