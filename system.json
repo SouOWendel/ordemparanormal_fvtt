@@ -1,4 +1,5 @@
 {
+  "id": "ordemparanormal",
   "name": "ordemparanormal_fvtt",
   "title": "Ordem Paranormal",
   "description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
@@ -22,7 +23,18 @@
     "css/ordemparanormal_fvtt.css"
   ],
   "scripts": [],
-  "packs": [],
+  "packs": [
+    {
+      "name": "origens_ptBR",
+      "label": "Origens",
+      "system": "ordemparanormal_fvtt",
+      "path": "packs/tables/roll-tables.db",
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    }
+  ],
   "languages": [
     {
       "lang": "en",
