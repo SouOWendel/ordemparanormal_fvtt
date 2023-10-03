@@ -67,7 +67,7 @@ export class OrdemActor extends Actor {
 		// eslint-disable-next-line no-unused-vars
 		const data = actorData.data;
 		// eslint-disable-next-line no-unused-vars
-		const flags = actorData.flags.ordemparanormal_fvtt || {};
+		const flags = actorData.flags.ordemparanormal || {};
 
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
 		// things organized.
@@ -85,13 +85,16 @@ export class OrdemActor extends Actor {
 		// Make modifications to data here. For example:
 		const data = actorData.data;
 
-		
-
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
 			// Calculate the modifier using d20 rules.
 			// if (skillsName.mod) skillsName.mod = 0;
-			
+			if (skillsName.degree.label == 'Treinado') skillsName.value = 5;
+			else if (skillsName.degree.label == 'Veterano') skillsName.value = 10;
+			else if (skillsName.degree.label == 'Expert') skillsName.value = 15;
+			else skillsName.value = 0;
+
+			console.log(JSON.stringify(skillsName.degree) + skillsName.value);
 		}
 	}
 
