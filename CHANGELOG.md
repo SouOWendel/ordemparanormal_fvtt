@@ -1,5 +1,32 @@
 # Changelog
 
+## [2.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.12.0...v2.0.0) (2023-10-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* the ID is the most important data of the system, without it nothing works, same for the mistakes
+
+### Features
+
+* **actor:** added the system of degrees with dynamic data ([5954062](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5954062f4beb004f83aee2beef4c060125fadfda))
+* **feat and fix:** created the Handlebars Helper 'numberInputFVTT' and change ordemparanormal_fvtt ([80224b5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/80224b5151684077927626265fa999fd76918120))
+* **fix:** added the dropdown of origins and changed 'ordemparanormal_fvtt' to 'ordemparanormal' ([e0e0ff0](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e0e0ff0cd5f94d20d42e4a097d8c229c7443fb36))
+* **fix:** added the following fields: pePerRound, origin, defense, dodge, displacement ([19a4202](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/19a4202fa612a5371bfcadda86509d9f35634b96))
+* **localization:** added pePerRound and origins data. Translations for PTBR ([dd56150](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dd56150118fb49d5b25fdeb8976e6f38d4b7d486))
+* **system:** added some fields: PE.perRound, defense and desloc ([3c24b9d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3c24b9d0f5077a933e316eedf6cb623faba84da8))
+* **system:** added the ID: ordemparanormal ([1855466](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1855466f7809645d9b32af89214ec3b877c40bdd))
+
+
+### Bug Fixes
+
+* changed the ID of the System.json: ordemparanormal_fvtt -&gt; ordemparanormal ([411548d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/411548dbf2df698141700a41de687d6b34e4a301))
+
+
+### Performance Improvements
+
+* **feat:** added quick access variables and added degree value on the formula of roll a dice ([bd02cc8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bd02cc82d4069fa54b08ed109b0a9ab525eac8cc))
+
 ## [1.12.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.11.0...v1.12.0) (2023-10-02)
 
 
