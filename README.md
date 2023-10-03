@@ -23,6 +23,7 @@ Este é um sistema e universo de investigação paranormal criado por Rafael Lan
 > [!NOTE]
 > A marca Ordem Paranormal não é de minha autoria, todos os direitos são reservados aos seus respectivos donos.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y8PRQ6Z)
 ## Começando o Desenvolvimento.
 
 1. Clone o repositório com `git clone https://github.com/SouOWendel/ordemparanormal_fvtt.git`
@@ -32,20 +33,18 @@ Este é um sistema e universo de investigação paranormal criado por Rafael Lan
 
 -   **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
 
-## License.
-
-Em breve...
-
 ## Considerações finais.
 
-Este repositório utiliza [Versionamento Semântico 2.0](https://semver.org/lang/pt-BR/), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), e o guia de estilo para [ESLint do Google](https://google.github.io/styleguide/jsguide.html), além disso, desenvolvido com muita dedicação e código! 🤓<br>
+Este repositório utiliza [Versionamento Semântico 2.0](https://semver.org/lang/pt-BR/), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) e o guia de<br> estilo para [ESLint do Google](https://google.github.io/styleguide/jsguide.html), além disso, desenvolvido com muita dedicação e código! 🤓<br> 
 <sub>
-Contate-me utilizando um destes meios:<br>
+Contate-me utilizando um destes meios:&nbsp;&nbsp;&nbsp;&nbsp;
 e-mail: souowendel@gmail.com &nbsp;&nbsp;&nbsp;&nbsp;
 discord: souowendel &nbsp;&nbsp;&nbsp;&nbsp;
 twitter: eusouowendel
 
 </sub>
+<hr>
+This work is permitted under the Open Gaming License, the software component of this module is distributed under the CC BY-NC-SA 4.0 license. Ordem Paranormal FoundryVTT © 2023 by Wendel Henrique is licensed under CC BY-NC-SA 4.0 
 
 <!-- Links Uteis -->
 <!-- https://foundryvtt.wiki/en/development/guides/SD-tutorial -->
