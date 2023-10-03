@@ -1,6 +1,7 @@
 {
 	"ORDEMPARANORMAL_FVTT.PV": "Pontos de Vida",
 	"ORDEMPARANORMAL_FVTT.PE": "Pontos de Esforço",
+	"ORDEMPARANORMAL_FVTT.pePerRound": "PE / Rodada",
 	"ORDEMPARANORMAL_FVTT.San": "Sanidade",
 	"ORDEMPARANORMAL_FVTT.NEX": "NEX",
 
@@ -73,6 +74,36 @@
 		"ocultista": "Ocultista"
 	},
 
+	"ORDEMPARANORMAL_FVTT.originName": "Origem",
+	"ORDEMPARANORMAL_FVTT.originsChoices": {
+		"academico": "Acadêmico",
+		"agenteDeSaude": "Agente de Saúde",
+		"amnesico": "Amnésico",
+		"artista": "Artista",
+		"atleta": "Atleta",
+		"chef": "Chef",
+		"criminoso": "Criminoso",
+		"cultistaArrependido": "Cultista Arrependido",
+		"desgarrado": "Desgarrado",
+		"engenheiro": "Engenheiro",
+		"executivo": "Executivo",
+		"investigador": "Investigador",
+		"lutador": "Lutador",
+		"magnata": "Magnata",
+		"mercenario": "Mercenário",
+		"militar": "Militar",
+		"operario": "Operário",
+		"policial": "Policial",
+		"religioso": "Religioso",
+		"servidorPublico": "Servidor Público",
+		"teóricoDaConspiracao": "Teórico da Conspiração",
+		"TI": "T.I.",
+		"trabalhadorRural": "Trabalhador Rural",
+		"trambiqueiro": "Trambiqueiro",
+		"universitario": "Universitário",
+		"vítima": "Vítima"
+	},
+
 	"ORDEMPARANORMAL_FVTT.trilhasName": "Trilhas",
 	"ORDEMPARANORMAL_FVTT.trilhas": {
 		"aniquilador": "Aniquilador",
@@ -90,5 +121,10 @@
 		"graduado": "Graduado",
 		"intuitivo": "Intuitivo",
 		"laminaParanormal": "Lâmina Paranormal"
-	}
+	},
+
+	"ORDEMPARANORMAL_FVTT.defense": "Defesa",
+	"ORDEMPARANORMAL_FVTT.dodge": "Esquiva",
+
+	"ORDEMPARANORMAL_FVTT.deslocamento": "Deslocamento"
 }

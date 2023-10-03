@@ -1,6 +1,7 @@
 {
 	"ORDEMPARANORMAL_FVTT.PV": "Health Points",
 	"ORDEMPARANORMAL_FVTT.PE": "Stamina Points",
+	"ORDEMPARANORMAL_FVTT.pePerRound": "PE / Rodada",
 	"ORDEMPARANORMAL_FVTT.San": "Sanity",
 	"ORDEMPARANORMAL_FVTT.NEX": "NEX",
 
@@ -71,5 +72,58 @@
 		"combatente": "Combatente",
 		"especialista": "Especialista",
 		"ocultista": "Ocultista"
-	}
+	},
+
+	"ORDEMPARANORMAL_FVTT.originsChoices": {
+		"academico": "Acadêmico",
+		"agenteDeSaude": "Agente de Saúde",
+		"amnesico": "Amnésico",
+		"artista": "Artista",
+		"atleta": "Atleta",
+		"chef": "Chef",
+		"criminoso": "Criminoso",
+		"cultistaArrependido": "Cultista Arrependido",
+		"desgarrado": "Desgarrado",
+		"engenheiro": "Engenheiro",
+		"executivo": "Executivo",
+		"investigador": "Investigador",
+		"lutador": "Lutador",
+		"magnata": "Magnata",
+		"mercenario": "Mercenário",
+		"militar": "Militar",
+		"operario": "Operário",
+		"policial": "Policial",
+		"religioso": "Religioso",
+		"servidorPublico": "Servidor Público",
+		"teóricoDaConspiracao": "Teórico da Conspiração",
+		"TI": "T.I.",
+		"trabalhadorRural": "Trabalhador Rural",
+		"trambiqueiro": "Trambiqueiro",
+		"universitario": "Universitário",
+		"vítima": "Vítima"
+	},
+
+	"ORDEMPARANORMAL_FVTT.trilhasName": "Trilhas",
+	"ORDEMPARANORMAL_FVTT.trilhas": {
+		"aniquilador": "Aniquilador",
+		"comandanteDeCampo": "Comandante de Campo",
+		"operacoesEspeciais": "Operações Especiais",
+		"tropaDeChoque": "Tropa de Choque",
+		"guerreiro": "Guerreiro",
+		"infiltrador": "Infiltrador",
+		"atiradorDeElite": "Atirador de Elite",
+		"medicoDeCampo": "Médico de Campo",
+		"negociador": "Negociador",
+		"tecnico": "Técnico",
+		"conduite": "Conduíte",
+		"flagelador": "Flagelador",
+		"graduado": "Graduado",
+		"intuitivo": "Intuitivo",
+		"laminaParanormal": "Lâmina Paranormal"
+	},
+
+	"ORDEMPARANORMAL_FVTT.defense": "Defense",
+	"ORDEMPARANORMAL_FVTT.dodge": "Dodge",
+
+	"ORDEMPARANORMAL_FVTT.deslocamento": "Deslocamento"
 }
