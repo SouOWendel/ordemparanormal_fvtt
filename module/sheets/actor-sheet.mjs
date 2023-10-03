@@ -12,9 +12,9 @@ export class OrdemActorSheet extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ['ordemparanormal_fvtt', 'sheet', 'actor'],
+			classes: ['ordemparanormal', 'sheet', 'actor'],
 			template:
-				'systems/ordemparanormal_fvtt/templates/actor/actor-sheet.html',
+				'systems/ordemparanormal/templates/actor/actor-sheet.html',
 			width: 600,
 			height: 849,
 			tabs: [
@@ -29,7 +29,7 @@ export class OrdemActorSheet extends ActorSheet {
 
 	/** @override */
 	get template() {
-		return `systems/ordemparanormal_fvtt/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+		return `systems/ordemparanormal/templates/actor/actor-${this.actor.data.type}-sheet.html`;
 	}
 
 	/* -------------------------------------------- */
@@ -50,9 +50,10 @@ export class OrdemActorSheet extends ActorSheet {
 		context.flags = actorData.flags;
 
 		// Dropdown
-		context.optionDegree = CONFIG.ORDEMPARANORMAL_FVTT.dropdownDegree;
-		context.optionClass = CONFIG.ORDEMPARANORMAL_FVTT.dropdownClass;
-		context.optionTrilhas = CONFIG.ORDEMPARANORMAL_FVTT.dropdownTrilha;
+		context.optionDegree = CONFIG.ordemparanormal.dropdownDegree;
+		context.optionClass = CONFIG.ordemparanormal.dropdownClass;
+		context.optionTrilhas = CONFIG.ordemparanormal.dropdownTrilha;
+		context.optionOrigins = CONFIG.ordemparanormal.dropdownOrigins;
 
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'Agente') {
@@ -90,45 +91,37 @@ export class OrdemActorSheet extends ActorSheet {
 	_prepareAgenteData(context) {
 
 		// Acesso Rápido
+		const NEX = context.data.NEX.value;
+		const AGI = context.data.attributes.agi.value;
+		const VIG = context.data.attributes.vig.value;
+		const FOR = context.data.attributes.for.value;
+		const INT = context.data.attributes.int.value;
+		const PRE = context.data.attributes.pre.value;
+		const DEFESA = context.data.defense.value;
 
+		// DEFESA E ESQUIVA
+		context.data.defense.value += AGI;
+		context.data.defense.dodge = DEFESA + context.data.skills.reflexos.value;
 
 		// NEX
-		const calcNEX = Math.ceil(context.data.NEX.value / 5);
+		const calcNEX = (NEX < 99) ? Math.floor(NEX / 5) : 20;
 
-		// Combatente
+		// PE / RODADA
+		context.data.PE.perRound = calcNEX;
+
+		// DEFININDO STATUS CONFORME A CLASSE
 		if (context.data.class == 'Combatente') {
-			context.data.PV.max = 
-				(20 + context.data.attributes.vig.value) + 
-				((calcNEX > 1) ? (calcNEX-1) * (4 + context.data.attributes.vig.value) : '');
-
-			context.data.PE.max = 
-				(2 + context.data.attributes.pre.value) +
-				((calcNEX > 1) ? (calcNEX-1) * (2 + context.data.attributes.pre.value) : '');
-
-			context.data.SAN.max = (12) +
-				((calcNEX > 1) ? (calcNEX-1) * 3 : '');
+			context.data.PV.max = (20 + VIG) + ((calcNEX > 1) ? (calcNEX-1) * (4 + VIG) : '');
+			context.data.PE.max = (2 + PRE) + ((calcNEX > 1) ? (calcNEX-1) * (2 + PRE) : '');
+			context.data.SAN.max = (12) + ((calcNEX > 1) ? (calcNEX-1) * 3 : '');
 		} else if (context.data.class == 'Especialista') {
-			context.data.PV.max = 
-				(16 + context.data.attributes.vig.value) + 
-				((calcNEX > 1) ? (calcNEX-1) * (3 + context.data.attributes.vig.value) : '');
-
-			context.data.PE.max = 
-				(3 + context.data.attributes.pre.value) +
-				((calcNEX > 1) ? (calcNEX-1) * (3 + context.data.attributes.pre.value) : '');
-
-			context.data.SAN.max = (16) +
-				((calcNEX > 1) ? (calcNEX-1) * 4 : '');
+			context.data.PV.max = (16 + VIG) + ((calcNEX > 1) ? (calcNEX-1) * (3 + VIG) : '');
+			context.data.PE.max = (3 + PRE) + ((calcNEX > 1) ? (calcNEX-1) * (3 + PRE) : '');
+			context.data.SAN.max = (16) + ((calcNEX > 1) ? (calcNEX-1) * 4 : '');
 		} else if (context.data.class == 'Ocultista') {
-			context.data.PV.max = 
-				(12 + context.data.attributes.vig.value) + 
-				((calcNEX > 1) ? (calcNEX-1) * (2 + context.data.attributes.vig.value) : '');
-
-			context.data.PE.max = 
-				(4 + context.data.attributes.pre.value) +
-				((calcNEX > 1) ? (calcNEX-1) * (4 + context.data.attributes.pre.value) : '');
-
-			context.data.SAN.max = (20) +
-				((calcNEX > 1) ? (calcNEX-1) * 5 : '');
+			context.data.PV.max = (12 + VIG) + ((calcNEX > 1) ? (calcNEX-1) * (2 + VIG) : '');
+			context.data.PE.max = (4 + PRE) + ((calcNEX > 1) ? (calcNEX-1) * (4 + PRE) : '');
+			context.data.SAN.max = (20) + ((calcNEX > 1) ? (calcNEX-1) * 5 : '');
 		} else {
 			context.data.PV.max = (10);
 
@@ -149,10 +142,10 @@ export class OrdemActorSheet extends ActorSheet {
 
 			// Formando o nome com base nas condições de carga e treino da perícia.
 			skillsName.label =
-				game.i18n.localize(CONFIG.ORDEMPARANORMAL_FVTT.skills[keySkill]) +
+				game.i18n.localize(CONFIG.ordemparanormal.skills[keySkill]) +
 				((carga) ? '+' : (trained) ? '*' : '') ?? k;
 
-			/** 
+			/** FORMULA DE ROLAGEM
 			 * Criando o que vem antes e depois do D20 das perícias.
 			 * beforeD20Formula: verifica se o atributo da perícia é 0 ou maior do que zero.
 			 * 	Se (perícia) = 0: dois dados e pegue o menor valor;
@@ -167,9 +160,12 @@ export class OrdemActorSheet extends ActorSheet {
 
 			const afterD20Formula = 
 				((skillsName.attr[1] != 0) ? 'kh' : 'kl') +
+				((skillsName.value != 0) ? '+' + skillsName.value : '') +
 				((skillsName.mod) ? '+' + skillsName.mod : '');
 
 			skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
+
+
 		}
 	}
 
@@ -184,7 +180,7 @@ export class OrdemActorSheet extends ActorSheet {
 		// Handle ability scores.
 		for (const [k, v] of Object.entries(context.data.abilities)) {
 			v.label =
-				game.i18n.localize(CONFIG.ORDEMPARANORMAL_FVTT.abilities[k]) ??
+				game.i18n.localize(CONFIG.ordemparanormal.abilities[k]) ??
 				k;
 		}
 	}
