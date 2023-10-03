@@ -7,7 +7,7 @@ export class OrdemItemSheet extends ItemSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ['ordemparanormal_fvtt', 'sheet', 'item'],
+			classes: ['ordemparanormal', 'sheet', 'item'],
 			width: 520,
 			height: 480,
 			tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'description' }]
@@ -16,7 +16,7 @@ export class OrdemItemSheet extends ItemSheet {
 
 	/** @override */
 	get template() {
-		const path = 'systems/ordemparanormal_fvtt/templates/item';
+		const path = 'systems/ordemparanormal/templates/item';
 		// Return a single sheet for all item types.
 		// return `${path}/item-sheet.html`;
 
