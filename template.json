@@ -16,10 +16,17 @@
         "PE": {
           "value": 5,
           "min": 0,
-          "max": 5
+          "max": 5,
+          "perRound": 1
         },
         "NEX": {
           "value": 1
+        },
+        "defense": {
+          "value": 10
+        },
+        "desloc": {
+          "value": 9
         },
         "biography": ""
       }
@@ -27,6 +34,7 @@
     "Agente": {
       "templates": ["base", "NEX"],
       "class": "",
+      "origin": "",
       "trilha": "",
       "skills": {
         "acrobacia": {
