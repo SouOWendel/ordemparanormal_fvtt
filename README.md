@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/SouOWendel/ordemparanormal-fvtt/blob/main/op-logo.png?raw=true" alt="logo do Ordem Paranormal">
+<img src="https://github.com/SouOWendel/ordemparanormal-fvtt/blob/main/media/op-logo.png?raw=true" alt="logo do Ordem Paranormal">
 <p dir="auto" style="text-align: center;">Acesse o <a href="https://discord.gg/G8AwJwJXa5">Servidor do Discord</a> para atualiza&ccedil;&otilde;es e feedbacks, para postagens em geral, siga-me no <a href="https://twitter.com/EuSouOWendel">Twitter</a>, se realmente curtir o conte&uacute;do, n&atilde;o deixe de apoiar com qualquer valor na chave PIX: souowendel@gmail.com ou utilizando a plataforma do <a href="https://ko-fi.com/souowendel">Ko-fi</a>.&nbsp;</p>
 
 ![Supported Foundry Versions](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dflat%26url%3Dhttps%3A%2F%2Fgithub.com%2FSouOWendel%2Fordemparanormal-fvtt%2Freleases%2Flatest%2Fdownload%2Fsystem.json)
@@ -33,18 +33,16 @@ Este é um sistema e universo de investigação paranormal criado por Rafael Lan
 
 -   **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
 
-## Considerações finais.
-
-Este repositório utiliza [Versionamento Semântico 2.0](https://semver.org/lang/pt-BR/), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) e o guia de<br> estilo para [ESLint do Google](https://google.github.io/styleguide/jsguide.html), além disso, desenvolvido com muita dedicação e código! 🤓<br> 
+## Licenças e Observações.
 <sub>
-Contate-me utilizando um destes meios:&nbsp;&nbsp;&nbsp;&nbsp;
-e-mail: souowendel@gmail.com &nbsp;&nbsp;&nbsp;&nbsp;
-discord: souowendel &nbsp;&nbsp;&nbsp;&nbsp;
-twitter: eusouowendel
+Este repositório utiliza <a href="https://semver.org/lang/pt-BR/">Versionamento Semântico 2.0</a>, <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> e o guia de estilo para <a href="https://google.github.io/styleguide/jsguide.html">ESLint do Google</a>, além disso, desenvolvido com muita dedicação e código. Se precisar, contate-me através do e-mail ou redes sociais: <a href="https://mail.google.com/mail/u/0/?fs=1&to=souowendel@gmail.com&su=Enquiry&tf=cm">souowendel@gmail.com</a>, discord: souowendel, twitter: <a href="https://twitter.com/EuSouOWendel">eusouowendel</a><br><br>
 
-</sub>
-<hr>
-This work is permitted under the Open Gaming License, the software component of this module is distributed under the CC BY-NC-SA 4.0 license. Ordem Paranormal FoundryVTT © 2023 by Wendel Henrique is licensed under CC BY-NC-SA 4.0 
+This work is permitted under the Open Gaming License, the software component of this module/system is distributed under the CC BY-NC-SA 4.0 license. Sistema Ordem Paranormal para FoundryVTT © 2023 by Wendel Henrique is licensed under CC BY-NC-SA 4.0<br><br>
+
+¹: LANGE, R. Ordem Paranormal RPG. 1a EDIÇÃO ed. Rua Coronel Genuíno, 209 • Porto Alegre, rs: Jambô Editora, 2022. v. 1p. 2, 318. "O material a seguir é Identidade do Produto: os capítulos 5, 7 e 8, todos os termos referentes ao cenário de Ordem Paranormal, incluindo a Membrana, o Outro Lado, nomes e descrições de personagens, criaturas, entidades, lugares e organizações, todas as ilustrações e todas as regras de rituais, poderes paranormais, Sanidade e dano mental. O material a seguir é Conteúdo Open Game: todo o texto de regras do livro, exceto por material previamente declarado Identidade do Produto."<br><br>
+
+Observação: A marca Ordem Paranormal não é de minha autoria, todos os direitos são reservados aos seus respectivos donos.
+</sub> 
 
 <!-- Links Uteis -->
 <!-- https://foundryvtt.wiki/en/development/guides/SD-tutorial -->
