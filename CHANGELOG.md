@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v2.0.0...v2.1.0) (2023-10-04)
+
+
+### Features
+
+* **compendium:** added some RollTables: create quick mission, temporary sanity effects, origins ([fc6d3e2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/fc6d3e2fe52cadb65a27799f731158e8d92bd20b))
+* **refactor:** conversion of all compedium data for JSON files and DB files. Rename the compediuns ([73f7c32](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/73f7c32d2ef5d99ff73b9ee268dd31e16897258d))
+* **release-please:** include the packs folder in generating zip system of Github Actions ([d845d1d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d845d1d7b8f88f62ed416bad414934883728b033))
+
+
+### Bug Fixes
+
+* **bug:** fix the RollTables Compendium. call other RollTables in Document instead of the Compedium ([175c98b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/175c98ba6f5b11ccca464cb60a6ff922e492c325))
+
 ## [2.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v1.12.0...v2.0.0) (2023-10-03)
 
 
