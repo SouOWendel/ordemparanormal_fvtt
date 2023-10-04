@@ -24,14 +24,43 @@
   "scripts": [],
   "packs": [
     {
-      "name": "origens_ptBR",
-      "label": "Origens",
-      "system": "ordemparanormal_fvtt",
-      "path": "packs/tables/roll-tables.db",
+      "name": "origensptbr",
+      "label": "Origem e Insanidade",
+      "system": "ordemparanormal",
       "type": "RollTable",
+      "path": "packs/tables/origins",
       "ownership": {
         "PLAYER": "OBSERVER"
       }
+    },
+    {
+      "name": "criandoptbr",
+      "label": "Criando Missões",
+      "system": "ordemparanormal",
+      "type": "RollTable",
+      "path": "packs/tables/createmission",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Ordem Paranormal (pt-BR)",
+      "sorting": "m",
+      "color": "#000000",
+      "packs": [],
+      "folders": [
+        {
+          "name": "Tabelas de Rolagem",
+          "sorting": "m",
+          "color": "#000000",
+          "packs": [
+            "origensptbr",
+            "criandoptbr"
+          ]
+        }
+      ]
     }
   ],
   "languages": [
