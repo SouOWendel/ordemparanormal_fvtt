@@ -24,21 +24,21 @@
   "scripts": [],
   "packs": [
     {
-      "name": "origensptbr",
+      "name": "generalptbr",
       "label": "Origem e Insanidade",
       "system": "ordemparanormal",
       "type": "RollTable",
-      "path": "packs/tables/origins",
+      "path": "packs/generalPTBR.db",
       "ownership": {
         "PLAYER": "OBSERVER"
       }
     },
     {
-      "name": "criandoptbr",
+      "name": "createmissionptbr",
       "label": "Criando Missões",
       "system": "ordemparanormal",
       "type": "RollTable",
-      "path": "packs/tables/createmission",
+      "path": "packs/createMissionPTBR.db",
       "ownership": {
         "PLAYER": "OBSERVER"
       }

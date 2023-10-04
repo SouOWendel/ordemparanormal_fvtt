@@ -1,0 +1,87 @@
+{
+  "name": "3.1. Estado do Local",
+  "_id": "gGcxPIDGkMC1yaRz",
+  "img": "icons/svg/hanging-sign.svg",
+  "description": "<p>Completo da Tabela <strong>3. Local</strong></p><p>*Role um dado. Em um resultado par, o local estará habitado. Em um resultado ímpar, estará abandonado.</p>",
+  "results": [
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_id": "ZfDEKJ6RHHjsUgoW",
+      "text": "Abandonado",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!gGcxPIDGkMC1yaRz.ZfDEKJ6RHHjsUgoW"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "1LqTASNsalGZYeL3",
+      "text": "Habitado",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!gGcxPIDGkMC1yaRz.1LqTASNsalGZYeL3"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_id": "UzjJfAfrmG3Hmmtg",
+      "text": "Abandonado",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!gGcxPIDGkMC1yaRz.UzjJfAfrmG3Hmmtg"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "5tc5aXjTqHXfK4em",
+      "text": "Habitado",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!gGcxPIDGkMC1yaRz.5tc5aXjTqHXfK4em"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "FuUFTW4c9AMp3vrN": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "2.0.0",
+    "coreVersion": "11.311",
+    "createdTime": 1696393525987,
+    "modifiedTime": 1696396385811,
+    "lastModifiedBy": "FuUFTW4c9AMp3vrN"
+  },
+  "formula": "1d4",
+  "_key": "!tables!gGcxPIDGkMC1yaRz"
+}

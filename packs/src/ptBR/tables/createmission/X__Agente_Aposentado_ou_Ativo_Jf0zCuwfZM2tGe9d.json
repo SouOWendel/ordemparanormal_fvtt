@@ -1,0 +1,57 @@
+{
+  "name": "X. Agente Aposentado ou Ativo",
+  "_id": "Jf0zCuwfZM2tGe9d",
+  "img": "icons/svg/circle.svg",
+  "description": "<p>Complemento para tabela <strong>4. Aliado</strong></p><p>(rola um dado: em um resultado par, o agente está na ativa; em um resultado ímpar, está aposentado)</p>",
+  "results": [
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_id": "3UMt7lhK5iO7UCOp",
+      "text": "Aposentado",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!Jf0zCuwfZM2tGe9d.3UMt7lhK5iO7UCOp"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "23uMxCLoj3tk8LDK",
+      "text": "Ainda ativo",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!Jf0zCuwfZM2tGe9d.23uMxCLoj3tk8LDK"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "FuUFTW4c9AMp3vrN": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "2.0.0",
+    "coreVersion": "11.311",
+    "createdTime": 1696394069880,
+    "modifiedTime": 1696396457650,
+    "lastModifiedBy": "FuUFTW4c9AMp3vrN"
+  },
+  "formula": "1d2",
+  "_key": "!tables!Jf0zCuwfZM2tGe9d"
+}
