@@ -95,7 +95,7 @@
       "_key": "!tables.results!MAVmgPXdXVnTYb7A.WHAukxJ7DNfHUJxC"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         6,
@@ -104,14 +104,14 @@
       "drawn": false,
       "_id": "hrfseULSaaAUuw2c",
       "text": "5. Objeto",
-      "documentId": "MAVmgPXdXVnTYb7A",
+      "documentId": "jK1UIoNNs7BdEhi4",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/sword.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!MAVmgPXdXVnTYb7A.hrfseULSaaAUuw2c"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         6,
@@ -120,10 +120,10 @@
       "drawn": false,
       "_id": "rQ54bI0tstZzMTb7",
       "text": "5. Objeto",
-      "documentId": "MAVmgPXdXVnTYb7A",
+      "documentId": "jK1UIoNNs7BdEhi4",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/sword.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!MAVmgPXdXVnTYb7A.rQ54bI0tstZzMTb7"
     }
   ],
@@ -141,8 +141,8 @@
     "systemVersion": "2.0.0",
     "coreVersion": "11.311",
     "createdTime": 1696394287293,
-    "modifiedTime": 1696396425985,
-    "lastModifiedBy": "FuUFTW4c9AMp3vrN"
+    "modifiedTime": 1696461369475,
+    "lastModifiedBy": "sk2CJ7OrkNIgGZV3"
   },
   "formula": "1d6",
   "_key": "!tables!MAVmgPXdXVnTYb7A"

@@ -5,7 +5,7 @@
   "description": "<p>Tabela para criar uma missão o mais rápido possível! Ela será no seguinte modelo:</p><p>“Um(a) <strong>SUJEITO AÇÃO</strong> em um(a) <strong>LOCAL</strong>. Durante a investigação, o grupo terá a ajuda de um(a) <strong>AMIGO</strong> e poderá encontrar <strong>OBJETO</strong>. Porém, em determinado momento os agentes serão surpreendidos por <strong>EVENTO</strong>”</p><p style=\"text-align:center\"><strong>Aviso: certas gerações podem ser levemente confusas, caso queira desativar uma tabela, utilize o ícone de cadeado para bloquear.</strong></p>",
   "results": [
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         1,
@@ -14,14 +14,14 @@
       "drawn": false,
       "_id": "Nec2DGWilKvBkpNV",
       "text": "1. Sujeito",
-      "documentId": "hNXiYLP9sklF5oX2",
+      "documentId": "3JoOv57vkeHiCqhe",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/cowled.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!mF1gfKCESrhl16Uh.Nec2DGWilKvBkpNV"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         1,
@@ -30,14 +30,14 @@
       "drawn": false,
       "_id": "rrr1zbGaqk2PyWAx",
       "text": "2. Ação",
-      "documentId": "VakwKuncgzXtW2J1",
+      "documentId": "d1Ch9rICk4HvXkTz",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/combat.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!mF1gfKCESrhl16Uh.rrr1zbGaqk2PyWAx"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         1,
@@ -46,14 +46,14 @@
       "drawn": false,
       "_id": "74ZDOqo1WGuQAAh2",
       "text": "3. Local",
-      "documentId": "cGDsz5tbAmWECi07",
+      "documentId": "EyLKssZYAqVcANpk",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/city.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!mF1gfKCESrhl16Uh.74ZDOqo1WGuQAAh2"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         1,
@@ -62,14 +62,14 @@
       "drawn": false,
       "_id": "SfoP10xTxhJYgdEO",
       "text": "4. Aliado",
-      "documentId": "MUizBbFoZhHS7gXR",
+      "documentId": "v16pu3Yx60co46fd",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/ice-aura.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!mF1gfKCESrhl16Uh.SfoP10xTxhJYgdEO"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         1,
@@ -78,14 +78,14 @@
       "drawn": false,
       "_id": "lkWB7Vaqp2lwFuPF",
       "text": "5. Objeto",
-      "documentId": "MAVmgPXdXVnTYb7A",
+      "documentId": "jK1UIoNNs7BdEhi4",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/sword.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!mF1gfKCESrhl16Uh.lkWB7Vaqp2lwFuPF"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         1,
@@ -94,10 +94,10 @@
       "drawn": false,
       "_id": "fmiApJW4br1Rc97C",
       "text": "6. Evento",
-      "documentId": "2bJvRv3J6ql5ColS",
+      "documentId": "x6vEQe6Q8jOtcLUC",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/explosion.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!mF1gfKCESrhl16Uh.fmiApJW4br1Rc97C"
     }
   ],
@@ -115,8 +115,8 @@
     "systemVersion": "2.0.0",
     "coreVersion": "11.311",
     "createdTime": 1696395251031,
-    "modifiedTime": 1696396299424,
-    "lastModifiedBy": "FuUFTW4c9AMp3vrN"
+    "modifiedTime": 1696461240749,
+    "lastModifiedBy": "sk2CJ7OrkNIgGZV3"
   },
   "formula": "1d6",
   "_key": "!tables!mF1gfKCESrhl16Uh"

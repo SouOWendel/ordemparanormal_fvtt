@@ -126,8 +126,8 @@
       "_key": "!tables.results!hNXiYLP9sklF5oX2.YvVo7wmBiIbwn73E"
     },
     {
-      "type": 2,
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "type": 1,
+      "documentCollection": "RollTable",
       "weight": 1,
       "range": [
         8,
@@ -136,9 +136,9 @@
       "drawn": false,
       "_id": "ySogatgs2rkxC8Yq",
       "text": "X. Elemento",
-      "documentId": "vRZm5USYAoJqrrm0",
+      "documentId": "2aQI4eaLavvQiREw",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
+      "img": "icons/svg/circle.svg",
       "_key": "!tables.results!hNXiYLP9sklF5oX2.ySogatgs2rkxC8Yq"
     }
   ],
@@ -156,8 +156,8 @@
     "systemVersion": "2.0.0",
     "coreVersion": "11.311",
     "createdTime": 1696387050508,
-    "modifiedTime": 1696396314964,
-    "lastModifiedBy": "FuUFTW4c9AMp3vrN"
+    "modifiedTime": 1696461264330,
+    "lastModifiedBy": "sk2CJ7OrkNIgGZV3"
   },
   "formula": "1d8",
   "_key": "!tables!hNXiYLP9sklF5oX2"

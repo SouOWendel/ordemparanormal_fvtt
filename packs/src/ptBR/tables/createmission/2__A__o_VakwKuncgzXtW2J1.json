@@ -140,7 +140,7 @@
       "_key": "!tables.results!VakwKuncgzXtW2J1.sCizwC6A8OYNCzww"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         0,
@@ -149,10 +149,10 @@
       "drawn": false,
       "_id": "NUb5wt341pLWlfmD",
       "text": "X. Elemento",
-      "documentId": "vRZm5USYAoJqrrm0",
+      "documentId": "2aQI4eaLavvQiREw",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/circle.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!VakwKuncgzXtW2J1.NUb5wt341pLWlfmD"
     },
     {
@@ -172,8 +172,8 @@
       "_key": "!tables.results!VakwKuncgzXtW2J1.WhFV6BzrhCDNv9Sd"
     },
     {
-      "type": 2,
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "type": 1,
+      "documentCollection": "RollTable",
       "weight": 1,
       "range": [
         10,
@@ -182,14 +182,14 @@
       "drawn": false,
       "_id": "XNTonLC8It5DfjRx",
       "text": "2. Ação",
-      "documentId": "VakwKuncgzXtW2J1",
+      "documentId": "d1Ch9rICk4HvXkTz",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
+      "img": "icons/svg/combat.svg",
       "_key": "!tables.results!VakwKuncgzXtW2J1.XNTonLC8It5DfjRx"
     },
     {
-      "type": 2,
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "type": 1,
+      "documentCollection": "RollTable",
       "weight": 1,
       "range": [
         10,
@@ -198,9 +198,9 @@
       "drawn": false,
       "_id": "8ExiSASmBVNdQAkj",
       "text": "2. Ação",
-      "documentId": "VakwKuncgzXtW2J1",
+      "documentId": "d1Ch9rICk4HvXkTz",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
+      "img": "icons/svg/combat.svg",
       "_key": "!tables.results!VakwKuncgzXtW2J1.8ExiSASmBVNdQAkj"
     }
   ],
@@ -218,8 +218,8 @@
     "systemVersion": "2.0.0",
     "coreVersion": "11.311",
     "createdTime": 1696387799563,
-    "modifiedTime": 1696396328708,
-    "lastModifiedBy": "FuUFTW4c9AMp3vrN"
+    "modifiedTime": 1696461314714,
+    "lastModifiedBy": "sk2CJ7OrkNIgGZV3"
   },
   "formula": "1d10",
   "_key": "!tables!VakwKuncgzXtW2J1"

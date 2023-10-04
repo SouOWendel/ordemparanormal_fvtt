@@ -305,7 +305,7 @@
       "_key": "!tables.results!cGDsz5tbAmWECi07.MT6qJs0v5e9E5Kci"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         20,
@@ -314,14 +314,14 @@
       "drawn": false,
       "_id": "4jtHCCfA9RfbUHjF",
       "text": "3. Local",
-      "documentId": "cGDsz5tbAmWECi07",
+      "documentId": "EyLKssZYAqVcANpk",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/city.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!cGDsz5tbAmWECi07.4jtHCCfA9RfbUHjF"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         20,
@@ -330,15 +330,15 @@
       "drawn": false,
       "_id": "pB6MDeujngDiekwK",
       "text": "3. Local",
-      "documentId": "cGDsz5tbAmWECi07",
+      "documentId": "EyLKssZYAqVcANpk",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/city.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!cGDsz5tbAmWECi07.pB6MDeujngDiekwK"
     },
     {
-      "type": 2,
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "type": 1,
+      "documentCollection": "RollTable",
       "weight": 1,
       "range": [
         0,
@@ -347,9 +347,9 @@
       "drawn": false,
       "_id": "Y7YuibSqasQpOCKl",
       "text": "3.1. Estado do Local",
-      "documentId": "gGcxPIDGkMC1yaRz",
+      "documentId": "sf75jcX0EfRybSYo",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
+      "img": "icons/svg/hanging-sign.svg",
       "_key": "!tables.results!cGDsz5tbAmWECi07.Y7YuibSqasQpOCKl"
     }
   ],
@@ -367,8 +367,8 @@
     "systemVersion": "2.0.0",
     "coreVersion": "11.311",
     "createdTime": 1696389212612,
-    "modifiedTime": 1696396340248,
-    "lastModifiedBy": "FuUFTW4c9AMp3vrN"
+    "modifiedTime": 1696461341840,
+    "lastModifiedBy": "sk2CJ7OrkNIgGZV3"
   },
   "formula": "1d20",
   "_key": "!tables!cGDsz5tbAmWECi07"

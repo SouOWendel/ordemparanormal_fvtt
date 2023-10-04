@@ -65,7 +65,7 @@
       "_key": "!tables.results!MUizBbFoZhHS7gXR.QK7tvbAw8Kl9ULzK"
     },
     {
-      "type": 2,
+      "type": 1,
       "weight": 1,
       "range": [
         4,
@@ -74,10 +74,10 @@
       "drawn": false,
       "_id": "m2pCWNST3JN5IX9X",
       "text": "X. Agente Aposentado ou Ativo",
-      "documentId": "Jf0zCuwfZM2tGe9d",
+      "documentId": "MfgHcfXxItWJBrdS",
       "flags": {},
-      "img": "icons/svg/d20-grey.svg",
-      "documentCollection": "ordemparanormal.criandoptbr",
+      "img": "icons/svg/circle.svg",
+      "documentCollection": "RollTable",
       "_key": "!tables.results!MUizBbFoZhHS7gXR.m2pCWNST3JN5IX9X"
     }
   ],
@@ -95,8 +95,8 @@
     "systemVersion": "2.0.0",
     "coreVersion": "11.311",
     "createdTime": 1696393887874,
-    "modifiedTime": 1696396401921,
-    "lastModifiedBy": "FuUFTW4c9AMp3vrN"
+    "modifiedTime": 1696461357522,
+    "lastModifiedBy": "sk2CJ7OrkNIgGZV3"
   },
   "formula": "1d4",
   "_key": "!tables!MUizBbFoZhHS7gXR"
