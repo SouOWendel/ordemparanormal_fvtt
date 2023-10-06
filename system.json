@@ -5,7 +5,7 @@
   "version": "2.1.0",
   "compatibility": {
     "minimum": "10",
-    "verified": "11.311",
+    "verified": "11.313",
     "maximum": "11"
   },
   "authors": [
@@ -42,22 +42,73 @@
       "ownership": {
         "PLAYER": "OBSERVER"
       }
+    },
+    {
+      "name": "maps",
+      "label": "Mapas Populares",
+      "system": "ordemparanormal",
+      "type": "Scene",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
+      "name": "armaments",
+      "label": "Armamentos",
+      "system": "ordemparanormal",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
+      "name": "generalEquipaments",
+      "label": "Equipamentos Gerais",
+      "system": "ordemparanormal",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
+      "name": "protections",
+      "label": "Proteções",
+      "system": "ordemparanormal",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
+      "name": "documentation",
+      "label": "Documentação do Sistema",
+      "system": "ordemparanormal",
+      "type": "JournalEntry",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
     }
   ],
   "packFolders": [
     {
-      "name": "Ordem Paranormal (pt-BR)",
+      "name": "Conteúdos para Ordem Paranormal",
       "sorting": "m",
       "color": "#000000",
-      "packs": [],
+      "packs": [
+        "documentation",
+        "generalptbr",
+        "createmissionptbr",
+        "maps"
+      ],
       "folders": [
         {
-          "name": "Tabelas de Rolagem",
+          "name": "Equipamentos do Livro",
           "sorting": "m",
-          "color": "#000000",
+          "color": "#b72c1f",
           "packs": [
-            "origensptbr",
-            "criandoptbr"
+            "armaments",
+            "generalEquipaments",
+            "protections"
           ]
         }
       ]
