@@ -1,4 +1,10 @@
 {
+	"TYPES.Actor.agent": "Agente",
+	"TYPES.Item.protection": "Proteção",
+	"TYPES.Item.generalEquipament": "Equipamento Geral",
+	"TYPES.Item.armament": "Armamento",
+	"ordemparanormal.OrdemActorSheet": "Ficha de Agente",
+
 	"ordemparanormal.PV": "Pontos de Vida",
 	"ordemparanormal.PE": "Pontos de Esforço",
 	"ordemparanormal.pePerRound": "PE / Rodada",

@@ -1,4 +1,10 @@
 {
+	"TYPES.Actor.agent": "Agent",
+	"TYPES.Item.protection": "Protection",
+	"TYPES.Item.generalEquipament": "General Equipament",
+	"TYPES.Item.armament": "Armament",
+	"ordemparanormal.OrdemActorSheet": "Agent's Sheet",
+
 	"ordemparanormal.PV": "Health Points",
 	"ordemparanormal.PE": "Stamina Points",
 	"ordemparanormal.pePerRound": "PE / Rodada",
@@ -74,6 +80,7 @@
 		"ocultista": "Ocultista"
 	},
 
+	"ordemparanormal.originName": "Origin",
 	"ordemparanormal.originsChoices": {
 		"academico": "Acadêmico",
 		"agenteDeSaude": "Agente de Saúde",
