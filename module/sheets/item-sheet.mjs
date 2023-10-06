@@ -10,6 +10,7 @@ export class OrdemItemSheet extends ItemSheet {
 			classes: ['ordemparanormal', 'sheet', 'item'],
 			width: 520,
 			height: 480,
+			template: 'systems/ordemparanormal/templates/itemn/item-sheet.html',
 			tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'description' }]
 		});
 	}

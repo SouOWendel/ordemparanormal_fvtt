@@ -7,9 +7,10 @@ export const preloadHandlebarsTemplates = async function() {
 	return loadTemplates([
 
 		// Actor partials.
-		'systems/ordemparanormal/templates/actor/parts/actor-features.html',
-		'systems/ordemparanormal/templates/actor/parts/actor-items.html',
-		'systems/ordemparanormal/templates/actor/parts/actor-spells.html',
+		'systems/ordemparanormal/templates/actor/parts/actor-skills.html',
+		'systems/ordemparanormal/templates/actor/parts/actor-inventory.html',
+		'systems/ordemparanormal/templates/actor/parts/actor-rituals.html',
 		'systems/ordemparanormal/templates/actor/parts/actor-effects.html',
+		'systems/ordemparanormal/templates/actor/parts/actor-habilities.html',
 	]);
 };
