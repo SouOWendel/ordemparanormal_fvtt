@@ -56,20 +56,9 @@ export class OrdemActorSheet extends ActorSheet {
 		context.optionOrigins = CONFIG.ordemparanormal.dropdownOrigins;
 
 		// Prepara os dados do Agente e seus Items.
-		if (actorData.type == 'Agente') {
+		if (actorData.type == 'agent') {
 			this._prepareItems(context);
-			this._prepareAgenteData(context);
-		}
-
-		// Prepare character data and items.
-		if (actorData.type == 'character') {
-			this._prepareItems(context);
-			this._prepareCharacterData(context);
-		}
-
-		// Prepare NPC data and items.
-		if (actorData.type == 'npc') {
-			this._prepareItems(context);
+			this._prepareAgentData(context);
 		}
 
 		// Add roll data for TinyMCE editors.
@@ -88,7 +77,7 @@ export class OrdemActorSheet extends ActorSheet {
 	 *
 	 * @return {undefined}
 	 */
-	_prepareAgenteData(context) {
+	_prepareAgentData(context) {
 
 		// Acesso Rápido
 		const NEX = context.data.NEX.value;
@@ -166,22 +155,6 @@ export class OrdemActorSheet extends ActorSheet {
 			skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
 
 
-		}
-	}
-
-	/**
-	 * Organize and classify Items for Character sheets.
-	 *
-	 * @param {Object} actorData The actor to prepare.
-	 *
-	 * @return {undefined}
-	 */
-	_prepareCharacterData(context) {
-		// Handle ability scores.
-		for (const [k, v] of Object.entries(context.data.abilities)) {
-			v.label =
-				game.i18n.localize(CONFIG.ordemparanormal.abilities[k]) ??
-				k;
 		}
 	}
 
