@@ -1,5 +1,28 @@
 # Changelog
 
+## [3.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v2.1.0...v3.0.0) (2023-10-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **rename file:** The actor variable has been changed, this causes incompatibility with previous versions, as the template system works dynamically with the actor type.
+
+### Features
+
+* change the actor name: Agente -&gt; agent. delete character and npc data. added more item types ([2078c8d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2078c8d5a856b01dc65d2cc5f99b3b2efdb70de3))
+* **localization:** added translates for Actor and Item Types ([f3e7491](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f3e749191ee175c7e7e0709607974cafd247b506))
+* **template:** create templates for new item types (copy of item template of boilerplate) ([96247df](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/96247df3ddbaa1106de46780c894e4d909eb8511))
+
+
+### Bug Fixes
+
+* **refactor:** fix the name of actor and change object options for Bar Brawl (visibility) ([9e3a491](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9e3a491a4c1b849325717eb52e2f5fa1f9e38dc9))
+
+
+### Code Refactoring
+
+* **rename file:** rename file because the agent is changed ([423d85b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/423d85bb12a754c51df8a8420641b6e81441e813))
+
 ## [2.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v2.0.0...v2.1.0) (2023-10-04)
 
 
