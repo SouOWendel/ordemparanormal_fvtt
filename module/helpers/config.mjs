@@ -17,6 +17,10 @@ ordemparanormal.base = {
 	NEX: 'ordemparanormal.NEX',
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.attributes = {
 	Agilidade: 'ordemparanormal.AttAgi',
 	Inteligancia: 'ordemparanormal.AttInt',
@@ -25,6 +29,10 @@ ordemparanormal.attributes = {
 	Forca: 'ordemparanormal.AttFor',
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.skills = {
 	acrobacia: 'ordemparanormal.skillAcrobacia',
 	adestramento: 'ordemparanormal.skillAdestramento',
@@ -55,25 +63,10 @@ ordemparanormal.skills = {
 	vontade: 'ordemparanormal.skillVontade',
 };
 
-ordemparanormal.abilities = {
-	str: 'ordemparanormal.AbilityStr',
-	dex: 'ordemparanormal.AbilityDex',
-	con: 'ordemparanormal.AbilityCon',
-	int: 'ordemparanormal.AbilityInt',
-	wis: 'ordemparanormal.AbilityWis',
-	cha: 'ordemparanormal.AbilityCha',
-};
-
-
-ordemparanormal.abilityAbbreviations = {
-	str: 'ordemparanormal.AbilityStrAbbr',
-	dex: 'ordemparanormal.AbilityDexAbbr',
-	con: 'ordemparanormal.AbilityConAbbr',
-	int: 'ordemparanormal.AbilityIntAbbr',
-	wis: 'ordemparanormal.AbilityWisAbbr',
-	cha: 'ordemparanormal.AbilityChaAbbr',
-};
-
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownDegree = {
 	'Destreinado': 'ordemparanormal.degreeTrainingChoices.dest',
 	'Treinado': 'ordemparanormal.degreeTrainingChoices.trei',
@@ -81,12 +74,20 @@ ordemparanormal.dropdownDegree = {
 	'Expert': 'ordemparanormal.degreeTrainingChoices.expe'
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownClass = {
 	'Combatente': 'ordemparanormal.classChoices.combatente',
 	'Especialista': 'ordemparanormal.classChoices.especialista',
 	'Ocultista': 'ordemparanormal.classChoices.ocultista'
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownTrilha = {
 	Combatente: [
 		{name: 'aniquilador', label: 'ordemparanormal.trilhas.aniquilador'},
@@ -111,6 +112,10 @@ ordemparanormal.dropdownTrilha = {
 	]
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownOrigins = {
 	'academico': 'ordemparanormal.originsChoices.academico',
 	'agenteDeSaude': 'ordemparanormal.originsChoices.agenteDeSaude',
