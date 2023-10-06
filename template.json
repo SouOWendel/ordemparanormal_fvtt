@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["Agente", "character", "npc"],
+    "types": ["agent"],
     "templates": {
       "base": {
         "PV": {
@@ -31,7 +31,7 @@
         "biography": ""
       }
     },
-    "Agente": {
+    "agent": {
       "templates": ["base", "NEX"],
       "class": "",
       "origin": "",
@@ -298,52 +298,43 @@
           "value": 1
         }
       }
-    },
-    "character": {
-      "templates": ["base"],
-      "attributes": {
-        "level": {
-          "value": 1
-        }
-      },
-      "abilities": {
-        "str": {
-          "value": 1
-        },
-        "dex": {
-          "value": 1
-        },
-        "con": {
-          "value": 1
-        },
-        "int": {
-          "value": 1
-        },
-        "wis": {
-          "value": 1
-        },
-        "cha": {
-          "value": 1
-        }
-      }
-    },
-    "npc": {
-      "templates": ["base"],
-      "cr": 0
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["armament", "protection", "generalEquipament", "item", "feature", "spell"],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "weight": 1,
+        "formula": "d20 + @str.mod + ceil(@lvl / 2)",
+        "category": 0
       }
     },
-    "item": {
+    "armament": {
       "templates": ["base"],
       "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "proficiency": 0,
+      "types": {
+        "rangeType":{
+          "name": "",
+          "subRangeTypes": []
+        },
+        "ammunitionType": ""
+      },
+      "critical": 0,
+      "range": 0,
+      "penalty": ""
+    },
+    "protection": {
+      "templates": ["base"],
+      "name": "",
+      "defense": "",
+      "penalty": ""
+    },
+    "generalEquipament": {
+      "templates": ["base"],
+      "type": "",
+      "quantity": 1
     },
     "feature": {
       "templates": ["base"]
