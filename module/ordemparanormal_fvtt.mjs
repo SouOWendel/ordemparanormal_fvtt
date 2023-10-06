@@ -195,7 +195,7 @@ function rollItemMacro(itemName) {
  */
 Hooks.on('preCreateActor', function (actor, data) {
 	// Filtrando por tipos de Actors disponíveis no sistema.
-	if (actor.type === 'Agente' || actor.type === 'NPC') {
+	if (actor.type === 'agent') {
 		const prototypeToken = { disposition: 1, actorLink: true }; // Set disposition to "Friendly"
 		actor.updateSource({ prototypeToken });
 
@@ -213,8 +213,7 @@ Hooks.on('preCreateActor', function (actor, data) {
 					attribute: 'PV',
 					label: 'PV',
 					style: 'fraction',
-					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-					otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
 				},
 				bar2: {
 					id: 'bar2',
@@ -224,8 +223,7 @@ Hooks.on('preCreateActor', function (actor, data) {
 					attribute: 'SAN',
 					label: 'SAN',
 					style: 'fraction',
-					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-					otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
 				},
 				bar3: {
 					id: 'bar3',
@@ -235,8 +233,7 @@ Hooks.on('preCreateActor', function (actor, data) {
 					attribute: 'PE',
 					label: 'PE',
 					style: 'fraction',
-					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-					otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
 				},
 			},
 		});
