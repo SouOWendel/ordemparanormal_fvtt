@@ -5,6 +5,15 @@
 	"TYPES.Item.armament": "Armament",
 	"ordemparanormal.OrdemActorSheet": "Agent's Sheet",
 
+	"ordemparanormal.tab": {
+		"skills": "Skills",
+		"inventory": "Inventory",
+		"habilities": "Habilities",
+		"rituals": "Rituals",
+		"biography": "Biography",
+		"effects": "Effects"
+	},
+
 	"ordemparanormal.PV": "Health Points",
 	"ordemparanormal.PE": "Stamina Points",
 	"ordemparanormal.pePerRound": "PE / Rodada",

@@ -5,6 +5,15 @@
 	"TYPES.Item.armament": "Armamento",
 	"ordemparanormal.OrdemActorSheet": "Ficha de Agente",
 
+	"ordemparanormal.tab": {
+		"skills": "Perícias",
+		"inventory": "Inventário",
+		"habilities": "Habilidades",
+		"rituals": "Rituais",
+		"biography": "Biografia",
+		"effects": "Efeitos"
+	},
+
 	"ordemparanormal.PV": "Pontos de Vida",
 	"ordemparanormal.PE": "Pontos de Esforço",
 	"ordemparanormal.pePerRound": "PE / Rodada",
