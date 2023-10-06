@@ -13,8 +13,7 @@ export class OrdemActorSheet extends ActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ['ordemparanormal', 'sheet', 'actor'],
-			template:
-				'systems/ordemparanormal/templates/actor/actor-sheet.html',
+			template: 'systems/ordemparanormal/templates/actor/actor-sheet.html',
 			width: 600,
 			height: 849,
 			tabs: [
@@ -168,23 +167,22 @@ export class OrdemActorSheet extends ActorSheet {
 	_prepareItems(context) {
 		// Initialize containers.
 		const gear = [];
+		const protection = [];
 		const features = [];
 		const spells = {
-			0: [],
 			1: [],
 			2: [],
 			3: [],
 			4: [],
-			5: [],
-			6: [],
-			7: [],
-			8: [],
-			9: [],
 		};
 
 		// Iterate through items, allocating to containers
 		for (const i of context.items) {
 			i.img = i.img || DEFAULT_TOKEN;
+			// Append to protections.
+			if (i.type === 'protection') {
+				protection.push(i);
+			}
 			// Append to gear.
 			if (i.type === 'item') {
 				gear.push(i);
@@ -205,6 +203,7 @@ export class OrdemActorSheet extends ActorSheet {
 		context.gear = gear;
 		context.features = features;
 		context.spells = spells;
+		context.protection = protection;
 	}
 
 	/* -------------------------------------------- */
