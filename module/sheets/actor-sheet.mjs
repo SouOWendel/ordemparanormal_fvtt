@@ -58,6 +58,7 @@ export class OrdemActorSheet extends ActorSheet {
 		if (actorData.type == 'agent') {
 			this._prepareItems(context);
 			this._prepareAgentData(context);
+			this._prepareItemsDerivedData(context);
 		}
 
 		// Add roll data for TinyMCE editors.
@@ -88,7 +89,7 @@ export class OrdemActorSheet extends ActorSheet {
 		const DEFESA = context.data.defense.value;
 
 		// DEFESA E ESQUIVA
-		context.data.defense.value += AGI;
+		context.data.defense.value = 10 + AGI;
 		context.data.defense.dodge = DEFESA + context.data.skills.reflexos.value;
 
 		// NEX
@@ -167,9 +168,12 @@ export class OrdemActorSheet extends ActorSheet {
 	_prepareItems(context) {
 		// Initialize containers.
 		const gear = [];
-		const protection = [];
 		const features = [];
-		const spells = {
+
+		const protection = [];
+		const generalEquipament = [];
+		const armament = [];
+		const rituals = {
 			1: [],
 			2: [],
 			3: [],
@@ -183,18 +187,26 @@ export class OrdemActorSheet extends ActorSheet {
 			if (i.type === 'protection') {
 				protection.push(i);
 			}
+			// Append to general equipament.
+			else if (i.type === 'generalEquipament') {
+				generalEquipament.push(i);
+			}
+			// Append to armament.
+			else if (i.type === 'armament') {
+				armament.push(i);
+			}
 			// Append to gear.
-			if (i.type === 'item') {
+			else if (i.type === 'item') {
 				gear.push(i);
 			}
 			// Append to features.
 			else if (i.type === 'feature') {
 				features.push(i);
 			}
-			// Append to spells.
-			else if (i.type === 'spell') {
+			// Append to rituals.
+			else if (i.type === 'rituals') {
 				if (i.data.spellLevel != undefined) {
-					spells[i.data.spellLevel].push(i);
+					rituals[i.data.spellLevel].push(i);
 				}
 			}
 		}
@@ -202,8 +214,29 @@ export class OrdemActorSheet extends ActorSheet {
 		// Assign and return
 		context.gear = gear;
 		context.features = features;
-		context.spells = spells;
+
+		context.rituals = rituals;
 		context.protection = protection;
+		context.generalEquip = generalEquipament;
+		context.armament = armament;
+	}
+
+	/**
+	 * Prepare and calcule the data of items
+	 *
+	 * @param {Object} actorData The actor to prepare.
+	 *
+	 * @return {undefined}
+	 */
+	_prepareItemsDerivedData(context) {
+		const items = context.items;
+		console.log('items: ');
+		for (const p of context.protection) {
+			console.log(typeof p.data.defense);
+			if (typeof p.data.defense == 'number') {
+				context.data.defense.value += p.data.defense;
+			}
+		}
 	}
 
 	/* -------------------------------------------- */
@@ -269,8 +302,10 @@ export class OrdemActorSheet extends ActorSheet {
 	async _onItemCreate(event) {
 		event.preventDefault();
 		const header = event.currentTarget;
+		console.log(header);
 		// Get the type of item to create.
 		const type = header.dataset.type;
+		console.log(type);
 		// Grab any data associated with this control.
 		const data = duplicate(header.dataset);
 		// Initialize a default name.

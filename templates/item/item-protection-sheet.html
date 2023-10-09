@@ -9,7 +9,7 @@
           <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Weight</label>
+          <label class="resource-label">Space</label>
           <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
         </div>
       </div>
@@ -33,10 +33,13 @@
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
-      {{!-- As you add new fields, add them in here! --}}
       <div class="resource">
-        <label class="resource-label">Roll Formula</label>
-        <input type="text" name="data.formula" value="{{data.formula}}" data-dtype="String"/>
+        <label class="resource-label">Defesa</label>
+        <input type="text" name="data.defense" value="{{data.defense}}" data-dtype="Number"/>
+      </div>
+      <div class="resource">
+        <label class="resource-label">Categoria</label>
+        <input type="text" name="data.category" value="{{data.category}}" data-dtype="String"/>
       </div>
     </div>
   </section>

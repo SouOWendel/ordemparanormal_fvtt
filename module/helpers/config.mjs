@@ -144,3 +144,45 @@ ordemparanormal.dropdownOrigins = {
 	'universitario': 'ordemparanormal.originsChoices.universitario',
 	'vítima': 'ordemparanormal.originsChoices.vítima'
 };
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.dropdownWeaponType = {
+	'melee': 'ordemparanormal.weaponTypeChoices.melee',
+	'ranged': 'ordemparanormal.weaponTypeChoices.ranged',
+};
+
+ordemparanormal.dropdownWeaponSubType = {
+	'throw': 'ordemparanormal.weaponSubTypeChoices.throw',
+	'shoot': 'ordemparanormal.weaponSubTypeChoices.shoot',
+	'fire': 'ordemparanormal.weaponSubTypeChoices.fire',
+};
+
+ordemparanormal.dropdownWeaponGripType = {
+	'light': 'ordemparanormal.weaponGripTypeChoices.light',
+	'oneHand': 'ordemparanormal.weaponGripTypeChoices.oneHand',
+	'twoHands': 'ordemparanormal.weaponGripTypeChoices.twoHands',
+};
+
+ordemparanormal.dropdownWeaponAmmunition = {
+	'shortBullets': 'ordemparanormal.weaponAmmunitionChoices.shortBullets',
+	'longBullets': 'ordemparanormal.weaponAmmunitionChoices.longBullets',
+	'fuel': 'ordemparanormal.weaponAmmunitionChoices.fuel',
+	'arrows': 'ordemparanormal.weaponAmmunitionChoices.arrows',
+	'rocket': 'ordemparanormal.weaponAmmunitionChoices.rocket'
+};
+
+ordemparanormal.dropdownProficiency = {
+	'simpleWeapons': 'ordemparanormal.proficiencyChoices.simpleWeapons',
+	'tacticalWeapons': 'ordemparanormal.proficiencyChoices.tacticalWeapons',
+	'heavyWeapons': 'ordemparanormal.proficiencyChoices.heavyWeapons'
+};
+
+ordemparanormal.dropdownDamageType = {
+	'cuttingDamage': 'ordemparanormal.damageTypeChoices.cuttingDamage',
+	'impactDamage': 'ordemparanormal.damageTypeChoices.impactDamage',
+	'piercingDamage': 'ordemparanormal.damageTypeChoices.piercingDamage',
+	'ballisticDamage': 'ordemparanormal.damageTypeChoices.ballisticDamage'
+};

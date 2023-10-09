@@ -9,7 +9,7 @@
           <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Weight</label>
+          <label class="resource-label">Space</label>
           <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
         </div>
       </div>
@@ -33,7 +33,83 @@
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
-      {{!-- As you add new fields, add them in here! --}}
+      <div class="resource">
+        <label class="resource-label">Categoria</label>
+        <input type="text" name="data.category" value="{{data.category}}" data-dtype="String"/>
+      </div>
+      <!-- ADICIONAR UM DROPDOWN DE TIPO DE ARMA; DEVE TER SUBTIPOS PARA CORPO A CORPO E RANGED.
+      OS RANGEDS TEM SUBTIPOS E TAMBÉM TIPOS DE MUNIÇÃO A SEREM UTILIZADOS. -->
+      <div class="resource">
+        <label class="resource-label">Tipo de Arma</label>
+        <select name="data.types.rangeType.name" data-dtype="String">
+          {{
+            selectOptions optionWeaponType
+            selected=data.types.rangeType.name 
+            localize=true
+            blank="—"
+          }}
+        </select>
+        <label class="resource-label">Subtipo de Arma</label>
+        <select name="data.types.rangeType.subRangeType" data-dtype="String">
+          {{
+            selectOptions optionWeaponSubType
+            selected=data.types.rangeType.subRangeType 
+            localize=true
+            blank="—"
+          }}
+        </select>
+        <label class="resource-label">Subtipo de Arma</label>
+        <select name="data.types.gripType" data-dtype="String">
+          {{
+            selectOptions optionGripType
+            selected=data.types.gripType 
+            localize=true
+            blank="—"
+          }}
+        </select>
+        <label class="resource-label">Tipo de Munição</label>
+        <select name="data.types.ammunitionType" data-dtype="String">
+          {{
+            selectOptions optionWeaponAmmunition
+            selected=data.types.ammunitionType 
+            localize=true
+            blank="—"
+          }}
+        </select>
+      </div>
+
+      <div class="resource">
+        <label class="resource-label">Proficiência</label>
+        <select name="data.proficiency" data-dtype="String">
+          {{
+            selectOptions optionProficiency
+            selected=data.proficiency 
+            localize=true
+            blank="—"
+          }}
+        </select>
+      </div>
+      <div class="resource">
+        <label class="resource-label">Tipo de Dano</label>
+        <select name="data.types.damageType" data-dtype="String">
+          {{
+            selectOptions optionDamageType
+            selected=data.types.damageType 
+            localize=true
+            blank="—"
+          }}
+        </select>
+      </div>
+      <div class="resource">
+        <label class="resource-label">Crítico</label>
+        <input type="text" name="data.critical" value="{{data.critical}}" data-dtype="String"/>
+      </div>
+      <div class="resource">
+        <label class="resource-label">Alcance</label>
+        <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
+      </div>
+
+
       <div class="resource">
         <label class="resource-label">Roll Formula</label>
         <input type="text" name="data.formula" value="{{data.formula}}" data-dtype="String"/>

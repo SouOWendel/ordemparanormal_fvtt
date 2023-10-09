@@ -301,12 +301,11 @@
     }
   },
   "Item": {
-    "types": ["armament", "protection", "generalEquipament", "item", "feature", "spell"],
+    "types": ["armament", "protection", "generalEquipament", "ritual", "power", "item", "feature", "spell"],
     "templates": {
       "base": {
         "description": "",
         "weight": 1,
-        "formula": "d20 + @str.mod + ceil(@lvl / 2)",
         "category": 0
       }
     },
@@ -315,26 +314,42 @@
       "quantity": 1,
       "proficiency": 0,
       "types": {
-        "rangeType":{
+        "rangeType": {
           "name": "",
-          "subRangeTypes": []
+          "subRangeType": ""
         },
-        "ammunitionType": ""
+        "ammunitionType": "",
+        "damageType": "",
+        "gripType": ""
       },
       "critical": 0,
       "range": 0,
+      "formula": "d20 + @str.mod + ceil(@lvl / 2)",
       "penalty": ""
     },
     "protection": {
       "templates": ["base"],
-      "name": "",
-      "defense": "",
+      "defense": 0,
       "penalty": ""
     },
     "generalEquipament": {
       "templates": ["base"],
       "type": "",
       "quantity": 1
+    },
+    "ritual": {
+      "circle": 1,
+      "description": "",
+      "range": "",
+      "areaEffect": "",
+      "duration": "",
+      "resistence": "",
+      "studentForm": false,
+      "trueFrom": false
+    },
+    "power": {
+      "description": "",
+      "preRequisite": ""
     },
     "feature": {
       "templates": ["base"]
