@@ -141,5 +141,44 @@
 	"ordemparanormal.defense": "Defesa",
 	"ordemparanormal.dodge": "Esquiva",
 
-	"ordemparanormal.deslocamento": "Deslocamento"
+	"ordemparanormal.deslocamento": "Deslocamento",
+
+	"ordemparanormal.weaponTypeChoices": {
+		"melee": "Corpo a Corpo",
+		"ranged": "Ataque à Distância"
+	},
+
+	"ordemparanormal.weaponSubTypeChoices": {
+		"throw": "Arma de Arremesso",
+		"shoot": "Arma de Disparo",
+		"fire": "Arma de Fogo"
+	},
+
+	"ordemparanormal.weaponGripTypeChoices": {
+		"light": "Arma Leve",
+		"oneHand": "Uma Mão",
+		"twoHands": "Duas Mãos"
+	},
+
+	"ordemparanormal.weaponAmmunitionChoices": {
+		"shortBullets": "Balas Curtas",
+		"longBullets": "Balas Longas",
+		"fuel": "Combustível",
+		"arrows": "Flechas",
+		"rocket": "Foguetes"
+	},
+
+	"ordemparanormal.proficiencyChoices": {
+		"simpleWeapons": "Armas Simples",
+		"tacticalWeapons": "Armas Táticas",
+		"heavyWeapons": "Armas Pesadas"
+	},
+
+	"ordemparanormal.damageTypeChoices": {
+		"cuttingDamage": "Dano de Corte (C)",
+		"impactDamage": "Dano de Impacto (I)",
+		"piercingDamage": "Dano Perfurante (P)",
+		"ballisticDamage": "Dano Balístico (B)"
+	}
+
 }
