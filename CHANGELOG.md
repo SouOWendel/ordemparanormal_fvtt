@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v3.0.0...v3.1.0) (2023-10-09)
+
+
+### Features
+
+* **actor-sheet and templates:** added, deleted and renamed some files related to templates ([c4bd784](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c4bd784924b467c5e1fba34e518ad34db0ee9146))
+* **actor-sheet:** added group type of items 'protection' and initiate a prototype of rituals group ([26545be](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/26545be13124a5c631d7e9402d784af3dd2e12ea))
+* added the items for the system: ritual, armament, protection, general equipament and power ([5d0b740](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5d0b74070cb95d9a8410a1d29fa3c688355ac5cd))
+* **localization:** added translates for dropdowns in portuguese brazil and base structure in EN ([cfa0d1a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/cfa0d1a31e38ba3bf99e28d8c1451815afa2a1f4))
+* **localization:** added translations for tab titles ([c130755](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c130755ad33543f81fd7868e23e22afaeba89fc4))
+
 ## [3.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v2.1.0...v3.0.0) (2023-10-06)
 
 
