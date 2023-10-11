@@ -14,7 +14,7 @@ import { ordemparanormal } from './helpers/config.mjs';
 /* -------------------------------------------- */
 
 Hooks.once('init', async function () {
-	CONFIG.debug.hooks = true;
+	CONFIG.debug.hooks = false;
 	// Add utility classes to the global game object so that they're more easily
 	// accessible in global contexts.
 	game.ordemparanormal = {
