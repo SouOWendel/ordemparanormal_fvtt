@@ -348,6 +348,7 @@
       "trueFrom": false
     },
     "power": {
+      "type": "",
       "description": "",
       "preRequisite": ""
     },
