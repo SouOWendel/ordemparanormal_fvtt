@@ -3,12 +3,14 @@
 	"TYPES.Item.protection": "Proteção",
 	"TYPES.Item.generalEquipament": "Equipamento Geral",
 	"TYPES.Item.armament": "Armamento",
+	"TYPES.Item.ritual": "Ritual",
+	"TYPES.Item.power": "Poder",
 	"ordemparanormal.OrdemActorSheet": "Ficha de Agente",
 
 	"ordemparanormal.tab": {
 		"skills": "Perícias",
 		"inventory": "Inventário",
-		"habilities": "Habilidades",
+		"powers": "Poderes",
 		"rituals": "Rituais",
 		"biography": "Biografia",
 		"effects": "Efeitos"
