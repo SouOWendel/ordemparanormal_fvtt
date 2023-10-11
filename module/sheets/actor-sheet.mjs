@@ -204,9 +204,9 @@ export class OrdemActorSheet extends ActorSheet {
 				features.push(i);
 			}
 			// Append to rituals.
-			else if (i.type === 'rituals') {
-				if (i.data.spellLevel != undefined) {
-					rituals[i.data.spellLevel].push(i);
+			else if (i.type === 'ritual') {
+				if (i.data.circle != undefined) {
+					rituals[i.data.circle].push(i);
 				}
 			}
 		}
@@ -245,12 +245,12 @@ export class OrdemActorSheet extends ActorSheet {
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		html.find('.trainingDegree_SB').on('change', (changeEvent) => {
-			const valueInput = $('.trainingDegree_SB').find(':selected').val();
-			const textInput = $('.trainingDegree_SB option:selected').text();
-			console.log('Valor do Input: ' + valueInput);
-			console.log('---------------------');
-		});
+		// html.find('.trainingDegree_SB').on('change', (changeEvent) => {
+		// 	const valueInput = $('.trainingDegree_SB').find(':selected').val();
+		// 	const textInput = $('.trainingDegree_SB option:selected').text();
+		// 	console.log('Valor do Input: ' + valueInput);
+		// 	console.log('---------------------');
+		// });
 	
 
 		// Render the item sheet for viewing/editing prior to the editable check.
@@ -266,6 +266,9 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// Add Inventory Item
 		html.find('.item-create').click(this._onItemCreate.bind(this));
+
+		// Send stuff chat
+		html.find('.send-chat').click(this._onSendChat.bind(this));
 
 		// Delete Inventory Item
 		html.find('.item-delete').click((ev) => {
@@ -302,10 +305,8 @@ export class OrdemActorSheet extends ActorSheet {
 	async _onItemCreate(event) {
 		event.preventDefault();
 		const header = event.currentTarget;
-		console.log(header);
 		// Get the type of item to create.
 		const type = header.dataset.type;
-		console.log(type);
 		// Grab any data associated with this control.
 		const data = duplicate(header.dataset);
 		// Initialize a default name.
@@ -321,6 +322,31 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// Finally, create the item!
 		return await Item.create(itemData, { parent: this.actor });
+	}
+
+	/**
+	 * Handle creating a new message with data of item for send to chat.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	async _onSendChat(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const dataset = element.dataset;
+
+		const itemId = element.closest('.item').dataset.itemId;
+		const item = this.actor.items.get(itemId);
+
+		if (item.system.description) ChatMessage.create({ content: item.system.description});
+		// else {
+		// 	const d = new Dialog({
+		// 		title: 'Alert!',
+		// 		content: 'AAAAAAAA',
+		// 		buttons: {},
+		// 		close: () => {}
+		// 	});
+		//   d.render(true);
+		// }
 	}
 
 	/**
