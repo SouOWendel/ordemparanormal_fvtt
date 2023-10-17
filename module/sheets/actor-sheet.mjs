@@ -154,7 +154,6 @@ export class OrdemActorSheet extends ActorSheet {
 
 			skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
 
-
 		}
 	}
 
@@ -179,10 +178,14 @@ export class OrdemActorSheet extends ActorSheet {
 			3: [],
 			4: [],
 		};
-
+		
 		// Iterate through items, allocating to containers
 		for (const i of context.items) {
 			i.img = i.img || DEFAULT_TOKEN;
+
+			// Creating the data to use an item
+			i.system.using = (!i.system.using) ? [true, 'fas'] : i.system.using;
+
 			// Append to protections.
 			if (i.type === 'protection') {
 				protection.push(i);
@@ -229,12 +232,11 @@ export class OrdemActorSheet extends ActorSheet {
 	 * @return {undefined}
 	 */
 	_prepareItemsDerivedData(context) {
+
 		const items = context.items;
-		console.log('items: ');
 		for (const p of context.protection) {
-			console.log(typeof p.data.defense);
-			if (typeof p.data.defense == 'number') {
-				context.data.defense.value += p.data.defense;
+			if (typeof p.system.defense == 'number' && p.system.using.state == true) {
+				context.data.defense.value += p.system.defense;
 			}
 		}
 	}
@@ -244,14 +246,6 @@ export class OrdemActorSheet extends ActorSheet {
 	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
-
-		// html.find('.trainingDegree_SB').on('change', (changeEvent) => {
-		// 	const valueInput = $('.trainingDegree_SB').find(':selected').val();
-		// 	const textInput = $('.trainingDegree_SB option:selected').text();
-		// 	console.log('Valor do Input: ' + valueInput);
-		// 	console.log('---------------------');
-		// });
-	
 
 		// Render the item sheet for viewing/editing prior to the editable check.
 		html.find('.item-edit').click((ev) => {
@@ -264,11 +258,14 @@ export class OrdemActorSheet extends ActorSheet {
 		// Everything below here is only needed if the sheet is editable
 		if (!this.isEditable) return;
 
+		// Send description of item in chat
+		html.find('.send-chat').click(this._onSendChat.bind(this));
+
+		// Send description of item in chat
+		html.find('.mark-item').click(this._onMarkItem.bind(this));
+
 		// Add Inventory Item
 		html.find('.item-create').click(this._onItemCreate.bind(this));
-
-		// Send stuff chat
-		html.find('.send-chat').click(this._onSendChat.bind(this));
 
 		// Delete Inventory Item
 		html.find('.item-delete').click((ev) => {
@@ -338,15 +335,31 @@ export class OrdemActorSheet extends ActorSheet {
 		const item = this.actor.items.get(itemId);
 
 		if (item.system.description) ChatMessage.create({ content: item.system.description});
-		// else {
-		// 	const d = new Dialog({
-		// 		title: 'Alert!',
-		// 		content: 'AAAAAAAA',
-		// 		buttons: {},
-		// 		close: () => {}
-		// 	});
-		//   d.render(true);
-		// }
+	}
+
+	/**
+	 * Handle marks an item whether it is used or not and changes the icon
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	async _onMarkItem(event) {
+		event.preventDefault();
+		const element = event.target; // Puxa o elemento filho
+		const dataset = event.currentTarget.dataset; // Dataset do elemento pai
+
+		const itemId = event.currentTarget.closest('.item').dataset.itemId;
+    	const item = this.actor.items.get(itemId);
+
+		if (!item.system.using || item.system.using.state == false) {
+			// $(element).removeClass('far').addClass('fas');
+			console.log(`OP FVTT | DEFININDO ${item.name} COMO ATIVADO.`);
+			return item.update({'system.using': {'state': true, 'class': 'fas'} });
+		}
+		else { 
+			// $(element).removeClass('fas').addClass('far');
+			console.log(`OP FVTT | DEFININDO ${item.name} COMO DESATIVADO.`);
+			return item.update({'system.using': {'state': false, 'class': 'far'} });
+		}
 	}
 
 	/**

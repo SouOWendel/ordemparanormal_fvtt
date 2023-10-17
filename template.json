@@ -306,7 +306,11 @@
       "base": {
         "description": "",
         "weight": 1,
-        "category": 0
+        "category": 0,
+        "using": {
+          "state": true,
+          "class": "fas"
+        }
       }
     },
     "armament": {
