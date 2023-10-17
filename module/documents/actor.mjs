@@ -92,7 +92,7 @@ export class OrdemActor extends Actor {
 			else if (skillsName.degree.label == 'Expert') skillsName.value = 15;
 			else skillsName.value = 0;
 
-			console.log(JSON.stringify(skillsName.degree) + skillsName.value);
+			// console.log(JSON.stringify(skillsName.degree) + skillsName.value);
 		}
 	}
 
@@ -114,17 +114,30 @@ export class OrdemActor extends Actor {
 	_getAgentRollData(data) {
 		if (this.data.type !== 'agent') return;
 
-		// Copy the ability scores to the top level, so that rolls can use
-		// formulas like `@str.mod + 4`.
+		// Copy the skills scores to the top level, so that rolls can use
+		// formulas like `@iniciativa.value + 4`.
 		if (data.skills) {
 			for (const [k, v] of Object.entries(data.skills)) {
 				data[k] = foundry.utils.deepClone(v);
 			}
 		}
 
+		// Copy the attributes to the top level, so that rolls can use
+		// formulas like `@agi.value`.
+		if(data.attributes) {
+			for (const [k, v] of Object.entries(data.attributes)) {
+				data[k] = foundry.utils.deepClone(v);
+			}
+		}
+
+		if(data.attributes && data.skills) {
+			data.rollInitiative = data.attributes.agi.value + 'd20' +
+			 ((data.attributes.agi.value == 0) ? 'kl' : 'kh') + '+' + data.skills.iniciativa.value;
+		}
+
 		// Add level for easier access, or fall back to 0.
 		if (data.NEX) {
-			data.lvl = data.NEX.value ?? 0;
+			data.nex = data.NEX.value ?? 0;
 		}
 	}
 }

@@ -30,8 +30,9 @@ Hooks.once('init', async function () {
 	 * Set an initiative formula for the system
 	 * @type {String}
 	 */
+
 	CONFIG.Combat.initiative = {
-		formula: '(@skills.attributos.agi.value)d20 + @skills.iniciativa.value',
+		formula: '@rollInitiative',
 		decimals: 2,
 	};
 
