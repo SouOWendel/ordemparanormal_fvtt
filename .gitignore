@@ -3,3 +3,8 @@ node_modules
 # PACKS
 packs/createMissionPTBR
 packs/generalPTBR
+packs/armaments
+packs/documentation
+packs/generalEquipaments
+packs/maps
+packs/protections
