@@ -43,6 +43,8 @@ export class OrdemItemSheet extends ItemSheet {
 		context.optionWeaponAmmunition = CONFIG.ordemparanormal.dropdownWeaponAmmunition;
 		context.optionProficiency = CONFIG.ordemparanormal.dropdownProficiency;
 		context.optionDamageType = CONFIG.ordemparanormal.dropdownDamageType;
+		context.optionPowerType = CONFIG.ordemparanormal.dropdownPowerType;
+		
 		// Retrieve the roll data for TinyMCE editors.
 		context.rollData = {};
 		const actor = this.object?.parent ?? null;

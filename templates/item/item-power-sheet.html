@@ -23,12 +23,19 @@
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="resource">
-        <label class="resource-label">Tipo</label>
-        <input type="text" name="data.type" value="{{data.type}}" data-dtype="Number"/>
+        <label class="resource-label">Tipo de Poder</label>
+        <select name="data.type" data-dtype="String">
+          {{
+            selectOptions optionPowerType
+            selected=data.type 
+            localize=true
+            blank="—"
+          }}
+        </select>
       </div>
       <div class="resource">
         <label class="resource-label">Pré-requisito</label>
-        <input type="text" name="data.spellLevel" value="{{data.spellLevel}}" data-dtype="String"/>
+        <input type="text" name="data.preRequisite" value="{{data.preRequisite}}" data-dtype="String"/>
       </div>
     </div>
   </section>

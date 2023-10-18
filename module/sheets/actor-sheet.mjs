@@ -170,13 +170,17 @@ export class OrdemActorSheet extends ActorSheet {
 		const features = [];
 
 		const protection = [];
-		const generalEquipament = [];
+		const generalEquipment = [];
 		const armament = [];
 		const rituals = {
 			1: [],
 			2: [],
 			3: [],
 			4: [],
+		};
+		const powers = {
+			1: [],
+			2: [],
 		};
 		
 		// Iterate through items, allocating to containers
@@ -190,9 +194,9 @@ export class OrdemActorSheet extends ActorSheet {
 			if (i.type === 'protection') {
 				protection.push(i);
 			}
-			// Append to general equipament.
-			else if (i.type === 'generalEquipament') {
-				generalEquipament.push(i);
+			// Append to general equipment.
+			else if (i.type === 'generalEquipment') {
+				generalEquipment.push(i);
 			}
 			// Append to armament.
 			else if (i.type === 'armament') {
@@ -208,9 +212,18 @@ export class OrdemActorSheet extends ActorSheet {
 			}
 			// Append to rituals.
 			else if (i.type === 'ritual') {
-				if (i.data.circle != undefined) {
-					rituals[i.data.circle].push(i);
+				if (i.system.circle != undefined) {
+					rituals[i.system.circle].push(i);
 				}
+			}
+			// Append to features.
+			else if (i.type === 'power') {
+				if (i.system.id != 0) {
+					if (i.system.type == 'class') powers[1].push(i);
+					else if (i.system.type == 'paranormal') powers[2].push(i);
+					else powers[i.system.id].push(i);
+				}
+				
 			}
 		}
 
@@ -220,8 +233,9 @@ export class OrdemActorSheet extends ActorSheet {
 
 		context.rituals = rituals;
 		context.protection = protection;
-		context.generalEquip = generalEquipament;
+		context.generalEquip = generalEquipment;
 		context.armament = armament;
+		context.powers = powers;
 	}
 
 	/**
@@ -351,13 +365,11 @@ export class OrdemActorSheet extends ActorSheet {
     	const item = this.actor.items.get(itemId);
 
 		if (!item.system.using || item.system.using.state == false) {
-			// $(element).removeClass('far').addClass('fas');
-			console.log(`OP FVTT | DEFININDO ${item.name} COMO ATIVADO.`);
+			console.log(`OP FVTT | Definindo ${item.name} como ativado.`);
 			return item.update({'system.using': {'state': true, 'class': 'fas'} });
 		}
 		else { 
-			// $(element).removeClass('fas').addClass('far');
-			console.log(`OP FVTT | DEFININDO ${item.name} COMO DESATIVADO.`);
+			console.log(`OP FVTT | Definindo ${item.name} como desativado.`);
 			return item.update({'system.using': {'state': false, 'class': 'far'} });
 		}
 	}

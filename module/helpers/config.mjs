@@ -186,3 +186,8 @@ ordemparanormal.dropdownDamageType = {
 	'piercingDamage': 'ordemparanormal.damageTypeChoices.piercingDamage',
 	'ballisticDamage': 'ordemparanormal.damageTypeChoices.ballisticDamage'
 };
+
+ordemparanormal.dropdownPowerType = {
+	'class': 'ordemparanormal.powerTypeChoices.class',
+	'paranormal': 'ordemparanormal.powerTypeChoices.paranormal'
+};
