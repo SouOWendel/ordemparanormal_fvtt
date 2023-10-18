@@ -1,11 +1,25 @@
 {
 	"TYPES.Actor.agent": "Agente",
+
 	"TYPES.Item.protection": "Proteção",
-	"TYPES.Item.generalEquipament": "Equipamento Geral",
+	"ordemparanormal.protection.plural": "Proteções",
+
+	"TYPES.Item.generalEquipment": "Equipamento Geral",
+	"ordemparanormal.generalEquipment.plural": "Equipamentos",
+
 	"TYPES.Item.armament": "Armamento",
+	"ordemparanormal.armament.plural": "Armamentos",
+
 	"TYPES.Item.ritual": "Ritual",
+	"ordemparanormal.ritual.plural": "Rituais",
+
 	"TYPES.Item.power": "Poder",
+	"ordemparanormal.power.plural": "Poderes",
+
 	"ordemparanormal.OrdemActorSheet": "Ficha de Agente",
+
+	"SETTINGS.opPatchNotesN": "Desativar Notas de Atualização",
+	"SETTINGS.opPatchNotesH": "Ao iniciar um mundo com o sistema Ordem Paranormal, ou, ao atualizar o sistema, notas de atualizações com as novidades são exibidas em uma janela, marque/desmarque essa opção para desativar/ativar.",
 
 	"ordemparanormal.tab": {
 		"skills": "Perícias",
@@ -21,20 +35,6 @@
 	"ordemparanormal.pePerRound": "PE / Rodada",
 	"ordemparanormal.San": "Sanidade",
 	"ordemparanormal.NEX": "NEX",
-
-	"ordemparanormal.AbilityStr": "Força",
-	"ordemparanormal.AbilityCon": "Constituição",
-	"ordemparanormal.AbilityDex": "Destreza",
-	"ordemparanormal.AbilityInt": "Inteligência",
-	"ordemparanormal.AbilityWis": "Sabedoria",
-	"ordemparanormal.AbilityCha": "Carisma",
-
-	"ordemparanormal.AbilityStrAbbr": "For",
-	"ordemparanormal.AbilityConAbbr": "Con",
-	"ordemparanormal.AbilityDexAbbr": "Des",
-	"ordemparanormal.AbilityIntAbbr": "Int",
-	"ordemparanormal.AbilityWisAbbr": "Sab",
-	"ordemparanormal.AbilityChaAbbr": "Car",
 
 	"ordemparanormal.skillAcrobacia": "Acrobacia",
 	"ordemparanormal.skillAdestramento": "Adestramento",
@@ -64,18 +64,18 @@
 	"ordemparanormal.skillTecnologia": "Tecnologia",
 	"ordemparanormal.skillVontade": "Vontade",
 
-	"ordemparanormal.AttAgi": "Agilidade",
-	"ordemparanormal.AttInt": "Inteligência",
-	"ordemparanormal.AttVig": "Vigor",
-	"ordemparanormal.AttPre": "Presença",
-	"ordemparanormal.AttFor": "Força",
+	"ordemparanormal.attAgi": "Agilidade",
+	"ordemparanormal.attInt": "Inteligência",
+	"ordemparanormal.attVig": "Vigor",
+	"ordemparanormal.attPre": "Presença",
+	"ordemparanormal.attFor": "Força",
 
-	"ordemparanormal.EffectCreate": "Criar Efeito",
-	"ordemparanormal.EffectToggle": "Trocar Efeito",
-	"ordemparanormal.EffectEdit": "Editar Efeito",
-	"ordemparanormal.EffectDelete": "Deletar Efeito",
+	"ordemparanormal.effectCreate": "Criar Efeito",
+	"ordemparanormal.effectToggle": "Trocar Efeito",
+	"ordemparanormal.effectEdit": "Editar Efeito",
+	"ordemparanormal.effectDelete": "Deletar Efeito",
 
-	"ordemparanormal.Add": "Adicionar",
+	"ordemparanormal.add": "Adicionar",
 
 	"ordemparanormal.degreeTrainingChoices": {
 		"dest": "Destreinado",
@@ -181,6 +181,11 @@
 		"impactDamage": "Dano de Impacto (I)",
 		"piercingDamage": "Dano Perfurante (P)",
 		"ballisticDamage": "Dano Balístico (B)"
+	},
+
+	"ordemparanormal.powerTypeChoices": {
+		"class": "Poder de Classe",
+		"paranormal": "Poder Paranormal"
 	}
 
 }

@@ -1,11 +1,23 @@
 {
 	"TYPES.Actor.agent": "Agent",
+
 	"TYPES.Item.protection": "Protection",
-	"TYPES.Item.generalEquipament": "General Equipament",
+	"ordemparanormal.protection.plural": "Proteções",
+
+	"TYPES.Item.generalEquipment": "General Equipment",
+	"ordemparanormal.generalEquipment.plural": "Equipments",
+
 	"TYPES.Item.armament": "Armament",
+	"ordemparanormal.armament.plural": "Armaments",
+
 	"TYPES.Item.ritual": "Ritual",
+	"ordemparanormal.ritual.plural": "Rituals",
+
 	"TYPES.Item.power": "Power",
+	"ordemparanormal.power.plural": "Powers",
+	
 	"ordemparanormal.OrdemActorSheet": "Agent's Sheet",
+	
 
 	"ordemparanormal.tab": {
 		"skills": "Skills",
@@ -167,5 +179,10 @@
 		"impactDamage": "Dano de Impacto (I)",
 		"piercingDamage": "Dano Perfurante (P)",
 		"ballisticDamage": "Dano Balístico (B)"
+	},
+	
+	"ordemparanormal.powerTypeChoices": {
+		"class": "Poder de Classe",
+		"paranormal": "Poder Paranormal"
 	}
 }
