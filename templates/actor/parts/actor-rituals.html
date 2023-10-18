@@ -7,8 +7,8 @@
       <div class="item-name">Duração</div>
       <div class="item-name">Resistência</div>
       <div class="item-controls">
-        <a class="item-control item-create" title="Create item" data-type="ritual" data-circle="{{circle}}">
-          <i class="fas fa-plus"></i> Add LVL {{circle}}
+        <a class="item-control item-create" title="Criar ritual de {{circle}}º círculo" data-type="ritual" data-circle="{{circle}}">
+          <i class="fas fa-plus"></i>
         </a>
       </div>
     </li>
@@ -25,7 +25,7 @@
         <div class="item-name item-prop">{{item.data.duration}}</div>
         <div class="item-name item-prop">{{item.data.resistance}}</div>
         <div class="item-controls">
-          <a class="item-control mark-item" title="Marcar e desmarcar com item utilizado"><i class="{{ item.system.using.class }} fa-star"></i></a>
+          <a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
           <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
           <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
         </div>

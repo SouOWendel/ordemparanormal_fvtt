@@ -1,11 +1,11 @@
 
     <ol class="items-list">
       <li class="item flexrow items-header">
-        <div class="item-name">Name</div>
+        <div class="item-name">{{localize "ordemparanormal.generalEquipment.plural"}}</div>
         <div class="item-category">Categoria</div>
         <div class="item-controls">
-          <a class="item-control item-create" title="Create item" data-type="generalEquipament">
-            <i class="fas fa-plus"></i> Add item
+          <a class="item-control item-create" title="Create item" data-type="generalEquipment">
+            <i class="fas fa-plus"></i> 
           </a>
         </div>
       </li>
@@ -29,7 +29,7 @@
     </ol>
   <ol class="items-list">
     <li class="item flexrow items-header">
-      <div class="item-name">Name</div>
+      <div class="item-name">{{localize "ordemparanormal.armament.plural"}}</div>
       <div class="item-name">Formula</div>
       <div class="item-name">Quantidade</div>
       <div class="item-name">Proficiência</div>
@@ -37,7 +37,7 @@
       <div class="item-name">Alcance</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="armament">
-          <i class="fas fa-plus"></i> Add item
+          <i class="fas fa-plus"></i> 
         </a>
       </div>
     </li>
@@ -51,7 +51,12 @@
         </div>
         <div class="item-name item-prop">{{item.data.formula}}</div>
         <div class="item-name item-prop">{{item.data.quantity}}</div>
-        <div class="item-name item-prop">{{localize (concat "ordemparanormal.proficiencyChoices." item.data.proficiency)}}</div>
+        <div class="item-name item-prop">
+          {{#if item.data.proficiency}}
+            {{localize (concat "ordemparanormal.proficiencyChoices." item.data.proficiency)}}
+          {{else}} —
+          {{/if}}
+        </div>
         <div class="item-name item-prop">{{item.data.critical}}</div>
         <div class="item-name item-prop">{{item.data.range}}</div>
         <div class="item-controls">
@@ -65,12 +70,12 @@
   </ol>
 <ol class="items-list">
   <li class="item flexrow items-header">
-    <div class="item-name">Name</div>
+    <div class="item-name">{{localize "ordemparanormal.protection.plural"}}</div>
     <div class="item-formula">Defesa</div>
     <div class="item-peso">Peso</div>
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="protection">
-        <i class="fas fa-plus"></i> Add item
+        <i class="fas fa-plus"></i> 
       </a>
     </div>
   </li>
