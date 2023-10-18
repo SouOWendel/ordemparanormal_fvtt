@@ -67,7 +67,7 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
               env:
                 ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
-              run: zip $ZIP_NAME -r css lang packs module templates system.json template.json LICENSE.txt README.md
+              run: zip $ZIP_NAME -r css lang packs utils media module templates system.json template.json LICENSE.txt README.md CHANGELOG.md
 
             # Adiciona o arquivo System.json as releases do sistema.
             - name: Upload Release Artifacts
