@@ -3,7 +3,7 @@
         // "min-core-version": "9.0.0", //optional, inclusive
         // "max-core-version": "10.0.0", //optional, exclusive
         "min-sys-version": "3.1.0", //optional, inclusive
-        "max-sys-version": "4.0.0", //optional, exclusive
+        "max-sys-version": "4.0.100", //optional, exclusive
         "type": "prompt", // Type of message: [prompt, chat]
         "display": "once", // Time until it goes away: [once, infinite, mm.dd.yyyy]
         "title": "3.1.0 - 4.0.0 Release Notes",

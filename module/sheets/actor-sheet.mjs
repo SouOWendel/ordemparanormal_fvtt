@@ -218,12 +218,9 @@ export class OrdemActorSheet extends ActorSheet {
 			}
 			// Append to features.
 			else if (i.type === 'power') {
-				if (i.system.id != 0) {
-					if (i.system.type == 'class') powers[1].push(i);
-					else if (i.system.type == 'paranormal') powers[2].push(i);
-					else powers[i.system.id].push(i);
-				}
-				
+				if (i.system.type == 'class') powers[1].push(i);
+				else if (i.system.type == 'paranormal') powers[2].push(i);
+				else powers[i.system.id].push(i);
 			}
 		}
 
