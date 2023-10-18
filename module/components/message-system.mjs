@@ -55,7 +55,7 @@ const displayPrompt = (title, content) => {
 
 	const dialogOptions = {
 		width: 500,
-		height: 650,
+		height: 700,
 		classes: [],
 	};
 
