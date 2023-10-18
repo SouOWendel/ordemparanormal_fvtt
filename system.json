@@ -62,7 +62,7 @@
       }
     },
     {
-      "name": "generalEquipaments",
+      "name": "generalEquipments",
       "label": "Equipamentos Gerais",
       "system": "ordemparanormal",
       "type": "Item",
@@ -107,7 +107,7 @@
           "color": "#b72c1f",
           "packs": [
             "armaments",
-            "generalEquipaments",
+            "generalEquipments",
             "protections"
           ]
         }

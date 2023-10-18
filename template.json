@@ -301,7 +301,7 @@
     }
   },
   "Item": {
-    "types": ["armament", "protection", "generalEquipament", "ritual", "power", "item", "feature", "spell"],
+    "types": ["armament",  "generalEquipment", "protection", "power", "ritual" ],
     "templates": {
       "base": {
         "description": "",
@@ -336,7 +336,7 @@
       "defense": 0,
       "penalty": ""
     },
-    "generalEquipament": {
+    "generalEquipment": {
       "templates": ["base"],
       "type": "",
       "quantity": 1
@@ -347,21 +347,15 @@
       "range": "",
       "areaEffect": "",
       "duration": "",
-      "resistence": "",
+      "resistance": "",
       "studentForm": false,
       "trueFrom": false
     },
     "power": {
+      "id": 0,
       "type": "",
       "description": "",
       "preRequisite": ""
-    },
-    "feature": {
-      "templates": ["base"]
-    },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
     }
   }
 }
