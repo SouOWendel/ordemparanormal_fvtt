@@ -308,48 +308,9 @@
 	<section class="sheet-body">
 		{{!-- Owned skills Tab --}}
 		<div class="tab skills" data-group="primary" data-tab="skills">
-			<section class="grid grid-2col">
-				<aside class="sidebar">
-					{{!-- The grid classes are defined in
-					scss/global/_grid.scss. To use, use both the "grid" and
-					"grid-Ncol" class where "N" can be any number from 1 to 12
-					and will create that number of columns. --}}
-					<div class="abilities flexcol">
-						{{#each data.skills as |skillName key|}}
-						<div class="ability flexrow flex-group-center">
-							<label
-								for="data.skills.{{key}}.value"
-								class="resource-label rollable flexlarge align-left"
-								data-roll="{{skillName.formula}}"
-								data-label="{{skillName.label}}"
-								>{{skillName.label}}
-							</label>
-							<select class="trainingDegree_SB" name="data.skills.{{key}}.degree.label" data-dtype="String">
-								{{
-									selectOptions ../optionDegree
-									selected=skillName.degree.label 
-									localize=true
-								}}
-							</select>
-							<input
-								type="text"
-								name="data.skills.{{key}}.mod"
-								value="{{skillName.mod}}"
-								data-dtype="Number"
-							/>
-						</div>
-						{{/each}}
-					</div>
-				</aside>
-
-				{{!-- For the main skills list, span the right two columns
-				--}}
-				<section class="main grid-span-1">
-					{{!-- This is a Handlebars partial. They're stored in the
-					`/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-					{{>"systems/ordemparanormal/templates/actor/parts/actor-skills.html"}}
-				</section>
-			</section>
+			{{!-- This is a Handlebars partial. They're stored in the
+			`/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+			{{>"systems/ordemparanormal/templates/actor/parts/actor-skills.html"}}
 		</div>
 
 		{{!-- Biography Tab --}}
