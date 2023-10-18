@@ -1,5 +1,35 @@
 # Changelog
 
+## [4.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v3.1.0...v4.0.0) (2023-10-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* By changing the variable name of general items, some items may no longer work, in addition, other types of excluded items may also no longer work.
+
+### Features
+
+* **actor and fix:** added the [@roll](https://github.com/roll)Initiative tag to generate roll formula and to use it in combat ([f3a2dd1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f3a2dd1788409cbd21877fa96fe8793cfe46e572))
+* **actor-sheet and items:** the onMarkItem function was created, it manages used and unused items ([9a62b6e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9a62b6e82ab322811f50c8dc512e9d5627b159f6))
+* call the displayMessages and registerSystemSettings methods in js file ([bd890fd](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bd890fd31c430026c2d986c6dc031b34d83b45fc))
+* **fix:** added some translates with HandleBars and fix the names and functions in html ([b6a692f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b6a692f43eb474b0509a090cea8663ea01c30b12))
+* **item-sheet:** added new item-sheet with new tab and name, replacing the habilities ([50c66a9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/50c66a9ca54850af55998f6cd0b96dba8ac02ea3))
+* **item-sheet:** added the ritual and icons function features, moreover, added the send-chat action ([ec9fe65](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ec9fe6589adc8ed2a32aa8ca7444be835aa36c7b))
+* **item:** added new item power and group for same item, moreover, created the html template ([5e562d5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5e562d58013796665201a4886c330e15119458ef))
+* **localization:** add translates for ritual and power (en and pt-br) ([08e830f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/08e830f00fc845eecd8a2ed060818cbb2998861d))
+* **localization:** added plural translations for item translation variables. added patchnotes in pt ([b50f11d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b50f11dc633d6cf210addd3a7424d1b30aded596))
+* **patch notes:** added patch notes feature ([1fa1beb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1fa1beb99e3c5a3eeee37ceade358b55416bb819))
+
+
+### Bug Fixes
+
+* change the patch version of patch notes message and fix the powers group ([a65a14c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a65a14c9362de27bb112777ec38266e9655cec1e))
+* disable the debug.hook, only useful for development ([5957453](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5957453d5d34e4d1e0ba1f25e73a5e9097c90da1))
+* fix the name: data.resistence -&gt; data.resistance ([ee864fa](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ee864fa328e6a7ba0e2e538106420ebb1325ffea))
+* **patch notes and message:** change the window size and fix the name version, also, added a note ([5216172](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/52161724ff6693da93c6c1b27c0af3ed0270a07e))
+* **patch notes and message:** fix the html ([ea4d69f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ea4d69f5fc44a874fe36fcfb1e5fd9e05b47dc4a))
+* tag name correction and deletion of useless items ([a81dc19](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a81dc19ae96274051d8e695f7d74e6de6a5a5a2b))
+
 ## [3.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v3.0.0...v3.1.0) (2023-10-09)
 
 
