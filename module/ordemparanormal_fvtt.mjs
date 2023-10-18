@@ -1,3 +1,11 @@
+/**
+ * The Paranormal Order game system for Foundry Virtual Tabletop
+ * Author: SouOWendel
+ * Software License: CC BY-NC-SA 4.0
+ * Repository: https://github.com/SouOWendel/ordemparanormal_fvtt
+ * Issue Tracker: https://github.com/SouOWendel/ordemparanormal_fvtt/issues
+ */
+
 /* eslint-disable no-undef */
 // Import document classes.
 import { OrdemActor } from './documents/actor.mjs';
@@ -8,6 +16,8 @@ import { OrdemItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { ordemparanormal } from './helpers/config.mjs';
+import displayMessages from './components/message-system.mjs';
+import registerSystemSettings from './components/settings.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -50,8 +60,21 @@ Hooks.once('init', async function () {
 		makeDefault: true,
 	});
 
+	// Register System Settings in Other File
+	registerSystemSettings();
+
 	// Preload Handlebars templates.
 	return preloadHandlebarsTemplates();
+});
+
+Hooks.once('ready', function () {
+
+	// ui.notifications.info('This is an info message');
+	// ui.notifications.warn('This is a warning message');
+	// ui.notifications.error('This is an error message');
+	// ui.notifications.info('This is a 4th message which will not be shown until the first info message is done');
+
+	displayMessages();
 });
 
 /* -------------------------------------------- */
@@ -73,7 +96,7 @@ Handlebars.registerHelper('concatObjAndStr', function () {
 	
 	const option = arguments[arguments.length-1];
 	const args = Array.prototype.slice.call(arguments, 0,arguments.length-1);
-	console.log('ORDEM PARANORMAL FVTT | ' + option.name + ' - Argumentos: ' + args);
+	console.log('OP FVTT | ' + option.name + ' - Argumentos: ' + args);
 
 	let objects = {};
 	for (const arg in args) {
@@ -85,7 +108,7 @@ Handlebars.registerHelper('concatObjAndStr', function () {
 			} else {
 				objects = objects[arguments[arg]];
 			}
-			console.log('ORDEM PARANORMAL FVTT | ' + option.name + ' - Tipo final: ' +  typeof objects);
+			console.log('OP FVTT | ' + option.name + ' - Tipo final: ' +  typeof objects);
 		}
 	}
 	return objects;
@@ -115,6 +138,11 @@ Handlebars.registerHelper('numberInputFVTT', function (value, options) {
 		safe = safe.toNearest(Number(step));
 	}
 	return new Handlebars.SafeString(`<input type="number" value="${safe}" ${properties.join(' ')}>`);
+});
+
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+	// eslint-disable-next-line no-invalid-this
+	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
 Handlebars.registerHelper('toLowerCase', function (str) {
