@@ -62,16 +62,16 @@
 	"ordemparanormal.skillTecnologia": "Technology",
 	"ordemparanormal.skillVontade": "Will",
 
-	"ordemparanormal.AttAgi": "Dexterity",
-	"ordemparanormal.AttInt": "Intelligence",
-	"ordemparanormal.AttVig": "Vitality",
-	"ordemparanormal.AttPre": "Presence",
-	"ordemparanormal.AttFor": "Strength",
+	"ordemparanormal.attAgi": "Dexterity",
+	"ordemparanormal.attInt": "Intelligence",
+	"ordemparanormal.attVig": "Vitality",
+	"ordemparanormal.attPre": "Presence",
+	"ordemparanormal.attFor": "Strength",
 
-	"ordemparanormal.EffectCreate": "Create Effect",
-	"ordemparanormal.EffectToggle": "Toggle Effect",
-	"ordemparanormal.EffectEdit": "Edit Effect",
-	"ordemparanormal.EffectDelete": "Delete Effect",
+	"ordemparanormal.effectCreate": "Create Effect",
+	"ordemparanormal.effectToggle": "Toggle Effect",
+	"ordemparanormal.effectEdit": "Edit Effect",
+	"ordemparanormal.effectDelete": "Delete Effect",
 
 	"ordemparanormal.Add": "Add",
 
