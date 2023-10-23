@@ -22,7 +22,7 @@
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
-      <div class="resource">
+      <div class="resource grid align-items-center">
         <label class="resource-label">Tipo de Poder</label>
         <select name="data.type" data-dtype="String">
           {{
@@ -32,8 +32,6 @@
             blank="—"
           }}
         </select>
-      </div>
-      <div class="resource">
         <label class="resource-label">Pré-requisito</label>
         <input type="text" name="data.preRequisite" value="{{data.preRequisite}}" data-dtype="String"/>
       </div>

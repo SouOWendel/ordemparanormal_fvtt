@@ -1,6 +1,6 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<form class="{{cssClass}} {{actor.type}}" autocomplete="off">
 	{{!-- Sheet Header --}}
-	<header class="sheet-header">
+	<div class="header-identify align-center grid grid-3col">
 		<img
 			class="profile-img"
 			src="{{actor.img}}"
@@ -9,22 +9,29 @@
 			height="100"
 			width="100"
 		/>
+		<h1 class="charname">
+			<input
+				name="name"
+				type="text"
+				value="{{actor.name}}"
+				placeholder="Name"
+			/>
+		</h1>
+		<div class="resource flex-group-center">
+			<label for="data.NEX.value" class="resource-label">
+				{{localize 'ordemparanormal.NEX'}}
+			</label>
+			<div class="resource-content flexrow flex-center flex-between">
+				{{numberInputFVTT data.NEX.value name="data.NEX.value" step=1 min=0 max=99}}
+			</div>
+		</div>
+	</div>
+	<header class="sheet-header">
 		<div class="header-fields">
-			<h1 class="charname">
-				<input
-					name="name"
-					type="text"
-					value="{{actor.name}}"
-					placeholder="Name"
-				/>
-			</h1>
 			{{!-- The grid classes are defined in scss/global/_grid.scss. To
 			use, use both the "grid" and "grid-Ncol" class where "N" can be any
 			number from 1 to 12 and will create that number of columns. --}}
-			<div class="resources grid grid-3col">
-				{{!-- "flex-group-center" is also defined in the _grid.scss file
-				and it will add a small amount of padding, a border, and will
-				center all of its child elements content and text. --}}
+			<div class="resources grid grid-4col">
 				<div class="resource flex-group-center">
 					<label for="data.PV.value" class="resource-label">
 						{{localize 'ordemparanormal.PV'}}
@@ -102,16 +109,8 @@
 						/>
 					</div>
 				</div>
-
-				<div class="resource flex-group-center">
-					<label for="data.NEX.value" class="resource-label">
-						{{localize 'ordemparanormal.NEX'}}
-					</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						{{numberInputFVTT data.NEX.value name="data.NEX.value" step=1 min=0 max=99}}
-					</div>
-				</div>
-
+			</div>
+			<div class="resources grid grid-3col">
 				<div class="resource flex-group-center">
 					<label for="{{localize 'ordemparanormal.className'}}" class="resource-label">
 						{{localize 'ordemparanormal.className'}}
@@ -166,7 +165,89 @@
 						{{/if}}
 					</div>
 				</div>
+			</div>
+			<div class="resources grid grid-5col">
+				{{!-- "flex-group-center" is also defined in the _grid.scss file
+				and it will add a small amount of padding, a border, and will
+				center all of its child elements content and text. --}}
 
+				<div class="resource flex-group-center">
+					<label
+						for="data.attributes.agi.value"
+						class="resource-label"
+						>{{localize 'ordemparanormal.attAgi'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.attributes.agi.value"
+							value="{{data.attributes.agi.value}}"
+							data-dtype="Number"
+						/>
+					</div>
+				</div>
+				
+
+				<div class="resource flex-group-center">
+					<label
+						for="data.attributes.int.value"
+						class="resource-label"
+						>{{localize 'ordemparanormal.attInt'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.attributes.int.value"
+							value="{{data.attributes.int.value}}"
+							data-dtype="Number"
+						/>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label
+						for="data.attributes.vig.value"
+						class="resource-label"
+						>{{localize 'ordemparanormal.attVig'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.attributes.vig.value"
+							value="{{data.attributes.vig.value}}"
+							data-dtype="Number"
+						/>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label
+						for="data.attributes.pre.value"
+						class="resource-label"
+						>{{localize 'ordemparanormal.attPre'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.attributes.pre.value"
+							value="{{data.attributes.pre.value}}"
+							data-dtype="Number"
+						/>
+					</div>
+				</div>
+
+				<div class="resource flex-group-center">
+					<label
+						for="{{localize 'ordemparanormal.AttFor'}}"
+						class="resource-label"
+						>{{localize 'ordemparanormal.attFor'}}</label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input
+							type="text"
+							name="data.attributes.for.value"
+							value="{{data.attributes.for.value}}"
+							data-dtype="Number"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="resources grid grid-3col">
 				<div class="resource flex-group-center">
 					<label
 						for="{{localize 'ordemparanormal.defense'}}"
@@ -195,81 +276,6 @@
 							value="{{data.defense.dodge}}"
 							data-dtype="Number" 
 							disabled
-						/>
-					</div>
-				</div>
-
-				<div class="resource flex-group-center">
-					<label
-						for="data.attributes.agi.value"
-						class="resource-label"
-						>{{localize 'ordemparanormal.AttAgi'}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="data.attributes.agi.value"
-							value="{{data.attributes.agi.value}}"
-							data-dtype="Number"
-						/>
-					</div>
-				</div>
-
-				<div class="resource flex-group-center">
-					<label
-						for="data.attributes.int.value"
-						class="resource-label"
-						>{{localize 'ordemparanormal.AttInt'}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="data.attributes.int.value"
-							value="{{data.attributes.int.value}}"
-							data-dtype="Number"
-						/>
-					</div>
-				</div>
-
-				<div class="resource flex-group-center">
-					<label
-						for="data.attributes.vig.value"
-						class="resource-label"
-						>{{localize 'ordemparanormal.AttVig'}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="data.attributes.vig.value"
-							value="{{data.attributes.vig.value}}"
-							data-dtype="Number"
-						/>
-					</div>
-				</div>
-
-				<div class="resource flex-group-center">
-					<label
-						for="data.attributes.pre.value"
-						class="resource-label"
-						>{{localize 'ordemparanormal.AttPre'}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="data.attributes.pre.value"
-							value="{{data.attributes.pre.value}}"
-							data-dtype="Number"
-						/>
-					</div>
-				</div>
-
-				<div class="resource flex-group-center">
-					<label
-						for="{{localize 'ordemparanormal.AttFor'}}"
-						class="resource-label"
-						>{{localize 'ordemparanormal.AttFor'}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="data.attributes.for.value"
-							value="{{data.attributes.for.value}}"
-							data-dtype="Number"
 						/>
 					</div>
 				</div>
