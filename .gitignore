@@ -8,3 +8,6 @@ packs/documentation
 packs/generalEquipments
 packs/maps
 packs/protections
+
+# FORMATS
+*.map
