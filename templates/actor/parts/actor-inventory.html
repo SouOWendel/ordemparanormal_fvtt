@@ -2,7 +2,7 @@
     <ol class="items-list">
       <li class="item flexrow items-header">
         <div class="item-name">{{localize "ordemparanormal.generalEquipment.plural"}}</div>
-        <div class="item-category">Categoria</div>
+        <div class="item-space">Categoria</div>
         <div class="item-controls">
           <a class="item-control item-create" title="Create item" data-type="generalEquipment">
             <i class="fas fa-plus"></i> 
@@ -17,7 +17,7 @@
             </div>
             <h4>{{item.name}}</h4>
           </div>
-          <div class="item-category item-prop">{{item.data.category}}</div>
+          <div class="item-space item-prop">{{item.data.category}}</div>
           <div class="item-controls">
             <a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
             <a class="item-control mark-item" title="Marcar e desmarcar com item utilizado"><i class="{{ item.system.using.class }} fa-star"></i></a>
@@ -30,11 +30,10 @@
   <ol class="items-list">
     <li class="item flexrow items-header">
       <div class="item-name">{{localize "ordemparanormal.armament.plural"}}</div>
-      <div class="item-name">Formula</div>
-      <div class="item-name">Quantidade</div>
-      <div class="item-name">Proficiência</div>
-      <div class="item-name">Crítico</div>
-      <div class="item-name">Alcance</div>
+      <div class="item-space">Qtd</div>
+      <div class="item-space">Proficiência</div>
+      <div class="item-space">Crítico</div>
+      <div class="item-space">Alcance</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="armament">
           <i class="fas fa-plus"></i> 
@@ -49,16 +48,15 @@
           </div>
           <h4>{{item.name}}</h4>
         </div>
-        <div class="item-name item-prop">{{item.data.formula}}</div>
-        <div class="item-name item-prop">{{item.data.quantity}}</div>
-        <div class="item-name item-prop">
+        <div class="item-space item-prop">{{item.data.quantity}}</div>
+        <div class="item-space item-prop">
           {{#if item.data.proficiency}}
             {{localize (concat "ordemparanormal.proficiencyChoices." item.data.proficiency)}}
           {{else}} —
           {{/if}}
         </div>
-        <div class="item-name item-prop">{{item.data.critical}}</div>
-        <div class="item-name item-prop">{{item.data.range}}</div>
+        <div class="item-space item-prop">{{item.data.critical}}</div>
+        <div class="item-space item-prop">{{item.data.range}}</div>
         <div class="item-controls">
           <a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
           <a class="item-control mark-item" title="Marcar e desmarcar com item utilizado"><i class="{{ item.system.using.class }} fa-star"></i></a>
@@ -71,8 +69,8 @@
 <ol class="items-list">
   <li class="item flexrow items-header">
     <div class="item-name">{{localize "ordemparanormal.protection.plural"}}</div>
-    <div class="item-formula">Defesa</div>
-    <div class="item-peso">Peso</div>
+    <div class="item-space">Defesa</div>
+    <div class="item-space">Peso</div>
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="protection">
         <i class="fas fa-plus"></i> 
@@ -87,8 +85,8 @@
         </div>
         <h4>{{item.name}}</h4>
       </div>
-      <div class="item-formula item-prop">{{item.data.defense}}</div>
-      <div class="item-peso item-prop">{{item.data.weight}}</div>
+      <div class="item-space item-prop">{{item.data.defense}}</div>
+      <div class="item-space item-prop">{{item.data.weight}}</div>
       <div class="item-controls">
         <a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
         <a class="item-control mark-item" title="Marcar e desmarcar com item utilizado">

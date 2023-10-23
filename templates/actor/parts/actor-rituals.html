@@ -2,10 +2,10 @@
   {{#each rituals as |rituals circle|}}
     <li class="item flexrow items-header">
       <div class="item-name">{{circle}}º Circulo</div>
-      <div class="item-name">Alcance</div>
-      <div class="item-name">Área</div>
-      <div class="item-name">Duração</div>
-      <div class="item-name">Resistência</div>
+      <div class="item-space">Alcance</div>
+      <div class="item-space">Área</div>
+      <div class="item-space">Duração</div>
+      <div class="item-space">Resistência</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Criar ritual de {{circle}}º círculo" data-type="ritual" data-circle="{{circle}}">
           <i class="fas fa-plus"></i>
@@ -20,10 +20,10 @@
           </div>
           <h4>{{item.name}}</h4>
         </div>
-        <div class="item-name item-prop">{{item.data.range}}</div>
-        <div class="item-name item-prop">{{item.data.areaEffect}}</div>
-        <div class="item-name item-prop">{{item.data.duration}}</div>
-        <div class="item-name item-prop">{{item.data.resistance}}</div>
+        <div class="item-space item-prop">{{item.data.range}}</div>
+        <div class="item-space item-prop">{{item.data.areaEffect}}</div>
+        <div class="item-space item-prop">{{item.data.duration}}</div>
+        <div class="item-space item-prop">{{item.data.resistance}}</div>
         <div class="item-controls">
           <a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
           <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

@@ -1,5 +1,5 @@
 // Add custom fonts by visiting and search https://fonts.google.com
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap');
 
 // Import utilities.
 @import 'utils/typography';
@@ -18,4 +18,5 @@
   @import 'components/resource';
   @import 'components/items';
   @import 'components/effects';
+  @import 'components/dialog';
 }

@@ -76,11 +76,13 @@
     .item-name {
       color: $c-dark;
       .item-image {
+        display: flex;
+        align-items: center;
         flex: 0 0 30px;
         height: 30px;
         background-size: 30px;
         border: none;
-        margin-right: 5px;
+        margin-right: 1px;
       }
     }
   }
@@ -114,7 +116,13 @@
 }
 
 /* Example style for Ordem (can be removed if not needed) */
-.item-formula {
-  flex: 0 0 200px;
+.item-space {
+  flex: 1 10px;
   padding: 0 8px;
+}
+
+.item-sheet {
+  display: flex;
+  flex: 1;
+  background-color: aqua;
 }

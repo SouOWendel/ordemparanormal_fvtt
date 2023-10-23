@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
@@ -13,7 +13,7 @@
 .grid,
 .grid-2col {
   display: grid;
-  grid-column: span 2 / span 2;
+  grid-column: span 2/span 2;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin: 10px 0;
@@ -21,52 +21,52 @@
 }
 
 .grid-3col {
-  grid-column: span 3 / span 3;
+  grid-column: span 3/span 3;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-4col {
-  grid-column: span 4 / span 4;
+  grid-column: span 4/span 4;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .grid-5col {
-  grid-column: span 5 / span 5;
+  grid-column: span 5/span 5;
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .grid-6col {
-  grid-column: span 6 / span 6;
+  grid-column: span 6/span 6;
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .grid-7col {
-  grid-column: span 7 / span 7;
+  grid-column: span 7/span 7;
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .grid-8col {
-  grid-column: span 8 / span 8;
+  grid-column: span 8/span 8;
   grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 
 .grid-9col {
-  grid-column: span 9 / span 9;
+  grid-column: span 9/span 9;
   grid-template-columns: repeat(9, minmax(0, 1fr));
 }
 
 .grid-10col {
-  grid-column: span 10 / span 10;
+  grid-column: span 10/span 10;
   grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 
 .grid-11col {
-  grid-column: span 11 / span 11;
+  grid-column: span 11/span 11;
   grid-template-columns: repeat(11, minmax(0, 1fr));
 }
 
 .grid-12col {
-  grid-column: span 12 / span 12;
+  grid-column: span 12/span 12;
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
@@ -161,170 +161,130 @@
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   text-align: center;
 }
 
 .flex-group-left {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: left;
 }
 
 .flex-group-right {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
   text-align: right;
 }
 
 .flexshrink {
-  -webkit-box-flex: 0;
-  -ms-flex: 0;
   flex: 0;
 }
 
 .flex-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .flexlarge {
-  -webkit-box-flex: 2;
-  -ms-flex: 2;
   flex: 2;
 }
 
 .align-left {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: left;
 }
 
 .align-right {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
   text-align: right;
 }
 
 .align-center {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
 }
 
+.align-items-center {
+  justify-content: center;
+  align-items: center;
+}
+
 /* Styles limited to ordemparanormal sheets */
+.ordemparanormal {
+  /* ----------------------------------------- */
+  /*  Items Lists                              */
+  /* ----------------------------------------- */
+  /* Example style for Ordem (can be removed if not needed) */
+}
 .ordemparanormal .item-form {
   font-family: "Roboto", sans-serif;
 }
-
-.ordemparanormal .sheet-header {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 auto;
-  flex: 0 auto;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
+.ordemparanormal .header-identify {
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
 }
-
-.ordemparanormal .sheet-header .profile-img {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
-  height: 100px;
-  margin-right: 10px;
+.ordemparanormal .header-identify h1, .ordemparanormal .header-identify h2, .ordemparanormal .header-identify h3, .ordemparanormal .header-identify h4 {
+  border: 0;
 }
-
-.ordemparanormal .sheet-header .header-fields {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.ordemparanormal .sheet-header h1.charname {
+.ordemparanormal .header-identify h1.charname {
   height: 50px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
-
-.ordemparanormal .sheet-header h1.charname input {
+.ordemparanormal .header-identify h1.charname input {
   width: 100%;
   height: 100%;
   margin: 0;
 }
-
+.ordemparanormal .sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.ordemparanormal .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+.ordemparanormal .sheet-header .header-fields {
+  flex: 1;
+}
 .ordemparanormal .sheet-tabs {
-  -webkit-box-flex: 0;
-  -ms-flex: 0;
   flex: 0;
 }
-
-.ordemparanormal .sheet-body,
-.ordemparanormal .sheet-body .tab,
-.ordemparanormal .sheet-body .tab .editor {
-  height: 100%;
-}
-
 .ordemparanormal .tox .tox-editor-container {
   background: #fff;
 }
-
 .ordemparanormal .tox .tox-edit-area {
   padding: 0 8px;
 }
-
 .ordemparanormal .resource-label {
   font-weight: bold;
 }
-
 .ordemparanormal .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.05);
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-
 .ordemparanormal .items-header > * {
   font-size: 14px;
   text-align: center;
 }
-
 .ordemparanormal .items-header .item-name {
   font-weight: bold;
   padding-left: 5px;
   text-align: left;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .ordemparanormal .items-list {
   list-style: none;
   margin: 0;
@@ -333,115 +293,87 @@
   scrollbar-width: thin;
   color: #444;
 }
-
 .ordemparanormal .items-list .item-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
 .ordemparanormal .items-list .item-name {
-  -webkit-box-flex: 2;
-  -ms-flex: 2;
   flex: 2;
   margin: 0;
   overflow: hidden;
   font-size: 13px;
   text-align: left;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .ordemparanormal .items-list .item-name h3, .ordemparanormal .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
 }
-
 .ordemparanormal .items-list .item-controls {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
   flex: 0 0 100px;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
 }
-
 .ordemparanormal .items-list .item-controls a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
-
 .ordemparanormal .items-list .item {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
 }
-
 .ordemparanormal .items-list .item:last-child {
   border-bottom: none;
 }
-
 .ordemparanormal .items-list .item .item-name {
   color: #191813;
 }
-
 .ordemparanormal .items-list .item .item-name .item-image {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 30px;
+  display: flex;
+  align-items: center;
   flex: 0 0 30px;
   height: 30px;
   background-size: 30px;
   border: none;
-  margin-right: 5px;
+  margin-right: 1px;
 }
-
 .ordemparanormal .items-list .item-prop {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
-
 .ordemparanormal .items-list .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.05);
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-
 .ordemparanormal .items-list .items-header > * {
   font-size: 12px;
   text-align: center;
 }
-
 .ordemparanormal .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
 }
-
-.ordemparanormal .item-formula {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 200px;
-  flex: 0 0 200px;
+.ordemparanormal .item-space {
+  flex: 1 10px;
   padding: 0 8px;
 }
-
+.ordemparanormal .item-sheet {
+  display: flex;
+  flex: 1;
+  background-color: aqua;
+}
 .ordemparanormal .effects .item .effect-source,
 .ordemparanormal .effects .item .effect-duration,
 .ordemparanormal .effects .item .effect-controls {
@@ -450,7 +382,69 @@
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
-
 .ordemparanormal .effects .item .effect-controls {
   border: none;
 }
+.ordemparanormal .teste {
+  background-color: black;
+}
+.ordemparanormal .no-scroll {
+  overflow: hidden !important;
+}
+.ordemparanormal .scroll {
+  overflow: auto !important;
+}
+.ordemparanormal .no-orange-hyperlink {
+  color: initial;
+  text-decoration: none;
+}
+.ordemparanormal .content-dialog {
+  height: 500px;
+  padding: 0 2px;
+  line-height: 1.3;
+}
+.ordemparanormal .content-dialog li {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.ordemparanormal .content-dialog a:hover, .ordemparanormal .content-dialog a:focus {
+  color: #000;
+  text-shadow: 0 0 10px rgb(255, 255, 255);
+  cursor: pointer;
+}
+.ordemparanormal .content-dialog a h1, .ordemparanormal .content-dialog a h2, .ordemparanormal .content-dialog a h3, .ordemparanormal .content-dialog a h4 {
+  border: 0;
+  text-decoration: none;
+  font-weight: 700;
+}
+.ordemparanormal .content-dialog a .discord {
+  color: white;
+  font-family: "PT Sans", "Roboto", "sans-serif";
+}
+.ordemparanormal .content-dialog a .discord p {
+  font-size: medium;
+  font-weight: 700;
+}
+.ordemparanormal .content-dialog::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.13);
+  border: 0;
+}
+.ordemparanormal .adverts {
+  position: relative;
+  width: 100%;
+  height: 156px;
+  margin: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+.ordemparanormal .adverts p {
+  width: 100%;
+}
+.ordemparanormal .content-dialog a:first-child .adverts {
+  margin: 0;
+}
+
+/*# sourceMappingURL=ordemparanormal_fvtt.css.map */
