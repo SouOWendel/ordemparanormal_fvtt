@@ -160,6 +160,6 @@
   "secondaryTokenAttribute": "SAN",
   "url": "https://github.com/SouOWendel/ordemparanormal-fvtt",
   "manifest": "https://raw.githubusercontent.com/souowendel/ordemparanormal_fvtt/main/system.json",
-  "download": "https://github.com/SouOWendel/ordemparanormal_fvtt/releases/download/v4.0.0/ordem_fvtt-v4.0.0.zip",
+  "download": "https://github.com/SouOWendel/ordemparanormal_fvtt/releases/download/v4.1.0/ordem_fvtt-v4.1.0.zip",
   "license": "LICENSE.txt"
 }
