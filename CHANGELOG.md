@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v4.0.0...v4.1.0) (2023-10-23)
+
+
+### Features
+
+* **css/scss style:** setting the style of the updates window and all system items ([d84618f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d84618f09a5253865a991ef1b966f7cc63d9e5c4))
+* **handlebars:** added a helper for validate inputs (disabled or not) ([0c9f23c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0c9f23cafd075a020b3556071b030f7175a5ada8))
+* **item-sheet:** item window size has been changed: 520 -&gt; 350 ([35d694c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/35d694c1dce60df9824b02db6f1ddb681b369e4c))
+* **style and items:** reordering the fields of items, added the styles class, validate inputs ([9cd6548](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9cd654850a57c963480bdd4062962c63f194fb11))
+
+
+### Bug Fixes
+
+* **localization:** the writing of the translation variable was incorrect ([dc64703](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dc64703a4913992afd77e780e6a6561c5ce6d8d5))
+
 ## [4.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v3.1.0...v4.0.0) (2023-10-18)
 
 
