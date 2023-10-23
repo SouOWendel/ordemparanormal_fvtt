@@ -145,6 +145,10 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
 	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
+Handlebars.registerHelper('inputValid', function(arg1, arg2) {
+	return (arg1 != arg2) && 'disabled';
+});
+
 Handlebars.registerHelper('toLowerCase', function (str) {
 	return str.toLowerCase();
 });
