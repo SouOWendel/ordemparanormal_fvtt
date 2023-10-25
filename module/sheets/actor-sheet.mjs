@@ -67,6 +67,12 @@ export class OrdemActorSheet extends ActorSheet {
 		// Prepare active effects
 		context.effects = prepareActiveEffectCategories(this.actor.effects);
 
+		// TODO: pendente
+		// for (const i of context.items) {
+		// 	console.log(i);
+		// }
+		// console.log(context.effects);
+
 		return context;
 	}
 
@@ -89,7 +95,7 @@ export class OrdemActorSheet extends ActorSheet {
 		const DEFESA = context.data.defense.value;
 
 		// DEFESA E ESQUIVA
-		context.data.defense.value = 10 + AGI;
+		context.data.defense.value += AGI;
 		context.data.defense.dodge = DEFESA + context.data.skills.reflexos.value;
 
 		// NEX
@@ -176,11 +182,12 @@ export class OrdemActorSheet extends ActorSheet {
 			1: [],
 			2: [],
 			3: [],
-			4: [],
+			4: []
 		};
-		const powers = {
+		const abilities = {
 			1: [],
 			2: [],
+			3: []
 		};
 		
 		// Iterate through items, allocating to containers
@@ -216,11 +223,12 @@ export class OrdemActorSheet extends ActorSheet {
 					rituals[i.system.circle].push(i);
 				}
 			}
-			// Append to features.
-			else if (i.type === 'power') {
-				if (i.system.type == 'class') powers[1].push(i);
-				else if (i.system.type == 'paranormal') powers[2].push(i);
-				else powers[i.system.id].push(i);
+			// Append to abilities.
+			else if (i.type === 'ability') {
+				if (i.system.abilityType == 'ability') abilities[1].push(i);
+				else if (i.system.abilityType == 'class') abilities[2].push(i);
+				else if (i.system.abilityType == 'paranormal') abilities[3].push(i);
+				else abilities[i.system.id].push(i);
 			}
 		}
 
@@ -232,7 +240,7 @@ export class OrdemActorSheet extends ActorSheet {
 		context.protection = protection;
 		context.generalEquip = generalEquipment;
 		context.armament = armament;
-		context.powers = powers;
+		context.abilities = abilities;
 	}
 
 	/**
@@ -295,7 +303,7 @@ export class OrdemActorSheet extends ActorSheet {
 		html.find('.rollable').click(this._onRoll.bind(this));
 
 		// Drag events for macros.
-		if (this.actor.owner) {
+		if (this.actor.isOwner) {
 			const handler = (ev) => this._onDragStart(ev);
 			html.find('li.item').each((i, li) => {
 				if (li.classList.contains('inventory-header')) return;
