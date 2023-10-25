@@ -13,8 +13,8 @@
 	"TYPES.Item.ritual": "Ritual",
 	"ordemparanormal.ritual.plural": "Rituais",
 
-	"TYPES.Item.power": "Poder",
-	"ordemparanormal.power.plural": "Poderes",
+	"TYPES.Item.ability": "Habilidade",
+	"ordemparanormal.ability.plural": "Habilidades",
 
 	"ordemparanormal.OrdemActorSheet": "Ficha de Agente",
 
@@ -24,7 +24,7 @@
 	"ordemparanormal.tab": {
 		"skills": "Perícias",
 		"inventory": "Inventário",
-		"powers": "Poderes",
+		"abilities": "Habilidades",
 		"rituals": "Rituais",
 		"biography": "Biografia",
 		"effects": "Efeitos"
@@ -140,10 +140,37 @@
 		"laminaParanormal": "Lâmina Paranormal"
 	},
 
+	
+
 	"ordemparanormal.defense": "Defesa",
 	"ordemparanormal.dodge": "Esquiva",
 
 	"ordemparanormal.deslocamento": "Deslocamento",
+	
+	"ordemparanormal.type": "Tipo",
+	"ordemparanormal.area": "Área",
+
+	"ordemparanormal.attributesItem": "Atributos",
+	"ordemparanormal.description": "Descrição",
+	"ordemparanormal.quantity": "Quantidade",
+	"ordemparanormal.space": "Espaço",
+	"ordemparanormal.category": "Categoria",
+	"ordemparanormal.preRequisite": "Pré-requisito",
+	"ordemparanormal.range": "Alcance",
+	"ordemparanormal.areaEffect": "Efeito de Área",
+	"ordemparanormal.resistance": "Resistência",
+	"ordemparanormal.studentForm": "Forma Discente",
+	"ordemparanormal.trueForm": "Forma Verdadeira",
+	"ordemparanormal.circle": "Circulo",
+	"ordemparanormal.damageType": "Tipo de Dano",
+	"ordemparanormal.weaponType": "Tipo de Arma",
+	"ordemparanormal.critical": "Crítico",
+	"ordemparanormal.proficiency": "Proficiência",
+	"ordemparanormal.ammunitionType": "Tipo de Munição",
+	"ordemparanormal.gripType": "Empunhadura",
+	"ordemparanormal.duration": "Duração",
+	"ordemparanormal.subtypeWeapon": "Subtipo de Arma",
+	"ordemparanormal.powerType": "Tipo de Poder",
 
 	"ordemparanormal.weaponTypeChoices": {
 		"melee": "Corpo a Corpo",
@@ -185,7 +212,8 @@
 
 	"ordemparanormal.powerTypeChoices": {
 		"class": "Poder de Classe",
-		"paranormal": "Poder Paranormal"
+		"paranormal": "Poder Paranormal",
+		"ability": "Habilidade"
 	}
 
 }

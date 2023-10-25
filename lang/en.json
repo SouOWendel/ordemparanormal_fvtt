@@ -13,8 +13,8 @@
 	"TYPES.Item.ritual": "Ritual",
 	"ordemparanormal.ritual.plural": "Rituals",
 
-	"TYPES.Item.power": "Power",
-	"ordemparanormal.power.plural": "Powers",
+	"TYPES.Item.ability": "Ability",
+	"ordemparanormal.ability.plural": "Abilities",
 	
 	"ordemparanormal.OrdemActorSheet": "Agent's Sheet",
 	
@@ -22,7 +22,7 @@
 	"ordemparanormal.tab": {
 		"skills": "Skills",
 		"inventory": "Inventory",
-		"powers": "Powers",
+		"abilities": "Abilities",
 		"rituals": "Rituals",
 		"biography": "Biography",
 		"effects": "Effects"
@@ -143,6 +143,31 @@
 
 	"ordemparanormal.deslocamento": "Movement",
 
+	"ordemparanormal.type": "Type",
+	"ordemparanormal.area": "Area",
+
+	"ordemparanormal.attributesItem": "Atributos",
+	"ordemparanormal.description": "Descrição",
+	"ordemparanormal.quantity": "Quantidade",
+	"ordemparanormal.space": "Espaço",
+	"ordemparanormal.category": "Categoria",
+	"ordemparanormal.preRequisite": "Pré-requisito",
+	"ordemparanormal.range": "Alcance",
+	"ordemparanormal.areaEffect": "Efeito de Área",
+	"ordemparanormal.resistance": "Resistência",
+	"ordemparanormal.studentForm": "Forma Discente",
+	"ordemparanormal.trueForm": "Forma Verdadeira",
+	"ordemparanormal.circle": "Circulo",
+	"ordemparanormal.damageType": "Tipo de Dano",
+	"ordemparanormal.weaponType": "Tipo de Arma",
+	"ordemparanormal.critical": "Crítico",
+	"ordemparanormal.proficiency": "Proficiência",
+	"ordemparanormal.ammunitionType": "Tipo de Munição",
+	"ordemparanormal.gripType": "Empunhadura",
+	"ordemparanormal.duration": "Duração",
+	"ordemparanormal.subtypeWeapon": "Subtipo de Arma",
+	"ordemparanormal.powerType": "Tipo de Poder",
+
 	"ordemparanormal.weaponTypeChoices": {
 		"melee": "Melee",
 		"ranged": "Ranged"
@@ -183,6 +208,7 @@
 	
 	"ordemparanormal.powerTypeChoices": {
 		"class": "Poder de Classe",
-		"paranormal": "Poder Paranormal"
+		"paranormal": "Poder Paranormal",
+		"ability": "Habilidade"
 	}
 }
