@@ -189,5 +189,6 @@ ordemparanormal.dropdownDamageType = {
 
 ordemparanormal.dropdownPowerType = {
 	'class': 'ordemparanormal.powerTypeChoices.class',
-	'paranormal': 'ordemparanormal.powerTypeChoices.paranormal'
+	'paranormal': 'ordemparanormal.powerTypeChoices.paranormal',
+	'ability': 'ordemparanormal.powerTypeChoices.ability'
 };

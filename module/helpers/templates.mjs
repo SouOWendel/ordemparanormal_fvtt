@@ -11,6 +11,6 @@ export const preloadHandlebarsTemplates = async function() {
 		'systems/ordemparanormal/templates/actor/parts/actor-inventory.html',
 		'systems/ordemparanormal/templates/actor/parts/actor-rituals.html',
 		'systems/ordemparanormal/templates/actor/parts/actor-effects.html',
-		'systems/ordemparanormal/templates/actor/parts/actor-powers.html',
+		'systems/ordemparanormal/templates/actor/parts/actor-abilities.html',
 	]);
 };

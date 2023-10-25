@@ -301,7 +301,7 @@
     }
   },
   "Item": {
-    "types": ["armament",  "generalEquipment", "protection", "power", "ritual" ],
+    "types": ["armament",  "generalEquipment", "protection", "ability", "ritual" ],
     "templates": {
       "base": {
         "description": "",
@@ -334,7 +334,8 @@
     "protection": {
       "templates": ["base"],
       "defense": 0,
-      "penalty": ""
+      "penalty": "",
+      "quantity": 1
     },
     "generalEquipment": {
       "templates": ["base"],
@@ -342,20 +343,20 @@
       "quantity": 1
     },
     "ritual": {
-      "circle": 1,
       "description": "",
+      "circle": 1,
       "range": "",
       "areaEffect": "",
       "duration": "",
       "resistance": "",
       "studentForm": false,
-      "trueFrom": false
+      "trueForm": false
     },
-    "power": {
+    "ability": {
       "id": 0,
-      "type": "",
-      "description": "",
-      "preRequisite": ""
+      "abilityType": "",
+      "preRequisite": "",
+      "description": ""
     }
   }
 }
