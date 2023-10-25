@@ -5,11 +5,11 @@
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
       <div class="grid grid-2col">
         <div class="resource">
-          <label class="resource-label">Quantity</label>
+          <label class="resource-label">{{localize "ordemparanormal.quantity"}}</label>
           <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Space</label>
+          <label class="resource-label">{{localize "ordemparanormal.space"}}</label>
           <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
         </div>
       </div>
@@ -18,8 +18,8 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="description">{{localize "ordemparanormal.description"}}</a>
+    <a class="item" data-tab="attributes">{{localize "ordemparanormal.attributesItem"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -34,9 +34,9 @@
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="resource grid align-items-center">
-        <label class="resource-label">Defesa</label>
+        <label class="resource-label">{{localize "ordemparanormal.defense"}}</label>
         <input type="text" name="data.defense" value="{{data.defense}}" data-dtype="Number"/>
-        <label class="resource-label">Categoria</label>
+        <label class="resource-label">{{localize "ordemparanormal.category"}}</label>
         <input type="text" name="data.category" value="{{data.category}}" data-dtype="String"/>
       </div>
     </div>

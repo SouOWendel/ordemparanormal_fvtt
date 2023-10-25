@@ -5,11 +5,11 @@
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
       <div class="grid grid-2col">
         <div class="resource">
-          <label class="resource-label">Quantity</label>
+          <label class="resource-label">{{localize "ordemparanormal.quantity"}}</label>
           <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Space</label>
+          <label class="resource-label">{{localize "ordemparanormal.space"}}</label>
           <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
         </div>
       </div>
@@ -18,8 +18,8 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="description">{{localize "ordemparanormal.description"}}</a>
+    <a class="item" data-tab="attributes">{{localize "ordemparanormal.attributesItem"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -35,14 +35,14 @@
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="grid grid-2col">
         <div class="resource">
-          <label class="resource-label">Categoria</label>
+          <label class="resource-label">{{localize "ordemparanormal.category"}}</label>
           <input type="text" name="data.category" value="{{data.category}}" data-dtype="String"/>
         </div>
         <!-- ADICIONAR UM DROPDOWN DE TIPO DE ARMA; DEVE TER SUBTIPOS PARA CORPO A CORPO E RANGED.
         OS RANGEDS TEM SUBTIPOS E TAMBÉM TIPOS DE MUNIÇÃO A SEREM UTILIZADOS. -->
 
         <div class="resource">
-          <label class="resource-label">Proficiência</label>
+          <label class="resource-label">{{localize "ordemparanormal.proficiency"}}</label>
           <select name="data.proficiency" data-dtype="String">
             {{
               selectOptions optionProficiency
@@ -53,7 +53,7 @@
           </select>
         </div>
         <div class="resource">
-          <label class="resource-label">Tipo de Dano</label>
+          <label class="resource-label">{{localize "ordemparanormal.damageType"}}</label>
           <select name="data.types.damageType" data-dtype="String">
             {{
               selectOptions optionDamageType
@@ -64,11 +64,11 @@
           </select>
         </div>
         <div class="resource">
-          <label class="resource-label">Crítico</label>
+          <label class="resource-label">{{localize "ordemparanormal.critical"}}</label>
           <input type="text" name="data.critical" value="{{data.critical}}" data-dtype="String"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Alcance</label>
+          <label class="resource-label">{{localize "ordemparanormal.range"}}</label>
           <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
         </div>
         <div class="resource">
@@ -76,7 +76,7 @@
           <input type="text" name="data.formula" value="{{data.formula}}" data-dtype="String"/>
         </div>
         <div class="resource grid align-items-center">
-          <label class="resource-label">Tipo de Arma</label>
+          <label class="resource-label">{{localize "ordemparanormal.weaponType"}}</label>
           <select name="data.types.rangeType.name" data-dtype="String">
             {{
               selectOptions optionWeaponType
@@ -85,7 +85,7 @@
               blank="—"
             }}
           </select>
-          <label class="resource-label">Subtipo de Arma</label>
+          <label class="resource-label">{{localize "ordemparanormal.subtypeWeapon"}}</label>
           <select name="data.types.rangeType.subRangeType" data-dtype="String" {{inputValid data.types.rangeType.name "ranged" }}
             {{
               selectOptions optionWeaponSubType
@@ -94,7 +94,7 @@
               blank="—"
             }}
           </select>
-          <label class="resource-label">Tipo de Munição</label>
+          <label class="resource-label">{{localize "ordemparanormal.ammunitionType"}}</label>
           <select name="data.types.ammunitionType" data-dtype="String" {{inputValid data.types.rangeType.name "ranged" }}>
             {{
               selectOptions optionWeaponAmmunition
@@ -103,7 +103,7 @@
               blank="—"
             }}
           </select>
-          <label class="resource-label">Empunhadura</label>
+          <label class="resource-label">{{localize "ordemparanormal.gripType"}}</label>
           <select name="data.types.gripType" data-dtype="String">
             {{
               selectOptions optionGripType

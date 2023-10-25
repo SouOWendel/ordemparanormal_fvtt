@@ -8,8 +8,8 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="description">{{localize "ordemparanormal.description"}}</a>
+    <a class="item" data-tab="attributes">{{localize "ordemparanormal.attributesItem"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -23,16 +23,22 @@
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="resource grid align-items-center">
-        <label class="resource-label">Circulo</label>
+        <label class="resource-label">{{localize "ordemparanormal.circle"}}</label>
         <input type="number" name="data.circle" value="{{data.circle}}" data-dtype="Number"/>
-        <label class="resource-label">Alcance</label>
+        <label class="resource-label">{{localize "ordemparanormal.range"}}</label>
         <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
-        <label class="resource-label">Área</label>
+        <label class="resource-label">{{localize "ordemparanormal.areaEffect"}}</label>
         <input type="text" name="data.areaEffect" value="{{data.areaEffect}}" data-dtype="String"/>
-        <label class="resource-label">Duração</label>
+        <label class="resource-label">{{localize "ordemparanormal.duration"}}</label>
         <input type="text" name="data.duration" value="{{data.duration}}" data-dtype="String"/>
-        <label class="resource-label">Resistência</label>
+        <label class="resource-label">{{localize "ordemparanormal.resistance"}}</label>
         <input type="text" name="data.resistance" value="{{data.resistance}}" data-dtype="String"/>
+      </div>
+      <div class="resource grid grid-2col align-items-center">
+        <label class="resource-label">{{localize "ordemparanormal.studentForm"}}</label>
+        <input type="checkbox" name="data.studentForm" {{checked data.studentForm}}>
+        <label class="resource-label">{{localize "ordemparanormal.trueForm"}}</label>
+        <input type="checkbox" name="data.trueForm" {{checked data.trueForm}}>
       </div>
     </div>
   </section>

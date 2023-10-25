@@ -2,10 +2,10 @@
   {{#each rituals as |rituals circle|}}
     <li class="item flexrow items-header">
       <div class="item-name">{{circle}}º Circulo</div>
-      <div class="item-space">Alcance</div>
-      <div class="item-space">Área</div>
-      <div class="item-space">Duração</div>
-      <div class="item-space">Resistência</div>
+      <div class="item-space">{{localize "ordemparanormal.range"}}</div>
+      <div class="item-space">{{localize "ordemparanormal.area"}}</div>
+      <div class="item-space">{{localize "ordemparanormal.duration"}}</div>
+      <div class="item-space">{{localize "ordemparanormal.resistance"}}</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Criar ritual de {{circle}}º círculo" data-type="ritual" data-circle="{{circle}}">
           <i class="fas fa-plus"></i>
