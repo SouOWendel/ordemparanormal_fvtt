@@ -131,7 +131,7 @@ export class OrdemActor extends Actor {
 		}
 
 		if(data.attributes && data.skills) {
-			data.rollInitiative = data.attributes.agi.value + 'd20' +
+			data.rollInitiative = ((data.attributes.agi.value == 0) ? 2 : data.attributes.agi.value) + 'd20' +
 			 ((data.attributes.agi.value == 0) ? 'kl' : 'kh') + '+' + data.skills.iniciativa.value;
 		}
 
