@@ -247,8 +247,8 @@
   margin-bottom: 10px;
 }
 .ordemparanormal .sheet-header .profile-img {
-  flex: 0 0 100px;
-  height: 100px;
+  flex: 0 0 48px;
+  height: 48px;
   margin-right: 10px;
 }
 .ordemparanormal .sheet-header .header-fields {
@@ -262,6 +262,15 @@
 }
 .ordemparanormal .tox .tox-edit-area {
   padding: 0 8px;
+}
+.ordemparanormal .skills {
+  gap: 2px;
+}
+.ordemparanormal .skills .skill {
+  padding: 0 6px;
+}
+.ordemparanormal .skills .skill input {
+  max-width: 30px;
 }
 .ordemparanormal .resource-label {
   font-weight: bold;
