@@ -2,9 +2,9 @@
   {{#each abilities as |abilities type|}}
     <li class="item flexrow items-header">
       <div class="item-name">
-        {{localize "ordemparanormal.ability.plural"}}
-        {{#ifEquals type 2}} de Classe{{/ifEquals}}
-        {{#ifEquals type 3}} Paranormais{{/ifEquals}}
+        {{#ifEquals type 1}} {{localize "ordemparanormal.ability.plural"}} {{/ifEquals}}
+        {{#ifEquals type 2}} Poderes de Classe {{/ifEquals}}
+        {{#ifEquals type 3}} Poderes Paranormais {{/ifEquals}}
       </div>
       <div class="item-formula">{{localize "ordemparanormal.type"}}</div>
       <div class="item-formula">{{localize "ordemparanormal.preRequisite"}}</div>
