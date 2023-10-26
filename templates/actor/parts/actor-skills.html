@@ -1,30 +1,31 @@
-<section class="">
-  <aside class="sidebar">
-    <div class="abilities flexcol">
-      {{#each data.skills as |skillName key|}}
-      <div class="ability flexrow flex-group-center">
-        <label
-          for="data.skills.{{key}}.value"
-          class="resource-label rollable flexlarge align-left"
-          data-roll="{{skillName.formula}}"
-          data-label="{{skillName.label}}"
-          >{{skillName.label}}
-        </label>
-        <select class="trainingDegree_SB" name="data.skills.{{key}}.degree.label" data-dtype="String">
-          {{
-            selectOptions ../optionDegree
-            selected=skillName.degree.label 
-            localize=true
-          }}
-        </select>
-        <input
-          type="text"
-          name="data.skills.{{key}}.mod"
-          value="{{skillName.mod}}"
-          data-dtype="Number"
-        />
-      </div>
-      {{/each}}
+<section>
+  <div class="skills grid grid-2col">
+    {{#each data.skills as |skillName key|}}
+    <div class="skill flexrow flex-group-center">
+      <label
+        for="data.skills.{{key}}.value"
+        class="resource-label rollable flexlarge align-left"
+        data-roll="{{skillName.formula}}"
+        data-label="{{skillName.label}}">
+        {{skillName.label}}
+      </label>
+      <label>
+        <strong>{{toUpperCase skillName.attr.[0]}}</strong>
+      </label>
+      <select name="data.skills.{{key}}.degree.label" data-dtype="String">
+        {{
+          selectOptions ../optionDegree
+          selected=skillName.degree.label 
+          localize=true
+        }}
+      </select>
+      <input
+        type="text"
+        name="data.skills.{{key}}.mod"
+        value="{{skillName.mod}}"
+        data-dtype="Number"
+      />
     </div>
-  </aside>
+    {{/each}}
+  </div>
 </section>
