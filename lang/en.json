@@ -17,7 +17,6 @@
 	"ordemparanormal.ability.plural": "Abilities",
 	
 	"ordemparanormal.OrdemActorSheet": "Agent's Sheet",
-	
 
 	"ordemparanormal.tab": {
 		"skills": "Skills",
@@ -68,10 +67,17 @@
 	"ordemparanormal.attPre": "Presence",
 	"ordemparanormal.attFor": "Strength",
 
+	"ordemparanormal.newItem": "Novo(a)",
+
 	"ordemparanormal.effectCreate": "Create Effect",
 	"ordemparanormal.effectToggle": "Toggle Effect",
 	"ordemparanormal.effectEdit": "Edit Effect",
 	"ordemparanormal.effectDelete": "Delete Effect",
+	"ordemparanormal.temporaryEffects": "Temporary Effects",
+	"ordemparanormal.passiveEffects": "Passive Effects",
+	"ordemparanormal.inactiveEffects": "Inactive Effects",
+	"ordemparanormal.newEffect": "New Effect",
+	"ordemparanormal.sourceEffect": "Source",
 
 	"ordemparanormal.Add": "Add",
 

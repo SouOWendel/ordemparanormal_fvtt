@@ -70,10 +70,17 @@
 	"ordemparanormal.attPre": "Presença",
 	"ordemparanormal.attFor": "Força",
 
+	"ordemparanormal.newItem": "Novo(a)",
+
 	"ordemparanormal.effectCreate": "Criar Efeito",
 	"ordemparanormal.effectToggle": "Trocar Efeito",
 	"ordemparanormal.effectEdit": "Editar Efeito",
 	"ordemparanormal.effectDelete": "Deletar Efeito",
+	"ordemparanormal.temporaryEffects": "Efeitos Temporários",
+	"ordemparanormal.passiveEffects": "Efeitos Passivos",
+	"ordemparanormal.inactiveEffects": "Efeitos Inativos",
+	"ordemparanormal.newEffect": "Novo Efeito",
+	"ordemparanormal.sourceEffect": "Fonte",
 
 	"ordemparanormal.add": "Adicionar",
 

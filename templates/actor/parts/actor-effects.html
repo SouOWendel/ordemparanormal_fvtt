@@ -1,8 +1,8 @@
 <ol class="items-list effects-list">
   {{#each effects as |section sid|}}
     <li class="items-header flexrow" data-effect-type="{{section.type}}">
-      <h3 class="item-name effect-name flexrow">{{localize section.label}}</h3>
-      <div class="effect-source">Source</div>
+      <h4 class="item-name effect-name flexrow">{{localize section.label}}</h4>
+      <div class="effect-source">{{localize "ordemparanormal.sourceEffect"}}</div>
       <div class="effect-source">{{localize "ordemparanormal.duration"}}</div>
       <div class="item-controls effect-controls flexrow">
         <a class="effect-control" data-action="create" title="{{localize 'ordemparanormal.EffectCreate'}}">
