@@ -17,7 +17,7 @@
   <section class="sheet-body">
 
     {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
+    <div class="tab description" data-group="primary" data-tab="description">
       {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
@@ -38,9 +38,8 @@
       </div>
     </div>
 
-    <div class="tab" data-group="primary" data-tab="effectsItem">
+    <div class="tab effects" data-group="primary" data-tab="effectsItem">
       {{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
     </div>
-
   </section>
 </form>

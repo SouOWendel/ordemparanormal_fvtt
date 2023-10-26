@@ -10,6 +10,7 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="description">{{localize "ordemparanormal.description"}}</a>
     <a class="item" data-tab="attributes">{{localize "ordemparanormal.attributesItem"}}</a>
+    <a class="item" data-tab="effectsItem">{{localize "ordemparanormal.tab.effects"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -40,6 +41,10 @@
         <label class="resource-label">{{localize "ordemparanormal.trueForm"}}</label>
         <input type="checkbox" name="data.trueForm" {{checked data.trueForm}}>
       </div>
+    </div>
+
+    <div class="tab" data-group="primary" data-tab="effectsItem">
+      {{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
     </div>
   </section>
 </form>
