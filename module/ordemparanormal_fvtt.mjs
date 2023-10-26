@@ -63,6 +63,11 @@ Hooks.once('init', async function () {
 	// Register System Settings in Other File
 	registerSystemSettings();
 
+	// TODO: arranjar uma maneira de atualizar ou excluir atores antigos.
+	// console.log(game.data.actors[0]);
+	// game.data.actors[0].updateSource({'type': 'agent'});
+	// console.log(game.data.actors[0]);
+
 	// Preload Handlebars templates.
 	return preloadHandlebarsTemplates();
 });
@@ -93,16 +98,12 @@ Handlebars.registerHelper('concat', function () {
 });
 
 Handlebars.registerHelper('concatObjAndStr', function () {
-	
 	const option = arguments[arguments.length-1];
 	const args = Array.prototype.slice.call(arguments, 0,arguments.length-1);
 	console.log('OP FVTT | ' + option.name + ' - Argumentos: ' + args);
-
 	let objects = {};
 	for (const arg in args) {
 		if (typeof arguments[arg] == 'object' || typeof arguments[arg] == 'string') {
-			// console.log('Args: ' + typeof arguments[arg]);
-			// console.log('loop: ' + arg);
 			if (arg == 0) {
 				objects = arguments[arg];
 			} else {
@@ -112,14 +113,6 @@ Handlebars.registerHelper('concatObjAndStr', function () {
 		}
 	}
 	return objects;
-
-	// console.log('Trilha: ' + arguments[0]);
-	// console.log('Classe: ' + arguments[1]);
-
-	// const trilha = arguments[0];
-	// const classe = arguments[1];
-
-	// return trilha[classe];
 });
 
 Handlebars.registerHelper('numberInputFVTT', function (value, options) {
@@ -145,12 +138,22 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
 	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
+Handlebars.registerHelper('abilityTypeHelper', function(arg) {
+	if (arg == 1) return 'ability';
+	else if (arg == 2) return 'class';
+	return 'paranormal';
+});
+
 Handlebars.registerHelper('inputValid', function(arg1, arg2) {
 	return (arg1 != arg2) && 'disabled';
 });
 
 Handlebars.registerHelper('toLowerCase', function (str) {
 	return str.toLowerCase();
+});
+
+Handlebars.registerHelper('toUpperCase', function (str) {
+	return str.toUpperCase();
 });
 
 /* -------------------------------------------- */
