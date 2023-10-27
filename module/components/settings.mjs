@@ -24,7 +24,7 @@ export default function registerSystemSettings() {
 		scope: 'client',     // "world" = sync to db, "client" = local storage
 		config: true,       // false if you dont want it to show in module config
 		type: Boolean,       // Number, Boolean, String, Object
-		default: true,
+		default: false,
 		onChange: value => { // value is the new value of the setting
 			console.log(value);
 		},
