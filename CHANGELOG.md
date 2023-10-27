@@ -1,5 +1,44 @@
 # Changelog
 
+## [5.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v4.1.0...v5.0.0) (2023-10-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **refactor and item changed:** Items formerly called Powers have disappeared.
+
+### Features
+
+* **actor-sheet:** added the invalid item system ([1fcb796](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1fcb7964b52eb2c30e336febba4878899e1dab2c))
+* **actor-skills:** now the skills page has two columns ([be992bf](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/be992bfe4f6c19e971d1d943f7c34dc24b309d34))
+* **css/scss:** changed the size of image item and adjusting the skills style ([cda490f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/cda490f3a68d92f4b848a2643b9cad23817bf383))
+* **css:** added the style for item-alert (when the item is invalid for the categories) ([6669e9d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6669e9dfa12bfdb2763b92315b34919e53e975e4))
+* **effects and localization:** added translates for effects ([77db14d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/77db14d233f3e96cff9c897f690f3df560e1261f))
+* **fix and actor-sheet:** added the abilities system. fix of defense calculation and draggable item ([db328f9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/db328f9d7d58c6ebad3a2e12eb559df866fcbb1b))
+* **handlebars:** added the IfInequals helper for inequals comparations and fix the abilityTypeHelp ([edc0780](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/edc07806b7a8377168ba1374e843aa53fd298590))
+* **item-sheet:** added the effects system on the item-sheet ([40c6b8f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/40c6b8fde2a94e0419fc59b0ef9354d613395a43))
+* **item-sheet:** changed the size of window: width 350 -&gt; 380, height 480 -> 400 ([07447ef](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/07447effec38e98e5a1adeb0df47341031055f59))
+* **items-sheet:** added new effect tab on items and the respective partial of handlebars ([cd9fda0](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/cd9fda0cf3b176c746e1ae89b62a3fc1a095e9ca))
+* **items:** added translates variables and checkbox on rituals (studentForm and trueForm) ([38b28c1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/38b28c13a64484d64381f259b53de8a6e1838bc2))
+* **localization:** added translates for item fields and changes to the Power tab, now is ability ([952bb23](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/952bb23782cd71eea682a441c1198395be3a29a8))
+* **patch notes dialog:** added one sidebar for update notes and changed the text formatting ([4710fb4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4710fb44980c72d1741357c4d24da21e4f35fd09))
+* **patchnotes config:** default variable is changed: true -&gt; false ([8f7af09](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8f7af09302bd3610812d6ed1e82ae267473606ae))
+* **refactor and item changed:** changed item and Power tab to Ability. Fixes to the template ([ded9986](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ded998613e5efa2d7989e1f362cdc96262feb666))
+* **scss:** added the style for item-alert (when the item is invalid for the categories) ([9f632be](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9f632be0de16e4927d990b487001560df00f5a9a))
+* **style:** registered the abilityTypeHelper and the toUpperCase helpers ([7231a80](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7231a80db97b6b28cbb15efdf2e12382870e3fb4))
+* **update notes:** added the 5.0.0 update notes and delete the banner texts ([3acff92](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3acff92a4d0653493cd409fa43dcc54b61eb20ac))
+
+
+### Bug Fixes
+
+* **actor-abilities:** fix the name of abilities ([5ebae07](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5ebae075088fe4affc1634ae53eadb63502f5e2b))
+* **roll formula:** fixed a bug where tokens with 0 agility would receive a null roll ([5a50c0f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5a50c0f6bd2d4f7edef479e14b4a88146809edc2))
+
+
+### Performance Improvements
+
+* **actor-agente-sheet:** delete the unnecessary css class ([9d3feca](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9d3fecaff40c4e0337ae917e8b5a5057455b23d9))
+
 ## [4.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v4.0.0...v4.1.0) (2023-10-23)
 
 
