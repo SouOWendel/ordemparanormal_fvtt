@@ -68,11 +68,11 @@ export class OrdemActorSheet extends ActorSheet {
 		// Prepare active effects
 		context.effects = prepareActiveEffectCategories(this.actor.effects);
 
-		// TODO: terminar a migração dos efeitos de itens para efeitos de ator.
-		for (const i of context.items) {
-			console.log(i);
-		}
-		console.log(context.effects);
+		// TODO: terminar a migração dos efeitos de itens para efeitos de ator e exclusão de itens não validos da ficha de ator.
+		// for (const i of context.items) {
+		// 	console.log(i);
+		// }
+		// console.log(context.effects);
 
 		return context;
 	}
@@ -180,19 +180,27 @@ export class OrdemActorSheet extends ActorSheet {
 		const generalEquipment = [];
 		const armament = [];
 		const rituals = {
-			1: [],
-			2: [],
-			3: [],
-			4: []
+			valid: {
+				1: [],
+				2: [],
+				3: [],
+				4: [],	
+			},
+			invalid: []
 		};
 		const abilities = {
-			1: [],
-			2: [],
-			3: []
+			valid: {
+				1: [],
+				2: [],
+				3: [],	
+			},
+			invalid: []
 		};
+
+		// const invalid = [];
 		
 		// Iterate through items, allocating to containers
-		for (const i of context.items) {
+		for (const [index, i] of context.items.entries()) {
 			i.img = i.img || DEFAULT_TOKEN;
 
 			// Creating the data to use an item
@@ -220,16 +228,17 @@ export class OrdemActorSheet extends ActorSheet {
 			}
 			// Append to rituals.
 			else if (i.type === 'ritual') {
-				if (i.system.circle != undefined) {
-					rituals[i.system.circle].push(i);
-				}
+				if (i.system.circle) rituals.valid[i.system.circle].push(i);
+				else rituals.invalid.push(i);
+				// TODO: fazer com que seja os rituais sem circulo sejam separados em um grupo com o campo circulo sem preencher.
 			}
 			// Append to abilities.
 			else if (i.type === 'ability') {
-				if (i.system.abilityType == 'ability') abilities[1].push(i);
-				else if (i.system.abilityType == 'class') abilities[2].push(i);
-				else if (i.system.abilityType == 'paranormal') abilities[3].push(i);
-				else abilities[i.system.id].push(i);
+				if (i.system.abilityType == 'ability') abilities.valid[1].push(i);
+				else if (i.system.abilityType == 'class') abilities.valid[2].push(i);
+				else if (i.system.abilityType == 'paranormal') abilities.valid[3].push(i);
+				else if (!i.system.abilityType) abilities.invalid.push(i);
+				// TODO: fazer com que seja as habilidades sem tipo sejam separados em um grupo com o tipo sem preencher.
 			}
 		}
 
