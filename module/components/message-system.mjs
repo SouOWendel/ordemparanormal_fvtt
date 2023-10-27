@@ -54,23 +54,39 @@ const displayPrompt = (title, content) => {
 	content = content.replace('{name}', game.user.name);
 
 	const dialogOptions = {
-		width: 500,
-		height: 700,
-		classes: [],
+		width: 800,
+		height: 600,
+		classes: ['ordemparanormal', 'no-scroll'],
 	};
-
-	// <section class='grid grid-2col'>
-	//         <aside class='sidebar'>
-	//             <h3>Leia Devilline HQ!</h3>
-	//             <img src="https://us-a.tapas.io/c/18/fe3008f2-719b-488f-9a24-39503265952d.png" style="height: 400px;">
-	//         </aside>
-	//             ${content}
-	// </section>
 
 	const d = new Dialog({
 		title: title,
 		content: `
-            ${content}
+			<section class='grid grid-2col'>
+				<aside class='sidebar scroll content-dialog'>
+					<a href="https://discord.gg/G8AwJwJXa5" class="no-orange-hyperlink">
+						<div class="adverts flex-group-center discord" style="background-color: #5865F2">
+							<div>
+								<h1>Community Devs</h1>
+								<p>Entre no nosso discord para atualizações.</p>
+							</div>
+						</div>
+					</a>
+					<a href="" class="no-orange-hyperlink">
+						<div class="adverts flex-group-center" style="border: 1px solid #00000020">
+						<p>Discord!</p>
+						</div>
+					</a>
+					<a href="" class="no-orange-hyperlink">
+						<div class="adverts flex-group-center" style="border: 1px solid #00000020">
+						<p>Discord!</p>
+						</div>
+					</a>
+				</aside>
+				<div class="scroll content-dialog">
+					${content}
+				</div>
+			</section>
 			<footer style="position:absolute; bottom: 0; width: 100%; left: 0; padding: 0px 8px; border-top: 1px #00000030 solid;"><p>Você pode desativar as notas de atualização nas configurações do sistema.</p></footer>`,
 		buttons: {
 			// one: {
