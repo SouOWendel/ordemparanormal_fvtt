@@ -138,10 +138,15 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
 	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
+Handlebars.registerHelper('ifInequals', function(arg1, arg2, options) {
+	// eslint-disable-next-line no-invalid-this
+	return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+});
+
 Handlebars.registerHelper('abilityTypeHelper', function(arg) {
 	if (arg == 1) return 'ability';
 	else if (arg == 2) return 'class';
-	return 'paranormal';
+	else if (arg == 3) return 'paranormal';
 });
 
 Handlebars.registerHelper('inputValid', function(arg1, arg2) {
