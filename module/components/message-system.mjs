@@ -74,12 +74,12 @@ const displayPrompt = (title, content) => {
 					</a>
 					<a href="" class="no-orange-hyperlink">
 						<div class="adverts flex-group-center" style="border: 1px solid #00000020">
-						<p>Discord!</p>
+						<p></p>
 						</div>
 					</a>
 					<a href="" class="no-orange-hyperlink">
 						<div class="adverts flex-group-center" style="border: 1px solid #00000020">
-						<p>Discord!</p>
+						<p></p>
 						</div>
 					</a>
 				</aside>
