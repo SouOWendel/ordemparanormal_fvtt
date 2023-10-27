@@ -1,7 +1,13 @@
+<!-- TODO: exibir os rituais não catalogados somente se existerem. -->
+
 <ol class="items-list">
-  {{#each rituals as |rituals circle|}}
+  {{#each rituals.valid as |rituals circle|}}
     <li class="item flexrow items-header">
+      {{#ifEquals circle 5}}
+      <div class="item-name"></div>
+      {{else}}
       <div class="item-name">{{circle}}º Circulo</div>
+      {{/ifEquals}}
       <div class="item-space">{{localize "ordemparanormal.range"}}</div>
       <div class="item-space">{{localize "ordemparanormal.area"}}</div>
       <div class="item-space">{{localize "ordemparanormal.duration"}}</div>
@@ -32,4 +38,42 @@
       </li>
     {{/each}}
   {{/each}}
+  {{#if rituals.invalid }}
+    <section class="invalid">
+      <div class="item-alert">Os itens abaixo não se encaixam nas categorias acima.</div>
+      <ol class="items-list">
+      <li class="item flexrow items-header">
+        <div class="item-name"></div>
+        <div class="item-space">{{localize "ordemparanormal.range"}}</div>
+        <div class="item-space">{{localize "ordemparanormal.area"}}</div>
+        <div class="item-space">{{localize "ordemparanormal.duration"}}</div>
+        <div class="item-space">{{localize "ordemparanormal.resistance"}}</div>
+        <div class="item-controls">
+          <a class="item-control item-create" title="Criar ritual de {{circle}}º círculo" data-type="ritual" data-circle="{{circle}}">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+      </li>
+      {{#each rituals.invalid as |item id|}}
+        <li class="item flexrow" data-item-id="{{item._id}}">
+          <div class="item-name flexrow">
+            <div class="item-image">
+              <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
+            </div>
+            <h4>{{item.name}}</h4>
+          </div>
+          <div class="item-space item-prop">{{item.data.range}}</div>
+          <div class="item-space item-prop">{{item.data.areaEffect}}</div>
+          <div class="item-space item-prop">{{item.data.duration}}</div>
+          <div class="item-space item-prop">{{item.data.resistance}}</div>
+          <div class="item-controls">
+            <a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+      </ol>
+    </section>
+  {{/if}}
 </ol>
