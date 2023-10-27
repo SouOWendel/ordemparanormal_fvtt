@@ -272,6 +272,16 @@
 .ordemparanormal .skills .skill input {
   max-width: 30px;
 }
+.ordemparanormal .invalid {
+  position: relative;
+}
+.ordemparanormal .item-alert {
+  position: relative;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 10px 5px;
+  background-color: aliceblue;
+}
 .ordemparanormal .resource-label {
   font-weight: bold;
 }
