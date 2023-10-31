@@ -257,6 +257,12 @@
 .ordemparanormal .sheet-tabs {
   flex: 0;
 }
+.ordemparanormal .sheet-body,
+.ordemparanormal .sheet-body .tab,
+.ordemparanormal .sheet-body .tab .editor {
+  width: 100%;
+  min-height: 150px;
+}
 .ordemparanormal .tox .tox-editor-container {
   background: #fff;
 }
