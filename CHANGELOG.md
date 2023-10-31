@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v5.0.0...v5.0.1) (2023-10-31)
+
+
+### Bug Fixes
+
+* **biography and description:** fix the height of editor field ([3b9d038](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3b9d038d7142ce0013349947d5ba122f9322c457))
+
 ## [5.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v4.1.0...v5.0.0) (2023-10-27)
 
 
