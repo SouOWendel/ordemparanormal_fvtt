@@ -3,23 +3,14 @@
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-      <div class="grid grid-2col">
-        <div class="resource">
-          <label class="resource-label">{{localize "ordemparanormal.quantity"}}</label>
-          <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
-        </div>
-        <div class="resource">
-          <label class="resource-label">{{localize "ordemparanormal.space"}}</label>
-          <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
-        </div>
-      </div>
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="description">{{localize "ordemparanormal.description"}}</a>
-    <a class="item" data-tab="attributes">{{localize "ordemparanormal.attributesItem"}}</a>
+    <a class="item" data-tab="specifications">{{localize "ordemparanormal.specificationsItemTab"}}</a>
+    <a class="item" data-tab="combat">{{localize "ordemparanormal.combatItemTab"}}</a>
     <a class="item" data-tab="effectsItem">{{localize "ordemparanormal.tab.effects"}}</a>
   </nav>
 
@@ -32,27 +23,62 @@
       {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
-    {{!-- Attributes Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
-      <div class="grid grid-2col">
-        <div class="resource">
-          <label class="resource-label">{{localize "ordemparanormal.category"}}</label>
-          <input type="text" name="data.category" value="{{data.category}}" data-dtype="String"/>
-        </div>
-        <!-- ADICIONAR UM DROPDOWN DE TIPO DE ARMA; DEVE TER SUBTIPOS PARA CORPO A CORPO E RANGED.
-        OS RANGEDS TEM SUBTIPOS E TAMBÉM TIPOS DE MUNIÇÃO A SEREM UTILIZADOS. -->
+    {{!-- Specifications Tab --}}
+    <div class="tab specifications" data-group="primary" data-tab="specifications">
+      <div class="resource grid grid-2col">
+        <label class="resource-label">{{localize "ordemparanormal.quantity"}}</label>
+        <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+      </div>
+      <div class="resource grid grid-2col">
+        <label class="resource-label">{{localize "ordemparanormal.space"}}</label>
+        <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+      </div>
+      <div class="resource grid grid-2col">
+        <label class="resource-label">{{localize "ordemparanormal.category"}}</label>
+        <div>{{radioBoxes 'data.category' categories checked=data.category}}</div>
+      </div>
+      <div class="resource grid grid-2col">
+        <label class="resource-label">{{localize "ordemparanormal.proficiency"}}</label>
+        <select name="data.proficiency" data-dtype="String">
+          {{
+            selectOptions optionProficiency
+            selected=data.proficiency 
+            localize=true
+            blank="—"
+          }}
+        </select>
+      </div>
+      <div class="resource grid grid-2col">
+        <label class="resource-label">{{localize "ordemparanormal.gripType"}}</label>
+        <select name="data.types.gripType" data-dtype="String">
+          {{
+            selectOptions optionGripType
+            selected=data.types.gripType 
+            localize=true
+            blank="—"
+          }}
+        </select>
+      </div>
+    
+      <div class="resource align-items-center">
+        <label class="resource-label">Improvisada</label>
+        <input type="checkbox" name="data.studentForm" {{checked value}}>
+        <label class="resource-label">Arremessável</label>
+        <input type="checkbox" name="data.trueForm" {{checked value}}>
+        <label class="resource-label">Arma Ágil</label>
+        <input type="checkbox" name="data.trueForm" {{checked value}}>
+        <label class="resource-label">Automática</label>
+        <input type="checkbox" name="data.trueForm" {{checked value}}>
+        <label class="resource-label">Empunhadura Adaptável</label>
+        <input type="checkbox" name="data.trueForm" {{checked value}}>
+        <label class="resource-label">Coronhada</label>
+        <input type="checkbox" name="data.trueForm" {{checked value}}>
+      </div>
+    </div>
 
-        <div class="resource">
-          <label class="resource-label">{{localize "ordemparanormal.proficiency"}}</label>
-          <select name="data.proficiency" data-dtype="String">
-            {{
-              selectOptions optionProficiency
-              selected=data.proficiency 
-              localize=true
-              blank="—"
-            }}
-          </select>
-        </div>
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      <div class="grid grid-2col">
         <div class="resource">
           <label class="resource-label">{{localize "ordemparanormal.damageType"}}</label>
           <select name="data.types.damageType" data-dtype="String">
@@ -73,8 +99,16 @@
           <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Roll Formula</label>
-          <input type="text" name="data.formula" value="{{data.formula}}" data-dtype="String"/>
+          <label class="resource-label">Formula de Dano</label>
+          <input type="text" name="data.formulas.damageFormula.formula" value="{{data.formulas.damageFormula.formula}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label class="resource-label">Formula de Ataque</label>
+          <input type="text" name="data.formulas.attackFormula.formula" value="{{data.formulas.attackFormula.formula}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label class="resource-label">Outra Formula</label>
+          <input type="text" name="data.formulas.extraFormula" value="{{data.formulas.extraFormula}}" data-dtype="String"/>
         </div>
         <div class="resource grid align-items-center">
           <label class="resource-label">{{localize "ordemparanormal.weaponType"}}</label>
@@ -104,16 +138,6 @@
               blank="—"
             }}
           </select>
-          <label class="resource-label">{{localize "ordemparanormal.gripType"}}</label>
-          <select name="data.types.gripType" data-dtype="String">
-            {{
-              selectOptions optionGripType
-              selected=data.types.gripType 
-              localize=true
-              blank="—"
-            }}
-          </select>
-        </div>
       </div>
     </div>
 
