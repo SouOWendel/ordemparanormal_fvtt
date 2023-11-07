@@ -28,7 +28,7 @@
         "desloc": {
           "value": 9
         },
-        "biography": ""
+        "biography": "Your text here."
       }
     },
     "agent": {
@@ -304,7 +304,7 @@
     "types": ["armament",  "generalEquipment", "protection", "ability", "ritual" ],
     "templates": {
       "base": {
-        "description": "",
+        "description": "Your text here.",
         "weight": 1,
         "category": 0,
         "using": {
@@ -327,8 +327,20 @@
         "gripType": ""
       },
       "critical": 0,
-      "range": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)",
+      "range": "",
+      "formulas": {
+        "attackFormula": {
+          "formula": "1d4",
+          "skill": "",
+          "bonus": ""
+        },
+        "damageFormula": {
+          "formula": "1d4",
+          "skill": "",
+          "bonus": ""
+        },
+        "extraFormula": "1d4"
+      },
       "penalty": ""
     },
     "protection": {
@@ -343,7 +355,7 @@
       "quantity": 1
     },
     "ritual": {
-      "description": "",
+      "description": "Your text here.",
       "circle": 1,
       "range": "",
       "areaEffect": "",
@@ -356,7 +368,7 @@
       "id": 0,
       "abilityType": "",
       "preRequisite": "",
-      "description": ""
+      "description": "Your text here."
     }
   }
 }
