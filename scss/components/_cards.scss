@@ -1,0 +1,13 @@
+.card-buttons button {
+    &:first-of-type {
+        margin-bottom: 2px;
+    }
+}
+
+.card-footer span {
+    color: #161616;
+    font-size: 11px;
+    padding: 2px 3px;
+    border-radius: 10px;
+    border: 1px solid #00000030;
+}

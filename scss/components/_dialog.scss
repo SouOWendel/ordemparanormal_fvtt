@@ -78,3 +78,17 @@
 .content-dialog a:first-child .adverts {
     margin: 0;
 }
+
+.dialog-buttons {
+    display: flex;
+    
+    button {
+        height: 36px;
+        opacity: .4;
+        transition: all 0.2s ease-in;
+    };
+
+    button:hover {
+        opacity: 1;
+    }
+}

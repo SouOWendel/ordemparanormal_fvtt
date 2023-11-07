@@ -471,5 +471,26 @@
 .ordemparanormal .content-dialog a:first-child .adverts {
   margin: 0;
 }
+.ordemparanormal .dialog-buttons {
+  display: flex;
+}
+.ordemparanormal .dialog-buttons button {
+  height: 36px;
+  opacity: 0.4;
+  transition: all 0.2s ease-in;
+}
+.ordemparanormal .dialog-buttons button:hover {
+  opacity: 1;
+}
+.ordemparanormal .card-buttons button:first-of-type {
+  margin-bottom: 2px;
+}
+.ordemparanormal .card-footer span {
+  color: #161616;
+  font-size: 11px;
+  padding: 2px 3px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1882352941);
+}
 
 /*# sourceMappingURL=ordemparanormal_fvtt.css.map */
