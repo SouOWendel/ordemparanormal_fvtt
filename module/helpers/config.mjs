@@ -154,18 +154,30 @@ ordemparanormal.dropdownWeaponType = {
 	'ranged': 'ordemparanormal.weaponTypeChoices.ranged',
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownWeaponSubType = {
-	'throw': 'ordemparanormal.weaponSubTypeChoices.throw',
+	// 'throw': 'ordemparanormal.weaponSubTypeChoices.throw',
 	'shoot': 'ordemparanormal.weaponSubTypeChoices.shoot',
 	'fire': 'ordemparanormal.weaponSubTypeChoices.fire',
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownWeaponGripType = {
 	'light': 'ordemparanormal.weaponGripTypeChoices.light',
 	'oneHand': 'ordemparanormal.weaponGripTypeChoices.oneHand',
 	'twoHands': 'ordemparanormal.weaponGripTypeChoices.twoHands',
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownWeaponAmmunition = {
 	'shortBullets': 'ordemparanormal.weaponAmmunitionChoices.shortBullets',
 	'longBullets': 'ordemparanormal.weaponAmmunitionChoices.longBullets',
@@ -174,12 +186,20 @@ ordemparanormal.dropdownWeaponAmmunition = {
 	'rocket': 'ordemparanormal.weaponAmmunitionChoices.rocket'
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownProficiency = {
 	'simpleWeapons': 'ordemparanormal.proficiencyChoices.simpleWeapons',
 	'tacticalWeapons': 'ordemparanormal.proficiencyChoices.tacticalWeapons',
 	'heavyWeapons': 'ordemparanormal.proficiencyChoices.heavyWeapons'
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownDamageType = {
 	'cuttingDamage': 'ordemparanormal.damageTypeChoices.cuttingDamage',
 	'impactDamage': 'ordemparanormal.damageTypeChoices.impactDamage',
@@ -187,8 +207,24 @@ ordemparanormal.dropdownDamageType = {
 	'ballisticDamage': 'ordemparanormal.damageTypeChoices.ballisticDamage'
 };
 
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownPowerType = {
 	'class': 'ordemparanormal.powerTypeChoices.class',
 	'paranormal': 'ordemparanormal.powerTypeChoices.paranormal',
 	'ability': 'ordemparanormal.powerTypeChoices.ability'
+};
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.categories = {
+	'0': '0',
+	'1': 'I',
+	'2': 'II',
+	'3': 'III',
+	'4': 'IV'
 };
