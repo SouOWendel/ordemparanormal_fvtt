@@ -1,0 +1,13 @@
+<div class="ordemparanormal chat-card item-card" data-actor-id="{{actor._id}}" data-item-id="{{item._id}}">
+    {{{data.description}}}
+    <div class="card-buttons">
+        <button data-action="attack"><i class="fa-solid fa-dice-d20"></i> Rolar Ataque</button>
+        <button data-action="damage"><i class="fa-solid fa-dice-d20"></i> Rolar Dano</button>
+    </div>
+    <hr>
+    <footer class="card-footer">
+        {{#each info}}
+        <span>{{localize (concat "ordemparanormal." this)}}</span>
+        {{/each}}
+    </footer>
+</div>
