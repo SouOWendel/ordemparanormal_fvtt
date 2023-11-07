@@ -17,17 +17,15 @@ export function onManageActiveEffect(event, owner) {
 				label: game.i18n.localize('ordemparanormal.newEffect'),
 				icon: 'icons/svg/aura.svg',
 				origin: owner.uuid,
-				'duration.rounds':
-						li.dataset.effectType === 'temporary' ? 1 : undefined,
+				'duration.rounds': li.dataset.effectType === 'temporary' ? 1 : undefined,
 				disabled: li.dataset.effectType === 'inactive',
-			},
-		]);
+			}]);
 	case 'edit':
 		return effect.sheet.render(true);
 	case 'delete':
 		return effect.delete();
 	case 'toggle':
-		return effect.update({ disabled: !effect.data.disabled });
+		return effect.update({ disabled: !effect.disabled });
 	}
 }
 
