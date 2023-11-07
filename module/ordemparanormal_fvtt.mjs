@@ -19,6 +19,8 @@ import { ordemparanormal } from './helpers/config.mjs';
 import displayMessages from './components/message-system.mjs';
 import registerSystemSettings from './components/settings.mjs';
 
+import * as chat from './documents/chat-message.mjs';
+
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -32,6 +34,9 @@ Hooks.once('init', async function () {
 		OrdemItem,
 		rollItemMacro,
 	};
+
+	// Pg. 169 of the Book
+	CONFIG.time.roundTime = 6;
 
 	// Add custom constants for configuration.
 	CONFIG.ordemparanormal = ordemparanormal;
@@ -67,6 +72,9 @@ Hooks.once('init', async function () {
 	// console.log(game.data.actors[0]);
 	// game.data.actors[0].updateSource({'type': 'agent'});
 	// console.log(game.data.actors[0]);
+
+	// Change the logo of Foundry for Ordem Paranormal logo.
+	if (navigator.onLine) $('#logo').attr('src', 'https://i.imgur.com/TTrDGM4.png');
 
 	// Preload Handlebars templates.
 	return preloadHandlebarsTemplates();
@@ -162,13 +170,18 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 });
 
 /* -------------------------------------------- */
-/*  Ready Hook                                  */
+/*  Ready Hooks                                  */
 /* -------------------------------------------- */
 
 Hooks.once('ready', async function () {
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 	Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
 });
+
+Hooks.on('renderChatMessage', chat.onRenderChatMessage);
+
+Hooks.on('renderChatLog', (app, html, data) => OrdemItem.chatListeners(html));
+Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html));
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
