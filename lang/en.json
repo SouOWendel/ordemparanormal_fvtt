@@ -152,7 +152,8 @@
 	"ordemparanormal.type": "Type",
 	"ordemparanormal.area": "Area",
 
-	"ordemparanormal.attributesItem": "Atributos",
+	"ordemparanormal.specificationsItemTab": "Specifications",
+	"ordemparanormal.combatItemTab": "Combat",
 	"ordemparanormal.description": "Descrição",
 	"ordemparanormal.quantity": "Quantidade",
 	"ordemparanormal.space": "Espaço",
