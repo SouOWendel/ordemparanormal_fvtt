@@ -49,6 +49,9 @@ export class OrdemItemSheet extends ItemSheet {
 		context.optionProficiency = CONFIG.ordemparanormal.dropdownProficiency;
 		context.optionDamageType = CONFIG.ordemparanormal.dropdownDamageType;
 		context.optionPowerType = CONFIG.ordemparanormal.dropdownPowerType;
+
+		// Radiobox
+		context.categories = CONFIG.ordemparanormal.categories;
 		
 		// Retrieve the roll data for TinyMCE editors.
 		context.rollData = {};
