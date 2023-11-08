@@ -399,6 +399,30 @@
   flex: 1;
   background-color: aqua;
 }
+.ordemparanormal .item-image {
+  perspective: 50px;
+}
+.ordemparanormal .item-image img {
+  border: 1px solid rgba(0, 0, 0, 0.4392156863);
+}
+.ordemparanormal .slide {
+  overflow: hidden;
+}
+.ordemparanormal .slide > img, .ordemparanormal .slide a {
+  transition: 0.3s all ease-in-out;
+  position: absolute;
+}
+.ordemparanormal .slide > a {
+  margin-left: 4px;
+  font-size: 20px;
+  transform: translate(50px, 0);
+}
+.ordemparanormal .slide:hover > img {
+  transform: translate(-200px, 0);
+}
+.ordemparanormal .slide:hover > a {
+  transform: translate(0, 0);
+}
 .ordemparanormal .effects .item .effect-source,
 .ordemparanormal .effects .item .effect-duration,
 .ordemparanormal .effects .item .effect-controls {
@@ -454,18 +478,18 @@
   background: rgba(0, 0, 0, 0.13);
   border: 0;
 }
-.ordemparanormal .adverts {
+.ordemparanormal .announcement {
   position: relative;
   width: 100%;
   height: 156px;
-  margin: 10px 0;
+  margin: 8px 0;
   border-radius: 5px;
   display: flex;
   background-position: center !important;
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
 }
-.ordemparanormal .adverts p {
+.ordemparanormal .announcement p {
   width: 100%;
 }
 .ordemparanormal .content-dialog a:first-child .adverts {
@@ -489,7 +513,7 @@
   color: #161616;
   font-size: 11px;
   padding: 2px 3px;
-  border-radius: 10px;
+  border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1882352941);
 }
 
