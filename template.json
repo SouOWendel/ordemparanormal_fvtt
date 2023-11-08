@@ -341,7 +341,15 @@
         },
         "extraFormula": "1d4"
       },
-      "penalty": ""
+      "penalty": "",
+      "conditions": {
+        "improvised": false,
+        "throwable": false,
+        "agile": false,
+        "automatic": false,
+        "adaptableGrip": false,
+        "pistolBlow": false
+      }
     },
     "protection": {
       "templates": ["base"],

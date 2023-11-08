@@ -313,6 +313,24 @@ export class OrdemItem extends Item {
 		if (this.system.types.gripType) templateData.info.push('weaponGripTypeChoices.' + this.system.types.gripType);
 		if (this.system.types.rangeType.name) templateData.info.push('weaponTypeChoices.' + this.system.types.rangeType.name); 
 		if (this.system.types.damageType) templateData.info.push('damageTypeChoices.' + this.system.types.damageType);
+		if (this.system.conditions.improvised) templateData.info.push('improvised');
+		if (this.system.conditions.throwable) templateData.info.push('throwable');
+		if (this.system.conditions.agile) templateData.info.push('agile');
+		if (this.system.conditions.automatic) templateData.info.push('automatic');
+		if (this.system.conditions.adaptableGrip) templateData.info.push('adaptableGrip');
+		if (this.system.conditions.pistolBlow) templateData.info.push('pistolBlow');
+
+		// for (const [i, value] of Object.entries(this.system)) {
+		// 	if (
+		// 		this.system.proficiency || this.system.types.gripType ||
+		// 		this.system.types.rangeType.name || this.system.types.damageType ||
+		// 		this.system.conditions.improvised || this.system.conditions.throwable ||
+		// 		this.system.conditions.agile || this.system.conditions.automatic ||
+		// 		this.system.conditions.adaptableGrip || this.system.conditions.pistolBlow
+		// 	) {
+		// 		templateData.info.push(value);
+		// 	}
+		// }
 
 		const html = await renderTemplate('systems/ordemparanormal/templates/chat/item-card.html', templateData);
 
