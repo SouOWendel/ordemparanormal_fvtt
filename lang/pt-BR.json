@@ -220,6 +220,12 @@
 		"class": "Poder de Classe",
 		"paranormal": "Poder Paranormal",
 		"ability": "Habilidade"
-	}
+	},
 
+	"ordemparanormal.improvised": "Improvisada",
+	"ordemparanormal.throwable": "Arremessável",
+	"ordemparanormal.agile": "Ágil",
+	"ordemparanormal.automatic": "Automática",
+	"ordemparanormal.adaptableGrip": "Empunhadura Adaptável",
+	"ordemparanormal.pistolBlow": "Coronhada"
 }
