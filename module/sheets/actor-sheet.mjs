@@ -88,16 +88,16 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// Acesso Rápido
 		const NEX = context.data.NEX.value;
-		const AGI = context.data.attributes.agi.value;
-		const VIG = context.data.attributes.vig.value;
-		const FOR = context.data.attributes.for.value;
+		const AGI = context.data.attributes.dex.value;
+		const VIG = context.data.attributes.vit.value;
+		const FOR = context.data.attributes.str.value;
 		const INT = context.data.attributes.int.value;
 		const PRE = context.data.attributes.pre.value;
 		const DEFESA = context.data.defense.value;
 
 		// DEFESA E ESQUIVA
 		context.data.defense.value += AGI;
-		context.data.defense.dodge = DEFESA + context.data.skills.reflexos.value;
+		context.data.defense.dodge = DEFESA + context.data.skills.reflexes.value;
 
 		// NEX
 		const calcNEX = (NEX < 99) ? Math.floor(NEX / 5) : 20;

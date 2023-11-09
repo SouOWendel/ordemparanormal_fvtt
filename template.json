@@ -6,27 +6,32 @@
         "PV": {
           "value": 5,
           "min": 0,
-          "max": 10
+          "max": 10,
+          "bonus": 0
         },
         "SAN": {
           "value": 5,
           "min": 0,
-          "max": 5
+          "max": 5,
+          "bonus": 0
         },
         "PE": {
           "value": 5,
           "min": 0,
           "max": 5,
-          "perRound": 1
+          "perRound": 1,
+          "bonus": 0
         },
         "NEX": {
           "value": 1
         },
         "defense": {
-          "value": 10
+          "value": 10,
+          "bonus": 0
         },
         "desloc": {
-          "value": 9
+          "value": 9,
+          "bonus": 0
         },
         "biography": "Your text here."
       }
@@ -37,55 +42,55 @@
       "origin": "",
       "trilha": "",
       "skills": {
-        "acrobacia": {
+        "acrobatics": {
           "value": 0,
-          "attr": ["agi", 1],
-          "degree": "Destreinado",
+          "attr": ["dex", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": true,
             "trained": false
           }
         },
-        "adestramento": {
+        "animal": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": true
           }
         },
-        "artes": {
+        "arts": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "atletismo": {
+        "athleticism": {
           "value": 0,
-          "attr": ["for", 1],
-          "degree": "Destreinado",
+          "attr": ["str", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "atualidades": {
-          "value": 0,
-          "attr": ["int", 1],
-          "degree": "Destreinado",
-          "conditions": {
-            "carga": false,
-            "trained": false
-          }
-        },
-        "ciencias": {
+        "relevance": {
           "value": 0,
           "attr": ["int", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "sciences": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
@@ -93,188 +98,188 @@
         },
         "crime": {
           "value": 0,
-          "attr": ["agi", 1],
-          "degree": "Destreinado",
+          "attr": ["dex", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": true,
             "trained": true
           }
         },
-        "diplomacia": {
+        "diplomacy": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "enganacao": {
+        "deception": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "fortitude": {
+        "resilience": {
           "value": 0,
-          "attr": ["vig", 1],
-          "degree": "Destreinado",
+          "attr": ["vit", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "furtividade": {
+        "stealth": {
           "value": 0,
-          "attr": ["agi", 1],
-          "degree": "Destreinado",
+          "attr": ["dex", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": true,
             "trained": false
           }
         },
-        "iniciativa": {
+        "initiative": {
           "value": 0,
-          "attr": ["agi", 1],
-          "degree": "Destreinado",
+          "attr": ["dex", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "intimidacao": {
+        "intimidation": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "intuicao": {
+        "intuition": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "investigacao": {
+        "investigation": {
           "value": 0,
           "attr": ["int", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "luta": {
+        "fighting": {
           "value": 0,
-          "attr": ["for", 1],
-          "degree": "Destreinado",
+          "attr": ["str", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "medicina": {
-          "value": 0,
-          "attr": ["int", 1],
-          "degree": "Destreinado",
-          "conditions": {
-            "carga": false,
-            "trained": false
-          }
-        },
-        "ocultismo": {
+        "medicine": {
           "value": 0,
           "attr": ["int", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
+          "conditions": {
+            "carga": false,
+            "trained": false
+          }
+        },
+        "occultism": {
+          "value": 0,
+          "attr": ["int", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": true
           }
         },
-        "percepcao": {
+        "perception": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "pilotagem": {
+        "driving": {
           "value": 0,
-          "attr": ["agi", 1],
-          "degree": "Destreinado",
+          "attr": ["dex", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": true
           }
         },
-        "pontaria": {
+        "aim": {
           "value": 0,
-          "attr": ["agi", 1],
-          "degree": "Destreinado",
+          "attr": ["dex", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "reflexos": {
+        "reflexes": {
           "value": 0,
-          "attr": ["agi", 1],
-          "degree": "Destreinado",
+          "attr": ["dex", 1],
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "religiao": {
+        "religion": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": true
           }
         },
-        "sobrevivencia": {
+        "survival": {
           "value": 0,
           "attr": ["int", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
           }
         },
-        "tatica": {
+        "tactics": {
           "value": 0,
           "attr": ["int", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": true
           }
         },
-        "tecnologia": {
+        "technology": {
           "value": 0,
           "attr": ["int", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": true
           }
         },
-        "vontade": {
+        "will": {
           "value": 0,
           "attr": ["pre", 1],
-          "degree": "Destreinado",
+          "degree": "untrained",
           "conditions": {
             "carga": false,
             "trained": false
@@ -282,20 +287,25 @@
         }
       },
       "attributes": {
-        "agi": {
-          "value": 1
+        "dex": {
+          "value": 1,
+          "bonus": 0
         },
         "int": {
-          "value": 1
+          "value": 1,
+          "bonus": 0
         },
-        "vig": {
-          "value": 1
+        "vit": {
+          "value": 1,
+          "bonus": 0
         },
         "pre": {
-          "value": 1
+          "value": 1,
+          "bonus": 0
         },
-        "for": {
-          "value": 1
+        "str": {
+          "value": 1,
+          "bonus": 0
         }
       }
     }
@@ -331,11 +341,13 @@
       "formulas": {
         "attackFormula": {
           "formula": "1d4",
+          "attr": "",
           "skill": "",
           "bonus": ""
         },
         "damageFormula": {
           "formula": "1d4",
+          "attr": "",
           "skill": "",
           "bonus": ""
         },
