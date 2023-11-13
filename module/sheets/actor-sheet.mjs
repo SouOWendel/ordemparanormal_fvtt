@@ -101,23 +101,26 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// NEX
 		const calcNEX = (NEX < 99) ? Math.floor(NEX / 5) : 20;
+		const nexAdjust = calcNEX-1; 
+		const nexIf = calcNEX > 1;
 
 		// PE / RODADA
 		context.data.PE.perRound = calcNEX;
 
 		// DEFININDO STATUS CONFORME A CLASSE
+		// TODO: Converter as classes para o inglês
 		if (context.data.class == 'Combatente') {
-			context.data.PV.max = (20 + VIG) + ((calcNEX > 1) ? (calcNEX-1) * (4 + VIG) : '');
-			context.data.PE.max = (2 + PRE) + ((calcNEX > 1) ? (calcNEX-1) * (2 + PRE) : '');
-			context.data.SAN.max = (12) + ((calcNEX > 1) ? (calcNEX-1) * 3 : '');
+			context.data.PV.max = (20 + VIG) + ((nexIf) && nexAdjust * (4 + VIG));
+			context.data.PE.max = (2 + PRE) + ((nexIf) && nexAdjust * (2 + PRE));
+			context.data.SAN.max = (12) + ((nexIf) && nexAdjust * 3);
 		} else if (context.data.class == 'Especialista') {
-			context.data.PV.max = (16 + VIG) + ((calcNEX > 1) ? (calcNEX-1) * (3 + VIG) : '');
-			context.data.PE.max = (3 + PRE) + ((calcNEX > 1) ? (calcNEX-1) * (3 + PRE) : '');
-			context.data.SAN.max = (16) + ((calcNEX > 1) ? (calcNEX-1) * 4 : '');
+			context.data.PV.max = (16 + VIG) + ((nexIf) && nexAdjust * (3 + VIG));
+			context.data.PE.max = (3 + PRE) + ((nexIf) && nexAdjust * (3 + PRE));
+			context.data.SAN.max = (16) + ((nexIf) && nexAdjust * 4);
 		} else if (context.data.class == 'Ocultista') {
-			context.data.PV.max = (12 + VIG) + ((calcNEX > 1) ? (calcNEX-1) * (2 + VIG) : '');
-			context.data.PE.max = (4 + PRE) + ((calcNEX > 1) ? (calcNEX-1) * (4 + PRE) : '');
-			context.data.SAN.max = (20) + ((calcNEX > 1) ? (calcNEX-1) * 5 : '');
+			context.data.PV.max = (12 + VIG) + ((nexIf) && nexAdjust * (2 + VIG));
+			context.data.PE.max = (4 + PRE) + ((nexIf) && nexAdjust * (4 + PRE));
+			context.data.SAN.max = (20) + ((nexIf) && nexAdjust * 5);
 		} else {
 			context.data.PV.max = (10);
 
@@ -230,7 +233,6 @@ export class OrdemActorSheet extends ActorSheet {
 			else if (i.type === 'ritual') {
 				if (i.system.circle) rituals.valid[i.system.circle].push(i);
 				else rituals.invalid.push(i);
-				// TODO: fazer com que seja os rituais sem circulo sejam separados em um grupo com o campo circulo sem preencher.
 			}
 			// Append to abilities.
 			else if (i.type === 'ability') {
@@ -238,7 +240,6 @@ export class OrdemActorSheet extends ActorSheet {
 				else if (i.system.abilityType == 'class') abilities.valid[2].push(i);
 				else if (i.system.abilityType == 'paranormal') abilities.valid[3].push(i);
 				else if (!i.system.abilityType) abilities.invalid.push(i);
-				// TODO: fazer com que seja as habilidades sem tipo sejam separados em um grupo com o tipo sem preencher.
 			}
 		}
 
