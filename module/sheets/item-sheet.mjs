@@ -49,6 +49,8 @@ export class OrdemItemSheet extends ItemSheet {
 		context.optionProficiency = CONFIG.ordemparanormal.dropdownProficiency;
 		context.optionDamageType = CONFIG.ordemparanormal.dropdownDamageType;
 		context.optionPowerType = CONFIG.ordemparanormal.dropdownPowerType;
+		context.attributes = CONFIG.ordemparanormal.attributes;
+		context.attackSkills = CONFIG.ordemparanormal.attackSkills;
 
 		// Radiobox
 		context.categories = CONFIG.ordemparanormal.categories;
@@ -66,7 +68,6 @@ export class OrdemItemSheet extends ItemSheet {
 
 		// Prepare active effects
 		context.effects = prepareActiveEffectCategories(this.item.effects);
-		console.log(context.effects);
 
 		return context;
 	}
