@@ -7,23 +7,28 @@ const SYSTEM_NAME = 'ordemparanormal';
 
 // eslint-disable-next-line require-jsdoc
 export default async function displayMessages() {
-	const messages = await fetch(`systems/${SYSTEM_NAME}/media/messages/messages.jsonc`)
-		.then(resp => resp.text())
-		.then(jsonc => JSON.parse(stripJSON(jsonc)));
+	const messages = await fetchMessage(`systems/${SYSTEM_NAME}/media/messages/messages.jsonc`);
+	console.log(messages);
 
-	messages.forEach(message => {
-		handleDisplay(message);
+	messages.forEach((message, indice) => {
+		handleDisplay(message, indice, messages);
 	});
 }
+
+const fetchMessage = async (url) => {
+	return await fetch(url)
+		.then(resp => resp.text())
+		.then(jsonc => JSON.parse(stripJSON(jsonc)));
+};
 
 const stripJSON = data => {
 	return data.replace(/[^:]\/\/(.*)/g, '');
 };
 
-const handleDisplay = msg => {
+const handleDisplay = (msg, i, messages) => {
 	const { content, title, type } = msg;
 	if (!isCurrent(msg)) return;
-	if (type === 'prompt') return displayPrompt(title, content);
+	if (type === 'prompt') return displayPrompt(title, content, i, messages);
 	if (type === 'chat') return sendToChat(title, content);
 };
 
@@ -39,6 +44,7 @@ const isCurrent = msg => {
 		msg['max-sys-version'] ?? '100.0.0',
 		{ gEqMin: true, lEqMax: true },
 	);
+	console.log(correctSysVersion);
 	return isDisplayable && correctCoreVersion && correctSysVersion;
 	// return correctCoreVersion && correctSysVersion;
 };
@@ -50,22 +56,23 @@ const isCurrent = msg => {
 // 	else return false;
 // };
 
-const displayPrompt = (title, content) => {
+const displayPrompt = (title, content, i, messages) => {
 	content = content.replace('{name}', game.user.name);
+	console.log('indice: ' + i);
 
 	const dialogOptions = {
 		width: 800,
-		height: 600,
+		height: 630,
 		classes: ['ordemparanormal', 'no-scroll'],
 	};
 
-	const d = new Dialog({
+	const config = {
 		title: title,
 		content: `
-			<section class='grid grid-2col'>
+			<section class='ordemparanormal grid grid-2col'>
 				<aside class='sidebar scroll content-dialog'>
 					<a href="https://discord.gg/G8AwJwJXa5" class="no-orange-hyperlink">
-						<div class="adverts flex-group-center discord" style="background-color: #5865F2">
+						<div class="announcement flex-group-center discord" style="background-color: #5865F2">
 							<div>
 								<h1>Community Devs</h1>
 								<p>Entre no nosso discord para atualizações.</p>
@@ -73,12 +80,12 @@ const displayPrompt = (title, content) => {
 						</div>
 					</a>
 					<a href="" class="no-orange-hyperlink">
-						<div class="adverts flex-group-center" style="border: 1px solid #00000020">
+						<div class="announcement flex-group-center" style="border: 1px solid #00000020">
 						<p></p>
 						</div>
 					</a>
 					<a href="" class="no-orange-hyperlink">
-						<div class="adverts flex-group-center" style="border: 1px solid #00000020">
+						<div class="announcement flex-group-center" style="border: 1px solid #00000020">
 						<p></p>
 						</div>
 					</a>
@@ -89,21 +96,26 @@ const displayPrompt = (title, content) => {
 			</section>
 			<footer style="position:absolute; bottom: 0; width: 100%; left: 0; padding: 0px 8px; border-top: 1px #00000030 solid;"><p>Você pode desativar as notas de atualização nas configurações do sistema.</p></footer>`,
 		buttons: {
-			// one: {
-			// 	icon: '<i class="fas fa-check"></i>',
-			// 	label: 'Option One',
-			// 	callback: () => console.log('Chose One')
-			//    },
-			// two: {
-			// 	icon: '<i class="fas fa-times"></i>',
-			// 	label: 'Option Two',
-			// 	callback: () => console.log('Chose Two')
-			//    }
+			previous: {
+				icon: '<i class="fas fa-arrow-left"></i>',
+				label: 'Atualização Anterior',
+				callback: async () => {
+					const b = (messages[i - 1]) ? i - 1 : i;
+					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
+				}
+			   },
+			next: {
+				icon: '',
+				label: 'Próxima Atualização <i class="fas fa-arrow-right"></i>',
+				callback: async () => {
+					const b = (messages[i + 1]) ? i + 1 : i;
+					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
+				}
+			   }
 		},
-	   }, dialogOptions);
+	   };
 
-	   console.log(d.element);
-	
+	const d = new Dialog(config, dialogOptions);
 	return d.render(true);
 
 	// return Dialog.prompt({
