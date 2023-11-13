@@ -87,9 +87,9 @@ export class OrdemActor extends Actor {
 		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
 			// Calculate the modifier using d20 rules.
 			// if (skillsName.mod) skillsName.mod = 0;
-			if (skillsName.degree.label == 'Treinado') skillsName.value = 5;
-			else if (skillsName.degree.label == 'Veterano') skillsName.value = 10;
-			else if (skillsName.degree.label == 'Expert') skillsName.value = 15;
+			if (skillsName.degree.label == 'trained') skillsName.value = 5;
+			else if (skillsName.degree.label == 'veteran') skillsName.value = 10;
+			else if (skillsName.degree.label == 'expert') skillsName.value = 15;
 			else skillsName.value = 0;
 
 			// console.log(JSON.stringify(skillsName.degree) + skillsName.value);
@@ -116,14 +116,16 @@ export class OrdemActor extends Actor {
 
 		// Copy the skills scores to the top level, so that rolls can use
 		// formulas like `@iniciativa.value + 4`.
+		// TODO: criar acesso rapido de variavel para outras linguagens
 		if (data.skills) {
 			for (const [k, v] of Object.entries(data.skills)) {
 				data[k] = foundry.utils.deepClone(v);
+				// data[k] = game.i18n.localize('ordemparanormal.skills.' + k);
 			}
 		}
 
 		// Copy the attributes to the top level, so that rolls can use
-		// formulas like `@agi.value`.
+		// formulas like `@dex.value`.
 		if(data.attributes) {
 			for (const [k, v] of Object.entries(data.attributes)) {
 				data[k] = foundry.utils.deepClone(v);
@@ -131,8 +133,8 @@ export class OrdemActor extends Actor {
 		}
 
 		if(data.attributes && data.skills) {
-			data.rollInitiative = ((data.attributes.agi.value == 0) ? 2 : data.attributes.agi.value) + 'd20' +
-			 ((data.attributes.agi.value == 0) ? 'kl' : 'kh') + '+' + data.skills.iniciativa.value;
+			data.rollInitiative = ((data.attributes.dex.value == 0) ? 2 : data.attributes.dex.value) + 'd20' +
+			 ((data.attributes.dex.value == 0) ? 'kl' : 'kh') + '+' + data.skills.initiative.value;
 		}
 
 		// Add level for easier access, or fall back to 0.
