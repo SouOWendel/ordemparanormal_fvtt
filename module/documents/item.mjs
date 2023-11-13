@@ -188,10 +188,31 @@ export class OrdemItem extends Item {
    * Rely upon the d20Roll logic for the core implementation
    */
 	async rollAttack(options={}) {
-		if ( !this.system.formulas.attackFormula.formula ) throw new Error('This Item does not have a formula to roll!');
+		if ( !this.system.formulas.attackFormula.attr || !this.system.formulas.attackFormula.skill) throw new Error('This Item does not have a formula to roll!');
+
+		const attack = this.system.formulas.attackFormula;
+
+		const bonus = attack.bonus && '+' + attack.bonus;
+		let attr = attack.attr;
+		let skill = attack.skill;
+		let rollMode = 'kh';
+		
+		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
+			console.log(i + attr + attrParent.value);
+			if (i == attr) {
+				if (attrParent.value == 0) {
+					attr = 2; 
+					rollMode = 'kl';
+				} else attr = attrParent.value;
+			}
+		}
+
+		for (const [i, skillParent] of Object.entries(this.parent.system.skills)) {
+			if (i == skill) skill = '+' + skillParent.value;
+		}
 	
 		const rollConfig = {
-		  formula: this.system.formulas.attackFormula.formula,
+		  formula: attr + 'd20' + rollMode + skill + bonus,
 		  data: this.getRollData(),
 		  chatMessage: true
 		};
@@ -201,7 +222,7 @@ export class OrdemItem extends Item {
 		 * A hook event that fires before a formula is rolled for an Item.
 		 * @function ordemparanormal.preRollFormula
 		 * @memberof hookEvents
-		 * @param {Item5e} item                 Item for which the roll is being performed.
+		 * @param {OrdemItem} item              Item for which the roll is being performed.
 		 * @param {object} config               Configuration data for the pending roll.
 		 * @param {string} config.formula       Formula that will be rolled.
 		 * @param {object} config.data          Data used when evaluating the roll.
@@ -226,8 +247,8 @@ export class OrdemItem extends Item {
 		 * A hook event that fires after a formula has been rolled for an Item.
 		 * @function ordemparanormal.rollFormula
 		 * @memberof hookEvents
-		 * @param {Item5e} item  Item for which the roll was performed.
-		 * @param {Roll} roll    The resulting roll.
+		 * @param {OrdemItem} item  Item for which the roll was performed.
+		 * @param {Roll} roll       The resulting roll.
 		 */
 		Hooks.callAll('ordemparanormal.rollFormula', this, roll);
 	
@@ -240,19 +261,28 @@ export class OrdemItem extends Item {
    */
 	async rollDamage(options={}) {
 		if ( !this.system.formulas.damageFormula.formula ) throw new Error('This Item does not have a formula to roll!');
-	
+
+		const damage = this.system.formulas.damageFormula;
+		const bonus = damage.bonus && '+' + damage.bonus;
+		const formula = damage.formula;
+		let attr = damage.attr;
+
+		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
+			if (i == attr) attr = '+' + attrParent.value;
+		}
+
 		const rollConfig = {
-		  formula: this.system.formulas.damageFormula.formula,
-		  data: this.getRollData(),
-		  chatMessage: true
+			formula: formula + attr + bonus,
+			data: this.getRollData(),
+			chatMessage: true
 		};
-		// if ( spellLevel ) rollConfig.data.item.level = spellLevel;
+		  // if ( spellLevel ) rollConfig.data.item.level = spellLevel;
 	
 		/**
 		 * A hook event that fires before a formula is rolled for an Item.
 		 * @function ordemparanormal.preRollFormula
 		 * @memberof hookEvents
-		 * @param {Item5e} item                 Item for which the roll is being performed.
+		 * @param {OrdemItem} item              Item for which the roll is being performed.
 		 * @param {object} config               Configuration data for the pending roll.
 		 * @param {string} config.formula       Formula that will be rolled.
 		 * @param {object} config.data          Data used when evaluating the roll.
@@ -277,12 +307,21 @@ export class OrdemItem extends Item {
 		 * A hook event that fires after a formula has been rolled for an Item.
 		 * @function ordemparanormal.rollFormula
 		 * @memberof hookEvents
-		 * @param {Item5e} item  Item for which the roll was performed.
-		 * @param {Roll} roll    The resulting roll.
+		 * @param {Ordemitem} item  Item for which the roll was performed.
+		 * @param {Roll} roll       The resulting roll.
 		 */
 		Hooks.callAll('ordemparanormal.rollFormula', this, roll);
 	
 		return roll;
+	}
+
+	/**
+   	* Trigger an item usage, optionally creating a chat message with followup actions.
+   	**/
+	async use(config={}, options={}) {
+		const item = this;
+		const is = item.system;
+		const as = item.actor.system;
 	}
 
 	/**
