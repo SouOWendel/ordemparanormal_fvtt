@@ -1,3 +1,93 @@
 .resource-label {
   font-weight: bold;
 }
+
+/* ITEM SHEET */
+
+.specifications {
+  h4 {
+    color: #16161670;
+    border-bottom: 1px solid $black-transparent;
+  }
+}
+
+.combat {
+  h4 {
+    color: #16161670;
+    border-bottom: 1px solid $black-transparent;
+  }
+
+  .resource-label {
+    font-size: 13px;
+  }
+}
+
+.item-sheet-select {
+  display: flex;
+  flex: 1 10px;
+  padding: 0 3px;
+  align-items: center;
+  flex-direction: row;
+
+  i {
+    margin-left: 6px;
+  }
+}
+
+.item-sheet-space {
+  flex: 2 10px;
+  padding: 0 3px;
+
+  select {
+    width: 100%;
+  }
+}
+
+.item-damage-bonus {
+  flex: 2;
+}
+
+.minor-size {
+  flex: 0 60px;
+}
+
+.item-sheet-controls {
+  display: flex;
+  flex: 0 0 20px;
+  justify-content: flex-end;
+  a {
+    font-size: 12px;
+    text-align: center;
+    margin: 0 6px;
+  }
+}
+
+.item-sheet {
+  .item-attribute {
+    flex: 1;
+    padding: 0 8px;
+  }
+  .item-skill {
+    flex: 1;
+    padding: 0 8px;
+  }
+  .item-bonus {
+    flex: 2;
+    padding: 0 8px;
+  }
+}
+
+.item-sheet-prop {
+  text-align: center;
+  font-size: 12px;
+}
+
+.item-info-title {
+  margin-top: 10px;
+}
+
+.resource-type {
+  border: 1px solid $black-transparent;
+  border-radius: 4px;
+  padding: 10px;
+}

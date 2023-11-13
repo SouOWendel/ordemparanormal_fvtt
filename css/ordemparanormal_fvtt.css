@@ -210,10 +210,11 @@
 
 /* Styles limited to ordemparanormal sheets */
 .ordemparanormal {
+  /* ITEM SHEET */
   /* ----------------------------------------- */
   /*  Items Lists                              */
   /* ----------------------------------------- */
-  /* Example style for Ordem (can be removed if not needed) */
+  /* ITEMS IN ACTOR SHEET (AGENT) */
 }
 .ordemparanormal .item-form {
   font-family: "Roboto", sans-serif;
@@ -290,6 +291,74 @@
 }
 .ordemparanormal .resource-label {
   font-weight: bold;
+}
+.ordemparanormal .specifications h4 {
+  color: rgba(22, 22, 22, 0.4392156863);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
+}
+.ordemparanormal .combat h4 {
+  color: rgba(22, 22, 22, 0.4392156863);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
+}
+.ordemparanormal .combat .resource-label {
+  font-size: 13px;
+}
+.ordemparanormal .item-sheet-select {
+  display: flex;
+  flex: 1 10px;
+  padding: 0 3px;
+  align-items: center;
+  flex-direction: row;
+}
+.ordemparanormal .item-sheet-select i {
+  margin-left: 6px;
+}
+.ordemparanormal .item-sheet-space {
+  flex: 2 10px;
+  padding: 0 3px;
+}
+.ordemparanormal .item-sheet-space select {
+  width: 100%;
+}
+.ordemparanormal .item-damage-bonus {
+  flex: 2;
+}
+.ordemparanormal .minor-size {
+  flex: 0 60px;
+}
+.ordemparanormal .item-sheet-controls {
+  display: flex;
+  flex: 0 0 20px;
+  justify-content: flex-end;
+}
+.ordemparanormal .item-sheet-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.ordemparanormal .item-sheet .item-attribute {
+  flex: 1;
+  padding: 0 8px;
+}
+.ordemparanormal .item-sheet .item-skill {
+  flex: 1;
+  padding: 0 8px;
+}
+.ordemparanormal .item-sheet .item-bonus {
+  flex: 2;
+  padding: 0 8px;
+}
+.ordemparanormal .item-sheet-prop {
+  text-align: center;
+  font-size: 12px;
+}
+.ordemparanormal .item-info-title {
+  margin-top: 10px;
+}
+.ordemparanormal .resource-type {
+  border: 1px solid rgba(0, 0, 0, 0.2509803922);
+  border-radius: 4px;
+  padding: 10px;
 }
 .ordemparanormal .items-header {
   height: 28px;
