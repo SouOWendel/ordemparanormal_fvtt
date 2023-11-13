@@ -25,13 +25,11 @@
 
     {{!-- Specifications Tab --}}
     <div class="tab specifications" data-group="primary" data-tab="specifications">
-      <div class="resource grid grid-2col">
+      <div class="resource grid grid-4col align-items-center">
         <label class="resource-label">{{localize "ordemparanormal.quantity"}}</label>
-        <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
-      </div>
-      <div class="resource grid grid-2col">
+        <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" placeholder="Quantos deste item?"/>
         <label class="resource-label">{{localize "ordemparanormal.space"}}</label>
-        <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+        <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number" placeholder="Quanto o item pesa?"/>
       </div>
       <div class="resource grid grid-2col">
         <label class="resource-label">{{localize "ordemparanormal.category"}}</label>
@@ -40,27 +38,18 @@
       <div class="resource grid grid-2col">
         <label class="resource-label">{{localize "ordemparanormal.proficiency"}}</label>
         <select name="data.proficiency" data-dtype="String">
-          {{
-            selectOptions optionProficiency
-            selected=data.proficiency 
-            localize=true
-            blank="—"
-          }}
+          {{ selectOptions optionProficiency selected=data.proficiency  localize=true blank="—" }}
         </select>
       </div>
       <div class="resource grid grid-2col">
         <label class="resource-label">{{localize "ordemparanormal.gripType"}}</label>
         <select name="data.types.gripType" data-dtype="String">
-          {{
-            selectOptions optionGripType
-            selected=data.types.gripType 
-            localize=true
-            blank="—"
-          }}
+          {{ selectOptions optionGripType selected=data.types.gripType  localize=true blank="—" }}
         </select>
       </div>
-    
-      <div class="resource align-items-center">
+      
+      <h4>Condições do Armamento</h4>
+      <div class="resource align-items-center align-center">
         <label class="resource-label">Improvisada</label>
         <input type="checkbox" name="data.conditions.improvised" {{checked data.conditions.improvised}}>
         <label class="resource-label">Arremessável</label>
@@ -78,67 +67,95 @@
 
     {{!-- Combat Tab --}}
     <div class="tab combat" data-group="primary" data-tab="combat">
+      <h4>Detalhes de Combate</h4>
       <div class="grid grid-2col">
         <div class="resource">
           <label class="resource-label">{{localize "ordemparanormal.damageType"}}</label>
           <select name="data.types.damageType" data-dtype="String">
-            {{
-              selectOptions optionDamageType
-              selected=data.types.damageType 
-              localize=true
-              blank="—"
-            }}
+            {{ selectOptions optionDamageType selected=data.types.damageType  localize=true blank="—" }}
           </select>
-        </div>
-        <div class="resource">
-          <label class="resource-label">{{localize "ordemparanormal.critical"}}</label>
-          <input type="text" name="data.critical" value="{{data.critical}}" data-dtype="String"/>
         </div>
         <div class="resource">
           <label class="resource-label">{{localize "ordemparanormal.range"}}</label>
-          <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
+          <input type="text" name="data.range" value="{{data.range}}" data-dtype="String" placeholder="Ex.: curto, médio, longo"/>
         </div>
-        <div class="resource">
-          <label class="resource-label">Formula de Dano</label>
-          <input type="text" name="data.formulas.damageFormula.formula" value="{{data.formulas.damageFormula.formula}}" data-dtype="String"/>
-        </div>
-        <div class="resource">
-          <label class="resource-label">Formula de Ataque</label>
-          <input type="text" name="data.formulas.attackFormula.formula" value="{{data.formulas.attackFormula.formula}}" data-dtype="String"/>
-        </div>
-        <div class="resource">
-          <label class="resource-label">Outra Formula</label>
-          <input type="text" name="data.formulas.extraFormula" value="{{data.formulas.extraFormula}}" data-dtype="String"/>
-        </div>
-        <div class="resource grid align-items-center">
-          <label class="resource-label">{{localize "ordemparanormal.weaponType"}}</label>
-          <select name="data.types.rangeType.name" data-dtype="String">
-            {{
-              selectOptions optionWeaponType
-              selected=data.types.rangeType.name 
-              localize=true
-              blank="—"
-            }}
-          </select>
-          <label class="resource-label">{{localize "ordemparanormal.subtypeWeapon"}}</label>
-          <select name="data.types.rangeType.subRangeType" data-dtype="String" {{inputValid data.types.rangeType.name "ranged" }}
-            {{
-              selectOptions optionWeaponSubType
-              selected=data.types.rangeType.subRangeType 
-              localize=true
-              blank="—"
-            }}
-          </select>
-          <label class="resource-label">{{localize "ordemparanormal.ammunitionType"}}</label>
-          <select name="data.types.ammunitionType" data-dtype="String" {{inputValid data.types.rangeType.name "ranged" }}>
-            {{
-              selectOptions optionWeaponAmmunition
-              selected=data.types.ammunitionType 
-              localize=true
-              blank="—"
-            }}
-          </select>
       </div>
+      <div class="resource-type grid align-items-center">
+        <label class="resource-label">{{localize "ordemparanormal.weaponType"}}</label>
+        <select name="data.types.rangeType.name" data-dtype="String">
+          {{ selectOptions optionWeaponType selected=data.types.rangeType.name  localize=true blank="—" }}
+        </select>
+        {{#ifEquals data.types.rangeType.name "ranged" }}
+        <label class="resource-label">{{localize "ordemparanormal.subtypeWeapon"}}</label>
+        <select name="data.types.rangeType.subRangeType" data-dtype="String" {{inputValid data.types.rangeType.name "ranged" }}
+          {{ selectOptions optionWeaponSubType selected=data.types.rangeType.subRangeType localize=true blank="—" }}
+        </select>
+        <label class="resource-label">{{localize "ordemparanormal.ammunitionType"}}</label>
+        <select name="data.types.ammunitionType" data-dtype="String" {{inputValid data.types.rangeType.name "ranged" }}>
+          {{ selectOptions optionWeaponAmmunition selected=data.types.ammunitionType  localize=true blank="—" }}
+        </select>
+        {{/ifEquals}}
+      </div>
+
+      <ol class="items-list">
+        <h4 class="item-info-title">Formula de Ataque</h4>
+        <!-- <li class="item item-sheet flexrow items-header">
+          <div class="item-attribute">Atributo</div>
+          <div class="item-skill">Perícia</div>
+          <div class="item-bonus">Bônus</div>
+          <div class="item-sheet-controls">
+            <a class="item-control item-create" title="Create item" data-type="generalEquipment">
+              <i class="fas fa-plus"></i> 
+            </a>
+          </div>
+        </li> -->
+        <li class="item flexrow" data-item-id="{{item._id}}">
+            <!-- TODO: função pendente de ataque -->
+          <div class="item-sheet-select item-sheet-prop">
+            <select name="data.formulas.attackFormula.attr" data-dtype="String">
+              {{ selectOptions attributes selected=data.formulas.attackFormula.attr localize=true blank="—" }}
+            </select>
+            <i class="fa-solid fa-dice-d20"></i>
+          </div>
+          <div class="item-sheet-select item-sheet-prop">
+            <select name="data.formulas.attackFormula.skill" data-dtype="String">
+              {{ selectOptions attackSkills selected=data.formulas.attackFormula.skill localize=true blank="—" }}
+            </select>
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="item-sheet-space item-sheet-prop">
+            <input type="text" name="data.formulas.attackFormula.bonus" value="{{data.formulas.attackFormula.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
+          </div>
+          <!-- <div class="item-sheet-controls">
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+          </div> -->
+        </li>
+      </ol>
+
+      <ol class="items-list">
+        <h4 class="item-info-title">Formula de Dano</h4>
+        <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-sheet-select item-sheet-prop">
+          <input type="text" name="data.formulas.damageFormula.formula" value="{{data.formulas.damageFormula.formula}}" data-dtype="String" placeholder="Dados"/>
+          <i class="fa-solid fa-dice"></i>
+        </div>
+        <div class="item-sheet-select item-sheet-prop">
+          <select name="data.formulas.damageFormula.attr" data-dtype="String">
+            {{ selectOptions attributes selected=data.formulas.damageFormula.attr localize=true blank="—" }}
+          </select>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="item-sheet-space item-sheet-prop item-damage-bonus">
+          <input type="text" name="data.formulas.damageFormula.bonus" value="{{data.formulas.damageFormula.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
+        </div>
+        <div class="item-sheet-space item-sheet-prop minor-size">
+          <input type="text" name="data.critical" value="{{data.critical}}" data-dtype="String" placeholder="Crítico"/>
+        </div>
+        </li>
+      </ol>
+      </div>
+
+
     </div>
 
     <div class="tab effects" data-group="primary" data-tab="effectsItem">
