@@ -21,6 +21,10 @@
 	"SETTINGS.opPatchNotesN": "Desativar Notas de Atualização",
 	"SETTINGS.opPatchNotesH": "Ao iniciar um mundo com o sistema Ordem Paranormal, ou, ao atualizar o sistema, notas de atualizações com as novidades são exibidas em uma janela, marque/desmarque essa opção para desativar/ativar.",
 
+	"MACRO.opUnownedWarn": "Você só pode criar botões macro para os seus itens.",
+	"MACRO.opNoActorSelected": "Nenhum ator selecionado ou designado foi encontrado para o macro selecionado",
+	"MACRO.opMissingTargetWarn": "O ator controlado '{actor}' não tem um '{type}' com o nome '{name}'.",
+
 	"ordemparanormal.tab": {
 		"skills": "Perícias",
 		"inventory": "Inventário",
@@ -155,6 +159,7 @@
 	"ordemparanormal.type": "Tipo",
 	"ordemparanormal.area": "Área",
 
+	"ordemparanormal.attributesItem": "Atributos",
 	"ordemparanormal.specificationsItemTab": "Especificações",
 	"ordemparanormal.combatItemTab": "Combate",
 	"ordemparanormal.description": "Descrição",

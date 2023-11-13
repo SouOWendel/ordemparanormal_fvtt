@@ -18,6 +18,13 @@
 	
 	"ordemparanormal.OrdemActorSheet": "Agent's Sheet",
 
+	"SETTINGS.opPatchNotesN": "Desativar Notas de Atualização",
+	"SETTINGS.opPatchNotesH": "Ao iniciar um mundo com o sistema Ordem Paranormal, ou, ao atualizar o sistema, notas de atualizações com as novidades são exibidas em uma janela, marque/desmarque essa opção para desativar/ativar.",
+
+	"MACRO.opUnownedWarn": "You can only create macro buttons for owned Items.",
+	"MACRO.opNoActorSelected": "No selected or assigned actor could be found to target with macro.",
+	"MACRO.opMissingTargetWarn": "Your controlled actor '{actor}' does not have an {type} with name '{name}'.",
+
 	"ordemparanormal.tab": {
 		"skills": "Skills",
 		"inventory": "Inventory",
@@ -152,6 +159,7 @@
 	"ordemparanormal.type": "Type",
 	"ordemparanormal.area": "Area",
 
+	"ordemparanormal.attributesItem": "Attributes",
 	"ordemparanormal.specificationsItemTab": "Specifications",
 	"ordemparanormal.combatItemTab": "Combat",
 	"ordemparanormal.description": "Descrição",
