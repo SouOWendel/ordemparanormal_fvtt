@@ -22,11 +22,11 @@ ordemparanormal.base = {
  * @type {Object}
  */
 ordemparanormal.attributes = {
-	Agilidade: 'ordemparanormal.AttAgi',
-	Inteligancia: 'ordemparanormal.AttInt',
-	Vigor: 'ordemparanormal.AttVig',
-	Presenca: 'ordemparanormal.AttPre',
-	Forca: 'ordemparanormal.AttFor',
+	'dex': 'ordemparanormal.attDex',
+	'int': 'ordemparanormal.attInt',
+	'vit': 'ordemparanormal.attVit',
+	'pre': 'ordemparanormal.attPre',
+	'str': 'ordemparanormal.attStr',
 };
 
 /**
@@ -34,33 +34,40 @@ ordemparanormal.attributes = {
  * @type {Object}
  */
 ordemparanormal.skills = {
-	acrobacia: 'ordemparanormal.skillAcrobacia',
-	adestramento: 'ordemparanormal.skillAdestramento',
-	artes: 'ordemparanormal.skillArtes',
-	atletismo: 'ordemparanormal.skillAtletismo',
-	atualidades: 'ordemparanormal.skillAtualidades',
-	ciencias: 'ordemparanormal.skillCiencias',
+	acrobatics: 'ordemparanormal.skillAcrobatics',
+	animal: 'ordemparanormal.skillAnimal',
+	arts: 'ordemparanormal.skillArts',
+	athleticism: 'ordemparanormal.skillAthleticism',
+	relevance: 'ordemparanormal.skillRelevance',
+	sciences: 'ordemparanormal.skillSciences',
 	crime: 'ordemparanormal.skillCrime',
-	diplomacia: 'ordemparanormal.skillDiplomacia',
-	enganacao: 'ordemparanormal.skillEnganacao',
-	fortitude: 'ordemparanormal.skillFortitude',
-	furtividade: 'ordemparanormal.skillFurtividade',
-	iniciativa: 'ordemparanormal.skillIniciativa',
-	intimidacao: 'ordemparanormal.skillIntimidacao',
-	intuicao: 'ordemparanormal.skillIntuicao',
-	investigacao: 'ordemparanormal.skillInvestigacao',
-	luta: 'ordemparanormal.skillLuta',
-	medicina: 'ordemparanormal.skillMedicina',
-	ocultismo: 'ordemparanormal.skillOcultismo',
-	percepcao: 'ordemparanormal.skillPercepcao',
-	pilotagem: 'ordemparanormal.skillPilotagem',
-	pontaria: 'ordemparanormal.skillPontaria',
-	reflexos: 'ordemparanormal.skillReflexos',
-	religiao: 'ordemparanormal.skillReligiao',
-	sobrevivencia: 'ordemparanormal.skillSobrevivencia',
-	tatica: 'ordemparanormal.skillTatica',
-	tecnologia: 'ordemparanormal.skillTecnologia',
-	vontade: 'ordemparanormal.skillVontade',
+	diplomacy: 'ordemparanormal.skillDiplomacy',
+	deception: 'ordemparanormal.skillDeception',
+	resilience: 'ordemparanormal.skillResilience',
+	stealth: 'ordemparanormal.skillStealth',
+	initiative: 'ordemparanormal.skillInitiative',
+	intimidation: 'ordemparanormal.skillIntimidation',
+	intuition: 'ordemparanormal.skillIntuition',
+	investigation: 'ordemparanormal.skillInvestigation',
+	fighting: 'ordemparanormal.skillFighting',
+	medicine: 'ordemparanormal.skillMedicine',
+	occultism: 'ordemparanormal.skillOccultism',
+	perception: 'ordemparanormal.skillPerception',
+	driving: 'ordemparanormal.skillDriving',
+	aim: 'ordemparanormal.skillAim',
+	reflexes: 'ordemparanormal.skillReflexes',
+	religion: 'ordemparanormal.skillReligion',
+	survival: 'ordemparanormal.skillSurvival',
+	tactics: 'ordemparanormal.skillTactics',
+	technology: 'ordemparanormal.skillTechnology',
+	will: 'ordemparanormal.skillWill',
+};
+
+ordemparanormal.attackSkills = {
+	fighting: 'ordemparanormal.skillFighting',
+	aim: 'ordemparanormal.skillAim',
+	deception: 'ordemparanormal.skillDeception',
+	occultism: 'ordemparanormal.skillOccultism'
 };
 
 /**
@@ -68,10 +75,10 @@ ordemparanormal.skills = {
  * @type {Object}
  */
 ordemparanormal.dropdownDegree = {
-	'Destreinado': 'ordemparanormal.degreeTrainingChoices.dest',
-	'Treinado': 'ordemparanormal.degreeTrainingChoices.trei',
-	'Veterano': 'ordemparanormal.degreeTrainingChoices.vet',
-	'Expert': 'ordemparanormal.degreeTrainingChoices.expe'
+	'untrained': 'ordemparanormal.degreeTrainingChoices.dest',
+	'trained': 'ordemparanormal.degreeTrainingChoices.trei',
+	'veteran': 'ordemparanormal.degreeTrainingChoices.vet',
+	'expert': 'ordemparanormal.degreeTrainingChoices.expe'
 };
 
 /**
