@@ -19,7 +19,11 @@ import { ordemparanormal } from './helpers/config.mjs';
 import displayMessages from './components/message-system.mjs';
 import registerSystemSettings from './components/settings.mjs';
 
-import * as chat from './documents/chat-message.mjs';
+import * as documents from './documents/_partial_module.mjs';
+
+globalThis.ordemparanormal = {
+	documents
+};
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -32,7 +36,7 @@ Hooks.once('init', async function () {
 	game.ordemparanormal = {
 		OrdemActor,
 		OrdemItem,
-		rollItemMacro,
+		// rollItemMacro,
 	};
 
 	// Pg. 169 of the Book
@@ -173,12 +177,17 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 /*  Ready Hooks                                  */
 /* -------------------------------------------- */
 
-Hooks.once('ready', async function () {
+Hooks.once('ready', function() {
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-	Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
+	Hooks.on('hotbarDrop', (bar, data, slot) => {
+	  if ( ['Item', 'ActiveEffect'].includes(data.type) ) {
+			documents.macro.createOPMacro(data, slot);
+			return false;
+	  }
+	});
 });
 
-Hooks.on('renderChatMessage', chat.onRenderChatMessage);
+Hooks.on('renderChatMessage', documents.chat.onRenderChatMessage);
 
 Hooks.on('renderChatLog', (app, html, data) => OrdemItem.chatListeners(html));
 Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html));
@@ -187,38 +196,8 @@ Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html))
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
 
-/**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {Object} data     The dropped data
- * @param {number} slot     The hotbar slot to use
- * @returns {Promise}
- */
-async function createItemMacro(data, slot) {
-	if (data.type !== 'Item') return;
-	if (!('data' in data))
-		return ui.notifications.warn(
-			'You can only create macro buttons for owned Items',
-		);
-	const item = data.data;
+/*  TODO: colocar todos os macros em um documento separado. */
 
-	// Create the macro command
-	const command = `game.ordemparanormal.rollItemMacro("${item.name}");`;
-	let macro = game.macros.find(
-		(m) => m.name === item.name && m.command === command,
-	);
-	if (!macro) {
-		macro = await Macro.create({
-			name: item.name,
-			type: 'script',
-			img: item.img,
-			command: command,
-			flags: { 'ordemparanormal.itemMacro': true },
-		});
-	}
-	game.user.assignHotbarMacro(macro, slot);
-	return false;
-}
 
 /**
  * Create a Macro from an Item drop.
@@ -226,20 +205,20 @@ async function createItemMacro(data, slot) {
  * @param {string} itemName
  * @return {Promise}
  */
-function rollItemMacro(itemName) {
-	const speaker = ChatMessage.getSpeaker();
-	let actor;
-	if (speaker.token) actor = game.actors.tokens[speaker.token];
-	if (!actor) actor = game.actors.get(speaker.actor);
-	const item = actor ? actor.items.find((i) => i.name === itemName) : null;
-	if (!item)
-		return ui.notifications.warn(
-			`Your controlled Actor does not have an item named ${itemName}`,
-		);
+// function rollItemMacro(itemName) {
+// 	const speaker = ChatMessage.getSpeaker();
+// 	let actor;
+// 	if (speaker.token) actor = game.actors.tokens[speaker.token];
+// 	if (!actor) actor = game.actors.get(speaker.actor);
+// 	const item = actor ? actor.items.find((i) => i.name === itemName) : null;
+// 	if (!item)
+// 		return ui.notifications.warn(
+// 			`Your controlled Actor does not have an item named ${itemName}`,
+// 		);
 
-	// Trigger the item roll
-	return item.roll();
-}
+// 	// Trigger the item roll
+// 	return item.roll();
+// }
 
 /**
  * Criando o Hook preCreateActor para o módulo Bar Brawl adicionar
