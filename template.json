@@ -336,7 +336,7 @@
         "damageType": "",
         "gripType": ""
       },
-      "critical": 0,
+      "critical": "",
       "range": "",
       "formulas": {
         "attackFormula": {
