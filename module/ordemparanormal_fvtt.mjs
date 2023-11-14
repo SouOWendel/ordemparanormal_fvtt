@@ -177,6 +177,7 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 /*  Ready Hooks                                  */
 /* -------------------------------------------- */
 
+// Hook for create a macro on drop items or effects in hotbar.
 Hooks.once('ready', function() {
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 	Hooks.on('hotbarDrop', (bar, data, slot) => {
@@ -191,34 +192,6 @@ Hooks.on('renderChatMessage', documents.chat.onRenderChatMessage);
 
 Hooks.on('renderChatLog', (app, html, data) => OrdemItem.chatListeners(html));
 Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html));
-
-/* -------------------------------------------- */
-/*  Hotbar Macros                               */
-/* -------------------------------------------- */
-
-/*  TODO: colocar todos os macros em um documento separado. */
-
-
-/**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {string} itemName
- * @return {Promise}
- */
-// function rollItemMacro(itemName) {
-// 	const speaker = ChatMessage.getSpeaker();
-// 	let actor;
-// 	if (speaker.token) actor = game.actors.tokens[speaker.token];
-// 	if (!actor) actor = game.actors.get(speaker.actor);
-// 	const item = actor ? actor.items.find((i) => i.name === itemName) : null;
-// 	if (!item)
-// 		return ui.notifications.warn(
-// 			`Your controlled Actor does not have an item named ${itemName}`,
-// 		);
-
-// 	// Trigger the item roll
-// 	return item.roll();
-// }
 
 /**
  * Criando o Hook preCreateActor para o módulo Bar Brawl adicionar
