@@ -19,7 +19,7 @@ export default function semverComp(min, curr, max, opt = {}) {
 	min = min && coerceNum(min);
 	curr = curr && coerceNum(curr);
 	max = max && coerceNum(max);
-	console.log(min, curr, max);
+	console.log('OP FVTT | versions range', min, curr, max);
   
 	if (min && max && opt.eqMin && opt.eqMax) return min === curr && curr === max;
 	if (min && opt.eqMin) return min === curr;

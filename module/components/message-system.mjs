@@ -8,7 +8,6 @@ const SYSTEM_NAME = 'ordemparanormal';
 // eslint-disable-next-line require-jsdoc
 export default async function displayMessages() {
 	const messages = await fetchMessage(`systems/${SYSTEM_NAME}/media/messages/messages.jsonc`);
-	console.log(messages);
 
 	messages.forEach((message, indice) => {
 		handleDisplay(message, indice, messages);
@@ -58,7 +57,6 @@ const isCurrent = msg => {
 
 const displayPrompt = (title, content, i, messages) => {
 	content = content.replace('{name}', game.user.name);
-	console.log('indice: ' + i);
 
 	const dialogOptions = {
 		width: 800,
