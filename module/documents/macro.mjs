@@ -78,7 +78,7 @@ function getMacroTarget(name, documentType) {
  * @returns {Promise<ChatMessage|object>}  Roll result.
  */
 export function rollItem(itemName) {
-	return getMacroTarget(itemName, 'Item');
+	return getMacroTarget(itemName, 'Item').use();
 }
   
 /* -------------------------------------------- */
