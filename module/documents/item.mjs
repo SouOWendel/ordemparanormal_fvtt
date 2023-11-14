@@ -320,8 +320,16 @@ export class OrdemItem extends Item {
    	**/
 	async use(config={}, options={}) {
 		const item = this;
-		const is = item.system;
-		const as = item.actor.system;
+		// const is = item.system;
+		// const as = item.actor.system;
+
+		// options = {
+		// 	createMessage: false
+		// };
+
+		// Prepare card data & display it if options.createMessage is true
+		const cardData = await item.roll(options);
+		return cardData;
 	}
 
 	/**
