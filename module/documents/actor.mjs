@@ -111,8 +111,9 @@ export class OrdemActor extends Actor {
 	/**
 	 * Preparação do dados dos agentes.
 	 */
-	_getAgentRollData(data) {
+	async _getAgentRollData(data) {
 		if (this.data.type !== 'agent') return;
+		let skillUpper;
 
 		// Copy the skills scores to the top level, so that rolls can use
 		// formulas like `@iniciativa.value + 4`.
@@ -120,7 +121,9 @@ export class OrdemActor extends Actor {
 		if (data.skills) {
 			for (const [k, v] of Object.entries(data.skills)) {
 				data[k] = foundry.utils.deepClone(v);
-				// data[k] = game.i18n.localize('ordemparanormal.skills.' + k);
+
+				skillUpper = k.charAt(0).toUpperCase() + k.slice(1);
+				data[game.i18n.localize('ordemparanormal.skill' + skillUpper).toLowerCase()] = foundry.utils.deepClone(v);
 			}
 		}
 
