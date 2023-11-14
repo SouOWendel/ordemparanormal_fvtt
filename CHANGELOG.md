@@ -1,5 +1,59 @@
 # Changelog
 
+## [6.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v5.0.1...v6.0.0) (2023-11-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **open source acessibility:** Changing the name of the variables related to the agent form results in data loss and thus a loss of compatibility with previous forms, it will be necessary to create another one with the same data as before.
+
+### Features
+
+* **actor:** adaptation to English of variables ([aac017b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/aac017b51d4e4497517f96f7134c0b753f5fd7e3))
+* **actor:** added skills roll variables for actually local language of system ([614016b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/614016b8db0b1e8b7424a3e4b00bd54a18f36896))
+* added and deleted console logs ([02b7fa7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/02b7fa725490bedf93c6c121f1eba9ab7591d28a))
+* **agent sheet inventory:** the armaments group now has rollable hover animation on img ([804f0df](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/804f0dfddd98d53dffdc5a61e48a7b1800064856))
+* **chat-message:** the document that manages the chat message log was created ([a6a2200](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a6a2200228209997892d9ecb3783dca760b8f553))
+* **config variables:** for open-source acessibility, the variables are translated for english. Added attack skills dropdown. ([f98d400](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f98d4001f5bdaa4f090e74ccc2209ba79745f4e2))
+* **config:** added categories data and jsdoc descriptions (but still pending) ([2d2b0ff](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2d2b0ffaa73922ebd0d9343e0ecd89f522f6b889))
+* created the system of item macro drop inspired in DND5e System ([4ddfeaf](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4ddfeaf1870022caadca353dba7d5697655f31c5))
+* **css/sass:** added styles for dialog (dialog-buttons) and buttons and spans for item card ([ae79630](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ae796309dff44216d309a71965dc8f6e33341378))
+* **css/sass:** adjusts of border style and was created an hover animation for rollable items ([0477f7b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0477f7b72ae46609a43b63573158c879fc6650e5))
+* **css/sass:** styling the combat tab and weapon item specifications ([07b5ff0](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/07b5ff0b5e9ccd1a8acc8601e35f02bf89e4bb5a))
+* document calling through the creation of a module inspired by the DND5e system ([a72b1b3](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a72b1b3e0c0561692f0e2f307f97c1f770d0638b))
+* **item armament sheet:** added some fields and stylizations for especifications and combat tabs ([d910248](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d910248aee82a96b3bf7a130690b81dc64d0b856))
+* **item armament sheet:** refactoring the fields and creating the specifications and combat tab ([9c9fe5e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9c9fe5eee4ce5a1465ab9bf894ab1c86fe8faba2))
+* **item-card template:** the item card template for chat items was created ([baa1aa4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/baa1aa454ddaf133b3cd8bbfced6f585dbec0c6d))
+* **item-sheet:** added categories on the context variable ([f4c5caa](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f4c5caad46f591ce4a19c3e05864c9b233456a8f))
+* **item-sheet:** added the `attributes` and `attackSkills` dropdown ([f3693e0](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f3693e0b697d8c5e9853095da1b42dfad1020400))
+* **item:** added an chatListener, an chatCardAction Handler and gets the item information ([6b200ba](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6b200ba0f5b8e6b4399bc10cb11268bc641e0eed))
+* **item:** called the respective card in chat of respective item ([f47b528](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f47b52844bb167bcd3d92bb342ea832123e8177b))
+* **localization:** added translates for new specifications and combat tab for armament item type ([4ae9fd7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4ae9fd782abeb9767d2af9ebd8a08dc1b63e4010))
+* **localization:** added translates for warnings and errors of Macro System, overmore tab translate ([6c18c78](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6c18c7864df31994f781f8ed66705b0d2b0ca5a9))
+* **localization:** added translations for armament conditions ([ddb68d9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ddb68d9de5b13d6a9cf340a091b8df0699e8ca14))
+* **macro.mjs:** call the method use() for usages of item ([8902603](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/89026032640a08f1e1908339744a5eeb3895e0fe))
+* **message-system.mjs:** the previous updates now are viewable ([78aeb31](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/78aeb317b06fc73598febd2d2f6bd7d2be21a79b))
+* **open source acessibility:** several variables were changed. To improve code accessibility ([3ad79fc](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3ad79fc6cf7525a335f33afe20e36bdfced4373f))
+* **system core:** macro codes have been moved. Now module are used for documents (_partial_module) ([c5e833e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c5e833e5668e3198a9ff4639fd2d94c64675cd46))
+* **system core:** the turn lasts 6 seconds. The Order's logo is displayed. Hooks added ([b3a67e5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b3a67e56219599abd5ab35fc4ac5433c705bebf3))
+* **system.json:** the minimum version changed from v10 to v11 ([5d99800](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5d99800d2196006bc5d531fc8906fdcd100b2bd3))
+* **template data:** now the the standard value of critical is null string ([aa532e8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/aa532e81f5ac2f9c26e12912c4522c31efadb4b3))
+* **template.json:** added base description and biography, refactoring the formulas data ([039db29](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/039db298eb435773cc9ceef3b86192ed2846c5c6))
+
+
+### Bug Fixes
+
+* **dialog style:** the css class .adverts was a reserved word and was changed to .announcement ([0a226d6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0a226d6f3f924f015c135cfa5e01b48f79d588ef))
+* **font awesome icon:** changed the icon for damage action ([9134ee8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9134ee876ae377a10a64a93f32344450d963169b))
+* **localization:** an inappropriate character was removed from the translation of the science skill ([b0742e4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b0742e45dbb4d444c1191eba13828ab85065b74c))
+* **update notes:** corrected version of release notes ([8c653ba](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8c653ba751e37dfb45367773f6deb9f198455568))
+
+
+### Performance Improvements
+
+* **actor-sheet:** adaptation for efficient code reuse of form status calculation ([3a041d1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3a041d185e61f80cae14b08147166d700f48f1a6))
+* **effects:** adaptations for v11 version of Foundry and style changes ([3da4692](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3da469282e6007692167205388fc0b8352e54fdd))
+
 ## [5.0.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v5.0.0...v5.0.1) (2023-10-31)
 
 
