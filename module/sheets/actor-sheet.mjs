@@ -9,6 +9,8 @@ import {
  * @extends {ActorSheet}
  */
 export class OrdemActorSheet extends ActorSheet {
+	// TODO: escolher um novo tamanho em height para a ficha de ator, é melhor para acomodação em resoluções mais baixas.
+
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -60,6 +62,7 @@ export class OrdemActorSheet extends ActorSheet {
 			this._prepareItems(context);
 			this._prepareAgentData(context);
 			this._prepareItemsDerivedData(context);
+			this._prepareActorSpaces(context);
 		}
 
 		// Add roll data for TinyMCE editors.
@@ -163,7 +166,6 @@ export class OrdemActorSheet extends ActorSheet {
 				((skillsName.mod) ? '+' + skillsName.mod : '');
 
 			skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
-
 		}
 	}
 
@@ -269,6 +271,42 @@ export class OrdemActorSheet extends ActorSheet {
 				context.data.defense.value += p.system.defense;
 			}
 		}
+	}
+
+	/**
+	 * Prepare and calcule the spaces of actors
+	 *
+	 * @param {Object} actorData The actor to prepare.
+	 *
+	 * @return {undefined}
+	 */
+	_prepareActorSpaces(context) {
+		const spaces = context.data.spaces ??= {};
+		const FOR = context.data.attributes.str.value || 0;
+		spaces.over, spaces.pctMax = 0;
+
+		// Get the total weight from items
+		const physicalItems = ['armament', 'generalEquipment', 'protection'];
+		const weight = context.items.reduce((weight, i) => {
+		  if ( !physicalItems.includes(i.type) ) return weight;
+		  const q = i.system.quantity || 0;
+		  const w = i.system.weight || 0;
+		  return weight + (q * w);
+		}, 0);
+
+		// Populate the final values
+		spaces.value = weight.toNearest(0.1);
+		spaces.max = (FOR !== 0) ? FOR * 5 : 2;
+		spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
+
+		// Apply the debuffs
+		if (spaces.value > spaces.max) {
+			spaces.over = spaces.value - spaces.max;
+			context.data.desloc.value += -3;
+			context.data.defense.value += -5;
+			spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
+		}
+		if (spaces.value > (spaces.max * 2)) ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
 	}
 
 	/* -------------------------------------------- */

@@ -24,6 +24,7 @@
 	"MACRO.opUnownedWarn": "You can only create macro buttons for owned Items.",
 	"MACRO.opNoActorSelected": "No selected or assigned actor could be found to target with macro.",
 	"MACRO.opMissingTargetWarn": "Your controlled actor '{actor}' does not have an {type} with name '{name}'.",
+	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 
 	"ordemparanormal.tab": {
 		"skills": "Skills",

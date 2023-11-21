@@ -24,6 +24,7 @@
 	"MACRO.opUnownedWarn": "Você só pode criar botões macro para os seus itens.",
 	"MACRO.opNoActorSelected": "Nenhum ator selecionado ou designado foi encontrado para o macro selecionado",
 	"MACRO.opMissingTargetWarn": "O ator controlado '{actor}' não tem um '{type}' com o nome '{name}'.",
+	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 
 	"ordemparanormal.tab": {
 		"skills": "Perícias",

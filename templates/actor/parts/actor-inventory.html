@@ -101,3 +101,11 @@
     </li>
   {{/each}}
 </ol>
+<footer class="inventory-footer">
+  <div class="sumWeight">
+    <span class="sumWeight-bar" style="width: {{data.spaces.pct}}%"></span>
+    {{#if data.spaces.pctMax}}<span class="sumWeight-barover align-center" style="width: {{data.spaces.pctMax}}%">SOBREPESO</span>{{/if}}
+    <span class="sumWeight-label">{{data.spaces.value}} / {{data.spaces.max}}</span>
+    <i class="fa-solid fa-caret-left"></i>
+  </div>
+</footer>

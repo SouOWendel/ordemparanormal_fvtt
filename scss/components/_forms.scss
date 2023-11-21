@@ -55,15 +55,19 @@
   min-height: 150px;
 }
 
-// .biography .editor {
-//   width: 100%;
-//   height: 350px;
-// }
+.sheet-body {
+  overflow-y: auto;
+  max-height: 425px !important;
+}
 
-// .description .editor {
-//   width: 100%;
-//   height: 170px;
-// }
+.tab.skills,
+.tab.inventory,
+.tab.abilities,
+.tab.rituals,
+.tab.biography,
+.tab.effects {
+  overflow-y: auto;
+}
 
 .tox {
   .tox-editor-container {
@@ -97,4 +101,100 @@
   padding: 8px;
   margin: 10px 5px;
   background-color: aliceblue;
+}
+
+// INVENTORY FOOTER
+
+.inventory-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 24px;
+  width: 100%;
+  background-color: #eeede0;
+}
+
+// BIOGRAPHY
+
+.biography {
+  aside {
+    padding: 2px;
+  }
+
+  div:first-of-type {
+    padding: 2px;
+  }
+
+  .class, .trail {
+    font-size: 12px;
+  }
+
+  fieldset {
+    border: $border-transparent;
+    border-radius: 10px;
+  }
+
+  .bio-desc .editor {
+    min-height: 240px;
+  }
+
+  .bio-goals .editor {
+    min-height: 100px;
+  }
+}
+
+.sumWeight {
+  position: relative;
+  margin-top: 5px;
+  margin-left: 5px;
+  border: 1px solid #272727;
+  border-radius: 3px;
+  width: 95%;
+  height: 14px;
+
+  .sumWeight-bar {
+    display: block !important;
+    margin-top: 0;
+    margin-left: 0;
+    border-radius: 1px;
+    background-color: #272727;
+    height: 12px;
+    z-index: 10;
+  }
+
+  .sumWeight-barover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block !important;
+    border-radius: 1px;
+    background-color: #7a1616;
+    height: 12px;
+    color: #FFF;
+    font-size: 9px;
+    z-index: 11;
+  }
+
+  .sumWeight-label, i {
+    position: absolute;
+    top: 0;
+    font-size: 10px;
+    z-index: 12;
+    mix-blend-mode: difference;
+    filter: invert(1);
+  }
+
+  i {
+    color: rgb(0, 0, 0);
+    left: 50%;
+  }
+
+  .sumWeight-label {
+    right: 20px;
+  }
+}
+
+.inventory {
+  padding-bottom: 24px;
+  overflow: hidden !important;
 }
