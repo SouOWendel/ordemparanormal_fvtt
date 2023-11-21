@@ -80,7 +80,8 @@
           <input type="text" name="data.range" value="{{data.range}}" data-dtype="String" placeholder="Ex.: curto, médio, longo"/>
         </div>
       </div>
-      <div class="resource-type grid align-items-center">
+      <fieldset class="resource-type grid align-items-center">
+        <legend>Tipos</legend>
         <label class="resource-label">{{localize "ordemparanormal.weaponType"}}</label>
         <select name="data.types.rangeType.name" data-dtype="String">
           {{ selectOptions optionWeaponType selected=data.types.rangeType.name  localize=true blank="—" }}
@@ -95,10 +96,12 @@
           {{ selectOptions optionWeaponAmmunition selected=data.types.ammunitionType  localize=true blank="—" }}
         </select>
         {{/ifEquals}}
-      </div>
+      </fieldset>
 
       <ol class="items-list">
-        <h4 class="item-info-title">Formula de Ataque</h4>
+        <fieldset class="resource-type">
+          <legend>Formulas de Rolagem</legend>
+        <h4 class="">Formula de Ataque</h4>
         <!-- <li class="item item-sheet flexrow items-header">
           <div class="item-attribute">Atributo</div>
           <div class="item-skill">Perícia</div>
@@ -130,33 +133,31 @@
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
           </div> -->
         </li>
+        <ol class="items-list">
+          <h4 class="item-info-title">Formula de Dano</h4>
+          <li class="item flexrow" data-item-id="{{item._id}}">
+          <div class="item-sheet-select item-sheet-prop">
+            <input type="text" name="data.formulas.damageFormula.formula" value="{{data.formulas.damageFormula.formula}}" data-dtype="String" placeholder="Dados"/>
+            <i class="fa-solid fa-dice"></i>
+          </div>
+          <div class="item-sheet-select item-sheet-prop">
+            <select name="data.formulas.damageFormula.attr" data-dtype="String">
+              {{ selectOptions attributes selected=data.formulas.damageFormula.attr localize=true blank="—" }}
+            </select>
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="item-sheet-space item-sheet-prop item-damage-bonus">
+            <input type="text" name="data.formulas.damageFormula.bonus" value="{{data.formulas.damageFormula.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
+          </div>
+          <div class="item-sheet-space item-sheet-prop minor-size">
+            <input type="text" name="data.critical" value="{{data.critical}}" data-dtype="String" placeholder="Crítico"/>
+          </div>
+          </li>
+        </ol>
+        </fieldset>
       </ol>
-
-      <ol class="items-list">
-        <h4 class="item-info-title">Formula de Dano</h4>
-        <li class="item flexrow" data-item-id="{{item._id}}">
-        <div class="item-sheet-select item-sheet-prop">
-          <input type="text" name="data.formulas.damageFormula.formula" value="{{data.formulas.damageFormula.formula}}" data-dtype="String" placeholder="Dados"/>
-          <i class="fa-solid fa-dice"></i>
-        </div>
-        <div class="item-sheet-select item-sheet-prop">
-          <select name="data.formulas.damageFormula.attr" data-dtype="String">
-            {{ selectOptions attributes selected=data.formulas.damageFormula.attr localize=true blank="—" }}
-          </select>
-          <i class="fa-solid fa-plus"></i>
-        </div>
-        <div class="item-sheet-space item-sheet-prop item-damage-bonus">
-          <input type="text" name="data.formulas.damageFormula.bonus" value="{{data.formulas.damageFormula.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
-        </div>
-        <div class="item-sheet-space item-sheet-prop minor-size">
-          <input type="text" name="data.critical" value="{{data.critical}}" data-dtype="String" placeholder="Crítico"/>
-        </div>
-        </li>
-      </ol>
-      </div>
-
-
     </div>
+    
 
     <div class="tab effects" data-group="primary" data-tab="effectsItem">
       {{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
