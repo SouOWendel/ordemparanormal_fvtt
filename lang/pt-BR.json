@@ -75,6 +75,12 @@
 	"ordemparanormal.attPre": "Presença",
 	"ordemparanormal.attStr": "Força",
 
+	"ordemparanormal.dexAbv": "Agi",
+	"ordemparanormal.intAbv": "Int",
+	"ordemparanormal.vitAbv": "Vig",
+	"ordemparanormal.preAbv": "Pre",
+	"ordemparanormal.strAbv": "For",
+
 	"ordemparanormal.newItem": "Novo(a)",
 
 	"ordemparanormal.effectCreate": "Criar Efeito",
