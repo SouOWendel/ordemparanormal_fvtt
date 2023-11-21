@@ -17,7 +17,7 @@ export class OrdemActorSheet extends ActorSheet {
 			classes: ['ordemparanormal', 'sheet', 'actor'],
 			template: 'systems/ordemparanormal/templates/actor/actor-sheet.html',
 			width: 600,
-			height: 849,
+			height: 820,
 			tabs: [
 				{
 					navSelector: '.sheet-tabs',
