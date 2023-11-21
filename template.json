@@ -33,7 +33,9 @@
           "value": 9,
           "bonus": 0
         },
-        "biography": "Your text here."
+        "spaces": {},
+        "biography": "Your character's personality, appearance, and background here.",
+        "goals": "Your goals here."
       }
     },
     "agent": {
