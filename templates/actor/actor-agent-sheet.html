@@ -6,8 +6,8 @@
 			src="{{actor.img}}"
 			data-edit="img"
 			title="{{actor.name}}"
-			height="100"
-			width="100"
+			height="64"
+			width="64"
 		/>
 		<h1 class="charname">
 			<input
@@ -320,30 +320,36 @@
 		</div>
 
 		{{!-- Biography Tab --}}
-		<div class="tab biography" data-group="primary" data-tab="biography">
-			{{!-- If you want TinyMCE editors to output inline rolls when
-			rendered, you need to pass the actor's roll data to the rollData
-			property. --}} 
-			{{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
+		<div class="tab biography flexcol" data-group="primary" data-tab="biography">
+			<div>
+				<fieldset class="bio-desc">
+					<legend>Descrição</legend>
+					{{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
+				</fieldset>
+				<fieldset class="bio-goals">
+					<legend>Objetivos</legend>
+					{{editor content=data.goals target="data.goals" rollData=rollData button=true owner=owner editable=editable}}
+				</fieldset>
+			</div>
 		</div>
 
 		{{!-- Owned inventory Tab --}}
-		<div class="tab inventory" data-group="primary" data-tab="inventory">
+		<div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
 			{{>"systems/ordemparanormal/templates/actor/parts/actor-inventory.html"}}
 		</div>
 
 		{{!-- Owned rituals Tab --}}
-		<div class="tab rituals" data-group="primary" data-tab="rituals">
+		<div class="tab rituals flexcol" data-group="primary" data-tab="rituals">
 			{{>"systems/ordemparanormal/templates/actor/parts/actor-rituals.html"}}
 		</div>
 
 		{{!-- Active Effects Tab --}}
-		<div class="tab effects" data-group="primary" data-tab="effects">
+		<div class="tab effects flexcol" data-group="primary" data-tab="effects">
 			{{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
 		</div>
 
 		{{!-- Active abilities Tab --}}
-		<div class="tab abilities" data-group="primary" data-tab="abilities">
+		<div class="tab abilities flexcol" data-group="primary" data-tab="abilities">
 			{{>"systems/ordemparanormal/templates/actor/parts/actor-abilities.html"}}
 		</div>
 	</section>
