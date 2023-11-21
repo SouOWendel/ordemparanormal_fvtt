@@ -10,6 +10,10 @@
   cursor: pointer;
 }
 
+.p-side-10 {
+  padding: 0 10px;
+}
+
 .grid,
 .grid-2col {
   display: grid;
@@ -224,6 +228,9 @@
 .flexrow > * {
   flex: 1;
 }
+.flexrow .flex0 {
+  flex: 0;
+}
 .flexrow .flex1 {
   flex: 1;
 }
@@ -244,6 +251,9 @@
 }
 .flexcol > * {
   flex: 1;
+}
+.flexcol .flex0 {
+  flex: 0;
 }
 .flexcol .flex1 {
   flex: 1;
@@ -316,7 +326,7 @@
 }
 .ordemparanormal .sheet-body {
   overflow-y: auto;
-  max-height: 425px !important;
+  max-height: 398px !important;
 }
 .ordemparanormal .tab.skills,
 .ordemparanormal .tab.inventory,
@@ -333,13 +343,23 @@
   padding: 0 8px;
 }
 .ordemparanormal .skills {
-  gap: 2px;
+  gap: 0px;
+  font-size: 12px;
+  padding: 0 2px;
+  margin-top: 0;
+}
+.ordemparanormal .skills select, .ordemparanormal .skills input {
+  border: none;
+  height: 21px;
 }
 .ordemparanormal .skills .skill {
-  padding: 0 6px;
+  padding: 3.3px 6px;
 }
 .ordemparanormal .skills .skill input {
   max-width: 30px;
+}
+.ordemparanormal .skills .skill i {
+  padding: 0 5px;
 }
 .ordemparanormal .invalid {
   position: relative;
@@ -373,7 +393,7 @@
   border-radius: 10px;
 }
 .ordemparanormal .biography .bio-desc .editor {
-  min-height: 240px;
+  min-height: 230px;
 }
 .ordemparanormal .biography .bio-goals .editor {
   min-height: 100px;

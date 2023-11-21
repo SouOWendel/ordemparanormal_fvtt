@@ -57,7 +57,7 @@
 
 .sheet-body {
   overflow-y: auto;
-  max-height: 425px !important;
+  max-height: 398px !important;
 }
 
 .tab.skills,
@@ -79,17 +79,33 @@
   }
 }
 
+// SKILLS
+
 .skills {
-  gap: 2px;
+  gap: 0px;
+  font-size: 12px;
+  padding: 0 2px;
+  margin-top: 0;
+
+  select, input {
+    border: none;
+    height: 21px;
+  }
 
   .skill {
-    padding: 0 6px;
+    padding: 3.3px 6px;
 
     input {
       max-width: 30px;
     }
+
+    i {
+      padding: 0 5px;
+    }
   }
 }
+
+// OTHERS
 
 .invalid {
   position: relative;
@@ -135,7 +151,7 @@
   }
 
   .bio-desc .editor {
-    min-height: 240px;
+    min-height: 230px;
   }
 
   .bio-goals .editor {
