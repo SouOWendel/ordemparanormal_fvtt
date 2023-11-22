@@ -2,29 +2,20 @@
   <div class="skills grid grid-2col">
     {{#each data.skills as |skillName key|}}
     <div class="skill flexrow flex-group-center">
-      <label
-        for="data.skills.{{key}}.value"
+      <label for="data.skills.{{key}}.value"
         class="resource-label rollable flexlarge align-left"
         data-roll="{{skillName.formula}}"
         data-label="{{skillName.label}}">
         {{skillName.label}}
       </label>
-      <label>
-        <strong>{{toUpperCase skillName.attr.[0]}}</strong>
+      <label class="flex0 p-side-10">
+        <strong>{{toUpperCase (localize (concat "ordemparanormal." skillName.attr.[0] "Abv")) }}</strong>
       </label>
       <select name="data.skills.{{key}}.degree.label" data-dtype="String">
-        {{
-          selectOptions ../optionDegree
-          selected=skillName.degree.label 
-          localize=true
-        }}
+        {{ selectOptions ../optionDegree selected=skillName.degree.label localize=true }}
       </select>
-      <input
-        type="text"
-        name="data.skills.{{key}}.mod"
-        value="{{skillName.mod}}"
-        data-dtype="Number"
-      />
+      <i class="fa-solid fa-plus flex0"></i>
+      <input type="text" name="data.skills.{{key}}.mod" value="{{skillName.mod}}" data-dtype="Number"/>
     </div>
     {{/each}}
   </div>
