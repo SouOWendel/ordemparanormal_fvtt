@@ -1,5 +1,20 @@
 # Changelog
 
+## [6.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.0.1...v6.1.0) (2023-11-22)
+
+
+### Features
+
+* **actor-agent-sheet:** changes to the size of the card image and layout of the biography ([cc836b5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/cc836b55f76c97b707c9876a3a0572269500ab3e))
+* **actor-sheet > skills:** added style and classes to the skills layout of the agent sheet ([6ff88e2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6ff88e2399aea5584bf00fb557b68f33034f2a0c))
+* **actor-sheet:** change the size of actor-sheet (height: 849 -&gt; 820) ([e74d2dc](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e74d2dcfca2b8a7c04d34f23a1e1d372cc5f5977))
+* **agent data:** added `goals` and `spaces` for weight system and changes biography standard data ([491886b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/491886be19cc512293c0060980836bf44a95b088))
+* **item-armament-sheet:** added fieldset and legend in types and roll formula fields ([7586e71](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7586e7159f05b576484452e736326381494bc777))
+* **localization:** added translate variables of attributes abbreviations ([a745d3b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a745d3b98c7760ce61ff0f5ed841e87b62dd7340))
+* **style css/sass:** added style for skills and new util classes ([f47d69f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f47d69f2427dbf7c585f7529ed952b75207132c4))
+* transparent border now is a variable ([62eca88](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/62eca88aca4ce45dfeba72b0172c2217f89935af))
+* **weight system:** added weight system and style changes ([0c930b2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0c930b2b10f7b1a20b31abd08ee303e102be6f8e))
+
 ## [6.0.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.0.0...v6.0.1) (2023-11-14)
 
 
