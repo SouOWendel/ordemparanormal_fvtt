@@ -23,7 +23,7 @@ jobs:
             # Criar uma release e um PR (pull-request) com base no manifest (comando e arquivo).
             # O comando manifest faz uma PR utilizando as configurações do release-please-config.json
             # se forem validas. Dentro deste arquivo, há a configuração do system.json.
-            - uses: google-github-actions/release-please-action@v3.7.11
+            - uses: google-github-actions/release-please-action@v3.7.13
               id: release
               with:
                   command: manifest
