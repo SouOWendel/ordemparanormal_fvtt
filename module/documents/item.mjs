@@ -87,6 +87,7 @@ export class OrdemItem extends Item {
 			const rollAttack = await item.rollAttack({
 				event: event,
 			});
+			item.lastMessageId = messageId;
 			item.critical = rollAttack.isCritical;
 			break;
 		}
@@ -94,7 +95,8 @@ export class OrdemItem extends Item {
 		// case 'versatile':
 			await item.rollDamage({
 				event: event,
-				critical: item.critical
+				critical: item.critical,
+				lastId: item.lastMessageId == messageId
 				// spellLevel: spellLevel,
 				// versatile: action === 'versatile'
 			});
@@ -292,17 +294,14 @@ export class OrdemItem extends Item {
 		const bonus = damage.bonus && '+' + damage.bonus;
 		const critical = await options.critical || null;
 		const dice = damage.formula.split('d');
-		let crtlForm = '';
-
-		console.log(critical);
-		if (critical.isCritical) crtlForm = `${dice[0]*critical.multiplier}d${dice[1]}`;
+		const rollform = (critical.isCritical && options.lastId) ? `${dice[0]*critical.multiplier}d${dice[1]}` : damage.formula;
 
 		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
 			if (i == attr) attr = '+' + attrParent.value;
 		}
 
 		const rollConfig = {
-			formula: (crtlForm || damage.formula) + attr + bonus,
+			formula: rollform + attr + bonus,
 			data: this.getRollData(),
 			chatMessage: true
 		};
