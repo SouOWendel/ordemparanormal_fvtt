@@ -5,19 +5,16 @@
       "base": {
         "PV": {
           "value": 5,
-          "min": 0,
           "max": 10,
           "bonus": 0
         },
         "SAN": {
           "value": 5,
-          "min": 0,
           "max": 5,
           "bonus": 0
         },
         "PE": {
           "value": 5,
-          "min": 0,
           "max": 5,
           "perRound": 1,
           "bonus": 0
