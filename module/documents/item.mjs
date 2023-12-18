@@ -83,16 +83,18 @@ export class OrdemItem extends Item {
 		// Handle different actions
 		// let targets;
 		switch ( action ) {
-		case 'attack':
-			await item.rollAttack({
+		case 'attack': {
+			const rollAttack = await item.rollAttack({
 				event: event,
-				// spellLevel: spellLevel
 			});
+			item.critical = rollAttack.isCritical;
 			break;
+		}
 		case 'damage':
 		// case 'versatile':
 			await item.rollDamage({
 				event: event,
+				critical: item.critical
 				// spellLevel: spellLevel,
 				// versatile: action === 'versatile'
 			});
@@ -191,7 +193,6 @@ export class OrdemItem extends Item {
 		if ( !this.system.formulas.attackFormula.attr || !this.system.formulas.attackFormula.skill) throw new Error('This Item does not have a formula to roll!');
 
 		const attack = this.system.formulas.attackFormula;
-
 		const bonus = attack.bonus && '+' + attack.bonus;
 		let attr = attack.attr;
 		let skill = attack.skill;
@@ -233,7 +234,10 @@ export class OrdemItem extends Item {
 		// if ( Hooks.call('ordemparanormal.preRollFormula', this, rollConfig) === false ) return;
 	
 		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({async: true});
-	
+
+		// Verificações de Crítico
+		const isCritical = this.isCritical({crtalFormula: this.system.critical, roll});
+
 		if ( rollConfig.chatMessage ) {
 		  roll.toMessage({
 				speaker: ChatMessage.getSpeaker({actor: this.actor}),
@@ -252,7 +256,28 @@ export class OrdemItem extends Item {
 		 */
 		Hooks.callAll('ordemparanormal.rollFormula', this, roll);
 	
-		return roll;
+		return {roll, isCritical};
+	}
+
+	/**
+	 * 
+	 */
+	isCritical(critical={isCritical: false}, options={}){
+		// Separa os valores no formato 19/x3 pela barra e atribui
+		// a variaveis com as respectivas conversões em qualquer ordem.
+		if(critical.crtalFormula && critical.crtalFormula.includes('/')){
+			for(const crtal of critical.crtalFormula.split('/')) {
+				if (crtal.includes('x')) critical.multiplier = Number(crtal.replace('x', ''));
+				else critical.margin = Number(crtal);
+			}
+		} else {
+			critical.multiplier = critical.crtalFormula.includes('x') && critical.crtalFormula || 2;
+			critical.margin = !critical.crtalFormula.includes('x') && critical.crtalFormula || 20;
+		}
+
+		critical.isCritical = (Number(critical.roll.result.split('+')[0]) || critical.roll.result) >= critical.margin && true;
+
+		return critical;
 	}
 
 	/**
@@ -263,16 +288,21 @@ export class OrdemItem extends Item {
 		if ( !this.system.formulas.damageFormula.formula ) throw new Error('This Item does not have a formula to roll!');
 
 		const damage = this.system.formulas.damageFormula;
-		const bonus = damage.bonus && '+' + damage.bonus;
-		const formula = damage.formula;
 		let attr = damage.attr;
+		const bonus = damage.bonus && '+' + damage.bonus;
+		const critical = await options.critical || null;
+		const dice = damage.formula.split('d');
+		let crtlForm = '';
+
+		console.log(critical);
+		if (critical.isCritical) crtlForm = `${dice[0]*critical.multiplier}d${dice[1]}`;
 
 		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
 			if (i == attr) attr = '+' + attrParent.value;
 		}
 
 		const rollConfig = {
-			formula: formula + attr + bonus,
+			formula: (crtlForm || damage.formula) + attr + bonus,
 			data: this.getRollData(),
 			chatMessage: true
 		};
