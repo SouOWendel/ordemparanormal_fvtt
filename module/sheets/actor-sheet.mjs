@@ -97,10 +97,11 @@ export class OrdemActorSheet extends ActorSheet {
 		const INT = context.data.attributes.int.value;
 		const PRE = context.data.attributes.pre.value;
 		const DEFESA = context.data.defense.value;
+		const REFLEXES = context.data.skills.reflexes;
 
 		// DEFESA E ESQUIVA
 		context.data.defense.value += AGI;
-		context.data.defense.dodge = DEFESA + context.data.skills.reflexes.value;
+		context.data.defense.dodge = context.data.defense.value + REFLEXES.value + REFLEXES.mod;
 
 		// NEX
 		const calcNEX = (NEX < 99) ? Math.floor(NEX / 5) : 20;
@@ -126,9 +127,7 @@ export class OrdemActorSheet extends ActorSheet {
 			context.data.SAN.max = (20) + ((nexIf) && nexAdjust * 5);
 		} else {
 			context.data.PV.max = (10);
-
 			context.data.PE.max = (10);
-
 			context.data.SAN.max = (10);
 		}
 
