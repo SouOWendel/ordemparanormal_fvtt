@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"commit": "git-cz",
-		"sass": "sass --watch scss/ordemparanormal_fvtt.scss css/ordemparanormal_fvtt.css"
+		"sass": "npx sass --watch scss/ordemparanormal_fvtt.scss css/ordemparanormal_fvtt.css"
 	},
 	"repository": {
 		"type": "git",
