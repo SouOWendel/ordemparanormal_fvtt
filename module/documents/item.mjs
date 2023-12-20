@@ -88,7 +88,7 @@ export class OrdemItem extends Item {
 				event: event,
 			});
 			item.lastMessageId = messageId;
-			item.critical = rollAttack.isCritical;
+			item.critical = rollAttack.criticalStatus;
 			break;
 		}
 		case 'damage':
@@ -238,14 +238,14 @@ export class OrdemItem extends Item {
 		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({async: true});
 
 		// Verificações de Crítico
-		const isCritical = this.isCritical({crtalFormula: this.system.critical, roll});
+		const criticalStatus = this.isCritical({crtalFormula: this.system.critical, roll});
 
 		if ( rollConfig.chatMessage ) {
 		  roll.toMessage({
 				speaker: ChatMessage.getSpeaker({actor: this.actor}),
 				flavor: `Atacou com ${this.name}`,
 				rollMode: game.settings.get('core', 'rollMode'),
-				// messageData: {'flags.ordemparanormal.roll': {type: 'other', itemId: this.id, itemUuid: this.uuid}}
+				flags: {'ordemparanormal.messageRoll': {type: 'attack', itemId: this.id, itemUuid: this.uuid, isCritical: criticalStatus.isCritical}},
 		  });
 		}
 	
@@ -258,7 +258,7 @@ export class OrdemItem extends Item {
 		 */
 		Hooks.callAll('ordemparanormal.rollFormula', this, roll);
 	
-		return {roll, isCritical};
+		return {roll, criticalStatus};
 	}
 
 	/**
@@ -290,11 +290,11 @@ export class OrdemItem extends Item {
 		if ( !this.system.formulas.damageFormula.formula ) throw new Error('This Item does not have a formula to roll!');
 
 		const damage = this.system.formulas.damageFormula;
-		let attr = damage.attr;
 		const bonus = damage.bonus && '+' + damage.bonus;
-		const critical = await options.critical || null;
+		const critical = await options.critical || false;
 		const dice = damage.formula.split('d');
-		const rollform = (critical.isCritical && options.lastId) ? `${dice[0]*critical.multiplier}d${dice[1]}` : damage.formula;
+		const rollform = ((critical.isCritical && options.lastId) | options.event.altKey) ? `${dice[0]*critical.multiplier}d${dice[1]}` : damage.formula;
+		let attr = damage.attr;
 
 		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
 			if (i == attr) attr = '+' + attrParent.value;
