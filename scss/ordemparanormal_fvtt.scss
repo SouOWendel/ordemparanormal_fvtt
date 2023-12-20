@@ -13,11 +13,12 @@
 @import 'global/flex';
 
 /* Styles limited to ordemparanormal sheets */
-.ordemparanormal {
+.system-ordemparanormal {
   @import 'components/forms';
   @import 'components/resource';
   @import 'components/items';
   @import 'components/effects';
   @import 'components/dialog';
   @import 'components/cards';
+  @import 'components/chat';
 }

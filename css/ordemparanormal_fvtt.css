@@ -269,36 +269,36 @@
 }
 
 /* Styles limited to ordemparanormal sheets */
-.ordemparanormal {
+.system-ordemparanormal {
   /* ITEM SHEET */
   /* ----------------------------------------- */
   /*  Items Lists                              */
   /* ----------------------------------------- */
   /* ITEMS IN ACTOR SHEET (AGENT) */
 }
-.ordemparanormal .item-form {
+.system-ordemparanormal .item-form {
   font-family: "Roboto", sans-serif;
 }
-.ordemparanormal .header-identify {
+.system-ordemparanormal .header-identify {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.ordemparanormal .header-identify h1, .ordemparanormal .header-identify h2, .ordemparanormal .header-identify h3, .ordemparanormal .header-identify h4 {
+.system-ordemparanormal .header-identify h1, .system-ordemparanormal .header-identify h2, .system-ordemparanormal .header-identify h3, .system-ordemparanormal .header-identify h4 {
   border: 0;
 }
-.ordemparanormal .header-identify h1.charname {
+.system-ordemparanormal .header-identify h1.charname {
   height: 50px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
-.ordemparanormal .header-identify h1.charname input {
+.system-ordemparanormal .header-identify h1.charname input {
   width: 100%;
   height: 100%;
   margin: 0;
 }
-.ordemparanormal .sheet-header {
+.system-ordemparanormal .sheet-header {
   flex: 0 auto;
   overflow: hidden;
   display: flex;
@@ -307,71 +307,71 @@
   justify-content: flex-start;
   margin-bottom: 10px;
 }
-.ordemparanormal .sheet-header .profile-img {
+.system-ordemparanormal .sheet-header .profile-img {
   flex: 0 0 48px;
   height: 48px;
   margin-right: 10px;
 }
-.ordemparanormal .sheet-header .header-fields {
+.system-ordemparanormal .sheet-header .header-fields {
   flex: 1;
 }
-.ordemparanormal .sheet-tabs {
+.system-ordemparanormal .sheet-tabs {
   flex: 0;
 }
-.ordemparanormal .sheet-body,
-.ordemparanormal .sheet-body .tab,
-.ordemparanormal .sheet-body .tab .editor {
+.system-ordemparanormal .sheet-body,
+.system-ordemparanormal .sheet-body .tab,
+.system-ordemparanormal .sheet-body .tab .editor {
   width: 100%;
   min-height: 150px;
 }
-.ordemparanormal .sheet-body {
+.system-ordemparanormal .sheet-body {
   overflow-y: auto;
   max-height: 398px !important;
 }
-.ordemparanormal .tab.skills,
-.ordemparanormal .tab.inventory,
-.ordemparanormal .tab.abilities,
-.ordemparanormal .tab.rituals,
-.ordemparanormal .tab.biography,
-.ordemparanormal .tab.effects {
+.system-ordemparanormal .tab.skills,
+.system-ordemparanormal .tab.inventory,
+.system-ordemparanormal .tab.abilities,
+.system-ordemparanormal .tab.rituals,
+.system-ordemparanormal .tab.biography,
+.system-ordemparanormal .tab.effects {
   overflow-y: auto;
 }
-.ordemparanormal .tox .tox-editor-container {
+.system-ordemparanormal .tox .tox-editor-container {
   background: #fff;
 }
-.ordemparanormal .tox .tox-edit-area {
+.system-ordemparanormal .tox .tox-edit-area {
   padding: 0 8px;
 }
-.ordemparanormal .skills {
+.system-ordemparanormal .skills {
   gap: 0px;
   font-size: 12px;
   padding: 0 2px;
   margin-top: 0;
 }
-.ordemparanormal .skills select, .ordemparanormal .skills input {
+.system-ordemparanormal .skills select, .system-ordemparanormal .skills input {
   border: none;
   height: 21px;
 }
-.ordemparanormal .skills .skill {
+.system-ordemparanormal .skills .skill {
   padding: 3.3px 6px;
 }
-.ordemparanormal .skills .skill input {
+.system-ordemparanormal .skills .skill input {
   max-width: 30px;
 }
-.ordemparanormal .skills .skill i {
+.system-ordemparanormal .skills .skill i {
   padding: 0 5px;
 }
-.ordemparanormal .invalid {
+.system-ordemparanormal .invalid {
   position: relative;
 }
-.ordemparanormal .item-alert {
+.system-ordemparanormal .item-alert {
   position: relative;
   border-radius: 5px;
   padding: 8px;
   margin: 10px 5px;
   background-color: aliceblue;
 }
-.ordemparanormal .inventory-footer {
+.system-ordemparanormal .inventory-footer {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -379,26 +379,26 @@
   width: 100%;
   background-color: #eeede0;
 }
-.ordemparanormal .biography aside {
+.system-ordemparanormal .biography aside {
   padding: 2px;
 }
-.ordemparanormal .biography div:first-of-type {
+.system-ordemparanormal .biography div:first-of-type {
   padding: 2px;
 }
-.ordemparanormal .biography .class, .ordemparanormal .biography .trail {
+.system-ordemparanormal .biography .class, .system-ordemparanormal .biography .trail {
   font-size: 12px;
 }
-.ordemparanormal .biography fieldset {
+.system-ordemparanormal .biography fieldset {
   border: 1px solid rgba(0, 0, 0, 0.2509803922);
   border-radius: 10px;
 }
-.ordemparanormal .biography .bio-desc .editor {
+.system-ordemparanormal .biography .bio-desc .editor {
   min-height: 230px;
 }
-.ordemparanormal .biography .bio-goals .editor {
+.system-ordemparanormal .biography .bio-goals .editor {
   min-height: 100px;
 }
-.ordemparanormal .sumWeight {
+.system-ordemparanormal .sumWeight {
   position: relative;
   margin-top: 5px;
   margin-left: 5px;
@@ -407,7 +407,7 @@
   width: 95%;
   height: 14px;
 }
-.ordemparanormal .sumWeight .sumWeight-bar {
+.system-ordemparanormal .sumWeight .sumWeight-bar {
   display: block !important;
   margin-top: 0;
   margin-left: 0;
@@ -416,7 +416,7 @@
   height: 12px;
   z-index: 10;
 }
-.ordemparanormal .sumWeight .sumWeight-barover {
+.system-ordemparanormal .sumWeight .sumWeight-barover {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -428,7 +428,7 @@
   font-size: 9px;
   z-index: 11;
 }
-.ordemparanormal .sumWeight .sumWeight-label, .ordemparanormal .sumWeight i {
+.system-ordemparanormal .sumWeight .sumWeight-label, .system-ordemparanormal .sumWeight i {
   position: absolute;
   top: 0;
   font-size: 10px;
@@ -436,89 +436,89 @@
   mix-blend-mode: difference;
   filter: invert(1);
 }
-.ordemparanormal .sumWeight i {
+.system-ordemparanormal .sumWeight i {
   color: rgb(0, 0, 0);
   left: 50%;
 }
-.ordemparanormal .sumWeight .sumWeight-label {
+.system-ordemparanormal .sumWeight .sumWeight-label {
   right: 20px;
 }
-.ordemparanormal .inventory {
+.system-ordemparanormal .inventory {
   padding-bottom: 24px;
   overflow: hidden !important;
 }
-.ordemparanormal .resource-label {
+.system-ordemparanormal .resource-label {
   font-weight: bold;
 }
-.ordemparanormal .specifications h4 {
+.system-ordemparanormal .specifications h4 {
   color: rgba(22, 22, 22, 0.4392156863);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
 }
-.ordemparanormal .combat h4 {
+.system-ordemparanormal .combat h4 {
   color: rgba(22, 22, 22, 0.4392156863);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
 }
-.ordemparanormal .combat .resource-label {
+.system-ordemparanormal .combat .resource-label {
   font-size: 13px;
 }
-.ordemparanormal .item-sheet-select {
+.system-ordemparanormal .item-sheet-select {
   display: flex;
   flex: 1 10px;
   padding: 0 3px;
   align-items: center;
   flex-direction: row;
 }
-.ordemparanormal .item-sheet-select i {
+.system-ordemparanormal .item-sheet-select i {
   margin-left: 6px;
 }
-.ordemparanormal .item-sheet-space {
+.system-ordemparanormal .item-sheet-space {
   flex: 2 10px;
   padding: 0 3px;
 }
-.ordemparanormal .item-sheet-space select {
+.system-ordemparanormal .item-sheet-space select {
   width: 100%;
 }
-.ordemparanormal .item-damage-bonus {
+.system-ordemparanormal .item-damage-bonus {
   flex: 2;
 }
-.ordemparanormal .minor-size {
+.system-ordemparanormal .minor-size {
   flex: 0 60px;
 }
-.ordemparanormal .item-sheet-controls {
+.system-ordemparanormal .item-sheet-controls {
   display: flex;
   flex: 0 0 20px;
   justify-content: flex-end;
 }
-.ordemparanormal .item-sheet-controls a {
+.system-ordemparanormal .item-sheet-controls a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
-.ordemparanormal .item-sheet .item-attribute {
+.system-ordemparanormal .item-sheet .item-attribute {
   flex: 1;
   padding: 0 8px;
 }
-.ordemparanormal .item-sheet .item-skill {
+.system-ordemparanormal .item-sheet .item-skill {
   flex: 1;
   padding: 0 8px;
 }
-.ordemparanormal .item-sheet .item-bonus {
+.system-ordemparanormal .item-sheet .item-bonus {
   flex: 2;
   padding: 0 8px;
 }
-.ordemparanormal .item-sheet-prop {
+.system-ordemparanormal .item-sheet-prop {
   text-align: center;
   font-size: 12px;
 }
-.ordemparanormal .item-info-title {
+.system-ordemparanormal .item-info-title {
   margin-top: 10px;
 }
-.ordemparanormal .resource-type {
+.system-ordemparanormal .resource-type {
   border: 1px solid rgba(0, 0, 0, 0.2509803922);
   border-radius: 4px;
   padding: 10px;
 }
-.ordemparanormal .items-header {
+.system-ordemparanormal .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -527,17 +527,17 @@
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-.ordemparanormal .items-header > * {
+.system-ordemparanormal .items-header > * {
   font-size: 14px;
   text-align: center;
 }
-.ordemparanormal .items-header .item-name {
+.system-ordemparanormal .items-header .item-name {
   font-weight: bold;
   padding-left: 5px;
   text-align: left;
   display: flex;
 }
-.ordemparanormal .items-list {
+.system-ordemparanormal .items-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -545,12 +545,12 @@
   scrollbar-width: thin;
   color: #444;
 }
-.ordemparanormal .items-list .item-list {
+.system-ordemparanormal .items-list .item-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.ordemparanormal .items-list .item-name {
+.system-ordemparanormal .items-list .item-name {
   flex: 2;
   margin: 0;
   overflow: hidden;
@@ -559,33 +559,33 @@
   align-items: center;
   display: flex;
 }
-.ordemparanormal .items-list .item-name h3, .ordemparanormal .items-list .item-name h4 {
+.system-ordemparanormal .items-list .item-name h3, .system-ordemparanormal .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
 }
-.ordemparanormal .items-list .item-controls {
+.system-ordemparanormal .items-list .item-controls {
   display: flex;
   flex: 0 0 100px;
   justify-content: flex-end;
 }
-.ordemparanormal .items-list .item-controls a {
+.system-ordemparanormal .items-list .item-controls a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
-.ordemparanormal .items-list .item {
+.system-ordemparanormal .items-list .item {
   align-items: center;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
 }
-.ordemparanormal .items-list .item:last-child {
+.system-ordemparanormal .items-list .item:last-child {
   border-bottom: none;
 }
-.ordemparanormal .items-list .item .item-name {
+.system-ordemparanormal .items-list .item .item-name {
   color: #191813;
 }
-.ordemparanormal .items-list .item .item-name .item-image {
+.system-ordemparanormal .items-list .item .item-name .item-image {
   display: flex;
   align-items: center;
   flex: 0 0 30px;
@@ -594,13 +594,13 @@
   border: none;
   margin-right: 1px;
 }
-.ordemparanormal .items-list .item-prop {
+.system-ordemparanormal .items-list .item-prop {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
-.ordemparanormal .items-list .items-header {
+.system-ordemparanormal .items-list .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -609,103 +609,103 @@
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-.ordemparanormal .items-list .items-header > * {
+.system-ordemparanormal .items-list .items-header > * {
   font-size: 12px;
   text-align: center;
 }
-.ordemparanormal .items-list .items-header .item-name {
+.system-ordemparanormal .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
 }
-.ordemparanormal .item-space {
+.system-ordemparanormal .item-space {
   flex: 1 10px;
   padding: 0 8px;
 }
-.ordemparanormal .item-sheet {
+.system-ordemparanormal .item-sheet {
   display: flex;
   flex: 1;
   background-color: aqua;
 }
-.ordemparanormal .item-image {
+.system-ordemparanormal .item-image {
   perspective: 50px;
 }
-.ordemparanormal .item-image img {
+.system-ordemparanormal .item-image img {
   border: 1px solid rgba(0, 0, 0, 0.4392156863);
 }
-.ordemparanormal .slide {
+.system-ordemparanormal .slide {
   overflow: hidden;
 }
-.ordemparanormal .slide > img, .ordemparanormal .slide a {
+.system-ordemparanormal .slide > img, .system-ordemparanormal .slide a {
   transition: 0.3s all ease-in-out;
   position: absolute;
 }
-.ordemparanormal .slide > a {
+.system-ordemparanormal .slide > a {
   margin-left: 4px;
   font-size: 20px;
   transform: translate(50px, 0);
 }
-.ordemparanormal .slide:hover > img {
+.system-ordemparanormal .slide:hover > img {
   transform: translate(-200px, 0);
 }
-.ordemparanormal .slide:hover > a {
+.system-ordemparanormal .slide:hover > a {
   transform: translate(0, 0);
 }
-.ordemparanormal .effects .item .effect-source,
-.ordemparanormal .effects .item .effect-duration,
-.ordemparanormal .effects .item .effect-controls {
+.system-ordemparanormal .effects .item .effect-source,
+.system-ordemparanormal .effects .item .effect-duration,
+.system-ordemparanormal .effects .item .effect-controls {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
-.ordemparanormal .effects .item .effect-controls {
+.system-ordemparanormal .effects .item .effect-controls {
   border: none;
 }
-.ordemparanormal .teste {
+.system-ordemparanormal .teste {
   background-color: black;
 }
-.ordemparanormal .no-scroll {
+.system-ordemparanormal .no-scroll {
   overflow: hidden !important;
 }
-.ordemparanormal .scroll {
+.system-ordemparanormal .scroll {
   overflow: auto !important;
 }
-.ordemparanormal .no-orange-hyperlink {
+.system-ordemparanormal .no-orange-hyperlink {
   color: initial;
   text-decoration: none;
 }
-.ordemparanormal .content-dialog {
+.system-ordemparanormal .content-dialog {
   height: 500px;
   padding: 0 2px;
   line-height: 1.3;
 }
-.ordemparanormal .content-dialog li {
+.system-ordemparanormal .content-dialog li {
   padding-top: 2px;
   padding-bottom: 2px;
 }
-.ordemparanormal .content-dialog a:hover, .ordemparanormal .content-dialog a:focus {
+.system-ordemparanormal .content-dialog a:hover, .system-ordemparanormal .content-dialog a:focus {
   color: #000;
   text-shadow: 0 0 10px rgb(255, 255, 255);
   cursor: pointer;
 }
-.ordemparanormal .content-dialog a h1, .ordemparanormal .content-dialog a h2, .ordemparanormal .content-dialog a h3, .ordemparanormal .content-dialog a h4 {
+.system-ordemparanormal .content-dialog a h1, .system-ordemparanormal .content-dialog a h2, .system-ordemparanormal .content-dialog a h3, .system-ordemparanormal .content-dialog a h4 {
   border: 0;
   text-decoration: none;
   font-weight: 700;
 }
-.ordemparanormal .content-dialog a .discord {
+.system-ordemparanormal .content-dialog a .discord {
   color: white;
   font-family: "PT Sans", "Roboto", "sans-serif";
 }
-.ordemparanormal .content-dialog a .discord p {
+.system-ordemparanormal .content-dialog a .discord p {
   font-size: medium;
   font-weight: 700;
 }
-.ordemparanormal .content-dialog::-webkit-scrollbar-thumb {
+.system-ordemparanormal .content-dialog::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.13);
   border: 0;
 }
-.ordemparanormal .announcement {
+.system-ordemparanormal .announcement {
   position: relative;
   width: 100%;
   height: 156px;
@@ -716,32 +716,51 @@
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
 }
-.ordemparanormal .announcement p {
+.system-ordemparanormal .announcement p {
   width: 100%;
 }
-.ordemparanormal .content-dialog a:first-child .adverts {
+.system-ordemparanormal .content-dialog a:first-child .adverts {
   margin: 0;
 }
-.ordemparanormal .dialog-buttons {
+.system-ordemparanormal .dialog-buttons {
   display: flex;
 }
-.ordemparanormal .dialog-buttons button {
+.system-ordemparanormal .dialog-buttons button {
   height: 36px;
   opacity: 0.4;
   transition: all 0.2s ease-in;
 }
-.ordemparanormal .dialog-buttons button:hover {
+.system-ordemparanormal .dialog-buttons button:hover {
   opacity: 1;
 }
-.ordemparanormal .card-buttons button:first-of-type {
+.system-ordemparanormal .card-buttons button:first-of-type {
   margin-bottom: 2px;
 }
-.ordemparanormal .card-footer span {
+.system-ordemparanormal .card-footer span {
   color: #161616;
   font-size: 11px;
   padding: 2px 3px;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1882352941);
+}
+.system-ordemparanormal .dice-roll .dice-total.success {
+  color: inherit;
+  background: #c7d0c0;
+  border: 1px solid #006c00;
+}
+.system-ordemparanormal .dice-roll .dice-total.failure {
+  color: inherit;
+  background: #ffdddd;
+  border: 1px solid #6e0000;
+}
+.system-ordemparanormal .dice-roll .dice-total.critical {
+  color: green;
+}
+.system-ordemparanormal .dice-roll .dice-total.critical small {
+  font-size: 15px;
+}
+.system-ordemparanormal .dice-roll .dice-total.fumble {
+  color: red;
 }
 
 /*# sourceMappingURL=ordemparanormal_fvtt.css.map */
