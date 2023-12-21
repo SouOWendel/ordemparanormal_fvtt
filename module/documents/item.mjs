@@ -201,7 +201,6 @@ export class OrdemItem extends Item {
 		let rollMode = 'kh';
 		
 		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
-			console.log(i + attr + attrParent.value);
 			if (i == attr) {
 				if (attrParent.value == 0) {
 					attr = 2; 
@@ -273,7 +272,7 @@ export class OrdemItem extends Item {
 				else critical.margin = Number(crtal);
 			}
 		} else {
-			critical.multiplier = critical.crtalFormula.includes('x') && critical.crtalFormula || 2;
+			critical.multiplier = critical.crtalFormula.includes('x') && critical.crtalFormula.replace('x', '') || 2;
 			critical.margin = !critical.crtalFormula.includes('x') && critical.crtalFormula || 20;
 		}
 
