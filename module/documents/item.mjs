@@ -100,6 +100,7 @@ export class OrdemItem extends Item {
 				// spellLevel: spellLevel,
 				// versatile: action === 'versatile'
 			});
+			console.log(item.critical);
 			break;
 		case 'formula':
 			await item.rollFormula({event}); 
@@ -293,15 +294,15 @@ export class OrdemItem extends Item {
 
 		const damage = this.system.formulas.damageFormula;
 		const bonus = damage.bonus && '+' + damage.bonus;
-		const critical = await options.critical || false;
+
+		const critical = options.critical || false;
 		const dice = damage.formula.split('d');
-		const rollform = ((critical.isCritical && options.lastId) | options.event.altKey) ? `${dice[0]*critical.multiplier}d${dice[1]}` : damage.formula;
+		const rollform = ((critical.isCritical && options.lastId) || options.event.altKey) ? `${dice[0]*critical.multiplier}d${dice[1]}` : damage.formula;
 		let attr = damage.attr;
 
 		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
 			if (i == attr) attr = '+' + attrParent.value;
 		}
-
 		const rollConfig = {
 			formula: rollform + attr + bonus,
 			data: this.getRollData(),
