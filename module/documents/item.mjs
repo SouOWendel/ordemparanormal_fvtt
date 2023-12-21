@@ -264,16 +264,19 @@ export class OrdemItem extends Item {
 	 * 
 	 */
 	isCritical(critical={isCritical: false}, options={}){
+
+		const formulaCritical = critical.crtalFormula.trim();
+
 		// Separa os valores no formato 19/x3 pela barra e atribui
 		// a variaveis com as respectivas conversões em qualquer ordem.
-		if(critical.crtalFormula && critical.crtalFormula.includes('/')){
-			for(const crtal of critical.crtalFormula.split('/')) {
-				if (crtal.includes('x')) critical.multiplier = Number(crtal.replace('x', ''));
-				else critical.margin = Number(crtal);
+		if(formulaCritical && formulaCritical.includes('/')){
+			for(const crtalFor of critical.crtalFormula.split('/')) {
+				if (crtalFor.includes('x')) critical.multiplier = Number(crtalFor.replaceAll('x', ''));
+				else critical.margin = Number(crtalFor);
 			}
 		} else {
-			critical.multiplier = critical.crtalFormula.includes('x') && critical.crtalFormula.replace('x', '') || 2;
-			critical.margin = !critical.crtalFormula.includes('x') && critical.crtalFormula || 20;
+			critical.multiplier = formulaCritical.includes('x') && formulaCritical.replaceAll('x', '') || 2;
+			critical.margin = !formulaCritical.includes('x') && formulaCritical || 20;
 		}
 
 		critical.isCritical = (Number(critical.roll.result.split('+')[0]) || critical.roll.result) >= critical.margin && true;
