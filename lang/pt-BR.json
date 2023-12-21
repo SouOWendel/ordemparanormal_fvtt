@@ -212,7 +212,8 @@
 		"longBullets": "Balas Longas",
 		"fuel": "Combustível",
 		"arrows": "Flechas",
-		"rocket": "Foguetes"
+		"rocket": "Foguetes",
+		"cartridge": "Cartuchos"
 	},
 
 	"ordemparanormal.proficiencyChoices": {

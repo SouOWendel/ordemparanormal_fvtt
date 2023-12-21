@@ -190,7 +190,8 @@ ordemparanormal.dropdownWeaponAmmunition = {
 	'longBullets': 'ordemparanormal.weaponAmmunitionChoices.longBullets',
 	'fuel': 'ordemparanormal.weaponAmmunitionChoices.fuel',
 	'arrows': 'ordemparanormal.weaponAmmunitionChoices.arrows',
-	'rocket': 'ordemparanormal.weaponAmmunitionChoices.rocket'
+	'rocket': 'ordemparanormal.weaponAmmunitionChoices.rocket',
+	'cartridge': 'ordemparanormal.weaponAmmunitionChoices.cartridge'
 };
 
 /**

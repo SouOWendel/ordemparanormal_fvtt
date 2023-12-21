@@ -212,7 +212,8 @@
 		"longBullets": "Long Bullets",
 		"fuel": "Fuel",
 		"arrows": "Arrows",
-		"rocket": "Rockets"
+		"rocket": "Rockets",
+		"cartridge": "Cartridge"
 	},
 
 	"ordemparanormal.proficiencyChoices": {
