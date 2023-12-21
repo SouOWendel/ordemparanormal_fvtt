@@ -43,7 +43,7 @@ export function displayChatActionButtons(message, html, data) {
  */
 export function highlightCriticalSuccessFailure(message, html, data) {
 
-	const itemMessageFlag = message.flags.ordemparanormal.messageRoll;
+	const itemMessageFlag = message.getFlag('ordemparanormal', 'messageRoll');
 
 	if ( !message.isRoll || !message.isContentVisible || !message.rolls.length ) return;
 	// Highlight rolls where the first part is a d20 roll
