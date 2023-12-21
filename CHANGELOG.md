@@ -1,5 +1,34 @@
 # Changelog
 
+## [6.2.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.1.1...v6.2.0) (2023-12-21)
+
+
+### Features
+
+* **chat-message:** a function was created to highlight critical points, success and failure ([beabf33](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/beabf3381028d4d5c2a30ff9ee84b36889a13736))
+* **dices and d20roll:** partial standardization the roll data and _module ([c19b810](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c19b8103f034e1058a173217ecf01c7501bea793))
+* **item attack:** added the critical system for item attack ([e475228](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e475228319406b0a4fc03aed9e7d43cfe81ba620))
+* **item attack:** included a message ID validation for critical attacks ([df7e49b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/df7e49bf3c2c362f1ce495049c479540cd165113))
+* **item:** now the critical system detects cases of more than one "x" and blank spaces ([ab96b52](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ab96b52ac6a911aa6a87e52c2dcdab4739d9a64d))
+* **item:** saving data in roll message, added alt key fast forward to critical roll ([c95d21d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c95d21d72aa5276e58151217906c6caebc742a92))
+* **sass/css:** added some classes for dice rolls and changing the system class ([c960041](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c96004141d3454d1e7f01cab0b311acf36c52fae))
+* **system core:** import dice and import the chat_template ([b072dd1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b072dd17706f101ed64f3541250c6f16bc04db28))
+* **templates/dice:** template for dice rolls ([2a1f36a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2a1f36a987b4514ab15c0c1192e5733330de6b09))
+
+
+### Bug Fixes
+
+* **dodge attribute:** fixed dodge calculation ([431c0e5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/431c0e5b8ec47d134713509d826387c95fcc3001))
+* **item:** fixed the 'or' statement of altKey ([326fec2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/326fec252463759b975746119ab74e898ad35b8d))
+* **item:** fixed the multiplier of critical system when only multiplier is reported ([7e73668](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7e736687f95d5050f915d11a8b8d5103e63a6175))
+* **weapon ammunition:** the "cartridge" was missing as an ammunition type ([62679af](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/62679afc7ae502110f6d566b373dfeb1a657a6d0))
+
+
+### Performance Improvements
+
+* **chat-message:** correct use of get flag function instead of json ([11873b6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/11873b6009df92f8d1bd9005c8d582af7956fad4))
+* **template:** remove unnecessary keys in PV, SAN and NEX ([8dbd1bb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8dbd1bbace2543d5dd4c90e3338e49f7a8f023c5))
+
 ## [6.1.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.1.0...v6.1.1) (2023-12-05)
 
 
