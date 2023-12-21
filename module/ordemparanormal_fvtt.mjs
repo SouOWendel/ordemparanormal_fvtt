@@ -20,9 +20,11 @@ import displayMessages from './components/message-system.mjs';
 import registerSystemSettings from './components/settings.mjs';
 
 import * as documents from './documents/_partial_module.mjs';
+import * as dice from './dice/_module.mjs';
 
 globalThis.ordemparanormal = {
-	documents
+	documents,
+	dice
 };
 
 /* -------------------------------------------- */
@@ -44,6 +46,8 @@ Hooks.once('init', async function () {
 
 	// Add custom constants for configuration.
 	CONFIG.ordemparanormal = ordemparanormal;
+
+	CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.html';
 
 	/**
 	 * Set an initiative formula for the system
