@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.2.0...v6.2.1) (2023-12-21)
+
+
+### Bug Fixes
+
+* **update notes:** fixed a bug where two update popups were displayed ([79e2b0d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/79e2b0dbce5db6b42693e678c1c7a6dd770c04ab))
+
 ## [6.2.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.1.1...v6.2.0) (2023-12-21)
 
 
