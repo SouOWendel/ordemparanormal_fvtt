@@ -41,7 +41,7 @@ export class OrdemItemSheet extends ItemSheet {
 		// Use a safe clone of the item data for further operations.
 		const itemData = context.item.data;
 
-		// Dropdowns
+		// Armament's Dropdowns
 		context.optionWeaponType = CONFIG.ordemparanormal.dropdownWeaponType;
 		context.optionWeaponSubType = CONFIG.ordemparanormal.dropdownWeaponSubType;
 		context.optionGripType = CONFIG.ordemparanormal.dropdownWeaponGripType;
@@ -49,10 +49,15 @@ export class OrdemItemSheet extends ItemSheet {
 		context.optionProficiency = CONFIG.ordemparanormal.dropdownProficiency;
 		context.optionDamageType = CONFIG.ordemparanormal.dropdownDamageType;
 		context.optionPowerType = CONFIG.ordemparanormal.dropdownPowerType;
+
+		// Attack and Damage Dropdown
 		context.attributes = CONFIG.ordemparanormal.attributes;
 		context.attackSkills = CONFIG.ordemparanormal.attackSkills;
 
-		// Radiobox
+		// Ritual's Dropdowns
+		context.optionExecution = CONFIG.ordemparanormal.dropdownExecution;
+
+		// Item's Radiobox
 		context.categories = CONFIG.ordemparanormal.categories;
 		
 		// Retrieve the roll data for TinyMCE editors.

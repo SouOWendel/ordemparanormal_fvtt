@@ -26,6 +26,10 @@
       <div class="resource grid align-items-center">
         <label class="resource-label">{{localize "ordemparanormal.circle"}}</label>
         <input type="number" name="data.circle" value="{{data.circle}}" data-dtype="Number"/>
+		<label class="resource-label">{{localize "ordemparanormal.execution"}}</label>
+		<select name="data.execution" data-dtype="String">
+			{{ selectOptions optionExecution selected=data.execution  localize=true blank="—" }}
+		</select>
         <label class="resource-label">{{localize "ordemparanormal.range"}}</label>
         <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
         <label class="resource-label">{{localize "ordemparanormal.areaEffect"}}</label>

@@ -376,6 +376,7 @@
     "ritual": {
       "description": "Your text here.",
       "circle": 1,
+	  "execution": "",
       "range": "",
       "areaEffect": "",
       "duration": "",

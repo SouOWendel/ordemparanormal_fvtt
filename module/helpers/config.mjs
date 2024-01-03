@@ -229,10 +229,15 @@ ordemparanormal.dropdownPowerType = {
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.categories = {
-	'0': '0',
-	'1': 'I',
-	'2': 'II',
-	'3': 'III',
-	'4': 'IV'
+ordemparanormal.categories = { '0': '0', '1': 'I', '2': 'II', '3': 'III', '4': 'IV' };
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.dropdownExecution = {
+	'free': 'ordemparanormal.executionChoices.free',
+	'default': 'ordemparanormal.executionChoices.default',
+	'complete': 'ordemparanormal.executionChoices.complete',
+	'reaction': 'ordemparanormal.executionChoices.reaction'
 };
