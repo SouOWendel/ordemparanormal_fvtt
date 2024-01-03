@@ -189,6 +189,14 @@
 	"ordemparanormal.duration": "Duração",
 	"ordemparanormal.subtypeWeapon": "Subtipo de Arma",
 	"ordemparanormal.powerType": "Tipo de Poder",
+	"ordemparanormal.execution": "Execução",
+
+	"ordemparanormal.executionChoices": {
+		"free": "Livre",
+		"default": "Padrão",
+		"complete": "Completa",
+		"reaction": "Reação"
+	},
 
 	"ordemparanormal.weaponTypeChoices": {
 		"melee": "Corpo a Corpo",
