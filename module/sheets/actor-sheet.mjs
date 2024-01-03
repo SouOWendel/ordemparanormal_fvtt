@@ -114,21 +114,21 @@ export class OrdemActorSheet extends ActorSheet {
 		// DEFININDO STATUS CONFORME A CLASSE
 		// TODO: Converter as classes para o inglês
 		if (context.data.class == 'Combatente') {
-			context.data.PV.max = (20 + VIG) + ((nexIf) && nexAdjust * (4 + VIG));
-			context.data.PE.max = (2 + PRE) + ((nexIf) && nexAdjust * (2 + PRE));
-			context.data.SAN.max = (12) + ((nexIf) && nexAdjust * 3);
+			context.data.PV.max += (20 + VIG) + ((nexIf) && nexAdjust * (4 + VIG));
+			context.data.PE.max += (2 + PRE) + ((nexIf) && nexAdjust * (2 + PRE));
+			context.data.SAN.max += (12) + ((nexIf) && nexAdjust * 3);
 		} else if (context.data.class == 'Especialista') {
-			context.data.PV.max = (16 + VIG) + ((nexIf) && nexAdjust * (3 + VIG));
-			context.data.PE.max = (3 + PRE) + ((nexIf) && nexAdjust * (3 + PRE));
-			context.data.SAN.max = (16) + ((nexIf) && nexAdjust * 4);
+			context.data.PV.max += (16 + VIG) + ((nexIf) && nexAdjust * (3 + VIG));
+			context.data.PE.max += (3 + PRE) + ((nexIf) && nexAdjust * (3 + PRE));
+			context.data.SAN.max += (16) + ((nexIf) && nexAdjust * 4);
 		} else if (context.data.class == 'Ocultista') {
-			context.data.PV.max = (12 + VIG) + ((nexIf) && nexAdjust * (2 + VIG));
-			context.data.PE.max = (4 + PRE) + ((nexIf) && nexAdjust * (4 + PRE));
-			context.data.SAN.max = (20) + ((nexIf) && nexAdjust * 5);
+			context.data.PV.max +=  (12 + VIG) + ((nexIf) && nexAdjust * (2 + VIG));
+			context.data.PE.max +=  (4 + PRE) + ((nexIf) && nexAdjust * (4 + PRE));
+			context.data.SAN.max +=  (20) + ((nexIf) && nexAdjust * 5);
 		} else {
-			context.data.PV.max = (10);
-			context.data.PE.max = (10);
-			context.data.SAN.max = (10);
+			context.data.PV.max = context.data.PV.max || 0;
+			context.data.PE.max = context.data.PE.max || 0;
+			context.data.SAN.max = context.data.SAN.max || 0;
 		}
 
 		/**
