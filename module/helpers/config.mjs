@@ -86,9 +86,9 @@ ordemparanormal.dropdownDegree = {
  * @type {Object}
  */
 ordemparanormal.dropdownClass = {
-	'Combatente': 'ordemparanormal.classChoices.combatente',
-	'Especialista': 'ordemparanormal.classChoices.especialista',
-	'Ocultista': 'ordemparanormal.classChoices.ocultista'
+	'fighter': 'ordemparanormal.classChoices.fighter',
+	'specialist': 'ordemparanormal.classChoices.specialist',
+	'occultist': 'ordemparanormal.classChoices.occultist'
 };
 
 /**
@@ -96,21 +96,21 @@ ordemparanormal.dropdownClass = {
  * @type {Object}
  */
 ordemparanormal.dropdownTrilha = {
-	Combatente: [
+	fighter: [
 		{name: 'aniquilador', label: 'ordemparanormal.trilhas.aniquilador'},
 		{name: 'comanDeCamp', label: 'ordemparanormal.trilhas.comandanteDeCampo'},
 		{name: 'opeEspeciais', label: 'ordemparanormal.trilhas.operacoesEspeciais'},
 		{name: 'tropaChoque', label: 'ordemparanormal.trilhas.tropaDeChoque'},
 		{name: 'guerreiro', label: 'ordemparanormal.trilhas.guerreiro'},
 	],
-	Especialista: [
+	specialist: [
 		{name: 'infiltrador', label: 'ordemparanormal.trilhas.infiltrador'},
 		{name: 'atiradorElite', label: 'ordemparanormal.trilhas.atiradorDeElite'},
 		{name: 'medicoCampo', label: 'ordemparanormal.trilhas.medicoDeCampo'},
 		{name: 'negociador', label: 'ordemparanormal.trilhas.negociador'},
 		{name: 'tecnico', label: 'ordemparanormal.trilhas.tecnico'},
 	],
-	Ocultista: [
+	occultist: [
 		{name: 'conduite', label: 'ordemparanormal.trilhas.conduite'},
 		{name: 'flagelador', label: 'ordemparanormal.trilhas.flagelador'},
 		{name: 'graduado', label: 'ordemparanormal.trilhas.graduado'},

@@ -104,9 +104,9 @@
 
 	"ordemparanormal.className": "Class",
 	"ordemparanormal.classChoices": {
-		"combatente": "Fighter",
-		"especialista": "Specialist",
-		"ocultista": "Occultist"
+		"fighter": "Fighter",
+		"specialist": "Specialist",
+		"occultist": "Occultist"
 	},
 
 	"ordemparanormal.originName": "Origin",
