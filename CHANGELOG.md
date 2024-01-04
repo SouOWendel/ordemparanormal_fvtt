@@ -1,5 +1,19 @@
 # Changelog
 
+## [6.3.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.2.1...v6.3.0) (2024-01-04)
+
+
+### Features
+
+* **class calculation:** fix the calculation, change the names and was been added the bonus calc ([f38a5b7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f38a5b7befdd0b5f6bdaa984348e4b41eeabc526))
+* **localization:** added some variables for execution of rituals ([afa63fd](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/afa63fd029b4143284e07d4141d5fc7e661bb0d7))
+* **ritual item:** was been added the execution field for rituals ([233bcdb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/233bcdb347f7c4cee9acbbf8d8e0fe6abb53dca6))
+
+
+### Bug Fixes
+
+* **actor sheet:** a bug has been fixed in the relationship between pv, pe, san max and effects ([4729d73](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4729d73a9d91556ec965391bfe2af3840fe8692f))
+
 ## [6.2.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.2.0...v6.2.1) (2023-12-21)
 
 
