@@ -131,7 +131,6 @@ export class OrdemActorSheet extends ActorSheet {
 			context.data.PE.max = (4 + PRE) + ((nexIf) && nexAdjust * (4 + PRE));
 			context.data.SAN.max = (20) + ((nexIf) && nexAdjust * 5);
 		} else {
-			console.log(context.data.PV.max);
 			context.data.PV.max = context.data.PV.max || 0;
 			context.data.PE.max = context.data.PE.max || 0;
 			context.data.SAN.max = context.data.SAN.max || 0;
