@@ -338,17 +338,14 @@
       "critical": "",
       "range": "",
       "formulas": {
-        "attackFormula": {
+        "attack": {
           "formula": "1d4",
           "attr": "",
           "skill": "",
           "bonus": ""
         },
-        "damageFormula": {
-          "formula": "1d4",
-          "attr": "",
-          "skill": "",
-          "bonus": ""
+        "damage": {
+		  "parts": []
         },
         "extraFormula": "1d4"
       },
