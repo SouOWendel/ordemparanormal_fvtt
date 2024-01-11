@@ -20,48 +20,48 @@
     {{!-- Description Tab --}}
     <div class="tab description" data-group="primary" data-tab="description">
       {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor content=system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Specifications Tab --}}
     <div class="tab specifications" data-group="primary" data-tab="specifications">
       <div class="resource grid grid-4col align-items-center">
         <label class="resource-label">{{localize "ordemparanormal.quantity"}}</label>
-        <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" placeholder="Quantos deste item?"/>
+        <input type="text" name="system.quantity" value="{{system.quantity}}" data-dtype="Number" placeholder="Quantos deste item?"/>
         <label class="resource-label">{{localize "ordemparanormal.space"}}</label>
-        <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number" placeholder="Quanto o item pesa?"/>
+        <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number" placeholder="Quanto o item pesa?"/>
       </div>
       <div class="resource grid grid-2col">
         <label class="resource-label">{{localize "ordemparanormal.category"}}</label>
-        <div>{{radioBoxes 'data.category' categories checked=data.category}}</div>
+        <div>{{radioBoxes 'system.category' categories checked=system.category}}</div>
       </div>
       <div class="resource grid grid-2col">
         <label class="resource-label">{{localize "ordemparanormal.proficiency"}}</label>
-        <select name="data.proficiency" data-dtype="String">
-          {{ selectOptions optionProficiency selected=data.proficiency  localize=true blank="—" }}
+        <select name="system.proficiency" data-dtype="String">
+          {{ selectOptions optionProficiency selected=system.proficiency  localize=true blank="—" }}
         </select>
       </div>
       <div class="resource grid grid-2col">
         <label class="resource-label">{{localize "ordemparanormal.gripType"}}</label>
-        <select name="data.types.gripType" data-dtype="String">
-          {{ selectOptions optionGripType selected=data.types.gripType  localize=true blank="—" }}
+        <select name="system.types.gripType" data-dtype="String">
+          {{ selectOptions optionGripType selected=system.types.gripType  localize=true blank="—" }}
         </select>
       </div>
       
       <h4>Condições do Armamento</h4>
       <div class="resource align-items-center align-center">
         <label class="resource-label">Improvisada</label>
-        <input type="checkbox" name="data.conditions.improvised" {{checked data.conditions.improvised}}>
+        <input type="checkbox" name="system.conditions.improvised" {{checked system.conditions.improvised}}>
         <label class="resource-label">Arremessável</label>
-        <input type="checkbox" name="data.conditions.throwable" {{checked data.conditions.throwable}}>
+        <input type="checkbox" name="system.conditions.throwable" {{checked system.conditions.throwable}}>
         <label class="resource-label">Arma Ágil</label>
-        <input type="checkbox" name="data.conditions.agile" {{checked data.conditions.agile}}>
+        <input type="checkbox" name="system.conditions.agile" {{checked system.conditions.agile}}>
         <label class="resource-label">Automática</label>
-        <input type="checkbox" name="data.conditions.automatic" {{checked data.conditions.automatic}}>
+        <input type="checkbox" name="system.conditions.automatic" {{checked system.conditions.automatic}}>
         <label class="resource-label">Empunhadura Adaptável</label>
-        <input type="checkbox" name="data.conditions.adaptableGrip" {{checked data.conditions.adaptableGrip}}>
+        <input type="checkbox" name="system.conditions.adaptableGrip" {{checked system.conditions.adaptableGrip}}>
         <label class="resource-label">Coronhada</label>
-        <input type="checkbox" name="data.conditions.pistolBlow" {{checked data.conditions.pistolBlow}}>
+        <input type="checkbox" name="system.conditions.pistolBlow" {{checked system.conditions.pistolBlow}}>
       </div>
     </div>
 
@@ -71,29 +71,32 @@
       <div class="grid grid-2col">
         <div class="resource">
           <label class="resource-label">{{localize "ordemparanormal.damageType"}}</label>
-          <select name="data.types.damageType" data-dtype="String">
-            {{ selectOptions optionDamageType selected=data.types.damageType  localize=true blank="—" }}
+          <select name="system.types.damageType" data-dtype="String">
+            {{ selectOptions optionDamageType selected=system.types.damageType  localize=true blank="—" }}
           </select>
         </div>
         <div class="resource">
           <label class="resource-label">{{localize "ordemparanormal.range"}}</label>
-          <input type="text" name="data.range" value="{{data.range}}" data-dtype="String" placeholder="Ex.: curto, médio, longo"/>
+          <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" placeholder="Ex.: curto, médio, longo"/>
         </div>
+		<div class="item-sheet-space item-sheet-prop minor-size">
+			<input type="text" name="system.critical" value="{{system.critical}}" data-dtype="String" placeholder="Crítico"/>
+		</div>
       </div>
       <fieldset class="resource-type grid align-items-center">
         <legend>Tipos</legend>
         <label class="resource-label">{{localize "ordemparanormal.weaponType"}}</label>
-        <select name="data.types.rangeType.name" data-dtype="String">
-          {{ selectOptions optionWeaponType selected=data.types.rangeType.name  localize=true blank="—" }}
+        <select name="system.types.rangeType.name" data-dtype="String">
+          {{ selectOptions optionWeaponType selected=system.types.rangeType.name  localize=true blank="—" }}
         </select>
-        {{#ifEquals data.types.rangeType.name "ranged" }}
+        {{#ifEquals system.types.rangeType.name "ranged" }}
         <label class="resource-label">{{localize "ordemparanormal.subtypeWeapon"}}</label>
-        <select name="data.types.rangeType.subRangeType" data-dtype="String" {{inputValid data.types.rangeType.name "ranged" }}
-          {{ selectOptions optionWeaponSubType selected=data.types.rangeType.subRangeType localize=true blank="—" }}
+        <select name="system.types.rangeType.subRangeType" data-dtype="String" {{inputValid system.types.rangeType.name "ranged" }}
+          {{ selectOptions optionWeaponSubType selected=system.types.rangeType.subRangeType localize=true blank="—" }}
         </select>
         <label class="resource-label">{{localize "ordemparanormal.ammunitionType"}}</label>
-        <select name="data.types.ammunitionType" data-dtype="String" {{inputValid data.types.rangeType.name "ranged" }}>
-          {{ selectOptions optionWeaponAmmunition selected=data.types.ammunitionType  localize=true blank="—" }}
+        <select name="system.types.ammunitionType" data-dtype="String" {{inputValid system.types.rangeType.name "ranged" }}>
+          {{ selectOptions optionWeaponAmmunition selected=system.types.ammunitionType  localize=true blank="—" }}
         </select>
         {{/ifEquals}}
       </fieldset>
@@ -115,45 +118,48 @@
         <li class="item flexrow" data-item-id="{{item._id}}">
             <!-- TODO: função pendente de ataque -->
           <div class="item-sheet-select item-sheet-prop">
-            <select name="data.formulas.attackFormula.attr" data-dtype="String">
-              {{ selectOptions attributes selected=data.formulas.attackFormula.attr localize=true blank="—" }}
+            <select name="system.formulas.attack.attr" data-dtype="String">
+              {{ selectOptions attributes selected=system.formulas.attack.attr localize=true blank="—" }}
             </select>
             <i class="fa-solid fa-dice-d20"></i>
           </div>
           <div class="item-sheet-select item-sheet-prop">
-            <select name="data.formulas.attackFormula.skill" data-dtype="String">
-              {{ selectOptions attackSkills selected=data.formulas.attackFormula.skill localize=true blank="—" }}
+            <select name="system.formulas.attack.skill" data-dtype="String">
+              {{ selectOptions attackSkills selected=system.formulas.attack.skill localize=true blank="—" }}
             </select>
             <i class="fa-solid fa-plus"></i>
           </div>
           <div class="item-sheet-space item-sheet-prop">
-            <input type="text" name="data.formulas.attackFormula.bonus" value="{{data.formulas.attackFormula.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
+            <input type="text" name="system.formulas.attack.bonus" value="{{system.formulas.attack.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
           </div>
           <!-- <div class="item-sheet-controls">
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
           </div> -->
         </li>
-        <ol class="items-list">
-          <h4 class="item-info-title">Formula de Dano</h4>
-          <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-sheet-select item-sheet-prop">
-            <input type="text" name="data.formulas.damageFormula.formula" value="{{data.formulas.damageFormula.formula}}" data-dtype="String" placeholder="Dados"/>
-            <i class="fa-solid fa-dice"></i>
-          </div>
-          <div class="item-sheet-select item-sheet-prop">
-            <select name="data.formulas.damageFormula.attr" data-dtype="String">
-              {{ selectOptions attributes selected=data.formulas.damageFormula.attr localize=true blank="—" }}
-            </select>
-            <i class="fa-solid fa-plus"></i>
-          </div>
-          <div class="item-sheet-space item-sheet-prop item-damage-bonus">
-            <input type="text" name="data.formulas.damageFormula.bonus" value="{{data.formulas.damageFormula.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
-          </div>
-          <div class="item-sheet-space item-sheet-prop minor-size">
-            <input type="text" name="data.critical" value="{{data.critical}}" data-dtype="String" placeholder="Crítico"/>
-          </div>
-          </li>
-        </ol>
+			<ol class="items-list">
+				<h4 class="item-info-title">
+					Formula de Dano <a class="damage-control add-damage"><i class="fas fa-plus"></i></a>
+				</h4>
+				{{#each system.formulas.damage.parts as |part i| }}
+				<li class="damage-part item flexrow" data-item-id="{{item._id}}" data-damage-part="{{i}}">
+					<div class="item-sheet-select item-sheet-prop">
+						<input type="text" name="system.formulas.damage.parts.{{i}}.0" value="{{lookup this "0"}}" data-dtype="String" placeholder="Dados" data-formula-editor/>
+						<i class="fa-solid fa-dice"></i>
+					</div> 
+					<div class="item-sheet-select item-sheet-prop">
+						<select name="system.formulas.damage.parts.{{i}}.1" data-dtype="String">
+						{{ selectOptions ../attributes selected=(lookup this "1") localize=true blank="—" }}
+						</select>
+						<i class="fa-solid fa-plus"></i>
+					</div>
+					<div class="item-sheet-space item-sheet-prop item-damage-bonus">
+						<input type="text" name="system.formulas.damage.parts.{{i}}.2" value="{{lookup this "2"}}" data-dtype="String" placeholder="Adicione um bônus"/>
+					</div>
+					<a class="damage-control delete-damage"><i class="fas fa-minus"></i></a>
+				</li>
+				{{/each}}
+			</ol>
+
         </fieldset>
       </ol>
     </div>

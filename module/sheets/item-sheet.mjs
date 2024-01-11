@@ -34,50 +34,124 @@ export class OrdemItemSheet extends ItemSheet {
 	/* -------------------------------------------- */
 
 	/** @override */
-	getData() {
+	async getData() {
 		// Retrieve base data structure.
-		const context = super.getData();
+		const context = await super.getData();
+		const itemData = context.item;
+		const source = itemData.toObject();
 
-		// Use a safe clone of the item data for further operations.
-		const itemData = context.item.data;
+		foundry.utils.mergeObject(context, {
+			source: source.system,
+			system: itemData.system,
+			rollData: this.item.getRollData(),
+			flags: itemData.flags,
+			effects: prepareActiveEffectCategories(this.item.effects),
 
-		// Armament's Dropdowns
-		context.optionWeaponType = CONFIG.ordemparanormal.dropdownWeaponType;
-		context.optionWeaponSubType = CONFIG.ordemparanormal.dropdownWeaponSubType;
-		context.optionGripType = CONFIG.ordemparanormal.dropdownWeaponGripType;
-		context.optionWeaponAmmunition = CONFIG.ordemparanormal.dropdownWeaponAmmunition;
-		context.optionProficiency = CONFIG.ordemparanormal.dropdownProficiency;
-		context.optionDamageType = CONFIG.ordemparanormal.dropdownDamageType;
-		context.optionPowerType = CONFIG.ordemparanormal.dropdownPowerType;
+			// Armament's Dropdowns
+			optionWeaponType: CONFIG.ordemparanormal.dropdownWeaponType,
+			optionWeaponSubType: CONFIG.ordemparanormal.dropdownWeaponSubType,
+			optionGripType: CONFIG.ordemparanormal.dropdownWeaponGripType,
+			optionWeaponAmmunition: CONFIG.ordemparanormal.dropdownWeaponAmmunition,
+			optionProficiency: CONFIG.ordemparanormal.dropdownProficiency,
+			optionDamageType: CONFIG.ordemparanormal.dropdownDamageType,
+			optionPowerType: CONFIG.ordemparanormal.dropdownPowerType,
 
-		// Attack and Damage Dropdown
-		context.attributes = CONFIG.ordemparanormal.attributes;
-		context.attackSkills = CONFIG.ordemparanormal.attackSkills;
+			// Attack and Damage Dropdown
+			attributes: CONFIG.ordemparanormal.attributes,
+			attackSkills: CONFIG.ordemparanormal.attackSkills,
 
-		// Ritual's Dropdowns
-		context.optionExecution = CONFIG.ordemparanormal.dropdownExecution;
+			// Ritual's Dropdowns
+			optionExecution: CONFIG.ordemparanormal.dropdownExecution,
 
-		// Item's Radiobox
-		context.categories = CONFIG.ordemparanormal.categories;
-		
-		// Retrieve the roll data for TinyMCE editors.
-		context.rollData = {};
-		const actor = this.object?.parent ?? null;
-		if (actor) {
-			context.rollData = actor.getRollData();
-		}
-
-		// Add the actor's data to context.data for easier access, as well as flags.
-		context.data = itemData.data;
-		context.flags = itemData.flags;
-
-		// Prepare active effects
-		context.effects = prepareActiveEffectCategories(this.item.effects);
+			// Item's Radiobox
+			categories: CONFIG.ordemparanormal.categories,
+		});
 
 		return context;
 	}
 
 	/* -------------------------------------------- */
+
+	/**
+   * Add or remove a damage part from the damage formula.
+   * @param {Event} event             The original click event.
+   * @returns {Promise<OrdemItemSheet>|null}  Item with updates applied.
+   * @private
+   */
+	async _onDamageControl(event) {
+		event.preventDefault();
+		const a = event.currentTarget;
+	
+		 // Add new damage component
+		 if ( a.classList.contains('add-damage') ) {
+			await this._onSubmit(event);  // Submit any unsaved changes
+			const damage = this.item.system.formulas.damage;
+			return this.item.update({'system.formulas.damage.parts': damage.parts.concat([['', '', '']])});
+		  }
+	  
+		  // Remove a damage component
+		  if ( a.classList.contains('delete-damage') ) {
+			await this._onSubmit(event);  // Submit any unsaved changes
+			const li = a.closest('.damage-part');
+			const damage = foundry.utils.deepClone(this.item.system.formulas.damage);
+			damage.parts.splice(Number(li.dataset.damagePart), 1);
+			return this.item.update({'system.formulas.damage.parts': damage.parts});
+		  }
+	}
+
+	/* -------------------------------------------- */
+	/*  Form Submission                             */
+	/* -------------------------------------------- */
+
+	/** @inheritDoc */
+	_getSubmitData(updateData={}) {
+		const formData = foundry.utils.expandObject(super._getSubmitData(updateData));
+
+		// Handle Damage array
+    	const damage = formData.system.formulas?.damage;
+    	if ( damage ) damage.parts = Object.values(damage?.parts || {}).map(d => [d[0] || '', d[1] || '', d[2] || '']);
+
+		
+		// Check max uses formula
+		// const uses = formData.data?.uses;
+		// if ( uses?.max ) {
+		// 	const maxRoll = new Roll(uses.max);
+		// 	if ( !maxRoll.isDeterministic ) {
+		// 		uses.max = this.item._source.system.uses.max;
+		// 		this.form.querySelector('input[name=\'system.uses.max\']').value = uses.max;
+		// 		ui.notifications.error(game.i18n.format('DND5E.FormulaCannotContainDiceError', {
+		// 			name: game.i18n.localize('DND5E.LimitedUses')
+		// 		}));
+		// 		return null;
+		// 	}
+		// }
+
+		// // Check duration value formula
+		// const duration = formData.data?.duration;
+		// if ( duration?.value ) {
+		// 	const durationRoll = new Roll(duration.value);
+		// 	if ( !durationRoll.isDeterministic ) {
+		// 		duration.value = this.item._source.system.duration.value;
+		// 		this.form.querySelector('input[name=\'system.duration.value\']').value = duration.value;
+		// 		ui.notifications.error(game.i18n.format('DND5E.FormulaCannotContainDiceError', {
+		// 			name: game.i18n.localize('DND5E.Duration')
+		// 		}));
+		// 		return null;
+		// 	}
+		// }
+
+		// // Check class identifier
+		// if ( formData.data?.identifier && !dnd5e.utils.validators.isValidIdentifier(formData.system.identifier) ) {
+		// 	formData.system.identifier = this.item._source.system.identifier;
+		// 	this.form.querySelector('input[name=\'system.identifier\']').value = formData.system.identifier;
+		// 	ui.notifications.error('DND5E.IdentifierError', {localize: true});
+		// 	return null;
+		// }
+
+		// Return the flattened submission data
+		return foundry.utils.flattenObject(formData);
+	}
+
 
 	/** @override */
 	activateListeners(html) {
@@ -86,10 +160,21 @@ export class OrdemItemSheet extends ItemSheet {
 		// Everything below here is only needed if the sheet is editable
 		if (!this.isEditable) return;
 
+		html.find('.damage-control').click(this._onDamageControl.bind(this));
+
 		html.find('.effect-control').click((ev) =>
 			onManageActiveEffect(ev, this.item),
 		);
 
 		// Roll handlers, click handlers, etc. would go here.
 	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _onSubmit(...args) {
+		await super._onSubmit(...args);
+	}
+
+	/* -------------------------------------------- */
 }
