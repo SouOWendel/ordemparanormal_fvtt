@@ -13,8 +13,8 @@ export class OrdemItemSheet extends ItemSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ['ordemparanormal', 'sheet', 'item'],
-			width: 480,
-			height: 400,
+			width: 540,
+			height: 440,
 			template: 'systems/ordemparanormal/templates/itemn/item-sheet.html',
 			tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'description' }]
 		});
@@ -67,6 +67,27 @@ export class OrdemItemSheet extends ItemSheet {
 			categories: CONFIG.ordemparanormal.categories,
 		});
 
+		// TODO: Fix the incompatibilities (Temporary)
+		console.log(itemData);
+		if (itemData.system.types.damageType) {
+			itemData.system.formulas.damage.type = itemData.system.types.damageType;
+			delete itemData.system.types.damageType;
+		}
+		// TODO: Fix the incompatibilities (Temporary)
+		if (itemData.system.formulas.attackFormula) {
+			itemData.system.formulas.damage.formula = itemData.system.formulas.attackFormula.formula;
+			itemData.system.formulas.damage.attr = itemData.system.formulas.attackFormula.attr;
+			itemData.system.formulas.damage.bonus = itemData.system.formulas.attackFormula.bonus;
+			delete itemData.system.formulas.attackFormula;
+		}
+		// TODO: Fix the incompatibilities (Temporary)
+		if (itemData.system.formulas.damageFormula) {
+			itemData.system.formulas.damage.formula = itemData.system.formulas.damageFormula.formula;
+			itemData.system.formulas.damage.attr = itemData.system.formulas.damageFormula.attr;
+			itemData.system.formulas.damage.bonus = itemData.system.formulas.damageFormula.bonus;
+			delete itemData.system.formulas.damageFormula;
+		}
+
 		return context;
 	}
 
@@ -86,7 +107,7 @@ export class OrdemItemSheet extends ItemSheet {
 		 if ( a.classList.contains('add-damage') ) {
 			await this._onSubmit(event);  // Submit any unsaved changes
 			const damage = this.item.system.formulas.damage;
-			return this.item.update({'system.formulas.damage.parts': damage.parts.concat([['', '', '']])});
+			return this.item.update({'system.formulas.damage.parts': damage.parts.concat([['', '']])});
 		  }
 	  
 		  // Remove a damage component
@@ -109,44 +130,7 @@ export class OrdemItemSheet extends ItemSheet {
 
 		// Handle Damage array
     	const damage = formData.system.formulas?.damage;
-    	if ( damage ) damage.parts = Object.values(damage?.parts || {}).map(d => [d[0] || '', d[1] || '', d[2] || '']);
-
-		
-		// Check max uses formula
-		// const uses = formData.data?.uses;
-		// if ( uses?.max ) {
-		// 	const maxRoll = new Roll(uses.max);
-		// 	if ( !maxRoll.isDeterministic ) {
-		// 		uses.max = this.item._source.system.uses.max;
-		// 		this.form.querySelector('input[name=\'system.uses.max\']').value = uses.max;
-		// 		ui.notifications.error(game.i18n.format('DND5E.FormulaCannotContainDiceError', {
-		// 			name: game.i18n.localize('DND5E.LimitedUses')
-		// 		}));
-		// 		return null;
-		// 	}
-		// }
-
-		// // Check duration value formula
-		// const duration = formData.data?.duration;
-		// if ( duration?.value ) {
-		// 	const durationRoll = new Roll(duration.value);
-		// 	if ( !durationRoll.isDeterministic ) {
-		// 		duration.value = this.item._source.system.duration.value;
-		// 		this.form.querySelector('input[name=\'system.duration.value\']').value = duration.value;
-		// 		ui.notifications.error(game.i18n.format('DND5E.FormulaCannotContainDiceError', {
-		// 			name: game.i18n.localize('DND5E.Duration')
-		// 		}));
-		// 		return null;
-		// 	}
-		// }
-
-		// // Check class identifier
-		// if ( formData.data?.identifier && !dnd5e.utils.validators.isValidIdentifier(formData.system.identifier) ) {
-		// 	formData.system.identifier = this.item._source.system.identifier;
-		// 	this.form.querySelector('input[name=\'system.identifier\']').value = formData.system.identifier;
-		// 	ui.notifications.error('DND5E.IdentifierError', {localize: true});
-		// 	return null;
-		// }
+    	if ( damage ) damage.parts = Object.values(damage?.parts || {}).map(d => [d[0] || '', d[1] || '']);
 
 		// Return the flattened submission data
 		return foundry.utils.flattenObject(formData);
