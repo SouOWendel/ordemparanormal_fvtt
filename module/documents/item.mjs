@@ -100,7 +100,6 @@ export class OrdemItem extends Item {
 				// spellLevel: spellLevel,
 				// versatile: action === 'versatile'
 			});
-			console.log(item.critical);
 			break;
 		case 'formula':
 			await item.rollFormula({event}); 
@@ -193,9 +192,9 @@ export class OrdemItem extends Item {
    * Rely upon the d20Roll logic for the core implementation
    */
 	async rollAttack(options={}) {
-		if ( !this.system.formulas.attackFormula.attr || !this.system.formulas.attackFormula.skill) throw new Error('This Item does not have a formula to roll!');
+		if ( !this.system.formulas.attack.attr || !this.system.formulas.attack.skill) throw new Error('This Item does not have a formula to roll!');
 
-		const attack = this.system.formulas.attackFormula;
+		const attack = this.system.formulas.attack;
 		const bonus = attack.bonus && '+' + attack.bonus;
 		let attr = attack.attr;
 		let skill = attack.skill;
@@ -290,21 +289,47 @@ export class OrdemItem extends Item {
    * Rely upon the d20Roll logic for the core implementation
    */
 	async rollDamage(options={}) {
-		if ( !this.system.formulas.damageFormula.formula ) throw new Error('This Item does not have a formula to roll!');
+		if ( !this.system.formulas.damage.parts ) throw new Error('This Item does not have a formula to roll!');
 
-		const damage = this.system.formulas.damageFormula;
-		const bonus = damage.bonus && '+' + damage.bonus;
+		const prepareFormula = [];
+		const damageTypes = [];
 
+		// Damage Access
+		const damage = this.system.formulas.damage;
+
+		// Critical variable
 		const critical = options.critical || false;
-		const dice = damage.formula.split('d');
-		const rollform = ((critical.isCritical && options.lastId) || options.event.altKey) ? `${dice[0]*critical.multiplier}d${dice[1]}` : damage.formula;
-		let attr = damage.attr;
 
-		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
-			if (i == attr) attr = '+' + attrParent.value;
+		const split = damage.formula.split('d');
+		if ((critical.isCritical && options.lastId) || options.event.altKey) {
+			prepareFormula.push(`${split[0]*critical.multiplier}d${split[1]}`);
+		} else {
+			prepareFormula.push(damage.formula);
 		}
+
+		// Push the bonus
+		prepareFormula.push(damage.bonus);
+
+		// Get all the other formulas
+		for (const parts of damage.parts) {
+			prepareFormula.push(`(${parts[0]})`);
+			damageTypes.push(game.i18n.localize('ordemparanormal.damageTypeAbv.' + parts[1]));
+		}
+
+		// Verify the attributes
+		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
+			if (i == damage.parts.map(d => d[1])[0]) prepareFormula.push(attrParent.value);
+		}
+
+		// Combine all formulas
+		const formulas = prepareFormula.join('+');
+
+		// Combine all damage types
+		damageTypes.push(game.i18n.localize('ordemparanormal.damageTypeAbv.' + damage.type));
+		const types = damageTypes.join('+').replaceAll('+', ' + ');
+
 		const rollConfig = {
-			formula: rollform + attr + bonus,
+			formula: formulas,
 			data: this.getRollData(),
 			chatMessage: true
 		};
@@ -329,7 +354,7 @@ export class OrdemItem extends Item {
 		if ( rollConfig.chatMessage ) {
 		  roll.toMessage({
 				speaker: ChatMessage.getSpeaker({actor: this.actor}),
-				flavor: `Deu dano com ${this.name}`,
+				flavor: `Deu dano com ${this.name}. <br>(${types})`,
 				rollMode: game.settings.get('core', 'rollMode'),
 				// messageData: {'flags.ordemparanormal.roll': {type: 'other', itemId: this.id, itemUuid: this.uuid}}
 		  });
@@ -428,7 +453,7 @@ export class OrdemItem extends Item {
 			// const rollData = this.getRollData();
 
 			// // Invoke the roll and submit it to chat.
-			// const roll = new Roll(rollData.item.damageFormula, rollData);
+			// const roll = new Roll(rollData.item.damage, rollData);
 
 			// // If you need to store the value first, uncomment the next line.
 			// // let result = await roll.roll({async: true});
