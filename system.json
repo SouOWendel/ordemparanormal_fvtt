@@ -57,6 +57,7 @@
       "label": "Armamentos",
       "system": "ordemparanormal",
       "type": "Item",
+	  "path": "packs/armaments.db",
       "ownership": {
         "PLAYER": "OBSERVER"
       }
