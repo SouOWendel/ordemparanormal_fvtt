@@ -236,6 +236,13 @@
 		"piercingDamage": "Piercing Damage (P)",
 		"ballisticDamage": "Ballistic Damage (B)"
 	},
+
+	"ordemparanormal.damageTypeAbv": {
+		"cuttingDamage": "Corte",
+		"impactDamage": "Impacto",
+		"piercingDamage": "Perfurante",
+		"ballisticDamage": "Balístico"
+	},
 	
 	"ordemparanormal.powerTypeChoices": {
 		"class": "Poder de Classe",

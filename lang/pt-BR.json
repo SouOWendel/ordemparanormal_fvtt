@@ -237,6 +237,13 @@
 		"ballisticDamage": "Dano Balístico (B)"
 	},
 
+	"ordemparanormal.damageTypeAbv": {
+		"cuttingDamage": "Corte",
+		"impactDamage": "Impacto",
+		"piercingDamage": "Perfurante",
+		"ballisticDamage": "Balístico"
+	},
+
 	"ordemparanormal.powerTypeChoices": {
 		"class": "Poder de Classe",
 		"paranormal": "Poder Paranormal",
