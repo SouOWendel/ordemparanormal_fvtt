@@ -332,7 +332,6 @@
           "subRangeType": ""
         },
         "ammunitionType": "",
-        "damageType": "",
         "gripType": ""
       },
       "critical": "",
@@ -345,6 +344,10 @@
           "bonus": ""
         },
         "damage": {
+		  "formula": "1d4",
+		  "attr": "",
+		  "bonus": "",
+		  "type": "",
 		  "parts": []
         },
         "extraFormula": "1d4"
