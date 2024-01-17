@@ -70,17 +70,12 @@
       <h4>Detalhes de Combate</h4>
       <div class="grid grid-2col">
         <div class="resource">
-          <label class="resource-label">{{localize "ordemparanormal.damageType"}}</label>
-          <select name="system.types.damageType" data-dtype="String">
-            {{ selectOptions optionDamageType selected=system.types.damageType  localize=true blank="—" }}
-          </select>
-        </div>
-        <div class="resource">
           <label class="resource-label">{{localize "ordemparanormal.range"}}</label>
           <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" placeholder="Ex.: curto, médio, longo"/>
         </div>
-		<div class="item-sheet-space item-sheet-prop minor-size">
-			<input type="text" name="system.critical" value="{{system.critical}}" data-dtype="String" placeholder="Crítico"/>
+		<div class="resource">
+			<label class="resource-label">{{localize "ordemparanormal.critical"}}</label>
+			<input type="text" name="system.critical" value="{{system.critical}}" data-dtype="String" placeholder="Ex.: 20/x2"/>
 		</div>
       </div>
       <fieldset class="resource-type grid align-items-center">
@@ -105,16 +100,6 @@
         <fieldset class="resource-type">
           <legend>Formulas de Rolagem</legend>
         <h4 class="">Formula de Ataque</h4>
-        <!-- <li class="item item-sheet flexrow items-header">
-          <div class="item-attribute">Atributo</div>
-          <div class="item-skill">Perícia</div>
-          <div class="item-bonus">Bônus</div>
-          <div class="item-sheet-controls">
-            <a class="item-control item-create" title="Create item" data-type="generalEquipment">
-              <i class="fas fa-plus"></i> 
-            </a>
-          </div>
-        </li> -->
         <li class="item flexrow" data-item-id="{{item._id}}">
             <!-- TODO: função pendente de ataque -->
           <div class="item-sheet-select item-sheet-prop">
@@ -132,32 +117,52 @@
           <div class="item-sheet-space item-sheet-prop">
             <input type="text" name="system.formulas.attack.bonus" value="{{system.formulas.attack.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
           </div>
-          <!-- <div class="item-sheet-controls">
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div> -->
         </li>
 			<ol class="items-list">
-				<h4 class="item-info-title">
-					Formula de Dano <a class="damage-control add-damage"><i class="fas fa-plus"></i></a>
-				</h4>
+				<h4 class="item-info-title">Formula de Dano</h4>
+				<li class="damage-part item flexrow" data-item-id="{{item._id}}">
+					<div class="item-sheet-form item-sheet-prop">
+						<input type="text" name="system.formulas.damage.formula" value="{{system.formulas.damage.formula}}" data-dtype="String" placeholder="Dados"/>
+						<i class="fa-solid fa-plus"></i>
+					</div> 
+					<div class="item-sheet-form item-sheet-prop">
+						<select name="system.formulas.damage.attr" data-dtype="String">
+						{{ selectOptions attributes selected=system.formulas.damage.attr localize=true blank="—" }}
+						</select>
+						<i class="fa-solid fa-diamond"></i>
+					</div>
+					<!-- <div class="item-sheet-space item-sheet-prop item-damage-bonus">
+						<input type="text" name="system.formulas.damage.bonus" value="{{system.formulas.damage.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
+					</div> -->
+					<div class="item-sheet-form item-sheet-prop">
+						<select name="system.formulas.damage.type" data-dtype="String">
+						  {{ selectOptions optionDamageType selected=system.formulas.damage.type  localize=true blank="—" }}
+						</select>
+					</div>
+				</li>
 				{{#each system.formulas.damage.parts as |part i| }}
 				<li class="damage-part item flexrow" data-item-id="{{item._id}}" data-damage-part="{{i}}">
-					<div class="item-sheet-select item-sheet-prop">
+					<div class="ramification">
+						<div class="vertical"></div>
+						<div class="horizontal"></div>
+					</div>
+					<div class="flex4 item-sheet-form item-sheet-prop">
+						<!-- TODO: Criar função de ataques de multiplos ataques com hierarquias -->
+						<!-- <a class="damage-control promote-part"><i class="fas fa-chevron-left"></i></a> -->
+						<a class="damage-control delete-damage"><i class="fas fa-trash"></i></a>
 						<input type="text" name="system.formulas.damage.parts.{{i}}.0" value="{{lookup this "0"}}" data-dtype="String" placeholder="Dados" data-formula-editor/>
 						<i class="fa-solid fa-dice"></i>
 					</div> 
-					<div class="item-sheet-select item-sheet-prop">
+					<div class="flex2-5 item-sheet-form item-sheet-prop">
 						<select name="system.formulas.damage.parts.{{i}}.1" data-dtype="String">
-						{{ selectOptions ../attributes selected=(lookup this "1") localize=true blank="—" }}
+						  {{ selectOptions ../optionDamageType selected=(lookup this "1")  localize=true blank="—" }}
 						</select>
-						<i class="fa-solid fa-plus"></i>
 					</div>
-					<div class="item-sheet-space item-sheet-prop item-damage-bonus">
-						<input type="text" name="system.formulas.damage.parts.{{i}}.2" value="{{lookup this "2"}}" data-dtype="String" placeholder="Adicione um bônus"/>
-					</div>
-					<a class="damage-control delete-damage"><i class="fas fa-minus"></i></a>
 				</li>
 				{{/each}}
+				<div class="damage-box">
+					<a class="damage-control add-damage"><i class="fas fa-plus"></i> Adicione mais uma formula</a>
+				</div>
 			</ol>
 
         </fieldset>
