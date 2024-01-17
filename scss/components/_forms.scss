@@ -57,7 +57,11 @@
 
 .sheet-body {
   overflow-y: auto;
-  max-height: 398px !important;
+//   max-height: 398px !important;
+}
+
+.agent .sheet-body {
+	max-height: 398px !important;
 }
 
 .tab.skills,
