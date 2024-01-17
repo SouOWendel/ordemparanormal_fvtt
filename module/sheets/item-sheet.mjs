@@ -68,20 +68,19 @@ export class OrdemItemSheet extends ItemSheet {
 		});
 
 		// TODO: Fix the incompatibilities (Temporary)
-		console.log(itemData);
-		if (itemData.system.types.damageType) {
+		if (itemData.system.types?.damageType) {
 			itemData.system.formulas.damage.type = itemData.system.types.damageType;
 			delete itemData.system.types.damageType;
 		}
 		// TODO: Fix the incompatibilities (Temporary)
-		if (itemData.system.formulas.attackFormula) {
+		if (itemData.system.formulas?.attackFormula) {
 			itemData.system.formulas.damage.formula = itemData.system.formulas.attackFormula.formula;
 			itemData.system.formulas.damage.attr = itemData.system.formulas.attackFormula.attr;
 			itemData.system.formulas.damage.bonus = itemData.system.formulas.attackFormula.bonus;
 			delete itemData.system.formulas.attackFormula;
 		}
 		// TODO: Fix the incompatibilities (Temporary)
-		if (itemData.system.formulas.damageFormula) {
+		if (itemData.system.formulas?.damageFormula) {
 			itemData.system.formulas.damage.formula = itemData.system.formulas.damageFormula.formula;
 			itemData.system.formulas.damage.attr = itemData.system.formulas.damageFormula.attr;
 			itemData.system.formulas.damage.bonus = itemData.system.formulas.damageFormula.bonus;
@@ -129,7 +128,7 @@ export class OrdemItemSheet extends ItemSheet {
 		const formData = foundry.utils.expandObject(super._getSubmitData(updateData));
 
 		// Handle Damage array
-    	const damage = formData.system.formulas?.damage;
+    	const damage = formData.system?.formulas?.damage;
     	if ( damage ) damage.parts = Object.values(damage?.parts || {}).map(d => [d[0] || '', d[1] || '']);
 
 		// Return the flattened submission data
