@@ -68,11 +68,16 @@
     flex: 1;
   }
 
-  .flex0 { flex: 0; }
-  .flex1 { flex: 1; }
-  .flex2 { flex: 2; }
-  .flex3 { flex: 3; }
-  .flex4 { flex: 4; }
+  .flex0 { flex: 0 !important; }
+  .flex1 { flex: 1 !important; }
+  .flex15 { flex: 1.5 !important; }
+  .flex2 { flex: 2 !important; }
+  .flex2-5 { flex: 2.5 !important; }
+  .flex2-6 { flex: 2.6 !important; }
+  .flex2-7 { flex: 2.7 !important; }
+  .flex2-8 { flex: 2.8 !important; }
+  .flex3 { flex: 3 !important; }
+  .flex4 { flex: 4 !important; }
 }
 
 .flexcol {

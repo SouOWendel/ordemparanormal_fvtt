@@ -229,19 +229,34 @@
   flex: 1;
 }
 .flexrow .flex0 {
-  flex: 0;
+  flex: 0 !important;
 }
 .flexrow .flex1 {
-  flex: 1;
+  flex: 1 !important;
+}
+.flexrow .flex15 {
+  flex: 1.5 !important;
 }
 .flexrow .flex2 {
-  flex: 2;
+  flex: 2 !important;
+}
+.flexrow .flex2-5 {
+  flex: 2.5 !important;
+}
+.flexrow .flex2-6 {
+  flex: 2.6 !important;
+}
+.flexrow .flex2-7 {
+  flex: 2.7 !important;
+}
+.flexrow .flex2-8 {
+  flex: 2.8 !important;
 }
 .flexrow .flex3 {
-  flex: 3;
+  flex: 3 !important;
 }
 .flexrow .flex4 {
-  flex: 4;
+  flex: 4 !important;
 }
 
 .flexcol {
@@ -461,14 +476,18 @@
 .system-ordemparanormal .combat .resource-label {
   font-size: 13px;
 }
-.system-ordemparanormal .item-sheet-select {
+.system-ordemparanormal .item-sheet-form {
   display: flex;
   flex: 1 10px;
   padding: 0 3px;
+  margin: 2px 0px;
   align-items: center;
   flex-direction: row;
 }
-.system-ordemparanormal .item-sheet-select i {
+.system-ordemparanormal .item-sheet-form input, .system-ordemparanormal .item-sheet-form select {
+  width: 100%;
+}
+.system-ordemparanormal .item-sheet-form i {
   margin-left: 6px;
 }
 .system-ordemparanormal .item-sheet-space {
@@ -517,6 +536,50 @@
   border: 1px solid rgba(0, 0, 0, 0.2509803922);
   border-radius: 4px;
   padding: 10px;
+}
+.system-ordemparanormal .damage-box {
+  color: rgba(0, 0, 0, 0.4392156863);
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2509803922);
+}
+.system-ordemparanormal .damage-box a:hover {
+  color: #555;
+}
+.system-ordemparanormal .damage-control .fa-trash {
+  font-size: 12px;
+}
+.system-ordemparanormal .delete-damage, .system-ordemparanormal .promote-part {
+  margin-right: 15px;
+}
+.system-ordemparanormal .horizontal {
+  position: relative;
+  bottom: 15px;
+  padding-bottom: 1px;
+  margin-left: 24px;
+  margin-bottom: 0px;
+  box-shadow: 1px -1px 0 0.2px #7a7971 inset;
+  border: solid transparent;
+  border-width: 0 0 0px 0px;
+}
+.system-ordemparanormal .vertical {
+  position: relative;
+  height: 28px;
+  left: 24px;
+  width: 1px;
+  box-shadow: 1px -1px 0 0.2px #7a7971 inset;
+  border: solid transparent;
+  border-width: 0 0 0px 0px;
+}
+.system-ordemparanormal .damage-part a {
+  width: 10px;
+}
+.system-ordemparanormal .damage-part:last-of-type .vertical {
+  height: 14px !important;
+  opacity: 0;
+}
+.system-ordemparanormal .damage-part:last-of-type .horizontal {
+  height: 15px !important;
 }
 .system-ordemparanormal .items-header {
   height: 28px;
