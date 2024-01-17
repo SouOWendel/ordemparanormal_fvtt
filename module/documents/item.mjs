@@ -310,22 +310,22 @@ export class OrdemItem extends Item {
 		// Push the bonus
 		prepareFormula.push(damage.bonus);
 
-		// Get all the other formulas
-		for (const parts of damage.parts) {
-			prepareFormula.push(`(${parts[0]})`);
-			damageTypes.push(game.i18n.localize('ordemparanormal.damageTypeAbv.' + parts[1]));
-		}
-
 		// Verify the attributes
 		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
 			if (i == damage.parts.map(d => d[1])[0]) prepareFormula.push(attrParent.value);
 		}
 
-		// Combine all formulas
-		const formulas = prepareFormula.join('+');
-
-		// Combine all damage types
+		// Get the main type damage
 		damageTypes.push(game.i18n.localize('ordemparanormal.damageTypeAbv.' + damage.type));
+
+		// Get all the other formulas
+		for (const parts of damage.parts) {
+			prepareFormula.push(`(${parts[0] || 0})`);
+			damageTypes.push((parts[1]) ? game.i18n.localize('ordemparanormal.damageTypeAbv.' + parts[1]) : 'Indefinido');
+		}
+
+		// Combine all formulas and types
+		const formulas = prepareFormula.join('+');
 		const types = damageTypes.join('+').replaceAll('+', ' + ');
 
 		const rollConfig = {
