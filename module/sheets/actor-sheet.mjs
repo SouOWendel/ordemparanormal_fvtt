@@ -76,6 +76,7 @@ export class OrdemActorSheet extends ActorSheet {
 		// 	console.log(i);
 		// }
 		// console.log(context.effects);
+		// console.log(context.data.spaces);
 
 		return context;
 	}
@@ -140,6 +141,11 @@ export class OrdemActorSheet extends ActorSheet {
 		context.data.PV.max += context.data.PV.maxBonus;
 		context.data.PE.max += context.data.PE.maxBonus;
 		context.data.SAN.max += context.data.SAN.maxBonus;
+		context.data.attributes.str.value += context.data.attributes.str.bonus;
+		context.data.attributes.vit.value += context.data.attributes.vit.bonus;
+		context.data.attributes.dex.value += context.data.attributes.dex.bonus;
+		context.data.attributes.int.value += context.data.attributes.int.bonus;
+		context.data.attributes.pre.value += context.data.attributes.pre.bonus;
 
 		/**
 		 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
@@ -306,6 +312,11 @@ export class OrdemActorSheet extends ActorSheet {
 		// Populate the final values
 		spaces.value = weight.toNearest(0.1);
 		spaces.max = (FOR !== 0) ? FOR * 5 : 2;
+
+		// Plus bonus
+		spaces.value += spaces.bonus.value;
+		spaces.max += spaces.bonus.max;
+
 		spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
 
 		// Apply the debuffs
