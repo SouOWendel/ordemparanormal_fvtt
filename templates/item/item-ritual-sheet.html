@@ -18,32 +18,32 @@
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor content=system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="resource grid align-items-center">
         <label class="resource-label">{{localize "ordemparanormal.circle"}}</label>
-        <input type="number" name="data.circle" value="{{data.circle}}" data-dtype="Number"/>
+        <input type="number" name="system.circle" value="{{system.circle}}" data-dtype="Number"/>
 		<label class="resource-label">{{localize "ordemparanormal.execution"}}</label>
-		<select name="data.execution" data-dtype="String">
-			{{ selectOptions optionExecution selected=data.execution  localize=true blank="—" }}
+		<select name="system.execution" data-dtype="String">
+			{{ selectOptions optionExecution selected=system.execution  localize=true blank="—" }}
 		</select>
         <label class="resource-label">{{localize "ordemparanormal.range"}}</label>
-        <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
+        <input type="text" name="system.range" value="{{system.range}}" data-dtype="String"/>
         <label class="resource-label">{{localize "ordemparanormal.areaEffect"}}</label>
-        <input type="text" name="data.areaEffect" value="{{data.areaEffect}}" data-dtype="String"/>
+        <input type="text" name="system.areaEffect" value="{{system.areaEffect}}" data-dtype="String"/>
         <label class="resource-label">{{localize "ordemparanormal.duration"}}</label>
-        <input type="text" name="data.duration" value="{{data.duration}}" data-dtype="String"/>
+        <input type="text" name="system.duration" value="{{system.duration}}" data-dtype="String"/>
         <label class="resource-label">{{localize "ordemparanormal.resistance"}}</label>
-        <input type="text" name="data.resistance" value="{{data.resistance}}" data-dtype="String"/>
+        <input type="text" name="system.resistance" value="{{system.resistance}}" data-dtype="String"/>
       </div>
       <div class="resource grid grid-2col align-items-center">
         <label class="resource-label">{{localize "ordemparanormal.studentForm"}}</label>
-        <input type="checkbox" name="data.studentForm" {{checked data.studentForm}}>
+        <input type="checkbox" name="system.studentForm" {{checked system.studentForm}}>
         <label class="resource-label">{{localize "ordemparanormal.trueForm"}}</label>
-        <input type="checkbox" name="data.trueForm" {{checked data.trueForm}}>
+        <input type="checkbox" name="system.trueForm" {{checked system.trueForm}}>
       </div>
     </div>
 

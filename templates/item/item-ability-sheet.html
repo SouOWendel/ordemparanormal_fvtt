@@ -18,23 +18,23 @@
 
     {{!-- Description Tab --}}
     <div class="tab description" data-group="primary" data-tab="description">
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor content=system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="resource grid align-items-center">
         <label class="resource-label">{{localize "ordemparanormal.powerType"}}</label>
-        <select name="data.abilityType" data-dtype="String">
+        <select name="system.abilityType" data-dtype="String">
           {{
             selectOptions optionPowerType
-            selected=data.abilityType 
+            selected=system.abilityType 
             localize=true
             blank="—"
           }}
         </select>
         <label class="resource-label">{{localize "ordemparanormal.preRequisite"}}</label>
-        <input type="text" name="data.preRequisite" value="{{data.preRequisite}}" data-dtype="String"/>
+        <input type="text" name="system.preRequisite" value="{{system.preRequisite}}" data-dtype="String"/>
       </div>
     </div>
 
