@@ -8,6 +8,7 @@ const SYSTEM_NAME = 'ordemparanormal';
 // eslint-disable-next-line require-jsdoc
 export default async function displayMessages() {
 	const messages = await fetchMessage(`systems/${SYSTEM_NAME}/media/messages/messages.jsonc`);
+	// const messages = await fetchMessage('http://localhost:3000/');
 
 	messages.forEach((message, indice) => {
 		handleDisplay(message, indice, messages);
