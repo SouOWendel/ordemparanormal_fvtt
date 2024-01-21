@@ -37,7 +37,7 @@
     },
 	{
         "min-sys-version": "6.2.0",
-        "max-sys-version": "6.200.0",
+        "max-sys-version": "6.2.100",
         "type": "prompt",
         "display": "once",
         "title": "6.2.0 Release Notes",
@@ -45,7 +45,7 @@
     },
 	{
         "min-sys-version": "6.3.0",
-        "max-sys-version": "6.300.0",
+        "max-sys-version": "6.3.100",
         "type": "prompt",
         "display": "once",
         "title": "6.3.0 Release Notes",
