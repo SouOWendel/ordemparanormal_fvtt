@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.3.0...v6.3.1) (2024-01-21)
+
+
+### Bug Fixes
+
+* **update notes:** fix a bug: the system show two update notes in the same time ([0dd6fc5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0dd6fc5b2dfd71aed642ef5d761ffb09b86b6ad7))
+
 ## [6.3.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.2.1...v6.3.0) (2024-01-21)
 
 
