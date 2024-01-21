@@ -34,6 +34,8 @@ export class OrdemActor extends Actor {
 
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
+			// Calculate the modifier using d20 rules.
+			if (!skillsName.mod) skillsName.mod = '';
 
 			/**
 			 * Faz um loop de todos os atributos, depois disso, se o atributo
