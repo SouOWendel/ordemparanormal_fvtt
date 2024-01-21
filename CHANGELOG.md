@@ -1,5 +1,37 @@
 # Changelog
 
+## [6.3.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.2.1...v6.3.0) (2024-01-21)
+
+
+### Features
+
+* **class calculation:** fix the calculation, change the names and was been added the bonus calc ([f38a5b7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f38a5b7befdd0b5f6bdaa984348e4b41eeabc526))
+* **compendium:** completing the Armament Compedium ([f9021ff](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f9021ffd3248f1b3a3402ded88de0f22e4d45749))
+* **css/sass:** stylizing the multi damage rolls and added some flex classes ([ab5472f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ab5472fe659431008a9debc0647c023d4eb7404b))
+* **damage system/item:** added damage handler and damage type for attacks ([3a19d0f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3a19d0f150766c8f90b28e6eafd2f19b69bc6638))
+* **effects:** added `space.bonus.value` and `space.bonus.max` for use in effects ([d957d5e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d957d5e0701880fc7d856d282d8e98e17be1d4ed))
+* **item armament sheet:** removed the extra damageType field and some comments, added html for dmg ([8709c51](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8709c51b451f4392a6f3a04b9e0ea2afcf3dd5a5))
+* **item sheet:** increase the window size, fix template incompatibilities and change the dmg array ([2ef3456](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2ef345679284d5d0a061d155661e076a26a0a9c1))
+* **item sheet:** reformulation of the getData method, development of the multi damage system ([2313ca4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2313ca4f024e8c715dfe5d7dca43d6a21f994517))
+* **localization:** added some variables for execution of rituals ([afa63fd](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/afa63fd029b4143284e07d4141d5fc7e661bb0d7))
+* **localization:** added translates for damage type abbreviation ([dd8acda](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dd8acdafb7256f48e04af109bdce5edc5393d2b4))
+* **ritual item:** was been added the execution field for rituals ([233bcdb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/233bcdb347f7c4cee9acbbf8d8e0fe6abb53dca6))
+* **template:** `damageType` has been moved and the `damage` subkeys have been restored ([1e993c2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1e993c2f2b80cf96b22dcd56ca6df84452fcbf1d))
+* **template:** adaptation of the data structure to the new function of multiple types of damage ([f9e7b09](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f9e7b097f118e7b0269db2b711072ad41f98f4a7))
+* **update notes:** added the 6.3.0 update notes ([828d447](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/828d447f7ff3d2f01fafcfaf10d0c473bc912f5b))
+
+
+### Bug Fixes
+
+* **actor sheet:** a bug has been fixed in the relationship between pv, pe, san max and effects ([4729d73](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4729d73a9d91556ec965391bfe2af3840fe8692f))
+* **actor skill:** fixed a bug when adding effect to the null mod skill, it was recognized as string ([ddc691c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ddc691c1cb523cc754dd100c657c9164da4e7f82))
+* **actor skill:** fixed a bug when adding effects to the null mod skill, it was recognized as string ([2021596](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/20215964ab28c767819a79bbdbc61d97cca4c24d))
+* **item sheet:** fixed a bug with invalid data on items other than weapons ([20bbdb9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/20bbdb98c4c48e06443c0f0e779f1b9ef7c8e49d))
+* **item sheets:** fixed the path in data to `data` from `system` ([94a4583](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/94a4583cf82a65eecdd0af524e5c63801c4394ae))
+* **item:** fixed the incompatibility to armament with other items in data description ([6414c37](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6414c37aa8dac9fc779dad762ae7982ac9dccbbe))
+* **item:** fixed the order of the damage formula and damage types ([1c32d8d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1c32d8ddfd6118899ba8bc0a687a0aaf521154e5))
+* **layout bug:** fixed the max-height of agent sheet and item sheet ([ea64285](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ea64285233c0766a91656b8ed851a94fa39538ea))
+
 ## [6.2.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.2.0...v6.2.1) (2023-12-21)
 
 
