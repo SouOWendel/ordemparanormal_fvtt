@@ -24,7 +24,8 @@
         },
         "defense": {
           "value": 10,
-          "bonus": 0
+          "bonus": 0,
+		  "dodge": 0
         },
         "desloc": {
           "value": 9,
