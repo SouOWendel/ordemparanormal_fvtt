@@ -102,10 +102,6 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// DEFESA E ESQUIVA
 		context.data.defense.value += AGI;
-		console.log(typeof context.data.defense.dodge, context.data.defense.dodge);
-		console.log(typeof context.data.defense.value, context.data.defense.value);
-		console.log(typeof REFLEXES.value, REFLEXES.value);
-		console.log(typeof REFLEXES.mod, REFLEXES.mod);
 		context.data.defense.dodge = context.data.defense.value + REFLEXES.value + (REFLEXES.mod || 0);
 
 		// NEX

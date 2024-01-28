@@ -296,7 +296,6 @@ export class OrdemItem extends Item {
 
 		// Damage Access
 		const damage = this.system.formulas.damage;
-		console.log(damage);
 
 		// Critical variable
 		const critical = options.critical || false;
@@ -325,8 +324,6 @@ export class OrdemItem extends Item {
 		// Combine all formulas and types
 		const formulas = prepareFormula.join('+');
 		const types = damageTypes.join('+').replaceAll('+', ' + ');
-
-		console.log(prepareFormula);
 
 		const rollConfig = {
 			formula: formulas,

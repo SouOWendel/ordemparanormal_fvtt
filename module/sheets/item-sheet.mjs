@@ -68,24 +68,33 @@ export class OrdemItemSheet extends ItemSheet {
 		});
 
 		// TODO: Fix the incompatibilities (Temporary)
-		if (itemData.system.types?.damageType) {
-			itemData.system.formulas.damage.type = itemData.system.types.damageType;
-			delete itemData.system.types.damageType;
-		}
-		// TODO: Fix the incompatibilities (Temporary)
-		if (itemData.system.formulas?.attackFormula) {
-			itemData.system.formulas.damage.formula = itemData.system.formulas.attackFormula.formula;
-			itemData.system.formulas.damage.attr = itemData.system.formulas.attackFormula.attr;
-			itemData.system.formulas.damage.bonus = itemData.system.formulas.attackFormula.bonus;
-			delete itemData.system.formulas.attackFormula;
-		}
-		// TODO: Fix the incompatibilities (Temporary)
-		if (itemData.system.formulas?.damageFormula) {
-			itemData.system.formulas.damage.formula = itemData.system.formulas.damageFormula.formula;
-			itemData.system.formulas.damage.attr = itemData.system.formulas.damageFormula.attr;
-			itemData.system.formulas.damage.bonus = itemData.system.formulas.damageFormula.bonus;
-			delete itemData.system.formulas.damageFormula;
-		}
+		// if (itemData.system.types?.damageType) {
+		// 	itemData.system.formulas.damage.type = itemData.system.types.damageType;
+		// 	delete itemData.system.types.damageType;
+		// }
+		// // TODO: Fix the incompatibilities (Temporary)
+		// if (itemData.system.formulas?.attackFormula) {
+		// 	itemData.system.formulas.damage.formula = itemData.system.formulas.attackFormula.formula;
+		// 	itemData.system.formulas.damage.attr = itemData.system.formulas.attackFormula.attr;
+		// 	itemData.system.formulas.damage.bonus = itemData.system.formulas.attackFormula.bonus;
+		// 	delete itemData.system.formulas.attackFormula;
+		// }
+		// // TODO: Fix the incompatibilities (Temporary)
+		// if (itemData.system.formulas?.damageFormula) {
+		// 	itemData.system.formulas.damage.formula = itemData.system.formulas.damageFormula.formula;
+		// 	itemData.system.formulas.damage.attr = itemData.system.formulas.damageFormula.attr;
+		// 	itemData.system.formulas.damage.bonus = itemData.system.formulas.damageFormula.bonus;
+		// 	delete itemData.system.formulas.damageFormula;
+		// }
+
+		// console.log(itemData);
+		// console.log(source);
+		// console.log(Actor);
+		// console.log(Item);
+		// game.actors.map(a => a.items.filter(b => (b.type == 'armament') && console.log(b.name, b.system.formulas)));
+		// await Item.updateDocuments(game.actors.map(a => a.toObject()), {diff: false, recursive: false});
+		// await Item.updateDocuments(game.actors.map(a => a.toObject()), {diff: false, recursive: false});
+		// console.log(game.actors);
 
 		return context;
 	}
