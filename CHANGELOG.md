@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.3.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.3.1...v6.3.2) (2024-01-28)
+
+
+### Bug Fixes
+
+* **actor-sheet:** fixed the reflexes calc, the skills mod is undefined and resulting in NaN var ([4c5639a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4c5639a7c8bf4d6ba241e121425fb8c8b6cff517))
+* **data migrate:** migrate portuguese class names to english class names ([7837850](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7837850107e6b148d83b0685f81115c013d751be))
+* **item roll:** fixed a bug where there was no attribute sum in damage and removed old bonus field ([306702d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/306702d3825d4555da29c5766d7097ce995282fa))
+
 ## [6.3.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.3.0...v6.3.1) (2024-01-21)
 
 
