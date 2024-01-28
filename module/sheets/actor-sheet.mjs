@@ -114,11 +114,6 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// DEFININDO STATUS CONFORME A CLASSE
 
-		// Resolvendo incompatibilidade com classes (será retirado futuramente)
-		if (context.data.class == 'Combatente') context.data.class == 'fighter';
-		else if (context.data.class == 'Especialista') context.data.class == 'specialist';
-		else if (context.data.class == 'Ocultista') context.data.class == 'occultist';
-
 		if (context.data.class == 'fighter') {
 			context.data.PV.max = (20 + VIG) + ((nexIf) && nexAdjust * (4 + VIG));
 			context.data.PE.max = (2 + PRE) + ((nexIf) && nexAdjust * (2 + PRE));
