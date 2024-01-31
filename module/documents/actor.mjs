@@ -31,11 +31,11 @@ export class OrdemActor extends Actor {
 
 		// Make modifications to data here. For example:
 		const data = actorData.data;
-
+		
 		// TODO: Update portuguese class name for english class name (6.3.1)
-		if (context.data.class == 'Combatente') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'fighter'}} ]);
-		if (context.data.class == 'Especialista') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'specialist'}} ]);
-		if (context.data.class == 'Ocultista') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'occultist'}} ]);
+		if (data?.class == 'Combatente') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'fighter'}} ]);
+		if (data?.class == 'Especialista') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'specialist'}} ]);
+		if (data?.class == 'Ocultista') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'occultist'}} ]);
 
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
