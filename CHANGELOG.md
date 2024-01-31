@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.3.2...v6.3.3) (2024-01-31)
+
+
+### Bug Fixes
+
+* **actor skill roll:** fixed a bug where skills were always rolled with 1 dice ([1b8ff16](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1b8ff16968ddcb737f184bf52b77444e9ee6b8fd))
+
 ## [6.3.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.3.1...v6.3.2) (2024-01-28)
 
 
