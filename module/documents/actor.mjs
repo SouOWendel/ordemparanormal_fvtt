@@ -17,7 +17,7 @@ export class OrdemActor extends Actor {
 	prepareBaseData() {
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
-		const actorData = this.data;
+		const actorData = this;
 
 		this._prepareBaseDataAgent(actorData);
 
@@ -27,30 +27,31 @@ export class OrdemActor extends Actor {
 	 * 
 	 */
 	async _prepareBaseDataAgent(actorData) {
-		if (actorData.type !== 'agent') return;
 
-		// Make modifications to data here. For example:
-		const data = actorData.data;
+		// System access
+		const system = actorData.system;
+
+		if (actorData.type !== 'agent') return;
 		
 		// TODO: Update portuguese class name for english class name (6.3.1)
-		if (data?.class == 'Combatente') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'fighter'}} ]);
-		if (data?.class == 'Especialista') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'specialist'}} ]);
-		if (data?.class == 'Ocultista') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'occultist'}} ]);
+		if (system?.class == 'Combatente') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'fighter'}} ]);
+		if (system?.class == 'Especialista') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'specialist'}} ]);
+		if (system?.class == 'Ocultista') await Actor.updateDocuments([{_id: actorData.actor._id, system: {class: 'occultist'}} ]);
 
 		// Loop through ability scores, and add their modifiers to our sheet output.
-		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
+		for (const [keySkill, skillsName] of Object.entries(system.skills)) {
 
 			/**
 			 * Faz um loop de todos os atributos, depois disso, se o atributo
 			 * necessário para a perícia for o mesmo que a mesma perícia em que o loop
 			 * esta no momento, este valor é atualizado para ser utilizado nas rolagens.
 			 */
-			for (const [keyAttr, attribute] of Object.entries(data.attributes)) {
+			for (const [keyAttr, attribute] of Object.entries(system.attributes)) {
 				// console.log('keyAttr is ' + keyAttr);
 				// console.log('skillsName.attr[0] is ' + skillsName.attr[0]);
 				if (skillsName.attr[0] == keyAttr) {
 					// console.log('attribute.value ' + attribute.value + ' data.skills[keySkill].attr[1] ' + data.skills[keySkill].attr[1]);
-					data.skills[keySkill].attr[1] = attribute.value;
+					system.skills[keySkill].attr[1] = attribute.value;
 				}
 			}
 		}
@@ -66,9 +67,8 @@ export class OrdemActor extends Actor {
 	 * is queried and has a roll executed directly from it).
 	 */
 	prepareDerivedData() {
-		const actorData = this.data;
-		// eslint-disable-next-line no-unused-vars
-		const data = actorData.data;
+		const actorData = this;
+
 		// eslint-disable-next-line no-unused-vars
 		const flags = actorData.flags.ordemparanormal || {};
 
@@ -83,11 +83,8 @@ export class OrdemActor extends Actor {
 	_prepareAgentData(actorData) {
 		if (actorData.type !== 'agent') return;
 
-		// Make modifications to data here. For example:
-		const data = actorData.data;
-
 		// Loop through ability scores, and add their modifiers to our sheet output.
-		for (const [keySkill, skillsName] of Object.entries(data.skills)) {
+		for (const [keySkill, skillsName] of Object.entries(actorData.system.skills)) {
 			// Calculate the modifier using d20 rules.
 			// if (skillsName.mod) skillsName.mod = 0;
 			if (skillsName.degree.label == 'trained') skillsName.value = 5;
@@ -103,49 +100,51 @@ export class OrdemActor extends Actor {
 	 * Override getRollData() that's supplied to rolls.
 	 */
 	getRollData() {
-		const data = super.getRollData();
+		const system = super.getRollData();
 
 		// Prepare character roll data.
-		this._getAgentRollData(data);
+		this._getAgentRollData(system);
 
-		return data;
+		return system;
 	}
 
 	/**
 	 * Preparação do dados dos agentes.
 	 */
-	async _getAgentRollData(data) {
-		if (this.data.type !== 'agent') return;
+	async _getAgentRollData(system) {
+		if (this.system.type !== 'agent') return;
 		let skillUpper;
+
+		console.log(system);
 
 		// Copy the skills scores to the top level, so that rolls can use
 		// formulas like `@iniciativa.value + 4`.
 		// TODO: criar acesso rapido de variavel para outras linguagens
-		if (data.skills) {
-			for (const [k, v] of Object.entries(data.skills)) {
-				data[k] = foundry.utils.deepClone(v);
+		if (system.skills) {
+			for (const [k, v] of Object.entries(system.skills)) {
+				system[k] = foundry.utils.deepClone(v);
 
 				skillUpper = k.charAt(0).toUpperCase() + k.slice(1);
-				data[game.i18n.localize('ordemparanormal.skill' + skillUpper).toLowerCase()] = foundry.utils.deepClone(v);
+				system[game.i18n.localize('ordemparanormal.skill' + skillUpper).toLowerCase()] = foundry.utils.deepClone(v);
 			}
 		}
 
 		// Copy the attributes to the top level, so that rolls can use
 		// formulas like `@dex.value`.
-		if(data.attributes) {
-			for (const [k, v] of Object.entries(data.attributes)) {
-				data[k] = foundry.utils.deepClone(v);
+		if(system.attributes) {
+			for (const [k, v] of Object.entries(system.attributes)) {
+				system[k] = foundry.utils.deepClone(v);
 			}
 		}
 
-		if(data.attributes && data.skills) {
-			data.rollInitiative = ((data.attributes.dex.value == 0) ? 2 : data.attributes.dex.value) + 'd20' +
-			 ((data.attributes.dex.value == 0) ? 'kl' : 'kh') + '+' + data.skills.initiative.value;
+		if(system.attributes && system.skills) {
+			system.rollInitiative = ((system.attributes.dex.value == 0) ? 2 : system.attributes.dex.value) + 'd20' +
+			 ((system.attributes.dex.value == 0) ? 'kl' : 'kh') + '+' + system.skills.initiative.value;
 		}
 
 		// Add level for easier access, or fall back to 0.
-		if (data.NEX) {
-			data.nex = data.NEX.value ?? 0;
+		if (system.NEX) {
+			system.nex = system.NEX.value ?? 0;
 		}
 	}
 }
