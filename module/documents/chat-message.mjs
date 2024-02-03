@@ -61,8 +61,8 @@ export function highlightCriticalSuccessFailure(message, html, data) {
 	// const actor = whoIsActorOwner(data);
   
 	// Highlight successes and failures
-	if ( itemMessageFlag.isCritical ) html.find('.dice-total').addClass('critical').append('<small>(Critical)</small>');
-	else if ( itemMessageFlag.isFumble ) html.find('.dice-total').addClass('fumble');
+	if ( itemMessageFlag?.isCritical ) html.find('.dice-total').addClass('critical').append('<small>(Critical)</small>');
+	else if ( itemMessageFlag?.isFumble ) html.find('.dice-total').addClass('fumble');
 	else if ( d.options.target ) {
 	  if ( itemMessageFlag.total >= d.options.target ) html.find('.dice-total').addClass('success');
 	  else html.find('.dice-total').addClass('failure');
