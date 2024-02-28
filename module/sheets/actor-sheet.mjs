@@ -42,7 +42,7 @@ export class OrdemActorSheet extends ActorSheet {
 		// sheets are the actor object, the data object, whether or not it's
 		// editable, the items array, and the effects array.
 		const context = super.getData();
-	
+
 		// Use a safe clone of the actor data for further operations.
 		const actorData = this.actor.data.toObject(false);
 
@@ -89,7 +89,6 @@ export class OrdemActorSheet extends ActorSheet {
 	 * @return {undefined}
 	 */
 	_prepareAgentData(context) {
-
 		// Acesso Rápido
 		const NEX = context.data.NEX.value;
 		const AGI = context.data.attributes.dex.value;
@@ -102,11 +101,12 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// DEFESA E ESQUIVA
 		context.data.defense.value += AGI;
-		context.data.defense.dodge = context.data.defense.value + REFLEXES.value + (REFLEXES.mod || 0);
+		context.data.defense.dodge =
+			context.data.defense.value + REFLEXES.value + (REFLEXES.mod || 0);
 
 		// NEX
-		const calcNEX = (NEX < 99) ? Math.floor(NEX / 5) : 20;
-		const nexAdjust = calcNEX-1; 
+		const calcNEX = NEX < 99 ? Math.floor(NEX / 5) : 20;
+		const nexAdjust = calcNEX - 1;
 		const nexIf = calcNEX > 1;
 
 		// PE / RODADA
@@ -115,17 +115,17 @@ export class OrdemActorSheet extends ActorSheet {
 		// DEFININDO STATUS CONFORME A CLASSE
 
 		if (context.data.class == 'fighter') {
-			context.data.PV.max = (20 + VIG) + ((nexIf) && nexAdjust * (4 + VIG));
-			context.data.PE.max = (2 + PRE) + ((nexIf) && nexAdjust * (2 + PRE));
-			context.data.SAN.max = (12) + ((nexIf) && nexAdjust * 3);
+			context.data.PV.max = 20 + VIG + (nexIf && nexAdjust * (4 + VIG));
+			context.data.PE.max = 2 + PRE + (nexIf && nexAdjust * (2 + PRE));
+			context.data.SAN.max = 12 + (nexIf && nexAdjust * 3);
 		} else if (context.data.class == 'specialist') {
-			context.data.PV.max = (16 + VIG) + ((nexIf) && nexAdjust * (3 + VIG));
-			context.data.PE.max = (3 + PRE) + ((nexIf) && nexAdjust * (3 + PRE));
-			context.data.SAN.max = (16) + ((nexIf) && nexAdjust * 4);
+			context.data.PV.max = 16 + VIG + (nexIf && nexAdjust * (3 + VIG));
+			context.data.PE.max = 3 + PRE + (nexIf && nexAdjust * (3 + PRE));
+			context.data.SAN.max = 16 + (nexIf && nexAdjust * 4);
 		} else if (context.data.class == 'occultist') {
-			context.data.PV.max = (12 + VIG) + ((nexIf) && nexAdjust * (2 + VIG));
-			context.data.PE.max = (4 + PRE) + ((nexIf) && nexAdjust * (4 + PRE));
-			context.data.SAN.max = (20) + ((nexIf) && nexAdjust * 5);
+			context.data.PV.max = 12 + VIG + (nexIf && nexAdjust * (2 + VIG));
+			context.data.PE.max = 4 + PRE + (nexIf && nexAdjust * (4 + PRE));
+			context.data.SAN.max = 20 + (nexIf && nexAdjust * 5);
 		} else {
 			context.data.PV.max = context.data.PV.max || 0;
 			context.data.PE.max = context.data.PE.max || 0;
@@ -144,36 +144,25 @@ export class OrdemActorSheet extends ActorSheet {
 
 		/**
 		 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
-		 * depois disso, salva o valor nas informações 
-		 * */ 
+		 * depois disso, salva o valor nas informações
+		 * */
 		for (const [keySkill, skillsName] of Object.entries(context.data.skills)) {
-
 			// Definindo constantes para acesso simplificado.
-			const carga = skillsName.conditions.carga;
-			const trained = skillsName.conditions.trained;
+			const overLoad = skillsName.conditions.load;
+			const needTraining = skillsName.conditions.trained;
 
 			// Formando o nome com base nas condições de carga e treino da perícia.
 			skillsName.label =
 				game.i18n.localize(CONFIG.ordemparanormal.skills[keySkill]) +
-				((carga) ? '+' : (trained) ? '*' : '') ?? k;
+					(overLoad ? '+' : needTraining ? '*' : '') ?? k;
 
-			/** FORMULA DE ROLAGEM
-			 * Criando o que vem antes e depois do D20 das perícias.
-			 * beforeD20Formula: verifica se o atributo da perícia é 0 ou maior do que zero.
-			 * 	Se (perícia) = 0: dois dados e pegue o menor valor;
-			 * 	Se (perícia) > 0: simplemente atribua o valor.
-			 * afterD20Formula: verifica se é preciso pegar o menor valor ou o maior valor das rolagens
-			 * além disso, atribui a soma do resultado final.
-			 * 	Se (perícia) = 0: pegue o MENOR valor como resultado;
-			 * 	Se (perícia) > 0: pegue o MAIOR valor como resultado.
-			 * */  
-			const beforeD20Formula = 
-				((skillsName.attr[1]) ? skillsName.attr[1] : 2);
+			// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
+			const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
 
-			const afterD20Formula = 
-				((skillsName.attr[1] != 0) ? 'kh' : 'kl') +
-				((skillsName.value != 0) ? '+' + skillsName.value : '') +
-				((skillsName.mod) ? '+' + skillsName.mod : '');
+			const afterD20Formula =
+				(skillsName.attr[1] != 0 ? 'kh' : 'kl') +
+				(skillsName.value != 0 ? '+' + skillsName.value : '') +
+				(skillsName.mod ? '+' + skillsName.mod : '');
 
 			skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
 		}
@@ -199,27 +188,27 @@ export class OrdemActorSheet extends ActorSheet {
 				1: [],
 				2: [],
 				3: [],
-				4: [],	
+				4: [],
 			},
-			invalid: []
+			invalid: [],
 		};
 		const abilities = {
 			valid: {
 				1: [],
 				2: [],
-				3: [],	
+				3: [],
 			},
-			invalid: []
+			invalid: [],
 		};
 
 		// const invalid = [];
-		
+
 		// Iterate through items, allocating to containers
 		for (const [index, i] of context.items.entries()) {
 			i.img = i.img || DEFAULT_TOKEN;
 
 			// Creating the data to use an item
-			i.system.using = (!i.system.using) ? [true, 'fas'] : i.system.using;
+			i.system.using = !i.system.using ? [true, 'fas'] : i.system.using;
 
 			// Append to protections.
 			if (i.type === 'protection') {
@@ -250,7 +239,8 @@ export class OrdemActorSheet extends ActorSheet {
 			else if (i.type === 'ability') {
 				if (i.system.abilityType == 'ability') abilities.valid[1].push(i);
 				else if (i.system.abilityType == 'class') abilities.valid[2].push(i);
-				else if (i.system.abilityType == 'paranormal') abilities.valid[3].push(i);
+				else if (i.system.abilityType == 'paranormal')
+					abilities.valid[3].push(i);
 				else if (!i.system.abilityType) abilities.invalid.push(i);
 			}
 		}
@@ -274,7 +264,6 @@ export class OrdemActorSheet extends ActorSheet {
 	 * @return {undefined}
 	 */
 	_prepareItemsDerivedData(context) {
-
 		const items = context.items;
 		for (const p of context.protection) {
 			if (typeof p.system.defense == 'number' && p.system.using.state == true) {
@@ -291,22 +280,22 @@ export class OrdemActorSheet extends ActorSheet {
 	 * @return {undefined}
 	 */
 	_prepareActorSpaces(context) {
-		const spaces = context.data.spaces ??= {};
+		const spaces = (context.data.spaces ??= {});
 		const FOR = context.data.attributes.str.value || 0;
-		spaces.over, spaces.pctMax = 0;
+		spaces.over, (spaces.pctMax = 0);
 
 		// Get the total weight from items
 		const physicalItems = ['armament', 'generalEquipment', 'protection'];
 		const weight = context.items.reduce((weight, i) => {
-		  if ( !physicalItems.includes(i.type) ) return weight;
-		  const q = i.system.quantity || 0;
-		  const w = i.system.weight || 0;
-		  return weight + (q * w);
+			if (!physicalItems.includes(i.type)) return weight;
+			const q = i.system.quantity || 0;
+			const w = i.system.weight || 0;
+			return weight + q * w;
 		}, 0);
 
 		// Populate the final values
 		spaces.value = weight.toNearest(0.1);
-		spaces.max = (FOR !== 0) ? FOR * 5 : 2;
+		spaces.max = FOR !== 0 ? FOR * 5 : 2;
 
 		// Plus bonus
 		spaces.value += spaces.bonus.value;
@@ -321,7 +310,8 @@ export class OrdemActorSheet extends ActorSheet {
 			context.data.defense.value += -5;
 			spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
 		}
-		if (spaces.value > (spaces.max * 2)) ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
+		if (spaces.value > spaces.max * 2)
+			ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
 	}
 
 	/* -------------------------------------------- */
@@ -359,9 +349,9 @@ export class OrdemActorSheet extends ActorSheet {
 		});
 
 		// Active Effect management
-		html.find('.effect-control').click((ev) =>
-			onManageActiveEffect(ev, this.actor),
-		);
+		html
+			.find('.effect-control')
+			.click((ev) => onManageActiveEffect(ev, this.actor));
 
 		// Rollable abilities.
 		html.find('.rollable').click(this._onRoll.bind(this));
@@ -390,7 +380,10 @@ export class OrdemActorSheet extends ActorSheet {
 		// Grab any data associated with this control.
 		const data = duplicate(header.dataset);
 		// Initialize a default name.
-		const name = game.i18n.localize('ordemparanormal.newItem') + ' ' + game.i18n.localize('TYPES.Item.' + type);
+		const name =
+			game.i18n.localize('ordemparanormal.newItem') +
+			' ' +
+			game.i18n.localize('TYPES.Item.' + type);
 		// Prepare the item object.
 		const itemData = {
 			name: name,
@@ -417,7 +410,8 @@ export class OrdemActorSheet extends ActorSheet {
 		const itemId = element.closest('.item').dataset.itemId;
 		const item = this.actor.items.get(itemId);
 
-		if (item.system.description) ChatMessage.create({ content: item.system.description});
+		if (item.system.description)
+			ChatMessage.create({ content: item.system.description });
 	}
 
 	/**
@@ -431,15 +425,14 @@ export class OrdemActorSheet extends ActorSheet {
 		const dataset = event.currentTarget.dataset; // Dataset do elemento pai
 
 		const itemId = event.currentTarget.closest('.item').dataset.itemId;
-    	const item = this.actor.items.get(itemId);
+		const item = this.actor.items.get(itemId);
 
 		if (!item.system.using || item.system.using.state == false) {
 			console.log(`OP FVTT | Definindo ${item.name} como ativado.`);
-			return item.update({'system.using': {'state': true, 'class': 'fas'} });
-		}
-		else { 
+			return item.update({ 'system.using': { state: true, class: 'fas' } });
+		} else {
 			console.log(`OP FVTT | Definindo ${item.name} como desativado.`);
-			return item.update({'system.using': {'state': false, 'class': 'far'} });
+			return item.update({ 'system.using': { state: false, class: 'far' } });
 		}
 	}
 
