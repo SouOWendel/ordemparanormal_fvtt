@@ -175,6 +175,7 @@
 	"ordemparanormal.category": "Categoria",
 	"ordemparanormal.preRequisite": "Pré-requisito",
 	"ordemparanormal.range": "Alcance",
+	"ordemparanormal.target": "Alvo",
 	"ordemparanormal.areaEffect": "Efeito de Área",
 	"ordemparanormal.resistance": "Resistência",
 	"ordemparanormal.studentForm": "Forma Discente",
@@ -255,5 +256,54 @@
 	"ordemparanormal.agile": "Ágil",
 	"ordemparanormal.automatic": "Automática",
 	"ordemparanormal.adaptableGrip": "Empunhadura Adaptável",
-	"ordemparanormal.pistolBlow": "Coronhada"
+	"ordemparanormal.pistolBlow": "Coronhada",
+
+	"ordemparanormal.rangeChoices": {
+		"personal": "Personal",
+		"touch": "Touch",
+		"short": "Short",
+		"medium": "Medium",
+		"long": "Long",
+		"extreme": "Extreme",
+		"unlimited": "Unlimited"
+	},
+
+	"ordemparanormal.targetChoices": {
+		"people": "People",
+		"creatures": "Creatures",
+		"animals": "Animals",
+		"weapons": "Weapons",
+		"equipment": "Equipments",
+		"area": "Area"
+	},
+
+	"ordemparanormal.areaChoices": {
+		"cone": "Cone",
+		"cube": "Cube",
+		"sphere": "Sphere",
+		"line": "Line"
+	},
+
+	"ordemparanormal.durationChoices": {
+		"instantaneous": "Instantaneous",
+		"scene": "Scene",
+		"sustained": "Sustained",
+		"setDuration": "SetDuration",
+		"permanent": "Permanent"
+	},
+
+	"ordemparanormal.resistanceChoices": {
+		"nullifies": "Nullifies",
+		"discredits": "Discredits",
+		"partial": "Partial",
+		"reducesByHalf": "Reduces By Half"
+	},
+
+	"ordemparanormal.elementChoices": {
+		"blood": "Blood",
+		"death": "Death",
+		"knowledge": "Knowledge",
+		"energy": "Energy",
+		"fear": "Fear"
+	}
 }

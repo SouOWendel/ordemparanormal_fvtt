@@ -175,6 +175,7 @@
 	"ordemparanormal.category": "Categoria",
 	"ordemparanormal.preRequisite": "Pré-requisito",
 	"ordemparanormal.range": "Alcance",
+	"ordemparanormal.target": "Alvo",
 	"ordemparanormal.areaEffect": "Efeito de Área",
 	"ordemparanormal.resistance": "Resistência",
 	"ordemparanormal.studentForm": "Forma Discente",
@@ -190,6 +191,7 @@
 	"ordemparanormal.subtypeWeapon": "Subtipo de Arma",
 	"ordemparanormal.powerType": "Tipo de Poder",
 	"ordemparanormal.execution": "Execução",
+	"ordemparanormal.element": "Elemento",
 
 	"ordemparanormal.executionChoices": {
 		"free": "Livre",
@@ -255,5 +257,54 @@
 	"ordemparanormal.agile": "Ágil",
 	"ordemparanormal.automatic": "Automática",
 	"ordemparanormal.adaptableGrip": "Empunhadura Adaptável",
-	"ordemparanormal.pistolBlow": "Coronhada"
+	"ordemparanormal.pistolBlow": "Coronhada",
+
+	"ordemparanormal.rangeChoices": {
+		"personal": "Pessoal",
+		"touch": "Toque",
+		"short": "Curto",
+		"medium": "Médio",
+		"long": "Longo",
+		"extreme": "Extremo",
+		"unlimited": "Ilimitado"
+	},
+
+	"ordemparanormal.targetChoices": {
+		"people": "Pessoas",
+		"creatures": "Criaturas",
+		"animals": "Animais",
+		"weapons": "Armas",
+		"equipment": "Equipamentos",
+		"area": "Área"
+	},
+
+	"ordemparanormal.areaChoices": {
+		"cone": "Cone",
+		"cube": "Cubo",
+		"sphere": "Esfera",
+		"line": "Linha"
+	},
+
+	"ordemparanormal.durationChoices": {
+		"instantaneous": "Instantânea",
+		"scene": "Cena",
+		"sustained": "Sustentado",
+		"setDuration": "Duração definida",
+		"permanent": "Permanente"
+	},
+
+	"ordemparanormal.resistanceChoices": {
+		"nullifies": "Anula",
+		"discredits": "Disacredita",
+		"partial": "Parcial",
+		"reducesByHalf": "Reduz à metade"
+	},
+
+	"ordemparanormal.elementChoices": {
+		"blood": "Sangue",
+		"death": "Morte",
+		"knowledge": "Conhecimento",
+		"energy": "Energia",
+		"fear": "Medo"
+	}
 }
