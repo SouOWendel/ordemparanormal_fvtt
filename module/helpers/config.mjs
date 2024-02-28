@@ -235,9 +235,90 @@ ordemparanormal.categories = { '0': '0', '1': 'I', '2': 'II', '3': 'III', '4': '
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
+ordemparanormal.ritualDegree = { '5': 'Outro', '1': '1', '2': '2', '3': '3', '4': '4' };
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
 ordemparanormal.dropdownExecution = {
 	'free': 'ordemparanormal.executionChoices.free',
 	'default': 'ordemparanormal.executionChoices.default',
 	'complete': 'ordemparanormal.executionChoices.complete',
 	'reaction': 'ordemparanormal.executionChoices.reaction'
+};
+
+
+// TODO: Cogitar mudar os valores para números por conta dos nomes em inglês talvez estarem incorretos no futuro.
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.dropdownRange = {
+	'personal': 'ordemparanormal.rangeChoices.personal',
+	'touch': 'ordemparanormal.rangeChoices.touch',
+	'short': 'ordemparanormal.rangeChoices.short',
+	'medium': 'ordemparanormal.rangeChoices.medium',
+	'long': 'ordemparanormal.rangeChoices.long',
+	'extreme': 'ordemparanormal.rangeChoices.extreme',
+	'unlimited': 'ordemparanormal.rangeChoices.unlimited'
+};
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.dropdownTarget = {
+	'people': 'ordemparanormal.targetChoices.people',
+	'creatures': 'ordemparanormal.targetChoices.creatures',
+	'animals': 'ordemparanormal.targetChoices.animals',
+	'weapons': 'ordemparanormal.targetChoices.weapons',
+	'equipment': 'ordemparanormal.targetChoices.equipment',
+	'area': 'ordemparanormal.targetChoices.area'
+};
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.dropdownArea = {
+	'cone': 'ordemparanormal.areaChoices.cone',
+	'cube': 'ordemparanormal.areaChoices.cube',
+	'sphere': 'ordemparanormal.areaChoices.sphere',
+	'line': 'ordemparanormal.areaChoices.line'
+};
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.dropdownDuration = {
+	'instantaneous': 'ordemparanormal.durationChoices.instantaneous',
+	'scene': 'ordemparanormal.durationChoices.scene',
+	'sustained': 'ordemparanormal.durationChoices.sustained',
+	'setDuration': 'ordemparanormal.durationChoices.setDuration',
+	'permanent': 'ordemparanormal.durationChoices.permanent',
+};
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.dropdownResistance = {
+	'nullifies': 'ordemparanormal.resistanceChoices.nullifies',
+	'discredits': 'ordemparanormal.resistanceChoices.discredits',
+	'partial': 'ordemparanormal.resistanceChoices.partial',
+	'reducesByHalf': 'ordemparanormal.resistanceChoices.reducesByHalf'
+};
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+ordemparanormal.dropdownElement = {
+	'blood': 'ordemparanormal.elementChoices.blood',
+	'death': 'ordemparanormal.elementChoices.death',
+	'knowledge': 'ordemparanormal.elementChoices.knowledge',
+	'energy': 'ordemparanormal.elementChoices.energy',
+	'fear': 'ordemparanormal.elementChoices.fear'
 };
