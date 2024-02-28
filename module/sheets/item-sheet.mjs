@@ -55,6 +55,12 @@ export class OrdemItemSheet extends ItemSheet {
 			optionProficiency: CONFIG.ordemparanormal.dropdownProficiency,
 			optionDamageType: CONFIG.ordemparanormal.dropdownDamageType,
 			optionPowerType: CONFIG.ordemparanormal.dropdownPowerType,
+			optionRange: CONFIG.ordemparanormal.dropdownRange,
+			optionTarget: CONFIG.ordemparanormal.dropdownTarget,
+			optionArea: CONFIG.ordemparanormal.dropdownArea,
+			optionDuration: CONFIG.ordemparanormal.dropdownDuration,
+			optionResistance: CONFIG.ordemparanormal.dropdownResistance,
+			optionElement: CONFIG.ordemparanormal.dropdownElement,
 
 			// Attack and Damage Dropdown
 			attributes: CONFIG.ordemparanormal.attributes,
@@ -65,7 +71,11 @@ export class OrdemItemSheet extends ItemSheet {
 
 			// Item's Radiobox
 			categories: CONFIG.ordemparanormal.categories,
+			degree: CONFIG.ordemparanormal.ritualDegree,
 		});
+
+		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#updateDocuments
+		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#deleteDocuments
 
 		// TODO: Fix the incompatibilities (Temporary)
 		// if (itemData.system.types?.damageType) {
