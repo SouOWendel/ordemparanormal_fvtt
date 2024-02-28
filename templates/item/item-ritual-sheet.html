@@ -25,19 +25,51 @@
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="resource grid align-items-center">
         <label class="resource-label">{{localize "ordemparanormal.circle"}}</label>
-        <input type="number" name="system.circle" value="{{system.circle}}" data-dtype="Number"/>
+        <div>{{radioBoxes 'system.circle' degree checked=system.circle}}</div>
+
+		<label class="resource-label">{{localize "ordemparanormal.element"}}</label>
+		<select name="system.element" data-dtype="String">
+			{{ selectOptions optionElement selected=system.element localize=true blank="—" }}
+		</select>
+
 		<label class="resource-label">{{localize "ordemparanormal.execution"}}</label>
 		<select name="system.execution" data-dtype="String">
-			{{ selectOptions optionExecution selected=system.execution  localize=true blank="—" }}
+			{{ selectOptions optionExecution selected=system.execution localize=true blank="—" }}
 		</select>
-        <label class="resource-label">{{localize "ordemparanormal.range"}}</label>
-        <input type="text" name="system.range" value="{{system.range}}" data-dtype="String"/>
+
+		<label class="resource-label">{{localize "ordemparanormal.range"}}</label>
+		<select name="system.range" data-dtype="String">
+			{{ selectOptions optionRange selected=system.range localize=true blank="—" }}
+		</select>
+
+		<label class="resource-label">{{localize "ordemparanormal.target"}}</label>
+		<div>
+		<select name="system.target" data-dtype="String">
+			{{ selectOptions optionTarget selected=system.target localize=true blank="—" }}
+		</select>
+		{{#ifEquals system.target "people"}}
+			<input type="text" name="" value="" data-dtype="String" placeholder="Quantidade"/>
+		{{/ifEquals}}
+		</div>
+
+		{{#ifEquals system.target "area"}}
         <label class="resource-label">{{localize "ordemparanormal.areaEffect"}}</label>
-        <input type="text" name="system.areaEffect" value="{{system.areaEffect}}" data-dtype="String"/>
+		<select name="system.areaEffect" data-dtype="String">
+			{{ selectOptions optionArea selected=system.areaEffect localize=true blank="—" }}
+		</select>
+		{{/ifEquals}}
+
         <label class="resource-label">{{localize "ordemparanormal.duration"}}</label>
-        <input type="text" name="system.duration" value="{{system.duration}}" data-dtype="String"/>
+		<select name="system.duration" data-dtype="String">
+			{{ selectOptions optionDuration selected=system.duration localize=true blank="—" }}
+		</select>
+
         <label class="resource-label">{{localize "ordemparanormal.resistance"}}</label>
-        <input type="text" name="system.resistance" value="{{system.resistance}}" data-dtype="String"/>
+        <select name="system.resistance" data-dtype="String">
+			{{ selectOptions optionResistance selected=system.resistance localize=true blank="—" }}
+		</select>
+
+
       </div>
       <div class="resource grid grid-2col align-items-center">
         <label class="resource-label">{{localize "ordemparanormal.studentForm"}}</label>
