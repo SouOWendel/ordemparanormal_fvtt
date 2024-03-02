@@ -21,10 +21,11 @@ import registerSystemSettings from './components/settings.mjs';
 
 import * as documents from './documents/_partial_module.mjs';
 import * as dice from './dice/_module.mjs';
+// import { rescueAllPathEffects } from '../utils/__test__/effects.mjs';
 
 globalThis.ordemparanormal = {
 	documents,
-	dice
+	dice,
 };
 
 /* -------------------------------------------- */
@@ -47,7 +48,8 @@ Hooks.once('init', async function () {
 	// Add custom constants for configuration.
 	CONFIG.ordemparanormal = ordemparanormal;
 
-	CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.html';
+	CONFIG.Dice.rolls[0].CHAT_TEMPLATE =
+		'systems/ordemparanormal/templates/dice/roll.html';
 
 	/**
 	 * Set an initiative formula for the system
@@ -62,6 +64,11 @@ Hooks.once('init', async function () {
 	// Define custom Document classes
 	CONFIG.Actor.documentClass = OrdemActor;
 	CONFIG.Item.documentClass = OrdemItem;
+
+	// Active Effects are never copied to the Actor,
+	// but will still apply to the Actor from within the Item
+	// if the transfer property on the Active Effect is true.
+	CONFIG.ActiveEffect.legacyTransferral = false;
 
 	// Register sheet application classes
 	Actors.unregisterSheet('core', ActorSheet);
@@ -82,19 +89,39 @@ Hooks.once('init', async function () {
 	// console.log(game.data.actors[0]);
 
 	// Change the logo of Foundry for Ordem Paranormal logo.
-	if (navigator.onLine) $('#logo').attr('src', 'https://i.imgur.com/TTrDGM4.png');
+	if (navigator.onLine)
+		$('#logo').attr('src', 'https://i.imgur.com/TTrDGM4.png');
 
 	// Preload Handlebars templates.
 	return preloadHandlebarsTemplates();
 });
 
-Hooks.once('ready', function () {
-
+Hooks.once('ready', async function () {
 	// ui.notifications.info('This is an info message');
 	// ui.notifications.warn('This is a warning message');
 	// ui.notifications.error('This is an error message');
 	// ui.notifications.info('This is a 4th message which will not be shown until the first info message is done');
 
+	// const newHyperItem = await rescueAllPathEffects();
+	// console.log(newHyperItem);
+	// let hyperItem = game.items.find((a) => a._id == '6nBQeTcS9Wjoe2jz');
+	// console.log(hyperItem);
+	// hyperItem = hyperItem.effects.find(
+	// 	(b) => b._id == '1FjRxjs6rOVuQtPG',
+	// ).changes;
+	// console.log(hyperItem);
+
+	// const objChangeData = [];
+	// for (const data of newHyperItem.numb) {
+	// 	objChangeData.push({ key: data, mode: 2, priority: null, value: '1' });
+	// }
+	// for (const data of newHyperItem.str) {
+	// 	objChangeData.push({ key: data, mode: 2, priority: null, value: 'abc' });
+	// }
+
+	// await Item.get('6nBQeTcS9Wjoe2jz').updateEmbeddedDocuments('ActiveEffect', [
+	// 	{ _id: '1FjRxjs6rOVuQtPG', changes: objChangeData },
+	// ]);
 	displayMessages();
 });
 
@@ -114,18 +141,23 @@ Handlebars.registerHelper('concat', function () {
 });
 
 Handlebars.registerHelper('concatObjAndStr', function () {
-	const option = arguments[arguments.length-1];
-	const args = Array.prototype.slice.call(arguments, 0,arguments.length-1);
+	const option = arguments[arguments.length - 1];
+	const args = Array.prototype.slice.call(arguments, 0, arguments.length - 1);
 	console.log('OP FVTT | ' + option.name + ' - Argumentos: ' + args);
 	let objects = {};
 	for (const arg in args) {
-		if (typeof arguments[arg] == 'object' || typeof arguments[arg] == 'string') {
+		if (
+			typeof arguments[arg] == 'object' ||
+			typeof arguments[arg] == 'string'
+		) {
 			if (arg == 0) {
 				objects = arguments[arg];
 			} else {
 				objects = objects[arguments[arg]];
 			}
-			console.log('OP FVTT | ' + option.name + ' - Tipo final: ' +  typeof objects);
+			console.log(
+				'OP FVTT | ' + option.name + ' - Tipo final: ' + typeof objects,
+			);
 		}
 	}
 	return objects;
@@ -133,40 +165,42 @@ Handlebars.registerHelper('concatObjAndStr', function () {
 
 Handlebars.registerHelper('numberInputFVTT', function (value, options) {
 	const properties = [];
-	for ( const k of ['class', 'name', 'placeholder', 'min', 'max'] ) {
-		if ( k in options.hash ) properties.push(`${k}="${options.hash[k]}"`);
+	for (const k of ['class', 'name', 'placeholder', 'min', 'max']) {
+		if (k in options.hash) properties.push(`${k}="${options.hash[k]}"`);
 	}
 	const step = options.hash.step ?? 'any';
 	properties.unshift(`step="${step}"`);
 
 	// Disabled = True or False
-	if ( options.hash.disabled === true ) properties.push('disabled'); 
+	if (options.hash.disabled === true) properties.push('disabled');
 
 	let safe = Number.isNumeric(value) ? Number(value) : '';
-	if ( Number.isNumeric(step) && (typeof safe === 'number') ) {
+	if (Number.isNumeric(step) && typeof safe === 'number') {
 		safe = safe.toNearest(Number(step));
 	}
-	return new Handlebars.SafeString(`<input type="number" value="${safe}" ${properties.join(' ')}>`);
+	return new Handlebars.SafeString(
+		`<input type="number" value="${safe}" ${properties.join(' ')}>`,
+	);
 });
 
-Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
 	// eslint-disable-next-line no-invalid-this
-	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+	return arg1 == arg2 ? options.fn(this) : options.inverse(this);
 });
 
-Handlebars.registerHelper('ifInequals', function(arg1, arg2, options) {
+Handlebars.registerHelper('ifInequals', function (arg1, arg2, options) {
 	// eslint-disable-next-line no-invalid-this
-	return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+	return arg1 != arg2 ? options.fn(this) : options.inverse(this);
 });
 
-Handlebars.registerHelper('abilityTypeHelper', function(arg) {
+Handlebars.registerHelper('abilityTypeHelper', function (arg) {
 	if (arg == 1) return 'ability';
 	else if (arg == 2) return 'class';
 	else if (arg == 3) return 'paranormal';
 });
 
-Handlebars.registerHelper('inputValid', function(arg1, arg2) {
-	return (arg1 != arg2) && 'disabled';
+Handlebars.registerHelper('inputValid', function (arg1, arg2) {
+	return arg1 != arg2 && 'disabled';
 });
 
 Handlebars.registerHelper('toLowerCase', function (str) {
@@ -182,20 +216,22 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 /* -------------------------------------------- */
 
 // Hook for create a macro on drop items or effects in hotbar.
-Hooks.once('ready', function() {
+Hooks.once('ready', function () {
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 	Hooks.on('hotbarDrop', (bar, data, slot) => {
-	  if ( ['Item', 'ActiveEffect'].includes(data.type) ) {
+		if (['Item', 'ActiveEffect'].includes(data.type)) {
 			documents.macro.createOPMacro(data, slot);
 			return false;
-	  }
+		}
 	});
 });
 
 Hooks.on('renderChatMessage', documents.chat.onRenderChatMessage);
 
 Hooks.on('renderChatLog', (app, html, data) => OrdemItem.chatListeners(html));
-Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html));
+Hooks.on('renderChatPopout', (app, html, data) =>
+	OrdemItem.chatListeners(html),
+);
 
 /**
  * Criando o Hook preCreateActor para o módulo Bar Brawl adicionar
@@ -223,7 +259,7 @@ Hooks.on('preCreateActor', function (actor, data) {
 					attribute: 'PV',
 					label: 'PV',
 					style: 'fraction',
-					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
+					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
 				},
 				bar2: {
 					id: 'bar2',
@@ -233,7 +269,7 @@ Hooks.on('preCreateActor', function (actor, data) {
 					attribute: 'SAN',
 					label: 'SAN',
 					style: 'fraction',
-					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
+					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
 				},
 				bar3: {
 					id: 'bar3',
@@ -243,7 +279,7 @@ Hooks.on('preCreateActor', function (actor, data) {
 					attribute: 'PE',
 					label: 'PE',
 					style: 'fraction',
-					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
+					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
 				},
 			},
 		});
