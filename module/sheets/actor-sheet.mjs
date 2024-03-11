@@ -13,7 +13,7 @@ export class OrdemActorSheet extends ActorSheet {
 
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['ordemparanormal', 'sheet', 'actor'],
 			template: 'systems/ordemparanormal/templates/actor/actor-sheet.html',
 			width: 600,
@@ -44,10 +44,10 @@ export class OrdemActorSheet extends ActorSheet {
 		const context = super.getData();
 
 		// Use a safe clone of the actor data for further operations.
-		const actorData = this.actor.data.toObject(false);
+		const actorData = context.data;
 
 		// Add the actor's data to context.data for easier access, as well as flags.
-		context.data = actorData.data;
+		context.system = actorData.system;
 		context.flags = actorData.flags;
 
 		// Dropdown
@@ -55,12 +55,11 @@ export class OrdemActorSheet extends ActorSheet {
 		context.optionClass = CONFIG.ordemparanormal.dropdownClass;
 		context.optionTrilhas = CONFIG.ordemparanormal.dropdownTrilha;
 		context.optionOrigins = CONFIG.ordemparanormal.dropdownOrigins;
-		// CONFIG.ActiveEffect.legacyTransferral = true;
 
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'agent') {
 			this._prepareItems(context);
-			this._prepareAgentData(context);
+			// this._prepareAgentData(context);
 			this._prepareItemsDerivedData(context);
 			this._prepareActorSpaces(context);
 		}
@@ -69,14 +68,11 @@ export class OrdemActorSheet extends ActorSheet {
 		context.rollData = context.actor.getRollData();
 
 		// Prepare active effects
-		context.effects = prepareActiveEffectCategories(this.actor.effects);
-
-		// TODO: terminar a migração dos efeitos de itens para efeitos de ator e exclusão de itens não validos da ficha de ator.
-		// for (const i of context.items) {
-		// 	console.log(i);
-		// }
-		// console.log(context.effects);
-		// console.log(context.data.spaces);
+		context.effects = prepareActiveEffectCategories(
+			// A generator that returns all effects stored on the actor
+			// as well as any items
+			this.actor.allApplicableEffects(),
+		);
 
 		return context;
 	}
@@ -88,85 +84,85 @@ export class OrdemActorSheet extends ActorSheet {
 	 *
 	 * @return {undefined}
 	 */
-	_prepareAgentData(context) {
-		// Acesso Rápido
-		const NEX = context.data.NEX.value;
-		const AGI = context.data.attributes.dex.value;
-		const VIG = context.data.attributes.vit.value;
-		const FOR = context.data.attributes.str.value;
-		const INT = context.data.attributes.int.value;
-		const PRE = context.data.attributes.pre.value;
-		const DEFESA = context.data.defense.value;
-		const REFLEXES = context.data.skills.reflexes;
+	// _prepareAgentData(context) {
+	// 	// Acesso Rápido
+	// 	const NEX = context.data.NEX.value;
+	// 	const AGI = context.data.attributes.dex.value;
+	// 	const VIG = context.data.attributes.vit.value;
+	// 	const FOR = context.data.attributes.str.value;
+	// 	const INT = context.data.attributes.int.value;
+	// 	const PRE = context.data.attributes.pre.value;
+	// 	const DEFESA = context.data.defense.value;
+	// 	const REFLEXES = context.data.skills.reflexes;
 
-		// DEFESA E ESQUIVA
-		context.data.defense.value += AGI;
-		context.data.defense.dodge =
-			context.data.defense.value + REFLEXES.value + (REFLEXES.mod || 0);
+	// 	// DEFESA E ESQUIVA
+	// 	context.data.defense.value += AGI;
+	// 	context.data.defense.dodge =
+	// 		context.data.defense.value + REFLEXES.value + (REFLEXES.mod || 0);
 
-		// NEX
-		const calcNEX = NEX < 99 ? Math.floor(NEX / 5) : 20;
-		const nexAdjust = calcNEX - 1;
-		const nexIf = calcNEX > 1;
+	// 	// NEX
+	// 	const calcNEX = NEX < 99 ? Math.floor(NEX / 5) : 20;
+	// 	const nexAdjust = calcNEX - 1;
+	// 	const nexIf = calcNEX > 1;
 
-		// PE / RODADA
-		context.data.PE.perRound = calcNEX;
+	// 	// PE / RODADA
+	// 	context.data.PE.perRound = calcNEX;
 
-		// DEFININDO STATUS CONFORME A CLASSE
+	// 	// DEFININDO STATUS CONFORME A CLASSE
 
-		if (context.data.class == 'fighter') {
-			context.data.PV.max = 20 + VIG + (nexIf && nexAdjust * (4 + VIG));
-			context.data.PE.max = 2 + PRE + (nexIf && nexAdjust * (2 + PRE));
-			context.data.SAN.max = 12 + (nexIf && nexAdjust * 3);
-		} else if (context.data.class == 'specialist') {
-			context.data.PV.max = 16 + VIG + (nexIf && nexAdjust * (3 + VIG));
-			context.data.PE.max = 3 + PRE + (nexIf && nexAdjust * (3 + PRE));
-			context.data.SAN.max = 16 + (nexIf && nexAdjust * 4);
-		} else if (context.data.class == 'occultist') {
-			context.data.PV.max = 12 + VIG + (nexIf && nexAdjust * (2 + VIG));
-			context.data.PE.max = 4 + PRE + (nexIf && nexAdjust * (4 + PRE));
-			context.data.SAN.max = 20 + (nexIf && nexAdjust * 5);
-		} else {
-			context.data.PV.max = context.data.PV.max || 0;
-			context.data.PE.max = context.data.PE.max || 0;
-			context.data.SAN.max = context.data.SAN.max || 0;
-		}
+	// 	if (context.data.class == 'fighter') {
+	// 		context.data.PV.max = 20 + VIG + (nexIf && nexAdjust * (4 + VIG));
+	// 		context.data.PE.max = 2 + PRE + (nexIf && nexAdjust * (2 + PRE));
+	// 		context.data.SAN.max = 12 + (nexIf && nexAdjust * 3);
+	// 	} else if (context.data.class == 'specialist') {
+	// 		context.data.PV.max = 16 + VIG + (nexIf && nexAdjust * (3 + VIG));
+	// 		context.data.PE.max = 3 + PRE + (nexIf && nexAdjust * (3 + PRE));
+	// 		context.data.SAN.max = 16 + (nexIf && nexAdjust * 4);
+	// 	} else if (context.data.class == 'occultist') {
+	// 		context.data.PV.max = 12 + VIG + (nexIf && nexAdjust * (2 + VIG));
+	// 		context.data.PE.max = 4 + PRE + (nexIf && nexAdjust * (4 + PRE));
+	// 		context.data.SAN.max = 20 + (nexIf && nexAdjust * 5);
+	// 	} else {
+	// 		context.data.PV.max = context.data.PV.max || 0;
+	// 		context.data.PE.max = context.data.PE.max || 0;
+	// 		context.data.SAN.max = context.data.SAN.max || 0;
+	// 	}
 
-		// Adicionando os bônus as respectivas variáveis
-		context.data.PV.max += context.data.PV.maxBonus;
-		context.data.PE.max += context.data.PE.maxBonus;
-		context.data.SAN.max += context.data.SAN.maxBonus;
-		context.data.attributes.str.value += context.data.attributes.str.bonus;
-		context.data.attributes.vit.value += context.data.attributes.vit.bonus;
-		context.data.attributes.dex.value += context.data.attributes.dex.bonus;
-		context.data.attributes.int.value += context.data.attributes.int.bonus;
-		context.data.attributes.pre.value += context.data.attributes.pre.bonus;
+	// 	// Adicionando os bônus as respectivas variáveis
+	// 	context.data.PV.max += context.data.PV.maxBonus;
+	// 	context.data.PE.max += context.data.PE.maxBonus;
+	// 	context.data.SAN.max += context.data.SAN.maxBonus;
+	// 	context.data.attributes.str.value += context.data.attributes.str.bonus;
+	// 	context.data.attributes.vit.value += context.data.attributes.vit.bonus;
+	// 	context.data.attributes.dex.value += context.data.attributes.dex.bonus;
+	// 	context.data.attributes.int.value += context.data.attributes.int.bonus;
+	// 	context.data.attributes.pre.value += context.data.attributes.pre.bonus;
 
-		/**
-		 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
-		 * depois disso, salva o valor nas informações
-		 * */
-		for (const [keySkill, skillsName] of Object.entries(context.data.skills)) {
-			// Definindo constantes para acesso simplificado.
-			const overLoad = skillsName.conditions.load;
-			const needTraining = skillsName.conditions.trained;
+	// 	/**
+	// 	 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
+	// 	 * depois disso, salva o valor nas informações
+	// 	 * */
+	// 	for (const [keySkill, skillsName] of Object.entries(context.data.skills)) {
+	// 		// Definindo constantes para acesso simplificado.
+	// 		const overLoad = skillsName.conditions.load;
+	// 		const needTraining = skillsName.conditions.trained;
 
-			// Formando o nome com base nas condições de carga e treino da perícia.
-			skillsName.label =
-				game.i18n.localize(CONFIG.ordemparanormal.skills[keySkill]) +
-					(overLoad ? '+' : needTraining ? '*' : '') ?? k;
+	// 		// Formando o nome com base nas condições de carga e treino da perícia.
+	// 		skillsName.label =
+	// 			game.i18n.localize(CONFIG.ordemparanormal.skills[keySkill]) +
+	// 				(overLoad ? '+' : needTraining ? '*' : '') ?? k;
 
-			// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
-			const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
+	// 		// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
+	// 		const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
 
-			const afterD20Formula =
-				(skillsName.attr[1] != 0 ? 'kh' : 'kl') +
-				(skillsName.value != 0 ? '+' + skillsName.value : '') +
-				(skillsName.mod ? '+' + skillsName.mod : '');
+	// 		const afterD20Formula =
+	// 			(skillsName.attr[1] != 0 ? 'kh' : 'kl') +
+	// 			(skillsName.value != 0 ? '+' + skillsName.value : '') +
+	// 			(skillsName.mod ? '+' + skillsName.mod : '');
 
-			skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
-		}
-	}
+	// 		skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
+	// 	}
+	// }
 
 	/**
 	 * Organize and classify Items for Character sheets.
@@ -267,7 +263,7 @@ export class OrdemActorSheet extends ActorSheet {
 		const items = context.items;
 		for (const p of context.protection) {
 			if (typeof p.system.defense == 'number' && p.system.using.state == true) {
-				context.data.defense.value += p.system.defense;
+				context.system.defense.value += p.system.defense;
 			}
 		}
 	}
@@ -280,8 +276,8 @@ export class OrdemActorSheet extends ActorSheet {
 	 * @return {undefined}
 	 */
 	_prepareActorSpaces(context) {
-		const spaces = (context.data.spaces ??= {});
-		const FOR = context.data.attributes.str.value || 0;
+		const spaces = (context.system.spaces ??= {});
+		const FOR = context.system.attributes.str.value || 0;
 		spaces.over, (spaces.pctMax = 0);
 
 		// Get the total weight from items
@@ -306,8 +302,8 @@ export class OrdemActorSheet extends ActorSheet {
 		// Apply the debuffs
 		if (spaces.value > spaces.max) {
 			spaces.over = spaces.value - spaces.max;
-			context.data.desloc.value += -3;
-			context.data.defense.value += -5;
+			context.system.desloc.value += -3;
+			context.system.defense.value += -5;
 			spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
 		}
 		if (spaces.value > spaces.max * 2)
@@ -349,9 +345,14 @@ export class OrdemActorSheet extends ActorSheet {
 		});
 
 		// Active Effect management
-		html
-			.find('.effect-control')
-			.click((ev) => onManageActiveEffect(ev, this.actor));
+		html.find('.effect-control').click((ev) => {
+			const row = ev.currentTarget.closest('li');
+			const document =
+				row.dataset.parentId === this.actor.id
+					? this.actor
+					: this.actor.items.get(row.dataset.parentId);
+			onManageActiveEffect(ev, document);
+		});
 
 		// Rollable abilities.
 		html.find('.rollable').click(this._onRoll.bind(this));
