@@ -59,9 +59,7 @@ export class OrdemActorSheet extends ActorSheet {
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'agent') {
 			this._prepareItems(context);
-			// this._prepareAgentData(context);
 			this._prepareItemsDerivedData(context);
-			this._prepareActorSpaces(context);
 		}
 
 		// Add roll data for TinyMCE editors.
@@ -73,96 +71,8 @@ export class OrdemActorSheet extends ActorSheet {
 			// as well as any items
 			this.actor.allApplicableEffects(),
 		);
-
 		return context;
 	}
-
-	/**
-	 * Organiza e classifica os items para Planilha de Personagem.
-	 *
-	 * @param {Object} actorData The actor to prepare.
-	 *
-	 * @return {undefined}
-	 */
-	// _prepareAgentData(context) {
-	// 	// Acesso Rápido
-	// 	const NEX = context.data.NEX.value;
-	// 	const AGI = context.data.attributes.dex.value;
-	// 	const VIG = context.data.attributes.vit.value;
-	// 	const FOR = context.data.attributes.str.value;
-	// 	const INT = context.data.attributes.int.value;
-	// 	const PRE = context.data.attributes.pre.value;
-	// 	const DEFESA = context.data.defense.value;
-	// 	const REFLEXES = context.data.skills.reflexes;
-
-	// 	// DEFESA E ESQUIVA
-	// 	context.data.defense.value += AGI;
-	// 	context.data.defense.dodge =
-	// 		context.data.defense.value + REFLEXES.value + (REFLEXES.mod || 0);
-
-	// 	// NEX
-	// 	const calcNEX = NEX < 99 ? Math.floor(NEX / 5) : 20;
-	// 	const nexAdjust = calcNEX - 1;
-	// 	const nexIf = calcNEX > 1;
-
-	// 	// PE / RODADA
-	// 	context.data.PE.perRound = calcNEX;
-
-	// 	// DEFININDO STATUS CONFORME A CLASSE
-
-	// 	if (context.data.class == 'fighter') {
-	// 		context.data.PV.max = 20 + VIG + (nexIf && nexAdjust * (4 + VIG));
-	// 		context.data.PE.max = 2 + PRE + (nexIf && nexAdjust * (2 + PRE));
-	// 		context.data.SAN.max = 12 + (nexIf && nexAdjust * 3);
-	// 	} else if (context.data.class == 'specialist') {
-	// 		context.data.PV.max = 16 + VIG + (nexIf && nexAdjust * (3 + VIG));
-	// 		context.data.PE.max = 3 + PRE + (nexIf && nexAdjust * (3 + PRE));
-	// 		context.data.SAN.max = 16 + (nexIf && nexAdjust * 4);
-	// 	} else if (context.data.class == 'occultist') {
-	// 		context.data.PV.max = 12 + VIG + (nexIf && nexAdjust * (2 + VIG));
-	// 		context.data.PE.max = 4 + PRE + (nexIf && nexAdjust * (4 + PRE));
-	// 		context.data.SAN.max = 20 + (nexIf && nexAdjust * 5);
-	// 	} else {
-	// 		context.data.PV.max = context.data.PV.max || 0;
-	// 		context.data.PE.max = context.data.PE.max || 0;
-	// 		context.data.SAN.max = context.data.SAN.max || 0;
-	// 	}
-
-	// 	// Adicionando os bônus as respectivas variáveis
-	// 	context.data.PV.max += context.data.PV.maxBonus;
-	// 	context.data.PE.max += context.data.PE.maxBonus;
-	// 	context.data.SAN.max += context.data.SAN.maxBonus;
-	// 	context.data.attributes.str.value += context.data.attributes.str.bonus;
-	// 	context.data.attributes.vit.value += context.data.attributes.vit.bonus;
-	// 	context.data.attributes.dex.value += context.data.attributes.dex.bonus;
-	// 	context.data.attributes.int.value += context.data.attributes.int.bonus;
-	// 	context.data.attributes.pre.value += context.data.attributes.pre.bonus;
-
-	// 	/**
-	// 	 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
-	// 	 * depois disso, salva o valor nas informações
-	// 	 * */
-	// 	for (const [keySkill, skillsName] of Object.entries(context.data.skills)) {
-	// 		// Definindo constantes para acesso simplificado.
-	// 		const overLoad = skillsName.conditions.load;
-	// 		const needTraining = skillsName.conditions.trained;
-
-	// 		// Formando o nome com base nas condições de carga e treino da perícia.
-	// 		skillsName.label =
-	// 			game.i18n.localize(CONFIG.ordemparanormal.skills[keySkill]) +
-	// 				(overLoad ? '+' : needTraining ? '*' : '') ?? k;
-
-	// 		// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
-	// 		const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
-
-	// 		const afterD20Formula =
-	// 			(skillsName.attr[1] != 0 ? 'kh' : 'kl') +
-	// 			(skillsName.value != 0 ? '+' + skillsName.value : '') +
-	// 			(skillsName.mod ? '+' + skillsName.mod : '');
-
-	// 		skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
-	// 	}
-	// }
 
 	/**
 	 * Organize and classify Items for Character sheets.
@@ -266,48 +176,6 @@ export class OrdemActorSheet extends ActorSheet {
 				context.system.defense.value += p.system.defense;
 			}
 		}
-	}
-
-	/**
-	 * Prepare and calcule the spaces of actors
-	 *
-	 * @param {Object} actorData The actor to prepare.
-	 *
-	 * @return {undefined}
-	 */
-	_prepareActorSpaces(context) {
-		const spaces = (context.system.spaces ??= {});
-		const FOR = context.system.attributes.str.value || 0;
-		spaces.over, (spaces.pctMax = 0);
-
-		// Get the total weight from items
-		const physicalItems = ['armament', 'generalEquipment', 'protection'];
-		const weight = context.items.reduce((weight, i) => {
-			if (!physicalItems.includes(i.type)) return weight;
-			const q = i.system.quantity || 0;
-			const w = i.system.weight || 0;
-			return weight + q * w;
-		}, 0);
-
-		// Populate the final values
-		spaces.value = weight.toNearest(0.1);
-		spaces.max = FOR !== 0 ? FOR * 5 : 2;
-
-		// Plus bonus
-		spaces.value += spaces.bonus.value;
-		spaces.max += spaces.bonus.max;
-
-		spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
-
-		// Apply the debuffs
-		if (spaces.value > spaces.max) {
-			spaces.over = spaces.value - spaces.max;
-			context.system.desloc.value += -3;
-			context.system.defense.value += -5;
-			spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
-		}
-		if (spaces.value > spaces.max * 2)
-			ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
 	}
 
 	/* -------------------------------------------- */
