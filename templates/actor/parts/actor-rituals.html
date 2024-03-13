@@ -24,17 +24,33 @@
 	{{#each rituals as |item id|}}
 	<li class="item flexrow" data-item-id="{{item._id}}">
 		<div class="item-name flexrow">
-			<div class="item-image">
-				<a class="rollable" data-roll-type="item"
-					><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
-				/></a>
+			<div class="item-image slide">
+				<img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+				<a class="rollable" data-roll-type="item">
+					<i class="fa-solid fa-dice-d20"></i>
+				</a>
 			</div>
 			<h4>{{item.name}}</h4>
 		</div>
-		<div class="item-space item-prop">{{item.system.range}}</div>
-		<div class="item-space item-prop">{{item.system.areaEffect}}</div>
-		<div class="item-space item-prop">{{item.system.duration}}</div>
-		<div class="item-space item-prop">{{item.system.resistance}}</div>
+		<div class="item-space item-prop">
+			{{#if item.system.range}}{{localize (concat
+			"ordemparanormal.rangeChoices." item.system.range)}} {{else}} — {{/if}}
+		</div>
+		<div class="item-space item-prop">
+			{{#if item.system.areaEffect}}{{localize (concat
+			"ordemparanormal.areaChoices." item.system.areaEffect)}} {{else}} —
+			{{/if}}
+		</div>
+		<div class="item-space item-prop">
+			{{#if item.system.duration}}{{localize (concat
+			"ordemparanormal.durationChoices." item.system.duration)}} {{else}} —
+			{{/if}}
+		</div>
+		<div class="item-space item-prop">
+			{{#if item.system.resistance}}{{localize (concat
+			"ordemparanormal.resistanceChoices." item.system.resistance)}} {{else}} —
+			{{/if}}
+		</div>
 		<div class="item-controls">
 			<a class="item-control send-chat" title="Enviar para o chat"
 				><i class="fas fa-message"></i
