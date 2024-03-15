@@ -6,8 +6,9 @@
 		{{else}}
 		<div class="item-name">{{circle}}º Circulo</div>
 		{{/ifEquals}}
+		<div class="item-space">{{localize "ordemparanormal.execution"}}</div>
 		<div class="item-space">{{localize "ordemparanormal.range"}}</div>
-		<div class="item-space">{{localize "ordemparanormal.area"}}</div>
+		<div class="item-space">{{localize "ordemparanormal.target"}}</div>
 		<div class="item-space">{{localize "ordemparanormal.duration"}}</div>
 		<div class="item-space">{{localize "ordemparanormal.resistance"}}</div>
 		<div class="item-controls">
@@ -33,13 +34,17 @@
 			<h4>{{item.name}}</h4>
 		</div>
 		<div class="item-space item-prop">
+			{{#if item.system.execution}}{{localize (concat
+			"ordemparanormal.executionChoices." item.system.execution)}} {{else}} —
+			{{/if}}
+		</div>
+		<div class="item-space item-prop">
 			{{#if item.system.range}}{{localize (concat
 			"ordemparanormal.rangeChoices." item.system.range)}} {{else}} — {{/if}}
 		</div>
 		<div class="item-space item-prop">
-			{{#if item.system.areaEffect}}{{localize (concat
-			"ordemparanormal.areaChoices." item.system.areaEffect)}} {{else}} —
-			{{/if}}
+			{{#if item.system.target}}{{localize (concat
+			"ordemparanormal.targetChoices." item.system.target)}} {{else}} — {{/if}}
 		</div>
 		<div class="item-space item-prop">
 			{{#if item.system.duration}}{{localize (concat
