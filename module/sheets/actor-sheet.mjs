@@ -138,7 +138,7 @@ export class OrdemActorSheet extends ActorSheet {
 			}
 			// Append to rituals.
 			else if (i.type === 'ritual') {
-				if (i.system.circle) rituals.valid[i.system.circle].push(i);
+				if (i.system.circle != 5) rituals.valid[i.system.circle].push(i);
 				else rituals.invalid.push(i);
 			}
 			// Append to abilities.
