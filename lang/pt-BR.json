@@ -41,33 +41,35 @@
 	"ordemparanormal.San": "Sanidade",
 	"ordemparanormal.NEX": "NEX",
 
-	"ordemparanormal.skillAcrobatics": "Acrobacia",
-	"ordemparanormal.skillAnimal": "Adestramento",
-	"ordemparanormal.skillArts": "Artes",
-	"ordemparanormal.skillAthleticism": "Atletismo",
-	"ordemparanormal.skillRelevance": "Atualidades",
-	"ordemparanormal.skillSciences": "Ciências",
-	"ordemparanormal.skillCrime": "Crime",
-	"ordemparanormal.skillDiplomacy": "Diplomacia",
-	"ordemparanormal.skillDeception": "Enganação",
-	"ordemparanormal.skillResilience": "Fortitude",
-	"ordemparanormal.skillStealth": "Furtividade",
-	"ordemparanormal.skillInitiative": "Iniciativa",
-	"ordemparanormal.skillIntimidation": "Intimidação",
-	"ordemparanormal.skillIntuition": "Intuição",
-	"ordemparanormal.skillInvestigation": "Investigação",
-	"ordemparanormal.skillFighting": "Luta",
-	"ordemparanormal.skillMedicine": "Medicina",
-	"ordemparanormal.skillOccultism": "Ocultismo",
-	"ordemparanormal.skillPerception": "Percepção",
-	"ordemparanormal.skillDriving": "Pilotagem",
-	"ordemparanormal.skillAim": "Pontaria",
-	"ordemparanormal.skillReflexes": "Reflexos",
-	"ordemparanormal.skillReligion": "Religião",
-	"ordemparanormal.skillSurvival": "Sobrevivência",
-	"ordemparanormal.skillTactics": "Tática",
-	"ordemparanormal.skillTechnology": "Tecnologia",
-	"ordemparanormal.skillWill": "Vontade",
+	"ordemparanormal.skill": {
+		"acrobatics": "Acrobacia",
+		"animal": "Adestramento",
+		"arts": "Artes",
+		"athleticism": "Atletismo",
+		"relevance": "Atualidades",
+		"sciences": "Ciências",
+		"crime": "Crime",
+		"diplomacy": "Diplomacia",
+		"deception": "Enganação",
+		"resilience": "Fortitude",
+		"stealth": "Furtividade",
+		"initiative": "Iniciativa",
+		"intimidation": "Intimidação",
+		"intuition": "Intuição",
+		"investigation": "Investigação",
+		"fighting": "Luta",
+		"medicine": "Medicina",
+		"pccultism": "Ocultismo",
+		"perception": "Percepção",
+		"driving": "Pilotagem",
+		"aim": "Pontaria",
+		"reflexes": "Reflexos",
+		"religion": "Religião",
+		"survival": "Sobrevivência",
+		"tactics": "Tática",
+		"technology": "Tecnologia",
+		"will": "Vontade"
+	},
 
 	"ordemparanormal.attDex": "Agilidade",
 	"ordemparanormal.attInt": "Inteligência",
@@ -270,7 +272,7 @@
 	},
 
 	"ordemparanormal.targetChoices": {
-		"people": "Pessoas",
+		"people": "Pessoa(s)",
 		"creatures": "Criaturas",
 		"animals": "Animais",
 		"weapons": "Armas",
@@ -285,6 +287,11 @@
 		"line": "Linha"
 	},
 
+	"ordemparanormal.areaTypeChoices": {
+		"radius": "Raio",
+		"diameter": "Diâmetro"
+	},
+
 	"ordemparanormal.durationChoices": {
 		"instantaneous": "Instantânea",
 		"scene": "Cena",
@@ -297,7 +304,7 @@
 		"nullifies": "Anula",
 		"discredits": "Disacredita",
 		"partial": "Parcial",
-		"reducesByHalf": "Reduz à metade"
+		"reducesByHalf": "Red. Metade"
 	},
 
 	"ordemparanormal.elementChoices": {

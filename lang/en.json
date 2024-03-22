@@ -15,7 +15,7 @@
 
 	"TYPES.Item.ability": "Ability",
 	"ordemparanormal.ability.plural": "Abilities",
-	
+
 	"ordemparanormal.OrdemActorSheet": "Agent's Sheet",
 
 	"SETTINGS.opPatchNotesN": "Desativar Notas de Atualização",
@@ -41,33 +41,35 @@
 	"ordemparanormal.San": "Sanity",
 	"ordemparanormal.NEX": "NEX",
 
-	"ordemparanormal.skillAcrobatics": "Acrobatics",
-	"ordemparanormal.skillAnimal": "Animal Training",
-	"ordemparanormal.skillArts": "Arts",
-	"ordemparanormal.skillAthleticism": "Athleticism",
-	"ordemparanormal.skillRelevance": "Relevance",
-	"ordemparanormal.skillSciences": "Sciences",
-	"ordemparanormal.skillCrime": "Crime",
-	"ordemparanormal.skillDiplomacy": "Diplomacy",
-	"ordemparanormal.skillDeception": "Deception",
-	"ordemparanormal.skillResilience": "Resilience",
-	"ordemparanormal.skillStealth": "Stealth",
-	"ordemparanormal.skillInitiative": "Initiative",
-	"ordemparanormal.skillIntimidation": "Intimidation",
-	"ordemparanormal.skillIntuition": "Intuition",
-	"ordemparanormal.skillInvestigation": "Investigation",
-	"ordemparanormal.skillFighting": "Fighting",
-	"ordemparanormal.skillMedicine": "Medicine",
-	"ordemparanormal.skillOccultism": "Occultism",
-	"ordemparanormal.skillPerception": "Perception",
-	"ordemparanormal.skillDriving": "Driving",
-	"ordemparanormal.skillAim": "Aim",
-	"ordemparanormal.skillReflexes": "Reflexes",
-	"ordemparanormal.skillReligion": "Religion",
-	"ordemparanormal.skillSurvival": "Survival",
-	"ordemparanormal.skillTactics": "Tactics",
-	"ordemparanormal.skillTechnology": "Technology",
-	"ordemparanormal.skillWill": "Will",
+	"ordemparanormal.skill": {
+		"acrobatics": "Acrobatics",
+		"animal": "Animal Training",
+		"arts": "Arts",
+		"athleticism": "Athleticism",
+		"relevance": "Relevance",
+		"sciences": "Sciences",
+		"crime": "Crime",
+		"diplomacy": "Diplomacy",
+		"deception": "Deception",
+		"resilience": "Resilience",
+		"stealth": "Stealth",
+		"initiative": "Initiative",
+		"intimidation": "Intimidation",
+		"intuition": "Intuition",
+		"investigation": "Investigation",
+		"fighting": "Fighting",
+		"medicine": "Medicine",
+		"occultism": "Occultism",
+		"perception": "Perception",
+		"driving": "Driving",
+		"aim": "Aim",
+		"reflexes": "Reflexes",
+		"religion": "Religion",
+		"survival": "Survival",
+		"tactics": "Tactics",
+		"technology": "Technology",
+		"will": "Will"
+	},
 
 	"ordemparanormal.attDex": "Dexterity",
 	"ordemparanormal.attInt": "Intelligence",
@@ -244,7 +246,7 @@
 		"piercingDamage": "Perfurante",
 		"ballisticDamage": "Balístico"
 	},
-	
+
 	"ordemparanormal.powerTypeChoices": {
 		"class": "Poder de Classe",
 		"paranormal": "Poder Paranormal",
@@ -282,6 +284,11 @@
 		"cube": "Cube",
 		"sphere": "Sphere",
 		"line": "Line"
+	},
+
+	"ordemparanormal.areaTypeChoices": {
+		"radius": "Radius",
+		"diameter": "Diameter"
 	},
 
 	"ordemparanormal.durationChoices": {
