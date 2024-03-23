@@ -1,16 +1,38 @@
 .window-app {
-  font-family: $font-primary;
+	font-family: $font-primary;
 }
 
 .rollable {
-  &:hover,
-  &:focus {
-    color: #000;
-    text-shadow: 0 0 10px red;
-    cursor: pointer;
-  }
+	&:hover,
+	&:focus {
+		color: #000;
+		text-shadow: 0 0 10px red;
+		cursor: pointer;
+	}
 }
 
 .p-side-10 {
-  padding: 0 10px;
+	padding: 0 10px;
+}
+
+#sidebar::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+	outline: none;
+	border-radius: 3px;
+	background: #782e22;
+	border: 1px solid var(--color-border-highlight);
+}
+
+#sidebar::-webkit-scrollbar-track {
+	box-shadow: 0 0 1px #999 inset;
+	border-radius: 4px;
+}
+
+:root {
+	scrollbar-width: initial !important;
+	scrollbar-color: initial !important;
 }
