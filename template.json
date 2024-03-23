@@ -392,7 +392,11 @@
 			"target": "",
 			"execution": "",
 			"range": "",
-			"areaEffect": "",
+			"area": {
+				"name": "",
+				"size": "",
+				"type": ""
+			},
 			"duration": "",
 			"resistance": "",
 			"studentForm": false,
