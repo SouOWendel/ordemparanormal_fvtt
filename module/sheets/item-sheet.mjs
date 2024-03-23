@@ -8,7 +8,6 @@ import {
  * @extends {ItemSheet}
  */
 export class OrdemItemSheet extends ItemSheet {
-
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -16,7 +15,13 @@ export class OrdemItemSheet extends ItemSheet {
 			width: 540,
 			height: 440,
 			template: 'systems/ordemparanormal/templates/itemn/item-sheet.html',
-			tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'description' }]
+			tabs: [
+				{
+					navSelector: '.sheet-tabs',
+					contentSelector: '.sheet-body',
+					initial: 'description',
+				},
+			],
 		});
 	}
 
@@ -58,8 +63,10 @@ export class OrdemItemSheet extends ItemSheet {
 			optionRange: CONFIG.ordemparanormal.dropdownRange,
 			optionTarget: CONFIG.ordemparanormal.dropdownTarget,
 			optionArea: CONFIG.ordemparanormal.dropdownArea,
+			optionAreaType: CONFIG.ordemparanormal.dropdownAreaType,
 			optionDuration: CONFIG.ordemparanormal.dropdownDuration,
 			optionResistance: CONFIG.ordemparanormal.dropdownResistance,
+			optionSkillResis: CONFIG.ordemparanormal.dropdownSkillResis,
 			optionElement: CONFIG.ordemparanormal.dropdownElement,
 
 			// Attack and Damage Dropdown
@@ -77,65 +84,38 @@ export class OrdemItemSheet extends ItemSheet {
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#updateDocuments
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#deleteDocuments
 
-		// TODO: Fix the incompatibilities (Temporary)
-		// if (itemData.system.types?.damageType) {
-		// 	itemData.system.formulas.damage.type = itemData.system.types.damageType;
-		// 	delete itemData.system.types.damageType;
-		// }
-		// // TODO: Fix the incompatibilities (Temporary)
-		// if (itemData.system.formulas?.attackFormula) {
-		// 	itemData.system.formulas.damage.formula = itemData.system.formulas.attackFormula.formula;
-		// 	itemData.system.formulas.damage.attr = itemData.system.formulas.attackFormula.attr;
-		// 	itemData.system.formulas.damage.bonus = itemData.system.formulas.attackFormula.bonus;
-		// 	delete itemData.system.formulas.attackFormula;
-		// }
-		// // TODO: Fix the incompatibilities (Temporary)
-		// if (itemData.system.formulas?.damageFormula) {
-		// 	itemData.system.formulas.damage.formula = itemData.system.formulas.damageFormula.formula;
-		// 	itemData.system.formulas.damage.attr = itemData.system.formulas.damageFormula.attr;
-		// 	itemData.system.formulas.damage.bonus = itemData.system.formulas.damageFormula.bonus;
-		// 	delete itemData.system.formulas.damageFormula;
-		// }
-
-		// console.log(itemData);
-		// console.log(source);
-		// console.log(Actor);
-		// console.log(Item);
-		// game.actors.map(a => a.items.filter(b => (b.type == 'armament') && console.log(b.name, b.system.formulas)));
-		// await Item.updateDocuments(game.actors.map(a => a.toObject()), {diff: false, recursive: false});
-		// await Item.updateDocuments(game.actors.map(a => a.toObject()), {diff: false, recursive: false});
-		// console.log(game.actors);
-
 		return context;
 	}
 
 	/* -------------------------------------------- */
 
 	/**
-   * Add or remove a damage part from the damage formula.
-   * @param {Event} event             The original click event.
-   * @returns {Promise<OrdemItemSheet>|null}  Item with updates applied.
-   * @private
-   */
+	 * Add or remove a damage part from the damage formula.
+	 * @param {Event} event             The original click event.
+	 * @returns {Promise<OrdemItemSheet>|null}  Item with updates applied.
+	 * @private
+	 */
 	async _onDamageControl(event) {
 		event.preventDefault();
 		const a = event.currentTarget;
-	
-		 // Add new damage component
-		 if ( a.classList.contains('add-damage') ) {
-			await this._onSubmit(event);  // Submit any unsaved changes
+
+		// Add new damage component
+		if (a.classList.contains('add-damage')) {
+			await this._onSubmit(event); // Submit any unsaved changes
 			const damage = this.item.system.formulas.damage;
-			return this.item.update({'system.formulas.damage.parts': damage.parts.concat([['', '']])});
-		  }
-	  
-		  // Remove a damage component
-		  if ( a.classList.contains('delete-damage') ) {
-			await this._onSubmit(event);  // Submit any unsaved changes
+			return this.item.update({
+				'system.formulas.damage.parts': damage.parts.concat([['', '']]),
+			});
+		}
+
+		// Remove a damage component
+		if (a.classList.contains('delete-damage')) {
+			await this._onSubmit(event); // Submit any unsaved changes
 			const li = a.closest('.damage-part');
 			const damage = foundry.utils.deepClone(this.item.system.formulas.damage);
 			damage.parts.splice(Number(li.dataset.damagePart), 1);
-			return this.item.update({'system.formulas.damage.parts': damage.parts});
-		  }
+			return this.item.update({ 'system.formulas.damage.parts': damage.parts });
+		}
 	}
 
 	/* -------------------------------------------- */
@@ -143,17 +123,22 @@ export class OrdemItemSheet extends ItemSheet {
 	/* -------------------------------------------- */
 
 	/** @inheritDoc */
-	_getSubmitData(updateData={}) {
-		const formData = foundry.utils.expandObject(super._getSubmitData(updateData));
+	_getSubmitData(updateData = {}) {
+		const formData = foundry.utils.expandObject(
+			super._getSubmitData(updateData),
+		);
 
 		// Handle Damage array
-    	const damage = formData.system?.formulas?.damage;
-    	if ( damage ) damage.parts = Object.values(damage?.parts || {}).map(d => [d[0] || '', d[1] || '']);
+		const damage = formData.system?.formulas?.damage;
+		if (damage)
+			damage.parts = Object.values(damage?.parts || {}).map((d) => [
+				d[0] || '',
+				d[1] || '',
+			]);
 
 		// Return the flattened submission data
 		return foundry.utils.flattenObject(formData);
 	}
-
 
 	/** @override */
 	activateListeners(html) {
@@ -164,9 +149,9 @@ export class OrdemItemSheet extends ItemSheet {
 
 		html.find('.damage-control').click(this._onDamageControl.bind(this));
 
-		html.find('.effect-control').click((ev) =>
-			onManageActiveEffect(ev, this.item),
-		);
+		html
+			.find('.effect-control')
+			.click((ev) => onManageActiveEffect(ev, this.item));
 
 		// Roll handlers, click handlers, etc. would go here.
 	}
