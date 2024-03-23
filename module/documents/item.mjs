@@ -448,77 +448,69 @@ export class OrdemItem extends Item {
 
 		if (item.type == 'armament') {
 			if (this.system?.proficiency)
-				templateData.info.push('proficiencyChoices.' + this.system.proficiency);
+				templateData.info.push(
+					game.i18n.localize(
+						'ordemparanormal.proficiencyChoices.' + this.system.proficiency,
+					),
+				);
+			if (this.system?.critical) templateData.info.push(this.system.critical);
 			if (this.system.types?.gripType)
 				templateData.info.push(
-					'weaponGripTypeChoices.' + this.system.types.gripType,
+					game.i18n.localize(
+						'ordemparanormal.weaponGripTypeChoices.' +
+							this.system.types.gripType,
+					),
 				);
 			if (this.system.types?.rangeType?.name)
 				templateData.info.push(
-					'weaponTypeChoices.' + this.system.types.rangeType.name,
+					game.i18n.localize(
+						'ordemparanormal.weaponTypeChoices.' +
+							this.system.types.rangeType.name,
+					),
 				);
 			if (this.system.types?.damageType)
 				templateData.info.push(
-					'damageTypeChoices.' + this.system.types.damageType,
+					game.i18n.localize(
+						'ordemparanormal.damageTypeChoices.' + this.system.types.damageType,
+					),
 				);
 			if (this.system.conditions?.improvised)
-				templateData.info.push('improvised');
+				templateData.info.push(
+					game.i18n.localize('ordemparanormal.improvised'),
+				);
 			if (this.system.conditions?.throwable)
-				templateData.info.push('throwable');
-			if (this.system.conditions?.agile) templateData.info.push('agile');
+				templateData.info.push(game.i18n.localize('ordemparanormal.throwable'));
+			if (this.system.conditions?.agile)
+				templateData.info.push(game.i18n.localize('ordemparanormal.agile'));
 			if (this.system.conditions?.automatic)
-				templateData.info.push('automatic');
+				templateData.info.push(game.i18n.localize('ordemparanormal.automatic'));
 			if (this.system.conditions?.adaptableGrip)
-				templateData.info.push('adaptableGrip');
+				templateData.info.push(
+					game.i18n.localize('ordemparanormal.adaptableGrip'),
+				);
 			if (this.system.conditions?.pistolBlow)
-				templateData.info.push('pistolBlow');
+				templateData.info.push(
+					game.i18n.localize('ordemparanormal.pistolBlow'),
+				);
 		}
 
 		if (item.type == 'ritual') {
 			if (this.system?.circle) templateData.system.push(this.system.circle);
-			if (this.system?.element)
-				templateData.info.push('elementChoices.' + this.system.element);
-			if (this.system?.target)
-				templateData.info.push('targetChoices.' + this.system.target);
-			if (this.system?.execution)
-				templateData.info.push('executionChoices.' + this.system.execution);
-			if (this.system?.range)
-				templateData.info.push('rangeChoices.' + this.system.range);
-			if (this.system?.areaEffect)
-				templateData.info.push('areaChoices.' + this.system.areaEffect);
-			if (this.system?.duration)
-				templateData.info.push('durationChoices.' + this.system.duration);
-			if (this.system?.resistance)
-				templateData.info.push('resistanceChoices.' + this.system.resistance);
 			if (this.system?.studentForm)
 				templateData.system.push(this.system.studentForm);
 			if (this.system?.trueForm) templateData.system.push(this.system.trueForm);
 		}
 
-		// for (const [i, value] of Object.entries(this.system)) {
-		// 	if (
-		// 		this.system.proficiency || this.system.types.gripType ||
-		// 		this.system.types.rangeType.name || this.system.types.damageType ||
-		// 		this.system.conditions.improvised || this.system.conditions.throwable ||
-		// 		this.system.conditions.agile || this.system.conditions.automatic ||
-		// 		this.system.conditions.adaptableGrip || this.system.conditions.pistolBlow
-		// 	) {
-		// 		templateData.info.push(value);
-		// 	}
-		// }
-
 		const html = await renderTemplate(
 			'systems/ordemparanormal/templates/chat/item-card.html',
 			templateData,
 		);
-
-		console.log(rollMode);
 		// If there's no roll data, send a chat message.
 		// if (!this.system.formulas) {
 		ChatMessage.create({
 			speaker: speaker,
 			rollMode: rollMode,
-			flavor: label,
+			// flavor: label,
 			content: html,
 			// content: item.system.description ?? '',
 		});
