@@ -6,7 +6,6 @@
 		{{else}}
 		<div class="item-name">{{circle}}º Circulo</div>
 		{{/ifEquals}}
-		<div class="item-space">{{localize "ordemparanormal.execution"}}</div>
 		<div class="item-space">{{localize "ordemparanormal.range"}}</div>
 		<div class="item-space">{{localize "ordemparanormal.target"}}</div>
 		<div class="item-space">{{localize "ordemparanormal.duration"}}</div>
@@ -34,16 +33,11 @@
 			<h4>{{item.name}}</h4>
 		</div>
 		<div class="item-space item-prop">
-			{{#if item.system.execution}}{{localize (concat
-			"ordemparanormal.executionChoices." item.system.execution)}} {{else}} —
-			{{/if}}
-		</div>
-		<div class="item-space item-prop">
 			{{#if item.system.range}}{{localize (concat
 			"ordemparanormal.rangeChoices." item.system.range)}} {{else}} — {{/if}}
 		</div>
 		<div class="item-space item-prop">
-			{{#if item.system.target}}{{localize (concat
+			{{#if item.system.target}}{{item.system.targetQtd}} {{localize (concat
 			"ordemparanormal.targetChoices." item.system.target)}} {{else}} — {{/if}}
 		</div>
 		<div class="item-space item-prop">
@@ -52,9 +46,10 @@
 			{{/if}}
 		</div>
 		<div class="item-space item-prop">
-			{{#if item.system.resistance}}{{localize (concat
-			"ordemparanormal.resistanceChoices." item.system.resistance)}} {{else}} —
-			{{/if}}
+			{{#if item.system.resistance}} {{#if item.system.skillResis}}{{localize
+			(concat "ordemparanormal.skill." item.system.skillResis)}}{{/if}}
+			{{localize (concat "ordemparanormal.resistanceChoices."
+			item.system.resistance)}} {{else}} — {{/if}}
 		</div>
 		<div class="item-controls">
 			<a class="item-control send-chat" title="Enviar para o chat"
