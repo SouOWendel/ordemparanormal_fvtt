@@ -80,6 +80,9 @@ Hooks.once('init', async function () {
 		makeDefault: true,
 	});
 
+	// Configure Fonts
+	_configureFonts();
+
 	// Register System Settings in Other File
 	registerSystemSettings();
 
@@ -124,6 +127,72 @@ Hooks.once('ready', async function () {
 	// ]);
 	displayMessages();
 });
+
+/**
+ * Configure additional system fonts.
+ */
+function _configureFonts() {
+	Object.assign(CONFIG.fontDefinitions, {
+		'Warnock Pro': {
+			editor: true,
+			fonts: [
+				{
+					urls: [
+						'systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-Regular.otf',
+					],
+				},
+				{
+					urls: [
+						'systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-Semibold.otf',
+					],
+					weight: 'semibold',
+				},
+				{
+					urls: [
+						'systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-SemiboldItSubh.otf',
+					],
+					style: 'italic',
+				},
+				{
+					urls: [
+						'systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-SemiboldIt.otf',
+					],
+					weight: 'bold',
+					style: 'italic',
+				},
+			],
+		},
+		'Optima Nova LT PRO': {
+			editor: true,
+			fonts: [
+				{
+					urls: [
+						'systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProRegular.otf',
+					],
+				},
+				{
+					urls: [
+						'systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProBold.otf',
+					],
+					weight: 'bold',
+				},
+				{
+					urls: [
+						'systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProItalic.otf',
+					],
+					style: 'italic',
+				},
+				{
+					urls: [
+						'systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProBoldItalic.otf',
+					],
+					weight: 'bold',
+					style: 'italic',
+				},
+			],
+		},
+	});
+}
 
 /* -------------------------------------------- */
 /*  Handlebars Helpers                          */
