@@ -1,13 +1,98 @@
-<div class="ordemparanormal chat-card item-card" data-actor-id="{{actor._id}}" data-item-id="{{item._id}}">
-    {{{data.description}}}
-    <div class="card-buttons">
-        <button data-action="attack"><i class="fa-solid fa-dice-d20"></i> Rolar Ataque</button>
-        <button data-action="damage"><i class="fa-solid fa-dice"></i> Rolar Dano</button>
-    </div>
-    <hr>
-    <footer class="card-footer">
-        {{#each info}}
-        <span>{{localize (concat "ordemparanormal." this)}}</span>
-        {{/each}}
-    </footer>
+<div
+	class="ordemparanormal chat-card item-card"
+	data-actor-id="{{actor._id}}"
+	data-item-id="{{item._id}}"
+>
+	<div class="header">
+		<img
+			src="{{item.img}}"
+			title="{{item.name}}"
+			width="36px"
+			height="36px"
+			style="float: left"
+		/>
+		<h2>{{item.name}}</h2>
+	</div>
+	{{#if data.circle}} {{#if data.element}}<span class="element {{data.element}}"
+		>{{localize (concat "ordemparanormal.elementChoices." data.element)}}
+		{{data.circle}}</span
+	>
+	{{/if}}
+	<div class="ritual-info">
+		{{#if data.execution}}
+		<p>
+			<strong>{{localize "ordemparanormal.execution"}}.</strong>
+			{{localize (concat "ordemparanormal.executionChoices." data.execution)}}
+		</p>
+		{{/if}} {{#if data.range}}
+		<p>
+			<strong>{{localize "ordemparanormal.range"}}.</strong> {{localize (concat
+			"ordemparanormal.rangeChoices." data.range)}}
+		</p>
+		{{/if}} {{#if data.target}}
+		<p>
+			<strong>{{localize "ordemparanormal.target"}}.</strong> {{localize (concat
+			"ordemparanormal.targetChoices." data.target)}}
+		</p>
+		{{/if}} {{#if data.duration}}
+		<p>
+			<strong>{{localize "ordemparanormal.duration"}}.</strong> {{localize
+			(concat "ordemparanormal.durationChoices." data.duration)}}
+		</p>
+		{{/if}} {{#if data.resistance}}
+		<p>
+			<strong>{{localize "ordemparanormal.resistance"}}.</strong>
+			{{localize (concat "ordemparanormal.resistanceChoices." data.resistance)}}
+		</p>
+		{{/if}}
+	</div>
+	{{/if}}
+	<h4>
+		<details>
+			<summary>{{localize "ordemparanormal.description"}}</summary>
+			{{{item.system.description}}}
+		</details>
+	</h4>
+	{{#ifEquals item.type "armament"}}
+	<table>
+		<tr>
+			<th>Dano</th>
+			<th>Crítico</th>
+			<th>Alcance</th>
+		</tr>
+		<tr>
+			<td>{{#each item.system.formulas.damage.parts}}{{this.[0]}} {{/each}}</td>
+			<td>{{data.critical}}</td>
+			<td>{{data.range}}</td>
+		</tr>
+	</table>
+	{{/ifEquals}}
+	<div class="card-buttons">
+		{{#if data.formulas.attack}}
+		<button data-action="attack">
+			<i class="fa-solid fa-dice-d20"></i> Rolar Ataque
+		</button>
+		{{/if}} {{#if data.formulas.damage}}
+		<button data-action="damage">
+			<i class="fa-solid fa-dice"></i> Rolar Dano
+		</button>
+		{{/if}}
+		<!-- {{#if data.studentForm}}
+		<button data-action="attack">
+			<i class="fa-solid fa-dice-d20"></i> Forma Discente
+		</button>
+		{{/if}} {{#if data.trueForm}}
+		<button data-action="attack">
+			<i class="fa-solid fa-dice-d20"></i> Forma Verdadeira
+		</button>
+		{{/if}} -->
+	</div>
+	{{#if info}}
+	<hr />
+	{{/if}}
+	<footer class="card-footer">
+		{{#each info}}
+		<span>{{this}}</span>
+		{{/each}}
+	</footer>
 </div>
