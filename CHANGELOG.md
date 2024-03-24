@@ -1,5 +1,40 @@
 # Changelog
 
+## [6.4.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.3.3...v6.4.0) (2024-03-24)
+
+
+### Features
+
+* **actor and actor sheet:** transfer all data functions from sheet to actor and refactor the order ([33ab28a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/33ab28ab6975d9e658a0ce7f69ae3d36b1af3c14))
+* **actor rituals:** "execution" is no longer displayed on the actor sheet and skill resistance is ([45d5975](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/45d59750b586f0edc3c3a0aa845ec95b18ae7cca))
+* **actor rituals:** displayed informations about the rituals was changed on actor sheet tab ([b89c178](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b89c1784e7fcd95c6737afe3cc07859b76a3172d))
+* **actor rituals:** was added translations for information shown on actor sheet, and slide button ([3737f5c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3737f5cf90b68420eef16647ad3a8399e407b5ce))
+* **actor sheet and effects:** updates for foundry v11 version and adjustments for effects ([2885142](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/288514220b142fba5aa2cae8ccf9547dcd4cbf95))
+* **actor:** migrate the data access path to Foundry v11 (convert `data.data` path to `system`) ([5041078](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5041078095b0e5b826ccaa7b487daf52fcc06ba5))
+* **compiled css:** added style for scrollbar, item-card, actor-sheet rituals and etc ([ea41644](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ea41644c522e3f9f2b8831f3cea26666fa28e38a))
+* **config:** added skill resistance and area type for rituals, fix the skill paths and indentation ([c73eabb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c73eabb4e063c19adf4027b70ce3e7e6659fee53))
+* **config:** was created a configuration of dropdowns for execution, range, target, area, etc ([7fa93bd](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7fa93bd4473f493b31ac36a7617034161a9425c7))
+* **item card:** item card is now styled for rituals and armaments ([e1ff799](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e1ff7998e2e641f0c8e796dffbae6deea60c0736))
+* **item ritual sheet:** html of selects (dropdowns) has been added ([217ef3b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/217ef3b1852726b4958e3b49880bf484b4c437dd))
+* **item ritual sheet:** was added fields or dropdowns for area, target quantity and skill resistanc ([4e18b2a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4e18b2a25122a88cf39a4f8a8d5c1190a698f05a))
+* **item sheet:** the configurations of dropdowns has been added into the global var context ([641194d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/641194db2125e0e39ea7582f55a5c3803429c3e9))
+* **item:** added information for rituals and armaments which is now located before the display ([eee907a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/eee907af107605ebac1dc090a5d0619323332841))
+* **item:** now the html template and ritual informations is always displayed in chat ([f57677f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f57677ff435b37f7843ca2765a209fa76d561677))
+* **localization:** translates for fields of ritual sheet has been added ([6d5ae31](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6d5ae310f32db09f3b9347e460ba03f7339a897d))
+* **localization:** was changed the skills path and plural of people in pt-br, was added area transl ([8c532ce](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8c532ceb2675cd6ffe8bff879ff6dd85f5edff74))
+* new fonts are added in the system ([6c23ea1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6c23ea16538a578c5a6dda1cc1cfacfe56259206))
+* **scss/sass:** custom design for armament and ritual chat card was added ([2529b28](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2529b28883fbfec0c4eff5a4b91aa59a31111440))
+* **system:** bugs and license links has been added on system.json ([7d6a05b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7d6a05bc25fc322e653093c641c1c132dac6282c))
+* **template:** area data for rituals was added (name, size, type) ([4a3b643](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4a3b643fd84d6061e87356a0800338935319c140))
+* **template:** deleted maxBonus of pv, pe and san ([bf8ae23](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bf8ae23edcde91445f18d66c1b5378f31eeaf17e))
+
+
+### Bug Fixes
+
+* **_window scroll:** fixed the style of scrollbar in navigator ([a282732](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a282732a0a6cdce22ddffa36afd03b3be97a42d8))
+* **actor sheet:** fixed a bug when set a other circle of ritual, the actor sheet is broken ([1a71ff1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1a71ff1c3e40946df2e8f8269ee3306f6ab15e78))
+* **chat message critical:** fixed an error caused by the absence of `isCritical` var in some items ([057c9d5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/057c9d5765a30b6e5f9eb4d3dc0093255d8361f0))
+
 ## [6.3.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.3.2...v6.3.3) (2024-01-31)
 
 
