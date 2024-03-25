@@ -1,5 +1,19 @@
 # Changelog
 
+## [6.5.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.4.1...v6.5.0) (2024-03-25)
+
+
+### Features
+
+* **system:** added a thumbnail to the system ([9fc50ee](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9fc50ee6771cdd6f07a993b3aee161794dddeebd))
+* **update notes:** added a fixed bug to update notes and change de version from 6.4.0 to 6.4.2 ([084de33](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/084de33d7abef429e9cdfa8cac4f5226dd7703ba))
+* **update notes:** added a version 6.5.0 to update notes and change the max system version of 6.4.2 ([382c846](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/382c8469c94a299c150bf562e4d61f36827ef94e))
+
+
+### Bug Fixes
+
+* **actor:** fixed the agent roll data and adjust the initiative rolls ([5eebf1e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5eebf1edf0bedd2c49a7ad4f7e2fbdfb80ccb368))
+
 ## [6.4.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.4.0...v6.4.1) (2024-03-25)
 
 
