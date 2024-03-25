@@ -89,8 +89,7 @@ export class OrdemActor extends Actor {
 		const REFLEXES = system.skills.reflexes;
 		const AGI = system.attributes.dex.value;
 		system.defense.value += AGI;
-		return (system.defense.dodge =
-			system.defense.value + REFLEXES.value + (REFLEXES.mod || 0));
+		return (system.defense.dodge = system.defense.value + REFLEXES.value + (REFLEXES.mod || 0));
 	}
 
 	/**
@@ -115,8 +114,7 @@ export class OrdemActor extends Actor {
 
 			// Formando o nome com base nas condições de carga e treino da perícia.
 			skillsName.label =
-				game.i18n.localize(CONFIG.ordemparanormal.skills[keySkill]) +
-					(overLoad ? '+' : needTraining ? '*' : '') ?? k;
+				game.i18n.localize(CONFIG.ordemparanormal.skills[keySkill]) + (overLoad ? '+' : needTraining ? '*' : '') ?? k;
 
 			// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
 			const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
@@ -188,8 +186,7 @@ export class OrdemActor extends Actor {
 			system.defense.value += -5;
 			spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
 		}
-		if (spaces.value > spaces.max * 2)
-			ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
+		if (spaces.value > spaces.max * 2) ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
 	}
 
 	/**
@@ -198,27 +195,22 @@ export class OrdemActor extends Actor {
 	async _migrateData(system) {
 		// TODO: Update portuguese class name for english class name (6.3.1)
 		if (system?.class == 'Combatente')
-			await Actor.updateDocuments([
-				{ _id: actorData.actor._id, system: { class: 'fighter' } },
-			]);
+			await Actor.updateDocuments([{ _id: actorData.actor._id, system: { class: 'fighter' } }]);
 		if (system?.class == 'Especialista')
-			await Actor.updateDocuments([
-				{ _id: actorData.actor._id, system: { class: 'specialist' } },
-			]);
+			await Actor.updateDocuments([{ _id: actorData.actor._id, system: { class: 'specialist' } }]);
 		if (system?.class == 'Ocultista')
-			await Actor.updateDocuments([
-				{ _id: actorData.actor._id, system: { class: 'occultist' } },
-			]);
+			await Actor.updateDocuments([{ _id: actorData.actor._id, system: { class: 'occultist' } }]);
 	}
 
 	/**
 	 * Override getRollData() that's supplied to rolls.
 	 */
 	getRollData() {
+		const actorData = this;
 		const system = super.getRollData();
 
 		// Prepare character roll data.
-		this._getAgentRollData(system);
+		this._getAgentRollData(actorData, system);
 
 		return system;
 	}
@@ -226,8 +218,8 @@ export class OrdemActor extends Actor {
 	/**
 	 * Preparação do dados dos agentes.
 	 */
-	async _getAgentRollData(system) {
-		if (this.system.type !== 'agent') return;
+	async _getAgentRollData(actorData, system) {
+		if (actorData.type !== 'agent') return;
 		let skillUpper;
 
 		// Copy the skills scores to the top level, so that rolls can use
@@ -238,9 +230,7 @@ export class OrdemActor extends Actor {
 				system[k] = foundry.utils.deepClone(v);
 
 				skillUpper = k.charAt(0).toUpperCase() + k.slice(1);
-				system[
-					game.i18n.localize('ordemparanormal.skill' + skillUpper).toLowerCase()
-				] = foundry.utils.deepClone(v);
+				system[game.i18n.localize('ordemparanormal.skill' + skillUpper).toLowerCase()] = foundry.utils.deepClone(v);
 			}
 		}
 
@@ -253,12 +243,13 @@ export class OrdemActor extends Actor {
 		}
 
 		if (system.attributes && system.skills) {
-			system.rollInitiative =
-				(system.attributes.dex.value == 0 ? 2 : system.attributes.dex.value) +
-				'd20' +
-				(system.attributes.dex.value == 0 ? 'kl' : 'kh') +
-				'+' +
-				system.skills.initiative.value;
+			const mainDice = (system.attributes.dex.value || 2) + 'd20';
+			const rollMode = system.attributes.dex.value ? 'kh' : 'kl';
+			const formula = [];
+			formula.push(mainDice + rollMode);
+			if (system.skills.initiative.value != 0) formula.push(system.skills.initiative.value);
+			if (system.skills.initiative.mod) formula.push(system.skills.initiative.mod);
+			system.rollInitiative = formula.join('+');
 		}
 
 		// Add level for easier access, or fall back to 0.
