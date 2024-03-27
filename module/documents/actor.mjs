@@ -24,6 +24,8 @@ export class OrdemActor extends Actor {
 			this._migrateData(systemData);
 			this._prepareBaseDataAgent(systemData);
 			this._prepareDataStatus(systemData);
+			this._prepareSkills(systemData);
+			this._prepareDefense(systemData);
 		}
 	}
 
@@ -44,8 +46,6 @@ export class OrdemActor extends Actor {
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
 		// things organized.
 		if (actorData.type == 'agent') {
-			this._prepareDefense(systemData);
-			this._prepareSkills(systemData);
 			this._prepareActorSpaces(actorData);
 		}
 	}
@@ -89,7 +89,7 @@ export class OrdemActor extends Actor {
 		const REFLEXES = system.skills.reflexes;
 		const AGI = system.attributes.dex.value;
 		system.defense.value += AGI;
-		return (system.defense.dodge = system.defense.value + REFLEXES.value + (REFLEXES.mod || 0));
+		system.defense.dodge = system.defense.value + system.skills.reflexes.value + (system.skills.reflexes.mod || 0);
 	}
 
 	/**
