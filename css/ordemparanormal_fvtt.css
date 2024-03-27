@@ -917,5 +917,32 @@
   margin: 0;
   border: 0;
 }
+.system-ordemparanormal .op.system-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+}
+.system-ordemparanormal .op.system-badge img {
+  border: 0;
+}
+.system-ordemparanormal .op.sidebar-heading {
+  margin: 6px 0;
+  padding: 3px 8px;
+  border-top: 1px solid var(--color-border-dark-4);
+  border-bottom: 1px solid var(--color-border-dark-4);
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+}
+.system-ordemparanormal .op.sidebar-heading .links {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+.system-ordemparanormal .op.sidebar-heading h2 {
+  margin: 0;
+}
 
 /*# sourceMappingURL=ordemparanormal_fvtt.css.map */

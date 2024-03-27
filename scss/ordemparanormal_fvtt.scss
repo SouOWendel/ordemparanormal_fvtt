@@ -14,11 +14,12 @@
 
 /* Styles limited to ordemparanormal sheets */
 .system-ordemparanormal {
-  @import 'components/forms';
-  @import 'components/resource';
-  @import 'components/items';
-  @import 'components/effects';
-  @import 'components/dialog';
-  @import 'components/cards';
-  @import 'components/chat';
+	@import 'components/forms';
+	@import 'components/resource';
+	@import 'components/items';
+	@import 'components/effects';
+	@import 'components/dialog';
+	@import 'components/cards';
+	@import 'components/chat';
+	@import 'components/sidebar';
 }

@@ -48,8 +48,7 @@ Hooks.once('init', async function () {
 	// Add custom constants for configuration.
 	CONFIG.ordemparanormal = ordemparanormal;
 
-	CONFIG.Dice.rolls[0].CHAT_TEMPLATE =
-		'systems/ordemparanormal/templates/dice/roll.html';
+	CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.html';
 
 	/**
 	 * Set an initiative formula for the system
@@ -92,8 +91,7 @@ Hooks.once('init', async function () {
 	// console.log(game.data.actors[0]);
 
 	// Change the logo of Foundry for Ordem Paranormal logo.
-	if (navigator.onLine)
-		$('#logo').attr('src', 'https://i.imgur.com/TTrDGM4.png');
+	if (navigator.onLine) $('#logo').attr('src', 'https://i.imgur.com/TTrDGM4.png');
 
 	// Preload Handlebars templates.
 	return preloadHandlebarsTemplates();
@@ -137,26 +135,18 @@ function _configureFonts() {
 			editor: true,
 			fonts: [
 				{
-					urls: [
-						'systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-Regular.otf',
-					],
+					urls: ['systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-Regular.otf'],
 				},
 				{
-					urls: [
-						'systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-Semibold.otf',
-					],
+					urls: ['systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-Semibold.otf'],
 					weight: 'semibold',
 				},
 				{
-					urls: [
-						'systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-SemiboldItSubh.otf',
-					],
+					urls: ['systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-SemiboldItSubh.otf'],
 					style: 'italic',
 				},
 				{
-					urls: [
-						'systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-SemiboldIt.otf',
-					],
+					urls: ['systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-SemiboldIt.otf'],
 					weight: 'bold',
 					style: 'italic',
 				},
@@ -166,26 +156,18 @@ function _configureFonts() {
 			editor: true,
 			fonts: [
 				{
-					urls: [
-						'systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProRegular.otf',
-					],
+					urls: ['systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProRegular.otf'],
 				},
 				{
-					urls: [
-						'systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProBold.otf',
-					],
+					urls: ['systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProBold.otf'],
 					weight: 'bold',
 				},
 				{
-					urls: [
-						'systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProItalic.otf',
-					],
+					urls: ['systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProItalic.otf'],
 					style: 'italic',
 				},
 				{
-					urls: [
-						'systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProBoldItalic.otf',
-					],
+					urls: ['systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProBoldItalic.otf'],
 					weight: 'bold',
 					style: 'italic',
 				},
@@ -215,18 +197,13 @@ Handlebars.registerHelper('concatObjAndStr', function () {
 	console.log('OP FVTT | ' + option.name + ' - Argumentos: ' + args);
 	let objects = {};
 	for (const arg in args) {
-		if (
-			typeof arguments[arg] == 'object' ||
-			typeof arguments[arg] == 'string'
-		) {
+		if (typeof arguments[arg] == 'object' || typeof arguments[arg] == 'string') {
 			if (arg == 0) {
 				objects = arguments[arg];
 			} else {
 				objects = objects[arguments[arg]];
 			}
-			console.log(
-				'OP FVTT | ' + option.name + ' - Tipo final: ' + typeof objects,
-			);
+			console.log('OP FVTT | ' + option.name + ' - Tipo final: ' + typeof objects);
 		}
 	}
 	return objects;
@@ -247,9 +224,7 @@ Handlebars.registerHelper('numberInputFVTT', function (value, options) {
 	if (Number.isNumeric(step) && typeof safe === 'number') {
 		safe = safe.toNearest(Number(step));
 	}
-	return new Handlebars.SafeString(
-		`<input type="number" value="${safe}" ${properties.join(' ')}>`,
-	);
+	return new Handlebars.SafeString(`<input type="number" value="${safe}" ${properties.join(' ')}>`);
 });
 
 Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
@@ -288,6 +263,7 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 Hooks.once('ready', function () {
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 	Hooks.on('hotbarDrop', (bar, data, slot) => {
+		// console.log(data);
 		if (['Item', 'ActiveEffect'].includes(data.type)) {
 			documents.macro.createOPMacro(data, slot);
 			return false;
@@ -298,9 +274,7 @@ Hooks.once('ready', function () {
 Hooks.on('renderChatMessage', documents.chat.onRenderChatMessage);
 
 Hooks.on('renderChatLog', (app, html, data) => OrdemItem.chatListeners(html));
-Hooks.on('renderChatPopout', (app, html, data) =>
-	OrdemItem.chatListeners(html),
-);
+Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html));
 
 /**
  * Criando o Hook preCreateActor para o módulo Bar Brawl adicionar
@@ -353,4 +327,38 @@ Hooks.on('preCreateActor', function (actor, data) {
 			},
 		});
 	}
+});
+
+Hooks.on('renderSettings', (app, [html]) => {
+	const details = html.querySelector('#game-details');
+	const pip = details.querySelector('.system-info .update');
+	details.querySelector('.system').remove();
+
+	const heading = document.createElement('div');
+	heading.classList.add('op', 'sidebar-heading');
+	heading.innerHTML = `
+    <h2>${game.i18n.localize('WORLD.GameSystem')}</h2>
+    <ul class="links">
+      <li>
+        <a href="https://github.com/foundryvtt/dnd5e/wiki" target="_blank">
+				${game.i18n.localize('ordemparanormal.Credits')}</a>
+      </li>
+      <li>
+        <a href="https://discord.com/channels/170995199584108546/670336046164213761" target="_blank">
+          ${game.i18n.localize('ordemparanormal.Discord')}
+        </a>
+      </li>
+    </ul>
+  `;
+	details.insertAdjacentElement('afterend', heading);
+
+	const badge = document.createElement('div');
+	badge.classList.add('op', 'system-badge');
+	badge.innerHTML = `
+    <img src="systems/ordemparanormal/media/op-logo.png" data-tooltip="${game.system.title}" alt="${game.system.title}">
+    <span class="system-info">Um sistema não-oficial na versão <strong>${game.system.version}</strong> </span>
+  `;
+	console.log(game);
+	if (pip) badge.querySelector('.system-info').insertAdjacentElement('beforeend', pip);
+	heading.insertAdjacentElement('afterend', badge);
 });
