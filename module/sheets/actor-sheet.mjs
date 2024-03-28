@@ -1,8 +1,5 @@
 /* eslint-disable no-unused-vars */
-import {
-	onManageActiveEffect,
-	prepareActiveEffectCategories,
-} from '../helpers/effects.mjs';
+import { onManageActiveEffect, prepareActiveEffectCategories } from '../helpers/effects.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -69,7 +66,7 @@ export class OrdemActorSheet extends ActorSheet {
 		context.effects = prepareActiveEffectCategories(
 			// A generator that returns all effects stored on the actor
 			// as well as any items
-			this.actor.allApplicableEffects(),
+			this.actor.allApplicableEffects()
 		);
 		return context;
 	}
@@ -145,8 +142,7 @@ export class OrdemActorSheet extends ActorSheet {
 			else if (i.type === 'ability') {
 				if (i.system.abilityType == 'ability') abilities.valid[1].push(i);
 				else if (i.system.abilityType == 'class') abilities.valid[2].push(i);
-				else if (i.system.abilityType == 'paranormal')
-					abilities.valid[3].push(i);
+				else if (i.system.abilityType == 'paranormal') abilities.valid[3].push(i);
 				else if (!i.system.abilityType) abilities.invalid.push(i);
 			}
 		}
@@ -215,10 +211,7 @@ export class OrdemActorSheet extends ActorSheet {
 		// Active Effect management
 		html.find('.effect-control').click((ev) => {
 			const row = ev.currentTarget.closest('li');
-			const document =
-				row.dataset.parentId === this.actor.id
-					? this.actor
-					: this.actor.items.get(row.dataset.parentId);
+			const document = row.dataset.parentId === this.actor.id ? this.actor : this.actor.items.get(row.dataset.parentId);
 			onManageActiveEffect(ev, document);
 		});
 
@@ -236,6 +229,34 @@ export class OrdemActorSheet extends ActorSheet {
 		}
 	}
 
+	/** @inheritdoc */
+	_onDragStart(event) {
+		const li = event.currentTarget;
+		console.log('OP | Movendo efeito de ID:', li.dataset.effectId);
+		console.log('OP | ID descendente de:', li.dataset.parentId);
+		if (event.target.classList.contains('content-link')) return;
+
+		if (li.dataset.effectId && li.dataset.parentId) {
+			const effect =
+				this.actor.items.get(li.dataset.parentId)?.effects.get(li.dataset.effectId) ||
+				this.actor?.effects.get(li.dataset.effectId);
+			if (effect) event.dataTransfer.setData('text/plain', JSON.stringify(effect.toDragData()));
+			return;
+		}
+		super._onDragStart(event);
+	}
+
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _onDropActiveEffect(event, data) {
+		const effect = await ActiveEffect.implementation.fromDropData(data);
+		if (effect?.target === this.actor) return false;
+		return super._onDropActiveEffect(event, data);
+	}
+
+	/* -------------------------------------------- */
+
 	/**
 	 * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
 	 * @param {Event} event   The originating click event
@@ -249,10 +270,7 @@ export class OrdemActorSheet extends ActorSheet {
 		// Grab any data associated with this control.
 		const data = duplicate(header.dataset);
 		// Initialize a default name.
-		const name =
-			game.i18n.localize('ordemparanormal.newItem') +
-			' ' +
-			game.i18n.localize('TYPES.Item.' + type);
+		const name = game.i18n.localize('ordemparanormal.newItem') + ' ' + game.i18n.localize('TYPES.Item.' + type);
 		// Prepare the item object.
 		const itemData = {
 			name: name,
@@ -279,8 +297,7 @@ export class OrdemActorSheet extends ActorSheet {
 		const itemId = element.closest('.item').dataset.itemId;
 		const item = this.actor.items.get(itemId);
 
-		if (item.system.description)
-			ChatMessage.create({ content: item.system.description });
+		if (item.system.description) ChatMessage.create({ content: item.system.description });
 	}
 
 	/**
