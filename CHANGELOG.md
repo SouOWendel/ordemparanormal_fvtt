@@ -1,5 +1,21 @@
 # Changelog
 
+## [6.6.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.5.0...v6.6.0) (2024-03-28)
+
+
+### Features
+
+* **foundry sidebar:** added links (discord and credits) and Paranormal Order logo with system ver ([428e5f6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/428e5f61c5b9c369c703f8d258f45ce7b87b1427))
+* **localization:** added translates for sidebar (notes, issues, etc) and fixed occultism skill ([ba854b8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ba854b8e77a312413b644a2824cdce6f36e2847c))
+
+
+### Bug Fixes
+
+* **actor sheet:** fixed the draggable effects and macro creation in macrobar ([6ecd988](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6ecd988de3fd950218364cc7d9af966b6c05704c))
+* **actor:** fixed the `dodge` var in actor sheet and changed the same var from derived to base data ([74e1695](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/74e16951f62d8b47f7ac3ff06e7f32de25fa1475))
+* **actor:** fixed the class migration and the skills localization in roll data ([527512f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/527512fd092172754de33f63f7a80d5bc9f3fe1d))
+* **macro:** adjust the `getMacroTarget` to catch `allAplicableEffects` instead of `actor.effects` ([5f2fe88](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5f2fe88d1dcff2d48af85e06f844ad387cfd2a0a))
+
 ## [6.5.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.4.1...v6.5.0) (2024-03-25)
 
 
