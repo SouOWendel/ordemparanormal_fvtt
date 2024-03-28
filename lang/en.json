@@ -24,6 +24,7 @@
 	"MACRO.opUnownedWarn": "You can only create macro buttons for owned Items.",
 	"MACRO.opNoActorSelected": "No selected or assigned actor could be found to target with macro.",
 	"MACRO.opMissingTargetWarn": "Your controlled actor '{actor}' does not have an {type} with name '{name}'.",
+	"MACRO.opMultipleTargetsWarn": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen.",
 	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 
 	"ordemparanormal.tab": {
@@ -82,6 +83,10 @@
 	"ordemparanormal.vitAbv": "Vit",
 	"ordemparanormal.preAbv": "Pre",
 	"ordemparanormal.strAbv": "Str",
+
+	"ordemparanormal.agiAbv": "Dex",
+	"ordemparanormal.vigAbv": "Vit",
+	"ordemparanormal.forAbv": "Str",
 
 	"ordemparanormal.newItem": "Novo(a)",
 
@@ -312,5 +317,11 @@
 		"knowledge": "Knowledge",
 		"energy": "Energy",
 		"fear": "Fear"
-	}
+	},
+
+	"ordemparanormal.Notes": "Update Notes",
+	"ordemparanormal.Issues": "Issues",
+	"ordemparanormal.Wiki": "Wiki",
+	"ordemparanormal.Discord": "Discord",
+	"ordemparanormal.Credits": "Credits"
 }

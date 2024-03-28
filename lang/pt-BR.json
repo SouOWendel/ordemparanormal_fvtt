@@ -24,6 +24,7 @@
 	"MACRO.opUnownedWarn": "Você só pode criar botões macro para os seus itens.",
 	"MACRO.opNoActorSelected": "Nenhum ator selecionado ou designado foi encontrado para o macro selecionado",
 	"MACRO.opMissingTargetWarn": "O ator controlado '{actor}' não tem um '{type}' com o nome '{name}'.",
+	"MACRO.opMultipleTargetsWarn": "O ator controlado '{actor}' tem mais de um {type} com o mesmo nome '{name}'. O primeiro correspondente será escolhido.",
 	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 
 	"ordemparanormal.tab": {
@@ -59,7 +60,7 @@
 		"investigation": "Investigação",
 		"fighting": "Luta",
 		"medicine": "Medicina",
-		"pccultism": "Ocultismo",
+		"occultism": "Ocultismo",
 		"perception": "Percepção",
 		"driving": "Pilotagem",
 		"aim": "Pontaria",
@@ -82,6 +83,10 @@
 	"ordemparanormal.vitAbv": "Vig",
 	"ordemparanormal.preAbv": "Pre",
 	"ordemparanormal.strAbv": "For",
+
+	"ordemparanormal.agiAbv": "Agi",
+	"ordemparanormal.vigAbv": "Vig",
+	"ordemparanormal.forAbv": "For",
 
 	"ordemparanormal.newItem": "Novo(a)",
 
@@ -313,5 +318,11 @@
 		"knowledge": "Conhecimento",
 		"energy": "Energia",
 		"fear": "Medo"
-	}
+	},
+
+	"ordemparanormal.Notes": "Notas de Atualização",
+	"ordemparanormal.Issues": "Problemas",
+	"ordemparanormal.Wiki": "Wiki",
+	"ordemparanormal.Discord": "Discord",
+	"ordemparanormal.Credits": "Creditos"
 }
