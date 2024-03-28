@@ -21,7 +21,7 @@ export class OrdemActor extends Actor {
 		const systemData = actorData.system;
 
 		if (actorData.type == 'agent') {
-			this._migrateData(systemData);
+			this._migrateData(actorData, systemData);
 			this._prepareBaseDataAgent(systemData);
 			this._prepareDataStatus(systemData);
 			this._prepareSkills(systemData);
@@ -192,14 +192,14 @@ export class OrdemActor extends Actor {
 	/**
 	 *
 	 */
-	async _migrateData(system) {
+	async _migrateData(actorData, system) {
 		// TODO: Update portuguese class name for english class name (6.3.1)
 		if (system?.class == 'Combatente')
-			await Actor.updateDocuments([{ _id: actorData.actor._id, system: { class: 'fighter' } }]);
+			await Actor.updateDocuments([{ _id: actorData._id, system: { class: 'fighter' } }]);
 		if (system?.class == 'Especialista')
-			await Actor.updateDocuments([{ _id: actorData.actor._id, system: { class: 'specialist' } }]);
+			await Actor.updateDocuments([{ _id: actorData._id, system: { class: 'specialist' } }]);
 		if (system?.class == 'Ocultista')
-			await Actor.updateDocuments([{ _id: actorData.actor._id, system: { class: 'occultist' } }]);
+			await Actor.updateDocuments([{ _id: actorData._id, system: { class: 'occultist' } }]);
 	}
 
 	/**
@@ -230,7 +230,7 @@ export class OrdemActor extends Actor {
 				system[k] = foundry.utils.deepClone(v);
 
 				skillUpper = k.charAt(0).toUpperCase() + k.slice(1);
-				system[game.i18n.localize('ordemparanormal.skill' + skillUpper).toLowerCase()] = foundry.utils.deepClone(v);
+				system[game.i18n.localize('ordemparanormal.skill.' + k).toLowerCase()] = foundry.utils.deepClone(v);
 			}
 		}
 
