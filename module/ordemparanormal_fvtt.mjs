@@ -263,7 +263,6 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 Hooks.once('ready', function () {
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 	Hooks.on('hotbarDrop', (bar, data, slot) => {
-		// console.log(data);
 		if (['Item', 'ActiveEffect'].includes(data.type)) {
 			documents.macro.createOPMacro(data, slot);
 			return false;
@@ -358,7 +357,6 @@ Hooks.on('renderSettings', (app, [html]) => {
     <img src="systems/ordemparanormal/media/op-logo.png" data-tooltip="${game.system.title}" alt="${game.system.title}">
     <span class="system-info">Um sistema não-oficial na versão <strong>${game.system.version}</strong> </span>
   `;
-	console.log(game);
 	if (pip) badge.querySelector('.system-info').insertAdjacentElement('beforeend', pip);
 	heading.insertAdjacentElement('afterend', badge);
 });
