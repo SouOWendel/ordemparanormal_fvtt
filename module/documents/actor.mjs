@@ -46,6 +46,7 @@ export class OrdemActor extends Actor {
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
 		// things organized.
 		if (actorData.type == 'agent') {
+			this._prepareRitualDT(actorData);
 			this._prepareActorSpaces(actorData);
 		}
 	}
@@ -192,6 +193,15 @@ export class OrdemActor extends Actor {
 	/**
 	 *
 	 */
+	_prepareRitualDT(ActorData) {
+		const system = ActorData.system;
+		const calcNEX = system.NEX.value < 99 ? Math.floor(system.NEX.value / 5) : 20;
+		system.ritualDT = 10 + calcNEX + system.attributes.pre.value;
+	}
+
+	/**
+	 *
+	 */
 	async _migrateData(actorData, system) {
 		// TODO: Update portuguese class name for english class name (6.3.1)
 		if (system?.class == 'Combatente')
@@ -200,6 +210,14 @@ export class OrdemActor extends Actor {
 			await Actor.updateDocuments([{ _id: actorData._id, system: { class: 'specialist' } }]);
 		if (system?.class == 'Ocultista')
 			await Actor.updateDocuments([{ _id: actorData._id, system: { class: 'occultist' } }]);
+
+		// console.log(game.items.invalidDocumentIds);
+		// for (const id of game.actors.invalidDocumentIds) await game.actors.getInvalid(id).delete();
+		// delete system.skills.k;
+		// await Actor.updateDocuments([{ _id: actorData._id, system: { skills: system.skills } }], {
+		// 	diff: false,
+		// 	recursive: false,
+		// });
 	}
 
 	/**
