@@ -8,7 +8,7 @@ const SYSTEM_NAME = 'ordemparanormal';
 // eslint-disable-next-line require-jsdoc
 export default async function displayMessages() {
 	const messages = await fetchMessage(`systems/${SYSTEM_NAME}/media/messages/messages.jsonc`);
-	// const messages = await fetchMessage('http://localhost:3000/');
+	// const messages = await fetchMessage('http://localhost:3000/notes');
 
 	messages.forEach((message, indice) => {
 		handleDisplay(message, indice, messages);
@@ -17,11 +17,11 @@ export default async function displayMessages() {
 
 const fetchMessage = async (url) => {
 	return await fetch(url)
-		.then(resp => resp.text())
-		.then(jsonc => JSON.parse(stripJSON(jsonc)));
+		.then((resp) => resp.text())
+		.then((jsonc) => JSON.parse(stripJSON(jsonc)));
 };
 
-const stripJSON = data => {
+const stripJSON = (data) => {
 	return data.replace(/[^:]\/\/(.*)/g, '');
 };
 
@@ -32,17 +32,17 @@ const handleDisplay = (msg, i, messages) => {
 	if (type === 'chat') return sendToChat(title, content);
 };
 
-const isCurrent = msg => {
+const isCurrent = (msg) => {
 	const settings = game.settings.get(SYSTEM_NAME, 'patchNotes');
 	const isDisplayable = !msg.display === 'once' || !settings; /* !hasDisplayed(msg.title); */
 	const correctCoreVersion =
-    foundry.utils.isNewerVersion(msg['max-core-version'] ?? '100.0.0', game.version) &&
-    foundry.utils.isNewerVersion(game.version, msg['min-core-version'] ?? '0.0.0');
+		foundry.utils.isNewerVersion(msg['max-core-version'] ?? '100.0.0', game.version) &&
+		foundry.utils.isNewerVersion(game.version, msg['min-core-version'] ?? '0.0.0');
 	const correctSysVersion = semverComp(
 		msg['min-sys-version'] ?? '0.0.0',
 		game.system.version,
 		msg['max-sys-version'] ?? '100.0.0',
-		{ gEqMin: true, lEqMax: true },
+		{ gEqMin: true, lEqMax: true }
 	);
 	console.log(correctSysVersion);
 	return isDisplayable && correctCoreVersion && correctSysVersion;
@@ -70,7 +70,7 @@ const displayPrompt = (title, content, i, messages) => {
 		content: `
 			<section class='ordemparanormal grid grid-2col'>
 				<aside class='sidebar scroll content-dialog'>
-					<a href="https://discord.gg/G8AwJwJXa5" class="no-orange-hyperlink">
+					<a href="https://discord.gg/G8AwJwJXa5" class="no-orange-hyperlink" target="_blank">
 						<div class="announcement flex-group-center discord" style="background-color: #5865F2">
 							<div>
 								<h1>Community Devs</h1>
@@ -78,8 +78,8 @@ const displayPrompt = (title, content, i, messages) => {
 							</div>
 						</div>
 					</a>
-					<a href="" class="no-orange-hyperlink">
-						<div class="announcement flex-group-center" style="border: 1px solid #00000020">
+					<a href="https://linktr.ee/devilline" class="no-orange-hyperlink" target="_blank">
+						<div class="announcement flex-group-center" style="background: url('systems/ordemparanormal/media/assets/deburinebanner.png'); border: 1px solid #00000020">
 						<p></p>
 						</div>
 					</a>
@@ -99,20 +99,20 @@ const displayPrompt = (title, content, i, messages) => {
 				icon: '<i class="fas fa-arrow-left"></i>',
 				label: 'Atualização Anterior',
 				callback: async () => {
-					const b = (messages[i - 1]) ? i - 1 : i;
+					const b = messages[i - 1] ? i - 1 : i;
 					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
-				}
-			   },
+				},
+			},
 			next: {
 				icon: '',
 				label: 'Próxima Atualização <i class="fas fa-arrow-right"></i>',
 				callback: async () => {
-					const b = (messages[i + 1]) ? i + 1 : i;
+					const b = messages[i + 1] ? i + 1 : i;
 					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
-				}
-			   }
+				},
+			},
 		},
-	   };
+	};
 
 	const d = new Dialog(config, dialogOptions);
 	return d.render(true);
