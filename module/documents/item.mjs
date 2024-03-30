@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /**
  * References and Codes of DND5e system:
  * https://github.com/foundryvtt/dnd5e/blob/a7f1404c7c38afa6d7dcc4f36a5fefd274034691/templates/chat/item-card.hbs
@@ -73,9 +74,7 @@ export class OrdemItem extends Item {
 
 		// Get the Item from stored flag data or by the item ID on the Actor
 		const storedData = message.getFlag('ordemparanormal', 'itemData');
-		const item = storedData
-			? new this(storedData, { parent: actor })
-			: actor.items.get(card.dataset.itemId);
+		const item = storedData ? new this(storedData, { parent: actor }) : actor.items.get(card.dataset.itemId);
 		// if ( !item ) {
 		//   const err = game.i18n.format('ordemparanormal.ActionWarningNoItem', {item: card.dataset.itemId, name: actor.name});
 		//   return ui.notifications.error(err);
@@ -201,9 +200,7 @@ export class OrdemItem extends Item {
 		let skill = attack.skill;
 		let rollMode = 'kh';
 
-		for (const [i, attrParent] of Object.entries(
-			this.parent.system.attributes,
-		)) {
+		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
 			if (i == attr) {
 				if (attrParent.value == 0) {
 					attr = 2;
@@ -285,22 +282,15 @@ export class OrdemItem extends Item {
 		// a variaveis com as respectivas conversões em qualquer ordem.
 		if (formulaCritical && formulaCritical.includes('/')) {
 			for (const crtalFor of critical.crtalFormula.split('/')) {
-				if (crtalFor.includes('x'))
-					critical.multiplier = Number(crtalFor.replaceAll('x', ''));
+				if (crtalFor.includes('x')) critical.multiplier = Number(crtalFor.replaceAll('x', ''));
 				else critical.margin = Number(crtalFor);
 			}
 		} else {
-			critical.multiplier =
-				(formulaCritical.includes('x') &&
-					formulaCritical.replaceAll('x', '')) ||
-				2;
-			critical.margin =
-				(!formulaCritical.includes('x') && formulaCritical) || 20;
+			critical.multiplier = (formulaCritical.includes('x') && formulaCritical.replaceAll('x', '')) || 2;
+			critical.margin = (!formulaCritical.includes('x') && formulaCritical) || 20;
 		}
 
-		critical.isCritical =
-			(Number(critical.roll.result.split('+')[0]) || critical.roll.result) >=
-				critical.margin && true;
+		critical.isCritical = (Number(critical.roll.result.split('+')[0]) || critical.roll.result) >= critical.margin && true;
 
 		return critical;
 	}
@@ -310,8 +300,7 @@ export class OrdemItem extends Item {
 	 * Rely upon the d20Roll logic for the core implementation
 	 */
 	async rollDamage(options = {}) {
-		if (!this.system.formulas.damage.parts)
-			throw new Error('This Item does not have a formula to roll!');
+		if (!this.system.formulas.damage.parts) throw new Error('This Item does not have a formula to roll!');
 
 		const prepareFormula = [];
 		const damageTypes = [];
@@ -330,25 +319,17 @@ export class OrdemItem extends Item {
 		}
 
 		// Verify the attributes
-		for (const [name, attrObject] of Object.entries(
-			this.parent.system.attributes,
-		)) {
+		for (const [name, attrObject] of Object.entries(this.parent.system.attributes)) {
 			if (name == damage.attr) prepareFormula.push(attrObject.value);
 		}
 
 		// Get the main type damage
-		damageTypes.push(
-			game.i18n.localize('ordemparanormal.damageTypeAbv.' + damage.type),
-		);
+		damageTypes.push(game.i18n.localize('ordemparanormal.damageTypeAbv.' + damage.type));
 
 		// Get all the other formulas
 		for (const parts of damage.parts) {
 			prepareFormula.push(`(${parts[0] || 0})`);
-			damageTypes.push(
-				parts[1]
-					? game.i18n.localize('ordemparanormal.damageTypeAbv.' + parts[1])
-					: 'Indefinido',
-			);
+			damageTypes.push(parts[1] ? game.i18n.localize('ordemparanormal.damageTypeAbv.' + parts[1]) : 'Indefinido');
 		}
 
 		// Combine all formulas and types
@@ -429,10 +410,7 @@ export class OrdemItem extends Item {
 		// Initialize chat data.
 		const speaker = ChatMessage.getSpeaker({ actor: this.actor });
 		const rollMode = game.settings.get('core', 'rollMode');
-		const label =
-			'Exibindo um(a) ' +
-			game.i18n.localize('TYPES.Item.' + item.type) +
-			` (${item.name}):`;
+		// const label = 'Exibindo um(a) ' + game.i18n.localize('TYPES.Item.' + item.type) + ` (${item.name}):`;
 
 		// Render the chat card template
 		const token = this.actor.token;
@@ -448,63 +426,30 @@ export class OrdemItem extends Item {
 
 		if (item.type == 'armament') {
 			if (this.system?.proficiency)
-				templateData.info.push(
-					game.i18n.localize(
-						'ordemparanormal.proficiencyChoices.' + this.system.proficiency,
-					),
-				);
+				templateData.info.push(game.i18n.localize('ordemparanormal.proficiencyChoices.' + this.system.proficiency));
 			if (this.system?.critical) templateData.info.push(this.system.critical);
 			if (this.system.types?.gripType)
-				templateData.info.push(
-					game.i18n.localize(
-						'ordemparanormal.weaponGripTypeChoices.' +
-							this.system.types.gripType,
-					),
-				);
+				templateData.info.push(game.i18n.localize('ordemparanormal.weaponGripTypeChoices.' + this.system.types.gripType));
 			if (this.system.types?.rangeType?.name)
-				templateData.info.push(
-					game.i18n.localize(
-						'ordemparanormal.weaponTypeChoices.' +
-							this.system.types.rangeType.name,
-					),
-				);
+				templateData.info.push(game.i18n.localize('ordemparanormal.weaponTypeChoices.' + this.system.types.rangeType.name));
 			if (this.system.types?.damageType)
-				templateData.info.push(
-					game.i18n.localize(
-						'ordemparanormal.damageTypeChoices.' + this.system.types.damageType,
-					),
-				);
-			if (this.system.conditions?.improvised)
-				templateData.info.push(
-					game.i18n.localize('ordemparanormal.improvised'),
-				);
-			if (this.system.conditions?.throwable)
-				templateData.info.push(game.i18n.localize('ordemparanormal.throwable'));
-			if (this.system.conditions?.agile)
-				templateData.info.push(game.i18n.localize('ordemparanormal.agile'));
-			if (this.system.conditions?.automatic)
-				templateData.info.push(game.i18n.localize('ordemparanormal.automatic'));
+				templateData.info.push(game.i18n.localize('ordemparanormal.damageTypeChoices.' + this.system.types.damageType));
+			if (this.system.conditions?.improvised) templateData.info.push(game.i18n.localize('ordemparanormal.improvised'));
+			if (this.system.conditions?.throwable) templateData.info.push(game.i18n.localize('ordemparanormal.throwable'));
+			if (this.system.conditions?.agile) templateData.info.push(game.i18n.localize('ordemparanormal.agile'));
+			if (this.system.conditions?.automatic) templateData.info.push(game.i18n.localize('ordemparanormal.automatic'));
 			if (this.system.conditions?.adaptableGrip)
-				templateData.info.push(
-					game.i18n.localize('ordemparanormal.adaptableGrip'),
-				);
-			if (this.system.conditions?.pistolBlow)
-				templateData.info.push(
-					game.i18n.localize('ordemparanormal.pistolBlow'),
-				);
+				templateData.info.push(game.i18n.localize('ordemparanormal.adaptableGrip'));
+			if (this.system.conditions?.pistolBlow) templateData.info.push(game.i18n.localize('ordemparanormal.pistolBlow'));
 		}
 
 		if (item.type == 'ritual') {
 			if (this.system?.circle) templateData.system.push(this.system.circle);
-			if (this.system?.studentForm)
-				templateData.system.push(this.system.studentForm);
+			if (this.system?.studentForm) templateData.system.push(this.system.studentForm);
 			if (this.system?.trueForm) templateData.system.push(this.system.trueForm);
 		}
 
-		const html = await renderTemplate(
-			'systems/ordemparanormal/templates/chat/item-card.html',
-			templateData,
-		);
+		const html = await renderTemplate('systems/ordemparanormal/templates/chat/item-card.html', templateData);
 		// If there's no roll data, send a chat message.
 		// if (!this.system.formulas) {
 		ChatMessage.create({
@@ -550,8 +495,7 @@ export class OrdemItem extends Item {
 	 * @returns {Promise<Roll>}   A Promise which resolves to the created Roll instance.
 	 */
 	async rollFormula(/* {spellLevel}={} */) {
-		if (!this.system.formulas.extraFormula)
-			throw new Error('This Item does not have a formula to roll!');
+		if (!this.system.formulas.extraFormula) throw new Error('This Item does not have a formula to roll!');
 
 		const rollConfig = {
 			formula: this.system.formulas.extraFormula,
