@@ -1,15 +1,9 @@
 <ol class="items-list">
 	<li class="item flexrow items-header">
-		<div class="item-name">
-			{{localize "ordemparanormal.generalEquipment.plural"}}
-		</div>
+		<div class="item-name">{{localize "ordemparanormal.generalEquipment.plural"}}</div>
 		<div class="item-space">{{localize "ordemparanormal.category"}}</div>
 		<div class="item-controls">
-			<a
-				class="item-control item-create"
-				title="Create item"
-				data-type="generalEquipment"
-			>
+			<a class="item-control item-create" title="Create item" data-type="generalEquipment">
 				<i class="fas fa-plus"></i>
 			</a>
 		</div>
@@ -26,20 +20,12 @@
 		</div>
 		<div class="item-space item-prop">{{item.system.category}}</div>
 		<div class="item-controls">
-			<a class="item-control send-chat" title="Enviar para o chat"
-				><i class="fas fa-message"></i
-			></a>
-			<a
-				class="item-control mark-item"
-				title="Marcar e desmarcar com item utilizado"
+			<a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
+			<a class="item-control mark-item" title="Marcar e desmarcar com item utilizado"
 				><i class="{{ item.system.using.class }} fa-star"></i
 			></a>
-			<a class="item-control item-edit" title="Edit Item"
-				><i class="fas fa-edit"></i
-			></a>
-			<a class="item-control item-delete" title="Delete Item"
-				><i class="fas fa-trash"></i
-			></a>
+			<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+			<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 		</div>
 	</li>
 	{{/each}}
@@ -52,11 +38,7 @@
 		<div class="item-space">{{localize "ordemparanormal.critical"}}</div>
 		<div class="item-space">{{localize "ordemparanormal.range"}}</div>
 		<div class="item-controls">
-			<a
-				class="item-control item-create"
-				title="Create item"
-				data-type="armament"
-			>
+			<a class="item-control item-create" title="Create item" data-type="armament">
 				<i class="fas fa-plus"></i>
 			</a>
 		</div>
@@ -74,44 +56,29 @@
 		</div>
 		<div class="item-space item-prop">{{item.system.quantity}}</div>
 		<div class="item-space item-prop">
-			{{#if item.system.proficiency}} {{localize (concat
-			"ordemparanormal.proficiencyChoices." item.system.proficiency)}} {{else}}
-			— {{/if}}
+			{{#if item.system.proficiency}} {{localize (concat "ordemparanormal.proficiencyChoices." item.system.proficiency)}}
+			{{else}} — {{/if}}
 		</div>
 		<div class="item-space item-prop">{{item.system.critical}}</div>
 		<div class="item-space item-prop">{{item.system.range}}</div>
 		<div class="item-controls">
-			<a class="item-control send-chat" title="Enviar para o chat"
-				><i class="fas fa-message"></i
-			></a>
-			<a
-				class="item-control mark-item"
-				title="Marcar e desmarcar com item utilizado"
+			<a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
+			<a class="item-control mark-item" title="Marcar e desmarcar com item utilizado"
 				><i class="{{ item.system.using.class }} fa-star"></i
 			></a>
-			<a class="item-control item-edit" title="Edit Item"
-				><i class="fas fa-edit"></i
-			></a>
-			<a class="item-control item-delete" title="Delete Item"
-				><i class="fas fa-trash"></i
-			></a>
+			<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+			<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 		</div>
 	</li>
 	{{/each}}
 </ol>
 <ol class="items-list">
 	<li class="item flexrow items-header">
-		<div class="item-name">
-			{{localize "ordemparanormal.protection.plural"}}
-		</div>
-		<div class="item-space">Defesa</div>
-		<div class="item-space">Peso</div>
+		<div class="item-name">{{localize "ordemparanormal.protection.plural"}}</div>
+		<div class="item-space">{{localize "ordemparanormal.defense"}}</div>
+		<div class="item-space">{{localize "ordemparanormal.weight"}}</div>
 		<div class="item-controls">
-			<a
-				class="item-control item-create"
-				title="Create item"
-				data-type="protection"
-			>
+			<a class="item-control item-create" title="Create item" data-type="protection">
 				<i class="fas fa-plus"></i>
 			</a>
 		</div>
@@ -129,21 +96,12 @@
 		<div class="item-space item-prop">{{item.system.defense}}</div>
 		<div class="item-space item-prop">{{item.system.weight}}</div>
 		<div class="item-controls">
-			<a class="item-control send-chat" title="Enviar para o chat"
-				><i class="fas fa-message"></i
-			></a>
-			<a
-				class="item-control mark-item"
-				title="Marcar e desmarcar com item utilizado"
-			>
+			<a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
+			<a class="item-control mark-item" title="Marcar e desmarcar com item utilizado">
 				<i class="{{ item.system.using.class }} fa-star"></i>
 			</a>
-			<a class="item-control item-edit" title="Edit Item"
-				><i class="fas fa-edit"></i
-			></a>
-			<a class="item-control item-delete" title="Delete Item"
-				><i class="fas fa-trash"></i
-			></a>
+			<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+			<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 		</div>
 	</li>
 	{{/each}}
@@ -151,14 +109,10 @@
 <footer class="inventory-footer">
 	<div class="sumWeight">
 		<span class="sumWeight-bar" style="width: {{system.spaces.pct}}%"></span>
-		{{#if system.spaces.pctMax}}<span
-			class="sumWeight-barover align-center"
-			style="width: {{system.spaces.pctMax}}%"
+		{{#if system.spaces.pctMax}}<span class="sumWeight-barover align-center" style="width: {{system.spaces.pctMax}}%"
 			>SOBREPESO</span
 		>{{/if}}
-		<span class="sumWeight-label"
-			>{{system.spaces.value}} / {{system.spaces.max}}</span
-		>
+		<span class="sumWeight-label">{{system.spaces.value}} / {{system.spaces.max}}</span>
 		<i class="fa-solid fa-caret-left"></i>
 	</div>
 </footer>

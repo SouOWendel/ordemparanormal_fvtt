@@ -1,21 +1,10 @@
-<div
-	class="ordemparanormal chat-card item-card"
-	data-actor-id="{{actor._id}}"
-	data-item-id="{{item._id}}"
->
+<div class="ordemparanormal chat-card item-card" data-actor-id="{{actor._id}}" data-item-id="{{item._id}}">
 	<div class="header">
-		<img
-			src="{{item.img}}"
-			title="{{item.name}}"
-			width="36px"
-			height="36px"
-			style="float: left"
-		/>
+		<img src="{{item.img}}" title="{{item.name}}" width="36px" height="36px" style="float: left" />
 		<h2>{{item.name}}</h2>
 	</div>
 	{{#if data.circle}} {{#if data.element}}<span class="element {{data.element}}"
-		>{{localize (concat "ordemparanormal.elementChoices." data.element)}}
-		{{data.circle}}</span
+		>{{localize (concat "ordemparanormal.elementChoices." data.element)}} {{data.circle}}</span
 	>
 	{{/if}}
 	<div class="ritual-info">
@@ -26,18 +15,18 @@
 		</p>
 		{{/if}} {{#if data.range}}
 		<p>
-			<strong>{{localize "ordemparanormal.range"}}.</strong> {{localize (concat
-			"ordemparanormal.rangeChoices." data.range)}}
+			<strong>{{localize "ordemparanormal.range"}}.</strong> {{localize (concat "ordemparanormal.rangeChoices."
+			data.range)}}
 		</p>
 		{{/if}} {{#if data.target}}
 		<p>
-			<strong>{{localize "ordemparanormal.target"}}.</strong> {{localize (concat
-			"ordemparanormal.targetChoices." data.target)}}
+			<strong>{{localize "ordemparanormal.target"}}.</strong> {{localize (concat "ordemparanormal.targetChoices."
+			data.target)}}
 		</p>
 		{{/if}} {{#if data.duration}}
 		<p>
-			<strong>{{localize "ordemparanormal.duration"}}.</strong> {{localize
-			(concat "ordemparanormal.durationChoices." data.duration)}}
+			<strong>{{localize "ordemparanormal.duration"}}.</strong> {{localize (concat "ordemparanormal.durationChoices."
+			data.duration)}}
 		</p>
 		{{/if}} {{#if data.resistance}}
 		<p>
@@ -56,9 +45,9 @@
 	{{#ifEquals item.type "armament"}}
 	<table>
 		<tr>
-			<th>Dano</th>
-			<th>Crítico</th>
-			<th>Alcance</th>
+			<th>{{localize "ordemparanormal.damage"}}</th>
+			<th>{{localize "ordemparanormal.critical"}}</th>
+			<th>{{localize "ordemparanormal.range"}}</th>
 		</tr>
 		<tr>
 			<td>{{#each item.system.formulas.damage.parts}}{{this.[0]}} {{/each}}</td>
@@ -69,13 +58,9 @@
 	{{/ifEquals}}
 	<div class="card-buttons">
 		{{#if data.formulas.attack}}
-		<button data-action="attack">
-			<i class="fa-solid fa-dice-d20"></i> Rolar Ataque
-		</button>
+		<button data-action="attack"><i class="fa-solid fa-dice-d20"></i> {{localize "ordemparanormal.rollAtk"}}</button>
 		{{/if}} {{#if data.formulas.damage}}
-		<button data-action="damage">
-			<i class="fa-solid fa-dice"></i> Rolar Dano
-		</button>
+		<button data-action="damage"><i class="fa-solid fa-dice"></i> {{localize "ordemparanormal.rollDmg"}}</button>
 		{{/if}}
 		<!-- {{#if data.studentForm}}
 		<button data-action="attack">

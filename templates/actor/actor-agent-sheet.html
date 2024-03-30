@@ -1,160 +1,88 @@
 <form class="{{cssClass}} {{actor.type}} agent" autocomplete="off">
 	{{!-- Sheet Header --}}
 	<div class="header-identify align-center grid grid-3col">
-		<img
-			class="profile-img"
-			src="{{actor.img}}"
-			data-edit="img"
-			title="{{actor.name}}"
-			height="64"
-			width="64"
-		/>
+		<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" />
 		<h1 class="charname">
-			<input
-				name="name"
-				type="text"
-				value="{{actor.name}}"
-				placeholder="Name"
-			/>
+			<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
 		</h1>
 		<div class="resource flex-group-center">
-			<label for="system.NEX.value" class="resource-label">
-				{{localize 'ordemparanormal.NEX'}}
-			</label>
+			<label for="system.NEX.value" class="resource-label"> {{localize 'ordemparanormal.NEX'}} </label>
 			<div class="resource-content flexrow flex-center flex-between">
-				{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0
-				max=99}}
+				{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
 			</div>
 		</div>
 	</div>
 	<header class="sheet-header">
 		<div class="header-fields">
-			{{!-- The grid classes are defined in scss/global/_grid.scss. To use, use
-			both the "grid" and "grid-Ncol" class where "N" can be any number from 1
-			to 12 and will create that number of columns. --}}
+			{{!-- The grid classes are defined in scss/global/_grid.scss. To use, use both the "grid" and "grid-Ncol" class where
+			"N" can be any number from 1 to 12 and will create that number of columns. --}}
 			<div class="resources grid grid-4col">
 				<div class="resource flex-group-center">
-					<label for="system.PV.value" class="resource-label">
-						{{localize 'ordemparanormal.PV'}}
-					</label>
+					<label for="system.PV.value" class="resource-label"> {{localize 'ordemparanormal.PV'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="system.PV.value"
-							value="{{system.PV.value}}"
-							data-dtype="Number"
-						/>
+						<input type="text" name="system.PV.value" value="{{system.PV.value}}" data-dtype="Number" />
 						<span> / </span>
-						<input
-							type="text"
-							name="system.PV.max"
-							value="{{system.PV.max}}"
-							data-dtype="Number"
-						/>
+						<input type="text" name="system.PV.max" value="{{system.PV.max}}" data-dtype="Number" />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.SAN.value" class="resource-label"
-						>{{localize 'ordemparanormal.San'}}
-					</label>
+					<label for="system.SAN.value" class="resource-label">{{localize 'ordemparanormal.San'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="system.SAN.value"
-							value="{{system.SAN.value}}"
-							data-dtype="Number"
-						/>
+						<input type="text" name="system.SAN.value" value="{{system.SAN.value}}" data-dtype="Number" />
 						<span> / </span>
-						<input
-							type="text"
-							name="system.SAN.max"
-							value="{{system.SAN.max}}"
-							data-dtype="Number"
-						/>
+						<input type="text" name="system.SAN.max" value="{{system.SAN.max}}" data-dtype="Number" />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.PE.value" class="resource-label"
-						>{{localize 'ordemparanormal.PE'}}
-					</label>
+					<label for="system.PE.value" class="resource-label">{{localize 'ordemparanormal.PE'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="system.PE.value"
-							value="{{system.PE.value}}"
-							data-dtype="Number"
-						/>
+						<input type="text" name="system.PE.value" value="{{system.PE.value}}" data-dtype="Number" />
 						<span> / </span>
-						<input
-							type="text"
-							name="system.PE.max"
-							value="{{system.PE.max}}"
-							data-dtype="Number"
-						/>
+						<input type="text" name="system.PE.max" value="{{system.PE.max}}" data-dtype="Number" />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.PE.value" class="resource-label"
-						>{{localize 'ordemparanormal.pePerRound'}}
-					</label>
+					<label for="system.PE.value" class="resource-label">{{localize 'ordemparanormal.pePerRound'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="number"
-							name="system.PE.perRound"
-							value="{{system.PE.perRound}}"
-							data-dtype="Number"
-							disabled
-						/>
+						<input type="number" name="system.PE.perRound" value="{{system.PE.perRound}}" data-dtype="Number" disabled />
 					</div>
 				</div>
 			</div>
 			<div class="resources grid grid-3col">
 				<div class="resource flex-group-center">
-					<label
-						for="{{localize 'ordemparanormal.className'}}"
-						class="resource-label"
-					>
+					<label for="{{localize 'ordemparanormal.className'}}" class="resource-label">
 						{{localize 'ordemparanormal.className'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<select name="system.class" data-dtype="String">
-							{{ selectOptions optionClass selected=system.class localize=true
-							blank="—" }}
+							{{ selectOptions optionClass selected=system.class localize=true blank="—" }}
 						</select>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label
-						for="{{localize 'ordemparanormal.originName'}}"
-						class="resource-label"
-					>
+					<label for="{{localize 'ordemparanormal.originName'}}" class="resource-label">
 						{{localize 'ordemparanormal.originName'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<select name="system.origin" data-dtype="String">
-							{{ selectOptions optionOrigins selected=system.origin
-							localize=true blank="—" }}
+							{{ selectOptions optionOrigins selected=system.origin localize=true blank="—" }}
 						</select>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label
-						for="{{localize 'ordemparanormal.trilhasName'}}"
-						class="resource-label"
-					>
+					<label for="{{localize 'ordemparanormal.trilhasName'}}" class="resource-label">
 						{{localize 'ordemparanormal.trilhasName'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						{{#if system.class }}
 						<select name="system.trilha" data-dtype="String">
-							{{ selectOptions (concatObjAndStr optionTrilhas system.class)
-							selected=system.trilha nameAttr="name" labelAttr="label" blank="—"
-							localize=true }}
+							{{ selectOptions (concatObjAndStr optionTrilhas system.class) selected=system.trilha nameAttr="name"
+							labelAttr="label" blank="—" localize=true }}
 						</select>
 						{{else}}
 						<select disabled>
@@ -165,70 +93,55 @@
 				</div>
 			</div>
 			<div class="resources grid grid-5col">
-				{{!-- "flex-group-center" is also defined in the _grid.scss file and it
-				will add a small amount of padding, a border, and will center all of its
-				child elements content and text. --}}
+				{{!-- "flex-group-center" is also defined in the _grid.scss file and it will add a small amount of padding, a
+				border, and will center all of its child elements content and text. --}}
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.dex.value" class="resource-label"
-						>{{localize 'ordemparanormal.attDex'}}</label
-					>
+					<label for="system.attributes.dex.value" class="resource-label">{{localize 'ordemparanormal.attDex'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="system.attributes.dex.value"
 							value="{{system.attributes.dex.value}}"
-							data-dtype="Number"
-						/>
+							data-dtype="Number" />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.int.value" class="resource-label"
-						>{{localize 'ordemparanormal.attInt'}}</label
-					>
+					<label for="system.attributes.int.value" class="resource-label">{{localize 'ordemparanormal.attInt'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="system.attributes.int.value"
 							value="{{system.attributes.int.value}}"
-							data-dtype="Number"
-						/>
+							data-dtype="Number" />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.vit.value" class="resource-label"
-						>{{localize 'ordemparanormal.attVit'}}</label
-					>
+					<label for="system.attributes.vit.value" class="resource-label">{{localize 'ordemparanormal.attVit'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="system.attributes.vit.value"
 							value="{{system.attributes.vit.value}}"
-							data-dtype="Number"
-						/>
+							data-dtype="Number" />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.pre.value" class="resource-label"
-						>{{localize 'ordemparanormal.attPre'}}</label
-					>
+					<label for="system.attributes.pre.value" class="resource-label">{{localize 'ordemparanormal.attPre'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
 							name="system.attributes.pre.value"
 							value="{{system.attributes.pre.value}}"
-							data-dtype="Number"
-						/>
+							data-dtype="Number" />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label
-						for="{{localize 'ordemparanormal.AttFor'}}"
-						class="resource-label"
+					<label for="{{localize 'ordemparanormal.AttFor'}}" class="resource-label"
 						>{{localize 'ordemparanormal.attStr'}}</label
 					>
 					<div class="resource-content flexrow flex-center flex-between">
@@ -236,60 +149,35 @@
 							type="text"
 							name="system.attributes.str.value"
 							value="{{system.attributes.str.value}}"
-							data-dtype="Number"
-						/>
+							data-dtype="Number" />
 					</div>
 				</div>
 			</div>
 			<div class="resources grid grid-3col">
 				<div class="resource flex-group-center">
-					<label
-						for="{{localize 'ordemparanormal.defense'}}"
-						class="resource-label"
+					<label for="{{localize 'ordemparanormal.defense'}}" class="resource-label"
 						>{{localize 'ordemparanormal.defense'}}</label
 					>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="system.defense.value"
-							value="{{system.defense.value}}"
-							data-dtype="Number"
-							disabled
-						/>
+						<input type="text" name="system.defense.value" value="{{system.defense.value}}" data-dtype="Number" disabled />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label
-						for="{{localize 'ordemparanormal.dodge'}}"
-						class="resource-label"
+					<label for="{{localize 'ordemparanormal.dodge'}}" class="resource-label"
 						>{{localize 'ordemparanormal.dodge'}}</label
 					>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="system.defense.dodge"
-							value="{{system.defense.dodge}}"
-							data-dtype="Number"
-							disabled
-						/>
+						<input type="text" name="system.defense.dodge" value="{{system.defense.dodge}}" data-dtype="Number" disabled />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label
-						for="{{localize 'ordemparanormal.deslocamento'}}"
-						class="resource-label"
+					<label for="{{localize 'ordemparanormal.deslocamento'}}" class="resource-label"
 						>{{localize 'ordemparanormal.deslocamento'}}</label
 					>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input
-							type="text"
-							name="system.desloc.value"
-							value="{{system.desloc.value}}"
-							data-dtype="Number"
-							disabled
-						/>
+						<input type="text" name="system.desloc.value" value="{{system.desloc.value}}" data-dtype="Number" disabled />
 					</div>
 				</div>
 			</div>
@@ -299,61 +187,39 @@
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
 		{{!-- Default tab is specified in actor-sheet.mjs --}}
-		<a class="item" data-tab="skills"
-			>{{localize 'ordemparanormal.tab.skills'}}</a
-		>
-		<a class="item" data-tab="inventory"
-			>{{localize 'ordemparanormal.tab.inventory'}}</a
-		>
-		<a class="item" data-tab="abilities"
-			>{{localize 'ordemparanormal.tab.abilities'}}</a
-		>
-		<a class="item" data-tab="rituals"
-			>{{localize 'ordemparanormal.tab.rituals'}}</a
-		>
-		<a class="item" data-tab="biography"
-			>{{localize 'ordemparanormal.tab.biography'}}</a
-		>
-		<a class="item" data-tab="effects"
-			>{{localize 'ordemparanormal.tab.effects'}}</a
-		>
+		<a class="item" data-tab="skills">{{localize 'ordemparanormal.tab.skills'}}</a>
+		<a class="item" data-tab="inventory">{{localize 'ordemparanormal.tab.inventory'}}</a>
+		<a class="item" data-tab="abilities">{{localize 'ordemparanormal.tab.abilities'}}</a>
+		<a class="item" data-tab="rituals">{{localize 'ordemparanormal.tab.rituals'}}</a>
+		<a class="item" data-tab="biography">{{localize 'ordemparanormal.tab.biography'}}</a>
+		<a class="item" data-tab="effects">{{localize 'ordemparanormal.tab.effects'}}</a>
 	</nav>
 
 	{{!-- Sheet Body --}}
 	<section class="sheet-body">
 		{{!-- Owned skills Tab --}}
 		<div class="tab skills" data-group="primary" data-tab="skills">
-			{{!-- This is a Handlebars partial. They're stored in the `/parts` folder
-			next to this sheet, and defined in module/helpers/templates.mjs --}}
-			{{>"systems/ordemparanormal/templates/actor/parts/actor-skills.html"}}
+			{{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in
+			module/helpers/templates.mjs --}} {{>"systems/ordemparanormal/templates/actor/parts/actor-skills.html"}}
 		</div>
 
 		{{!-- Biography Tab --}}
-		<div
-			class="tab biography flexcol"
-			data-group="primary"
-			data-tab="biography"
-		>
+		<div class="tab biography flexcol" data-group="primary" data-tab="biography">
 			<div>
 				<fieldset class="bio-desc">
-					<legend>Descrição</legend>
-					{{editor content=system.biography target="system.biography"
-					rollData=rollData button=true owner=owner editable=editable}}
+					<legend>{{localize "ordemparanormal.description"}}</legend>
+					{{editor content=system.biography target="system.biography" rollData=rollData button=true owner=owner
+					editable=editable}}
 				</fieldset>
 				<fieldset class="bio-goals">
-					<legend>Objetivos</legend>
-					{{editor content=system.goals target="system.goals" rollData=rollData
-					button=true owner=owner editable=editable}}
+					<legend>{{localize "ordemparanormal.goals"}}</legend>
+					{{editor content=system.goals target="system.goals" rollData=rollData button=true owner=owner editable=editable}}
 				</fieldset>
 			</div>
 		</div>
 
 		{{!-- Owned inventory Tab --}}
-		<div
-			class="tab inventory flexcol"
-			data-group="primary"
-			data-tab="inventory"
-		>
+		<div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
 			{{>"systems/ordemparanormal/templates/actor/parts/actor-inventory.html"}}
 		</div>
 
@@ -368,11 +234,7 @@
 		</div>
 
 		{{!-- Active abilities Tab --}}
-		<div
-			class="tab abilities flexcol"
-			data-group="primary"
-			data-tab="abilities"
-		>
+		<div class="tab abilities flexcol" data-group="primary" data-tab="abilities">
 			{{>"systems/ordemparanormal/templates/actor/parts/actor-abilities.html"}}
 		</div>
 	</section>
