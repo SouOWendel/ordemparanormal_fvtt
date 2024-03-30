@@ -1,4 +1,5 @@
 {
+	"ordemparanormal.op": "Paranormal Order",
 	"TYPES.Actor.agent": "Agent",
 
 	"TYPES.Item.protection": "Protection",
@@ -27,6 +28,12 @@
 	"MACRO.opMultipleTargetsWarn": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen.",
 	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 
+	"WORLD.GameSystem": "System Game",
+	"ordemparanormal.sidebar.updateNotes": "An unofficial system in version",
+	"ordemparanormal.soon": "Soon.",
+	"ordemparanormal.sidebar.discord": "Contact me on Discord",
+	"ordemparanormal.sidebar.twitter": "Follow me on Twitter",
+
 	"ordemparanormal.tab": {
 		"skills": "Skills",
 		"inventory": "Inventory",
@@ -41,6 +48,7 @@
 	"ordemparanormal.pePerRound": "EP / Round",
 	"ordemparanormal.San": "Sanity",
 	"ordemparanormal.NEX": "NEX",
+	"ordemparanormal.ritualdt": "Ritual DT is",
 
 	"ordemparanormal.skill": {
 		"acrobatics": "Acrobatics",
@@ -165,6 +173,7 @@
 		"laminaParanormal": "Paranormal Blade"
 	},
 
+	"ordemparanormal.weight": "Weight",
 	"ordemparanormal.defense": "Defense",
 	"ordemparanormal.dodge": "Dodge",
 
@@ -176,27 +185,28 @@
 	"ordemparanormal.attributesItem": "Attributes",
 	"ordemparanormal.specificationsItemTab": "Specifications",
 	"ordemparanormal.combatItemTab": "Combat",
-	"ordemparanormal.description": "Descrição",
-	"ordemparanormal.quantity": "Quantidade",
-	"ordemparanormal.space": "Espaço",
-	"ordemparanormal.category": "Categoria",
-	"ordemparanormal.preRequisite": "Pré-requisito",
-	"ordemparanormal.range": "Alcance",
-	"ordemparanormal.target": "Alvo",
-	"ordemparanormal.areaEffect": "Efeito de Área",
-	"ordemparanormal.resistance": "Resistência",
-	"ordemparanormal.studentForm": "Forma Discente",
-	"ordemparanormal.trueForm": "Forma Verdadeira",
-	"ordemparanormal.circle": "Circulo",
-	"ordemparanormal.damageType": "Tipo de Dano",
-	"ordemparanormal.weaponType": "Tipo de Arma",
-	"ordemparanormal.critical": "Crítico",
-	"ordemparanormal.proficiency": "Proficiência",
-	"ordemparanormal.ammunitionType": "Tipo de Munição",
-	"ordemparanormal.gripType": "Empunhadura",
-	"ordemparanormal.duration": "Duração",
-	"ordemparanormal.subtypeWeapon": "Subtipo de Arma",
-	"ordemparanormal.powerType": "Tipo de Poder",
+	"ordemparanormal.description": "Description",
+	"ordemparanormal.goals": "Goals",
+	"ordemparanormal.quantity": "Quantity",
+	"ordemparanormal.space": "Space",
+	"ordemparanormal.category": "Category",
+	"ordemparanormal.preRequisite": "Pre-requisite",
+	"ordemparanormal.range": "Range",
+	"ordemparanormal.target": "Target",
+	"ordemparanormal.areaEffect": "Area Effect",
+	"ordemparanormal.resistance": "Resistance",
+	"ordemparanormal.studentForm": "Student Form",
+	"ordemparanormal.trueForm": "True Form",
+	"ordemparanormal.circle": "Circle",
+	"ordemparanormal.damageType": "Damage Type",
+	"ordemparanormal.weaponType": "Weapon Type",
+	"ordemparanormal.critical": "Critical",
+	"ordemparanormal.proficiency": "Proficiency",
+	"ordemparanormal.ammunitionType": "Ammunition Type",
+	"ordemparanormal.gripType": "Grip",
+	"ordemparanormal.duration": "Duration",
+	"ordemparanormal.subtypeWeapon": "Weapon Subtype",
+	"ordemparanormal.powerType": "Power Type",
 	"ordemparanormal.execution": "Execution",
 
 	"ordemparanormal.executionChoices": {
@@ -258,12 +268,12 @@
 		"ability": "Habilidade"
 	},
 
-	"ordemparanormal.improvised": "Improvisada",
-	"ordemparanormal.throwable": "Arremessável",
-	"ordemparanormal.agile": "Ágil",
-	"ordemparanormal.automatic": "Automática",
-	"ordemparanormal.adaptableGrip": "Empunhadura Adaptável",
-	"ordemparanormal.pistolBlow": "Coronhada",
+	"ordemparanormal.improvised": "Improvised",
+	"ordemparanormal.throwable": "Throwable",
+	"ordemparanormal.agile": "Agile",
+	"ordemparanormal.automatic": "Automatic",
+	"ordemparanormal.adaptableGrip": "Adaptable Grip",
+	"ordemparanormal.pistolBlow": "Pistol Blow",
 
 	"ordemparanormal.rangeChoices": {
 		"personal": "Personal",
@@ -308,7 +318,7 @@
 		"nullifies": "Nullifies",
 		"discredits": "Discredits",
 		"partial": "Partial",
-		"reducesByHalf": "Reduces By Half"
+		"reducesByHalf": "Red. By Half"
 	},
 
 	"ordemparanormal.elementChoices": {
@@ -323,5 +333,9 @@
 	"ordemparanormal.Issues": "Issues",
 	"ordemparanormal.Wiki": "Wiki",
 	"ordemparanormal.Discord": "Discord",
-	"ordemparanormal.Credits": "Credits"
+	"ordemparanormal.Credits": "Credits",
+
+	"ordemparanormal.damage": "Damage",
+	"ordemparanormal.rollDmg": "Roll Damage",
+	"ordemparanormal.rollAtk": "Roll Attack"
 }

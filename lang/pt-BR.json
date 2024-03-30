@@ -1,4 +1,5 @@
 {
+	"ordemparanormal.op": "Ordem Paranormal",
 	"TYPES.Actor.agent": "Agente",
 
 	"TYPES.Item.protection": "Proteção",
@@ -27,6 +28,12 @@
 	"MACRO.opMultipleTargetsWarn": "O ator controlado '{actor}' tem mais de um {type} com o mesmo nome '{name}'. O primeiro correspondente será escolhido.",
 	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 
+	"WORLD.GameSystem": "Sistema de Jogo",
+	"ordemparanormal.sidebar.updateNotes": "Um sistema não-oficial na versão",
+	"ordemparanormal.soon": "Em breve.",
+	"ordemparanormal.sidebar.discord": "Contate-me no Discord",
+	"ordemparanormal.sidebar.twitter": "Siga-me no Twitter",
+
 	"ordemparanormal.tab": {
 		"skills": "Perícias",
 		"inventory": "Inventário",
@@ -41,6 +48,7 @@
 	"ordemparanormal.pePerRound": "PE / Rodada",
 	"ordemparanormal.San": "Sanidade",
 	"ordemparanormal.NEX": "NEX",
+	"ordemparanormal.ritualdt": "DT de Ritual é",
 
 	"ordemparanormal.skill": {
 		"acrobatics": "Acrobacia",
@@ -165,6 +173,7 @@
 		"laminaParanormal": "Lâmina Paranormal"
 	},
 
+	"ordemparanormal.weight": "Peso",
 	"ordemparanormal.defense": "Defesa",
 	"ordemparanormal.dodge": "Esquiva",
 
@@ -177,6 +186,7 @@
 	"ordemparanormal.specificationsItemTab": "Especificações",
 	"ordemparanormal.combatItemTab": "Combate",
 	"ordemparanormal.description": "Descrição",
+	"ordemparanormal.goals": "Objetivos",
 	"ordemparanormal.quantity": "Quantidade",
 	"ordemparanormal.space": "Espaço",
 	"ordemparanormal.category": "Categoria",
@@ -324,5 +334,9 @@
 	"ordemparanormal.Issues": "Problemas",
 	"ordemparanormal.Wiki": "Wiki",
 	"ordemparanormal.Discord": "Discord",
-	"ordemparanormal.Credits": "Creditos"
+	"ordemparanormal.Credits": "Creditos",
+
+	"ordemparanormal.damage": "Dano",
+	"ordemparanormal.rollDmg": "Rolar Dano",
+	"ordemparanormal.rollAtk": "Rolar Ataque"
 }
