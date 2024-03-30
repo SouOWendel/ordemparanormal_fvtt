@@ -1,63 +1,66 @@
 .item-form {
-  font-family: $font-primary;
+	font-family: $font-primary;
 }
 
 .header-identify {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-  h1, h2, h3, h4 {
-    border: 0;
-  }
+	h1,
+	h2,
+	h3,
+	h4 {
+		border: 0;
+	}
 
-  h1.charname {
-    height: 50px;
-    padding: 0px;
-    margin: 5px 0;
-    border-bottom: 0;
-    input {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-    }
-  }
+	h1.charname {
+		height: 50px;
+		padding: 0px;
+		margin: 5px 0;
+		border-bottom: 0;
+		input {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+		}
+	}
 }
 
 .sheet-header {
-  flex: 0 auto;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 10px;
+	flex: 0 auto;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-bottom: 10px;
 
-  .profile-img {
-    flex: 0 0 48px;
-    height: 48px;
-    margin-right: 10px;
-  }
+	.profile-img {
+		flex: 0 0 48px;
+		height: 48px;
+		margin-right: 10px;
+	}
 
-  .header-fields {
-    flex: 1;
-  }
+	.header-fields {
+		flex: 1;
+	}
 }
 
 .sheet-tabs {
-  flex: 0;
+	flex: 0;
 }
 
 .sheet-body,
 .sheet-body .tab,
 .sheet-body .tab .editor {
-  width: 100%;
-  min-height: 150px;
+	width: 100%;
+	min-height: 150px;
 }
 
 .sheet-body {
-  overflow-y: auto;
-//   max-height: 398px !important;
+	overflow-y: auto;
+	//   max-height: 398px !important;
 }
 
 .agent .sheet-body {
@@ -70,151 +73,167 @@
 .tab.rituals,
 .tab.biography,
 .tab.effects {
-  overflow-y: auto;
+	overflow-y: auto;
 }
 
 .tox {
-  .tox-editor-container {
-    background: $c-white;
-  }
+	.tox-editor-container {
+		background: $c-white;
+	}
 
-  .tox-edit-area {
-    padding: 0 8px;
-  }
+	.tox-edit-area {
+		padding: 0 8px;
+	}
 }
 
 // SKILLS
 
 .skills {
-  gap: 0px;
-  font-size: 12px;
-  padding: 0 2px;
-  margin-top: 0;
+	gap: 0px;
+	font-size: 12px;
+	padding: 0 2px;
+	margin-top: 0;
 
-  select, input {
-    border: none;
-    height: 21px;
-  }
+	select,
+	input {
+		border: none;
+		height: 21px;
+	}
 
-  .skill {
-    padding: 3.3px 6px;
+	.skill {
+		padding: 3.3px 6px;
 
-    input {
-      max-width: 30px;
-    }
+		input {
+			max-width: 30px;
+		}
 
-    i {
-      padding: 0 5px;
-    }
-  }
+		i {
+			padding: 0 5px;
+		}
+	}
 }
 
 // OTHERS
 
 .invalid {
-  position: relative;
+	position: relative;
 }
 
 .item-alert {
-  position: relative;
-  border-radius: 5px;
-  padding: 8px;
-  margin: 10px 5px;
-  background-color: aliceblue;
+	position: relative;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 10px 5px;
+	background-color: aliceblue;
 }
 
 // INVENTORY FOOTER
 
 .inventory-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 24px;
-  width: 100%;
-  background-color: #eeede0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 24px;
+	width: 100%;
+	background-color: #eeede0;
 }
 
 // BIOGRAPHY
 
 .biography {
-  aside {
-    padding: 2px;
-  }
+	aside {
+		padding: 2px;
+	}
 
-  div:first-of-type {
-    padding: 2px;
-  }
+	div:first-of-type {
+		padding: 2px;
+	}
 
-  .class, .trail {
-    font-size: 12px;
-  }
+	.class,
+	.trail {
+		font-size: 12px;
+	}
 
-  fieldset {
-    border: $border-transparent;
-    border-radius: 10px;
-  }
+	fieldset {
+		border: $border-transparent;
+		border-radius: 10px;
+	}
 
-  .bio-desc .editor {
-    min-height: 230px;
-  }
+	.bio-desc .editor {
+		min-height: 230px;
+	}
 
-  .bio-goals .editor {
-    min-height: 100px;
-  }
+	.bio-goals .editor {
+		min-height: 100px;
+	}
 }
 
 .sumWeight {
-  position: relative;
-  margin-top: 5px;
-  margin-left: 5px;
-  border: 1px solid #272727;
-  border-radius: 3px;
-  width: 95%;
-  height: 14px;
+	position: relative;
+	margin-top: 5px;
+	margin-left: 5px;
+	border: 1px solid #272727;
+	border-radius: 3px;
+	width: 95%;
+	height: 14px;
 
-  .sumWeight-bar {
-    display: block !important;
-    margin-top: 0;
-    margin-left: 0;
-    border-radius: 1px;
-    background-color: #272727;
-    height: 12px;
-    z-index: 10;
-  }
+	.sumWeight-bar {
+		display: block !important;
+		margin-top: 0;
+		margin-left: 0;
+		border-radius: 1px;
+		background-color: #272727;
+		height: 12px;
+		z-index: 10;
+	}
 
-  .sumWeight-barover {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block !important;
-    border-radius: 1px;
-    background-color: #7a1616;
-    height: 12px;
-    color: #FFF;
-    font-size: 9px;
-    z-index: 11;
-  }
+	.sumWeight-barover {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		display: block !important;
+		border-radius: 1px;
+		background-color: #7a1616;
+		height: 12px;
+		color: #fff;
+		font-size: 9px;
+		z-index: 11;
+	}
 
-  .sumWeight-label, i {
-    position: absolute;
-    top: 0;
-    font-size: 10px;
-    z-index: 12;
-    mix-blend-mode: difference;
-    filter: invert(1);
-  }
+	.sumWeight-label,
+	i {
+		position: absolute;
+		top: 0;
+		font-size: 10px;
+		z-index: 12;
+		mix-blend-mode: difference;
+		filter: invert(1);
+	}
 
-  i {
-    color: rgb(0, 0, 0);
-    left: 50%;
-  }
+	i {
+		color: rgb(0, 0, 0);
+		left: 50%;
+	}
 
-  .sumWeight-label {
-    right: 20px;
-  }
+	.sumWeight-label {
+		right: 20px;
+	}
 }
 
 .inventory {
-  padding-bottom: 24px;
-  overflow: hidden !important;
+	padding-bottom: 24px;
+	overflow: hidden !important;
+}
+
+.ritual-dt {
+	margin: 5px;
+	border: 1px solid #b8b8b8;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+	border-radius: 5px;
+	text-align: center;
+
+	p {
+		font-family: $op-optima;
+		font-weight: bold;
+	}
 }

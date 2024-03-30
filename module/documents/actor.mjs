@@ -26,6 +26,7 @@ export class OrdemActor extends Actor {
 			this._prepareDataStatus(systemData);
 			this._prepareSkills(systemData);
 			this._prepareDefense(systemData);
+			this._prepareRituals(actorData);
 		}
 	}
 
@@ -46,7 +47,6 @@ export class OrdemActor extends Actor {
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
 		// things organized.
 		if (actorData.type == 'agent') {
-			this._prepareRitualDT(actorData);
 			this._prepareActorSpaces(actorData);
 		}
 	}
@@ -193,10 +193,11 @@ export class OrdemActor extends Actor {
 	/**
 	 *
 	 */
-	_prepareRitualDT(ActorData) {
+	_prepareRituals(ActorData) {
 		const system = ActorData.system;
+		const ritual = (system.ritual ??= {});
 		const calcNEX = system.NEX.value < 99 ? Math.floor(system.NEX.value / 5) : 20;
-		system.ritualDT = 10 + calcNEX + system.attributes.pre.value;
+		ritual.DT = 10 + calcNEX + system.attributes.pre.value;
 	}
 
 	/**
