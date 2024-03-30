@@ -321,7 +321,10 @@
   justify-content: center;
   align-items: center;
 }
-.system-ordemparanormal .header-identify h1, .system-ordemparanormal .header-identify h2, .system-ordemparanormal .header-identify h3, .system-ordemparanormal .header-identify h4 {
+.system-ordemparanormal .header-identify h1,
+.system-ordemparanormal .header-identify h2,
+.system-ordemparanormal .header-identify h3,
+.system-ordemparanormal .header-identify h4 {
   border: 0;
 }
 .system-ordemparanormal .header-identify h1.charname {
@@ -387,7 +390,8 @@
   padding: 0 2px;
   margin-top: 0;
 }
-.system-ordemparanormal .skills select, .system-ordemparanormal .skills input {
+.system-ordemparanormal .skills select,
+.system-ordemparanormal .skills input {
   border: none;
   height: 21px;
 }
@@ -424,7 +428,8 @@
 .system-ordemparanormal .biography div:first-of-type {
   padding: 2px;
 }
-.system-ordemparanormal .biography .class, .system-ordemparanormal .biography .trail {
+.system-ordemparanormal .biography .class,
+.system-ordemparanormal .biography .trail {
   font-size: 12px;
 }
 .system-ordemparanormal .biography fieldset {
@@ -463,11 +468,12 @@
   border-radius: 1px;
   background-color: #7a1616;
   height: 12px;
-  color: #FFF;
+  color: #fff;
   font-size: 9px;
   z-index: 11;
 }
-.system-ordemparanormal .sumWeight .sumWeight-label, .system-ordemparanormal .sumWeight i {
+.system-ordemparanormal .sumWeight .sumWeight-label,
+.system-ordemparanormal .sumWeight i {
   position: absolute;
   top: 0;
   font-size: 10px;
@@ -485,6 +491,17 @@
 .system-ordemparanormal .inventory {
   padding-bottom: 24px;
   overflow: hidden !important;
+}
+.system-ordemparanormal .ritual-dt {
+  margin: 5px;
+  border: 1px solid #b8b8b8;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  border-radius: 5px;
+  text-align: center;
+}
+.system-ordemparanormal .ritual-dt p {
+  font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+  font-weight: bold;
 }
 .system-ordemparanormal .resource-label {
   font-weight: bold;
@@ -777,7 +794,10 @@
   text-shadow: 0 0 10px rgb(255, 255, 255);
   cursor: pointer;
 }
-.system-ordemparanormal .content-dialog a h1, .system-ordemparanormal .content-dialog a h2, .system-ordemparanormal .content-dialog a h3, .system-ordemparanormal .content-dialog a h4 {
+.system-ordemparanormal .content-dialog a h1,
+.system-ordemparanormal .content-dialog a h2,
+.system-ordemparanormal .content-dialog a h3,
+.system-ordemparanormal .content-dialog a h4 {
   border: 0;
   text-decoration: none;
   font-weight: 700;
@@ -821,6 +841,26 @@
 }
 .system-ordemparanormal .dialog-buttons button:hover {
   opacity: 1;
+}
+.system-ordemparanormal .dialog-credits li {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.system-ordemparanormal .dialog-credits a:hover, .system-ordemparanormal .dialog-credits a:focus {
+  color: #000;
+  text-shadow: 0 0 10px rgb(255, 255, 255);
+  cursor: pointer;
+}
+.system-ordemparanormal .dialog-credits a h1,
+.system-ordemparanormal .dialog-credits a h2,
+.system-ordemparanormal .dialog-credits a h3,
+.system-ordemparanormal .dialog-credits a h4 {
+  border: 0;
+  text-decoration: none;
+  font-weight: 700;
+}
+.system-ordemparanormal .dialog-credits a[href] {
+  color: #464646;
 }
 .system-ordemparanormal .card-buttons button:first-of-type {
   margin-bottom: 2px;
@@ -922,14 +962,20 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem;
 }
 .system-ordemparanormal .op.system-badge img {
   border: 0;
 }
+.system-ordemparanormal .op.system-badge p {
+  margin: 0;
+}
+.system-ordemparanormal .op.system-badge a[href] {
+  color: var(--color-text-light-highlight);
+  text-decoration: none;
+}
 .system-ordemparanormal .op.sidebar-heading {
   margin: 6px 0;
-  padding: 3px 8px;
+  margin-bottom: 0 !important;
   border-top: 1px solid var(--color-border-dark-4);
   border-bottom: 1px solid var(--color-border-dark-4);
   background: rgba(255, 255, 255, 0.1);
@@ -939,9 +985,12 @@
 .system-ordemparanormal .op.sidebar-heading .links {
   list-style: none;
   display: flex;
-  gap: 5px;
+  gap: 8px;
+  margin: 0;
 }
 .system-ordemparanormal .op.sidebar-heading h2 {
+  background-color: initial;
+  border: initial;
   margin: 0;
 }
 
