@@ -4,16 +4,24 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 0.25rem;
 
 		img {
 			border: 0;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		a[href] {
+			color: var(--color-text-light-highlight);
+			text-decoration: none;
 		}
 	}
 
 	&.sidebar-heading {
 		margin: 6px 0;
-		padding: 3px 8px;
+		margin-bottom: 0 !important;
 		border-top: 1px solid var(--color-border-dark-4);
 		border-bottom: 1px solid var(--color-border-dark-4);
 		background: rgba(255, 255, 255, 0.1);
@@ -23,10 +31,13 @@
 		.links {
 			list-style: none;
 			display: flex;
-			gap: 5px;
+			gap: 8px;
+			margin: 0;
 		}
 
 		h2 {
+			background-color: initial;
+			border: initial;
 			margin: 0;
 		}
 	}

@@ -328,7 +328,7 @@ Hooks.on('preCreateActor', function (actor, data) {
 	}
 });
 
-Hooks.on('renderSettings', (app, [html]) => {
+Hooks.on('renderSettings', async (app, [html]) => {
 	const details = html.querySelector('#game-details');
 	const pip = details.querySelector('.system-info .update');
 	details.querySelector('.system').remove();
@@ -339,12 +339,17 @@ Hooks.on('renderSettings', (app, [html]) => {
     <h2>${game.i18n.localize('WORLD.GameSystem')}</h2>
     <ul class="links">
       <li>
-        <a href="https://github.com/foundryvtt/dnd5e/wiki" target="_blank">
+        <a class="credits" href="javascript:void(0)" target="_blank">
 				${game.i18n.localize('ordemparanormal.Credits')}</a>
       </li>
       <li>
-        <a href="https://discord.com/channels/170995199584108546/670336046164213761" target="_blank">
+        <a href="https://discord.gg/G8AwJwJXa5" target="_blank">
           ${game.i18n.localize('ordemparanormal.Discord')}
+        </a>
+      </li>
+			<li>
+        <a href="href="javascript:void(0)" target="_blank" data-tooltip="ordemparanormal.soon">
+          ${game.i18n.localize('ordemparanormal.Wiki')}
         </a>
       </li>
     </ul>
@@ -354,9 +359,28 @@ Hooks.on('renderSettings', (app, [html]) => {
 	const badge = document.createElement('div');
 	badge.classList.add('op', 'system-badge');
 	badge.innerHTML = `
-    <img src="systems/ordemparanormal/media/op-logo.png" data-tooltip="${game.system.title}" alt="${game.system.title}">
-    <span class="system-info">Um sistema não-oficial na versão <strong>${game.system.version}</strong> </span>
+    <img src="systems/ordemparanormal/media/op-logo.png" 
+		data-tooltip="${game.i18n.localize('ordemparanormal.op')}" alt="${game.system.title}">
+    <span class="system-info">${game.i18n.localize('ordemparanormal.sidebar.updateNotes')} 
+		<strong>${game.system.version}</strong> </span>
+		<p><span class="system-info" data-tooltip="${game.i18n.localize('ordemparanormal.sidebar.discord')}">
+		<i class="fa-brands fa-discord"></i> souowendel</span>&nbsp;&nbsp;
+		<a href="https://twitter.com/EuSouOWendel" target="_blank" 
+		data-tooltip="${game.i18n.localize('ordemparanormal.sidebar.twitter')}">
+		<span class="system-info"><i class="fa-brands fa-twitter"></i> eusouowendel</span></p>
   `;
 	if (pip) badge.querySelector('.system-info').insertAdjacentElement('beforeend', pip);
 	heading.insertAdjacentElement('afterend', badge);
+
+	const credits = html.querySelector('.credits');
+	credits.addEventListener('click', async function (ev) {
+		const content = await renderTemplate('systems/ordemparanormal/templates/dialog/credits.html');
+		new Dialog({
+			title: 'Créditos no Desenvolvimento do Sistema',
+			content: content,
+			buttons: {},
+			render: (html) => console.log('Janela (dialog) de créditos foi renderizada corretamente.'),
+			close: (html) => console.log('Janela (dialog) foi fechada com sucesso!'),
+		}).render(true);
+	});
 });

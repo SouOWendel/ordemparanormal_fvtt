@@ -1,94 +1,126 @@
 .teste {
-    background-color: black;
+	background-color: black;
 }
 
 .no-scroll {
-    overflow: hidden !important;
+	overflow: hidden !important;
 }
 
 .scroll {
-    overflow: auto !important;
+	overflow: auto !important;
 }
 
 .no-orange-hyperlink {
-    color: initial;
-    text-decoration: none;
+	color: initial;
+	text-decoration: none;
 }
 
 .content-dialog {
-    height: 500px;
-    padding: 0 2px;
-    line-height: 1.3;
+	height: 500px;
+	padding: 0 2px;
+	line-height: 1.3;
 
-    li {
-        padding-top: 2px;
-        padding-bottom: 2px;
-    }
+	li {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
 
-    a {
-        &:hover,
-        &:focus {
-            color: #000;
-            text-shadow: 0 0 10px rgb(255, 255, 255);
-            cursor: pointer;
-        }
+	a {
+		&:hover,
+		&:focus {
+			color: #000;
+			text-shadow: 0 0 10px rgb(255, 255, 255);
+			cursor: pointer;
+		}
 
-        h1, h2, h3, h4 {
-            border: 0;
-            text-decoration: none;
-            font-weight: 700;
-        }
+		h1,
+		h2,
+		h3,
+		h4 {
+			border: 0;
+			text-decoration: none;
+			font-weight: 700;
+		}
 
-        .discord {
-            color: white;
-            font-family: 'PT Sans', 'Roboto', 'sans-serif';
+		.discord {
+			color: white;
+			font-family: 'PT Sans', 'Roboto', 'sans-serif';
 
-            p {
-                font-size: medium;
-                font-weight: 700;
-            }
-        }
-    }
+			p {
+				font-size: medium;
+				font-weight: 700;
+			}
+		}
+	}
 }
 
 .content-dialog::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.13);
-    border: 0;
+	background: rgba(0, 0, 0, 0.13);
+	border: 0;
 }
 
 .announcement {
-    position: relative;
-    width: 100%;
-    height: 156px;
-    margin: 8px 0;
-    border-radius: 5px;
-    display: flex;
+	position: relative;
+	width: 100%;
+	height: 156px;
+	margin: 8px 0;
+	border-radius: 5px;
+	display: flex;
 
-    background: {
-        position: center !important;
-        size: 100% 100% !important;
-        repeat: no-repeat !important;
-    }
+	background: {
+		position: center !important;
+		size: 100% 100% !important;
+		repeat: no-repeat !important;
+	}
 
-    p {
-        width: 100%;
-    }
+	p {
+		width: 100%;
+	}
 }
 
 .content-dialog a:first-child .adverts {
-    margin: 0;
+	margin: 0;
 }
 
 .dialog-buttons {
-    display: flex;
-    
-    button {
-        height: 36px;
-        opacity: .4;
-        transition: all 0.2s ease-in;
-    };
+	display: flex;
 
-    button:hover {
-        opacity: 1;
-    }
+	button {
+		height: 36px;
+		opacity: 0.4;
+		transition: all 0.2s ease-in;
+	}
+
+	button:hover {
+		opacity: 1;
+	}
+}
+
+.dialog-credits {
+	li {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+
+	a {
+		&:hover,
+		&:focus {
+			color: #000;
+			text-shadow: 0 0 10px rgb(255, 255, 255);
+			cursor: pointer;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4 {
+			border: 0;
+			text-decoration: none;
+			font-weight: 700;
+		}
+	}
+
+	a[href] {
+		color: #464646;
+	}
 }
