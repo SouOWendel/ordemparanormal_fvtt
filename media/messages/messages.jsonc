@@ -60,11 +60,19 @@
 		"content": "<h3>Novidades da Atualização 6.4.2</h3><p>Ajeitando mais um pouquinho dos efeitos dentro do sistema e aprimorando a exibição de rituais e armamentos no chat. Não se esqueça de deixar que o Foundry faça o backup do seu mundo antes de atualizar! Algumas atualizações podem conter inconsistências.</p><p>Olá, seguindo o planejado, alguns aprimoramentos focados em rituais e algumas correções para que os efeitos funcionem de forma adequada, considerando que essa função pode ser utilizada de muitas formas, é certo que aja ao menos alguns esforços para que ela funcione adequadamente, mais algumas formas de usá-la serão adicionadas futuramente.</p><ul><li><strong>Rituais:</strong> algumas alterações foram feitas para os rituais focando na exibição das suas informações. A execução do ritual não é mais exibida na lista de rituais da ficha, considerando que a maioria dos rituais tem como execução “padrão”, é um atributo menos importante para ser exibido, já que pode-se supor isto para a maioria deles. Além disso, para os formulários, dentro da criação de rituais, os seguintes campos foram adicionados: elemento, execução, alcance, área, alvo, duração e resistência;</li><li><strong>Exibição no Chat:</strong> armamentos e rituais agora são exibidos mais detalhadamente no chat. A descrição agora é mais compacta e as principais informações têm o seu devido destaque, para que tudo fique mais claro durante o combate;</li><li><strong>Alterações nos Efeitos:</strong> muitos cálculos do sistema são agora feitos antes ou depois da aplicação dos efeitos, ao contrário da situação anterior, em que todos eram efeitos após os efeitos, o que fazia com que apenas alguns funcionassem e outros não. Os atributos de bonus para pontos de vida, esforço e sanidade (<code>system.PV.maxBonus</code>) foi removido, agora os efeitos devem funcionar normalmente utilizando, por exemplo, a notação <code>system.PV.max</code>.</li></ul><h4>Correções de Bugs</h4><ul><li>Corrigido um bug em que todas as <i>scrollbar</i> havia um estilo diferente quando o Foundry era aberto no navegador;</li><li>Corrigido um bug em que supostos rituais de outros círculos não eram exibidos na ficha de agente e poderiam quebrar o seu funcionamento;</li><li>Pequena correção nas rolagens da ficha de agente e ajustes na rolagem de iniciativa que afetavam o rastreador de combate do Foundry.</li></ul>"
 	},
 	{
-		"min-sys-version": "6.4.0",
+		"min-sys-version": "6.5.0",
 		"max-sys-version": "6.5.100",
 		"type": "prompt",
 		"display": "once",
 		"title": "6.5.0 Release Notes",
 		"content": "<h3>Novidades da Atualização 6.5.0</h3><p>Não se esqueça de deixar que o Foundry faça o backup do seu mundo antes de atualizar! Algumas atualizações podem conter inconsistências.</p><p>Apenas uma pequena atualização.</p><ul><li><strong>Capa:</strong> foi adicionada uma capa padrão para o sistema;</li></ul><h4>Correções de Bugs</h4><ul><li>Foi ajustada a rolagem de iniciativa e corrigida a rolagem dentro do rastreador de combate do Foundry.</li></ul>"
+	},
+	{
+		"min-sys-version": "6.6.0",
+		"max-sys-version": "6.6.100",
+		"type": "prompt",
+		"display": "once",
+		"title": "6.6.0 Release Notes",
+		"content": ""
 	}
 ]
