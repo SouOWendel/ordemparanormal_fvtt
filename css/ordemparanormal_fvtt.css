@@ -789,6 +789,9 @@
   padding-top: 2px;
   padding-bottom: 2px;
 }
+.system-ordemparanormal .content-dialog a {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
 .system-ordemparanormal .content-dialog a:hover, .system-ordemparanormal .content-dialog a:focus {
   color: #000;
   text-shadow: 0 0 10px rgb(255, 255, 255);
@@ -804,6 +807,9 @@
 }
 .system-ordemparanormal .content-dialog a .discord {
   color: white;
+  text-shadow: 1px 1px 1px #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: "PT Sans", "Roboto", "sans-serif";
 }
 .system-ordemparanormal .content-dialog a .discord p {
@@ -819,7 +825,7 @@
   width: 100%;
   height: 156px;
   margin: 8px 0;
-  border-radius: 5px;
+  border-radius: 5px !important;
   display: flex;
   background-position: center !important;
   background-size: 100% 100% !important;
@@ -871,25 +877,6 @@
   padding: 2px 3px;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1882352941);
-}
-.system-ordemparanormal .dice-roll .dice-total.success {
-  color: inherit;
-  background: #c7d0c0;
-  border: 1px solid #006c00;
-}
-.system-ordemparanormal .dice-roll .dice-total.failure {
-  color: inherit;
-  background: #ffdddd;
-  border: 1px solid #6e0000;
-}
-.system-ordemparanormal .dice-roll .dice-total.critical {
-  color: green;
-}
-.system-ordemparanormal .dice-roll .dice-total.critical small {
-  font-size: 15px;
-}
-.system-ordemparanormal .dice-roll .dice-total.fumble {
-  color: red;
 }
 .system-ordemparanormal .chat-card details {
   padding: 4px 4px;
@@ -956,6 +943,25 @@
   padding: 0 6px;
   margin: 0;
   border: 0;
+}
+.system-ordemparanormal .dice-roll .dice-total.success {
+  color: inherit;
+  background: #c7d0c0;
+  border: 1px solid #006c00;
+}
+.system-ordemparanormal .dice-roll .dice-total.failure {
+  color: inherit;
+  background: #ffdddd;
+  border: 1px solid #6e0000;
+}
+.system-ordemparanormal .dice-roll .dice-total.critical {
+  color: green;
+}
+.system-ordemparanormal .dice-roll .dice-total.critical small {
+  font-size: 15px;
+}
+.system-ordemparanormal .dice-roll .dice-total.fumble {
+  color: red;
 }
 .system-ordemparanormal .op.system-badge {
   display: flex;

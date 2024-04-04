@@ -26,6 +26,7 @@
 	}
 
 	a {
+		box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 		&:hover,
 		&:focus {
 			color: #000;
@@ -44,6 +45,9 @@
 
 		.discord {
 			color: white;
+			text-shadow: 1px 1px 1px #000;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
 			font-family: 'PT Sans', 'Roboto', 'sans-serif';
 
 			p {
@@ -64,7 +68,7 @@
 	width: 100%;
 	height: 156px;
 	margin: 8px 0;
-	border-radius: 5px;
+	border-radius: 5px !important;
 	display: flex;
 
 	background: {
