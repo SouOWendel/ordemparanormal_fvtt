@@ -53,7 +53,7 @@
 	},
 	{
 		"min-sys-version": "6.4.0",
-		"max-sys-version": "6.5.100",
+		"max-sys-version": "6.4.100",
 		"type": "prompt",
 		"display": "once",
 		"title": "6.4.2 Release Notes",
@@ -73,6 +73,6 @@
 		"type": "prompt",
 		"display": "once",
 		"title": "6.6.0 Release Notes",
-		"content": ""
+		"content": "<h3>Novidades da Atualização 6.6.0</h3><p><strong>Não se esqueça de deixar que o Foundry faça o backup do seu mundo antes de atualizar! Algumas atualizações podem conter inconsistências.</strong></p><p>Olá, agora adicionando mais conteúdo ao sistema, compêndios foram adicionados, e temos a chegada de um novo visual aos itens com novos ícones, além disso, uma novidade para os rituais, habilidades e informações do sistema diretamente na barra lateral do Foundry.</p><ul><li><strong>Compêndio:</strong> foram finalmente adicionados os compêndios de proteções e habilidades (poderes de classe, poderes paranormais, habilidades de trilha, habilidades de origem);</li><li><strong>Novos Ícones para Compêndio:</strong> foram adicionados, agora nativamente no sistema, ícones para armamentos, equipamentos e habilidades, uma preciosa contribuição de Marcos Miranda (.nyazi) na edição e criação de ícones, além disso, alguns fornecidos pela <a target='_blank' href='https://game-icons.net/'>game-icons</a>;</li><li><strong>DT de Resistência de Ritual:</strong> a aba de rituais recebeu um novo recurso de cálculo de DT de resistência aos rituais do seu personagem. Sendo representado por 10 + Presença + (NEX / 5). Pode-se modificar este valor com rituais <code>system.ritual.DT</code>;</li><li><strong>Lista de Habilidades de Trilha</strong>: a aba de habilidades agora conta com uma lista separada para as habilidades de trilha, antecipando uma necessidade mais ampla e coerente de organização;</li><li><strong>Menu Lateral Personalizado:</strong> algumas informações úteis como os respectivos créditos dentro do sistema, servidor para o Discord e uma futura wiki do sistema foram adicionadas a um novo menu dentro da barra lateral, na aba de configurações, isso juntamente ao logo do Ordem Paranormal e a atual versão do sistema;</li></ul><h4>Correções de Bugs</h4><ul><li>Corrigido um bug em que efeitos arrastados para barra de acesso rápido não tinham os macros criados;</li><li>Corrigido um bug em que a esquiva não era calculada, também foi adicionada a defesa proveniente de proteções a esquiva;</li><li>Agora os valores de atributos adicionais vindos de efeitos dinâmicos tem o seu valor somado em rolagens de perícia e também iniciativa dentro do rastreador de combate do Foundry.</li></ul>"
 	}
 ]
