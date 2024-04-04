@@ -1,45 +1,40 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-    <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-    </div>
-  </header>
+	<header class="sheet-header">
+		<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+		<div class="header-fields">
+			<h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+		</div>
+	</header>
 
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">{{localize "ordemparanormal.description"}}</a>
-    <a class="item" data-tab="attributes">{{localize "ordemparanormal.attributesItem"}}</a>
-    <a class="item" data-tab="effectsItem">{{localize "ordemparanormal.tab.effects"}}</a>
-  </nav>
+	{{!-- Sheet Tab Navigation --}}
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item" data-tab="description">{{localize "ordemparanormal.description"}}</a>
+		<a class="item" data-tab="attributes">{{localize "ordemparanormal.attributesItem"}}</a>
+		<a class="item" data-tab="effectsItem">{{localize "ordemparanormal.tab.effects"}}</a>
+	</nav>
 
-  {{!-- Sheet Body --}}
-  <section class="sheet-body">
+	{{!-- Sheet Body --}}
+	<section class="sheet-body">
+		{{!-- Description Tab --}}
+		<div class="tab description" data-group="primary" data-tab="description">
+			{{editor content=system.description target="system.description" rollData=rollData button=true owner=owner
+			editable=editable}}
+		</div>
 
-    {{!-- Description Tab --}}
-    <div class="tab description" data-group="primary" data-tab="description">
-      {{editor content=system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
-    </div>
+		{{!-- Attributes Tab --}}
+		<div class="tab attributes" data-group="primary" data-tab="attributes">
+			<div class="resource grid align-items-center">
+				<label class="resource-label">{{localize "ordemparanormal.powerType"}}</label>
+				<select name="system.abilityType" data-dtype="String">
+					{{ selectOptions optionPowerType selected=system.abilityType localize=true blank="—" }}
+				</select>
+				<label class="resource-label">{{localize "ordemparanormal.preRequisite"}}</label>
+				<input type="text" name="system.preRequisite" value="{{system.preRequisite}}" data-dtype="String" />
+			</div>
+		</div>
 
-    {{!-- Attributes Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
-      <div class="resource grid align-items-center">
-        <label class="resource-label">{{localize "ordemparanormal.powerType"}}</label>
-        <select name="system.abilityType" data-dtype="String">
-          {{
-            selectOptions optionPowerType
-            selected=system.abilityType 
-            localize=true
-            blank="—"
-          }}
-        </select>
-        <label class="resource-label">{{localize "ordemparanormal.preRequisite"}}</label>
-        <input type="text" name="system.preRequisite" value="{{system.preRequisite}}" data-dtype="String"/>
-      </div>
-    </div>
-
-    <div class="tab effects" data-group="primary" data-tab="effectsItem">
-      {{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
-    </div>
-  </section>
+		<div class="tab effects" data-group="primary" data-tab="effectsItem">
+			{{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
+		</div>
+	</section>
 </form>
