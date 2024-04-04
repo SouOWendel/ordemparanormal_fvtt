@@ -1,0 +1,19 @@
+{
+  "name": "Poderes de Sangue",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "W6x0WwehDpZV25vB",
+  "sort": 100000,
+  "color": "#781115",
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712183716203,
+    "modifiedTime": 1712183970971,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!folders!W6x0WwehDpZV25vB"
+}

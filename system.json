@@ -24,7 +24,7 @@
 			"label": "Origem e Insanidade",
 			"system": "ordemparanormal",
 			"type": "RollTable",
-			"path": "packs/generalPTBR.db",
+			"path": "packs/compiled/tables/generalPTBR",
 			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
@@ -34,7 +34,7 @@
 			"label": "Criando Missões",
 			"system": "ordemparanormal",
 			"type": "RollTable",
-			"path": "packs/createMissionPTBR.db",
+			"path": "packs/compiled/tables/createMissionPTBR",
 			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
@@ -43,6 +43,7 @@
 			"name": "maps",
 			"label": "Mapas Populares",
 			"system": "ordemparanormal",
+			"path": "packs/compiled/maps",
 			"type": "Scene",
 			"ownership": {
 				"PLAYER": "OBSERVER"
@@ -53,7 +54,7 @@
 			"label": "Armamentos",
 			"system": "ordemparanormal",
 			"type": "Item",
-			"path": "packs/armaments.db",
+			"path": "packs/compiled/items/armaments",
 			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
@@ -62,6 +63,7 @@
 			"name": "generalEquipments",
 			"label": "Equipamentos Gerais",
 			"system": "ordemparanormal",
+			"path": "packs/compiled/items/general",
 			"type": "Item",
 			"ownership": {
 				"PLAYER": "OBSERVER"
@@ -71,6 +73,87 @@
 			"name": "protections",
 			"label": "Proteções",
 			"system": "ordemparanormal",
+			"path": "packs/compiled/items/protections",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "fighterAbilities",
+			"label": "Habilidades de Combatente",
+			"system": "ordemparanormal",
+			"path": "packs/compiled/items/abilities/fighterAbilities",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "specialistAbilities",
+			"label": "Habilidades de Especialista",
+			"system": "ordemparanormal",
+			"path": "packs/compiled/items/abilities/specialistAbilities",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "occultistAbilities",
+			"label": "Habilidades de Ocultista",
+			"system": "ordemparanormal",
+			"path": "packs/compiled/items/abilities/occultistAbilities",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "originAbilities",
+			"label": "Habilidades de Origem",
+			"system": "ordemparanormal",
+			"path": "packs/compiled/items/abilities/originAbilities",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "paranormalAbilities",
+			"label": "Poderes Paranormais",
+			"system": "ordemparanormal",
+			"path": "packs/compiled/items/abilities/paranormalAbilities",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "pathFighter",
+			"label": "Trilhas de Combatente",
+			"system": "ordemparanormal",
+			"path": "packs/compiled/items/abilities/pathFighter",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "pathSpecialist",
+			"label": "Trilhas de Especialista",
+			"system": "ordemparanormal",
+			"path": "packs/compiled/items/abilities/pathSpecialist",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "pathOccultist",
+			"label": "Trilhas de Ocultista",
+			"system": "ordemparanormal",
+			"path": "packs/compiled/items/abilities/pathOccultist",
 			"type": "Item",
 			"ownership": {
 				"PLAYER": "OBSERVER"
@@ -80,6 +163,7 @@
 			"name": "documentation",
 			"label": "Documentação do Sistema",
 			"system": "ordemparanormal",
+			"path": "packs/compiled/journal/documentation",
 			"type": "JournalEntry",
 			"ownership": {
 				"PLAYER": "OBSERVER"
@@ -96,8 +180,26 @@
 				{
 					"name": "Equipamentos do Livro",
 					"sorting": "m",
-					"color": "#b72c1f",
+					"color": "#1f0300",
 					"packs": ["armaments", "generalEquipments", "protections"]
+				},
+				{
+					"name": "Habilidades de Classe",
+					"sorting": "m",
+					"color": "#171717",
+					"packs": ["fighterAbilities", "specialistAbilities", "occultistAbilities"]
+				},
+				{
+					"name": "Habilidades de Trilha",
+					"sorting": "m",
+					"color": "#272727",
+					"packs": ["pathFighter", "pathSpecialist", "pathOccultist"]
+				},
+				{
+					"name": "Outras Habilidades",
+					"sorting": "m",
+					"color": "#373737",
+					"packs": ["originAbilities", "paranormalAbilities"]
 				}
 			]
 		}

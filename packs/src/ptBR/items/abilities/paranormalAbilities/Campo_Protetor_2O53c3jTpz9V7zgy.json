@@ -1,0 +1,29 @@
+{
+  "name": "Campo Protetor",
+  "type": "ability",
+  "_id": "2O53c3jTpz9V7zgy",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/energy/Campo%20Protetor.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "Energia 1",
+    "description": "<p>Voc&ecirc; consegue gerar um campo de Energia que o protege de perigos. Quando usa a a&ccedil;&atilde;o esquiva, voc&ecirc; pode gastar 1 PE para receber +5 em Defesa. Pr&eacute;-requisito: Energia 1.</p>\n<p><strong>Afinidade:</strong> quando usa este poder, voc&ecirc; tamb&eacute;m recebe +5 em Reflexo e, at&eacute; o in&iacute;cio de seu pr&oacute;ximo turno, se passar em um teste de Reflexo que reduziria o dano &agrave; metade, em vez disso n&atilde;o sofre nenhum dano.</p>"
+  },
+  "effects": [],
+  "folder": "LWZiW9fcXov51jSG",
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012637550,
+    "modifiedTime": 1712183748373,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!2O53c3jTpz9V7zgy"
+}

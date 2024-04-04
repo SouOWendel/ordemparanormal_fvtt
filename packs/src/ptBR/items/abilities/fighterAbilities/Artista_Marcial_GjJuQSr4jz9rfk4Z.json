@@ -1,0 +1,29 @@
+{
+  "name": "Artista Marcial",
+  "type": "ability",
+  "_id": "GjJuQSr4jz9rfk4Z",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Artista%20Marcial.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Seus ataques desarmados causam 1d6 pontos de dano, podem causar dano letal e contam como armas &aacute;geis. Em NEX 35%, o dano aumenta para 1d8 e, em NEX 70%, para 1d10.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712006862124,
+    "modifiedTime": 1712121181316,
+    "lastModifiedBy": "Yd4eA4q0X6ETHZ5F"
+  },
+  "_key": "!items!GjJuQSr4jz9rfk4Z"
+}

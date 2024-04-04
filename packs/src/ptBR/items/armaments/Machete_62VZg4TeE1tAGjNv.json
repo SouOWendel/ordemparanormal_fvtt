@@ -2,7 +2,7 @@
   "name": "Machete",
   "type": "armament",
   "_id": "62VZg4TeE1tAGjNv",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Machete.svg",
   "system": {
     "description": "<p>Uma l&acirc;mina longa, muito usada como ferramenta para abrir trilhas.</p>",
     "weight": 1,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705434146836,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376336694,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!62VZg4TeE1tAGjNv"

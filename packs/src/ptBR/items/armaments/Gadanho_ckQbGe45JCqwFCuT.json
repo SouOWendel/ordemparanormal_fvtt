@@ -2,7 +2,7 @@
   "name": "Gadanho",
   "type": "armament",
   "_id": "ckQbGe45JCqwFCuT",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Gadanho.svg",
   "system": {
     "description": "<p>Uma ferramenta agr&iacute;cola, o gadanho &eacute; uma vers&atilde;o maior da foice, para uso com as duas m&atilde;os. Foi criada para ceifar cereais, mas tamb&eacute;m pode ceifar vidas.</p>",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705437803014,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376186150,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!ckQbGe45JCqwFCuT"

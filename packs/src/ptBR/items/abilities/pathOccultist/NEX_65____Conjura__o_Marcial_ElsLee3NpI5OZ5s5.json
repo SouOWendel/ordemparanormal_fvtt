@@ -1,0 +1,29 @@
+{
+  "folder": "6yPboMVupPb1bBBL",
+  "name": "NEX 65% - Conjuração Marcial",
+  "type": "ability",
+  "_id": "ElsLee3NpI5OZ5s5",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/L%C3%A2mina%20Paranormal/Conjura%C3%A7%C3%A3o%20Marcial.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Uma vez por rodada, quando voc&ecirc; lan&ccedil;a um ritual com execu&ccedil;&atilde;o de uma a&ccedil;&atilde;o padr&atilde;o, pode gas\u0002tar 2 PE para fazer um ataque corpo a corpo como uma a&ccedil;&atilde;o livre.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712184840444,
+    "modifiedTime": 1712186656862,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!ElsLee3NpI5OZ5s5"
+}

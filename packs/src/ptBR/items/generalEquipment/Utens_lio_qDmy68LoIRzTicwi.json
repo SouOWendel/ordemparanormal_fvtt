@@ -1,0 +1,34 @@
+{
+  "name": "Utensílio",
+  "type": "generalEquipment",
+  "_id": "qDmy68LoIRzTicwi",
+  "img": "systems/ordemparanormal/media/icons/general%20equipments/Utens%C3%ADlio.svg",
+  "system": {
+    "description": "Your text here.",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.3.3",
+    "coreVersion": "11.315",
+    "createdTime": 1710371773874,
+    "modifiedTime": 1710374505658,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!qDmy68LoIRzTicwi"
+}

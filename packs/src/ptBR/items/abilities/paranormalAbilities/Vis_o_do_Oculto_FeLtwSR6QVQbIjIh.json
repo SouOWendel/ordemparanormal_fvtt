@@ -1,0 +1,29 @@
+{
+  "name": "Visão do Oculto",
+  "type": "ability",
+  "_id": "FeLtwSR6QVQbIjIh",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/knowledge/Vis%C3%A3o%20do%20Oculto.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; n&atilde;o enxerga mais pelos olhos, mas sim pela percep&ccedil;&atilde;o do Conhecimento em sua mente. Voc&ecirc; recebe +5 em testes de Percep&ccedil;&atilde;o e enxerga no escuro.</p>\n<p><strong>Afinidade:</strong> voc&ecirc; ignora camuflagem.</p>"
+  },
+  "effects": [],
+  "folder": "oFUp3zHwQV1wTbEq",
+  "sort": 500000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012721926,
+    "modifiedTime": 1712183759937,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!FeLtwSR6QVQbIjIh"
+}

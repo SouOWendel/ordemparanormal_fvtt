@@ -2,7 +2,7 @@
   "name": "Katana",
   "type": "armament",
   "_id": "kjBq8h2iZOzifGKJ",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Katana.svg",
   "system": {
     "description": "<p>Origin&aacute;ria do Jap&atilde;o, esta espada longa e levemente curvada transcendeu os s&eacute;culos. &Eacute; uma arma &aacute;gil. Se voc&ecirc; for veterano em Luta pode us&aacute;-la como uma arma de uma m&atilde;o.</p>",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705437899704,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376199879,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!kjBq8h2iZOzifGKJ"

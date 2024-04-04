@@ -1,0 +1,29 @@
+{
+  "name": "Tiro de Cobertura",
+  "type": "ability",
+  "_id": "TNB5IxtziXa727fV",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Tiro%20de%20Cobertura.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e 1 PE para disparar uma arma de fogo na dire&ccedil;&atilde;o de um personagem no alcance da arma para for&ccedil;&aacute;-lo a se proteger. Fa&ccedil;a um teste de Pontaria contra a Vontade do alvo. Se vencer, at&eacute; o in&iacute;cio do seu pr&oacute;ximo turno o alvo n&atilde;o pode sair do lugar onde est&aacute; e sofre &ndash;5 em testes de ataque. A crit&eacute;rio do mestre, o alvo recebe +5 no teste de Vontade se estiver em um lugar extrema\u0002mente perigoso, como uma casa em chamas ou um barco afundando. Este &eacute; um efeito de medo.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712007489352,
+    "modifiedTime": 1712122504433,
+    "lastModifiedBy": "Yd4eA4q0X6ETHZ5F"
+  },
+  "_key": "!items!TNB5IxtziXa727fV"
+}

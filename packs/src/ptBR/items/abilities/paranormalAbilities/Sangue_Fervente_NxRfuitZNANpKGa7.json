@@ -1,0 +1,29 @@
+{
+  "name": "Sangue Fervente",
+  "type": "ability",
+  "_id": "NxRfuitZNANpKGa7",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/blood/Sangue%20Fervente.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "Sangue 2",
+    "description": "<p>A intensidade da dor desperta em voc&ecirc; sentimentos bestiais e prazerosos que voc&ecirc; nem imaginava que existiam. Enquanto estiver machucado, voc&ecirc; recebe +1 em Agilidade ou For&ccedil;a, &agrave; sua escolha (escolha sempre que este efeito for ativado).</p>\n<p><strong>Afinidade: </strong>o b&ocirc;nus que voc&ecirc; recebe em Agilidade ou For&ccedil;a aumenta para +2.</p>"
+  },
+  "effects": [],
+  "folder": "W6x0WwehDpZV25vB",
+  "sort": 500000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012515510,
+    "modifiedTime": 1712183745271,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!NxRfuitZNANpKGa7"
+}

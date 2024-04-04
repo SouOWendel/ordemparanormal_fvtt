@@ -1,0 +1,29 @@
+{
+  "folder": "6yPboMVupPb1bBBL",
+  "name": "NEX 40% - Gladiador Paranormal",
+  "type": "ability",
+  "_id": "hmFptcoRaKXeSZ8n",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/L%C3%A2mina%20Paranormal/Gladiador%20Paranormal.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Sempre que acerta um ataque corpo a corpo em um inimigo, voc&ecirc; recebe 2 PE tempor&aacute;rios. Voc&ecirc; pode ganhar um m&aacute;ximo de PE tempo\u0002r&aacute;rios por cena igual ao seu limite de PE. PE tempor&aacute;rios desaparecem no final da cena.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712184804441,
+    "modifiedTime": 1712186654078,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!hmFptcoRaKXeSZ8n"
+}

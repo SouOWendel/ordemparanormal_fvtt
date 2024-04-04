@@ -2,7 +2,7 @@
   "name": "Bazuca",
   "type": "armament",
   "_id": "hrDPdCc8QY2WJ02j",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Bazuca.svg",
   "system": {
     "description": "<p>Este lan&ccedil;a-foguetes foi concebido como uma arma anti-tanques, mas tamb&eacute;m se mostrou eficaz contra criaturas. A bazuca causa seu dano no alvo atingido e em todos os seres num raio de 3m; esses seres (mas n&atilde;o o alvo atingido diretamente) t&ecirc;m direito a um teste de Reflexos (DT Agi) para reduzir o dano &agrave; metade. Voc&ecirc; pode disparar o foguete num ponto qualquer em alcance m&eacute;dio, em vez de num ser espec&iacute;fico; nesse caso, n&atilde;o precisa rolar ataque e n&atilde;o tem chance de errar (mas tamb&eacute;m n&atilde;o acerta nenhum ser diretamente). A bazuca exige uma a&ccedil;&atilde;o de movimento para ser recarregada a cada disparo.</p>",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705438706663,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710375872937,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!hrDPdCc8QY2WJ02j"

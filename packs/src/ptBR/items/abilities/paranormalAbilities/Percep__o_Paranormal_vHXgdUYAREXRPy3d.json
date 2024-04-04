@@ -1,0 +1,29 @@
+{
+  "name": "Percepção Paranormal",
+  "type": "ability",
+  "_id": "vHXgdUYAREXRPy3d",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/knowledge/Percep%C3%A7%C3%A3o%20Paranormal.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "",
+    "description": "<p>O Conhecimento sussurra em sua mente. Em cenas de investiga&ccedil;&atilde;o, sempre que fizer um teste para procurar pistas, voc&ecirc; pode rolar novamente um dado com re\u0002sultado menor que 10. Voc&ecirc; deve aceitar a segunda rolagem, mesmo que seja menor que a primeira.</p>\n<p><strong>Afinidade:</strong> voc&ecirc; pode rolar novamente at&eacute; dois dados com resultado menor que 10.</p>"
+  },
+  "effects": [],
+  "folder": "oFUp3zHwQV1wTbEq",
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012695789,
+    "modifiedTime": 1712183755788,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!vHXgdUYAREXRPy3d"
+}

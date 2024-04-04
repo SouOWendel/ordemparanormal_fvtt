@@ -1,0 +1,29 @@
+{
+  "folder": "6yPboMVupPb1bBBL",
+  "name": "NEX 10% - Lâmina Maldita",
+  "type": "ability",
+  "_id": "AgWbBNhVokUQoEHV",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/L%C3%A2mina%20Paranormal/L%C3%A2mina%20Maldita.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; aprende o ritual<em> Amaldi&ccedil;oar Arma</em>. Se j&aacute; o conhece, seu custo &eacute; reduzido em &ndash;1 PE. Al&eacute;m disso, quando conjura esse ritual, voc&ecirc; pode usar Ocultismo, em vez de Luta ou Pontaria, para testes de ataque com a arma amaldi&ccedil;oada.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712184766810,
+    "modifiedTime": 1712186649998,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!AgWbBNhVokUQoEHV"
+}

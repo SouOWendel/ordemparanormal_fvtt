@@ -1,0 +1,29 @@
+{
+  "name": "Escapar da Morte",
+  "type": "ability",
+  "_id": "0GRqF1T3cbzouowK",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/death/Escapar%20da%20Morte.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "Morte 1",
+    "description": "<p>A Morte tem um interesse especial em sua caminhada. Uma vez por cena, quando receber dano que o deixaria com 0 PV, voc&ecirc; fica com 1 PV. N&atilde;o funciona em caso de dano massivo.</p>\n<p><strong>Afinidade:</strong> em vez do normal, voc&ecirc; evita comple\u0002tamente o dano. Em caso de dano massivo, voc&ecirc; fica com 1 PV.</p>"
+  },
+  "effects": [],
+  "folder": "ymf6Q233UXczSQe7",
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012555350,
+    "modifiedTime": 1712183731816,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!0GRqF1T3cbzouowK"
+}

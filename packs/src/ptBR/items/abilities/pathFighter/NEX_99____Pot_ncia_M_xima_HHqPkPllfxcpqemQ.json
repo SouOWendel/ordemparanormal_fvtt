@@ -1,0 +1,29 @@
+{
+  "folder": "hWIJSF5wxtKlXPON",
+  "name": "NEX 99% - Potência Máxima",
+  "type": "ability",
+  "_id": "HHqPkPllfxcpqemQ",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Guerreiro/Pot%C3%AAncia%20M%C3%A1xima.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Quando usa seu Ataque Especial com armas corpo a corpo, todos os b&ocirc;nus num&eacute;ricos s&atilde;o dobrados. Por exemplo, se usar 5 PE para receber +5 no ataque e +15 no dano, voc&ecirc; recebe +10 no ataque e +30 no dano.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712181467484,
+    "modifiedTime": 1712186453348,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!HHqPkPllfxcpqemQ"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Nerd",
+  "type": "ability",
+  "_id": "6iOV6qeSW9kLgg95",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Nerd.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; &eacute; um reposit&oacute;rio de conhecimento &uacute;til (e in&uacute;til). Uma vez por cena, pode gastar 2 PE para fazer um teste de Atualidades (DT 20). Se passar, recebe uma informa&ccedil;&atilde;o &uacute;til para essa cena (se for uma investiga&ccedil;&atilde;o, uma dica para uma pista; se for um combate, uma fraqueza de um inimigo, e assim por diante). A fonte da informa&ccedil;&atilde;o pode ser desde um livro antigo que voc&ecirc; leu na biblioteca at&eacute; um epis&oacute;dio de sua s&eacute;rie de fic&ccedil;&atilde;o favorita.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712007794920,
+    "modifiedTime": 1712177538722,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!6iOV6qeSW9kLgg95"
+}

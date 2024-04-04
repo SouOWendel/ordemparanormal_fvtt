@@ -1,0 +1,34 @@
+{
+  "name": "Componente de Conhecimento",
+  "type": "generalEquipment",
+  "_id": "VdD5DzxHiIJ8ps3x",
+  "img": "systems/ordemparanormal/media/icons/general%20equipments/Componentes%20de%20Conhecimento.svg",
+  "system": {
+    "description": "Your text here.",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712004325772,
+    "modifiedTime": 1712004338783,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!VdD5DzxHiIJ8ps3x"
+}

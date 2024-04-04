@@ -1,0 +1,29 @@
+{
+  "folder": "jVl0pE3ZaH3Ckufp",
+  "name": "NEX 99% - Reanimação",
+  "type": "ability",
+  "_id": "TynMkp0NlbVA3lYN",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/M%C3%A9dico%20de%20Campo/Reanima%C3%A7%C3%A3o.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Uma vez por cena, voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 10 PE para trazer de volta a vida um personagem que tenha morrido na mesma cena (exceto morte por dano massivo).</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712183190885,
+    "modifiedTime": 1712186612381,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!TynMkp0NlbVA3lYN"
+}

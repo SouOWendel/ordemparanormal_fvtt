@@ -1,0 +1,34 @@
+{
+  "name": "Vestimenta",
+  "type": "generalEquipment",
+  "_id": "0NkAcCYS0W8Brzfp",
+  "img": "systems/ordemparanormal/media/icons/general%20equipments/Vestimenta.svg",
+  "system": {
+    "description": "<p>Uma pe&ccedil;a de vestu&aacute;rio que fornece +2 em uma per&iacute;cia (exceto Luta ou Pontaria). Por exemplo, um par de botas militares pode fornecer +2 em Atletismo, um terno ou vestido elegante pode for\u0002necer +2 em Diplomacia e um manto com glifos pode fornecer +2 em Ocultismo. Assim como utens&iacute;lios, o benef&iacute;cio de cada vestimenta deve ser aprovado pelo mestre. Voc&ecirc; pode receber os b&ocirc;nus de no m&aacute;ximo duas vestimentas ao mesmo tempo. Vestir ou despir uma vestimenta &eacute; uma a&ccedil;&atilde;o completa</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.3.3",
+    "coreVersion": "11.315",
+    "createdTime": 1710372094821,
+    "modifiedTime": 1710374519709,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!0NkAcCYS0W8Brzfp"
+}

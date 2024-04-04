@@ -1,0 +1,29 @@
+{
+  "name": "Cicatrizes Psicológicas",
+  "type": "ability",
+  "_id": "AP4oD0E74pr20Aqb",
+  "img": "systems/ordemparanormal/media/icons/abilities/origin/Cicatrizes%20Psicol%C3%B3gicas.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "ability",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; recebe +1 de Sanidade para cada 5% de NEX.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2600000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712011841969,
+    "modifiedTime": 1712179162928,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!AP4oD0E74pr20Aqb"
+}

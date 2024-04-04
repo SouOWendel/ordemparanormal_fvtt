@@ -2,7 +2,7 @@
   "name": "Fuzil de Precisão",
   "type": "armament",
   "_id": "7digpG8UcSwTWilN",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Fuzil%20de%20precis%C3%A3o.svg",
   "system": {
     "description": "<p>Esta arma de fogo de uso militar &eacute; projetada para disparos longos e precisos. Se for veterano em Pontaria e mirar com um fuzil de pre\u0002cis&atilde;o (veja a p&aacute;gina 87), voc&ecirc; recebe +5 na margem de amea&ccedil;a de seu ataque</p>",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705438635331,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376169950,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!7digpG8UcSwTWilN"

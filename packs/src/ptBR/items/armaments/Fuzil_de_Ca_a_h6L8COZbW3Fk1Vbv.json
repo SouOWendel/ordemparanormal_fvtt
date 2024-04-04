@@ -2,7 +2,7 @@
   "name": "Fuzil de Caça",
   "type": "armament",
   "_id": "h6L8COZbW3Fk1Vbv",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Fuzil%20de%20Ca%C3%A7a.svg",
   "system": {
     "description": "Your text here.",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705436868890,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376140933,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!h6L8COZbW3Fk1Vbv"

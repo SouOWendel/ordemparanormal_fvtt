@@ -1,0 +1,29 @@
+{
+  "folder": "ht8EMXm53oYO1MK6",
+  "name": "NEX 65% - Anular Ritual",
+  "type": "ability",
+  "_id": "iU5XIk1gFcXHyrJs",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Condu%C3%ADte/Anular_Ritual.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Quando for alvo de um ritual, voc&ecirc; pode gastar uma quantidade de PE igual ao custo pago por esse ritual e fazer um teste oposto de Ocultismo contra o conjurador. Se vencer, voc&ecirc; anula o ritual, cancelando todos os seus efeitos.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712184283771,
+    "modifiedTime": 1712188139351,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!iU5XIk1gFcXHyrJs"
+}

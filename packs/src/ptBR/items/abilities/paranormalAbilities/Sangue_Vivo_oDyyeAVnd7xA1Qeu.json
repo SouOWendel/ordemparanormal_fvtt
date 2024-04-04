@@ -1,0 +1,29 @@
+{
+  "name": "Sangue Vivo",
+  "type": "ability",
+  "_id": "oDyyeAVnd7xA1Qeu",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/blood/Sangue%20Vivo.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "Sangue 1",
+    "description": "<p>A carnificina n&atilde;o pode parar, o Sangue precisa con\u0002tinuar fluindo. Na primeira vez que ficar machucado durante uma cena, voc&ecirc; recebe cura acelerada 2 (veja a p&aacute;gina 179). Esse efeito nunca cura voc&ecirc; acima da metade dos PV m&aacute;ximos (ou seja, voc&ecirc; nunca deixa de estar machucado) e termina no fim da cena ou caso voc&ecirc; perca a condi&ccedil;&atilde;o machucado.&nbsp;</p>\n<p><strong>Afinidade:</strong> a cura acelerada aumenta para 5.</p>"
+  },
+  "effects": [],
+  "folder": "W6x0WwehDpZV25vB",
+  "sort": 400000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012524862,
+    "modifiedTime": 1712183744005,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!oDyyeAVnd7xA1Qeu"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "nJ5eT2znSgOuCBxV",
+  "name": "NEX 65% - Brecha na Guarda",
+  "type": "ability",
+  "_id": "iku4mSx6jJjnywak",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Comandante%20de%20Campo/Brecha%20na%20Guarda.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Uma vez por ro\u0002dada, quando um aliado causar dano em um inimigo que esteja em seu alcance curto, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 2 PE para que voc&ecirc; ou outro aliado em alcance curto fa&ccedil;a um ataque adicional contra o mesmo inimigo. Al&eacute;m disso, o alcance de inspirar confian&ccedil;a e estrategista aumenta para m&eacute;dio.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712181379315,
+    "modifiedTime": 1712186433516,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!iku4mSx6jJjnywak"
+}

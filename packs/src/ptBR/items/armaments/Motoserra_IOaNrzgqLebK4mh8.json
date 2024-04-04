@@ -2,7 +2,7 @@
   "name": "Motoserra",
   "type": "armament",
   "_id": "IOaNrzgqLebK4mh8",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Motoserra.svg",
   "system": {
     "description": "<p>Uma ferramenta capaz de causar ferimentos profundos; sempre que rolar um 6 em um dado de dano com uma motosserra, role um dado de dano adicional. Apesar de potente, esta arma &eacute; desajeitada e imp&otilde;e &ndash;1d20 nos seus testes de ataque. Ligar uma motosserra gasta uma a&ccedil;&atilde;o de movimento.</p>",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705438129597,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376452410,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!IOaNrzgqLebK4mh8"

@@ -1,0 +1,29 @@
+{
+  "folder": "NMOyIu5qPUNyp5tk",
+  "name": "NEX 10% - A Favorita",
+  "type": "ability",
+  "_id": "5z8s5za3yhIsaQvD",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Aniquilador/A%20Favorita.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Escolha uma arma para ser sua favorita, como katana ou fuzil de assalto. A categoria da arma escolhida &eacute; reduzida em I.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712181248566,
+    "modifiedTime": 1712186367776,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!5z8s5za3yhIsaQvD"
+}

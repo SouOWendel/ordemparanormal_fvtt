@@ -1,0 +1,29 @@
+{
+  "folder": "hWIJSF5wxtKlXPON",
+  "name": "NEX 40% - Revidar",
+  "type": "ability",
+  "_id": "LlAalkuUzpYEiDxP",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Guerreiro/Revidar.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Sempre que bloquear um ata\u0002que, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 2 PE para fazer um ataque corpo a corpo no inimigo que o atacou.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712181442532,
+    "modifiedTime": 1712186448268,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!LlAalkuUzpYEiDxP"
+}

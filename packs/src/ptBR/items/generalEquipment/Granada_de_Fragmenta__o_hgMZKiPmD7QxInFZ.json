@@ -1,0 +1,34 @@
+{
+  "name": "Granada de Fragmentação",
+  "type": "generalEquipment",
+  "_id": "hgMZKiPmD7QxInFZ",
+  "img": "systems/ordemparanormal/media/icons/armament/Fragmenta%C3%A7%C3%A3o.svg",
+  "system": {
+    "description": "<p>Para usar uma granada, voc&ecirc; precisa empunh&aacute;-la e ent&atilde;o gastar uma a&ccedil;&atilde;o padr&atilde;o para arremess&aacute;-la em um ponto &agrave; sua escolha em alcance m&eacute;dio. A granada afeta um raio de 6m a partir do ponto de impacto. O efeito que ela causa varia con\u0002forme o tipo de granada.</p>\n<p><strong>Fragmenta&ccedil;&atilde;o.</strong> Espalha fragmentos perfuran\u0002tes. Seres na &aacute;rea sofrem 8d6 pontos de dano de perfura&ccedil;&atilde;o (Reflexos DT Agi reduz &agrave; metade).</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.3.3",
+    "coreVersion": "11.315",
+    "createdTime": 1710372607925,
+    "modifiedTime": 1710374346559,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!hgMZKiPmD7QxInFZ"
+}

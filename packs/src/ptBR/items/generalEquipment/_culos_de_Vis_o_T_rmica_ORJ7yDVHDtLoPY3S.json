@@ -1,0 +1,34 @@
+{
+  "name": "Óculos de Visão Térmica",
+  "type": "generalEquipment",
+  "_id": "ORJ7yDVHDtLoPY3S",
+  "img": "systems/ordemparanormal/media/icons/general%20equipments/%C3%93culos%20de%20vis%C3%A3o%20t%C3%A9rmica.svg",
+  "system": {
+    "description": "<p>Estes &oacute;culos eliminam a penalidade em testes por camuflagem.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.3.3",
+    "coreVersion": "11.315",
+    "createdTime": 1710373540168,
+    "modifiedTime": 1710374491431,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!ORJ7yDVHDtLoPY3S"
+}

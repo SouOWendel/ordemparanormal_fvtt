@@ -1,0 +1,29 @@
+{
+  "folder": "vIAEiT4UJ4KWZoI1",
+  "name": "NEX 99% - Atirar para Matar",
+  "type": "ability",
+  "_id": "niGU0r33WNApAdrm",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Atirador%20de%20Elite/Atirar%20para%20Matar.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Quando faz um acerto cr&iacute;tico com uma arma de fogo, voc&ecirc; causa dano m&aacute;ximo, sem precisar rolar dados.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712183045190,
+    "modifiedTime": 1712186585056,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!niGU0r33WNApAdrm"
+}

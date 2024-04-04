@@ -1,0 +1,29 @@
+{
+  "name": "Ferramentas de Trabalho",
+  "type": "ability",
+  "_id": "oYoTpN8Aa1MSwsyw",
+  "img": "systems/ordemparanormal/media/icons/abilities/origin/Ferramenta%20de%20Trabalho.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "ability",
+    "preRequisite": "",
+    "description": "<p>Escolha uma arma simples ou t&aacute;tica que, a crit&eacute;rio do mestre, poderia ser usada como ferramenta em sua profiss&atilde;o (como uma marreta para um pedreiro). Voc&ecirc; sabe usar a arma escolhida e recebe +1 em testes de ataque, rolagens de dano e margem de amea&ccedil;a com ela.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 99999,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712011696320,
+    "modifiedTime": 1712178895297,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!oYoTpN8Aa1MSwsyw"
+}

@@ -2,7 +2,7 @@
   "name": "Pistola",
   "type": "armament",
   "_id": "zglxWj3eblCZ8Oxy",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Pistola.svg",
   "system": {
     "description": "<p>Uma arma de m&atilde;o comum entre policiais e militares por ser facilmente recarreg&aacute;vel.</p>",
     "weight": 1,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705435261359,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376493642,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!zglxWj3eblCZ8Oxy"

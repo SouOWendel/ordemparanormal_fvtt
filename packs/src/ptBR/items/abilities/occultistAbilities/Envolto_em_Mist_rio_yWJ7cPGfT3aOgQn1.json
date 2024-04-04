@@ -1,0 +1,29 @@
+{
+  "name": "Envolto em Mistério",
+  "type": "ability",
+  "_id": "yWJ7cPGfT3aOgQn1",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Envolto%20em%20Mist%C3%A9rio.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Sua apar&ecirc;ncia e postura assombrosas o permitem manipular e assustar pessoas ignorantes ou supersticiosas. O mestre define o que exatamente voc&ecirc; pode fazer e quem se encaixa nessa descri&ccedil;&atilde;o. Como regra geral, voc&ecirc; recebe +5 em Engana&ccedil;&atilde;o e Intimida&ccedil;&atilde;o contra pessoas n&atilde;o treinadas em Ocultismo.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712007943984,
+    "modifiedTime": 1712180461441,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!yWJ7cPGfT3aOgQn1"
+}

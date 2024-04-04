@@ -1,0 +1,29 @@
+{
+  "name": "Tatuagem Ritualística",
+  "type": "ability",
+  "_id": "sDuoQYqx0841u8SM",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Tatuagem%20Ritual%C3%ADstica.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>S&iacute;mbolos marcados em sua pele reduzem em &ndash;1 PE o custo de rituais de alcance pessoal que t&ecirc;m voc&ecirc; como alvo.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712008217504,
+    "modifiedTime": 1712180813191,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!sDuoQYqx0841u8SM"
+}

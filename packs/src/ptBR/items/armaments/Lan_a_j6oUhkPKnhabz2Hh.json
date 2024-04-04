@@ -2,7 +2,7 @@
   "name": "Lança",
   "type": "armament",
   "_id": "j6oUhkPKnhabz2Hh",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Lan%C3%A7a.svg",
   "system": {
     "description": "<p>Uma haste de madeira com uma ponta met&aacute;lica afiada, a lan&ccedil;a &eacute; uma arma arcaica, mas usada ainda hoje por artistas marciais. Pode ser arremessada</p>",
     "weight": 1,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705434308482,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376213880,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!j6oUhkPKnhabz2Hh"

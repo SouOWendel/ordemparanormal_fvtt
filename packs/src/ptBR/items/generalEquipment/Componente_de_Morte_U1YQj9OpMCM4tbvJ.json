@@ -1,0 +1,34 @@
+{
+  "name": "Componente de Morte",
+  "type": "generalEquipment",
+  "_id": "U1YQj9OpMCM4tbvJ",
+  "img": "systems/ordemparanormal/media/icons/general%20equipments/Componentes%20de%20Morte.svg",
+  "system": {
+    "description": "<p>Um conjunto de objetos utilizados em rituais de um elemento entre Sangue, Morte, Conhecimento ou Energia (n&atilde;o existem componentes ritual&iacute;sticos de Medo). Componentes ritual&iacute;sticos s&atilde;o necess&aacute;rios para a conjura&ccedil;&atilde;o de rituais do elemento em quest&atilde;o.</p>\n<p><strong>Morte:</strong> ossos, dentes, cinzas, fios de cabelo, cris\u0002tais pretos, rel&oacute;gios, galhos secos, folhas secas, plantas mortas, ra&iacute;zes, areia, poeira, Lodo...</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.3.3",
+    "coreVersion": "11.315",
+    "createdTime": 1710375081092,
+    "modifiedTime": 1710375113699,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!U1YQj9OpMCM4tbvJ"
+}

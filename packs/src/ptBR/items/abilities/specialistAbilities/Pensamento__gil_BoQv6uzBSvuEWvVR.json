@@ -1,0 +1,29 @@
+{
+  "name": "Pensamento Ágil",
+  "type": "ability",
+  "_id": "BoQv6uzBSvuEWvVR",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Pensamento%20%C3%81gil.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Uma vez por rodada, durante uma cena de investiga&ccedil;&atilde;o, voc&ecirc; pode gastar 2 PE para fazer uma a&ccedil;&atilde;o de procurar pistas adicional.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712007850358,
+    "modifiedTime": 1712177620292,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!BoQv6uzBSvuEWvVR"
+}

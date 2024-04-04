@@ -1,0 +1,29 @@
+{
+  "name": "Golpe Pesado",
+  "type": "ability",
+  "_id": "naYrM6DgfXrRBPOe",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Golpe%20Pesado.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>O dano de suas armas corpo a corpo aumenta em mais um dado do mesmo tipo.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712007343514,
+    "modifiedTime": 1712121822279,
+    "lastModifiedBy": "Yd4eA4q0X6ETHZ5F"
+  },
+  "_key": "!items!naYrM6DgfXrRBPOe"
+}

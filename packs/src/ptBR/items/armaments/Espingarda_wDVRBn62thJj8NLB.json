@@ -2,7 +2,7 @@
   "name": "Espingarda",
   "type": "armament",
   "_id": "wDVRBn62thJj8NLB",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Espingarda.svg",
   "system": {
     "description": "<p>Arma de fogo longa e com cano liso. A espingarda causa apenas metade do dano em alcance m&eacute;dio ou maior</p>",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705438518138,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376045470,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!wDVRBn62thJj8NLB"

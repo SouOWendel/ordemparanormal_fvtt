@@ -1,0 +1,35 @@
+{
+  "name": "Proteção Pesada",
+  "type": "protection",
+  "_id": "8Ntoxhrc8rxCuTA5",
+  "img": "systems/ordemparanormal/media/icons/general%20equipments/Prote%C3%A7%C3%A3o%20Pesada.svg",
+  "system": {
+    "description": "<p>Equipamento usado por for&ccedil;as especiais da pol&iacute;cia e pelo ex&eacute;rcito. Consiste de capa\u0002cete, ombreiras, joelheiras e caneleiras, al&eacute;m de um colete com v&aacute;rias camadas de kevlar. Fornece resis\u0002t&ecirc;ncia a bal&iacute;stico, corte, impacto e perfura&ccedil;&atilde;o 2. No entanto, por ser desconfort&aacute;vel e volumosa, imp&otilde;e &ndash;5 em testes de per&iacute;cias que sofrem penalidade de carga.</p>",
+    "weight": 2,
+    "category": "2",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "defense": 10,
+    "penalty": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.3.3",
+    "coreVersion": "11.315",
+    "createdTime": 1710371314891,
+    "modifiedTime": 1710376602239,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!8Ntoxhrc8rxCuTA5"
+}

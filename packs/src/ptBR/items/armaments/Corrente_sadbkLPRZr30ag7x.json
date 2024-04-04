@@ -2,7 +2,7 @@
   "name": "Corrente",
   "type": "armament",
   "_id": "sadbkLPRZr30ag7x",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Corrente.svg",
   "system": {
     "description": "Your text here.",
     "weight": 1,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705437457690,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710375971703,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!sadbkLPRZr30ag7x"

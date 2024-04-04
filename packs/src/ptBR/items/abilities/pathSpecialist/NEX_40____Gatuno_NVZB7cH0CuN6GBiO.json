@@ -1,0 +1,29 @@
+{
+  "folder": "DgAGcPTJjdlKZetD",
+  "name": "NEX 40% - Gatuno",
+  "type": "ability",
+  "_id": "NVZB7cH0CuN6GBiO",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Infiltrador/Gatuno.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; recebe +5 em Atletismo e Crime e pode percorrer seu deslocamento normal quando se esconder sem penalidade (veja a per&iacute;cia Furtividade).</p>"
+  },
+  "effects": [],
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712182830897,
+    "modifiedTime": 1712186594574,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!NVZB7cH0CuN6GBiO"
+}

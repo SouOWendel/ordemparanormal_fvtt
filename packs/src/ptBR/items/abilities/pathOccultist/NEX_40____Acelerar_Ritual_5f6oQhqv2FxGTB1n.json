@@ -1,0 +1,29 @@
+{
+  "folder": "ht8EMXm53oYO1MK6",
+  "name": "NEX 40% - Acelerar Ritual",
+  "type": "ability",
+  "_id": "5f6oQhqv2FxGTB1n",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Condu%C3%ADte/Acelerar_Ritual.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Uma vez por rodada, voc&ecirc; pode aumentar o custo de um ritual em 4 PE para conjur&aacute;-lo como uma a&ccedil;&atilde;o livre.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712184213245,
+    "modifiedTime": 1712188145552,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!5f6oQhqv2FxGTB1n"
+}

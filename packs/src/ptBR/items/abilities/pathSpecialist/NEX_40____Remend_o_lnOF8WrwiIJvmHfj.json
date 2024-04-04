@@ -1,0 +1,29 @@
+{
+  "folder": "FzdhLviTEbC02Uyi",
+  "name": "NEX 40% - Remendão",
+  "type": "ability",
+  "_id": "lnOF8WrwiIJvmHfj",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/T%C3%A9cnico/Remend%C3%A3o.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o completa e 1 PE para remover a condi&ccedil;&atilde;o quebrado de um equipamento adjacente at&eacute; o final da cena. Al&eacute;m disso, qualquer equipamento geral tem sua categoria reduzida em I para voc&ecirc;.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712183400814,
+    "modifiedTime": 1712186632415,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!lnOF8WrwiIJvmHfj"
+}

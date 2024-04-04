@@ -1,0 +1,29 @@
+{
+  "name": "Causalidade Fortuita",
+  "type": "ability",
+  "_id": "VjBWJCVKD1dNLLYO",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/energy/Causalidade%20Fortuita.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "",
+    "description": "<p>A Energia o conduz rumo &agrave; descobertas. Em cenas de investiga&ccedil;&atilde;o, a DT para procurar pistas diminui em &ndash;5 para voc&ecirc; at&eacute; voc&ecirc; encontrar uma pista.</p>\n<p><strong>Afinidade:</strong> a DT para procurar pistas sempre di\u0002minui em &ndash;5 para voc&ecirc;.</p>"
+  },
+  "effects": [],
+  "folder": "LWZiW9fcXov51jSG",
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012649312,
+    "modifiedTime": 1712183749954,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!VjBWJCVKD1dNLLYO"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Kit de Perícia",
+  "type": "generalEquipment",
+  "_id": "m5L6TlLHXDF5GXWH",
+  "img": "systems/ordemparanormal/media/icons/general%20equipments/Kit%20de%20per%C3%ADcia.svg",
+  "system": {
+    "description": "<p>Um conjunto de ferramentas neces\u0002s&aacute;rias para algumas per&iacute;cias ou usos de per&iacute;cias. Sem o kit, voc&ecirc; sofre &ndash;5 no teste. Existe um kit de per&iacute;cia para cada per&iacute;cia que exige este item</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.3.3",
+    "coreVersion": "11.315",
+    "createdTime": 1710371517064,
+    "modifiedTime": 1710374407777,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!m5L6TlLHXDF5GXWH"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Arma de Sangue",
+  "type": "ability",
+  "_id": "2VOo9Wnm14MvvaTe",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/blood/Arma%20de%20Sangue.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "",
+    "description": "<p>O Sangue devora parte de seu corpo e se manifesta como parte de voc&ecirc;. Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 2 PE para produzir garras, chifres ou uma l&acirc;mina de sangue cristalizado que brota de seu antebra&ccedil;o. Qualquer que seja sua escolha, &eacute; consi\u0002derada uma arma simples leve que voc&ecirc; n&atilde;o precisa empunhar e causa 1d6 pontos de dano de Sangue. Uma vez por turno, quando voc&ecirc; usa a a&ccedil;&atilde;o agredir, pode gastar 1 PE para fazer um ataque corpo a corpo adi\u0002cional com essa arma. A arma dura at&eacute; o final da cena, e ent&atilde;o se desfaz numa po&ccedil;a de sangue coagulado.</p>\n<p><strong>Afinidade:</strong> a arma se torna permanentemente parte de voc&ecirc; e causa 1d10 pontos de dano de Sangue.</p>"
+  },
+  "effects": [],
+  "folder": "W6x0WwehDpZV25vB",
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012492663,
+    "modifiedTime": 1712183741484,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!2VOo9Wnm14MvvaTe"
+}

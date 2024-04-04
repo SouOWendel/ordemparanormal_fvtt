@@ -1,0 +1,19 @@
+{
+  "name": "Lâmina Paranormal",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "6yPboMVupPb1bBBL",
+  "sort": 0,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712184146449,
+    "modifiedTime": 1712184146449,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!folders!6yPboMVupPb1bBBL"
+}

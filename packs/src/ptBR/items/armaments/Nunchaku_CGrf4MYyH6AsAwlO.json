@@ -2,7 +2,7 @@
   "name": "Nunchaku",
   "type": "armament",
   "_id": "CGrf4MYyH6AsAwlO",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Nunchaku.svg",
   "system": {
     "description": "Your text here.",
     "weight": 1,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705437045662,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376471482,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!CGrf4MYyH6AsAwlO"

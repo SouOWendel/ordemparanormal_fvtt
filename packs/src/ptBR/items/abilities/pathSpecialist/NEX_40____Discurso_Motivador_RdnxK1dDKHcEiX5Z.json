@@ -1,0 +1,29 @@
+{
+  "folder": "Fa9a35aqB8oqkXbE",
+  "name": "NEX 40% - Discurso Motivador",
+  "type": "ability",
+  "_id": "RdnxK1dDKHcEiX5Z",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Negociador/Discurso%20Motivador.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; pode gas\u0002tar uma a&ccedil;&atilde;o padr&atilde;o e 4 PE para inspirar seus aliados com suas palavras. Voc&ecirc; e todos os seus aliados em alcance curto ganham +1d20 em testes de per&iacute;cia at&eacute; o fim da cena. A partir de NEX 65%, voc&ecirc; pode gastar 8 PE para fornecer um b&ocirc;nus total de +2d20.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712183248953,
+    "modifiedTime": 1712186619759,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!RdnxK1dDKHcEiX5Z"
+}

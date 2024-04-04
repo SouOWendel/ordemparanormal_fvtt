@@ -2,7 +2,7 @@
   "name": "Lança-chamas",
   "type": "armament",
   "_id": "TTBTyHKmJEgabGCK",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Lan%C3%A7a-chamas.svg",
   "system": {
     "description": "<p>Equipamento militar que esguicha l&iacute;quido inflam&aacute;vel incandescente. Um lan&ccedil;a-chamas atinge todos os seres em uma linha de 1,5m de largura com alcance curto, mas n&atilde;o alcan&ccedil;a al&eacute;m disso. Fa&ccedil;a um &uacute;nico teste de ataque e compare o resultado com a Defesa de todos os seres na &aacute;rea. Al&eacute;m de sofrer dano, seres atingidos ficam em chamas.</p>",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705438763616,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376229195,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!TTBTyHKmJEgabGCK"

@@ -1,0 +1,417 @@
+{
+  "name": "1.1: Origens",
+  "_id": "7yx7J2Ly96tttWR8",
+  "img": "icons/sundries/books/book-open-brown-black.webp",
+  "description": "<blockquote><p>O que seu personagem fazia antes de se envolver com o paranormal e ingressar na Ordem da Realidade? A origem representa como a vida pregressa influencia sua carreira de investigador.</p></blockquote><p>Rolando <strong>2d20</strong> para determinar uma origem aleatoriamente, conforme a Tabela 1.1: Origens:</p><p>Você é um(a):</p><hr />",
+  "results": [
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        2,
+        8
+      ],
+      "drawn": false,
+      "_id": "I7YYpObrVP6iG18D",
+      "text": "Acadêmico",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.I7YYpObrVP6iG18D"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "_id": "2N3x8CpsetL7n7r4",
+      "text": "Agente de Saúde",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.2N3x8CpsetL7n7r4"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_id": "4nVyZA3mFNrbCYQb",
+      "text": "Amnésico",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.4nVyZA3mFNrbCYQb"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        12,
+        13
+      ],
+      "drawn": false,
+      "_id": "yRbZTJeb9n211B6k",
+      "text": "Artista",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.yRbZTJeb9n211B6k"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        14,
+        15
+      ],
+      "drawn": false,
+      "_id": "jfYu4VGcSscIMtl2",
+      "text": "Atleta",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.jfYu4VGcSscIMtl2"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_id": "a9aZAPhyUkBLJDmo",
+      "text": "Chef",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.a9aZAPhyUkBLJDmo"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_id": "VdqGXmiD7SmXHjN4",
+      "text": "Criminoso",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.VdqGXmiD7SmXHjN4"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_id": "BsIBt0v2QhN62aoH",
+      "text": "Cultista Arrependido",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.BsIBt0v2QhN62aoH"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "_id": "PrInlsa0zHybuzC5",
+      "text": "Desgarrado",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.PrInlsa0zHybuzC5"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "_id": "fuSoBCF5sWpVpju2",
+      "text": "Engenheiro",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.fuSoBCF5sWpVpju2"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        21,
+        21
+      ],
+      "drawn": false,
+      "_id": "TjZANv4psb7Bkg95",
+      "text": "Executivo",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.TjZANv4psb7Bkg95"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        22,
+        23
+      ],
+      "drawn": false,
+      "_id": "PkEz1zeINjqj0put",
+      "text": "Investigador",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.PkEz1zeINjqj0put"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        24,
+        24
+      ],
+      "drawn": false,
+      "_id": "lxo8R0GED4kSVxu0",
+      "text": "Lutador",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.lxo8R0GED4kSVxu0"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        25,
+        25
+      ],
+      "drawn": false,
+      "_id": "WRIQXO3SZxLGNRsT",
+      "text": "Magnata",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.WRIQXO3SZxLGNRsT"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        26,
+        26
+      ],
+      "drawn": false,
+      "_id": "zvwVRxueHWSijtA0",
+      "text": "Mercenário",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.zvwVRxueHWSijtA0"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        27,
+        27
+      ],
+      "drawn": false,
+      "_id": "NuWsEVjFSHRzk1n5",
+      "text": "Militar",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.NuWsEVjFSHRzk1n5"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        28,
+        28
+      ],
+      "drawn": false,
+      "_id": "DegWSHF65hLROHGA",
+      "text": "Operário",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.DegWSHF65hLROHGA"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        29,
+        30
+      ],
+      "drawn": false,
+      "_id": "r5xbFvqw2YBZIvmS",
+      "text": "Policial",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.r5xbFvqw2YBZIvmS"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        31,
+        31
+      ],
+      "drawn": false,
+      "_id": "mn7OAZIiHPQlohdM",
+      "text": "Religioso",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.mn7OAZIiHPQlohdM"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        32,
+        32
+      ],
+      "drawn": false,
+      "_id": "9yIfIxTgccuvVpIr",
+      "text": "Servidor Público",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.9yIfIxTgccuvVpIr"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        33,
+        33
+      ],
+      "drawn": false,
+      "_id": "hA4p5YdZKahpt2HQ",
+      "text": "Teórico da Conspiração",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.hA4p5YdZKahpt2HQ"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        34,
+        34
+      ],
+      "drawn": false,
+      "_id": "X6W17O6ArlCSu1Ko",
+      "text": "T.I.",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.X6W17O6ArlCSu1Ko"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        35,
+        35
+      ],
+      "drawn": false,
+      "_id": "i2gGR15uQDocBq44",
+      "text": "Trabalhador Rural",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.i2gGR15uQDocBq44"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        36,
+        36
+      ],
+      "drawn": false,
+      "_id": "FcagYvHIPJEOz8O4",
+      "text": "Trambiqueiro",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.FcagYvHIPJEOz8O4"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        37,
+        38
+      ],
+      "drawn": false,
+      "_id": "F3OcsAEMDY1IOUIB",
+      "text": "Universitário",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.F3OcsAEMDY1IOUIB"
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        39,
+        40
+      ],
+      "drawn": false,
+      "_id": "mmgOsHGK9lmoDA7g",
+      "text": "Vítima",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!7yx7J2Ly96tttWR8.mmgOsHGK9lmoDA7g"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": false,
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "V7lrlsutuDmWy4na": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1696383635635,
+    "modifiedTime": 1712002980833,
+    "lastModifiedBy": "ACvkrPeKYGhIfqav"
+  },
+  "formula": "2d20",
+  "_key": "!tables!7yx7J2Ly96tttWR8"
+}

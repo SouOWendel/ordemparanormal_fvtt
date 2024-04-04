@@ -1,0 +1,29 @@
+{
+  "name": "Técnica Medicinal",
+  "type": "ability",
+  "_id": "ZzXaV9IqNXgN0xCY",
+  "img": "systems/ordemparanormal/media/icons/abilities/origin/T%C3%A9cnica%20Medicinal.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "ability",
+    "preRequisite": "",
+    "description": "<p>Sempre que cura um personagem, voc&ecirc; adiciona seu Intelecto no total de PV curados.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 50000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712008277816,
+    "modifiedTime": 1712178522854,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!ZzXaV9IqNXgN0xCY"
+}

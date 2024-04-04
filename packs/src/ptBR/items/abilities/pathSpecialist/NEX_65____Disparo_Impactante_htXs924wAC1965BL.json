@@ -1,0 +1,29 @@
+{
+  "folder": "vIAEiT4UJ4KWZoI1",
+  "name": "NEX 65% - Disparo Impactante",
+  "type": "ability",
+  "_id": "htXs924wAC1965BL",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Atirador%20de%20Elite/Disparo%20Impactante.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Se estiver usando uma arma de fogo com calibre grosso voc&ecirc; pode gastar 2 PE para fazer as manobras derrubar, desarmar, empurrar e quebrar usando um ataque a dist&acirc;ncia.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712183010664,
+    "modifiedTime": 1712186582749,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!htXs924wAC1965BL"
+}

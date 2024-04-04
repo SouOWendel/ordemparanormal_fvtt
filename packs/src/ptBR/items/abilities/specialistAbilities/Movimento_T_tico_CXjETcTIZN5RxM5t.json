@@ -1,0 +1,29 @@
+{
+  "name": "Movimento Tático",
+  "type": "ability",
+  "_id": "CXjETcTIZN5RxM5t",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Movimento%20T%C3%A1tico.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Atletismo",
+    "description": "<p>Voc&ecirc; pode gastar 1 PE para ignorar a penalidade em deslocamento por terreno dif&iacute;cil e por escalar at&eacute; o final do turno.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712007771142,
+    "modifiedTime": 1712177477582,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!CXjETcTIZN5RxM5t"
+}

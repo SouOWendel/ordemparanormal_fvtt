@@ -1,0 +1,29 @@
+{
+  "name": "Mão Pesada",
+  "type": "ability",
+  "_id": "rT9blKbBOqbeZmct",
+  "img": "systems/ordemparanormal/media/icons/abilities/origin/M%C3%A3o%20Pesada.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "ability",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; recebe +2 em rolagens de dano com ataques corpo a corpo.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 99976,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712011604264,
+    "modifiedTime": 1712178761158,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!rT9blKbBOqbeZmct"
+}

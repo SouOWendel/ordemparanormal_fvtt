@@ -2,7 +2,7 @@
   "name": "Faca",
   "type": "armament",
   "_id": "FUaxvHHHaWh7HBdY",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Faca.svg",
   "system": {
     "description": "<p>Uma l&acirc;mina longa e afiada, como uma navalha, uma faca de churrasco ou uma faca militar (facas de cozinha pequenas causam apenas 1d3 pontos de dano). &Eacute; uma arma &aacute;gil e pode ser arremessada.</p>",
     "weight": 1,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705433412353,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376079116,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!FUaxvHHHaWh7HBdY"

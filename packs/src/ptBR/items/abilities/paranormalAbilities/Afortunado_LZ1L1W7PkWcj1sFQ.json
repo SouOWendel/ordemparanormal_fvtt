@@ -1,0 +1,29 @@
+{
+  "name": "Afortunado",
+  "type": "ability",
+  "_id": "LZ1L1W7PkWcj1sFQ",
+  "img": "systems/ordemparanormal/media/icons/abilities/paranormal/energy/Afortunado.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "paranormal",
+    "preRequisite": "",
+    "description": "<p>A Energia considera resultados med&iacute;ocres entediantes. Uma vez por rolagem, voc&ecirc; pode rolar novamente um resultado 1 em qualquer dado que n&atilde;o seja d20.</p>\n<p><strong>Afinidade:</strong> al&eacute;m disso, uma vez por teste, voc&ecirc; pode rolar novamente um resultado 1 em d20.</p>"
+  },
+  "effects": [],
+  "folder": "LWZiW9fcXov51jSG",
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712012621797,
+    "modifiedTime": 1712183747037,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!LZ1L1W7PkWcj1sFQ"
+}

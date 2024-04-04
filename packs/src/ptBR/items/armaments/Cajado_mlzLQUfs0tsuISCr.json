@@ -2,7 +2,7 @@
   "name": "Cajado",
   "type": "armament",
   "_id": "mlzLQUfs0tsuISCr",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Cajado.svg",
   "system": {
     "description": "<p>Um cabo de madeira ou barra de ferro longo. Inclui cajado o bo usado em artes marciais. &Eacute; uma arma &aacute;gil. Al&eacute;m disso, pode ser usado com Combater com Duas Armas (e poderes similares) para fazer ataques adicionais, como se fosse uma arma de uma m&atilde;o e uma arma leve</p>",
     "weight": 1,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705434592494,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710375945337,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!mlzLQUfs0tsuISCr"

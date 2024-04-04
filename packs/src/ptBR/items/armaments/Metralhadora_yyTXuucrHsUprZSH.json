@@ -2,7 +2,7 @@
   "name": "Metralhadora",
   "type": "armament",
   "_id": "yyTXuucrHsUprZSH",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/Metralhadora.svg",
   "system": {
     "description": "<p>Uma arma de fogo pesada, de uso militar. Para atacar com uma metralhadora, voc&ecirc; precisa ter For&ccedil;a 4 ou maior ou gastar uma a&ccedil;&atilde;o de movimento para apoi&aacute;-la em seu trip&eacute; ou suporte apropriado; caso contr&aacute;rio, sofre &ndash;5 em seus ataques. Uma metralhadora &eacute; uma arma autom&aacute;tica</p>",
     "weight": 2,
@@ -60,10 +60,10 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.2.1",
+    "systemVersion": "6.3.3",
     "coreVersion": "11.315",
     "createdTime": 1705438853412,
-    "modifiedTime": 1705440993799,
+    "modifiedTime": 1710376387160,
     "lastModifiedBy": "D087Zkcpssj33iAO"
   },
   "_key": "!items!yyTXuucrHsUprZSH"

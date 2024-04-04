@@ -1,0 +1,29 @@
+{
+  "name": "Acalentar",
+  "type": "ability",
+  "_id": "s5JhG3QftMTxFFVF",
+  "img": "systems/ordemparanormal/media/icons/abilities/origin/Acalentar.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "ability",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; recebe +5 em testes de Religi&atilde;o para acalmar. Al&eacute;m disso, quando acalma uma pes\u0002soa, ela recebe um n&uacute;mero de pontos de Sanidade igual a 1d6 + a sua Presen&ccedil;a.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 175000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712011727474,
+    "modifiedTime": 1712178469736,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!s5JhG3QftMTxFFVF"
+}

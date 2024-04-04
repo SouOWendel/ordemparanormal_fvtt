@@ -1,0 +1,29 @@
+{
+  "folder": "NMOyIu5qPUNyp5tk",
+  "name": "NEX 65% - Técnica Sublime",
+  "type": "ability",
+  "_id": "bQv95gb8GRtxHFvJ",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Aniquilador/Tecnica_Sublime.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; adiciona os seguintes efeitos &agrave; lista de sua T&eacute;cnica Secreta:</p>\n<ul>\n<li><strong>Letal.</strong> Aumenta a margem de amea&ccedil;a em +2. Voc&ecirc; pode escolher este efeito duas vezes para aumentar a margem de amea&ccedil;a em +5.&nbsp;</li>\n<li><strong>Perfurante. </strong>Ignora at&eacute; 5 pontos de resist&ecirc;ncia a dano de qualquer tipo do alvo.</li>\n</ul>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712181293676,
+    "modifiedTime": 1712188253314,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!bQv95gb8GRtxHFvJ"
+}

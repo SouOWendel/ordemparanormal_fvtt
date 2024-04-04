@@ -1,0 +1,29 @@
+{
+  "name": "Desbravador",
+  "type": "ability",
+  "_id": "VHqzGr8zyNhew0Do",
+  "img": "systems/ordemparanormal/media/icons/abilities/origin/Desbravador.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "ability",
+    "preRequisite": "",
+    "description": "<p>Quando faz um teste de Adestra\u0002mento ou Sobreviv&ecirc;ncia, voc&ecirc; pode gastar 2 PE para receber +5 nesse teste. Al&eacute;m disso, voc&ecirc; n&atilde;o sofre penalidade em deslocamento por terreno dif&iacute;cil.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 381250,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712011796970,
+    "modifiedTime": 1712179106668,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!VHqzGr8zyNhew0Do"
+}

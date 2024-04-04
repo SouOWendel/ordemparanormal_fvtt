@@ -1,0 +1,29 @@
+{
+  "folder": "S875WFSob1trpcCF",
+  "name": "NEX 65% - Inabalável",
+  "type": "ability",
+  "_id": "ZFpNJHHbBUukr6kO",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Intuitivo/Inabal%C3%A1vel.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; recebe resis\u0002t&ecirc;ncia a dano mental e paranormal 10. Al&eacute;m disso, quando &eacute; alvo de um efeito paranormal que permite um teste de Vontade para reduzir o dano &agrave; metade, voc&ecirc; n&atilde;o sofre dano algum se passar.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "11.315",
+    "createdTime": 1712184707599,
+    "modifiedTime": 1712186670931,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "_key": "!items!ZFpNJHHbBUukr6kO"
+}
