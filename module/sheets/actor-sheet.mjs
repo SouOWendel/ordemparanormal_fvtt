@@ -56,7 +56,6 @@ export class OrdemActorSheet extends ActorSheet {
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'agent') {
 			this._prepareItems(context);
-			this._prepareItemsDerivedData(context);
 		}
 
 		// Add roll data for TinyMCE editors.
@@ -100,6 +99,7 @@ export class OrdemActorSheet extends ActorSheet {
 				1: [],
 				2: [],
 				3: [],
+				4: [],
 			},
 			invalid: [],
 		};
@@ -140,9 +140,10 @@ export class OrdemActorSheet extends ActorSheet {
 			}
 			// Append to abilities.
 			else if (i.type === 'ability') {
-				if (i.system.abilityType == 'ability') abilities.valid[1].push(i);
-				else if (i.system.abilityType == 'class') abilities.valid[2].push(i);
+				if (i.system.abilityType == 'class') abilities.valid[1].push(i);
+				else if (i.system.abilityType == 'path') abilities.valid[2].push(i);
 				else if (i.system.abilityType == 'paranormal') abilities.valid[3].push(i);
+				else if (i.system.abilityType == 'ability') abilities.valid[4].push(i);
 				else if (!i.system.abilityType) abilities.invalid.push(i);
 			}
 		}
@@ -156,22 +157,6 @@ export class OrdemActorSheet extends ActorSheet {
 		context.generalEquip = generalEquipment;
 		context.armament = armament;
 		context.abilities = abilities;
-	}
-
-	/**
-	 * Prepare and calcule the data of items
-	 *
-	 * @param {Object} actorData The actor to prepare.
-	 *
-	 * @return {undefined}
-	 */
-	_prepareItemsDerivedData(context) {
-		const items = context.items;
-		for (const p of context.protection) {
-			if (typeof p.system.defense == 'number' && p.system.using.state == true) {
-				context.system.defense.value += p.system.defense;
-			}
-		}
 	}
 
 	/* -------------------------------------------- */
