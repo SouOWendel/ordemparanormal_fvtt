@@ -206,7 +206,7 @@
 	"ordemparanormal.gripType": "Empunhadura",
 	"ordemparanormal.duration": "Duração",
 	"ordemparanormal.subtypeWeapon": "Subtipo de Arma",
-	"ordemparanormal.powerType": "Tipo de Poder",
+	"ordemparanormal.powerType": "Tipo de Habilidade",
 	"ordemparanormal.execution": "Execução",
 	"ordemparanormal.element": "Elemento",
 
@@ -266,7 +266,15 @@
 	"ordemparanormal.powerTypeChoices": {
 		"class": "Poder de Classe",
 		"paranormal": "Poder Paranormal",
-		"ability": "Habilidade"
+		"path": "Habilidade de Trilha",
+		"ability": "Outra Habilidade"
+	},
+
+	"ordemparanormal.abilitiesAbv": {
+		"class": "Poderes de Classe",
+		"paranormal": "Poderes Paranormais",
+		"path": "Habilidades de Trilha",
+		"ability": "Outras Habilidades"
 	},
 
 	"ordemparanormal.improvised": "Improvisada",
