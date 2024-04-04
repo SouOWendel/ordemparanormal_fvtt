@@ -238,9 +238,10 @@ Handlebars.registerHelper('ifInequals', function (arg1, arg2, options) {
 });
 
 Handlebars.registerHelper('abilityTypeHelper', function (arg) {
-	if (arg == 1) return 'ability';
-	else if (arg == 2) return 'class';
+	if (arg == 1) return 'class';
+	else if (arg == 2) return 'path';
 	else if (arg == 3) return 'paranormal';
+	else if (arg == 4) return 'ability';
 });
 
 Handlebars.registerHelper('inputValid', function (arg1, arg2) {
