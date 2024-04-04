@@ -8,6 +8,14 @@ packs/documentation
 packs/generalEquipments
 packs/maps
 packs/protections
+packs/fighterAbilities
+packs/occultistAbilities
+packs/specialistAbilities
+packs/originAbilities
+packs/paranormalAbilities
+packs/pathFighter
+packs/pathOccultist
+packs/pathSpecialist
 
 # FORMATS
 *.map
