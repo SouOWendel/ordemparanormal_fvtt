@@ -22,10 +22,7 @@ export class OrdemActor extends Actor {
 
 		if (actorData.type == 'agent') {
 			this._migrateData(actorData, systemData);
-			this._prepareBaseDataAgent(systemData);
-			this._prepareDataStatus(systemData);
-			this._prepareSkills(systemData);
-			this._prepareDefense(systemData);
+			this._prepareDataStatus(actorData, systemData);
 			this._prepareRituals(actorData);
 		}
 	}
@@ -47,6 +44,10 @@ export class OrdemActor extends Actor {
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
 		// things organized.
 		if (actorData.type == 'agent') {
+			this._prepareBaseSkills(systemData);
+			this._prepareSkills(systemData);
+			this._prepareItemsDerivedData(actorData, systemData);
+			this._prepareDefense(systemData);
 			this._prepareActorSpaces(actorData);
 		}
 	}
@@ -55,7 +56,7 @@ export class OrdemActor extends Actor {
 	 *
 	 * @param {*} system
 	 */
-	_prepareDataStatus(system) {
+	_prepareDataStatus(actorData, system) {
 		const VIG = system.attributes.vit.value;
 		const PRE = system.attributes.pre.value;
 		const NEX = system.NEX.value;
@@ -108,6 +109,7 @@ export class OrdemActor extends Actor {
 			const needTraining = skillsName.conditions.trained;
 
 			// Calculate the modifier using d20 rules.
+			// TODO: inverter a atribuição de valores.
 			if (skillsName.degree.label == 'trained') skillsName.value = 5;
 			else if (skillsName.degree.label == 'veteran') skillsName.value = 10;
 			else if (skillsName.degree.label == 'expert') skillsName.value = 15;
@@ -132,7 +134,7 @@ export class OrdemActor extends Actor {
 	/**
 	 *
 	 */
-	async _prepareBaseDataAgent(system) {
+	async _prepareBaseSkills(system) {
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (const [keySkill, skillsName] of Object.entries(system.skills)) {
 			/**
@@ -141,9 +143,7 @@ export class OrdemActor extends Actor {
 			 * esta no momento, este valor é atualizado para ser utilizado nas rolagens.
 			 */
 			for (const [keyAttr, attribute] of Object.entries(system.attributes)) {
-				if (skillsName.attr[0] == keyAttr) {
-					system.skills[keySkill].attr[1] = attribute.value;
-				}
+				if (skillsName.attr[0] == keyAttr) system.skills[keySkill].attr[1] = attribute.value;
 			}
 		}
 	}
@@ -201,6 +201,22 @@ export class OrdemActor extends Actor {
 	}
 
 	/**
+	 * Prepare and calcule the data of items
+	 *
+	 * @param {Object} actorData The actor to prepare.
+	 *
+	 * @return {undefined}
+	 */
+	_prepareItemsDerivedData(actorData, system) {
+		const protections = actorData.items.filter((item) => item.type === 'protection');
+		for (const p of protections) {
+			if (typeof p.system.defense == 'number' && p.system.using.state == true) {
+				system.defense.value += p.system.defense;
+			}
+		}
+	}
+
+	/**
 	 *
 	 */
 	async _migrateData(actorData, system) {
@@ -219,6 +235,13 @@ export class OrdemActor extends Actor {
 		// 	diff: false,
 		// 	recursive: false,
 		// });
+	}
+
+	/** @inheritDoc */
+	applyActiveEffects() {
+		console.log(this.system);
+		if (this.system?.prepareEmbeddedData instanceof Function) this.system.prepareEmbeddedData();
+		return super.applyActiveEffects();
 	}
 
 	/**
@@ -260,10 +283,9 @@ export class OrdemActor extends Actor {
 				system[k] = foundry.utils.deepClone(v);
 			}
 		}
-
 		if (system.attributes && system.skills) {
-			const mainDice = (system.attributes.dex.value || 2) + 'd20';
-			const rollMode = system.attributes.dex.value ? 'kh' : 'kl';
+			const mainDice = (this.system.dex.value || 2) + 'd20';
+			const rollMode = this.system.dex.value ? 'kh' : 'kl';
 			const formula = [];
 			formula.push(mainDice + rollMode);
 			if (system.skills.initiative.value != 0) formula.push(system.skills.initiative.value);
