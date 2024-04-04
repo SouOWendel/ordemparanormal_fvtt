@@ -239,7 +239,6 @@ export class OrdemActor extends Actor {
 
 	/** @inheritDoc */
 	applyActiveEffects() {
-		console.log(this.system);
 		if (this.system?.prepareEmbeddedData instanceof Function) this.system.prepareEmbeddedData();
 		return super.applyActiveEffects();
 	}
