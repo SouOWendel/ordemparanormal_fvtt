@@ -1,5 +1,49 @@
 # Changelog
 
+## [6.6.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.5.0...v6.6.0) (2024-04-05)
+
+
+### Features
+
+* **abilities:** added path to abilities types, localization for actor abilities and move item data ([3c864b7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3c864b7da77ce1476d6026f5aa7fb65ed615fe1c))
+* **actor and rituals:** added calculations for ritual DT and display this in actor sheet ([3dcad01](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3dcad01582814a47bca0d6066e6e58a4a034d980))
+* **actor:** added ritual dt feature ([39451e1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/39451e15f4696b1d9651ed0ff2aae9825a1d733d))
+* **compendiums:** added icons to several compendiums and new abilities compendium ([b2350c9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b2350c9ac9132b657da7f64d374d6978e3ad41b1))
+* **compiled css:** added compiled css from scss styles ([9f38830](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9f3883083a8c0013c23fe3af3afb9750b55051b6))
+* **foundry sidebar:** added links (discord and credits) and Paranormal Order logo with system ver ([428e5f6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/428e5f61c5b9c369c703f8d258f45ce7b87b1427))
+* **localization and style:** added translates tags with handlebars and some breaklines/indentation ([e91bafa](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e91bafaa61f2f08f078ffe1a8044de4ce014d640))
+* **localization:** added translates abilities type and abilities type abbreviations ([ac8a235](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ac8a235ba69fef1083cd4897aa82a505cfd0bd18))
+* **localization:** added translates for sidebar (notes, issues, etc) and fixed occultism skill ([ba854b8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ba854b8e77a312413b644a2824cdce6f36e2847c))
+* **localization:** added translates for sidebar, inventory, socials, DT ritual and chat card ([b79b6cf](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b79b6cf85daa920fff1b7e441eb741f0a58d5089))
+* **media:** added Annihilator icons and Conduit icons by Marcos Miranda (Nyazi) and game-icons ([6cea864](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6cea864d371e73e3682ed7d2eced21ea153b009d))
+* **media:** added devilline logo for update notes dialog ([eff442b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/eff442b83f2c412201e5cf89d18f920f5aac8e64))
+* **media:** added icons by Marcos Miranda and game-icons for compediums ([5efd20d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5efd20d5dfe507f832814ca66d0fb6b8857ba122))
+* **media:** added more icons by Marcos Miranda and game-icons for compedium ([36b2580](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/36b2580911ee7203ddcc80869146f29d74e4ec0b))
+* **packs handler:** was created a pack (compedium) handler to extract and compile packs ([553c007](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/553c007da9461da081a6b8d596aec869213e00fe))
+* **sidebar/credits:** was created credits dialog with template, added translates, style and links ([32f12db](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/32f12dbcbaae6e07d6a6da0f8a9fa806f039d9b8))
+* **update notes dialog:** added discord banner and was styled the text ([a6f4027](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a6f40274ccb6a08d47e0c7967bbaf96ec6033803))
+* **update notes dialog:** changed the name and description of discord banner ([00c0b2d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/00c0b2d65c26b914c9e7993b644089c9556ac819))
+* **update notes:** added devilline banner to update notes and change hyperlinks target to _blank ([6765a90](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6765a9048df7b94f15cbfc8457423c304ec69512))
+* **update notes:** added update notes for 6.6.0 version ([100778e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/100778ee103ee897aa70088e6cbb8a44070af582))
+* **update notes:** change 6.5.0 version and added 6.6.0 ([457bb45](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/457bb4533908dfb61c8d9e9ab45b297889f84806))
+
+
+### Bug Fixes
+
+* **actor abilities:** fixed a translate var of class abbreviation ([7dd823a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7dd823aa888f8dbec9a7f45ccee3b5ec13e70f41))
+* **actor sheet:** fixed the draggable effects and macro creation in macrobar ([6ecd988](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6ecd988de3fd950218364cc7d9af966b6c05704c))
+* **actor:** fixed the `dodge` var in actor sheet and changed the same var from derived to base data ([74e1695](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/74e16951f62d8b47f7ac3ff06e7f32de25fa1475))
+* **actor:** fixed the class migration and the skills localization in roll data ([527512f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/527512fd092172754de33f63f7a80d5bc9f3fe1d))
+* **actor:** the sum of attributes in skills, defense and dodge calc has been fixed ([2037104](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2037104832842395ea13abd951e8881ca4a2d3e1))
+* **handlebars helper core:** fixed the dynamic item creation of actor sheet ([8b011b8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8b011b895a86e5142052c9f80eb2fac816edf063))
+* **item card:** now the armament chat card also display the base damage ([da44dfe](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/da44dfebadbdcf3ae095c804f42677a4689da548))
+* **macro:** adjust the `getMacroTarget` to catch `allAplicableEffects` instead of `actor.effects` ([5f2fe88](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5f2fe88d1dcff2d48af85e06f844ad387cfd2a0a))
+
+
+### Reverts
+
+* **system:** revert previous commit to pt-BR lang syntax and compatibility with FoundryTraduction ([6cf3f7f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6cf3f7f3b7ebffbe8e17f51668595df40c79843a))
+
 ## [6.5.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.4.1...v6.5.0) (2024-03-25)
 
 

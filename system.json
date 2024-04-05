@@ -2,7 +2,7 @@
 	"id": "ordemparanormal",
 	"title": "Ordem Paranormal",
 	"description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
-	"version": "6.5.0",
+	"version": "6.6.0",
 	"compatibility": {
 		"minimum": "11",
 		"verified": "11.315",
@@ -15,8 +15,12 @@
 			"discord": "souowendel"
 		}
 	],
-	"esmodules": ["module/ordemparanormal_fvtt.mjs"],
-	"styles": ["css/ordemparanormal_fvtt.css"],
+	"esmodules": [
+		"module/ordemparanormal_fvtt.mjs"
+	],
+	"styles": [
+		"css/ordemparanormal_fvtt.css"
+	],
 	"scripts": [],
 	"packs": [
 		{
@@ -175,31 +179,51 @@
 			"name": "Conteúdos para Ordem Paranormal",
 			"sorting": "m",
 			"color": "#000000",
-			"packs": ["documentation", "generalptbr", "createmissionptbr", "maps"],
+			"packs": [
+				"documentation",
+				"generalptbr",
+				"createmissionptbr",
+				"maps"
+			],
 			"folders": [
 				{
 					"name": "Equipamentos do Livro",
 					"sorting": "m",
 					"color": "#1f0300",
-					"packs": ["armaments", "generalEquipments", "protections"]
+					"packs": [
+						"armaments",
+						"generalEquipments",
+						"protections"
+					]
 				},
 				{
 					"name": "Habilidades de Classe",
 					"sorting": "m",
 					"color": "#171717",
-					"packs": ["fighterAbilities", "specialistAbilities", "occultistAbilities"]
+					"packs": [
+						"fighterAbilities",
+						"specialistAbilities",
+						"occultistAbilities"
+					]
 				},
 				{
 					"name": "Habilidades de Trilha",
 					"sorting": "m",
 					"color": "#272727",
-					"packs": ["pathFighter", "pathSpecialist", "pathOccultist"]
+					"packs": [
+						"pathFighter",
+						"pathSpecialist",
+						"pathOccultist"
+					]
 				},
 				{
 					"name": "Outras Habilidades",
 					"sorting": "m",
 					"color": "#373737",
-					"packs": ["originAbilities", "paranormalAbilities"]
+					"packs": [
+						"originAbilities",
+						"paranormalAbilities"
+					]
 				}
 			]
 		}
@@ -242,8 +266,18 @@
 	],
 	"flags": {
 		"hotReload": {
-			"extensions": ["css", "html", "hbs", "json"],
-			"paths": ["templates", "css", "lang/en.json", "lang/pt-BR.json"]
+			"extensions": [
+				"css",
+				"html",
+				"hbs",
+				"json"
+			],
+			"paths": [
+				"templates",
+				"css",
+				"lang/en.json",
+				"lang/pt-BR.json"
+			]
 		}
 	},
 	"gridDistance": 1.5,
