@@ -73,8 +73,8 @@ const displayPrompt = (title, content, i, messages) => {
 					<a href="https://discord.gg/G8AwJwJXa5" class="no-orange-hyperlink" target="_blank">
 						<div class="announcement flex-group-center discord" style="background: url('systems/ordemparanormal/media/assets/discord.png'); border: 1px solid #00000020">
 							<div>
-								<h1>Community Devs</h1>
-								<p>Entre no nosso discord para atualizações.</p>
+								<h1><i class="fa-brands fa-discord"></i> Forja dos Narradores</h1>
+								<p>Forge amizades, aplicativos e histórias.</p>
 							</div>
 						</div>
 					</a>
