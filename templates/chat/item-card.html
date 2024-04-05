@@ -50,7 +50,7 @@
 			<th>{{localize "ordemparanormal.range"}}</th>
 		</tr>
 		<tr>
-			<td>{{#each item.system.formulas.damage.parts}}{{this.[0]}} {{/each}}</td>
+			<td>{{item.system.formulas.damage.formula}} {{#each item.system.formulas.damage.parts}}{{this.[0]}} {{/each}}</td>
 			<td>{{data.critical}}</td>
 			<td>{{data.range}}</td>
 		</tr>
