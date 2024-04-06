@@ -281,6 +281,11 @@ Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html))
  * Bar Brawl Gitlab: https://gitlab.com/woodentavern/foundryvtt-bar-brawl
  */
 Hooks.on('preCreateActor', function (actor, data) {
+	if (actor.type == 'threat') {
+		const prototypeToken = { disposition: -1, actorLink: true };
+		actor.updateSource({ prototypeToken }); // Set disposition to "Friendly"
+	}
+
 	// Filtrando por tipos de Actors disponíveis no sistema.
 	if (actor.type === 'agent') {
 		const prototypeToken = { disposition: 1, actorLink: true }; // Set disposition to "Friendly"
