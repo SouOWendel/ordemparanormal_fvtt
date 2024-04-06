@@ -1,6 +1,6 @@
 {
 	"Actor": {
-		"types": ["agent"],
+		"types": ["agent", "threat"],
 		"templates": {
 			"base": {
 				"PV": {
@@ -310,16 +310,14 @@
 					"bonus": 0
 				}
 			}
+		},
+		"threat": {
+			"templates": ["base", "NEX"],
+			"class": ""
 		}
 	},
 	"Item": {
-		"types": [
-			"armament",
-			"generalEquipment",
-			"protection",
-			"ability",
-			"ritual"
-		],
+		"types": ["armament", "generalEquipment", "protection", "ability", "ritual"],
 		"templates": {
 			"base": {
 				"description": "Your text here.",

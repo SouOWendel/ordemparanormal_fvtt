@@ -13,6 +13,7 @@ import { OrdemItem } from './documents/item.mjs';
 // Import sheet classes.
 import { OrdemActorSheet } from './sheets/actor-sheet.mjs';
 import { OrdemItemSheet } from './sheets/item-sheet.mjs';
+import { OrdemThreatSheet } from './sheets/threat-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { ordemparanormal } from './helpers/config.mjs';
@@ -71,13 +72,10 @@ Hooks.once('init', async function () {
 
 	// Register sheet application classes
 	Actors.unregisterSheet('core', ActorSheet);
-	Actors.registerSheet('ordemparanormal', OrdemActorSheet, {
-		makeDefault: true,
-	});
 	Items.unregisterSheet('core', ItemSheet);
-	Items.registerSheet('ordemparanormal', OrdemItemSheet, {
-		makeDefault: true,
-	});
+	Actors.registerSheet('ordemparanormal', OrdemActorSheet, { types: ['agent'], makeDefault: true });
+	Actors.registerSheet('ordemparanormal', OrdemThreatSheet, { types: ['threat'], makeDefault: true });
+	Items.registerSheet('ordemparanormal', OrdemItemSheet, { makeDefault: true });
 
 	// Configure Fonts
 	_configureFonts();
