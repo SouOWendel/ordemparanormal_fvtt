@@ -36,6 +36,12 @@ export class OrdemThreatSheet extends ActorSheet {
 		// editable, the items array, and the effects array.
 		const context = super.getData();
 
+		const actorData = context.data;
+
+		// Add the actor's data to context.data for easier access, as well as flags.
+		context.system = actorData.system;
+		context.flags = actorData.flags;
+
 		// Add roll data for TinyMCE editors.
 		context.rollData = context.actor.getRollData();
 
