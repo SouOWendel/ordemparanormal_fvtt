@@ -312,8 +312,47 @@
 			}
 		},
 		"threat": {
-			"templates": ["base", "NEX"],
-			"class": ""
+			"templates": [],
+			"attributes": {
+				"hp": {
+					"value": 0,
+					"max": 10
+				},
+				"dex": { "value": 0 },
+				"int": { "value": 0 },
+				"pre": { "value": 0 },
+				"str": { "value": 0 },
+				"vit": { "value": 0 },
+				"movement": {
+					"walk": 0,
+					"unit": "m",
+					"squares": 0
+				},
+				"vd": { "value": 0 }
+			},
+			"elements": {
+				"main": "",
+				"others": ""
+			},
+			"abilities": [],
+			"size": "",
+			"disturbingPresence": {
+				"dt": 0,
+				"mentalDamage": "",
+				"immuneNex": 0
+			},
+			"senses": [],
+			"defense": {
+				"value": "",
+				"skillResistances": [],
+				"damageResistances": []
+			},
+			"vulnerabilities": [],
+			"actions": [],
+			"details": {
+				"description": "",
+				"fearRiddle": ""
+			}
 		}
 	},
 	"Item": {
