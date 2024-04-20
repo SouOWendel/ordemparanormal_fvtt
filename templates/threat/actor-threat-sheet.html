@@ -6,21 +6,78 @@
 		</h1>
 	</div>
 	<div class="flex">
-		<div class="grid">VD <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Habilidades<input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Elementos<input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Tamanho <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Presença Pertubadora <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Sentidos<input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Defesa <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Resistências <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Pontos de Vida <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Resistências gerais <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Vulnerabilidades <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Atributos da Ameaça <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Deslocamento <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Ações <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Descrição de Criatura <input type="text" name="" value="" placeholder="" /></div>
-		<div class="grid">Enigma de Medo <input type="text" name="" value="" placeholder="" /></div>
+		{{log system}} {{system.attributes.dex.value}}
+		<div class="grid">
+			<label for="">VD</label
+			><input type="text" name="system.attributes.vd.value" value="{{system.attributes.vd.value}}" placeholder="" />
+			<label for="">Habilidades</label
+			><input type="text" name="system.abilities.[0]" value="{{system.abilities.[0]}}" placeholder="" />
+			<label for="">Elementos</label
+			><input type="text" name="system.elements.main" value="{{system.elements.main}}" placeholder="" />
+			<label for="">Outros Elementos</label
+			><input type="text" name="system.elements.others" value="{{system.elements.others}}" placeholder="" />
+			<label for="">Tamanho</label><input type="text" name="system.size" value="{{system.size}}" placeholder="" />
+			<label for="">Presença Pertubadora</label
+			><input type="text" name="system.disturbingPresence.dt" value="{{system.disturbingPresence.dt}}" placeholder="" />
+			<label for="">PP Dano Mental</label
+			><input
+				type="text"
+				name="system.disturbingPresence.mentalDamage"
+				value="{{system.disturbingPresence.mentalDamage}}"
+				placeholder="" />
+			<label for="">PP Nex Imune</label
+			><input
+				type="text"
+				name="system.disturbingPresence.immuneNex"
+				value="{{system.disturbingPresence.immuneNex}}"
+				placeholder="" />
+			<label for="">Sentidos</label
+			><input type="text" name="system.senses.[0]" value="{{system.senses.[0]}}" placeholder="" />
+			<label for="">Defesa</label
+			><input type="text" name="system.defense.value" value="{{system.defense.value}}" placeholder="" />
+			<label for="">Resistências</label
+			><input
+				type="text"
+				name="system.defense.resistances.[0]"
+				value="{{system.defense.resistances.[0]}}"
+				placeholder="" />
+			<label for="">Pontos de Vida</label
+			><input type="text" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" placeholder="" />
+			<label for="">Pontos de Vida Máximos</label
+			><input type="text" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" placeholder="" />
+			<label for="">Resistências gerais</label
+			><input
+				type="text"
+				name="system.defense.damageResistances.[0]"
+				value="{{system.defense.damageResistances.[0]}}"
+				placeholder="" />
+			<label for="">Vulnerabilidades</label
+			><input type="text" name="system.vulnerabilities.[0]" value="{{system.vulnerabilities.[0]}}" placeholder="" />
+			<label for="">Agilidade</label
+			><input type="text" name="system.attributes.dex.value" value="{{system.attributes.dex.value}}" placeholder="" />
+			<label for="">Presença</label
+			><input type="text" name="system.attributes.pre.value" value="{{system.attributes.pre.value}}" placeholder="" />
+			<label for="">Vigor</label
+			><input type="text" name="system.attributes.vit.value" value="{{system.attributes.vit.value}}" placeholder="" />
+			<label for="">Inteligência</label
+			><input type="text" name="system.attributes.int.value" value="{{system.attributes.int.value}}" placeholder="" />
+			<label for="">Força</label
+			><input type="text" name="system.attributes.str.value" value="{{system.attributes.str.value}}" placeholder="" />
+			<label for="">Deslocamento</label
+			><input
+				type="number"
+				name="system.attributes.movement.walk"
+				value="{{system.attributes.movement.walk}}"
+				placeholder="" />
+			<label for="">Ações</label
+			><input type="text" name="system.actions.[0]" value="{{system.actions.[0]}}" placeholder="" />
+			<label for="">Descrição</label> de <label for="">Criatura</label
+			><input type="text" name="system.details.description" value="{{system.details.description}}" placeholder="" />
+			<label for="">Enigma</label> de Medo<input
+				type="text"
+				name="system.details.fearRiddle"
+				value="{{system.details.fearRiddle}}"
+				placeholder="" />
+		</div>
 	</div>
 </form>
