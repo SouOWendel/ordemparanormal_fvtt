@@ -384,24 +384,24 @@
 .system-ordemparanormal .tox .tox-edit-area {
   padding: 0 8px;
 }
-.system-ordemparanormal .skills {
-  gap: 0px;
+.system-ordemparanormal .skills-content {
   font-size: 12px;
   padding: 0 2px;
   margin-top: 0;
+  column-count: 2;
 }
-.system-ordemparanormal .skills select,
-.system-ordemparanormal .skills input {
+.system-ordemparanormal .skills-content select,
+.system-ordemparanormal .skills-content input {
   border: none;
   height: 21px;
 }
-.system-ordemparanormal .skills .skill {
+.system-ordemparanormal .skills-content .skill {
   padding: 3.3px 6px;
 }
-.system-ordemparanormal .skills .skill input {
+.system-ordemparanormal .skills-content .skill input {
   max-width: 30px;
 }
-.system-ordemparanormal .skills .skill i {
+.system-ordemparanormal .skills-content .skill i {
   padding: 0 5px;
 }
 .system-ordemparanormal .invalid {
