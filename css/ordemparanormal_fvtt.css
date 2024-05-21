@@ -503,6 +503,47 @@
   font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
   font-weight: bold;
 }
+.system-ordemparanormal .threat #senses, .system-ordemparanormal .threat #defenses, .system-ordemparanormal .threat #attributes, .system-ordemparanormal .threat #general,
+.system-ordemparanormal .threat #disturbingPresence, .system-ordemparanormal .threat #actions, .system-ordemparanormal .threat #abilities {
+  padding: 5px;
+  border: 1px solid rgba(39, 39, 39, 0.2509803922);
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.system-ordemparanormal .threat #senses .display-flex, .system-ordemparanormal .threat #defenses .display-flex, .system-ordemparanormal .threat #attributes .display-flex, .system-ordemparanormal .threat #general .display-flex,
+.system-ordemparanormal .threat #disturbingPresence .display-flex, .system-ordemparanormal .threat #actions .display-flex, .system-ordemparanormal .threat #abilities .display-flex {
+  align-items: center;
+}
+.system-ordemparanormal .threat .miniInput {
+  width: 32px;
+}
+.system-ordemparanormal .threat #attributes {
+  justify-content: space-between;
+}
+.system-ordemparanormal .threat #attributes .pre, .system-ordemparanormal .threat #attributes .vit, .system-ordemparanormal .threat #attributes .str, .system-ordemparanormal .threat #attributes .int, .system-ordemparanormal .threat #attributes .dex {
+  text-align: center;
+}
+.system-ordemparanormal .threat #attributes .pre input, .system-ordemparanormal .threat #attributes .vit input, .system-ordemparanormal .threat #attributes .str input, .system-ordemparanormal .threat #attributes .int input, .system-ordemparanormal .threat #attributes .dex input {
+  height: 32px;
+}
+.system-ordemparanormal .threat label + input {
+  margin-left: 5px;
+}
+.system-ordemparanormal .threat #announcement a {
+  color: #272727;
+}
+.system-ordemparanormal .threat #announcement .link-alert {
+  padding: 0 10px;
+}
+.system-ordemparanormal .threat #descriptions div {
+  margin: 8px 0;
+}
+.system-ordemparanormal .threat #descriptions div textarea {
+  height: 100px;
+}
+.system-ordemparanormal .threat #actions textarea {
+  height: 300px;
+}
 .system-ordemparanormal .resource-label {
   font-weight: bold;
 }
