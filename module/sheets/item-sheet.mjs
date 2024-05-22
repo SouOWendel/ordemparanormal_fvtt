@@ -10,11 +10,11 @@ import {
 export class OrdemItemSheet extends ItemSheet {
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['ordemparanormal', 'sheet', 'item'],
 			width: 540,
 			height: 440,
-			template: 'systems/ordemparanormal/templates/itemn/item-sheet.html',
+			template: 'systems/ordemparanormal/templates/item/item-sheet.html',
 			tabs: [
 				{
 					navSelector: '.sheet-tabs',
