@@ -260,10 +260,10 @@ export class OrdemActorSheet extends ActorSheet {
 		const itemData = {
 			name: name,
 			type: type,
-			data: data,
+			system: data,
 		};
 		// Remove the type from the dataset since it's in the itemData.type prop.
-		delete itemData.data['type'];
+		delete itemData.system['type'];
 
 		// Finally, create the item!
 		return await Item.create(itemData, { parent: this.actor });
