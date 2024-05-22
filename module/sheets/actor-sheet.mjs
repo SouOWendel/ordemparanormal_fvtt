@@ -6,8 +6,6 @@ import { onManageActiveEffect, prepareActiveEffectCategories } from '../helpers/
  * @extends {ActorSheet}
  */
 export class OrdemActorSheet extends ActorSheet {
-	// TODO: escolher um novo tamanho em height para a ficha de ator, é melhor para acomodação em resoluções mais baixas.
-
 	/** @override */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
@@ -27,7 +25,7 @@ export class OrdemActorSheet extends ActorSheet {
 
 	/** @override */
 	get template() {
-		return `systems/ordemparanormal/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+		return `systems/ordemparanormal/templates/actor/actor-${this.actor.type}-sheet.html`;
 	}
 
 	/* -------------------------------------------- */
