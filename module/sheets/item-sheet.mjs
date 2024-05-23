@@ -10,11 +10,11 @@ import {
 export class OrdemItemSheet extends ItemSheet {
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['ordemparanormal', 'sheet', 'item'],
 			width: 540,
 			height: 440,
-			template: 'systems/ordemparanormal/templates/itemn/item-sheet.html',
+			template: 'systems/ordemparanormal/templates/item/item-sheet.html',
 			tabs: [
 				{
 					navSelector: '.sheet-tabs',
@@ -33,7 +33,7 @@ export class OrdemItemSheet extends ItemSheet {
 
 		// Alternatively, you could use the following return statement to do a
 		// unique item sheet by type, like `weapon-sheet.html`.
-		return `${path}/item-${this.item.data.type}-sheet.html`;
+		return `${path}/item-${this.item.type}-sheet.html`;
 	}
 
 	/* -------------------------------------------- */

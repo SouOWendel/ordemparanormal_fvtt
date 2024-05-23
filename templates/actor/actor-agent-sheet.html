@@ -81,7 +81,7 @@
 					<div class="resource-content flexrow flex-center flex-between">
 						{{#if system.class }}
 						<select name="system.trilha" data-dtype="String">
-							{{ selectOptions (concatObjAndStr optionTrilhas system.class) selected=system.trilha nameAttr="name"
+							{{ selectOptions (concatObjAndStr optionTrilhas system.class) selected=system.trilha valueAttr="name"
 							labelAttr="label" blank="—" localize=true }}
 						</select>
 						{{else}}
@@ -208,12 +208,12 @@
 			<div>
 				<fieldset class="bio-desc">
 					<legend>{{localize "ordemparanormal.description"}}</legend>
-					{{editor content=system.biography target="system.biography" rollData=rollData button=true owner=owner
+					{{editor system.biography target="system.biography" rollData=rollData button=true owner=owner
 					editable=editable}}
 				</fieldset>
 				<fieldset class="bio-goals">
 					<legend>{{localize "ordemparanormal.goals"}}</legend>
-					{{editor content=system.goals target="system.goals" rollData=rollData button=true owner=owner editable=editable}}
+					{{editor system.goals target="system.goals" rollData=rollData button=true owner=owner editable=editable}}
 				</fieldset>
 			</div>
 		</div>

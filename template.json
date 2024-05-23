@@ -352,6 +352,17 @@
 			"details": {
 				"description": "",
 				"fearRiddle": ""
+			},
+			"temporary": {
+				"abilities": "",
+				"senses": "",
+				"defense": {
+					"skillResistances": "",
+					"damageResistances": ""
+				},
+				"vulnerabilities": "",
+				"actions": "",
+				"characteristics": ""
 			}
 		}
 	},

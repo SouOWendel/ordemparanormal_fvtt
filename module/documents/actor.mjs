@@ -178,14 +178,19 @@ export class OrdemActor extends Actor {
 		spaces.value += spaces.bonus.value;
 		spaces.max += spaces.bonus.max;
 
-		spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
+		// TODO: V11 AND V12 SPACE/WEIGHT RETRO COMPATIBILITY
+		if (game.version >= 12) spaces.pct = Math.clamp((spaces.value * 100) / spaces.max, 0, 100);
+		else spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
 
 		// Apply the debuffs
 		if (spaces.value > spaces.max) {
 			spaces.over = spaces.value - spaces.max;
 			system.desloc.value += -3;
 			system.defense.value += -5;
-			spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
+
+			// TODO: V11 AND V12 SPACE/WEIGHT RETRO COMPATIBILITY
+			if (game.version >= 12) spaces.pctMax = Math.clamp((spaces.over * 100) / spaces.max, 0, 100);
+			else spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
 		}
 		if (spaces.value > spaces.max * 2) ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
 	}
