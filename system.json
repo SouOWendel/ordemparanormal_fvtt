@@ -18,10 +18,8 @@
   "esmodules": [
     "module/ordemparanormal_fvtt.mjs"
   ],
-  "styles": [
-    "css/ordemparanormal_fvtt.css"
-  ],
-  "scripts": [],
+  "styles": ["css/ordemparanormal_fvtt.css", "media/vendor/selectize/selectize.default.min.css"],
+	"scripts": ["media/vendor/selectize/selectize.min.js"],
   "packs": [
     {
       "name": "generalptbr",

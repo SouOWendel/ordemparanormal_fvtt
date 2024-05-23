@@ -88,11 +88,11 @@
 
 // SKILLS
 
-.skills {
-	gap: 0px;
+.skills-content {
 	font-size: 12px;
 	padding: 0 2px;
 	margin-top: 0;
+	column-count: 2;
 
 	select,
 	input {

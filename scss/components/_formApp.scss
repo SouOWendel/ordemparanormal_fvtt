@@ -1,0 +1,43 @@
+.additionalContent {
+	.selectize-input {
+		max-width: 330px !important;
+		height: 40px;
+		display: inline-flex;
+		text-wrap: wrap;
+		overflow: hidden;
+
+		.item {
+			width: 100px !important;
+		}
+	}
+
+	label {
+		font-weight: 400 !important;
+		line-height: 1.25;
+	}
+
+	p {
+		font-size: 12px;
+		line-height: 16px;
+		color: #4b4a44;
+		margin: 3px 0;
+		text-align: justify;
+		hyphens: auto;
+	}
+
+	input {
+		max-height: 10px !important;
+	}
+
+	input::placeholder {
+		opacity: 0.4;
+	}
+
+	.container > div {
+		padding: 10px;
+	}
+
+	.flexe {
+		display: flex !important;
+	}
+}

@@ -384,24 +384,24 @@
 .system-ordemparanormal .tox .tox-edit-area {
   padding: 0 8px;
 }
-.system-ordemparanormal .skills {
-  gap: 0px;
+.system-ordemparanormal .skills-content {
   font-size: 12px;
   padding: 0 2px;
   margin-top: 0;
+  column-count: 2;
 }
-.system-ordemparanormal .skills select,
-.system-ordemparanormal .skills input {
+.system-ordemparanormal .skills-content select,
+.system-ordemparanormal .skills-content input {
   border: none;
   height: 21px;
 }
-.system-ordemparanormal .skills .skill {
+.system-ordemparanormal .skills-content .skill {
   padding: 3.3px 6px;
 }
-.system-ordemparanormal .skills .skill input {
+.system-ordemparanormal .skills-content .skill input {
   max-width: 30px;
 }
-.system-ordemparanormal .skills .skill i {
+.system-ordemparanormal .skills-content .skill i {
   padding: 0 5px;
 }
 .system-ordemparanormal .invalid {
@@ -1039,6 +1039,40 @@
   background-color: initial;
   border: initial;
   margin: 0;
+}
+.system-ordemparanormal .additionalContent .selectize-input {
+  max-width: 330px !important;
+  height: 40px;
+  display: inline-flex;
+  text-wrap: wrap;
+  overflow: hidden;
+}
+.system-ordemparanormal .additionalContent .selectize-input .item {
+  width: 100px !important;
+}
+.system-ordemparanormal .additionalContent label {
+  font-weight: 400 !important;
+  line-height: 1.25;
+}
+.system-ordemparanormal .additionalContent p {
+  font-size: 12px;
+  line-height: 16px;
+  color: #4b4a44;
+  margin: 3px 0;
+  text-align: justify;
+  hyphens: auto;
+}
+.system-ordemparanormal .additionalContent input {
+  max-height: 10px !important;
+}
+.system-ordemparanormal .additionalContent input::placeholder {
+  opacity: 0.4;
+}
+.system-ordemparanormal .additionalContent .container > div {
+  padding: 10px;
+}
+.system-ordemparanormal .additionalContent .flexe {
+  display: flex !important;
 }
 
 /*# sourceMappingURL=ordemparanormal_fvtt.css.map */
