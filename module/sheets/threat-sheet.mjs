@@ -35,16 +35,12 @@ export class OrdemThreatSheet extends ActorSheet {
 		// sheets are the actor object, the data object, whether or not it's
 		// editable, the items array, and the effects array.
 		const context = super.getData();
-
 		const actorData = context.data;
-
 		// Add the actor's data to context.data for easier access, as well as flags.
 		context.system = actorData.system;
 		context.flags = actorData.flags;
-
 		// Add roll data for TinyMCE editors.
 		context.rollData = context.actor.getRollData();
-
 		// Prepare active effects
 		context.effects = prepareActiveEffectCategories(
 			// A generator that returns all effects stored on the actor
@@ -52,5 +48,20 @@ export class OrdemThreatSheet extends ActorSheet {
 			this.actor.allApplicableEffects()
 		);
 		return context;
+	}
+
+	/** @override */
+	activateListeners(html) {
+		super.activateListeners(html);
+		
+		// Beta alert on the top of threat sheet
+		html.find('.link-alert').click((ev) => {
+			ev.preventDefault();
+			localStorage.setItem(`op-threat-sheet-beta-alert-${this.actor.id}`, true);
+			html.find('#announcement').css('display', 'none');
+		});
+		if (localStorage.getItem(`op-threat-sheet-beta-alert-${this.actor.id}`)) {
+			html.find('#announcement').css('display', 'none');
+		}
 	}
 }
