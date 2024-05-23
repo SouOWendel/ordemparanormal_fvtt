@@ -539,9 +539,9 @@
   margin: 8px 0;
 }
 .system-ordemparanormal .threat #descriptions div textarea {
-  height: 100px;
+  height: 200px;
 }
-.system-ordemparanormal .threat #actions textarea {
+.system-ordemparanormal .threat #actions textarea, .system-ordemparanormal .threat #abilities textarea {
   height: 300px;
 }
 .system-ordemparanormal .resource-label {
