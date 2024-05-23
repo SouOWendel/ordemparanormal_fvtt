@@ -170,7 +170,6 @@ export class OrdemItem extends Item {
 
 		// Rich text description
 		data.description = await TextEditor.enrichHTML(data.description, {
-			async: true,
 			relativeTo: this,
 			rollData: this.getRollData(),
 			...htmlOptions,
@@ -405,7 +404,7 @@ export class OrdemItem extends Item {
 	 * @private
 	 */
 	async roll() {
-		const item = this.data;
+		const item = this;
 
 		// Initialize chat data.
 		const speaker = ChatMessage.getSpeaker({ actor: this.actor });

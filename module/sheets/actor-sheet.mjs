@@ -6,8 +6,6 @@ import { onManageActiveEffect, prepareActiveEffectCategories } from '../helpers/
  * @extends {ActorSheet}
  */
 export class OrdemActorSheet extends ActorSheet {
-	// TODO: escolher um novo tamanho em height para a ficha de ator, é melhor para acomodação em resoluções mais baixas.
-
 	/** @override */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
@@ -27,7 +25,7 @@ export class OrdemActorSheet extends ActorSheet {
 
 	/** @override */
 	get template() {
-		return `systems/ordemparanormal/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+		return `systems/ordemparanormal/templates/actor/actor-${this.actor.type}-sheet.html`;
 	}
 
 	/* -------------------------------------------- */
@@ -167,9 +165,11 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// Render the item sheet for viewing/editing prior to the editable check.
 		html.find('.item-edit').click((ev) => {
-			const li = $(ev.currentTarget).parents('.item');
-			const item = this.actor.items.get(li.data('itemId'));
-			item.sheet.render(true);
+			ev.preventDefault();
+    	ev.stopPropagation();
+			const liItemId = ev.currentTarget.closest('[data-item-id]')?.dataset.itemId;
+			const item = this.actor.items.get(liItemId);
+			item?.sheet.render(true);
 		});
 
 		// -------------------------------------------------------------
@@ -253,17 +253,17 @@ export class OrdemActorSheet extends ActorSheet {
 		// Get the type of item to create.
 		const type = header.dataset.type;
 		// Grab any data associated with this control.
-		const data = duplicate(header.dataset);
+		const data = foundry.utils.duplicate(header.dataset);
 		// Initialize a default name.
 		const name = game.i18n.localize('ordemparanormal.newItem') + ' ' + game.i18n.localize('TYPES.Item.' + type);
 		// Prepare the item object.
 		const itemData = {
 			name: name,
 			type: type,
-			data: data,
+			system: data,
 		};
 		// Remove the type from the dataset since it's in the itemData.type prop.
-		delete itemData.data['type'];
+		delete itemData.system['type'];
 
 		// Finally, create the item!
 		return await Item.create(itemData, { parent: this.actor });
