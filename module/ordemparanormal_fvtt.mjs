@@ -13,6 +13,7 @@ import { OrdemItem } from './documents/item.mjs';
 // Import sheet classes.
 import { OrdemActorSheet } from './sheets/actor-sheet.mjs';
 import { OrdemItemSheet } from './sheets/item-sheet.mjs';
+import { OrdemThreatSheet } from './sheets/threat-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { ordemparanormal } from './helpers/config.mjs';
@@ -71,13 +72,10 @@ Hooks.once('init', async function () {
 
 	// Register sheet application classes
 	Actors.unregisterSheet('core', ActorSheet);
-	Actors.registerSheet('ordemparanormal', OrdemActorSheet, {
-		makeDefault: true,
-	});
 	Items.unregisterSheet('core', ItemSheet);
-	Items.registerSheet('ordemparanormal', OrdemItemSheet, {
-		makeDefault: true,
-	});
+	Actors.registerSheet('ordemparanormal', OrdemActorSheet, { types: ['agent'], makeDefault: true });
+	Actors.registerSheet('ordemparanormal', OrdemThreatSheet, { types: ['threat'], makeDefault: true });
+	Items.registerSheet('ordemparanormal', OrdemItemSheet, { makeDefault: true });
 
 	// Configure Fonts
 	_configureFonts();
@@ -283,6 +281,25 @@ Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html))
  * Bar Brawl Gitlab: https://gitlab.com/woodentavern/foundryvtt-bar-brawl
  */
 Hooks.on('preCreateActor', function (actor, data) {
+	if (actor.type === 'threat') {
+		const prototypeToken = { disposition: -1, actorLink: false };
+		actor.updateSource({ prototypeToken }); // Set disposition to "Hostile"
+		actor.updateSource({
+			'prototypeToken.flags.barbrawl.resourceBars': {
+				'threatHPBar': {
+					id: 'threatHPBar',
+					mincolor: '#ff1a1a',
+					maxcolor: '#80ff00',
+					position: 'bottom-outer',
+					attribute: 'attributes.hp',
+					label: 'Pontos de Vida',
+					style: 'fraction',
+					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+				},
+			},
+		});
+	}
+
 	// Filtrando por tipos de Actors disponíveis no sistema.
 	if (actor.type === 'agent') {
 		const prototypeToken = { disposition: 1, actorLink: true }; // Set disposition to "Friendly"

@@ -1,0 +1,150 @@
+<form class="{{cssClass}} {{actor.type}} threat" autocomplete="off">
+	<div id="announcement" class="display-flex align-items-center item-alert">
+		<p>Ficha ainda em desenvolvimento. Dados podem ser perdidos em atualizações
+		futuras, por isso, use por sua conta e risco.</p>
+		<a class="link-alert"><i class="fas fa-xmark"></i></a>
+	</div>
+	<div class="header-identify align-center grid grid-3col">
+		<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" />
+		<h1 class="charname">
+			<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+		</h1>
+		<div class="VD">
+			<label for="">VD</label>
+			<input type="text" name="system.attributes.vd.value" class="miniInput" 
+			value="{{system.attributes.vd.value}}" placeholder="" />
+		</div>
+			<div class="healthPoints">
+				<label for="">Pontos de Vida</label>
+				<div class="display-flex">
+					<input type="text" name="system.attributes.hp.value" class="miniInput"
+					value="{{system.attributes.hp.value}}" placeholder="" /> /
+					<input type="text" name="system.attributes.hp.max" class="miniInput"
+					value="{{system.attributes.hp.max}}" placeholder="" />
+				</div>
+			</div>
+		</div>
+	</div>
+		<div id="general" class="display-flex">
+			<div class="display-flex">
+				<label for="">Elementos</label>
+				<input type="text" name="system.elements.main" value="{{system.elements.main}}" placeholder="" />
+			</div>
+				<div class="display-flex"><label for="">Outros Elementos</label>
+				<input type="text" name="system.elements.others" value="{{system.elements.others}}" placeholder="" />
+			</div>
+			<div class="display-flex">
+				<label for="">Tamanho</label>
+				<input type="text" name="system.size" value="{{system.size}}" placeholder="" />
+			</div>
+			<div class="display-flex">
+				<label for="">Deslocamento</label>
+				<input type="number" name="system.attributes.movement.walk"
+					value="{{system.attributes.movement.walk}}" placeholder="" />
+			</div>
+		</div>
+		<div class="grid">
+			<div class="first-column">
+				<div id="disturbingPresence">
+					<div class="display-flex">
+						<label for="">DT de Presença Pertubadora</label>
+						<input type="text" name="system.disturbingPresence.dt" class="miniInput"
+						value="{{system.disturbingPresence.dt}}" placeholder="" />
+					</div>
+					<div class="display-flex">
+						<label for="">Nex Imune</label>
+						<input type="text" name="system.disturbingPresence.immuneNex" class="miniInput"
+						value="{{system.disturbingPresence.immuneNex}}" placeholder="" />
+					</div>
+					<div class="display-flex">
+						<label for="">Dano Mental</label>
+						<input type="text" name="system.disturbingPresence.mentalDamage"
+						value="{{system.disturbingPresence.mentalDamage}}" placeholder="" />
+					</div>
+				</div>
+				<div id="defenses">
+					<div class="display-flex">
+						<label for="">Defesa</label>
+						<input type="text" name="system.defense.value" value="{{system.defense.value}}" placeholder="" />
+					</div>
+					<div>
+						<label for="">Testes de Resistência</label>
+						<input type="text" name="system.temporary.defense.skillResistances"
+						value="{{system.temporary.defense.skillResistances}}" placeholder="" />
+					</div>
+					<div>
+						<label for="">Resistências gerais</label>
+						<input type="text" name="system.temporary.defense.damageResistances"
+							value="{{system.temporary.defense.damageResistances}}" placeholder="" />
+					</div>
+					<div>
+						<label for="">Vulnerabilidades</label>
+						<input type="text" name="system.temporary.vulnerabilities" 
+						value="{{system.temporary.vulnerabilities}}" placeholder="" />
+					</div>
+				</div>
+				<div id="senses">
+					<div>
+						<label for="">Sentidos</label>
+						<input type="text" name="system.temporary.senses" value="{{system.temporary.senses}}" placeholder="" />
+					</div>
+					<div>
+						<label for="">Características</label>
+						<input type="text" name="system.temporary.characteristics" value="{{system.temporary.characteristics}}" placeholder="" />
+					</div>
+				</div>
+				<div id="descriptions">
+					<div class="display-flex">
+					<label for="">Descrição de Criatura</label>
+					<textarea type="text" name="system.details.description" 
+					 placeholder="">{{system.details.description}}</textarea>
+				</div>
+				<div class="display-flex">
+					<label for="">Enigma de Medo</label>
+					<textarea type="text" name="system.details.fearRiddle"
+					 placeholder="">{{system.details.fearRiddle}}</textarea>
+				</div>
+			</div>
+				
+			</div>
+			<div class="second-column">
+				<div id="attributes" class="display-flex">
+					<div class="dex">
+						<input type="text" name="system.attributes.dex.value" class="miniInput"
+						value="{{system.attributes.dex.value}}" placeholder="" />
+						<label for="">Agilidade</label>
+					</div>
+					<div class="str">
+						<input type="text" name="system.attributes.str.value" class="miniInput"
+						value="{{system.attributes.str.value}}" placeholder="" />
+						<label for="">Força</label>
+					</div>
+					<div class="int">
+						<input type="text" name="system.attributes.int.value" class="miniInput"
+						value="{{system.attributes.int.value}}" placeholder="" />
+						<label for="">Inteligência</label>
+					</div>
+					<div class="pre">
+						<input type="text" name="system.attributes.pre.value" class="miniInput"
+						value="{{system.attributes.pre.value}}" placeholder="" />
+						<label for="">Presença</label>
+					</div>
+					<div class="vit">
+						<input type="text" name="system.attributes.vit.value" class="miniInput"
+						value="{{system.attributes.vit.value}}" placeholder="" />
+						<label for="">Vigor</label>
+					</div>
+				</div>
+				<div id="actions">
+					<label for="">Ações</label>
+					<textarea type="text" name="system.temporary.actions"
+					 placeholder="">{{system.temporary.actions}}</textarea>
+				</div>
+				<div id="abilities">
+					<label for="">Habilidades</label>
+					<textarea type="text" name="system.temporary.abilities"
+					 placeholder="">{{system.temporary.abilities}}</textarea>
+				</div>
+			</div>
+		</div>	
+</form>

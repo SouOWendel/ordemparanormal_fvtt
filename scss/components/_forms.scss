@@ -237,3 +237,60 @@
 		font-weight: bold;
 	}
 }
+// TODO: Separar SCSS entre geral, agente, ameaça.
+.threat {
+	#senses, #defenses, #attributes, #general,
+	#disturbingPresence, #actions, #abilities {
+		padding: 5px;
+		border: 1px solid #27272740;
+		margin-top: 5px;
+		border-radius: 5px;
+
+		.display-flex {
+			align-items: center;
+		}
+	}
+
+	.miniInput {
+		width: 32px;
+	}
+
+	#attributes {
+		justify-content: space-between;
+
+		.pre, .vit, .str, .int, .dex {
+			text-align: center;
+			input {
+				height: 32px;
+			}
+		}
+	}
+
+	label + input {
+		margin-left: 5px;
+	}
+
+	#announcement {
+		a {
+			color: #272727;
+		}
+
+		.link-alert {
+			padding: 0 10px;
+		}
+	}
+
+	#descriptions div {
+		margin: 8px 0;
+
+		textarea {
+			height: 200px;
+		}
+	}
+
+	#actions, #abilities {
+		textarea {
+			height: 300px;
+		}
+	}
+}
