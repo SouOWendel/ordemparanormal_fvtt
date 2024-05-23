@@ -25,7 +25,7 @@ export class OrdemThreatSheet extends ActorSheet {
 
 	/** @override */
 	get template() {
-		return `systems/ordemparanormal/templates/threat/actor-${this.actor.data.type}-sheet.html`;
+		return `systems/ordemparanormal/templates/threat/actor-${this.actor.type}-sheet.html`;
 	}
 
 	/** @override */
