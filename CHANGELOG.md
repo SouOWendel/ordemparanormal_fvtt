@@ -1,5 +1,38 @@
 # Changelog
 
+## [6.7.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.6.0...v6.7.0) (2024-05-24)
+
+
+### Features
+
+* **actor agent sheet:** changed the order of columns items (skills) to make more sense ([eebbe84](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/eebbe849891c6db98beffda82964d557489d9cd2))
+* **brawl bar and prototype token:** actorLink now is false and Bar Brawl is used to display HP ([03214ea](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/03214ea753d8125946667a3ff58b6f5bd6fba919))
+* **compatibility:** was added retro compatibility between v11 and v12 core versions of Foundry ([78e92d7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/78e92d736bbe99ebb1cdc794ebb13519e9224983))
+* **css/sass:** changed the height of descriptions, actions and abilities of threat sheet template ([ffb6e76](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ffb6e76b8daa09a881661cf912a432a33d1d30c1))
+* **css/scss:** initial stylization of threat sheet ([c2bd00a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c2bd00a976ecfb3f82fe6b44a1ef35c48b73deee))
+* **css/scss:** some styles for additional content feature ([7b3f67b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7b3f67be82e2c86416b39daab4cedead46e93c47))
+* **system:** added selectize files at the styles and scripts fields ([26c478d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/26c478d51c62fc4ac7ac91c8862e1059fd2afd37))
+* **system:** update maximum version compatibility from v11 to v12 ([97ec9ea](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/97ec9eaa2b39b74911401b068980a2fe7a4b6b43))
+* **system:** update maximum version compatibility from v11 to v12 ([c971212](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c9712121b9ddc6a9d36efd02abd88a6fb2e56280))
+* **template:** added initial version of all the data and fields of threat sheet ([2a5a947](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2a5a94706da6ab958c1a15265cceac7f14ead55b))
+* **threat sheet alert:** added an alert about risks of using the threat sheet with cookie storage ([d90520f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d90520fda97c3359438f42580a94a63a04b6d214))
+* **threat sheet data:** added temporary data to future refactoring and migrations ([670b433](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/670b4331e19eadd7e4cdf7a751fa3d86a1dbea2f))
+* **threat sheet:** added base form and inputs with basic styles ([02f05a0](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/02f05a0fbd97b9bc2a671a482c12a19ce4cac61a))
+* **threat sheet:** added system data to context var for use inside the threat sheet template ([1b570cb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1b570cb0ac3323b437f57db7376593baa94444cb))
+* **threat sheet:** basic organization of HTML elements and also was added some basic CSS ([7c65d90](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7c65d90f1c11b4fc906ebfe71d07aa2229e83e71))
+* **threat sheet:** elements have been rearranged and values hava been changed to temporary paths ([fcc642f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/fcc642f9cac84f33b428ba8edce2512a473c3da6))
+* **threat sheet:** initial creation of threat sheet (template + class + some fields) ([4710b23](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4710b23b3d2de1e75830b707e22b5f4d17645a8c))
+* **threat sheet:** updated deprecated variable. 'data' notation is no longer used ([1010d29](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1010d295991d8fb92e206cec629c78da298fcb62))
+* **threat token and sheet:** actorLink now is true and disposition is hostile ([0cc317e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0cc317e2e1ea634cff56d6239fe553b9efbc10b2))
+* **update notes:** added release notes of 6.7.0 version ([dbb759c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dbb759cf1b826b33f95b733b814b93ad5023d8c9))
+* **v12:** fixed deprecated warnings and some codes deprecated in v12 version ([44675c2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/44675c268f182e9ffd10d21d28cd5fa870390c3a))
+
+
+### Bug Fixes
+
+* **item create:** fixed the creation filter by ability category on actor sheet ([ee2f834](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ee2f83454974342d39eb7f0101b1fb3be49b88bd))
+* **threat sheet data:** fixed a writing error ([ee3f0af](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ee3f0afc499ab89b4eeaec0910e250f11bb2df12))
+
 ## [6.6.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.5.0...v6.6.0) (2024-04-05)
 
 
