@@ -430,6 +430,12 @@
 			"type": "",
 			"quantity": 1
 		},
+		"ammunition": {
+			"templates": ["base"],
+			"type": "",
+			"defense": 0,
+			"quantity": 1
+		},
 		"ritual": {
 			"description": "Your text here.",
 			"circle": 1,
