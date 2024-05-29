@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.7.0...v6.8.0) (2024-05-29)
+
+
+### Features
+
+* **template:** added data of ammunition on template.json ([d1ccc3d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d1ccc3d928435be84f6f0407bbb2d1df1640effb))
+
 ## [6.7.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.6.0...v6.7.0) (2024-05-24)
 
 
