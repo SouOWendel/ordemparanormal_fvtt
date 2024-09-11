@@ -1,18 +1,26 @@
-<form class="{{cssClass}} {{actor.type}} agent" autocomplete="off">
+<form class="{{cssClass}} {{actor.type}} agent flexcol" autocomplete="off">
 	{{!-- Sheet Header --}}
-	<div class="header-identify align-center grid grid-3col">
-		<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" />
-		<h1 class="charname">
-			<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
-		</h1>
-		<div class="resource flex-group-center">
-			<label for="system.NEX.value" class="resource-label"> {{localize 'ordemparanormal.NEX'}} </label>
-			<div class="resource-content flexrow flex-center flex-between">
-				{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
+	<header class="sheet-header">
+		<div class="header-identify align-center grid grid-3col">
+			<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" />
+			<h1 class="charname">
+				<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+			</h1>
+			<div class="resource flex-group-center">
+				{{#ifEquals system.class "survivor"}}
+					<label for="system.stage.value" class="resource-label"> {{localize 'ordemparanormal.stage'}} </label>
+					<div class="resource-content flexrow flex-center flex-between">
+						{{numberInputFVTT system.stage.value name="system.stage.value" step=1 min=0 max=5}}
+					</div>
+				{{/ifEquals}}
+				{{#ifInequals system.class "survivor"}}
+					<label for="system.NEX.value" class="resource-label"> {{localize 'ordemparanormal.NEX'}} </label>
+					<div class="resource-content flexrow flex-center flex-between">
+						{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
+					</div>
+				{{/ifInequals}}
 			</div>
 		</div>
-	</div>
-	<header class="sheet-header">
 		<div class="header-fields">
 			{{!-- The grid classes are defined in scss/global/_grid.scss. To use, use both the "grid" and "grid-Ncol" class where
 			"N" can be any number from 1 to 12 and will create that number of columns. --}}
@@ -26,6 +34,22 @@
 					</div>
 				</div>
 
+				{{#if usingWithoutSanityRule}}
+				<div class="resource flex-group-center">
+					<label for="system.PD.value" class="resource-label">{{localize 'ordemparanormal.PD'}} </label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input type="text" name="system.PD.value" value="{{system.PD.value}}" data-dtype="Number" />
+						<span> / </span>
+						<input type="text" name="system.PD.max" value="{{system.PD.max}}" data-dtype="Number" />
+					</div>
+				</div>
+				<div class="resource flex-group-center">
+					<label for="system.PE.value" class="resource-label">{{localize 'ordemparanormal.pdPerRound'}} </label>
+					<div class="resource-content flexrow flex-center flex-between">
+						<input type="number" name="system.PE.perRound" value="{{system.PE.perRound}}" data-dtype="Number" disabled />
+					</div>
+				</div>
+				{{else}}
 				<div class="resource flex-group-center">
 					<label for="system.SAN.value" class="resource-label">{{localize 'ordemparanormal.San'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
@@ -50,6 +74,7 @@
 						<input type="number" name="system.PE.perRound" value="{{system.PE.perRound}}" data-dtype="Number" disabled />
 					</div>
 				</div>
+				{{/if}}
 			</div>
 			<div class="resources grid grid-3col">
 				<div class="resource flex-group-center">
@@ -86,7 +111,7 @@
 						</select>
 						{{else}}
 						<select disabled>
-							<option>Chegue ao NEX 10%</option>
+							<option>Selecione uma classe</option>
 						</select>
 						{{/if}}
 					</div>
