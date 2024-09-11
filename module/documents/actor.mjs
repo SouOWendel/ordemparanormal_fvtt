@@ -57,25 +57,47 @@ export class OrdemActor extends Actor {
 	 * @param {*} system
 	 */
 	_prepareDataStatus(actorData, system) {
+		const isWithoutSanityRule = game.settings.get('ordemparanormal', 'globalPlayingWithoutSanity');
+
 		const VIG = system.attributes.vit.value;
 		const PRE = system.attributes.pre.value;
 		const NEX = system.NEX.value;
+
 		const calcNEX = NEX < 99 ? Math.floor(NEX / 5) : 20;
 		const nexAdjust = calcNEX - 1;
 		const nexIf = calcNEX > 1;
+		const stageIf = system.stage.value > 1;
+		const stageAdjust = system.stage.value - 1;
+
 		system.PE.perRound = calcNEX;
 		if (system.class == 'fighter') {
 			system.PV.max = 20 + VIG + (nexIf && nexAdjust * (4 + VIG));
-			system.PE.max = 2 + PRE + (nexIf && nexAdjust * (2 + PRE));
 			system.SAN.max = 12 + (nexIf && nexAdjust * 3);
+
+			if (isWithoutSanityRule) system.PD.max = 6 + PRE + (nexIf && nexAdjust * (3 + PRE));
+			else system.PE.max = 2 + PRE + (nexIf && nexAdjust * (2 + PRE));
+
 		} else if (system.class == 'specialist') {
 			system.PV.max = 16 + VIG + (nexIf && nexAdjust * (3 + VIG));
-			system.PE.max = 3 + PRE + (nexIf && nexAdjust * (3 + PRE));
 			system.SAN.max = 16 + (nexIf && nexAdjust * 4);
+
+			if (isWithoutSanityRule) system.PD.max = 8 + PRE + (nexIf && nexAdjust * (4 + PRE));
+			else system.PE.max = 3 + PRE + (nexIf && nexAdjust * (3 + PRE));
+
 		} else if (system.class == 'occultist') {
 			system.PV.max = 12 + VIG + (nexIf && nexAdjust * (2 + VIG));
-			system.PE.max = 4 + PRE + (nexIf && nexAdjust * (4 + PRE));
 			system.SAN.max = 20 + (nexIf && nexAdjust * 5);
+
+			if (isWithoutSanityRule) system.PD.max = 10 + PRE + (nexIf && nexAdjust * (5 + PRE));
+			else system.PE.max = 4 + PRE + (nexIf && nexAdjust * (4 + PRE));
+
+		} else if (system.class == 'survivor') {
+			system.PV.max = 8 + VIG + (stageIf && stageAdjust * 2);
+			system.SAN.max = 8 + (stageIf && stageAdjust * 2);
+
+			if (isWithoutSanityRule) system.PD.max = 4 + PRE + (stageIf && stageAdjust * (2));
+			else system.PE.max = 2 + PRE + (stageIf && stageAdjust * 1);
+
 		} else {
 			system.PV.max = system.PV.max || 0;
 			system.PE.max = system.PE.max || 0;

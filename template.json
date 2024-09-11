@@ -16,7 +16,15 @@
 					"max": 5,
 					"perRound": 1
 				},
+				"PD": {
+					"value": 5,
+					"max": 5,
+					"perRound": 1
+				},
 				"NEX": {
+					"value": 1
+				},
+				"stage": {
 					"value": 1
 				},
 				"defense": {

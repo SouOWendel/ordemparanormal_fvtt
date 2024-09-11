@@ -50,6 +50,8 @@ export class OrdemActorSheet extends ActorSheet {
 		context.optionClass = CONFIG.ordemparanormal.dropdownClass;
 		context.optionTrilhas = CONFIG.ordemparanormal.dropdownTrilha;
 		context.optionOrigins = CONFIG.ordemparanormal.dropdownOrigins;
+		context.usingWithoutSanityRule = game.settings.get('ordemparanormal', 'globalPlayingWithoutSanity');
+		context.isV12 = game.version > 11;
 
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'agent') {
