@@ -104,8 +104,13 @@
 					<div class="resource-content flexrow flex-center flex-between">
 						{{#if system.class }}
 						<select name="system.trilha" data-dtype="String">
-								{{ selectOptions (concatObjAndStr optionTrilhas system.class) selected=system.trilha valueAttr="name"
-								labelAttr="label" blank="—" localize=true }}
+							{{#if isV12}}
+							{{ selectOptions (concatObjAndStr optionTrilhas system.class) selected=system.trilha valueAttr="name"
+							labelAttr="label" blank="—" localize=true }}
+						{{else}}
+							{{ selectOptions (concatObjAndStr optionTrilhas system.class) selected=system.trilha nameAttr="name"
+							labelAttr="label" blank="—" localize=true }}
+						{{/if}}
 						</select>
 						{{else}}
 						<select disabled>
