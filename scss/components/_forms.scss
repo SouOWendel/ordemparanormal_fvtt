@@ -30,7 +30,7 @@
 .sheet-header {
 	flex: 0 auto;
 	overflow: hidden;
-	display: flex;
+	display: block !important;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-start;
@@ -114,6 +114,11 @@
 }
 
 // OTHERS
+
+.resources {
+	gap: 10px;
+	margin: 5px 0;
+}
 
 .invalid {
 	position: relative;

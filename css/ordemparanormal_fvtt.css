@@ -341,7 +341,7 @@
 .system-ordemparanormal .sheet-header {
   flex: 0 auto;
   overflow: hidden;
-  display: flex;
+  display: block !important;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -403,6 +403,10 @@
 }
 .system-ordemparanormal .skills-content .skill i {
   padding: 0 5px;
+}
+.system-ordemparanormal .resources {
+  gap: 10px;
+  margin: 5px 0;
 }
 .system-ordemparanormal .invalid {
   position: relative;
