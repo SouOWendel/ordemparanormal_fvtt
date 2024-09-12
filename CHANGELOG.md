@@ -1,5 +1,29 @@
 # Changelog
 
+## [6.8.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.7.0...v6.8.0) (2024-09-12)
+
+
+### Features
+
+* **actor agent sheet:** added condition to display 'Without Sanity' rule fields and changed css ([676297e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/676297e13d4f78c7efa5cbfd54708bc37c8733f1))
+* **actor agent sheet:** added conditions for survivor and the rule Playing Without Sanity to use PD ([a1b5fce](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a1b5fce930a1339414aa8065584d6815383deb4a))
+* **agent sheet:** added determination points per round ([ee3fb1d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ee3fb1dad7c7433e9adf0fad63c78f63f7437d41))
+* **agent sheet:** added the new trails of supplement ([2a01e20](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2a01e2059e1d4ec0ea10c1b4703021b460b80da7))
+* **config file:** added origins and trails of survivor class and the order paranormal supplement ([72ed10e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/72ed10ea70e71379baeaad5208c1edad52020472))
+* **localization:** added settings translations, PD and stage, and new origins and trails ([bc70bac](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bc70bac0d4c042f400e25cbcfd41e6c956e13f91))
+* **system:** updated the verified version from 11.315 to 12+ ([a0728de](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a0728de8841235f47a76c3f6135aa3116e4f479c))
+* **template:** added data of ammunition on template.json ([d1ccc3d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d1ccc3d928435be84f6f0407bbb2d1df1640effb))
+* **update notes:** added 6.8.0 update notes ([af790ce](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/af790ced21b1c787939a4427b680e887a4038384))
+* **without sanity rule and survivor:** added survivor as new class and added without sanity rule ([bef48a5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bef48a5a67a8fc6c342c54d81953e2f3b5306922))
+
+
+### Bug Fixes
+
+* **actor agent sheet:** fixed a bug that didn't save the trail in Foundry v11 ([d51ea86](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d51ea8638acf06b6ea490f7fc005a78d67911333))
+* **agent sheet layout:** fixed the header structure ([76e4888](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/76e48883b90fa22a8c09255ecedc92c3893fe160))
+* **layout:** fixed the min-width and min-height of agent sheet ([29b83d1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/29b83d1de4b50fbdff1a5d5f8ef0cf595c039a24))
+* **layout:** improved and fixed the responsiviness of layout on agent sheet ([565323b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/565323bf21eb43c47b0cce07a9941cec15b1b835))
+
 ## [6.7.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.6.0...v6.7.0) (2024-05-24)
 
 
