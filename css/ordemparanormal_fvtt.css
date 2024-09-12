@@ -318,8 +318,8 @@
   overflow: hidden;
 }
 .system-ordemparanormal .actor {
-  min-width: 600px !important;
-  min-height: 820px !important;
+  min-width: 600px;
+  min-height: 820px;
 }
 .system-ordemparanormal .agent .content {
   height: 100%;
