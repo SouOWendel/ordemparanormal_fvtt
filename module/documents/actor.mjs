@@ -69,7 +69,9 @@ export class OrdemActor extends Actor {
 		const stageIf = system.stage.value > 1;
 		const stageAdjust = system.stage.value - 1;
 
-		system.PE.perRound = calcNEX;
+		if (isWithoutSanityRule) system.PD.perRound = (system.class == 'survivor') ? 1 : calcNEX;
+		else system.PE.perRound = calcNEX;
+
 		if (system.class == 'fighter') {
 			system.PV.max = 20 + VIG + (nexIf && nexAdjust * (4 + VIG));
 			system.SAN.max = 12 + (nexIf && nexAdjust * 3);
