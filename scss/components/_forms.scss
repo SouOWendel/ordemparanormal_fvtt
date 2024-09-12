@@ -1,3 +1,39 @@
+form {
+	height: 100%;
+	overflow: hidden;
+}
+
+.actor {
+  min-width: 600px !important;
+  min-height: 820px !important;
+}
+
+.agent .content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.agent .tab {
+  overflow-y: hidden;
+  height: 100%;
+  align-content: flex-start;
+  padding-right: 2px;
+}
+
+.agent .sheet-body,
+.agent .sheet-body .tab,
+.agent .sheet-body .tab .editor {
+	height: 100%;
+}
+
+.agent .sheet-body {
+	overflow: hidden;
+}
+
+.agent .window-content {
+	overflow: hidden;
+}
+
 .item-form {
 	font-family: $font-primary;
 }
@@ -27,7 +63,7 @@
 	}
 }
 
-.sheet-header {
+.agent .sheet-header {
 	flex: 0 auto;
 	overflow: hidden;
 	display: block !important;
@@ -51,21 +87,9 @@
 	flex: 0;
 }
 
-.sheet-body,
-.sheet-body .tab,
-.sheet-body .tab .editor {
-	width: 100%;
-	min-height: 150px;
-}
-
-.sheet-body {
-	overflow-y: auto;
-	//   max-height: 398px !important;
-}
-
-.agent .sheet-body {
-	max-height: 398px !important;
-}
+// .agent .sheet-body {
+// 	max-height: 398px !important;
+// }
 
 .tab.skills,
 .tab.inventory,

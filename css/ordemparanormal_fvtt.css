@@ -313,6 +313,35 @@
   /* ----------------------------------------- */
   /* ITEMS IN ACTOR SHEET (AGENT) */
 }
+.system-ordemparanormal form {
+  height: 100%;
+  overflow: hidden;
+}
+.system-ordemparanormal .actor {
+  min-width: 600px !important;
+  min-height: 820px !important;
+}
+.system-ordemparanormal .agent .content {
+  height: 100%;
+  overflow-y: auto;
+}
+.system-ordemparanormal .agent .tab {
+  overflow-y: hidden;
+  height: 100%;
+  align-content: flex-start;
+  padding-right: 2px;
+}
+.system-ordemparanormal .agent .sheet-body,
+.system-ordemparanormal .agent .sheet-body .tab,
+.system-ordemparanormal .agent .sheet-body .tab .editor {
+  height: 100%;
+}
+.system-ordemparanormal .agent .sheet-body {
+  overflow: hidden;
+}
+.system-ordemparanormal .agent .window-content {
+  overflow: hidden;
+}
 .system-ordemparanormal .item-form {
   font-family: "Roboto", sans-serif;
 }
@@ -338,7 +367,7 @@
   height: 100%;
   margin: 0;
 }
-.system-ordemparanormal .sheet-header {
+.system-ordemparanormal .agent .sheet-header {
   flex: 0 auto;
   overflow: hidden;
   display: block !important;
@@ -347,28 +376,16 @@
   justify-content: flex-start;
   margin-bottom: 10px;
 }
-.system-ordemparanormal .sheet-header .profile-img {
+.system-ordemparanormal .agent .sheet-header .profile-img {
   flex: 0 0 48px;
   height: 48px;
   margin-right: 10px;
 }
-.system-ordemparanormal .sheet-header .header-fields {
+.system-ordemparanormal .agent .sheet-header .header-fields {
   flex: 1;
 }
 .system-ordemparanormal .sheet-tabs {
   flex: 0;
-}
-.system-ordemparanormal .sheet-body,
-.system-ordemparanormal .sheet-body .tab,
-.system-ordemparanormal .sheet-body .tab .editor {
-  width: 100%;
-  min-height: 150px;
-}
-.system-ordemparanormal .sheet-body {
-  overflow-y: auto;
-}
-.system-ordemparanormal .agent .sheet-body {
-  max-height: 398px !important;
 }
 .system-ordemparanormal .tab.skills,
 .system-ordemparanormal .tab.inventory,

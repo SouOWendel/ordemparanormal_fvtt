@@ -233,7 +233,7 @@
 
 		{{!-- Biography Tab --}}
 		<div class="tab biography flexcol" data-group="primary" data-tab="biography">
-			<div>
+			<div class="content">
 				<fieldset class="bio-desc">
 					<legend>{{localize "ordemparanormal.description"}}</legend>
 					{{editor system.biography target="system.biography" rollData=rollData button=true owner=owner
@@ -248,22 +248,30 @@
 
 		{{!-- Owned inventory Tab --}}
 		<div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
-			{{>"systems/ordemparanormal/templates/actor/parts/actor-inventory.html"}}
+			<div class="content">
+				{{>"systems/ordemparanormal/templates/actor/parts/actor-inventory.html"}}
+			</div>
 		</div>
 
 		{{!-- Owned rituals Tab --}}
 		<div class="tab rituals flexcol" data-group="primary" data-tab="rituals">
-			{{>"systems/ordemparanormal/templates/actor/parts/actor-rituals.html"}}
+			<div class="content">
+				{{>"systems/ordemparanormal/templates/actor/parts/actor-rituals.html"}}
+			</div>
 		</div>
 
 		{{!-- Active Effects Tab --}}
 		<div class="tab effects flexcol" data-group="primary" data-tab="effects">
-			{{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
+			<div class="content">
+				{{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
+			</div>
 		</div>
 
 		{{!-- Active abilities Tab --}}
 		<div class="tab abilities flexcol" data-group="primary" data-tab="abilities">
-			{{>"systems/ordemparanormal/templates/actor/parts/actor-abilities.html"}}
+			<div class="content">
+				{{>"systems/ordemparanormal/templates/actor/parts/actor-abilities.html"}}
+			</div>
 		</div>
 	</section>
 </form>
