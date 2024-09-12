@@ -39,7 +39,7 @@
 	"ordemparanormal.sidebar.updateNotes": "Um sistema não-oficial na versão",
 	"ordemparanormal.soon": "Em breve.",
 	"ordemparanormal.sidebar.discord": "Contate-me no Discord",
-	"ordemparanormal.sidebar.twitter": "Siga-me no Twitter",
+	"ordemparanormal.sidebar.bluesky": "Siga-me no Bluesky",
 
 	"ordemparanormal.tab": {
 		"skills": "Perícias",
@@ -385,7 +385,7 @@
 	"ordemparanormal.Issues": "Problemas",
 	"ordemparanormal.Wiki": "Wiki",
 	"ordemparanormal.Discord": "Discord",
-	"ordemparanormal.Credits": "Creditos",
+	"ordemparanormal.Credits": "Créditos",
 
 	"ordemparanormal.damage": "Dano",
 	"ordemparanormal.rollDmg": "Rolar Dano",
