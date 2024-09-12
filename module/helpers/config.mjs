@@ -98,25 +98,34 @@ ordemparanormal.dropdownClass = {
  */
 ordemparanormal.dropdownTrilha = {
 	fighter: [
+		{name: 'agenteSecreto', label: 'ordemparanormal.trilhas.agenteSecreto'},
 		{name: 'aniquilador', label: 'ordemparanormal.trilhas.aniquilador'},
+		{name: 'cacador', label: 'ordemparanormal.trilhas.cacador'},
 		{name: 'comanDeCamp', label: 'ordemparanormal.trilhas.comandanteDeCampo'},
+		{name: 'guerreiro', label: 'ordemparanormal.trilhas.guerreiro'},
+		{name: 'monstruoso', label: 'ordemparanormal.trilhas.monstruoso'},
 		{name: 'opeEspeciais', label: 'ordemparanormal.trilhas.operacoesEspeciais'},
 		{name: 'tropaChoque', label: 'ordemparanormal.trilhas.tropaDeChoque'},
-		{name: 'guerreiro', label: 'ordemparanormal.trilhas.guerreiro'},
 	],
 	specialist: [
-		{name: 'infiltrador', label: 'ordemparanormal.trilhas.infiltrador'},
 		{name: 'atiradorElite', label: 'ordemparanormal.trilhas.atiradorDeElite'},
+		{name: 'bibliotecario', label: 'ordemparanormal.trilhas.bibliotecario'},
+		{name: 'infiltrador', label: 'ordemparanormal.trilhas.infiltrador'},
 		{name: 'medicoCampo', label: 'ordemparanormal.trilhas.medicoDeCampo'},
+		{name: 'muambeiro', label: 'ordemparanormal.trilhas.muambeiro'},
 		{name: 'negociador', label: 'ordemparanormal.trilhas.negociador'},
+		{name: 'perseverante', label: 'ordemparanormal.trilhas.perseverante'},
 		{name: 'tecnico', label: 'ordemparanormal.trilhas.tecnico'},
 	],
 	occultist: [
 		{name: 'conduite', label: 'ordemparanormal.trilhas.conduite'},
+		{name: 'exorcista', label: 'ordemparanormal.trilhas.exorcista'},
 		{name: 'flagelador', label: 'ordemparanormal.trilhas.flagelador'},
 		{name: 'graduado', label: 'ordemparanormal.trilhas.graduado'},
 		{name: 'intuitivo', label: 'ordemparanormal.trilhas.intuitivo'},
 		{name: 'laminaParanormal', label: 'ordemparanormal.trilhas.laminaParanormal'},
+		{name: 'parapsicologo', label: 'ordemparanormal.trilhas.parapsicologo'},
+		{name: 'possuido', label: 'ordemparanormal.trilhas.possuido'},
 	],
 	survivor: [
 		{name: 'durao', label: 'ordemparanormal.trilhas.durao'},
