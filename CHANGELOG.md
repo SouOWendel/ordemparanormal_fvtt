@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.8.0...v6.8.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* **css/sass:** fixed a bug on actor tab layout and token hud ([8932f28](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8932f280eb07746b88efdcab175f8a6d4f9d0858))
+
 ## [6.8.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.7.0...v6.8.0) (2024-09-12)
 
 
