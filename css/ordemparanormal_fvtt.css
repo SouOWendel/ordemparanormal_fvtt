@@ -313,13 +313,9 @@
   /* ----------------------------------------- */
   /* ITEMS IN ACTOR SHEET (AGENT) */
 }
-.system-ordemparanormal form {
+.system-ordemparanormal form.agentsheet {
   height: 100%;
   overflow: hidden;
-}
-.system-ordemparanormal .actor {
-  min-width: 600px;
-  min-height: 820px;
 }
 .system-ordemparanormal .agent .content {
   height: 100%;
