@@ -1,5 +1,5 @@
-<form class="{{cssClass}}" autocomplete="off">
-  <header class="sheet-header">
+<form class="{{cssClass}} itemsheet flexcol" autocomplete="off">
+  <header class="sheet-header-op">
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
@@ -28,20 +28,26 @@
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
-      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+			<div class="content">
+				{{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
+				{{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+			</div>
     </div>
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
-      <div class="resource grid align-items-center">
-        <label class="resource-label">{{localize "ordemparanormal.category"}}</label>
-        <input type="text" name="system.category" value="{{system.category}}" data-dtype="String"/>
-      </div>
+			<div class="content">
+				<div class="resource grid align-items-center">
+					<label class="resource-label">{{localize "ordemparanormal.category"}}</label>
+					<input type="text" name="system.category" value="{{system.category}}" data-dtype="String"/>
+				</div>
+			</div>
     </div>
 
     <div class="tab effects" data-group="primary" data-tab="effectsItem">
-      {{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
+			<div class="content">
+      	{{>"systems/ordemparanormal/templates/actor/parts/actor-effects.html"}}
+			</div>
     </div>
   </section>
 </form>
