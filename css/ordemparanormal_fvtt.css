@@ -14,19 +14,17 @@
   padding: 0 10px;
 }
 
-#sidebar::-webkit-scrollbar {
-  width: 6px;
+.directory-list::-webkit-scrollbar {
+  width: 3px;
   height: 6px;
 }
-
-#sidebar::-webkit-scrollbar-thumb {
-  outline: none;
-  border-radius: 3px;
-  background: #782e22;
-  border: 1px solid var(--color-border-highlight);
+.directory-list::-webkit-scrollbar-thumb {
+  outline: none !important;
+  border-radius: 3px !important;
+  background: #782e22 !important;
+  border: 1px solid var(--color-border-highlight) !important;
 }
-
-#sidebar::-webkit-scrollbar-track {
+.directory-list::-webkit-scrollbar-track {
   box-shadow: 0 0 1px #999 inset;
   border-radius: 4px;
 }
@@ -313,29 +311,30 @@
   /* ----------------------------------------- */
   /* ITEMS IN ACTOR SHEET (AGENT) */
 }
-.system-ordemparanormal form.agentsheet {
+.system-ordemparanormal form.agentsheet, .system-ordemparanormal form.itemsheet {
   height: 100%;
   overflow: hidden;
 }
-.system-ordemparanormal .agent .content {
+.system-ordemparanormal .content {
   height: 100%;
   overflow-y: auto;
 }
-.system-ordemparanormal .agent .tab {
+.system-ordemparanormal .sheet-body .tab {
   overflow-y: hidden;
   height: 100%;
   align-content: flex-start;
   padding-right: 2px;
 }
-.system-ordemparanormal .agent .sheet-body,
-.system-ordemparanormal .agent .sheet-body .tab,
-.system-ordemparanormal .agent .sheet-body .tab .editor {
+.system-ordemparanormal .sheet-body,
+.system-ordemparanormal .sheet-body .tab,
+.system-ordemparanormal .sheet-body .tab .editor {
   height: 100%;
+  min-height: 150px;
 }
-.system-ordemparanormal .agent .sheet-body {
+.system-ordemparanormal .sheet-body {
   overflow: hidden;
 }
-.system-ordemparanormal .agent .window-content {
+.system-ordemparanormal .window-content {
   overflow: hidden;
 }
 .system-ordemparanormal .item-form {
@@ -346,10 +345,7 @@
   justify-content: center;
   align-items: center;
 }
-.system-ordemparanormal .header-identify h1,
-.system-ordemparanormal .header-identify h2,
-.system-ordemparanormal .header-identify h3,
-.system-ordemparanormal .header-identify h4 {
+.system-ordemparanormal .header-identify h1, .system-ordemparanormal .header-identify h2, .system-ordemparanormal .header-identify h3, .system-ordemparanormal .header-identify h4 {
   border: 0;
 }
 .system-ordemparanormal .header-identify h1.charname {
@@ -363,22 +359,38 @@
   height: 100%;
   margin: 0;
 }
-.system-ordemparanormal .agent .sheet-header {
+.system-ordemparanormal .sheet-header-op {
   flex: 0 auto;
   overflow: hidden;
-  display: block !important;
+  display: flex !important;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
 }
-.system-ordemparanormal .agent .sheet-header .profile-img {
+.system-ordemparanormal .sheet-header-op .progress {
+  padding-left: 10px;
+}
+.system-ordemparanormal .sheet-header-op .profile-img {
   flex: 0 0 48px;
   height: 48px;
   margin-right: 10px;
 }
-.system-ordemparanormal .agent .sheet-header .header-fields {
+.system-ordemparanormal .sheet-header-op .header-fields {
   flex: 1;
+}
+.system-ordemparanormal .sheet-header-op h1.charname {
+  height: 45px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.system-ordemparanormal .sheet-header-op h1.charname input {
+  min-width: 235px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 .system-ordemparanormal .sheet-tabs {
   flex: 0;
@@ -433,11 +445,96 @@
 }
 .system-ordemparanormal .inventory-footer {
   position: absolute;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
   left: 0;
-  height: 24px;
   width: 100%;
+  padding: 2px 2px;
   background-color: #eeede0;
+}
+.system-ordemparanormal .sumWeight {
+  position: relative;
+  border: 1px solid #272727;
+  border-radius: 3px;
+  width: 96.5%;
+  height: 13px;
+  margin-right: 24px;
+  margin-top: 5px;
+}
+.system-ordemparanormal .sumWeight .spacelabel {
+  position: absolute;
+  z-index: 12;
+  color: #fff;
+  font-size: 9px;
+  padding: 1px 4px;
+  mix-blend-mode: difference;
+}
+.system-ordemparanormal .sumWeight .bar {
+  display: block !important;
+  margin-top: 0;
+  margin-left: 0;
+  border-radius: 2px;
+  background-color: #272727;
+  height: 12px;
+  z-index: 10;
+}
+.system-ordemparanormal .sumWeight .barover {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block !important;
+  border-radius: 2px;
+  background-color: #691313;
+  height: 12px;
+  color: #fff;
+  font-size: 9px;
+  z-index: 11;
+  padding-top: 6px;
+}
+.system-ordemparanormal .sumWeight .label, .system-ordemparanormal .sumWeight i {
+  position: absolute;
+  top: 0px;
+  font-size: 10px;
+  z-index: 12;
+  mix-blend-mode: difference;
+  filter: invert(1);
+}
+.system-ordemparanormal .sumWeight i {
+  color: rgb(0, 0, 0);
+  left: 50%;
+}
+.system-ordemparanormal .sumWeight .label {
+  right: 20px;
+}
+.system-ordemparanormal .patents {
+  display: flex;
+  padding: 2px 1px;
+  gap: 6px;
+}
+.system-ordemparanormal .patents .limit {
+  display: flex;
+  border: 1px solid #888;
+  border-radius: 2px;
+  width: 44px;
+  height: 26px;
+  text-align: center;
+}
+.system-ordemparanormal .patents .prestige {
+  display: flex;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 12px;
+}
+.system-ordemparanormal .patents .name, .system-ordemparanormal .patents .credit {
+  display: flex;
+  flex-grow: 1;
+  padding: 4px 6px;
+  border: 1px solid #888;
+  border-radius: 3px;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
 }
 .system-ordemparanormal .biography aside {
   padding: 2px;
@@ -458,52 +555,6 @@
 }
 .system-ordemparanormal .biography .bio-goals .editor {
   min-height: 100px;
-}
-.system-ordemparanormal .sumWeight {
-  position: relative;
-  margin-top: 5px;
-  margin-left: 5px;
-  border: 1px solid #272727;
-  border-radius: 3px;
-  width: 95%;
-  height: 14px;
-}
-.system-ordemparanormal .sumWeight .sumWeight-bar {
-  display: block !important;
-  margin-top: 0;
-  margin-left: 0;
-  border-radius: 1px;
-  background-color: #272727;
-  height: 12px;
-  z-index: 10;
-}
-.system-ordemparanormal .sumWeight .sumWeight-barover {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: block !important;
-  border-radius: 1px;
-  background-color: #7a1616;
-  height: 12px;
-  color: #fff;
-  font-size: 9px;
-  z-index: 11;
-}
-.system-ordemparanormal .sumWeight .sumWeight-label,
-.system-ordemparanormal .sumWeight i {
-  position: absolute;
-  top: 0;
-  font-size: 10px;
-  z-index: 12;
-  mix-blend-mode: difference;
-  filter: invert(1);
-}
-.system-ordemparanormal .sumWeight i {
-  color: rgb(0, 0, 0);
-  left: 50%;
-}
-.system-ordemparanormal .sumWeight .sumWeight-label {
-  right: 20px;
 }
 .system-ordemparanormal .inventory {
   padding-bottom: 24px;
