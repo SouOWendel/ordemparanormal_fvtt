@@ -24,6 +24,9 @@ export class OrdemActor extends Actor {
 			this._migrateData(actorData, systemData);
 			this._prepareDataStatus(actorData, systemData);
 			this._prepareRituals(actorData);
+			this._prepareBaseSkills(systemData);
+			this._prepareSkills(systemData);
+			this._preparePatent(actorData);
 		}
 	}
 
@@ -44,8 +47,6 @@ export class OrdemActor extends Actor {
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
 		// things organized.
 		if (actorData.type == 'agent') {
-			this._prepareBaseSkills(systemData);
-			this._prepareSkills(systemData);
 			this._prepareItemsDerivedData(actorData, systemData);
 			this._prepareDefense(systemData);
 			this._prepareActorSpaces(actorData);
@@ -217,6 +218,58 @@ export class OrdemActor extends Actor {
 			else spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
 		}
 		if (spaces.value > spaces.max * 2) ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
+	}
+
+	/**
+	 * A function to calculate and apply all the patent data.
+	 * @param {*} ActorData 
+	 */
+	_preparePatent(ActorData) {
+		const patent = ActorData.system.patent;
+		const PP = patent.prestigePoints;
+		if (PP >= 200) {
+			patent.name = 'Agente de Elite';
+			patent.itemLimit1 = 3;
+			patent.itemLimit2 = 3;
+			patent.itemLimit3 = 3;
+			patent.itemLimit4 = 2;
+			patent.creditLimit = 'Ilimitado';
+		} else if (PP >= 100) {
+			patent.name = 'Oficial de Operações';
+			patent.itemLimit1 = 3;
+			patent.itemLimit2 = 3;
+			patent.itemLimit3 = 2;
+			patent.itemLimit4 = 1;
+			patent.creditLimit = 'Alto';
+		} else if (PP >= 50) {
+			patent.name = 'Agente Especial';
+			patent.itemLimit1 = 3;
+			patent.itemLimit2 = 2;
+			patent.itemLimit3 = 1;
+			patent.itemLimit4 = null;
+			patent.creditLimit = 'Médio';
+		} else if (PP >= 20) {
+			patent.name = 'Operador';
+			patent.itemLimit1 = 3;
+			patent.itemLimit2 = 1;
+			patent.itemLimit3 = null;
+			patent.itemLimit4 = null;
+			patent.creditLimit = 'Médio';
+		} else if (PP >= 0) {
+			patent.name = 'Recruta';
+			patent.itemLimit1 = 2;
+			patent.itemLimit2 = null;
+			patent.itemLimit3 = null;
+			patent.itemLimit4 = null;
+			patent.creditLimit = 'Baixo';
+		} else {
+			patent.name = 'Sem Patente';
+			patent.itemLimit1 = null;
+			patent.itemLimit2 = null;
+			patent.itemLimit3 = null;
+			patent.itemLimit4 = null;
+			patent.creditLimit = 'Baixo';
+		}
 	}
 
 	/**

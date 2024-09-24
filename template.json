@@ -51,6 +51,15 @@
 			"class": "",
 			"origin": "",
 			"trilha": "",
+			"patent": {
+				"name": "",
+				"prestigePoints": 0,
+				"creditLimit": "",
+				"itemLimit1": null,
+				"itemLimit2": null,
+				"itemLimit3": null,
+				"itemLimit4": null
+			},
 			"skills": {
 				"acrobatics": {
 					"value": 0,

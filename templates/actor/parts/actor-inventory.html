@@ -107,12 +107,33 @@
 	{{/each}}
 </ol>
 <footer class="inventory-footer">
+	<div class="patents">
+		<input type="number" name="system.patent.itemLimit1" value="{{system.patent.itemLimit1}}"
+		 class="limit" placeholder="I" data-dtype="Number" data-tooltip="Limite de Categoria 1" disabled>
+		<input type="number" name="system.patent.itemLimit2" value="{{system.patent.itemLimit2}}"
+		 class="limit" placeholder="II" data-dtype="Number" data-tooltip="Limite de Categoria 2" disabled>
+		<input type="number" name="system.patent.itemLimit3" value="{{system.patent.itemLimit3}}"
+		 class="limit" placeholder="III" data-dtype="Number" data-tooltip="Limite de Categoria 3" disabled>
+		<input type="number" name="system.patent.itemLimit4" value="{{system.patent.itemLimit4}}"
+		 class="limit" placeholder="IV" data-dtype="Number" data-tooltip="Limite de Categoria 4" disabled>
+		<div class="prestige">
+			<input type="text" name="system.patent.prestigePoints" value="{{system.patent.prestigePoints}}"
+			 placeholder="Pontos de Prestígio" data-tooltip="Pontos de Prestígio" data-dtype="Number">
+		</div>
+		<span class="name" data-tooltip="Nome da Patente">{{system.patent.name}}</span>
+		<span class="credit" data-tooltip="Limite de Crédito">{{system.patent.creditLimit}}</span>
+	</div>
 	<div class="sumWeight">
-		<span class="sumWeight-bar" style="width: {{system.spaces.pct}}%"></span>
-		{{#if system.spaces.pctMax}}<span class="sumWeight-barover align-center" style="width: {{system.spaces.pctMax}}%"
-			>SOBREPESO</span
-		>{{/if}}
-		<span class="sumWeight-label">{{system.spaces.value}} / {{system.spaces.max}}</span>
+		<span class="spacelabel">
+			{{#if system.spaces.pctMax}}
+				SOBREPESO
+			{{else}}
+				ESPAÇOS DISPONÍVEIS
+			{{/if}}
+		</span>
+		<span class="bar" style="width: {{system.spaces.pct}}%"></span>
+		<span class="barover align-center" style="width: {{system.spaces.pctMax}}%"></span>
+		<span class="label">{{system.spaces.value}} / {{system.spaces.max}}</span>
 		<i class="fa-solid fa-caret-left"></i>
 	</div>
 </footer>
