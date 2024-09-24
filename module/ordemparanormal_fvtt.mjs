@@ -300,6 +300,7 @@ Hooks.on('preCreateActor', function (actor, data) {
 		});
 	}
 
+	// TODO: APLICAR UMA CONFIGURAÇÃO DE BAR BRAWL PARA PD E OUTRA PARA PE E SAN.
 	// Filtrando por tipos de Actors disponíveis no sistema.
 	if (actor.type === 'agent') {
 		const prototypeToken = { disposition: 1, actorLink: true }; // Set disposition to "Friendly"
@@ -311,35 +312,39 @@ Hooks.on('preCreateActor', function (actor, data) {
 		 */
 		actor.updateSource({
 			'prototypeToken.flags.barbrawl.resourceBars': {
-				bar1: {
-					id: 'bar1',
+				'pv': {
+					id: 'pv',
 					mincolor: '#ff1a1a',
 					maxcolor: '#80ff00',
 					position: 'bottom-outer',
 					attribute: 'PV',
 					label: 'PV',
 					style: 'fraction',
-					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
+        	otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+
 				},
-				bar2: {
-					id: 'bar2',
-					mincolor: '#000000',
-					maxcolor: '#000000',
-					position: 'bottom-outer',
-					attribute: 'SAN',
-					label: 'SAN',
-					style: 'fraction',
-					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-				},
-				bar3: {
-					id: 'bar3',
+				'pe': {
+					id: 'pe',
 					mincolor: '#242899',
 					maxcolor: '#66a8ff',
 					position: 'bottom-outer',
 					attribute: 'PE',
 					label: 'PE',
 					style: 'fraction',
-					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
+        	otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+				},
+				'san': {
+					id: 'san',
+					mincolor: '#000000',
+					maxcolor: '#000000',
+					position: 'bottom-outer',
+					attribute: 'SAN',
+					label: 'SAN',
+					style: 'fraction',
+					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
+        	otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
 				},
 			},
 		});
