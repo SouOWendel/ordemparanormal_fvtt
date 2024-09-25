@@ -27,7 +27,7 @@ jobs:
               id: release
               with:
                   command: manifest
-                  token: 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
+                  token: ${{secrets.GITHUB_TOKEN}}
                   release-type: node
 
                 
@@ -91,7 +91,7 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
               env:
                   ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
-                  GITHUB_TOKEN: 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
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   gh release upload ${{ steps.release.outputs.tag_name }} ./system.json
                   gh release upload ${{ steps.release.outputs.tag_name }} ./$ZIP_NAME
