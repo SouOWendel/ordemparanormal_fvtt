@@ -1,5 +1,21 @@
 # Changelog
 
+## [6.9.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.8.1...v6.9.0) (2024-09-25)
+
+
+### Features
+
+* **actor agent sheet:** reorganized the calculations and added the patent feature to agents ([a86d1ca](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a86d1ca012c6908cfaefb9eaba1e53f0730d05ef))
+* **bar brawl integration:** changed the name and id of new bar brawls and fixed the ownerVisibility ([f679513](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f6795137ff92c62afcb9ff449c86993dc486eb6b))
+* **build packs:** refactored the build structure for packs with DND5e codes, also added scripts ([be140dd](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/be140dd0ef118fb8d16598cb5dc906c8493fb8d6))
+* **compendium:** fixed the weight of military backpack and deleted the old json files of packs ([5e6f683](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5e6f68328195800570e27f850090d81af06d111c))
+* **css/sass:** added styles for patents, layout fixed, weight bar on inventory tab ([0c3996e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0c3996eb2db064ac9f7c37276de74c996e857999))
+
+
+### Bug Fixes
+
+* **layout:** fixed the layout of items ([40d872b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/40d872bcb1ab237b849ab7bc8f0908d2c30032a5))
+
 ## [6.8.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.8.0...v6.8.1) (2024-09-13)
 
 
