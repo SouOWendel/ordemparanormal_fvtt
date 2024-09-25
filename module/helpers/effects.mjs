@@ -15,7 +15,7 @@ export function onManageActiveEffect(event, owner) {
 		case 'create':
 			return owner.createEmbeddedDocuments('ActiveEffect', [
 				{
-					label: game.i18n.localize('ordemparanormal.newEffect'),
+					label: game.i18n.localize('op.newEffect'),
 					icon: 'icons/svg/aura.svg',
 					origin: owner.uuid,
 					'duration.rounds':
@@ -42,17 +42,17 @@ export function prepareActiveEffectCategories(effects) {
 	const categories = {
 		temporary: {
 			type: 'temporary',
-			label: game.i18n.localize('ordemparanormal.temporaryEffects'),
+			label: game.i18n.localize('op.temporaryEffects'),
 			effects: [],
 		},
 		passive: {
 			type: 'passive',
-			label: game.i18n.localize('ordemparanormal.passiveEffects'),
+			label: game.i18n.localize('op.passiveEffects'),
 			effects: [],
 		},
 		inactive: {
 			type: 'inactive',
-			label: game.i18n.localize('ordemparanormal.inactiveEffects'),
+			label: game.i18n.localize('op.inactiveEffects'),
 			effects: [],
 		},
 	};

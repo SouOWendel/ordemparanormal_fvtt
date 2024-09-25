@@ -2,13 +2,13 @@
 	{{#each abilities.valid as |abilities type|}}
 	<li class="item flexrow items-header">
 		<div class="item-name">
-			{{#ifEquals type 1}} {{localize "ordemparanormal.abilitiesAbv.class"}} {{/ifEquals}} {{#ifEquals type 2}} {{localize
+			{{#ifEquals type 1}} {{localize "op.abilitiesAbv.class"}} {{/ifEquals}} {{#ifEquals type 2}} {{localize
 			"ordemparanormal.abilitiesAbv.path"}} {{/ifEquals}} {{#ifEquals type 3}} {{localize
 			"ordemparanormal.abilitiesAbv.paranormal"}} {{/ifEquals}} {{#ifEquals type 4}} {{localize
 			"ordemparanormal.abilitiesAbv.ability"}} {{/ifEquals}}
 		</div>
-		<div class="item-formula">{{localize "ordemparanormal.type"}}</div>
-		<div class="item-formula">{{localize "ordemparanormal.preRequisite"}}</div>
+		<div class="item-formula">{{localize "op.type"}}</div>
+		<div class="item-formula">{{localize "op.preRequisite"}}</div>
 		<div class="item-controls">
 			<a
 				class="item-control item-create"
@@ -31,7 +31,7 @@
 			<h4>{{item.name}}</h4>
 		</div>
 		<div class="item-formula item-prop">
-			{{#if item.system.abilityType}} {{localize (concat "ordemparanormal.powerTypeChoices." item.system.abilityType)}}
+			{{#if item.system.abilityType}} {{localize (concat "op.powerTypeChoices." item.system.abilityType)}}
 			{{else}} — {{/if}}
 		</div>
 		<div class="item-formula item-prop">{{item.system.preRequisite}}</div>
@@ -49,8 +49,8 @@
 	<ol class="items-list">
 		<li class="item flexrow items-header">
 			<div class="item-name"></div>
-			<div class="item-formula">{{localize "ordemparanormal.type"}}</div>
-			<div class="item-formula">{{localize "ordemparanormal.preRequisite"}}</div>
+			<div class="item-formula">{{localize "op.type"}}</div>
+			<div class="item-formula">{{localize "op.preRequisite"}}</div>
 			<div class="item-controls">
 				<a class="item-control item-create" title="Create item" data-type="ability" data-id="{{type}}">
 					<i class="fas fa-plus"></i>
@@ -68,7 +68,7 @@
 				<h4>{{item.name}}</h4>
 			</div>
 			<div class="item-formula item-prop">
-				{{#if item.system.abilityType}} {{localize (concat "ordemparanormal.powerTypeChoices." item.system.abilityType)}}
+				{{#if item.system.abilityType}} {{localize (concat "op.powerTypeChoices." item.system.abilityType)}}
 				{{else}} — {{/if}}
 			</div>
 			<div class="item-formula item-prop">{{item.system.preRequisite}}</div>

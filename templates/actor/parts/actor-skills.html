@@ -10,7 +10,7 @@
 				{{skillName.label}}
 			</label>
 			<label class="flex0 p-side-10">
-				<strong>{{toUpperCase (localize (concat "ordemparanormal." skillName.attr.[0] "Abv")) }}</strong>
+				<strong>{{toUpperCase (localize (concat "op." skillName.attr.[0] "Abv")) }}</strong>
 			</label>
 			<select name="system.skills.{{key}}.degree.label" data-dtype="String">
 				{{ selectOptions ../optionDegree selected=skillName.degree.label localize=true }}
@@ -19,5 +19,10 @@
 			<input type="text" name="system.skills.{{key}}.mod" value="{{skillName.mod}}" data-dtype="Number" />
 		</div>
 		{{/each}}
+		<!-- <div class="skill flexrow flex-group-center">
+			<label class="flex0 p-side-10">
+				<strong>AAAA</strong>
+			</label>
+		</div> -->
 	</div>
 </section>

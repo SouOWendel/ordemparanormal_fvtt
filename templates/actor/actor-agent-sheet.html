@@ -8,13 +8,13 @@
 			</h1>
 			<div class="resource flex-group-center progress">
 				{{#ifEquals system.class "survivor"}}
-					<label for="system.stage.value" class="resource-label"> {{localize 'ordemparanormal.stage'}} </label>
+					<label for="system.stage.value" class="resource-label"> {{localize 'op.stage'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
 						{{numberInputFVTT system.stage.value name="system.stage.value" step=1 min=0 max=5}}
 					</div>
 				{{/ifEquals}}
 				{{#ifInequals system.class "survivor"}}
-					<label for="system.NEX.value" class="resource-label"> {{localize 'ordemparanormal.NEX'}} </label>
+					<label for="system.NEX.value" class="resource-label"> {{localize 'op.NEX'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
 						{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
 					</div>
@@ -26,7 +26,7 @@
 			"N" can be any number from 1 to 12 and will create that number of columns. --}}
 			<div class="resources flexrow">
 				<div class="resource flex-group-center">
-					<label for="system.PV.value" class="resource-label"> {{localize 'ordemparanormal.PV'}} </label>
+					<label for="system.PV.value" class="resource-label"> {{localize 'op.PV'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.PV.value" value="{{system.PV.value}}" data-dtype="Number" />
 						<span> / </span>
@@ -36,7 +36,7 @@
 
 				{{#if usingWithoutSanityRule}}
 					<div class="resource flex-group-center">
-						<label for="system.PD.value" class="resource-label">{{localize 'ordemparanormal.PD'}} </label>
+						<label for="system.PD.value" class="resource-label">{{localize 'op.PD'}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.PD.value" value="{{system.PD.value}}" data-dtype="Number" />
 							<span> / </span>
@@ -44,14 +44,14 @@
 						</div>
 					</div>
 					<div class="resource flex-group-center">
-						<label for="system.PD.value" class="resource-label">{{localize 'ordemparanormal.pdPerRound'}} </label>
+						<label for="system.PD.value" class="resource-label">{{localize 'op.pdPerRound'}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="number" name="system.PD.perRound" value="{{system.PD.perRound}}" data-dtype="Number" disabled />
 						</div>
 					</div>
 				{{else}}
 					<div class="resource flex-group-center">
-						<label for="system.SAN.value" class="resource-label">{{localize 'ordemparanormal.San'}} </label>
+						<label for="system.SAN.value" class="resource-label">{{localize 'op.San'}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.SAN.value" value="{{system.SAN.value}}" data-dtype="Number" />
 							<span> / </span>
@@ -59,7 +59,7 @@
 						</div>
 					</div>
 					<div class="resource flex-group-center">
-						<label for="system.PE.value" class="resource-label">{{localize 'ordemparanormal.PE'}} </label>
+						<label for="system.PE.value" class="resource-label">{{localize 'op.PE'}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.PE.value" value="{{system.PE.value}}" data-dtype="Number" />
 							<span> / </span>
@@ -67,7 +67,7 @@
 						</div>
 					</div>
 					<div class="resource flex-group-center">
-						<label for="system.PE.value" class="resource-label">{{localize 'ordemparanormal.pePerRound'}} </label>
+						<label for="system.PE.value" class="resource-label">{{localize 'op.pePerRound'}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="number" name="system.PE.perRound" value="{{system.PE.perRound}}" data-dtype="Number" disabled />
 						</div>
@@ -76,8 +76,8 @@
 			</div>
 			<div class="resources flexrow">
 				<div class="resource flex-group-center">
-					<label for="{{localize 'ordemparanormal.className'}}" class="resource-label">
-						{{localize 'ordemparanormal.className'}}
+					<label for="{{localize 'op.className'}}" class="resource-label">
+						{{localize 'op.className'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<select name="system.class" data-dtype="String">
@@ -87,8 +87,8 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="{{localize 'ordemparanormal.originName'}}" class="resource-label">
-						{{localize 'ordemparanormal.originName'}}
+					<label for="{{localize 'op.originName'}}" class="resource-label">
+						{{localize 'op.originName'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<select name="system.origin" data-dtype="String">
@@ -98,8 +98,8 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="{{localize 'ordemparanormal.trilhasName'}}" class="resource-label">
-						{{localize 'ordemparanormal.trilhasName'}}
+					<label for="{{localize 'op.trilhasName'}}" class="resource-label">
+						{{localize 'op.trilhasName'}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						{{#if system.class }}
@@ -125,7 +125,7 @@
 				border, and will center all of its child elements content and text. --}}
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.dex.value" class="resource-label">{{localize 'ordemparanormal.attDex'}}</label>
+					<label for="system.attributes.dex.value" class="resource-label">{{localize 'op.attDex'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
@@ -136,7 +136,7 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.int.value" class="resource-label">{{localize 'ordemparanormal.attInt'}}</label>
+					<label for="system.attributes.int.value" class="resource-label">{{localize 'op.attInt'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
@@ -147,7 +147,7 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.vit.value" class="resource-label">{{localize 'ordemparanormal.attVit'}}</label>
+					<label for="system.attributes.vit.value" class="resource-label">{{localize 'op.attVit'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
@@ -158,7 +158,7 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.pre.value" class="resource-label">{{localize 'ordemparanormal.attPre'}}</label>
+					<label for="system.attributes.pre.value" class="resource-label">{{localize 'op.attPre'}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
 							type="text"
@@ -169,8 +169,8 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="{{localize 'ordemparanormal.AttFor'}}" class="resource-label"
-						>{{localize 'ordemparanormal.attStr'}}</label
+					<label for="{{localize 'op.AttFor'}}" class="resource-label"
+						>{{localize 'op.attStr'}}</label
 					>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input
@@ -183,8 +183,8 @@
 			</div>
 			<div class="resources flexrow">
 				<div class="resource flex-group-center">
-					<label for="{{localize 'ordemparanormal.defense'}}" class="resource-label"
-						>{{localize 'ordemparanormal.defense'}}</label
+					<label for="{{localize 'op.defense'}}" class="resource-label"
+						>{{localize 'op.defense'}}</label
 					>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.defense.value" value="{{system.defense.value}}" data-dtype="Number" disabled />
@@ -192,8 +192,8 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="{{localize 'ordemparanormal.dodge'}}" class="resource-label"
-						>{{localize 'ordemparanormal.dodge'}}</label
+					<label for="{{localize 'op.dodge'}}" class="resource-label"
+						>{{localize 'op.dodge'}}</label
 					>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.defense.dodge" value="{{system.defense.dodge}}" data-dtype="Number" disabled />
@@ -201,8 +201,8 @@
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="{{localize 'ordemparanormal.deslocamento'}}" class="resource-label"
-						>{{localize 'ordemparanormal.deslocamento'}}</label
+					<label for="{{localize 'op.deslocamento'}}" class="resource-label"
+						>{{localize 'op.deslocamento'}}</label
 					>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.desloc.value" value="{{system.desloc.value}}" data-dtype="Number" disabled />
@@ -215,12 +215,12 @@
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
 		{{!-- Default tab is specified in actor-sheet.mjs --}}
-		<a class="item" data-tab="skills">{{localize 'ordemparanormal.tab.skills'}}</a>
-		<a class="item" data-tab="inventory">{{localize 'ordemparanormal.tab.inventory'}}</a>
-		<a class="item" data-tab="abilities">{{localize 'ordemparanormal.tab.abilities'}}</a>
-		<a class="item" data-tab="rituals">{{localize 'ordemparanormal.tab.rituals'}}</a>
-		<a class="item" data-tab="biography">{{localize 'ordemparanormal.tab.biography'}}</a>
-		<a class="item" data-tab="effects">{{localize 'ordemparanormal.tab.effects'}}</a>
+		<a class="item" data-tab="skills">{{localize 'op.tab.skills'}}</a>
+		<a class="item" data-tab="inventory">{{localize 'op.tab.inventory'}}</a>
+		<a class="item" data-tab="abilities">{{localize 'op.tab.abilities'}}</a>
+		<a class="item" data-tab="rituals">{{localize 'op.tab.rituals'}}</a>
+		<a class="item" data-tab="biography">{{localize 'op.tab.biography'}}</a>
+		<a class="item" data-tab="effects">{{localize 'op.tab.effects'}}</a>
 	</nav>
 
 	{{!-- Sheet Body --}}
@@ -235,12 +235,12 @@
 		<div class="tab biography flexcol" data-group="primary" data-tab="biography">
 			<div class="content">
 				<fieldset class="bio-desc">
-					<legend>{{localize "ordemparanormal.description"}}</legend>
+					<legend>{{localize "op.description"}}</legend>
 					{{editor system.biography target="system.biography" rollData=rollData button=true owner=owner
 					editable=editable}}
 				</fieldset>
 				<fieldset class="bio-goals">
-					<legend>{{localize "ordemparanormal.goals"}}</legend>
+					<legend>{{localize "op.goals"}}</legend>
 					{{editor system.goals target="system.goals" rollData=rollData button=true owner=owner editable=editable}}
 				</fieldset>
 			</div>

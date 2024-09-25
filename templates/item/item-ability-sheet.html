@@ -8,9 +8,9 @@
 
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<a class="item" data-tab="description">{{localize "ordemparanormal.description"}}</a>
-		<a class="item" data-tab="attributes">{{localize "ordemparanormal.attributesItem"}}</a>
-		<a class="item" data-tab="effectsItem">{{localize "ordemparanormal.tab.effects"}}</a>
+		<a class="item" data-tab="description">{{localize "op.description"}}</a>
+		<a class="item" data-tab="attributes">{{localize "op.attributesItem"}}</a>
+		<a class="item" data-tab="effectsItem">{{localize "op.tab.effects"}}</a>
 	</nav>
 
 	{{!-- Sheet Body --}}
@@ -28,11 +28,11 @@
 		<div class="tab attributes" data-group="primary" data-tab="attributes">
 			<div class="content">
 				<div class="resource grid align-items-center">
-					<label class="resource-label">{{localize "ordemparanormal.powerType"}}</label>
+					<label class="resource-label">{{localize "op.powerType"}}</label>
 					<select name="system.abilityType" data-dtype="String">
 						{{ selectOptions optionPowerType selected=system.abilityType localize=true blank="—" }}
 					</select>
-					<label class="resource-label">{{localize "ordemparanormal.preRequisite"}}</label>
+					<label class="resource-label">{{localize "op.preRequisite"}}</label>
 					<input type="text" name="system.preRequisite" value="{{system.preRequisite}}" data-dtype="String" />
 				</div>
 			</div>

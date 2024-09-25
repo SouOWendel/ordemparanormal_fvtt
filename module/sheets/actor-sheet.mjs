@@ -46,10 +46,10 @@ export class OrdemActorSheet extends ActorSheet {
 		context.flags = actorData.flags;
 
 		// Dropdown
-		context.optionDegree = CONFIG.ordemparanormal.dropdownDegree;
-		context.optionClass = CONFIG.ordemparanormal.dropdownClass;
-		context.optionTrilhas = CONFIG.ordemparanormal.dropdownTrilha;
-		context.optionOrigins = CONFIG.ordemparanormal.dropdownOrigins;
+		context.optionDegree = CONFIG.op.dropdownDegree;
+		context.optionClass = CONFIG.op.dropdownClass;
+		context.optionTrilhas = CONFIG.op.dropdownTrilha;
+		context.optionOrigins = CONFIG.op.dropdownOrigins;
 		context.usingWithoutSanityRule = game.settings.get('ordemparanormal', 'globalPlayingWithoutSanity');
 		context.isV12 = game.version > 11;
 
@@ -257,7 +257,7 @@ export class OrdemActorSheet extends ActorSheet {
 		// Grab any data associated with this control.
 		const data = foundry.utils.duplicate(header.dataset);
 		// Initialize a default name.
-		const name = game.i18n.localize('ordemparanormal.newItem') + ' ' + game.i18n.localize('TYPES.Item.' + type);
+		const name = game.i18n.localize('op.newItem') + ' ' + game.i18n.localize('TYPES.Item.' + type);
 		// Prepare the item object.
 		const itemData = {
 			name: name,

@@ -53,32 +53,32 @@ export class OrdemItemSheet extends ItemSheet {
 			effects: prepareActiveEffectCategories(this.item.effects),
 
 			// Armament's Dropdowns
-			optionWeaponType: CONFIG.ordemparanormal.dropdownWeaponType,
-			optionWeaponSubType: CONFIG.ordemparanormal.dropdownWeaponSubType,
-			optionGripType: CONFIG.ordemparanormal.dropdownWeaponGripType,
-			optionWeaponAmmunition: CONFIG.ordemparanormal.dropdownWeaponAmmunition,
-			optionProficiency: CONFIG.ordemparanormal.dropdownProficiency,
-			optionDamageType: CONFIG.ordemparanormal.dropdownDamageType,
-			optionPowerType: CONFIG.ordemparanormal.dropdownPowerType,
-			optionRange: CONFIG.ordemparanormal.dropdownRange,
-			optionTarget: CONFIG.ordemparanormal.dropdownTarget,
-			optionArea: CONFIG.ordemparanormal.dropdownArea,
-			optionAreaType: CONFIG.ordemparanormal.dropdownAreaType,
-			optionDuration: CONFIG.ordemparanormal.dropdownDuration,
-			optionResistance: CONFIG.ordemparanormal.dropdownResistance,
-			optionSkillResis: CONFIG.ordemparanormal.dropdownSkillResis,
-			optionElement: CONFIG.ordemparanormal.dropdownElement,
+			optionWeaponType: CONFIG.op.dropdownWeaponType,
+			optionWeaponSubType: CONFIG.op.dropdownWeaponSubType,
+			optionGripType: CONFIG.op.dropdownWeaponGripType,
+			optionWeaponAmmunition: CONFIG.op.dropdownWeaponAmmunition,
+			optionProficiency: CONFIG.op.dropdownProficiency,
+			optionDamageType: CONFIG.op.dropdownDamageType,
+			optionPowerType: CONFIG.op.dropdownPowerType,
+			optionRange: CONFIG.op.dropdownRange,
+			optionTarget: CONFIG.op.dropdownTarget,
+			optionArea: CONFIG.op.dropdownArea,
+			optionAreaType: CONFIG.op.dropdownAreaType,
+			optionDuration: CONFIG.op.dropdownDuration,
+			optionResistance: CONFIG.op.dropdownResistance,
+			optionSkillResis: CONFIG.op.dropdownSkillResis,
+			optionElement: CONFIG.op.dropdownElement,
 
 			// Attack and Damage Dropdown
-			attributes: CONFIG.ordemparanormal.attributes,
-			attackSkills: CONFIG.ordemparanormal.attackSkills,
+			attributes: CONFIG.op.attributes,
+			attackSkills: CONFIG.op.attackSkills,
 
 			// Ritual's Dropdowns
-			optionExecution: CONFIG.ordemparanormal.dropdownExecution,
+			optionExecution: CONFIG.op.dropdownExecution,
 
 			// Item's Radiobox
-			categories: CONFIG.ordemparanormal.categories,
-			degree: CONFIG.ordemparanormal.ritualDegree,
+			categories: CONFIG.op.categories,
+			degree: CONFIG.op.ritualDegree,
 		});
 
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#updateDocuments

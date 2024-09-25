@@ -142,7 +142,7 @@ export class OrdemActor extends Actor {
 
 			// Formando o nome com base nas condições de carga e treino da perícia.
 			skillsName.label =
-				game.i18n.localize(CONFIG.ordemparanormal.skills[keySkill]) + (overLoad ? '+' : needTraining ? '*' : '') ?? k;
+				game.i18n.localize(CONFIG.op.skills[keySkill]) + (overLoad ? '+' : needTraining ? '*' : '') ?? k;
 
 			// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
 			const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
@@ -353,7 +353,7 @@ export class OrdemActor extends Actor {
 				system[k] = foundry.utils.deepClone(v);
 
 				skillUpper = k.charAt(0).toUpperCase() + k.slice(1);
-				system[game.i18n.localize('ordemparanormal.skill.' + k).toLowerCase()] = foundry.utils.deepClone(v);
+				system[game.i18n.localize('op.skill.' + k).toLowerCase()] = foundry.utils.deepClone(v);
 			}
 		}
 

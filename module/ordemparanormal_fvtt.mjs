@@ -16,7 +16,7 @@ import { OrdemItemSheet } from './sheets/item-sheet.mjs';
 import { OrdemThreatSheet } from './sheets/threat-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
-import { ordemparanormal } from './helpers/config.mjs';
+import { op } from './helpers/config.mjs';
 import displayMessages from './components/message-system.mjs';
 import registerSystemSettings from './components/settings.mjs';
 
@@ -47,7 +47,7 @@ Hooks.once('init', async function () {
 	CONFIG.time.roundTime = 6;
 
 	// Add custom constants for configuration.
-	CONFIG.ordemparanormal = ordemparanormal;
+	CONFIG.op = op;
 
 	CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.html';
 
@@ -363,16 +363,16 @@ Hooks.on('renderSettings', async (app, [html]) => {
     <ul class="links">
       <li>
         <a class="credits" href="javascript:void(0)" target="_blank">
-				${game.i18n.localize('ordemparanormal.Credits')}</a>
+				${game.i18n.localize('op.Credits')}</a>
       </li>
       <li>
         <a href="https://discord.gg/G8AwJwJXa5" target="_blank">
-          ${game.i18n.localize('ordemparanormal.Discord')}
+          ${game.i18n.localize('op.Discord')}
         </a>
       </li>
 			<li>
-        <a href="href="javascript:void(0)" target="_blank" data-tooltip="ordemparanormal.soon">
-          ${game.i18n.localize('ordemparanormal.Wiki')}
+        <a href="href="javascript:void(0)" target="_blank" data-tooltip="op.soon">
+          ${game.i18n.localize('op.Wiki')}
         </a>
       </li>
     </ul>
@@ -383,13 +383,13 @@ Hooks.on('renderSettings', async (app, [html]) => {
 	badge.classList.add('op', 'system-badge');
 	badge.innerHTML = `
     <img src="systems/ordemparanormal/media/op-logo.png" 
-		data-tooltip="${game.i18n.localize('ordemparanormal.op')}" alt="${game.system.title}">
-    <span class="system-info">${game.i18n.localize('ordemparanormal.sidebar.updateNotes')} 
+		data-tooltip="${game.i18n.localize('op.op')}" alt="${game.system.title}">
+    <span class="system-info">${game.i18n.localize('op.sidebar.updateNotes')} 
 		<strong>${game.system.version}</strong> </span>
-		<p><span class="system-info" data-tooltip="${game.i18n.localize('ordemparanormal.sidebar.discord')}">
+		<p><span class="system-info" data-tooltip="${game.i18n.localize('op.sidebar.discord')}">
 		<i class="fa-brands fa-discord"></i> souowendel</span>&nbsp;&nbsp;
 		<a href="https://bsky.app/profile/souowendel.bsky.social" target="_blank" 
-		data-tooltip="${game.i18n.localize('ordemparanormal.sidebar.bluesky')}">
+		data-tooltip="${game.i18n.localize('op.sidebar.bluesky')}">
 		<span class="system-info"><i class="fa-brands fa-bluesky"></i> souowendel</span></p>
   `;
 	if (pip) badge.querySelector('.system-info').insertAdjacentElement('beforeend', pip);

@@ -1,23 +1,23 @@
 {
-	"ordemparanormal.op": "Paranormal Order",
+	"op.op": "Paranormal Order",
 	"TYPES.Actor.agent": "Agent",
 
 	"TYPES.Item.protection": "Protection",
-	"ordemparanormal.protection.plural": "Proteções",
+	"op.protection.plural": "Proteções",
 
 	"TYPES.Item.generalEquipment": "General Equipment",
-	"ordemparanormal.generalEquipment.plural": "Equipments",
+	"op.generalEquipment.plural": "Equipments",
 
 	"TYPES.Item.armament": "Armament",
-	"ordemparanormal.armament.plural": "Armaments",
+	"op.armament.plural": "Armaments",
 
 	"TYPES.Item.ritual": "Ritual",
-	"ordemparanormal.ritual.plural": "Rituals",
+	"op.ritual.plural": "Rituals",
 
 	"TYPES.Item.ability": "Ability",
-	"ordemparanormal.ability.plural": "Abilities",
+	"op.ability.plural": "Abilities",
 
-	"ordemparanormal.OrdemActorSheet": "Agent's Sheet",
+	"op.OrdemActorSheet": "Agent's Sheet",
 
 	"SETTINGS.opPatchNotes": "Desativar Notas de Atualização",
 	"SETTINGS.opPatchNotesHint": "Ao iniciar um mundo com o sistema Ordem Paranormal, ou, ao atualizar o sistema, notas de atualizações com as novidades são exibidas em uma janela, marque/desmarque essa opção para desativar/ativar.",
@@ -36,12 +36,12 @@
 	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 
 	"WORLD.GameSystem": "System Game",
-	"ordemparanormal.sidebar.updateNotes": "An unofficial system in version",
-	"ordemparanormal.soon": "Soon.",
-	"ordemparanormal.sidebar.discord": "Contact me on Discord",
-	"ordemparanormal.sidebar.bluesky": "Follow me on Bluesky",
+	"op.sidebar.updateNotes": "An unofficial system in version",
+	"op.soon": "Soon.",
+	"op.sidebar.discord": "Contact me on Discord",
+	"op.sidebar.bluesky": "Follow me on Bluesky",
 
-	"ordemparanormal.tab": {
+	"op.tab": {
 		"skills": "Skills",
 		"inventory": "Inventory",
 		"abilities": "Abilities",
@@ -50,17 +50,17 @@
 		"effects": "Effects"
 	},
 
-	"ordemparanormal.PV": "Health Points",
-	"ordemparanormal.PE": "Effort Points",
-	"ordemparanormal.PD": "Determination Points",
-	"ordemparanormal.pePerRound": "EP / Round",
-	"ordemparanormal.pdPerRound": "DP / Round",
-	"ordemparanormal.San": "Sanity",
-	"ordemparanormal.NEX": "NEX",
-	"ordemparanormal.stage": "Stage",
-	"ordemparanormal.ritualdt": "Ritual DT is",
+	"op.PV": "Health Points",
+	"op.PE": "Effort Points",
+	"op.PD": "Determination Points",
+	"op.pePerRound": "EP / Round",
+	"op.pdPerRound": "DP / Round",
+	"op.San": "Sanity",
+	"op.NEX": "NEX",
+	"op.stage": "Stage",
+	"op.ritualdt": "Ritual DT is",
 
-	"ordemparanormal.skill": {
+	"op.skill": {
 		"acrobatics": "Acrobatics",
 		"animal": "Animal Training",
 		"arts": "Arts",
@@ -90,53 +90,53 @@
 		"will": "Will"
 	},
 
-	"ordemparanormal.attDex": "Dexterity",
-	"ordemparanormal.attInt": "Intelligence",
-	"ordemparanormal.attVit": "Vitality",
-	"ordemparanormal.attPre": "Presence",
-	"ordemparanormal.attStr": "Strength",
+	"op.attDex": "Dexterity",
+	"op.attInt": "Intelligence",
+	"op.attVit": "Vitality",
+	"op.attPre": "Presence",
+	"op.attStr": "Strength",
 
-	"ordemparanormal.dexAbv": "Dex",
-	"ordemparanormal.intAbv": "Int",
-	"ordemparanormal.vitAbv": "Vit",
-	"ordemparanormal.preAbv": "Pre",
-	"ordemparanormal.strAbv": "Str",
+	"op.dexAbv": "Dex",
+	"op.intAbv": "Int",
+	"op.vitAbv": "Vit",
+	"op.preAbv": "Pre",
+	"op.strAbv": "Str",
 
-	"ordemparanormal.agiAbv": "Dex",
-	"ordemparanormal.vigAbv": "Vit",
-	"ordemparanormal.forAbv": "Str",
+	"op.agiAbv": "Dex",
+	"op.vigAbv": "Vit",
+	"op.forAbv": "Str",
 
-	"ordemparanormal.newItem": "Novo(a)",
+	"op.newItem": "Novo(a)",
 
-	"ordemparanormal.effectCreate": "Create Effect",
-	"ordemparanormal.effectToggle": "Toggle Effect",
-	"ordemparanormal.effectEdit": "Edit Effect",
-	"ordemparanormal.effectDelete": "Delete Effect",
-	"ordemparanormal.temporaryEffects": "Temporary Effects",
-	"ordemparanormal.passiveEffects": "Passive Effects",
-	"ordemparanormal.inactiveEffects": "Inactive Effects",
-	"ordemparanormal.newEffect": "New Effect",
-	"ordemparanormal.sourceEffect": "Source",
+	"op.effectCreate": "Create Effect",
+	"op.effectToggle": "Toggle Effect",
+	"op.effectEdit": "Edit Effect",
+	"op.effectDelete": "Delete Effect",
+	"op.temporaryEffects": "Temporary Effects",
+	"op.passiveEffects": "Passive Effects",
+	"op.inactiveEffects": "Inactive Effects",
+	"op.newEffect": "New Effect",
+	"op.sourceEffect": "Source",
 
-	"ordemparanormal.Add": "Add",
+	"op.Add": "Add",
 
-	"ordemparanormal.degreeTrainingChoices": {
+	"op.degreeTrainingChoices": {
 		"dest": "Untrained",
 		"trei": "Trained",
 		"vet": "Veteran",
 		"expe": "Expert"
 	},
 
-	"ordemparanormal.className": "Class",
-	"ordemparanormal.classChoices": {
+	"op.className": "Class",
+	"op.classChoices": {
 		"fighter": "Fighter",
 		"specialist": "Specialist",
 		"occultist": "Occultist",
 		"survivor": "Survivor"
 	},
 
-	"ordemparanormal.originName": "Origin",
-	"ordemparanormal.originsChoices": {
+	"op.originName": "Origin",
+	"op.originsChoices": {
 		"academico": "Scholar",
 		"agenteDeSaude": "Health Agent",
 		"amigoDosAnimais": "Amigo dos Animais",
@@ -185,8 +185,8 @@
 		"vítima": "Victim"
 	},
 
-	"ordemparanormal.trilhasName": "Trails",
-	"ordemparanormal.trilhas": {
+	"op.trilhasName": "Trails",
+	"op.trilhas": {
 		"agenteSecreto": "Secret Agent",
 		"aniquilador": "Annihilator",
 		"cacador": "Hunter",
@@ -216,67 +216,67 @@
 		"esoterico": "Esoteric"
 	},
 
-	"ordemparanormal.weight": "Weight",
-	"ordemparanormal.defense": "Defense",
-	"ordemparanormal.dodge": "Dodge",
+	"op.weight": "Weight",
+	"op.defense": "Defense",
+	"op.dodge": "Dodge",
 
-	"ordemparanormal.deslocamento": "Movement",
+	"op.deslocamento": "Movement",
 
-	"ordemparanormal.type": "Type",
-	"ordemparanormal.area": "Area",
+	"op.type": "Type",
+	"op.area": "Area",
 
-	"ordemparanormal.attributesItem": "Attributes",
-	"ordemparanormal.specificationsItemTab": "Specifications",
-	"ordemparanormal.combatItemTab": "Combat",
-	"ordemparanormal.description": "Description",
-	"ordemparanormal.goals": "Goals",
-	"ordemparanormal.quantity": "Quantity",
-	"ordemparanormal.space": "Space",
-	"ordemparanormal.category": "Category",
-	"ordemparanormal.preRequisite": "Pre-requisite",
-	"ordemparanormal.range": "Range",
-	"ordemparanormal.target": "Target",
-	"ordemparanormal.areaEffect": "Area Effect",
-	"ordemparanormal.resistance": "Resistance",
-	"ordemparanormal.studentForm": "Student Form",
-	"ordemparanormal.trueForm": "True Form",
-	"ordemparanormal.circle": "Circle",
-	"ordemparanormal.damageType": "Damage Type",
-	"ordemparanormal.weaponType": "Weapon Type",
-	"ordemparanormal.critical": "Critical",
-	"ordemparanormal.proficiency": "Proficiency",
-	"ordemparanormal.ammunitionType": "Ammunition Type",
-	"ordemparanormal.gripType": "Grip",
-	"ordemparanormal.duration": "Duration",
-	"ordemparanormal.subtypeWeapon": "Weapon Subtype",
-	"ordemparanormal.powerType": "Power Type",
-	"ordemparanormal.execution": "Execution",
+	"op.attributesItem": "Attributes",
+	"op.specificationsItemTab": "Specifications",
+	"op.combatItemTab": "Combat",
+	"op.description": "Description",
+	"op.goals": "Goals",
+	"op.quantity": "Quantity",
+	"op.space": "Space",
+	"op.category": "Category",
+	"op.preRequisite": "Pre-requisite",
+	"op.range": "Range",
+	"op.target": "Target",
+	"op.areaEffect": "Area Effect",
+	"op.resistance": "Resistance",
+	"op.studentForm": "Student Form",
+	"op.trueForm": "True Form",
+	"op.circle": "Circle",
+	"op.damageType": "Damage Type",
+	"op.weaponType": "Weapon Type",
+	"op.critical": "Critical",
+	"op.proficiency": "Proficiency",
+	"op.ammunitionType": "Ammunition Type",
+	"op.gripType": "Grip",
+	"op.duration": "Duration",
+	"op.subtypeWeapon": "Weapon Subtype",
+	"op.powerType": "Power Type",
+	"op.execution": "Execution",
 
-	"ordemparanormal.executionChoices": {
+	"op.executionChoices": {
 		"free": "Livre",
 		"default": "Padrão",
 		"complete": "Completa",
 		"reaction": "Reação"
 	},
 
-	"ordemparanormal.weaponTypeChoices": {
+	"op.weaponTypeChoices": {
 		"melee": "Melee",
 		"ranged": "Ranged"
 	},
 
-	"ordemparanormal.weaponSubTypeChoices": {
+	"op.weaponSubTypeChoices": {
 		"throw": "Throwing Weapon",
 		"shoot": "Shooting Weapon",
 		"fire": "Firearm"
 	},
 
-	"ordemparanormal.weaponGripTypeChoices": {
+	"op.weaponGripTypeChoices": {
 		"light": "Light Weapon",
 		"oneHand": "One Handed",
 		"twoHands": "Two Handed"
 	},
 
-	"ordemparanormal.weaponAmmunitionChoices": {
+	"op.weaponAmmunitionChoices": {
 		"shortBullets": "Short Bullets",
 		"longBullets": "Long Bullets",
 		"fuel": "Fuel",
@@ -285,48 +285,48 @@
 		"cartridge": "Cartridge"
 	},
 
-	"ordemparanormal.proficiencyChoices": {
+	"op.proficiencyChoices": {
 		"simpleWeapons": "Simple Weapons",
 		"tacticalWeapons": "Tactical Weapons",
 		"heavyWeapons": "Heavy Weapons"
 	},
 
-	"ordemparanormal.damageTypeChoices": {
+	"op.damageTypeChoices": {
 		"cuttingDamage": "Cutting Damage (C)",
 		"impactDamage": "Impact Damage (I)",
 		"piercingDamage": "Piercing Damage (P)",
 		"ballisticDamage": "Ballistic Damage (B)"
 	},
 
-	"ordemparanormal.damageTypeAbv": {
+	"op.damageTypeAbv": {
 		"cuttingDamage": "Corte",
 		"impactDamage": "Impacto",
 		"piercingDamage": "Perfurante",
 		"ballisticDamage": "Balístico"
 	},
 
-	"ordemparanormal.powerTypeChoices": {
+	"op.powerTypeChoices": {
 		"class": "Poder de Classe",
 		"paranormal": "Poder Paranormal",
 		"path": "Habilidade de Trilha",
 		"ability": "Outra Habilidade"
 	},
 
-	"ordemparanormal.abilitiesAbv": {
+	"op.abilitiesAbv": {
 		"class": "Poderes de Classe",
 		"paranormal": "Poderes Paranormais",
 		"path": "Habilidades de Trilha",
 		"ability": "Outras Habilidades"
 	},
 
-	"ordemparanormal.improvised": "Improvised",
-	"ordemparanormal.throwable": "Throwable",
-	"ordemparanormal.agile": "Agile",
-	"ordemparanormal.automatic": "Automatic",
-	"ordemparanormal.adaptableGrip": "Adaptable Grip",
-	"ordemparanormal.pistolBlow": "Pistol Blow",
+	"op.improvised": "Improvised",
+	"op.throwable": "Throwable",
+	"op.agile": "Agile",
+	"op.automatic": "Automatic",
+	"op.adaptableGrip": "Adaptable Grip",
+	"op.pistolBlow": "Pistol Blow",
 
-	"ordemparanormal.rangeChoices": {
+	"op.rangeChoices": {
 		"personal": "Personal",
 		"touch": "Touch",
 		"short": "Short",
@@ -336,28 +336,28 @@
 		"unlimited": "Unlimited"
 	},
 
-	"ordemparanormal.targetChoices": {
+	"op.targetChoices": {
 		"people": "People",
-		"creatures": "Creatures",
+		"creatures": "Beings",
 		"animals": "Animals",
 		"weapons": "Weapons",
 		"equipment": "Equipments",
 		"area": "Area"
 	},
 
-	"ordemparanormal.areaChoices": {
+	"op.areaChoices": {
 		"cone": "Cone",
 		"cube": "Cube",
 		"sphere": "Sphere",
 		"line": "Line"
 	},
 
-	"ordemparanormal.areaTypeChoices": {
+	"op.areaTypeChoices": {
 		"radius": "Radius",
 		"diameter": "Diameter"
 	},
 
-	"ordemparanormal.durationChoices": {
+	"op.durationChoices": {
 		"instantaneous": "Instantaneous",
 		"scene": "Scene",
 		"sustained": "Sustained",
@@ -365,14 +365,14 @@
 		"permanent": "Permanent"
 	},
 
-	"ordemparanormal.resistanceChoices": {
+	"op.resistanceChoices": {
 		"nullifies": "Nullifies",
 		"discredits": "Discredits",
 		"partial": "Partial",
 		"reducesByHalf": "Red. By Half"
 	},
 
-	"ordemparanormal.elementChoices": {
+	"op.elementChoices": {
 		"blood": "Blood",
 		"death": "Death",
 		"knowledge": "Knowledge",
@@ -380,13 +380,13 @@
 		"fear": "Fear"
 	},
 
-	"ordemparanormal.Notes": "Update Notes",
-	"ordemparanormal.Issues": "Issues",
-	"ordemparanormal.Wiki": "Wiki",
-	"ordemparanormal.Discord": "Discord",
-	"ordemparanormal.Credits": "Credits",
+	"op.Notes": "Update Notes",
+	"op.Issues": "Issues",
+	"op.Wiki": "Wiki",
+	"op.Discord": "Discord",
+	"op.Credits": "Credits",
 
-	"ordemparanormal.damage": "Damage",
-	"ordemparanormal.rollDmg": "Roll Damage",
-	"ordemparanormal.rollAtk": "Roll Attack"
+	"op.damage": "Damage",
+	"op.rollDmg": "Roll Damage",
+	"op.rollAtk": "Roll Attack"
 }

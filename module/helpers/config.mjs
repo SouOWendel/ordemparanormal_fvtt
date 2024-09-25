@@ -1,136 +1,136 @@
-export const ordemparanormal = {};
+export const op = {};
 
 // Define constants here, such as:
-ordemparanormal.foobar = {
-	bas: 'ordemparanormal.bas',
-	bar: 'ordemparanormal.bar',
+op.foobar = {
+	bas: 'op.bas',
+	bar: 'op.bar',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.base = {
-	PV: 'ordemparanormal.PV',
-	PE: 'ordemparanormal.PE',
-	San: 'ordemparanormal.San',
-	NEX: 'ordemparanormal.NEX',
+op.base = {
+	PV: 'op.PV',
+	PE: 'op.PE',
+	San: 'op.San',
+	NEX: 'op.NEX',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.attributes = {
-	dex: 'ordemparanormal.attDex',
-	int: 'ordemparanormal.attInt',
-	vit: 'ordemparanormal.attVit',
-	pre: 'ordemparanormal.attPre',
-	str: 'ordemparanormal.attStr',
+op.attributes = {
+	dex: 'op.attDex',
+	int: 'op.attInt',
+	vit: 'op.attVit',
+	pre: 'op.attPre',
+	str: 'op.attStr',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.skills = {
-	acrobatics: 'ordemparanormal.skill.acrobatics',
-	animal: 'ordemparanormal.skill.animal',
-	arts: 'ordemparanormal.skill.arts',
-	athleticism: 'ordemparanormal.skill.athleticism',
-	relevance: 'ordemparanormal.skill.relevance',
-	sciences: 'ordemparanormal.skill.sciences',
-	crime: 'ordemparanormal.skill.crime',
-	diplomacy: 'ordemparanormal.skill.diplomacy',
-	deception: 'ordemparanormal.skill.deception',
-	resilience: 'ordemparanormal.skill.resilience',
-	stealth: 'ordemparanormal.skill.stealth',
-	initiative: 'ordemparanormal.skill.initiative',
-	intimidation: 'ordemparanormal.skill.intimidation',
-	intuition: 'ordemparanormal.skill.intuition',
-	investigation: 'ordemparanormal.skill.investigation',
-	fighting: 'ordemparanormal.skill.fighting',
-	medicine: 'ordemparanormal.skill.medicine',
-	occultism: 'ordemparanormal.skill.occultism',
-	perception: 'ordemparanormal.skill.perception',
-	driving: 'ordemparanormal.skill.driving',
-	aim: 'ordemparanormal.skill.aim',
-	reflexes: 'ordemparanormal.skill.reflexes',
-	religion: 'ordemparanormal.skill.religion',
-	survival: 'ordemparanormal.skill.survival',
-	tactics: 'ordemparanormal.skill.tactics',
-	technology: 'ordemparanormal.skill.technology',
-	will: 'ordemparanormal.skill.will',
+op.skills = {
+	acrobatics: 'op.skill.acrobatics',
+	animal: 'op.skill.animal',
+	arts: 'op.skill.arts',
+	athleticism: 'op.skill.athleticism',
+	relevance: 'op.skill.relevance',
+	sciences: 'op.skill.sciences',
+	crime: 'op.skill.crime',
+	diplomacy: 'op.skill.diplomacy',
+	deception: 'op.skill.deception',
+	resilience: 'op.skill.resilience',
+	stealth: 'op.skill.stealth',
+	initiative: 'op.skill.initiative',
+	intimidation: 'op.skill.intimidation',
+	intuition: 'op.skill.intuition',
+	investigation: 'op.skill.investigation',
+	fighting: 'op.skill.fighting',
+	medicine: 'op.skill.medicine',
+	occultism: 'op.skill.occultism',
+	perception: 'op.skill.perception',
+	driving: 'op.skill.driving',
+	aim: 'op.skill.aim',
+	reflexes: 'op.skill.reflexes',
+	religion: 'op.skill.religion',
+	survival: 'op.skill.survival',
+	tactics: 'op.skill.tactics',
+	technology: 'op.skill.technology',
+	will: 'op.skill.will',
 };
 
-ordemparanormal.attackSkills = {
-	fighting: 'ordemparanormal.skill.fighting',
-	aim: 'ordemparanormal.skill.aim',
-	deception: 'ordemparanormal.skill.deception',
-	occultism: 'ordemparanormal.skill.occultism',
-};
-
-/**
- * The set of Ability Scores used within the system.
- * @type {Object}
- */
-ordemparanormal.dropdownDegree = {
-	untrained: 'ordemparanormal.degreeTrainingChoices.dest',
-	trained: 'ordemparanormal.degreeTrainingChoices.trei',
-	veteran: 'ordemparanormal.degreeTrainingChoices.vet',
-	expert: 'ordemparanormal.degreeTrainingChoices.expe',
+op.attackSkills = {
+	fighting: 'op.skill.fighting',
+	aim: 'op.skill.aim',
+	deception: 'op.skill.deception',
+	occultism: 'op.skill.occultism',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownClass = {
-	fighter: 'ordemparanormal.classChoices.fighter',
-	specialist: 'ordemparanormal.classChoices.specialist',
-	occultist: 'ordemparanormal.classChoices.occultist',
-	survivor: 'ordemparanormal.classChoices.survivor'
+op.dropdownDegree = {
+	untrained: 'op.degreeTrainingChoices.dest',
+	trained: 'op.degreeTrainingChoices.trei',
+	veteran: 'op.degreeTrainingChoices.vet',
+	expert: 'op.degreeTrainingChoices.expe',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownTrilha = {
+op.dropdownClass = {
+	fighter: 'op.classChoices.fighter',
+	specialist: 'op.classChoices.specialist',
+	occultist: 'op.classChoices.occultist',
+	survivor: 'op.classChoices.survivor'
+};
+
+/**
+ * The set of Ability Scores used within the system.
+ * @type {Object}
+ */
+op.dropdownTrilha = {
 	fighter: [
-		{name: 'agenteSecreto', label: 'ordemparanormal.trilhas.agenteSecreto'},
-		{name: 'aniquilador', label: 'ordemparanormal.trilhas.aniquilador'},
-		{name: 'cacador', label: 'ordemparanormal.trilhas.cacador'},
-		{name: 'comanDeCamp', label: 'ordemparanormal.trilhas.comandanteDeCampo'},
-		{name: 'guerreiro', label: 'ordemparanormal.trilhas.guerreiro'},
-		{name: 'monstruoso', label: 'ordemparanormal.trilhas.monstruoso'},
-		{name: 'opeEspeciais', label: 'ordemparanormal.trilhas.operacoesEspeciais'},
-		{name: 'tropaChoque', label: 'ordemparanormal.trilhas.tropaDeChoque'},
+		{name: 'agenteSecreto', label: 'op.trilhas.agenteSecreto'},
+		{name: 'aniquilador', label: 'op.trilhas.aniquilador'},
+		{name: 'cacador', label: 'op.trilhas.cacador'},
+		{name: 'comanDeCamp', label: 'op.trilhas.comandanteDeCampo'},
+		{name: 'guerreiro', label: 'op.trilhas.guerreiro'},
+		{name: 'monstruoso', label: 'op.trilhas.monstruoso'},
+		{name: 'opeEspeciais', label: 'op.trilhas.operacoesEspeciais'},
+		{name: 'tropaChoque', label: 'op.trilhas.tropaDeChoque'},
 	],
 	specialist: [
-		{name: 'atiradorElite', label: 'ordemparanormal.trilhas.atiradorDeElite'},
-		{name: 'bibliotecario', label: 'ordemparanormal.trilhas.bibliotecario'},
-		{name: 'infiltrador', label: 'ordemparanormal.trilhas.infiltrador'},
-		{name: 'medicoCampo', label: 'ordemparanormal.trilhas.medicoDeCampo'},
-		{name: 'muambeiro', label: 'ordemparanormal.trilhas.muambeiro'},
-		{name: 'negociador', label: 'ordemparanormal.trilhas.negociador'},
-		{name: 'perseverante', label: 'ordemparanormal.trilhas.perseverante'},
-		{name: 'tecnico', label: 'ordemparanormal.trilhas.tecnico'},
+		{name: 'atiradorElite', label: 'op.trilhas.atiradorDeElite'},
+		{name: 'bibliotecario', label: 'op.trilhas.bibliotecario'},
+		{name: 'infiltrador', label: 'op.trilhas.infiltrador'},
+		{name: 'medicoCampo', label: 'op.trilhas.medicoDeCampo'},
+		{name: 'muambeiro', label: 'op.trilhas.muambeiro'},
+		{name: 'negociador', label: 'op.trilhas.negociador'},
+		{name: 'perseverante', label: 'op.trilhas.perseverante'},
+		{name: 'tecnico', label: 'op.trilhas.tecnico'},
 	],
 	occultist: [
-		{name: 'conduite', label: 'ordemparanormal.trilhas.conduite'},
-		{name: 'exorcista', label: 'ordemparanormal.trilhas.exorcista'},
-		{name: 'flagelador', label: 'ordemparanormal.trilhas.flagelador'},
-		{name: 'graduado', label: 'ordemparanormal.trilhas.graduado'},
-		{name: 'intuitivo', label: 'ordemparanormal.trilhas.intuitivo'},
-		{name: 'laminaParanormal', label: 'ordemparanormal.trilhas.laminaParanormal'},
-		{name: 'parapsicologo', label: 'ordemparanormal.trilhas.parapsicologo'},
-		{name: 'possuido', label: 'ordemparanormal.trilhas.possuido'},
+		{name: 'conduite', label: 'op.trilhas.conduite'},
+		{name: 'exorcista', label: 'op.trilhas.exorcista'},
+		{name: 'flagelador', label: 'op.trilhas.flagelador'},
+		{name: 'graduado', label: 'op.trilhas.graduado'},
+		{name: 'intuitivo', label: 'op.trilhas.intuitivo'},
+		{name: 'laminaParanormal', label: 'op.trilhas.laminaParanormal'},
+		{name: 'parapsicologo', label: 'op.trilhas.parapsicologo'},
+		{name: 'possuido', label: 'op.trilhas.possuido'},
 	],
 	survivor: [
-		{name: 'durao', label: 'ordemparanormal.trilhas.durao'},
-		{name: 'esperto', label: 'ordemparanormal.trilhas.esperto'},
-		{name: 'esoterico', label: 'ordemparanormal.trilhas.esoterico'},
+		{name: 'durao', label: 'op.trilhas.durao'},
+		{name: 'esperto', label: 'op.trilhas.esperto'},
+		{name: 'esoterico', label: 'op.trilhas.esoterico'},
 	],
 };
 
@@ -138,150 +138,150 @@ ordemparanormal.dropdownTrilha = {
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownOrigins = {
-	academico: 'ordemparanormal.originsChoices.academico',
-	agenteDeSaude: 'ordemparanormal.originsChoices.agenteDeSaude',
-	amigoDosAnimais: 'ordemparanormal.originsChoices.amigoDosAnimais',
-	amnesico: 'ordemparanormal.originsChoices.amnesico',
-	artista: 'ordemparanormal.originsChoices.artista',
-	astronauta: 'ordemparanormal.originsChoices.astronauta',
-	atleta: 'ordemparanormal.originsChoices.atleta',
-	chefDoOutroLado: 'ordemparanormal.originsChoices.chefDoOutroLado',
-	chef: 'ordemparanormal.originsChoices.chef',
-	colegial: 'ordemparanormal.originsChoices.colegial',
-	cosplayer: 'ordemparanormal.originsChoices.cosplayer',
-	criminoso: 'ordemparanormal.originsChoices.criminoso',
-	cultistaArrependido: 'ordemparanormal.originsChoices.cultistaArrependido',
-	desgarrado: 'ordemparanormal.originsChoices.desgarrado',
-	diplomata: 'ordemparanormal.originsChoices.diplomata',
-	engenheiro: 'ordemparanormal.originsChoices.engenheiro',
-	executivo: 'ordemparanormal.originsChoices.executivo',
-	explorador: 'ordemparanormal.originsChoices.explorador',
-	experimento: 'ordemparanormal.originsChoices.experimento',
-	fanaticoPorCriaturas: 'ordemparanormal.originsChoices.fanaticoPorCriaturas',
-	fotografo: 'ordemparanormal.originsChoices.fotografo',
-	inventorParanormal: 'ordemparanormal.originsChoices.inventorParanormal',
-	investigador: 'ordemparanormal.originsChoices.investigador',
-	jovemMistico: 'ordemparanormal.originsChoices.jovemMistico',
-	legistaDoTurnoDaNoite: 'ordemparanormal.originsChoices.legistaDoTurnoDaNoite',
-	lutador: 'ordemparanormal.originsChoices.lutador',
-	magnata: 'ordemparanormal.originsChoices.magnata',
-	mateiro: 'ordemparanormal.originsChoices.mateiro',
-	mercenario: 'ordemparanormal.originsChoices.mercenario',
-	mergulhador: 'ordemparanormal.originsChoices.mergulhador',
-	militar: 'ordemparanormal.originsChoices.militar',
-	motorista: 'ordemparanormal.originsChoices.motorista',
-	nerdEntusiasta: 'ordemparanormal.originsChoices.nerdEntusiasta',
-	operario: 'ordemparanormal.originsChoices.operario',
-	policial: 'ordemparanormal.originsChoices.policial',
-	profetizado: 'ordemparanormal.originsChoices.profetizado',
-	psicologo: 'ordemparanormal.originsChoices.psicologo',
-	religioso: 'ordemparanormal.originsChoices.religioso',
-	reporterInvestigativo: 'ordemparanormal.originsChoices.reporterInvestigativo',
-	servidorPublico: 'ordemparanormal.originsChoices.servidorPublico',
-	teóricoDaConspiracao: 'ordemparanormal.originsChoices.teóricoDaConspiracao',
-	'TI.': 'ordemparanormal.originsChoices.TI',
-	trabalhadorRural: 'ordemparanormal.originsChoices.trabalhadorRural',
-	trambiqueiro: 'ordemparanormal.originsChoices.trambiqueiro',
-	universitario: 'ordemparanormal.originsChoices.universitario',
-	vítima: 'ordemparanormal.originsChoices.vítima',
+op.dropdownOrigins = {
+	academico: 'op.originsChoices.academico',
+	agenteDeSaude: 'op.originsChoices.agenteDeSaude',
+	amigoDosAnimais: 'op.originsChoices.amigoDosAnimais',
+	amnesico: 'op.originsChoices.amnesico',
+	artista: 'op.originsChoices.artista',
+	astronauta: 'op.originsChoices.astronauta',
+	atleta: 'op.originsChoices.atleta',
+	chefDoOutroLado: 'op.originsChoices.chefDoOutroLado',
+	chef: 'op.originsChoices.chef',
+	colegial: 'op.originsChoices.colegial',
+	cosplayer: 'op.originsChoices.cosplayer',
+	criminoso: 'op.originsChoices.criminoso',
+	cultistaArrependido: 'op.originsChoices.cultistaArrependido',
+	desgarrado: 'op.originsChoices.desgarrado',
+	diplomata: 'op.originsChoices.diplomata',
+	engenheiro: 'op.originsChoices.engenheiro',
+	executivo: 'op.originsChoices.executivo',
+	explorador: 'op.originsChoices.explorador',
+	experimento: 'op.originsChoices.experimento',
+	fanaticoPorCriaturas: 'op.originsChoices.fanaticoPorCriaturas',
+	fotografo: 'op.originsChoices.fotografo',
+	inventorParanormal: 'op.originsChoices.inventorParanormal',
+	investigador: 'op.originsChoices.investigador',
+	jovemMistico: 'op.originsChoices.jovemMistico',
+	legistaDoTurnoDaNoite: 'op.originsChoices.legistaDoTurnoDaNoite',
+	lutador: 'op.originsChoices.lutador',
+	magnata: 'op.originsChoices.magnata',
+	mateiro: 'op.originsChoices.mateiro',
+	mercenario: 'op.originsChoices.mercenario',
+	mergulhador: 'op.originsChoices.mergulhador',
+	militar: 'op.originsChoices.militar',
+	motorista: 'op.originsChoices.motorista',
+	nerdEntusiasta: 'op.originsChoices.nerdEntusiasta',
+	operario: 'op.originsChoices.operario',
+	policial: 'op.originsChoices.policial',
+	profetizado: 'op.originsChoices.profetizado',
+	psicologo: 'op.originsChoices.psicologo',
+	religioso: 'op.originsChoices.religioso',
+	reporterInvestigativo: 'op.originsChoices.reporterInvestigativo',
+	servidorPublico: 'op.originsChoices.servidorPublico',
+	teóricoDaConspiracao: 'op.originsChoices.teóricoDaConspiracao',
+	'TI.': 'op.originsChoices.TI',
+	trabalhadorRural: 'op.originsChoices.trabalhadorRural',
+	trambiqueiro: 'op.originsChoices.trambiqueiro',
+	universitario: 'op.originsChoices.universitario',
+	vítima: 'op.originsChoices.vítima',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownWeaponType = {
-	melee: 'ordemparanormal.weaponTypeChoices.melee',
-	ranged: 'ordemparanormal.weaponTypeChoices.ranged',
+op.dropdownWeaponType = {
+	melee: 'op.weaponTypeChoices.melee',
+	ranged: 'op.weaponTypeChoices.ranged',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownWeaponSubType = {
-	// 'throw': 'ordemparanormal.weaponSubTypeChoices.throw',
-	shoot: 'ordemparanormal.weaponSubTypeChoices.shoot',
-	fire: 'ordemparanormal.weaponSubTypeChoices.fire',
+op.dropdownWeaponSubType = {
+	// 'throw': 'op.weaponSubTypeChoices.throw',
+	shoot: 'op.weaponSubTypeChoices.shoot',
+	fire: 'op.weaponSubTypeChoices.fire',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownWeaponGripType = {
-	light: 'ordemparanormal.weaponGripTypeChoices.light',
-	oneHand: 'ordemparanormal.weaponGripTypeChoices.oneHand',
-	twoHands: 'ordemparanormal.weaponGripTypeChoices.twoHands',
+op.dropdownWeaponGripType = {
+	light: 'op.weaponGripTypeChoices.light',
+	oneHand: 'op.weaponGripTypeChoices.oneHand',
+	twoHands: 'op.weaponGripTypeChoices.twoHands',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownWeaponAmmunition = {
-	shortBullets: 'ordemparanormal.weaponAmmunitionChoices.shortBullets',
-	longBullets: 'ordemparanormal.weaponAmmunitionChoices.longBullets',
-	fuel: 'ordemparanormal.weaponAmmunitionChoices.fuel',
-	arrows: 'ordemparanormal.weaponAmmunitionChoices.arrows',
-	rocket: 'ordemparanormal.weaponAmmunitionChoices.rocket',
-	cartridge: 'ordemparanormal.weaponAmmunitionChoices.cartridge',
+op.dropdownWeaponAmmunition = {
+	shortBullets: 'op.weaponAmmunitionChoices.shortBullets',
+	longBullets: 'op.weaponAmmunitionChoices.longBullets',
+	fuel: 'op.weaponAmmunitionChoices.fuel',
+	arrows: 'op.weaponAmmunitionChoices.arrows',
+	rocket: 'op.weaponAmmunitionChoices.rocket',
+	cartridge: 'op.weaponAmmunitionChoices.cartridge',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownProficiency = {
-	simpleWeapons: 'ordemparanormal.proficiencyChoices.simpleWeapons',
-	tacticalWeapons: 'ordemparanormal.proficiencyChoices.tacticalWeapons',
-	heavyWeapons: 'ordemparanormal.proficiencyChoices.heavyWeapons',
+op.dropdownProficiency = {
+	simpleWeapons: 'op.proficiencyChoices.simpleWeapons',
+	tacticalWeapons: 'op.proficiencyChoices.tacticalWeapons',
+	heavyWeapons: 'op.proficiencyChoices.heavyWeapons',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownDamageType = {
-	cuttingDamage: 'ordemparanormal.damageTypeChoices.cuttingDamage',
-	impactDamage: 'ordemparanormal.damageTypeChoices.impactDamage',
-	piercingDamage: 'ordemparanormal.damageTypeChoices.piercingDamage',
-	ballisticDamage: 'ordemparanormal.damageTypeChoices.ballisticDamage',
+op.dropdownDamageType = {
+	cuttingDamage: 'op.damageTypeChoices.cuttingDamage',
+	impactDamage: 'op.damageTypeChoices.impactDamage',
+	piercingDamage: 'op.damageTypeChoices.piercingDamage',
+	ballisticDamage: 'op.damageTypeChoices.ballisticDamage',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownPowerType = {
-	class: 'ordemparanormal.powerTypeChoices.class',
-	paranormal: 'ordemparanormal.powerTypeChoices.paranormal',
-	path: 'ordemparanormal.powerTypeChoices.path',
-	ability: 'ordemparanormal.powerTypeChoices.ability',
+op.dropdownPowerType = {
+	class: 'op.powerTypeChoices.class',
+	paranormal: 'op.powerTypeChoices.paranormal',
+	path: 'op.powerTypeChoices.path',
+	ability: 'op.powerTypeChoices.ability',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.categories = { 0: '0', 1: 'I', 2: 'II', 3: 'III', 4: 'IV' };
+op.categories = { 0: '0', 1: 'I', 2: 'II', 3: 'III', 4: 'IV' };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.ritualDegree = { 5: 'Outro', 1: '1', 2: '2', 3: '3', 4: '4' };
+op.ritualDegree = { 5: 'Outro', 1: '1', 2: '2', 3: '3', 4: '4' };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownExecution = {
-	free: 'ordemparanormal.executionChoices.free',
-	default: 'ordemparanormal.executionChoices.default',
-	complete: 'ordemparanormal.executionChoices.complete',
-	reaction: 'ordemparanormal.executionChoices.reaction',
+op.dropdownExecution = {
+	free: 'op.executionChoices.free',
+	default: 'op.executionChoices.default',
+	complete: 'op.executionChoices.complete',
+	reaction: 'op.executionChoices.reaction',
 };
 
 // TODO: Cogitar mudar os valores para números por conta dos nomes em inglês talvez estarem incorretos no futuro.
@@ -289,43 +289,43 @@ ordemparanormal.dropdownExecution = {
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownRange = {
-	personal: 'ordemparanormal.rangeChoices.personal',
-	touch: 'ordemparanormal.rangeChoices.touch',
-	short: 'ordemparanormal.rangeChoices.short',
-	medium: 'ordemparanormal.rangeChoices.medium',
-	long: 'ordemparanormal.rangeChoices.long',
-	extreme: 'ordemparanormal.rangeChoices.extreme',
-	unlimited: 'ordemparanormal.rangeChoices.unlimited',
+op.dropdownRange = {
+	personal: 'op.rangeChoices.personal',
+	touch: 'op.rangeChoices.touch',
+	short: 'op.rangeChoices.short',
+	medium: 'op.rangeChoices.medium',
+	long: 'op.rangeChoices.long',
+	extreme: 'op.rangeChoices.extreme',
+	unlimited: 'op.rangeChoices.unlimited',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownTarget = {
-	people: 'ordemparanormal.targetChoices.people',
-	creatures: 'ordemparanormal.targetChoices.creatures',
-	animals: 'ordemparanormal.targetChoices.animals',
-	weapons: 'ordemparanormal.targetChoices.weapons',
-	equipment: 'ordemparanormal.targetChoices.equipment',
-	area: 'ordemparanormal.targetChoices.area',
+op.dropdownTarget = {
+	people: 'op.targetChoices.people',
+	creatures: 'op.targetChoices.being',
+	animals: 'op.targetChoices.animals',
+	weapons: 'op.targetChoices.weapons',
+	equipment: 'op.targetChoices.equipment',
+	area: 'op.targetChoices.area',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownArea = {
-	cone: 'ordemparanormal.areaChoices.cone',
-	cube: 'ordemparanormal.areaChoices.cube',
-	sphere: 'ordemparanormal.areaChoices.sphere',
-	line: 'ordemparanormal.areaChoices.line',
+op.dropdownArea = {
+	cone: 'op.areaChoices.cone',
+	cube: 'op.areaChoices.cube',
+	sphere: 'op.areaChoices.sphere',
+	line: 'op.areaChoices.line',
 };
 
-ordemparanormal.dropdownAreaType = {
-	radius: 'ordemparanormal.areaTypeChoices.radius',
-	diameter: 'ordemparanormal.areaTypeChoices.diameter',
+op.dropdownAreaType = {
+	radius: 'op.areaTypeChoices.radius',
+	diameter: 'op.areaTypeChoices.diameter',
 };
 
 /**
@@ -333,12 +333,12 @@ ordemparanormal.dropdownAreaType = {
  * @type {Object}
  */
 (
-	ordemparanormal.dropdownDuration = {
-		instantaneous: 'ordemparanormal.durationChoices.instantaneous',
-		scene: 'ordemparanormal.durationChoices.scene',
-		sustained: 'ordemparanormal.durationChoices.sustained',
-		setDuration: 'ordemparanormal.durationChoices.setDuration',
-		permanent: 'ordemparanormal.durationChoices.permanent',
+	op.dropdownDuration = {
+		instantaneous: 'op.durationChoices.instantaneous',
+		scene: 'op.durationChoices.scene',
+		sustained: 'op.durationChoices.sustained',
+		setDuration: 'op.durationChoices.setDuration',
+		permanent: 'op.durationChoices.permanent',
 	}
 );
 
@@ -346,31 +346,31 @@ ordemparanormal.dropdownAreaType = {
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownResistance = {
-	nullifies: 'ordemparanormal.resistanceChoices.nullifies',
-	discredits: 'ordemparanormal.resistanceChoices.discredits',
-	partial: 'ordemparanormal.resistanceChoices.partial',
-	reducesByHalf: 'ordemparanormal.resistanceChoices.reducesByHalf',
+op.dropdownResistance = {
+	nullifies: 'op.resistanceChoices.nullifies',
+	discredits: 'op.resistanceChoices.discredits',
+	partial: 'op.resistanceChoices.partial',
+	reducesByHalf: 'op.resistanceChoices.reducesByHalf',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownSkillResis = {
-	resilience: 'ordemparanormal.skill.resilience',
-	reflexes: 'ordemparanormal.skill.reflexes',
-	will: 'ordemparanormal.skill.will',
+op.dropdownSkillResis = {
+	resilience: 'op.skill.resilience',
+	reflexes: 'op.skill.reflexes',
+	will: 'op.skill.will',
 };
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-ordemparanormal.dropdownElement = {
-	blood: 'ordemparanormal.elementChoices.blood',
-	death: 'ordemparanormal.elementChoices.death',
-	knowledge: 'ordemparanormal.elementChoices.knowledge',
-	energy: 'ordemparanormal.elementChoices.energy',
-	fear: 'ordemparanormal.elementChoices.fear',
+op.dropdownElement = {
+	blood: 'op.elementChoices.blood',
+	death: 'op.elementChoices.death',
+	knowledge: 'op.elementChoices.knowledge',
+	energy: 'op.elementChoices.energy',
+	fear: 'op.elementChoices.fear',
 };

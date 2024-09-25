@@ -122,7 +122,7 @@ export class OrdemItem extends Item {
 			// 	  await ordemparanormal.canvas.AbilityTemplate.fromItem(item)?.drawPreview();
 			// 	} catch(err) {
 			// 	  Hooks.onError('Item5e._onChatCardAction', err, {
-			// 			msg: game.i18n.localize('ordemparanormal.PlaceTemplateError'),
+			// 			msg: game.i18n.localize('op.PlaceTemplateError'),
 			// 			log: 'error',
 			// 			notify: 'error'
 			// 	  });
@@ -288,9 +288,7 @@ export class OrdemItem extends Item {
 			critical.multiplier = (formulaCritical.includes('x') && formulaCritical.replaceAll('x', '')) || 2;
 			critical.margin = (!formulaCritical.includes('x') && formulaCritical) || 20;
 		}
-
 		critical.isCritical = (Number(critical.roll.result.split('+')[0]) || critical.roll.result) >= critical.margin && true;
-
 		return critical;
 	}
 
@@ -323,12 +321,12 @@ export class OrdemItem extends Item {
 		}
 
 		// Get the main type damage
-		damageTypes.push(game.i18n.localize('ordemparanormal.damageTypeAbv.' + damage.type));
+		damageTypes.push(game.i18n.localize('op.damageTypeAbv.' + damage.type));
 
 		// Get all the other formulas
 		for (const parts of damage.parts) {
 			prepareFormula.push(`(${parts[0] || 0})`);
-			damageTypes.push(parts[1] ? game.i18n.localize('ordemparanormal.damageTypeAbv.' + parts[1]) : 'Indefinido');
+			damageTypes.push(parts[1] ? game.i18n.localize('op.damageTypeAbv.' + parts[1]) : 'Indefinido');
 		}
 
 		// Combine all formulas and types
@@ -425,21 +423,21 @@ export class OrdemItem extends Item {
 
 		if (item.type == 'armament') {
 			if (this.system?.proficiency)
-				templateData.info.push(game.i18n.localize('ordemparanormal.proficiencyChoices.' + this.system.proficiency));
+				templateData.info.push(game.i18n.localize('op.proficiencyChoices.' + this.system.proficiency));
 			if (this.system?.critical) templateData.info.push(this.system.critical);
 			if (this.system.types?.gripType)
-				templateData.info.push(game.i18n.localize('ordemparanormal.weaponGripTypeChoices.' + this.system.types.gripType));
+				templateData.info.push(game.i18n.localize('op.weaponGripTypeChoices.' + this.system.types.gripType));
 			if (this.system.types?.rangeType?.name)
-				templateData.info.push(game.i18n.localize('ordemparanormal.weaponTypeChoices.' + this.system.types.rangeType.name));
+				templateData.info.push(game.i18n.localize('op.weaponTypeChoices.' + this.system.types.rangeType.name));
 			if (this.system.types?.damageType)
-				templateData.info.push(game.i18n.localize('ordemparanormal.damageTypeChoices.' + this.system.types.damageType));
-			if (this.system.conditions?.improvised) templateData.info.push(game.i18n.localize('ordemparanormal.improvised'));
-			if (this.system.conditions?.throwable) templateData.info.push(game.i18n.localize('ordemparanormal.throwable'));
-			if (this.system.conditions?.agile) templateData.info.push(game.i18n.localize('ordemparanormal.agile'));
-			if (this.system.conditions?.automatic) templateData.info.push(game.i18n.localize('ordemparanormal.automatic'));
+				templateData.info.push(game.i18n.localize('op.damageTypeChoices.' + this.system.types.damageType));
+			if (this.system.conditions?.improvised) templateData.info.push(game.i18n.localize('op.improvised'));
+			if (this.system.conditions?.throwable) templateData.info.push(game.i18n.localize('op.throwable'));
+			if (this.system.conditions?.agile) templateData.info.push(game.i18n.localize('op.agile'));
+			if (this.system.conditions?.automatic) templateData.info.push(game.i18n.localize('op.automatic'));
 			if (this.system.conditions?.adaptableGrip)
-				templateData.info.push(game.i18n.localize('ordemparanormal.adaptableGrip'));
-			if (this.system.conditions?.pistolBlow) templateData.info.push(game.i18n.localize('ordemparanormal.pistolBlow'));
+				templateData.info.push(game.i18n.localize('op.adaptableGrip'));
+			if (this.system.conditions?.pistolBlow) templateData.info.push(game.i18n.localize('op.pistolBlow'));
 		}
 
 		if (item.type == 'ritual') {

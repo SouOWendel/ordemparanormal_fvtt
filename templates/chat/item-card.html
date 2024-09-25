@@ -2,52 +2,64 @@
 	<div class="header">
 		<img src="{{item.img}}" title="{{item.name}}" width="36px" height="36px" style="float: left" />
 		<h2>{{item.name}}</h2>
+		{{log data}}
 	</div>
-	{{#if data.circle}} {{#if data.element}}<span class="element {{data.element}}"
-		>{{localize (concat "ordemparanormal.elementChoices." data.element)}} {{data.circle}}</span
-	>
+	{{#if data.circle}} {{#if data.element}}
+	<span class="element {{data.element}}">
+		{{localize (concat "op.elementChoices." data.element)}} {{data.circle}}
+	</span>
 	{{/if}}
 	<div class="ritual-info">
 		{{#if data.execution}}
 		<p>
-			<strong>{{localize "ordemparanormal.execution"}}.</strong>
-			{{localize (concat "ordemparanormal.executionChoices." data.execution)}}
+			<strong>{{localize "op.execution"}}.</strong>
+			{{localize (concat "op.executionChoices." data.execution)}}
 		</p>
-		{{/if}} {{#if data.range}}
+		{{/if}}
+		{{#if data.range}}
 		<p>
-			<strong>{{localize "ordemparanormal.range"}}.</strong> {{localize (concat "ordemparanormal.rangeChoices."
-			data.range)}}
+			<strong>{{localize "op.range"}}.</strong>
+			{{localize (concat "op.rangeChoices." data.range)}}
 		</p>
-		{{/if}} {{#if data.target}}
+		{{/if}}
+		{{#if data.target}}
 		<p>
-			<strong>{{localize "ordemparanormal.target"}}.</strong> {{localize (concat "ordemparanormal.targetChoices."
-			data.target)}}
+			<strong>{{localize "op.target"}}.</strong>
+			{{localize (concat "op.targetChoices." data.target)}}
+			{{#ifEquals data.target "people"}}{{data.targetQtd}}{{/ifEquals}}
+			{{#ifEquals data.target "area"}}
+				{{data.area.name}}
+				{{data.area.size}}
+				{{data.area.type}}
+			{{/ifEquals}}
 		</p>
-		{{/if}} {{#if data.duration}}
+		{{/if}}
+		{{#if data.duration}}
 		<p>
-			<strong>{{localize "ordemparanormal.duration"}}.</strong> {{localize (concat "ordemparanormal.durationChoices."
-			data.duration)}}
+			<strong>{{localize "op.duration"}}.</strong>
+			{{localize (concat "op.durationChoices." data.duration)}}
 		</p>
-		{{/if}} {{#if data.resistance}}
+		{{/if}}
+		{{#if data.resistance}}
 		<p>
-			<strong>{{localize "ordemparanormal.resistance"}}.</strong>
-			{{localize (concat "ordemparanormal.resistanceChoices." data.resistance)}}
+			<strong>{{localize "op.resistance"}}.</strong>
+			{{localize (concat "op.resistanceChoices." data.resistance)}}
 		</p>
 		{{/if}}
 	</div>
 	{{/if}}
 	<h4>
 		<details>
-			<summary>{{localize "ordemparanormal.description"}}</summary>
+			<summary>{{localize "op.description"}}</summary>
 			{{{item.system.description}}}
 		</details>
 	</h4>
 	{{#ifEquals item.type "armament"}}
 	<table>
 		<tr>
-			<th>{{localize "ordemparanormal.damage"}}</th>
-			<th>{{localize "ordemparanormal.critical"}}</th>
-			<th>{{localize "ordemparanormal.range"}}</th>
+			<th>{{localize "op.damage"}}</th>
+			<th>{{localize "op.critical"}}</th>
+			<th>{{localize "op.range"}}</th>
 		</tr>
 		<tr>
 			<td>{{item.system.formulas.damage.formula}} {{#each item.system.formulas.damage.parts}}{{this.[0]}} {{/each}}</td>
@@ -58,9 +70,9 @@
 	{{/ifEquals}}
 	<div class="card-buttons">
 		{{#if data.formulas.attack}}
-		<button data-action="attack"><i class="fa-solid fa-dice-d20"></i> {{localize "ordemparanormal.rollAtk"}}</button>
+		<button data-action="attack"><i class="fa-solid fa-dice-d20"></i> {{localize "op.rollAtk"}}</button>
 		{{/if}} {{#if data.formulas.damage}}
-		<button data-action="damage"><i class="fa-solid fa-dice"></i> {{localize "ordemparanormal.rollDmg"}}</button>
+		<button data-action="damage"><i class="fa-solid fa-dice"></i> {{localize "op.rollDmg"}}</button>
 		{{/if}}
 		<!-- {{#if data.studentForm}}
 		<button data-action="attack">
