@@ -30,7 +30,9 @@
       "label": "Origem e Insanidade",
       "system": "ordemparanormal",
       "type": "RollTable",
-      "path": "packs/compiled/tables/generalPTBR",
+      "path": "packs/generalptbr",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -40,7 +42,9 @@
       "label": "Criando Missões",
       "system": "ordemparanormal",
       "type": "RollTable",
-      "path": "packs/compiled/tables/createMissionPTBR",
+      "path": "packs/createmissionptbr",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -49,8 +53,10 @@
       "name": "maps",
       "label": "Mapas Populares",
       "system": "ordemparanormal",
-      "path": "packs/compiled/maps",
+      "path": "packs/maps",
       "type": "Scene",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -60,7 +66,9 @@
       "label": "Armamentos",
       "system": "ordemparanormal",
       "type": "Item",
-      "path": "packs/compiled/items/armaments",
+      "path": "packs/armaments",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -69,8 +77,10 @@
       "name": "generalEquipments",
       "label": "Equipamentos Gerais",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/general",
+      "path": "packs/generalEquipments",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -79,8 +89,10 @@
       "name": "protections",
       "label": "Proteções",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/protections",
+      "path": "packs/protections",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -89,8 +101,10 @@
       "name": "fighterAbilities",
       "label": "Habilidades de Combatente",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/abilities/fighterAbilities",
+      "path": "packs/fighterAbilities",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -99,8 +113,10 @@
       "name": "specialistAbilities",
       "label": "Habilidades de Especialista",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/abilities/specialistAbilities",
+      "path": "packs/specialistAbilities",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -109,8 +125,10 @@
       "name": "occultistAbilities",
       "label": "Habilidades de Ocultista",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/abilities/occultistAbilities",
+      "path": "packs/occultistAbilities",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -119,8 +137,10 @@
       "name": "originAbilities",
       "label": "Habilidades de Origem",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/abilities/originAbilities",
+      "path": "packs/originAbilities",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -129,8 +149,10 @@
       "name": "paranormalAbilities",
       "label": "Poderes Paranormais",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/abilities/paranormalAbilities",
+      "path": "packs/paranormalAbilities",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -139,8 +161,10 @@
       "name": "pathFighter",
       "label": "Trilhas de Combatente",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/abilities/pathFighter",
+      "path": "packs/pathFighter",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -149,8 +173,10 @@
       "name": "pathSpecialist",
       "label": "Trilhas de Especialista",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/abilities/pathSpecialist",
+      "path": "packs/pathSpecialist",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -159,8 +185,10 @@
       "name": "pathOccultist",
       "label": "Trilhas de Ocultista",
       "system": "ordemparanormal",
-      "path": "packs/compiled/items/abilities/pathOccultist",
+      "path": "packs/pathOccultist",
       "type": "Item",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
@@ -169,8 +197,10 @@
       "name": "documentation",
       "label": "Documentação do Sistema",
       "system": "ordemparanormal",
-      "path": "packs/compiled/journal/documentation",
+      "path": "packs/documentation",
       "type": "JournalEntry",
+      "private": false,
+      "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER"
       }
