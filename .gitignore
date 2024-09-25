@@ -16,8 +16,6 @@ packs/paranormalAbilities
 packs/pathFighter
 packs/pathOccultist
 packs/pathSpecialist
-packs/compiled
-packs/
 
 # FORMATS
 *.map
