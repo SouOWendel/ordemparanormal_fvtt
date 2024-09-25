@@ -5,7 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"commit": "git-cz",
-		"sass": "npx sass --watch scss/ordemparanormal_fvtt.scss css/ordemparanormal_fvtt.css"
+		"sass": "npx sass --watch scss/ordemparanormal_fvtt.scss css/ordemparanormal_fvtt.css",
+		"build:db": "node ./utils/packs.mjs package pack",
+		"build:json": "node ./utils/packs.mjs package unpack"
 	},
 	"repository": {
 		"type": "git",
@@ -36,9 +38,11 @@
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin": "^1.0.1",
 		"eslint-plugin-import": "^2.28.1",
+		"fancy-log": "^2.0.0",
 		"husky": "^8.0.3",
 		"nedb": "^1.8.0",
-		"prettier": "3.0.3"
+		"prettier": "3.0.3",
+		"yargs": "^17.7.2"
 	},
 	"config": {
 		"commitizen": {
