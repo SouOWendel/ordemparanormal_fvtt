@@ -18,16 +18,16 @@ jobs:
     release-please:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
 
             # Criar uma release e um PR (pull-request) com base no manifest (comando e arquivo).
             # O comando manifest faz uma PR utilizando as configurações do release-please-config.json
             # se forem validas. Dentro deste arquivo, há a configuração do system.json.
-            - uses: google-github-actions/release-please-action@v3.7.13
+            - uses: googleapis/release-please-action@v3.7.13
               id: release
               with:
                   command: manifest
-                  token: ${{secrets.GITHUB_TOKEN}}
+                  token: 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
                   release-type: node
 
                 
@@ -61,6 +61,23 @@ jobs:
                 file: system.json
                 field: download
                 value: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
+              
+            # Set up Node
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '18.x'
+                cache: 'npm'
+
+            # `npm ci` is recommended:
+            # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+            - name: Install Dependencies
+              run: npm ci
+
+            # Run our `build` script
+            - name: Build All
+              run: |
+                npm run build:db --if-present
 
             # Create a zip file with all files required by the module to add to the release
             - name: Create Zip with Name and Release Version
@@ -74,7 +91,7 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
               env:
                   ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: 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
               run: |
                   gh release upload ${{ steps.release.outputs.tag_name }} ./system.json
                   gh release upload ${{ steps.release.outputs.tag_name }} ./$ZIP_NAME

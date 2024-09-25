@@ -5,7 +5,7 @@
   "img": "systems/ordemparanormal/media/icons/general%20equipments/Mochila%20militar.svg",
   "system": {
     "description": "<p>Uma mochila leve e de alta qualidade. Ela n&atilde;o usa nenhum espa&ccedil;o e aumenta sua capacidade de carga em 2 espa&ccedil;os.</p>",
-    "weight": 1,
+    "weight": 0,
     "category": "0",
     "using": {
       "state": true,
@@ -68,11 +68,11 @@
   "flags": {},
   "_stats": {
     "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
+    "systemVersion": "6.8.1",
     "coreVersion": "12.331",
     "createdTime": 1710373515742,
-    "modifiedTime": 1712193870977,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
+    "modifiedTime": 1727225757942,
+    "lastModifiedBy": "xs21URZWUPeekFqw",
     "compendiumSource": null,
     "duplicateSource": null
   },
