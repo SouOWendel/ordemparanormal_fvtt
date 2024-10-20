@@ -15,11 +15,12 @@
 export default function semverComp(min, curr, max, opt = {}) {
 	if ((!min && !max) || !curr) throw new Error(`Missing Comparators. min ${min}; curr ${curr}; max ${max}`);
   
+	console.log('OP | Intervalo de Versões %s > %s > %s', min, curr, max);
+
 	// Type converting from String to Number.
 	min = min && coerceNum(min);
 	curr = curr && coerceNum(curr);
 	max = max && coerceNum(max);
-	console.log('OP FVTT | versions range', min, curr, max);
   
 	if (min && max && opt.eqMin && opt.eqMax) return min === curr && curr === max;
 	if (min && opt.eqMin) return min === curr;
