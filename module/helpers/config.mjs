@@ -305,7 +305,7 @@ op.dropdownRange = {
  */
 op.dropdownTarget = {
 	people: 'op.targetChoices.people',
-	creatures: 'op.targetChoices.being',
+	creatures: 'op.targetChoices.creatures',
 	animals: 'op.targetChoices.animals',
 	weapons: 'op.targetChoices.weapons',
 	equipment: 'op.targetChoices.equipment',
