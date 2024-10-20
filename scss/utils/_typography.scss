@@ -3,3 +3,7 @@ $font-secondary: 'Roboto', sans-serif;
 
 $op-warnock: 'Warnock Pro', 'Roboto', sans-serif, 'Arial';
 $op-optima: 'Optima Nova LT PRO', 'Roboto', sans-serif, 'Arial';
+
+.lowercase { text-transform: lowercase; }
+.uppercase { text-transform: uppercase; }
+.capitalize { text-transform: capitalize; }

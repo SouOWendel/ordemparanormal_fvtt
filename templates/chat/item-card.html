@@ -5,46 +5,51 @@
 		{{log data}}
 	</div>
 	{{#if data.circle}} {{#if data.element}}
-	<span class="element {{data.element}}">
-		{{localize (concat "op.elementChoices." data.element)}} {{data.circle}}
-	</span>
+	<span class="element {{data.element}}">{{localize (concat "op.elementChoices." data.element)}} {{data.circle}}</span>
 	{{/if}}
 	<div class="ritual-info">
 		{{#if data.execution}}
-		<p>
-			<strong>{{localize "op.execution"}}.</strong>
-			{{localize (concat "op.executionChoices." data.execution)}}
-		</p>
+			<p>
+				<strong>{{localize "op.execution"}}:</strong>
+				<span class="lowercase">{{localize (concat "op.executionChoices." data.execution)}}</span>
+			</p>
 		{{/if}}
 		{{#if data.range}}
-		<p>
-			<strong>{{localize "op.range"}}.</strong>
-			{{localize (concat "op.rangeChoices." data.range)}}
-		</p>
+			<p>
+				<strong>{{localize "op.range"}}:</strong>
+				<span class="lowercase">{{localize (concat "op.rangeChoices." data.range)}}</span>
+			</p>
 		{{/if}}
 		{{#if data.target}}
-		<p>
-			<strong>{{localize "op.target"}}.</strong>
-			{{localize (concat "op.targetChoices." data.target)}}
-			{{#ifEquals data.target "people"}}{{data.targetQtd}}{{/ifEquals}}
-			{{#ifEquals data.target "area"}}
-				{{data.area.name}}
-				{{data.area.size}}
-				{{data.area.type}}
-			{{/ifEquals}}
-		</p>
+			<p>
+				<strong>
+					{{#ifEquals data.target "area"}}
+						{{localize (concat "op.targetChoices." data.target)}}:
+					{{/ifEquals}}
+					{{#ifInequals data.target "area"}}
+						{{localize 'op.target'}}:
+					{{/ifInequals}}
+				</strong>
+				<span class="lowercase">{{#ifInequals data.target "area"}}
+						{{#ifEquals data.target "people"}}{{data.targetQtd}}{{/ifEquals}}
+						{{#ifEquals data.target "creatures"}}{{data.targetQtd}}{{/ifEquals}}
+						{{localize (concat "op.targetChoices." data.target)}}
+				{{/ifInequals}}
+				{{#ifEquals data.target "area"}}{{i18n.areaLabel}}{{/ifEquals}}</span>
+			</p>
 		{{/if}}
 		{{#if data.duration}}
 		<p>
-			<strong>{{localize "op.duration"}}.</strong>
-			{{localize (concat "op.durationChoices." data.duration)}}
+			<strong>{{localize "op.duration"}}:</strong>
+			<span class="lowercase">{{localize (concat "op.durationChoices." data.duration)}}</span>
 		</p>
 		{{/if}}
 		{{#if data.resistance}}
-		<p>
-			<strong>{{localize "op.resistance"}}.</strong>
-			{{localize (concat "op.resistanceChoices." data.resistance)}}
-		</p>
+			<p>
+				<strong>{{localize "op.resistance"}}:</strong>
+				<span class="lowercase">{{localize (concat "op.skill." data.skillResis)}}
+				{{localize (concat "op.resistanceChoices." data.resistance)}}</span>
+			</p>
 		{{/if}}
 	</div>
 	{{/if}}
@@ -55,18 +60,18 @@
 		</details>
 	</h4>
 	{{#ifEquals item.type "armament"}}
-	<table>
-		<tr>
-			<th>{{localize "op.damage"}}</th>
-			<th>{{localize "op.critical"}}</th>
-			<th>{{localize "op.range"}}</th>
-		</tr>
-		<tr>
-			<td>{{item.system.formulas.damage.formula}} {{#each item.system.formulas.damage.parts}}{{this.[0]}} {{/each}}</td>
-			<td>{{data.critical}}</td>
-			<td>{{data.range}}</td>
-		</tr>
-	</table>
+		<table>
+			<tr>
+				<th>{{localize "op.damage"}}</th>
+				<th>{{localize "op.critical"}}</th>
+				<th>{{localize "op.range"}}</th>
+			</tr>
+			<tr>
+				<td>{{item.system.formulas.damage.formula}} {{#each item.system.formulas.damage.parts}}{{this.[0]}} {{/each}}</td>
+				<td>{{data.critical}}</td>
+				<td>{{data.range}}</td>
+			</tr>
+		</table>
 	{{/ifEquals}}
 	<div class="card-buttons">
 		{{#if data.formulas.attack}}

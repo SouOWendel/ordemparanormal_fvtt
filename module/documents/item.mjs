@@ -417,33 +417,41 @@ export class OrdemItem extends Item {
 			item: this,
 			data: await this.getChatData(),
 			labels: this.labels,
-			system: [],
+			i18n: {},
 			info: [],
 		};
 
+		// for (const [key, value] of Object.entries(this.system) ) {
+		// 	if (isNaN(value) && Boolean(value)) {}
+		// }
+
 		if (item.type == 'armament') {
-			if (this.system?.proficiency)
-				templateData.info.push(game.i18n.localize('op.proficiencyChoices.' + this.system.proficiency));
+			if (this.system?.proficiency) templateData.info.push(game.i18n.localize('op.proficiencyChoices.' + this.system.proficiency));
 			if (this.system?.critical) templateData.info.push(this.system.critical);
-			if (this.system.types?.gripType)
-				templateData.info.push(game.i18n.localize('op.weaponGripTypeChoices.' + this.system.types.gripType));
-			if (this.system.types?.rangeType?.name)
-				templateData.info.push(game.i18n.localize('op.weaponTypeChoices.' + this.system.types.rangeType.name));
-			if (this.system.types?.damageType)
-				templateData.info.push(game.i18n.localize('op.damageTypeChoices.' + this.system.types.damageType));
+			if (this.system.types?.gripType) templateData.info.push(game.i18n.localize('op.weaponGripTypeChoices.' + this.system.types.gripType));
+			if (this.system.types?.rangeType?.name) templateData.info.push(game.i18n.localize('op.weaponTypeChoices.' + this.system.types.rangeType.name));
+			if (this.system.types?.damageType) templateData.info.push(game.i18n.localize('op.damageTypeChoices.' + this.system.types.damageType));
 			if (this.system.conditions?.improvised) templateData.info.push(game.i18n.localize('op.improvised'));
 			if (this.system.conditions?.throwable) templateData.info.push(game.i18n.localize('op.throwable'));
 			if (this.system.conditions?.agile) templateData.info.push(game.i18n.localize('op.agile'));
 			if (this.system.conditions?.automatic) templateData.info.push(game.i18n.localize('op.automatic'));
-			if (this.system.conditions?.adaptableGrip)
-				templateData.info.push(game.i18n.localize('op.adaptableGrip'));
+			if (this.system.conditions?.adaptableGrip) templateData.info.push(game.i18n.localize('op.adaptableGrip'));
 			if (this.system.conditions?.pistolBlow) templateData.info.push(game.i18n.localize('op.pistolBlow'));
 		}
 
 		if (item.type == 'ritual') {
-			if (this.system?.circle) templateData.system.push(this.system.circle);
-			if (this.system?.studentForm) templateData.system.push(this.system.studentForm);
-			if (this.system?.trueForm) templateData.system.push(this.system.trueForm);
+			if (this.system?.area.name && this.system.target == 'area'){
+				const area = {
+					name: game.i18n.localize('op.areaChoices.' + this.system.area.name),
+					type: game.i18n.localize('op.areaTypeChoices.' + this.system.area.type),
+					size: this.system.area.size
+				};
+				if (this.system?.area.name == 'cone' || this.system?.area.name == 'sphere') {
+					templateData.i18n.areaLabel = game.i18n.format('op.areaLabelSphereCone', area);
+				} else {
+					templateData.i18n.areaLabel = game.i18n.format('op.areaLabelCubeLine', area);
+				}
+			}
 		}
 
 		const html = await renderTemplate('systems/ordemparanormal/templates/chat/item-card.html', templateData);
