@@ -71,7 +71,10 @@ export class OrdemActor extends Actor {
 		const stageAdjust = system.stage.value - 1;
 
 		if (isWithoutSanityRule) system.PD.perRound = (system.class == 'survivor') ? 1 : calcNEX;
-		else system.PE.perRound = calcNEX;
+		else {
+			if (system.class == 'survivor') system.PD.perRound = 1;
+			else system.PE.perRound = calcNEX;
+		}
 
 		if (system.class == 'fighter') {
 			system.PV.max = 20 + VIG + (nexIf && nexAdjust * (4 + VIG));
@@ -279,7 +282,11 @@ export class OrdemActor extends Actor {
 		const system = ActorData.system;
 		const ritual = (system.ritual ??= {});
 		const calcNEX = system.NEX.value < 99 ? Math.floor(system.NEX.value / 5) : 20;
-		ritual.DT = 10 + calcNEX + system.attributes.pre.value;
+		if (system.class !== 'survivor') {
+			ritual.DT = 10 + calcNEX + system.attributes.pre.value;
+		} else {
+			ritual.DT = 10 + system.attributes.pre.value;
+		}
 	}
 
 	/**
