@@ -15,10 +15,10 @@
     }
   ],
   "esmodules": [
-    "module/ordemparanormal_fvtt.mjs"
+    "module/ordemparanormal.mjs"
   ],
   "styles": [
-    "css/ordemparanormal_fvtt.css",
+    "css/ordemparanormal.css",
     "media/vendor/selectize/selectize.default.min.css"
   ],
   "scripts": [
@@ -312,11 +312,13 @@
       ]
     }
   },
-  "grid.distance": 1.5,
-  "grid.units": "m",
+	"grid": {
+		"distance": 1.5,
+		"units": "m"
+	},
   "primaryTokenAttribute": "PV",
   "secondaryTokenAttribute": "SAN",
-  "url": "https://github.com/SouOWendel/ordemparanormal-fvtt",
+  "url": "https://github.com/SouOWendel/ordemparanormal_fvtt",
   "manifest": "https://raw.githubusercontent.com/souowendel/ordemparanormal_fvtt/main/system.json",
   "download": "https://github.com/SouOWendel/ordemparanormal_fvtt/releases/download/v6.8.1/ordem_fvtt-v6.8.1.zip",
   "bugs": "https://github.com/SouOWendel/ordemparanormal_fvtt/issues",
