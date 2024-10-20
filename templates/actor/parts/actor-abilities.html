@@ -2,20 +2,16 @@
 	{{#each abilities.valid as |abilities type|}}
 	<li class="item flexrow items-header">
 		<div class="item-name">
-			{{#ifEquals type 1}} {{localize "op.abilitiesAbv.class"}} {{/ifEquals}} {{#ifEquals type 2}} {{localize
-			"ordemparanormal.abilitiesAbv.path"}} {{/ifEquals}} {{#ifEquals type 3}} {{localize
-			"ordemparanormal.abilitiesAbv.paranormal"}} {{/ifEquals}} {{#ifEquals type 4}} {{localize
-			"ordemparanormal.abilitiesAbv.ability"}} {{/ifEquals}}
+			{{#ifEquals type 1}} {{localize "op.abilitiesAbv.class"}} {{/ifEquals}}
+			{{#ifEquals type 2}} {{localize "op.abilitiesAbv.path"}}{{/ifEquals}}
+			{{#ifEquals type 3}} {{localize "op.abilitiesAbv.paranormal"}} {{/ifEquals}}
+			{{#ifEquals type 4}} {{localize "op.abilitiesAbv.ability"}} {{/ifEquals}}
 		</div>
 		<div class="item-formula">{{localize "op.type"}}</div>
 		<div class="item-formula">{{localize "op.preRequisite"}}</div>
 		<div class="item-controls">
-			<a
-				class="item-control item-create"
-				title="Create item"
-				data-type="ability"
-				data-id="{{type}}"
-				data-ability-Type="{{abilityTypeHelper type}}">
+			<a class="item-control item-create" title="Create item" data-type="ability"
+				data-id="{{type}}" data-ability-Type="{{abilityTypeHelper type}}">
 				<i class="fas fa-plus"></i>
 			</a>
 		</div>
@@ -24,14 +20,15 @@
 	<li class="item flexrow" data-item-id="{{item._id}}">
 		<div class="item-name">
 			<div class="item-image">
-				<a class="rollable" data-roll-type="item"
-					><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
-				/></a>
+				<a class="rollable" data-roll-type="item">
+					<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+				</a>
 			</div>
 			<h4>{{item.name}}</h4>
 		</div>
 		<div class="item-formula item-prop">
-			{{#if item.system.abilityType}} {{localize (concat "op.powerTypeChoices." item.system.abilityType)}}
+			{{#if item.system.abilityType}}
+			{{localize (concat "op.powerTypeChoices." item.system.abilityType)}}
 			{{else}} — {{/if}}
 		</div>
 		<div class="item-formula item-prop">{{item.system.preRequisite}}</div>
@@ -61,14 +58,15 @@
 		<li class="item flexrow" data-item-id="{{item._id}}">
 			<div class="item-name flexrow">
 				<div class="item-image">
-					<a class="rollable" data-roll-type="item"
-						><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
-					/></a>
+					<a class="rollable" data-roll-type="item">
+						<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+					</a>
 				</div>
 				<h4>{{item.name}}</h4>
 			</div>
 			<div class="item-formula item-prop">
-				{{#if item.system.abilityType}} {{localize (concat "op.powerTypeChoices." item.system.abilityType)}}
+				{{#if item.system.abilityType}}
+				{{localize (concat "op.powerTypeChoices." item.system.abilityType)}}
 				{{else}} — {{/if}}
 			</div>
 			<div class="item-formula item-prop">{{item.system.preRequisite}}</div>

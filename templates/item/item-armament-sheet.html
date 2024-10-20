@@ -16,7 +16,6 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-
     {{!-- Description Tab --}}
     <div class="tab description" data-group="primary" data-tab="description">
 			<div class="content">
@@ -120,14 +119,16 @@
 							<i class="fa-solid fa-plus"></i>
 						</div>
 						<div class="item-sheet-space item-sheet-prop">
-							<input type="text" name="system.formulas.attack.bonus" value="{{system.formulas.attack.bonus}}" data-dtype="String" placeholder="Adicione um bônus"/>
+							<input type="text" name="system.formulas.attack.bonus" value="{{system.formulas.attack.bonus}}"
+							 data-dtype="String" placeholder="Adicione um bônus"/>
 						</div>
 					</li>
 				<ol class="items-list">
 					<h4 class="item-info-title">Formula de Dano</h4>
 					<li class="damage-part item flexrow" data-item-id="{{item._id}}">
 						<div class="item-sheet-form item-sheet-prop">
-							<input type="text" name="system.formulas.damage.formula" value="{{system.formulas.damage.formula}}" data-dtype="String" placeholder="Dados"/>
+							<input type="text" name="system.formulas.damage.formula" value="{{system.formulas.damage.formula}}"
+							 data-dtype="String" placeholder="Dados"/>
 							<i class="fa-solid fa-plus"></i>
 						</div> 
 						<div class="item-sheet-form item-sheet-prop">

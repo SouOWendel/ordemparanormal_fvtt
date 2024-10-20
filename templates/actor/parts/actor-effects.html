@@ -1,30 +1,18 @@
 <ol class="items-list effects-list">
 	{{#each effects as |section sid|}}
-	<li
-		class="items-header flexrow"
-		data-effect-type="{{section.type}}"
-		data-parent-id="{{../actor.id}}"
-	>
+	<li class="items-header flexrow" data-effect-type="{{section.type}}" data-parent-id="{{../actor.id}}">
 		<h4 class="item-name effect-name flexrow">{{localize section.label}}</h4>
 		<div class="effect-source">{{localize "op.sourceEffect"}}</div>
 		<div class="effect-source">{{localize "op.duration"}}</div>
 		<div class="item-controls effect-controls flexrow">
-			<a
-				class="effect-control"
-				data-action="create"
-				title="{{localize 'op.EffectCreate'}}"
-			>
+			<a class="effect-control" data-action="create" title="{{localize 'op.EffectCreate'}}">
 				<i class="fas fa-plus"></i>
 			</a>
 		</div>
 	</li>
 	<ol class="item-list">
 		{{#each section.effects as |effect|}}
-		<li
-			class="item effect flexrow"
-			data-effect-id="{{effect.id}}"
-			data-parent-id="{{effect.parent.id}}"
-		>
+		<li class="item effect flexrow" data-effect-id="{{effect.id}}" data-parent-id="{{effect.parent.id}}">
 			<div class="item-name effect-name flexrow">
 				<img class="item-image" src="{{effect.img}}" />
 				<h4>{{effect.name}}</h4>
@@ -32,27 +20,13 @@
 			<div class="effect-source">{{effect.sourceName}}</div>
 			<div class="effect-duration">{{effect.duration.label}}</div>
 			<div class="item-controls effect-controls flexrow">
-				<a
-					class="effect-control"
-					data-action="toggle"
-					title="{{localize 'op.effectToggle'}}"
-				>
-					<i
-						class="fas {{#if effect.disabled}}fa-check{{else}}fa-times{{/if}}"
-					></i>
+				<a class="effect-control" data-action="toggle" title="{{localize 'op.effectToggle'}}">
+					<i class="fas {{#if effect.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
 				</a>
-				<a
-					class="effect-control"
-					data-action="edit"
-					title="{{localize 'op.effectEdit'}}"
-				>
+				<a class="effect-control" data-action="edit" title="{{localize 'op.effectEdit'}}">
 					<i class="fas fa-edit"></i>
 				</a>
-				<a
-					class="effect-control"
-					data-action="delete"
-					title="{{localize 'op.effectDelete'}}"
-				>
+				<a class="effect-control" data-action="delete" title="{{localize 'op.effectDelete'}}">
 					<i class="fas fa-trash"></i>
 				</a>
 			</div>
