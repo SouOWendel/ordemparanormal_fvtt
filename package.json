@@ -5,13 +5,13 @@
 	"main": "index.js",
 	"scripts": {
 		"commit": "git-cz",
-		"sass": "npx sass --watch scss/ordemparanormal_fvtt.scss css/ordemparanormal_fvtt.css",
+		"sass": "npx sass --watch scss/ordemparanormal.scss css/ordemparanormal.css",
 		"build:db": "node ./utils/packs.mjs package pack",
 		"build:json": "node ./utils/packs.mjs package unpack"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/SouOWendel/ordemparanormal-fvtt.git"
+		"url": "git+https://github.com/SouOWendel/ordemparanormal_fvtt.git"
 	},
 	"keywords": [
 		"ordem",
@@ -23,9 +23,9 @@
 	"author": "SouOWendel (Wendel Henrique)",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/SouOWendel/ordemparanormal-fvtt/issues"
+		"url": "https://github.com/SouOWendel/ordemparanormal_fvtt/issues"
 	},
-	"homepage": "https://github.com/SouOWendel/ordemparanormal-fvtt#readme",
+	"homepage": "https://github.com/SouOWendel/ordemparanormal_fvtt#readme",
 	"devDependencies": {
 		"@commitlint/cli": "^17.7.1",
 		"@commitlint/config-conventional": "^17.7.0",
