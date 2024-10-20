@@ -338,7 +338,7 @@
 
 	"op.targetChoices": {
 		"people": "People",
-		"creatures": "Beings",
+		"creatures": "Being(s)",
 		"animals": "Animals",
 		"weapons": "Weapons",
 		"equipment": "Equipments",
@@ -356,6 +356,8 @@
 		"radius": "Radius",
 		"diameter": "Diameter"
 	},
+	"op.areaLabelSphereCone": "{name} with {size}m {type}",
+	"op.areaLabelCubeLine": "{name} with {size}m",
 
 	"op.durationChoices": {
 		"instantaneous": "Instantaneous",
@@ -369,7 +371,7 @@
 		"nullifies": "Nullifies",
 		"discredits": "Discredits",
 		"partial": "Partial",
-		"reducesByHalf": "Red. By Half"
+		"reducesByHalf": "Red. by half"
 	},
 
 	"op.elementChoices": {
