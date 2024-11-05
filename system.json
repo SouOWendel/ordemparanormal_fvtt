@@ -316,6 +316,8 @@
 		"distance": 1.5,
 		"units": "m"
 	},
+	"gridDistance": 1.5,
+  "gridUnits": "m",
   "primaryTokenAttribute": "PV",
   "secondaryTokenAttribute": "SAN",
   "url": "https://github.com/SouOWendel/ordemparanormal_fvtt",
