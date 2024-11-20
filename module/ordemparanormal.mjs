@@ -107,9 +107,17 @@ Hooks.once('ready', function () {
 
 	// Determine whether a system migration is required and feasible
 	if ( !game.user.isGM ) return;
-	const cv = game.settings.get('ordemparanormal', 'systemMigrationVersion');
+	const cv = game.settings.get('ordemparanormal', 'systemMigrationVersion') || game.world.flags.ordemparanormal?.version;;
 	const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
 	if ( !cv && totalDocuments === 0 ) return game.settings.set('ordemparanormal', 'systemMigrationVersion', game.system.version);
+	// When the flag is greater than the current migration version, the migration is perfomed.
+	console.log('Verificando a necessidade de migração...');
+	console.log(cv, game.system.flags.needsMigrationVersion, !foundry.utils.isNewerVersion(game.system.flags.needsMigrationVersion, cv));
+	if ( cv && !foundry.utils.isNewerVersion(game.system.flags.needsMigrationVersion, cv) ) {
+		console.log('Migração não é necessária.');
+		return;
+	};
+	console.log('Iniciando a migração de dados!');
 
 	// Determine whether a system migration is required and feasible
 	migrations.migrateWorld();
@@ -285,7 +293,8 @@ Hooks.on('preCreateActor', function (actor, data) {
 					attribute: 'attributes.hp',
 					label: 'Pontos de Vida',
 					style: 'fraction',
-					visibility: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
+        	otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
 				},
 			},
 		});
