@@ -61,6 +61,7 @@ op.skills = {
 	tactics: 'op.skill.tactics',
 	technology: 'op.skill.technology',
 	will: 'op.skill.will',
+	profession: 'op.skill.profession'
 };
 
 op.attackSkills = {

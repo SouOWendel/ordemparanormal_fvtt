@@ -303,6 +303,16 @@
 						"load": false,
 						"trained": false
 					}
+				},
+				"profession": {
+					"value": 0,
+					"attr": ["int", 1],
+					"degree": "untrained",
+					"conditions": {
+						"load": false,
+						"trained": true,
+						"open": true
+					}
 				}
 			},
 			"attributes": {

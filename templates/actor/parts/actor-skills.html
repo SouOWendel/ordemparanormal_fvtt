@@ -1,28 +1,25 @@
 <section>
 	<div class="skills-content">
-		{{#each system.skills as |skillName key|}}
+		{{#each system.skills as |skill key|}}
 		<div class="skill flexrow flex-group-center">
-			<label
-				for="system.skills.{{key}}.value"
-				class="resource-label rollable flexlarge align-left"
-				data-roll="{{skillName.formula}}"
-				data-label="{{skillName.label}}">
-				{{skillName.label}}
-			</label>
+			{{#if skill.conditions.open}}
+				<input type="text" name="system.skills.{{key}}.name" value="{{skill.name}}"
+				class="resource-label flexlarge align-center" 
+				data-type="String" placeholder="Profissão">
+				<i class="fas fa-dice {{key}} rollable rollProfession" data-roll="{{skill.formula}}" data-label="{{skill.label}}"></i>
+			{{else}}
+			<label for="system.skills.{{key}}.value" class="resource-label rollable flexlarge align-left"
+				data-roll="{{skill.formula}}" data-label="{{skill.label}}">{{skill.label}}</label>
+			{{/if}}
 			<label class="flex0 p-side-10">
-				<strong>{{toUpperCase (localize (concat "op." skillName.attr.[0] "Abv")) }}</strong>
+				<strong>{{toUpperCase (localize (concat "op." skill.attr.[0] "Abv")) }}</strong>
 			</label>
 			<select name="system.skills.{{key}}.degree.label" data-dtype="String">
-				{{ selectOptions ../optionDegree selected=skillName.degree.label localize=true }}
+				{{ selectOptions ../optionDegree selected=skill.degree.label localize=true }}
 			</select>
 			<i class="fa-solid fa-plus flex0"></i>
-			<input type="text" name="system.skills.{{key}}.mod" value="{{skillName.mod}}" data-dtype="Number" />
+			<input type="text" name="system.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number" class="modifier"/>
 		</div>
 		{{/each}}
-		<!-- <div class="skill flexrow flex-group-center">
-			<label class="flex0 p-side-10">
-				<strong>AAAA</strong>
-			</label>
-		</div> -->
 	</div>
 </section>
