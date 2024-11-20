@@ -310,7 +310,8 @@
         "lang/en.json",
         "lang/pt-BR.json"
       ]
-    }
+    },
+		"needsMigrationVersion": "6.8.1"
   },
 	"grid": {
 		"distance": 1.5,
