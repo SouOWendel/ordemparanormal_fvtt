@@ -132,30 +132,32 @@ export class OrdemActor extends Actor {
 		 * depois disso, salva o valor nas informações
 		 * */
 		for (const [keySkill, skillsName] of Object.entries(system.skills)) {
+			if (foundry.utils.hasProperty(skillsName, 'attr')) {
 			// Definindo constantes para acesso simplificado.
-			const overLoad = skillsName.conditions.load;
-			const needTraining = skillsName.conditions.trained;
+				const overLoad = skillsName?.conditions?.load || false;
+				const needTraining = skillsName?.conditions?.trained || false;
 
-			// Calculate the modifier using d20 rules.
-			// TODO: inverter a atribuição de valores.
-			if (skillsName.degree.label == 'trained') skillsName.value = 5;
-			else if (skillsName.degree.label == 'veteran') skillsName.value = 10;
-			else if (skillsName.degree.label == 'expert') skillsName.value = 15;
-			else skillsName.value = 0;
+				// Calculate the modifier using d20 rules.
+				// TODO: inverter a atribuição de valores.
+				if (skillsName.degree.label == 'trained') skillsName.value = 5;
+				else if (skillsName.degree.label == 'veteran') skillsName.value = 10;
+				else if (skillsName.degree.label == 'expert') skillsName.value = 15;
+				else skillsName.value = 0;
 
-			// Formando o nome com base nas condições de carga e treino da perícia.
-			skillsName.label =
+				// Formando o nome com base nas condições de carga e treino da perícia.
+				skillsName.label =
 				game.i18n.localize(CONFIG.op.skills[keySkill]) + (overLoad ? '+' : needTraining ? '*' : '') ?? k;
 
-			// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
-			const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
+				// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
+				const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
 
-			const afterD20Formula =
+				const afterD20Formula =
 				(skillsName.attr[1] != 0 ? 'kh' : 'kl') +
 				(skillsName.value != 0 ? '+' + skillsName.value : '') +
 				(skillsName.mod ? '+' + skillsName.mod : '');
 
-			skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
+				skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
+			}
 		}
 	}
 
@@ -171,7 +173,9 @@ export class OrdemActor extends Actor {
 			 * esta no momento, este valor é atualizado para ser utilizado nas rolagens.
 			 */
 			for (const [keyAttr, attribute] of Object.entries(system.attributes)) {
-				if (skillsName.attr[0] == keyAttr) system.skills[keySkill].attr[1] = attribute.value;
+				if (foundry.utils.hasProperty(skillsName, 'attr') && skillsName?.attr[0] == keyAttr) {
+					system.skills[keySkill].attr[1] = attribute.value;
+				}
 			}
 		}
 	}
@@ -194,7 +198,7 @@ export class OrdemActor extends Actor {
 		const weight = ActorData.items.reduce((weight, i) => {
 			if (!physicalItems.includes(i.type)) return weight;
 			const q = i.system.quantity || 0;
-			const w = i.system.weight || 0;
+			const w = (i.system.using.state) ? i.system.weight || 0 : 0;
 			return weight + q * w;
 		}, 0);
 
@@ -350,19 +354,19 @@ export class OrdemActor extends Actor {
 	 */
 	async _getAgentRollData(actorData, system) {
 		if (actorData.type !== 'agent') return;
-		let skillUpper;
+		// let skillUpper;
 
 		// Copy the skills scores to the top level, so that rolls can use
 		// formulas like `@iniciativa.value + 4`.
 		// TODO: criar acesso rapido de variavel para outras linguagens
-		if (system.skills) {
-			for (const [k, v] of Object.entries(system.skills)) {
-				system[k] = foundry.utils.deepClone(v);
+		// if (system.skills) {
+		// 	for (const [k, v] of Object.entries(system.skills)) {
+		// 		system[k] = foundry.utils.deepClone(v);
 
-				skillUpper = k.charAt(0).toUpperCase() + k.slice(1);
-				system[game.i18n.localize('op.skill.' + k).toLowerCase()] = foundry.utils.deepClone(v);
-			}
-		}
+		// 		skillUpper = k.charAt(0).toUpperCase() + k.slice(1);
+		// 		system[game.i18n.localize('op.skill.' + k).toLowerCase()] = foundry.utils.deepClone(v);
+		// 	}
+		// }
 
 		// Copy the attributes to the top level, so that rolls can use
 		// formulas like `@dex.value`.
