@@ -18,10 +18,10 @@ export async function migrateWorld({bypassVersionCheck=false}={}) {
 
 	for ( const [actor, valid] of actors ) {
 		try {
-			// Transforma o modelo de dados do ator em um objeto plano.
+			// Transforms actor model data into flat object.
 			const flags = { bypassVersionCheck, persistSourceMigration: false };
 			const source = valid ? actor.toObject() : game.data.actors.find(a => a._id === actor.id);
-			const version = actor._stats.systemVersion; // Versão em que a ficha foi criada.
+			const version = actor._stats.systemVersion; // Version in which the sheet is created.
 			const updateData = migrateActorData(actor, source, flags, { actorUuid: actor.uuid });
 			if (!foundry.utils.isEmpty(updateData)) {
 				ui.notifications.info(`Migrando os seus dados para a versão ${gameVersion}.`, {permanent: true});
@@ -33,6 +33,9 @@ export async function migrateWorld({bypassVersionCheck=false}={}) {
 			console.error(err);
 		}
 	}
+	// Set the migration as complete
+	game.settings.set('ordemparanormal', 'systemMigrationVersion', game.system.version);
+	ui.notifications.info(`Migração da versão ${gameVersion} está completa!`, {permanent: true});
 }
 
 /**
