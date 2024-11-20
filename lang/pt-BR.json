@@ -87,7 +87,8 @@
 		"survival": "Sobrevivência",
 		"tactics": "Tática",
 		"technology": "Tecnologia",
-		"will": "Vontade"
+		"will": "Vontade",
+		"profession": "Profissão"
 	},
 
 	"op.attDex": "Agilidade",
@@ -290,6 +291,12 @@
 		"simpleWeapons": "Armas Simples",
 		"tacticalWeapons": "Armas Táticas",
 		"heavyWeapons": "Armas Pesadas"
+	},
+
+	"op.proficiencyChoicesAbbr": {
+		"simpleWeapons": "Simples",
+		"tacticalWeapons": "Tática",
+		"heavyWeapons": "Pesada"
 	},
 
 	"op.damageTypeChoices": {

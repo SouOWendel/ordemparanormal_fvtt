@@ -87,7 +87,8 @@
 		"survival": "Survival",
 		"tactics": "Tactics",
 		"technology": "Technology",
-		"will": "Will"
+		"will": "Will",
+		"profession": "Profession"
 	},
 
 	"op.attDex": "Dexterity",
@@ -289,6 +290,12 @@
 		"simpleWeapons": "Simple Weapons",
 		"tacticalWeapons": "Tactical Weapons",
 		"heavyWeapons": "Heavy Weapons"
+	},
+
+	"op.proficiencyChoicesAbbr": {
+		"simpleWeapons": "Simple",
+		"tacticalWeapons": "Tactical",
+		"heavyWeapons": "Heavy"
 	},
 
 	"op.damageTypeChoices": {
