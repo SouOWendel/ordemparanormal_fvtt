@@ -138,8 +138,15 @@ form.agentsheet, form.itemsheet {
 	.skill {
 		padding: 3.3px 6px;
 
-		input {
+		.modifier {
 			max-width: 30px;
+		}
+
+		.rollProfession {
+			position: absolute;
+			left: 48%;
+			right: 0;
+			width: 24px;
 		}
 
 		i {
@@ -165,6 +172,18 @@ form.agentsheet, form.itemsheet {
 	padding: 8px;
 	margin: 10px 5px;
 	background-color: aliceblue;
+}
+
+.item-editable-resource {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	i { padding: 4px; }
+	input {
+		background: none;
+		border: none;
+	}
 }
 
 // INVENTORY FOOTER

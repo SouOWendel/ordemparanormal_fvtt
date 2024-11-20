@@ -435,8 +435,14 @@
 .system-ordemparanormal .skills-content .skill {
   padding: 3.3px 6px;
 }
-.system-ordemparanormal .skills-content .skill input {
+.system-ordemparanormal .skills-content .skill .modifier {
   max-width: 30px;
+}
+.system-ordemparanormal .skills-content .skill .rollProfession {
+  position: absolute;
+  left: 48%;
+  right: 0;
+  width: 24px;
 }
 .system-ordemparanormal .skills-content .skill i {
   padding: 0 5px;
@@ -454,6 +460,18 @@
   padding: 8px;
   margin: 10px 5px;
   background-color: aliceblue;
+}
+.system-ordemparanormal .item-editable-resource {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.system-ordemparanormal .item-editable-resource i {
+  padding: 4px;
+}
+.system-ordemparanormal .item-editable-resource input {
+  background: none;
+  border: none;
 }
 .system-ordemparanormal .inventory-footer {
   position: absolute;
@@ -1155,4 +1173,4 @@
   display: flex !important;
 }
 
-/*# sourceMappingURL=ordemparanormal_fvtt.css.map */
+/*# sourceMappingURL=ordemparanormal.css.map */
