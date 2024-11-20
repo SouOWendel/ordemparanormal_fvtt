@@ -2,6 +2,8 @@
 	<li class="item flexrow items-header">
 		<div class="item-name">{{localize "op.generalEquipment.plural"}}</div>
 		<div class="item-space">{{localize "op.category"}}</div>
+		<div class="item-space">{{localize "op.weight"}}</div>
+		<div class="item-space">{{localize "op.quantity"}}</div>
 		<div class="item-controls">
 			<a class="item-control item-create" title="Create item" data-type="generalEquipment">
 				<i class="fas fa-plus"></i>
@@ -18,7 +20,28 @@
 			</div>
 			<h4>{{item.name}}</h4>
 		</div>
-		<div class="item-space item-prop">{{item.system.category}}</div>
+		<div class="item-space item-prop item-editable-resource">
+			<input type="number" value="{{item.system.category}}" placeholder="—" data-dtype="Number"
+				data-name="system.category" inputmode="numeric" pattern="[0-9+=\-]*" min="0">
+		</div>
+		<div class="item-space item-prop item-editable-resource">
+			<input type="number" value="{{item.system.weight}}" placeholder="—" data-dtype="Number"
+				data-name="system.weight" inputmode="numeric" pattern="[0-9+=\-]*" min="0">
+		</div>
+		<div class="item-space item-prop item-editable-resource">
+			{{#if @root.owner}}
+				<a class="adjustment-button" data-action="decrease" data-property="system.quantity">
+					<i class="fas fa-minus"></i>
+				</a>
+			{{/if}}
+			<input type="number" value="{{item.system.quantity}}" placeholder="0" data-dtype="Number"
+				data-name="system.quantity" inputmode="numeric" pattern="[0-9+=\-]*" min="0">
+			{{#if @root.owner}}
+				<a class="adjustment-button" data-action="increase" data-property="system.quantity">
+					<i class="fas fa-plus"></i>
+				</a>
+			{{/if}}
+		</div>
 		<div class="item-controls">
 			<a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
 			<a class="item-control mark-item" title="Marcar e desmarcar com item utilizado"
@@ -33,10 +56,10 @@
 <ol class="items-list">
 	<li class="item flexrow items-header">
 		<div class="item-name">{{localize "op.armament.plural"}}</div>
-		<div class="item-space">{{localize "op.quantity"}}</div>
 		<div class="item-space">{{localize "op.proficiency"}}</div>
 		<div class="item-space">{{localize "op.critical"}}</div>
 		<div class="item-space">{{localize "op.range"}}</div>
+		<div class="item-space">{{localize "op.weight"}}</div>
 		<div class="item-controls">
 			<a class="item-control item-create" title="Create item" data-type="armament">
 				<i class="fas fa-plus"></i>
@@ -54,13 +77,16 @@
 			</div>
 			<h4>{{item.name}}</h4>
 		</div>
-		<div class="item-space item-prop">{{item.system.quantity}}</div>
 		<div class="item-space item-prop">
-			{{#if item.system.proficiency}} {{localize (concat "op.proficiencyChoices." item.system.proficiency)}}
+			{{#if item.system.proficiency}} {{localize (concat "op.proficiencyChoicesAbbr." item.system.proficiency)}}
 			{{else}} — {{/if}}
 		</div>
 		<div class="item-space item-prop">{{item.system.critical}}</div>
 		<div class="item-space item-prop">{{item.system.range}}</div>
+		<div class="item-space item-prop item-editable-resource">
+			<input type="number" value="{{item.system.weight}}" placeholder="—" data-dtype="Number"
+				data-name="system.weight" inputmode="numeric" pattern="[0-9+=\-]*" min="0">
+		</div>
 		<div class="item-controls">
 			<a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
 			<a class="item-control mark-item" title="Marcar e desmarcar com item utilizado"
@@ -77,6 +103,7 @@
 		<div class="item-name">{{localize "op.protection.plural"}}</div>
 		<div class="item-space">{{localize "op.defense"}}</div>
 		<div class="item-space">{{localize "op.weight"}}</div>
+		<div class="item-space">{{localize "op.quantity"}}</div>
 		<div class="item-controls">
 			<a class="item-control item-create" title="Create item" data-type="protection">
 				<i class="fas fa-plus"></i>
@@ -94,7 +121,24 @@
 			<h4>{{item.name}}</h4>
 		</div>
 		<div class="item-space item-prop">{{item.system.defense}}</div>
-		<div class="item-space item-prop">{{item.system.weight}}</div>
+		<div class="item-space item-prop item-editable-resource">
+			<input type="number" value="{{item.system.weight}}" placeholder="—" data-dtype="Number"
+				data-name="system.weight" inputmode="numeric" pattern="[0-9+=\-]*" min="0">
+		</div>
+		<div class="item-space item-prop item-editable-resource">
+			{{#if @root.owner}}
+				<a class="adjustment-button" data-action="decrease" data-property="system.quantity">
+					<i class="fas fa-minus"></i>
+				</a>
+			{{/if}}
+			<input type="number" value="{{item.system.quantity}}" placeholder="0" data-dtype="Number"
+				data-name="system.quantity" inputmode="numeric" pattern="[0-9+=\-]*" min="0">
+			{{#if @root.owner}}
+				<a class="adjustment-button" data-action="increase" data-property="system.quantity">
+					<i class="fas fa-plus"></i>
+				</a>
+			{{/if}}
+		</div>
 		<div class="item-controls">
 			<a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
 			<a class="item-control mark-item" title="Marcar e desmarcar com item utilizado">
