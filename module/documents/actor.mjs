@@ -13,6 +13,43 @@ export class OrdemActor extends Actor {
 		super.prepareData();
 	}
 
+	/**
+	 * 
+	 */
+	get progressRuleIsNivel() {
+		const rule = game.settings.get('ordemparanormal', 'globalProgressRules');
+		return (rule == 2) ? true : false;
+	}
+
+	/**
+	 * 
+	 */
+	get usingWithoutSanityRule() {
+		return game.settings.get('ordemparanormal', 'globalPlayingWithoutSanity');
+	}
+
+	/**
+	 * 
+	 */
+	get progressRuleIsNEX() {
+		const rule = game.settings.get('ordemparanormal', 'globalProgressRules');
+		return (rule == 1) ? true : false;
+	}
+
+	/**
+	 * 
+	 */
+	get isV12() {
+		return game.version > 11;
+	}
+
+	/**
+	 * 
+	 */
+	get isSurvivor() {
+		return this.system.class == 'survivor';
+	}
+
 	/** @override */
 	prepareBaseData() {
 		// Data modifications in this step occur before processing embedded
@@ -21,7 +58,6 @@ export class OrdemActor extends Actor {
 		const systemData = actorData.system;
 
 		if (actorData.type == 'agent') {
-			this._migrateData(actorData, systemData);
 			this._prepareDataStatus(actorData, systemData);
 			this._prepareRituals(actorData);
 			this._prepareBaseSkills(systemData);
@@ -54,60 +90,77 @@ export class OrdemActor extends Actor {
 	}
 
 	/**
+	 * Method to obtain a suitable variable to calculate attributes. 
+	 * @param {*} system 
+	 */
+	progressCalculation(system) {
+		const rule = game.settings.get('ordemparanormal', 'globalProgressRules');
+		if (this.isSurvivor) return system.stage.value;
+		if (rule == 1) return system.NEX.value < 99 ? Math.floor(system.NEX.value / 5) : 20;
+		else if (rule == 2) return system.nivel.value;
+	}
+
+	/**
+	 * Calculation for PD or PD per round.
+	 * @param {*} system 
+	 */
+	perRoundCalculation(system, progress) {
+		if (this.usingWithoutSanityRule) {
+			system.PD.perRound = (this.isSurvivor) ? 1 : progress;
+		} else {
+			if (this.isSurvivor) system.PD.perRound = 1;
+			else system.PE.perRound = progress;
+		}
+	}
+
+	/**
 	 *
 	 * @param {*} system
 	 */
 	_prepareDataStatus(actorData, system) {
-		const isWithoutSanityRule = game.settings.get('ordemparanormal', 'globalPlayingWithoutSanity');
-
 		const VIG = system.attributes.vit.value;
 		const PRE = system.attributes.pre.value;
-		const NEX = system.NEX.value;
 
-		const calcNEX = NEX < 99 ? Math.floor(NEX / 5) : 20;
-		const nexAdjust = calcNEX - 1;
-		const nexIf = calcNEX > 1;
-		const stageIf = system.stage.value > 1;
-		const stageAdjust = system.stage.value - 1;
+		const progress = this.progressCalculation(system);
+		const progressAdjust = progress - 1;
+		const progressIf = progress > 1;
 
-		if (isWithoutSanityRule) system.PD.perRound = (system.class == 'survivor') ? 1 : calcNEX;
-		else {
-			if (system.class == 'survivor') system.PD.perRound = 1;
-			else system.PE.perRound = calcNEX;
-		}
+		this.perRoundCalculation(system, progress);
 
-		if (system.class == 'fighter') {
-			system.PV.max = 20 + VIG + (nexIf && nexAdjust * (4 + VIG));
-			system.SAN.max = 12 + (nexIf && nexAdjust * 3);
+		switch (system.class) {
+		case 'fighter':
+			system.PV.max = 20 + VIG + (progressIf && progressAdjust * (4 + VIG));
+			system.SAN.max = 12 + (progressIf && progressAdjust * 3);
 
-			if (isWithoutSanityRule) system.PD.max = 6 + PRE + (nexIf && nexAdjust * (3 + PRE));
-			else system.PE.max = 2 + PRE + (nexIf && nexAdjust * (2 + PRE));
+			if (this.usingWithoutSanityRule) system.PD.max = 6 + PRE + (progressIf && progressAdjust * (3 + PRE));
+			else system.PE.max = 2 + PRE + (progressIf && progressAdjust * (2 + PRE));
+			break;
+		case 'specialist':
+			system.PV.max = 16 + VIG + (progressIf && progressAdjust * (3 + VIG));
+			system.SAN.max = 16 + (progressIf && progressAdjust * 4);
 
-		} else if (system.class == 'specialist') {
-			system.PV.max = 16 + VIG + (nexIf && nexAdjust * (3 + VIG));
-			system.SAN.max = 16 + (nexIf && nexAdjust * 4);
+			if (this.usingWithoutSanityRule) system.PD.max = 8 + PRE + (progressIf && progressAdjust * (4 + PRE));
+			else system.PE.max = 3 + PRE + (progressIf && progressAdjust * (3 + PRE));
+			break;
+		case 'occultist':
+			system.PV.max = 12 + VIG + (progressIf && progressAdjust * (2 + VIG));
+			system.SAN.max = 20 + (progressIf && progressAdjust * 5);
 
-			if (isWithoutSanityRule) system.PD.max = 8 + PRE + (nexIf && nexAdjust * (4 + PRE));
-			else system.PE.max = 3 + PRE + (nexIf && nexAdjust * (3 + PRE));
+			if (this.usingWithoutSanityRule) system.PD.max = 10 + PRE + (progressIf && progressAdjust * (5 + PRE));
+			else system.PE.max = 4 + PRE + (progressIf && progressAdjust * (4 + PRE));
+			break;
+		case 'survivor':
+			system.PV.max = 8 + VIG + (progressIf && progressAdjust * 2);
+			system.SAN.max = 8 + (progressIf && progressAdjust * 2);
 
-		} else if (system.class == 'occultist') {
-			system.PV.max = 12 + VIG + (nexIf && nexAdjust * (2 + VIG));
-			system.SAN.max = 20 + (nexIf && nexAdjust * 5);
-
-			if (isWithoutSanityRule) system.PD.max = 10 + PRE + (nexIf && nexAdjust * (5 + PRE));
-			else system.PE.max = 4 + PRE + (nexIf && nexAdjust * (4 + PRE));
-
-		} else if (system.class == 'survivor') {
-			system.PV.max = 8 + VIG + (stageIf && stageAdjust * 2);
-			system.SAN.max = 8 + (stageIf && stageAdjust * 2);
-
-			if (isWithoutSanityRule) system.PD.max = 4 + PRE + (stageIf && stageAdjust * (2));
-			else system.PE.max = 2 + PRE + (stageIf && stageAdjust * 1);
-
-		} else {
+			if (this.usingWithoutSanityRule) system.PD.max = 4 + PRE + (progressIf && progressAdjust * (2));
+			else system.PE.max = 2 + PRE + (progressIf && progressAdjust * 1);
+			break;
+		default:
 			system.PV.max = system.PV.max || 0;
 			system.PE.max = system.PE.max || 0;
 			system.SAN.max = system.SAN.max || 0;
+			break;
 		}
 	}
 
@@ -211,7 +264,7 @@ export class OrdemActor extends Actor {
 		spaces.max += spaces.bonus.max;
 
 		// TODO: V11 AND V12 SPACE/WEIGHT RETRO COMPATIBILITY
-		if (game.version >= 12) spaces.pct = Math.clamp((spaces.value * 100) / spaces.max, 0, 100);
+		if (this.isV12) spaces.pct = Math.clamp((spaces.value * 100) / spaces.max, 0, 100);
 		else spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
 
 		// Apply the debuffs
@@ -221,7 +274,7 @@ export class OrdemActor extends Actor {
 			system.defense.value += -5;
 
 			// TODO: V11 AND V12 SPACE/WEIGHT RETRO COMPATIBILITY
-			if (game.version >= 12) spaces.pctMax = Math.clamp((spaces.over * 100) / spaces.max, 0, 100);
+			if (this.isV12) spaces.pctMax = Math.clamp((spaces.over * 100) / spaces.max, 0, 100);
 			else spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
 		}
 		if (spaces.value > spaces.max * 2) ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
@@ -286,7 +339,7 @@ export class OrdemActor extends Actor {
 		const system = ActorData.system;
 		const ritual = (system.ritual ??= {});
 		const calcNEX = system.NEX.value < 99 ? Math.floor(system.NEX.value / 5) : 20;
-		if (system.class !== 'survivor') {
+		if (!this.isSurvivor) {
 			ritual.DT = 10 + calcNEX + system.attributes.pre.value;
 		} else {
 			ritual.DT = 10 + system.attributes.pre.value;
@@ -307,27 +360,6 @@ export class OrdemActor extends Actor {
 				system.defense.value += p.system.defense;
 			}
 		}
-	}
-
-	/**
-	 *
-	 */
-	async _migrateData(actorData, system) {
-		// TODO: Update portuguese class name for english class name (6.3.1)
-		if (system?.class == 'Combatente')
-			await Actor.updateDocuments([{ _id: actorData._id, system: { class: 'fighter' } }]);
-		if (system?.class == 'Especialista')
-			await Actor.updateDocuments([{ _id: actorData._id, system: { class: 'specialist' } }]);
-		if (system?.class == 'Ocultista')
-			await Actor.updateDocuments([{ _id: actorData._id, system: { class: 'occultist' } }]);
-
-		// console.log(game.items.invalidDocumentIds);
-		// for (const id of game.actors.invalidDocumentIds) await game.actors.getInvalid(id).delete();
-		// delete system.skills.k;
-		// await Actor.updateDocuments([{ _id: actorData._id, system: { skills: system.skills } }], {
-		// 	diff: false,
-		// 	recursive: false,
-		// });
 	}
 
 	/** @inheritDoc */
