@@ -51,7 +51,6 @@ export class OrdemItemSheet extends ItemSheet {
 			rollData: this.item.getRollData(),
 			flags: itemData.flags,
 			effects: prepareActiveEffectCategories(this.item.effects),
-
 			// Armament's Dropdowns
 			optionWeaponType: CONFIG.op.dropdownWeaponType,
 			optionWeaponSubType: CONFIG.op.dropdownWeaponSubType,
@@ -68,18 +67,25 @@ export class OrdemItemSheet extends ItemSheet {
 			optionResistance: CONFIG.op.dropdownResistance,
 			optionSkillResis: CONFIG.op.dropdownSkillResis,
 			optionElement: CONFIG.op.dropdownElement,
-
 			// Attack and Damage Dropdown
 			attributes: CONFIG.op.attributes,
 			attackSkills: CONFIG.op.attackSkills,
-
 			// Ritual's Dropdowns
 			optionExecution: CONFIG.op.dropdownExecution,
-
 			// Item's Radiobox
 			categories: CONFIG.op.categories,
 			degree: CONFIG.op.ritualDegree,
 		});
+
+		const enrichmentOptions = {
+			secrets: this.item.isOwner,
+			relativeTo: this.item,
+			rollData: context.rollData
+		};
+		
+		context.enriched = {
+			description: await TextEditor.enrichHTML(context.system.description ?? '', enrichmentOptions)
+		};
 
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#updateDocuments
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#deleteDocuments
