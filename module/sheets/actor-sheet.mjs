@@ -28,45 +28,97 @@ export class OrdemActorSheet extends ActorSheet {
 		return `systems/ordemparanormal/templates/actor/actor-${this.actor.type}-sheet.html`;
 	}
 
+	/**
+	 * 
+	 */
+	get progressRuleIsNivel() {
+		const rule = game.settings.get('ordemparanormal', 'globalProgressRules');
+		return (rule == 2) ? true : false;
+	}
+
+	/**
+	 * 
+	 */
+	get usingWithoutSanityRule() {
+		return game.settings.get('ordemparanormal', 'globalPlayingWithoutSanity');
+	}
+
+	/**
+	 * 
+	 */
+	get progressRuleIsNEX() {
+		const rule = game.settings.get('ordemparanormal', 'globalProgressRules');
+		return (rule == 1) ? true : false;
+	}
+
+	/**
+	 * 
+	 */
+	get isV12() {
+		return game.version > 11;
+	}
+
+	/**
+	 * 
+	 */
+	get isSurvivor() {
+		const system = this.actor.system;
+		return system.class == 'survivor';
+	}
+
 	/* -------------------------------------------- */
 
 	/** @override */
-	getData() {
+	async getData() {
 		// Retrieve the data structure from the base sheet. You can inspect or log
 		// the context variable to see the structure, but some key properties for
 		// sheets are the actor object, the data object, whether or not it's
 		// editable, the items array, and the effects array.
-		const context = super.getData();
+		const context = await super.getData();
 
 		// Use a safe clone of the actor data for further operations.
 		const actorData = context.data;
 
-		// Add the actor's data to context.data for easier access, as well as flags.
-		context.system = actorData.system;
-		context.flags = actorData.flags;
-
-		// Dropdown
-		context.optionDegree = CONFIG.op.dropdownDegree;
-		context.optionClass = CONFIG.op.dropdownClass;
-		context.optionTrilhas = CONFIG.op.dropdownTrilha;
-		context.optionOrigins = CONFIG.op.dropdownOrigins;
-		context.usingWithoutSanityRule = game.settings.get('ordemparanormal', 'globalPlayingWithoutSanity');
-		context.isV12 = game.version > 11;
+		foundry.utils.mergeObject(context, {
+			// Add the actor's data to context.data for easier access, as well as flags.
+			system: actorData.system,
+			flags: actorData.flags,
+			// Add roll data for TinyMCE editors.
+			rollData: context.actor.getRollData(),
+			// Return all effects stored on the actor.
+			effects: prepareActiveEffectCategories(this.actor.allApplicableEffects()),
+			// Dropdown options.
+			optionDegree: CONFIG.op.dropdownDegree,
+			optionClass: CONFIG.op.dropdownClass,
+			optionTrilhas: CONFIG.op.dropdownTrilha,
+			optionOrigins: CONFIG.op.dropdownOrigins,
+			// Rules & Conditions
+			progressRuleIsNivel: this.progressRuleIsNivel,
+			progressRuleIsNEX: this.progressRuleIsNEX,
+			usingWithoutSanityRule: this.usingWithoutSanityRule,
+			isV12: this.isV12,
+			isSurvivor: this.isSurvivor
+		});
 
 		// Prepara os dados do Agente e seus Items.
 		if (actorData.type == 'agent') {
 			this._prepareItems(context);
 		}
 
-		// Add roll data for TinyMCE editors.
-		context.rollData = context.actor.getRollData();
+		// Biography HTML enrichment
+		context.biographyHTML = await TextEditor.enrichHTML(context.system.biography, {
+			secrets: this.actor.isOwner,
+			rollData: context.rollData,
+			relativeTo: this.actor
+		});
 
-		// Prepare active effects
-		context.effects = prepareActiveEffectCategories(
-			// A generator that returns all effects stored on the actor
-			// as well as any items
-			this.actor.allApplicableEffects()
-		);
+		// Goals HTML enrichment
+		context.goalsHTML = await TextEditor.enrichHTML(context.system.goals, {
+			secrets: this.actor.isOwner,
+			rollData: context.rollData,
+			relativeTo: this.actor
+		});
+
 		return context;
 	}
 
