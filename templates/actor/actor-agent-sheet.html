@@ -7,18 +7,29 @@
 				<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
 			</h1>
 			<div class="resource flex-group-center progress">
-				{{#ifEquals system.class "survivor"}}
+				{{#if isSurvivor}}
 					<label for="system.stage.value" class="resource-label"> {{localize 'op.stage'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
 						{{numberInputFVTT system.stage.value name="system.stage.value" step=1 min=0 max=5}}
 					</div>
-				{{/ifEquals}}
-				{{#ifInequals system.class "survivor"}}
-					<label for="system.NEX.value" class="resource-label"> {{localize 'op.NEX'}} </label>
-					<div class="resource-content flexrow flex-center flex-between">
-						{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
-					</div>
-				{{/ifInequals}}
+				{{else}}
+					{{#if progressRuleIsNEX}}
+						<label for="system.NEX.value" class="resource-label"> {{localize 'op.NEX'}} </label>
+						<div class="resource-content flexrow flex-center flex-between">
+							{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
+						</div>
+					{{/if}}
+					{{#if progressRuleIsNivel}}
+						<label for="system.nivel.value" class="resource-label"> {{localize 'op.nivel'}} </label>
+						<div class="resource-content flexrow flex-center flex-between">
+							{{numberInputFVTT system.nivel.value name="system.nivel.value" step=1 min=0 max=20}}
+						</div>
+						<label for="system.NEX.value" class="resource-label"> {{localize 'op.NEX'}} </label>
+						<div class="resource-content flexrow flex-center flex-between">
+							{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
+						</div>
+					{{/if}}
+				{{/if}}
 			</div>
 		</div>
 		<div class="header-fields">
@@ -236,12 +247,12 @@
 			<div class="content">
 				<fieldset class="bio-desc">
 					<legend>{{localize "op.description"}}</legend>
-					{{editor system.biography target="system.biography" rollData=rollData button=true owner=owner
+					{{editor biographyHTML target="system.biography" rollData=rollData button=true owner=owner
 					editable=editable}}
 				</fieldset>
 				<fieldset class="bio-goals">
 					<legend>{{localize "op.goals"}}</legend>
-					{{editor system.goals target="system.goals" rollData=rollData button=true owner=owner editable=editable}}
+					{{editor goalsHTML target="system.goals" rollData=rollData button=true owner=owner editable=editable}}
 				</fieldset>
 			</div>
 		</div>
