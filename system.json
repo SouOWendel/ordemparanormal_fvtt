@@ -2,7 +2,7 @@
   "id": "ordemparanormal",
   "title": "Ordem Paranormal",
   "description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
-  "version": "6.8.1",
+  "version": "6.9.0",
   "compatibility": {
     "minimum": "11",
     "verified": "12"
@@ -311,13 +311,13 @@
         "lang/pt-BR.json"
       ]
     },
-		"needsMigrationVersion": "6.8.1"
+    "needsMigrationVersion": "6.8.1"
   },
-	"grid": {
-		"distance": 1.5,
-		"units": "m"
-	},
-	"gridDistance": 1.5,
+  "grid": {
+    "distance": 1.5,
+    "units": "m"
+  },
+  "gridDistance": 1.5,
   "gridUnits": "m",
   "primaryTokenAttribute": "PV",
   "secondaryTokenAttribute": "SAN",
