@@ -27,6 +27,9 @@
 				"stage": {
 					"value": 1
 				},
+				"nivel": {
+					"value": 1
+				},
 				"defense": {
 					"value": 10,
 					"bonus": 0,
@@ -42,8 +45,8 @@
 						"max": 0
 					}
 				},
-				"biography": "Your character's personality, appearance, and background here.",
-				"goals": "Your goals here."
+				"biography": "A personalidade, aparência e história do seu personagem aqui.",
+				"goals": "Os seus objetivos aqui."
 			}
 		},
 		"agent": {
