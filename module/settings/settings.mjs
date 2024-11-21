@@ -52,7 +52,7 @@ export default function registerSystemSettings() {
 		requiresReload: true, // true if you want to prompt the user to reload
 		choices: {
 			1: 'SETTINGS.nexProgressRule',
-			// 2: 'SETTINGS.nexExpProgressRule',
+			2: 'SETTINGS.nexExpProgressRule',
 			// 3: 'SETTINGS.patentesProgressRule'
 		}
 	});
