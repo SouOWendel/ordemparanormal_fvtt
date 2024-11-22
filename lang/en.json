@@ -89,7 +89,7 @@
 		"tactics": "Tactics",
 		"technology": "Technology",
 		"will": "Will",
-		"profession": "Profession"
+		"freeSkill": "Free Skill"
 	},
 
 	"op.attDex": "Dexterity",

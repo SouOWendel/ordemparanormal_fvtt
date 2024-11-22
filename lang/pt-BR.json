@@ -40,6 +40,7 @@
 	"op.soon": "Em breve.",
 	"op.sidebar.discord": "Contate-me no Discord",
 	"op.sidebar.bluesky": "Siga-me no Bluesky",
+	"op.sidebar.twitter": "Siga-me no Twitter",
 
 	"op.tab": {
 		"skills": "Perícias",
@@ -89,7 +90,7 @@
 		"tactics": "Tática",
 		"technology": "Tecnologia",
 		"will": "Vontade",
-		"profession": "Profissão"
+		"freeSkill": "Perícia Livre"
 	},
 
 	"op.attDex": "Agilidade",
