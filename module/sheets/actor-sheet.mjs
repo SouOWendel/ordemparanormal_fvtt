@@ -417,6 +417,11 @@ export class OrdemActorSheet extends ActorSheet {
 		event.preventDefault();
 		const element = event.currentTarget;
 		const dataset = element.dataset;
+		const context = super.getData();
+		// Use a safe clone of the actor data for further operations.
+		const actorData = context.data;
+		// Add the actor's data to context.data for easier access, as well as flags.
+		const system = actorData.system;
 
 		// Handle item rolls.
 		if (dataset.rollType) {
@@ -429,7 +434,8 @@ export class OrdemActorSheet extends ActorSheet {
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
-			const label = dataset.label ? `Rolando ${dataset.label}` : '';
+			let label = dataset.label ? `Rolando ${dataset.label} ` : '';
+			if (dataset.key == 'freeSkill') label += `(${system.skills.freeSkill.name || 'Sem nome'})`;
 			const roll = new Roll(dataset.roll, this.actor.getRollData());
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
