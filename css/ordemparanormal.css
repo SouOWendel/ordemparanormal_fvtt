@@ -438,7 +438,7 @@
 .system-ordemparanormal .skills-content .skill .modifier {
   max-width: 30px;
 }
-.system-ordemparanormal .skills-content .skill .rollProfession {
+.system-ordemparanormal .skills-content .skill .rollFreeSkill {
   position: absolute;
   left: 48%;
   right: 0;
