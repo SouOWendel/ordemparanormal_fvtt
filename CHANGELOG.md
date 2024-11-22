@@ -1,5 +1,42 @@
 # Changelog
 
+## [6.9.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.8.1...v6.9.0) (2024-11-21)
+
+
+### Features
+
+* **actor agent sheet:** reorganized the calculations and added the patent feature to agents ([a86d1ca](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a86d1ca012c6908cfaefb9eaba1e53f0730d05ef))
+* **actor agent sheet:** replaced the conditions of progress fields and enrich description ([3ff4c96](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3ff4c96c8586c1ffbba4a915e97ff4bdb0031d49))
+* **actor sheet and refactor:** added 'gets' for global access on this class, refactor context var ([aa49f68](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/aa49f6858964f24425382dc368c3f8c287a1d9cb))
+* **actor:** added conditions to prevent new skills broken the sheet ([aeba741](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/aeba741c632d00247f22ec073cdb3a48f62f64e7))
+* **agent sheet:** added a new skill called "profession" ([bb8dda5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bb8dda56cb8316738c2e88ebfe311b0d474cd1c1))
+* **agent sheet:** added adjustment buttons and fields for edit attributes of inventory items ([f4d5ce4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f4d5ce495d495fcfbb4d3b9f42b5ae59ea526983))
+* **bar brawl integration:** changed the name and id of new bar brawls and fixed the ownerVisibility ([f679513](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f6795137ff92c62afcb9ff449c86993dc486eb6b))
+* **build packs:** refactored the build structure for packs with DND5e codes, also added scripts ([be140dd](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/be140dd0ef118fb8d16598cb5dc906c8493fb8d6))
+* **compendium:** fixed the weight of military backpack and deleted the old json files of packs ([5e6f683](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5e6f68328195800570e27f850090d81af06d111c))
+* **config:** renamed 'creatures' to 'beings' ([483afb6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/483afb6c6748d1f0e838fc70b0ea4040f1daccc8))
+* **css/sass:** added styles for patents, layout fixed, weight bar on inventory tab ([0c3996e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0c3996eb2db064ac9f7c37276de74c996e857999))
+* **css/sass:** styles for new skill 'profession' ([b9e2774](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b9e2774fb3c7957ab3b9bd19d1d7f49041063e40))
+* **descriptions:** enrichment of descriptions ([8314fbe](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8314fbea2b3346d7cb2cce73c98bfcf8fd2e6fd3))
+* **item and item card:** refactored the displayed informations about area ([1b5d770](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1b5d7709a87854235312ea4a2c9084d0772cbac3))
+* **item ritual sheet:** refactor the target fields and some fixes on localizations ([7cc71c3](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7cc71c3bfe245b065003844ed7e3d29b36fd8400))
+* **item sheet:** enrichment of item descriptions ([220e974](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/220e9743aa7df799e5d41a410ec4b3867adb3a8b))
+* **localization:** added translation for nivel ([d280d15](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d280d1563d6e26b71be2f45b755cb923a2af6150))
+* **localization:** added translations for proficiency abbreviations and professions ([4b65677](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4b656770b6527469026f0f0170a7e771ad35aa91))
+* **migration:** adding flag to use in migration ([9afc222](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9afc222818eb6dd99125b56ebb5f93916838c78e))
+* **migration:** log the migration and checked when is necessary ([65b9e78](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/65b9e78b1ca18e64916b32bc809aeeac1b7aa3e2))
+* **migrations:** added structure to make migrations and moved the 6.3.1 migration ([b27e7c3](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b27e7c337c06ed20ba09d7344fd9532ae29ef16d))
+* **migration:** the migration now uses the migration flag to write the last migration ([3f9cc90](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3f9cc9045af3405542936af00d622910d75b8f1c))
+* **settings:** activated the nex and experience progress rule ([379dc47](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/379dc47008e8c3902b4ba91a5319cf48862cabd9))
+* **system.json:** added gridDistance and gridUnits for v11 versions ([a38f9f6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a38f9f6e5a73ef578468ee91e398d35bfc255d93))
+* **template.json:** created the 'nivel' data for NEX and Experience rule ([e079604](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e079604c07c96d9880611c555d3a20b237c4729a))
+
+
+### Bug Fixes
+
+* **actor:** fixed DT and PE/PD per round of survivor class ([6017d1b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6017d1bf665ca386a321c71163510274d9f85ede))
+* **layout:** fixed the layout of items ([40d872b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/40d872bcb1ab237b849ab7bc8f0908d2c30032a5))
+
 ## [6.8.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.8.0...v6.8.1) (2024-09-13)
 
 
