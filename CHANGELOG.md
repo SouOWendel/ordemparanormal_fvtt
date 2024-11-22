@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.9.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.9.0...v6.9.1) (2024-11-22)
+
+
+### Bug Fixes
+
+* **update notes:** added more informations for the update ([f936760](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f93676011cbb0cacce7542e0e099d6886bc79719))
+
 ## [6.9.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.8.1...v6.9.0) (2024-11-21)
 
 
