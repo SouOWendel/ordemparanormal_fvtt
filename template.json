@@ -307,13 +307,13 @@
 						"trained": false
 					}
 				},
-				"profession": {
+				"freeSkill": {
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": "untrained",
 					"conditions": {
 						"load": false,
-						"trained": true,
+						"trained": false,
 						"open": true
 					}
 				}
@@ -400,7 +400,7 @@
 		"types": ["armament", "generalEquipment", "protection", "ability", "ritual"],
 		"templates": {
 			"base": {
-				"description": "Your text here.",
+				"description": "A descrição do seu item aqui.",
 				"weight": 1,
 				"category": 0,
 				"using": {
@@ -467,7 +467,7 @@
 			"quantity": 1
 		},
 		"ritual": {
-			"description": "Your text here.",
+			"description": "A descrição do seu ritual aqui.",
 			"circle": 1,
 			"element": "",
 			"target": "",

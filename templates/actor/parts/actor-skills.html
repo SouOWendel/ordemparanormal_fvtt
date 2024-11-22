@@ -5,8 +5,8 @@
 			{{#if skill.conditions.open}}
 				<input type="text" name="system.skills.{{key}}.name" value="{{skill.name}}"
 				class="resource-label flexlarge align-center" 
-				data-type="String" placeholder="Profissão">
-				<i class="fas fa-dice {{key}} rollable rollProfession" data-roll="{{skill.formula}}" data-label="{{skill.label}}"></i>
+				data-type="String" placeholder="{{localize 'op.skill.freeSkill'}}">
+				<i class="fas fa-dice {{key}} rollable rollFreeSkill" data-roll="{{skill.formula}}" data-label="{{skill.label}}" data-key="{{key}}"></i>
 			{{else}}
 			<label for="system.skills.{{key}}.value" class="resource-label rollable flexlarge align-left"
 				data-roll="{{skill.formula}}" data-label="{{skill.label}}">{{skill.label}}</label>
