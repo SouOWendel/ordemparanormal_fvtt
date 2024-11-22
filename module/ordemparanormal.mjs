@@ -388,9 +388,9 @@ Hooks.on('renderSettings', async (app, [html]) => {
 		<strong>${game.system.version}</strong> </span>
 		<p><span class="system-info" data-tooltip="${game.i18n.localize('op.sidebar.discord')}">
 		<i class="fa-brands fa-discord"></i> souowendel</span>&nbsp;&nbsp;
-		<a href="https://bsky.app/profile/souowendel.bsky.social" target="_blank" 
-		data-tooltip="${game.i18n.localize('op.sidebar.bluesky')}">
-		<span class="system-info"><i class="fa-brands fa-bluesky"></i> souowendel</span></p>
+		<a href="https://x.com/EuSouOWendel" target="_blank" 
+		data-tooltip="${game.i18n.localize('op.sidebar.twitter')}">
+		<span class="system-info"><i class="fa-brands fa-twitter"></i> souowendel</span></p>
   `;
 	if (pip) badge.querySelector('.system-info').insertAdjacentElement('beforeend', pip);
 	heading.insertAdjacentElement('afterend', badge);
