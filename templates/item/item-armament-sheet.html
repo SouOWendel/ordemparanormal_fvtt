@@ -103,24 +103,28 @@
 				<ol class="items-list">
 					<fieldset class="resource-type">
 						<legend>Formulas de Rolagem</legend>
-					<h4 class="">Formula de Ataque</h4>
-					<li class="item flexrow" data-item-id="{{item._id}}">
+						<h4 class="">Fórmula de Ataque</h4>
+						<li class="item flexrow" data-item-id="{{item._id}}">
 							<!-- TODO: função pendente de ataque -->
-						<div class="item-sheet-select item-sheet-prop">
-							<select name="system.formulas.attack.attr" data-dtype="String">
-								{{ selectOptions attributes selected=system.formulas.attack.attr localize=true blank="—" }}
-							</select>
-							<i class="fa-solid fa-dice-d20"></i>
-						</div>
-						<div class="item-sheet-select item-sheet-prop">
-							<select name="system.formulas.attack.skill" data-dtype="String">
-								{{ selectOptions attackSkills selected=system.formulas.attack.skill localize=true blank="—" }}
-							</select>
-							<i class="fa-solid fa-plus"></i>
-						</div>
-						<div class="item-sheet-space item-sheet-prop">
-							<input type="text" name="system.formulas.attack.bonus" value="{{system.formulas.attack.bonus}}"
-							 data-dtype="String" placeholder="Adicione um bônus"/>
+							<div class="item-sheet-select item-sheet-prop">
+								<select name="system.formulas.attack.attr" data-dtype="String">
+									{{ selectOptions attributes selected=system.formulas.attack.attr localize=true blank="—" }}
+								</select>
+								<i class="fa-solid fa-dice-d20"></i>
+							</div>
+							<div class="item-sheet-select item-sheet-prop">
+								<select name="system.formulas.attack.skill" data-dtype="String">
+									{{ selectOptions attackSkills selected=system.formulas.attack.skill localize=true blank="—" }}
+								</select>
+								<i class="fa-solid fa-plus"></i>
+							</div>
+							<div class="item-sheet-space item-sheet-prop">
+								<input type="text" name="system.formulas.attack.diceModifier" value="{{system.formulas.attack.diceModifier}}"
+									data-dtype="String" placeholder="Dices"/>
+							</div>
+							<div class="item-sheet-space item-sheet-prop">
+								<input type="text" name="system.formulas.attack.bonus" value="{{system.formulas.attack.bonus}}"
+									data-dtype="String" placeholder="Adicione um bônus"/>
 						</div>
 					</li>
 				<ol class="items-list">
