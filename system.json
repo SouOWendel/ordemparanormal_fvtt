@@ -98,6 +98,18 @@
       }
     },
     {
+      "name": "rituals",
+      "label": "Rituais",
+      "system": "ordemparanormal",
+      "path": "packs/rituals",
+      "type": "Item",
+      "private": false,
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
       "name": "fighterAbilities",
       "label": "Habilidades de Combatente",
       "system": "ordemparanormal",
@@ -246,6 +258,14 @@
             "pathFighter",
             "pathSpecialist",
             "pathOccultist"
+          ]
+        },
+        {
+          "name": "Rituais",
+          "sorting": "m",
+          "color": "#272727",
+          "packs": [
+            "rituals"
           ]
         },
         {

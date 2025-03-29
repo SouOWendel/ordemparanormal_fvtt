@@ -1,0 +1,40 @@
+{
+  "name": "Decadência",
+  "type": "ritual",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Espirais de trevas envolvem sua m&atilde;o e definham o corpo do alvo&nbsp;ao toque, causando 2d8+2 pontos&nbsp;de dano de Morte.</p>",
+    "circle": "1",
+    "element": "death",
+    "target": "creatures",
+    "execution": "default",
+    "range": "touch",
+    "area": {
+      "name": "",
+      "size": "",
+      "type": ""
+    },
+    "duration": "instantaneous",
+    "resistance": "reducesByHalf",
+    "studentForm": false,
+    "trueForm": false,
+    "skillResis": "resilience",
+    "targetQtd": "1"
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.9.1",
+    "createdTime": 1743257161860,
+    "modifiedTime": 1743257161860,
+    "lastModifiedBy": "D087Zkcpssj33iAO"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_id": "ritual_decadencia",
+  "_key": "!items!ritual_decadencia"
+}
