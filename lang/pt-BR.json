@@ -35,6 +35,12 @@
 	"MACRO.opMissingTargetWarn": "O ator controlado '{actor}' não tem um '{type}' com o nome '{name}'.",
 	"MACRO.opMultipleTargetsWarn": "O ator controlado '{actor}' tem mais de um {type} com o mesmo nome '{name}'. O primeiro correspondente será escolhido.",
 	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
+	"CHAT.RollBlind": "Rolagem Cega pro MJ",
+  "CHAT.RollDefault": "Modo de Rolagem Padrão",
+  "CHAT.RollPublic": "Rolagem Pública",
+  "CHAT.RollPrivate": "Rolagem Privada pro MJ",
+  "CHAT.RollSelf": "Rolagem Pessoal",
+  "CHAT.RollTables": "Tabelas de Rolagem",
 
 	"WORLD.GameSystem": "Sistema de Jogo",
 	"op.sidebar.updateNotes": "Um sistema não-oficial na versão",
