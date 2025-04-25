@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { onManageActiveEffect, prepareActiveEffectCategories } from '../helpers/effects.mjs';
+import { d20Roll } from '../dice/dice.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -413,7 +414,7 @@ export class OrdemActorSheet extends ActorSheet {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-	_onRoll(event) {
+	async _onRoll(event) {
 		event.preventDefault();
 		const element = event.currentTarget;
 		const dataset = element.dataset;
@@ -433,16 +434,45 @@ export class OrdemActorSheet extends ActorSheet {
 		}
 
 		// Handle rolls that supply the formula directly.
-		if (dataset.roll) {
-			let label = dataset.label ? `Rolando ${dataset.label} ` : '';
-			if (dataset.key == 'freeSkill') label += `(${system.skills.freeSkill.name || 'Sem nome'})`;
-			const roll = new Roll(dataset.roll, this.actor.getRollData());
-			roll.toMessage({
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: label,
-				rollMode: game.settings.get('core', 'rollMode'),
-			});
-			return roll;
-		}
+		// if (dataset.roll) {
+		// 	let label = dataset.label ? `Rolando ${dataset.label} ` : '';
+		// 	if (dataset.key == 'freeSkill') label += `(${system.skills.freeSkill.name || 'Sem nome'})`;
+		// 	const roll = new Roll(dataset.roll, this.actor.getRollData());
+		// 	roll.toMessage({
+		// 		speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+		// 		flavor: label,
+		// 		rollMode: game.settings.get('core', 'rollMode'),
+		// 	});
+		// 	return roll;
+		// }
+
+		let label = dataset.label ? `Rolando ${dataset.label} ` : '';
+		if (dataset.key == 'freeSkill') label += `(${system.skills.freeSkill.name || 'Sem nome'})`;
+		const data = system.skills[dataset.key];
+		const roll = await d20Roll({
+			data,
+			title: `Configuração de ${label}`,
+			flavor: label,
+			messageData: {speaker: ChatMessage.getSpeaker({ actor: this.actor })},
+			event,
+			parts: [data.degree.value, data.mod, data.value],
+			shiftFastForward: event.shiftKey,
+			hasCritical: false,
+		});
+		return roll;
+			
 	}
+
+	/* -------------------------------------------- */
+
+	/* -------------------------------------------- */
+	/*  Form Submission                             */
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _onSubmit(...args) {
+		await super._onSubmit(...args);
+	}
+
+	/* -------------------------------------------- */
 }
