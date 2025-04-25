@@ -1,4 +1,7 @@
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable no-unused-vars */
+import semverComp from '../../utils/semver-compare.mjs';
+
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -40,7 +43,7 @@ export class OrdemActor extends Actor {
 	 * 
 	 */
 	get isV12() {
-		return game.version > 11;
+		return semverComp(12, game.version, 12.999);
 	}
 
 	/**
@@ -61,7 +64,6 @@ export class OrdemActor extends Actor {
 			this._prepareDataStatus(actorData, systemData);
 			this._prepareRituals(actorData);
 			this._prepareBaseSkills(systemData);
-			this._prepareSkills(systemData);
 			this._preparePatent(actorData);
 		}
 	}
@@ -176,61 +178,45 @@ export class OrdemActor extends Actor {
 	}
 
 	/**
-	 *
+	 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
+	 * depois disso, salva o valor nas informações.
 	 * @param {*} system
 	 */
-	_prepareSkills(system) {
-		/**
-		 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
-		 * depois disso, salva o valor nas informações
-		 * */
-		for (const [keySkill, skillsName] of Object.entries(system.skills)) {
-			if (foundry.utils.hasProperty(skillsName, 'attr')) {
-			// Definindo constantes para acesso simplificado.
-				const overLoad = skillsName?.conditions?.load || false;
-				const needTraining = skillsName?.conditions?.trained || false;
+	async _prepareBaseSkills(system) {
+		console.time('Tempo de atualização das perícias');
+		const attributes = system.attributes;
+		const skills = system.skills;
+
+		// Loop through ability scores, and add their modifiers to our sheet output.
+		for (const [keySkill, skill] of Object.entries(skills)) {
+			if (skill && Array.isArray(skill.attr) && skill.attr.length > 0) {
+				const requiredAttrKey = skill.attr[0]; // Pega a chave do atributo
+		
+				// Verifica se o atributo correspondente existe
+				if (attributes.hasOwnProperty(requiredAttrKey)) {
+					// Atualiza o valor na perícia diretamente
+					skill.attr[1] = attributes[requiredAttrKey].value;
+				} else {
+					// Opcional: Aviso se o atributo não for encontrado
+					console.warn(`Atributo '${requiredAttrKey}' necessário para a perícia '${keySkill}' não foi encontrado em system.attributes.`);
+				}
+
+				// Definindo constantes para acesso simplificado.
+				const overLoad = skill?.conditions?.load || false;
+				const needTraining = skill?.conditions?.trained || false;
 
 				// Calculate the modifier using d20 rules.
 				// TODO: inverter a atribuição de valores.
-				if (skillsName.degree.label == 'trained') skillsName.value = 5;
-				else if (skillsName.degree.label == 'veteran') skillsName.value = 10;
-				else if (skillsName.degree.label == 'expert') skillsName.value = 15;
-				else skillsName.value = 0;
+				if (skill.degree.label == 'trained') skill.degree.value = 5;
+				else if (skill.degree.label == 'veteran') skill.degree.value = 10;
+				else if (skill.degree.label == 'expert') skill.degree.value = 15;
+				else skill.degree.value = 0;
 
 				// Formando o nome com base nas condições de carga e treino da perícia.
-				skillsName.label =
-				game.i18n.localize(CONFIG.op.skills[keySkill]) + (overLoad ? '+' : needTraining ? '*' : '') ?? k;
-
-				// FORMULA DE ROLAGEM: Criando o que vem antes e depois do D20 das perícias.
-				const beforeD20Formula = skillsName.attr[1] ? skillsName.attr[1] : 2;
-
-				const afterD20Formula =
-				(skillsName.attr[1] != 0 ? 'kh' : 'kl') +
-				(skillsName.value != 0 ? '+' + skillsName.value : '') +
-				(skillsName.mod ? '+' + skillsName.mod : '');
-
-				skillsName.formula = beforeD20Formula + 'd20' + afterD20Formula;
+				skill.label = game.i18n.localize(CONFIG.op.skills[keySkill]) + (overLoad ? '+' : needTraining ? '*' : '') ?? k;
 			}
 		}
-	}
-
-	/**
-	 *
-	 */
-	async _prepareBaseSkills(system) {
-		// Loop through ability scores, and add their modifiers to our sheet output.
-		for (const [keySkill, skillsName] of Object.entries(system.skills)) {
-			/**
-			 * Faz um loop de todos os atributos, depois disso, se o atributo
-			 * necessário para a perícia for o mesmo que a mesma perícia em que o loop
-			 * esta no momento, este valor é atualizado para ser utilizado nas rolagens.
-			 */
-			for (const [keyAttr, attribute] of Object.entries(system.attributes)) {
-				if (foundry.utils.hasProperty(skillsName, 'attr') && skillsName?.attr[0] == keyAttr) {
-					system.skills[keySkill].attr[1] = attribute.value;
-				}
-			}
-		}
+		console.timeEnd('Tempo de atualização das perícias');
 	}
 
 	/**
@@ -264,6 +250,7 @@ export class OrdemActor extends Actor {
 		spaces.max += spaces.bonus.max;
 
 		// TODO: V11 AND V12 SPACE/WEIGHT RETRO COMPATIBILITY
+		console.log(this.isV12);
 		if (this.isV12) spaces.pct = Math.clamp((spaces.value * 100) / spaces.max, 0, 100);
 		else spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
 
