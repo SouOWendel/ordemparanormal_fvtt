@@ -19,6 +19,7 @@ import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { op } from './helpers/config.mjs';
 import displayMessages from './components/message-system.mjs';
 import registerSystemSettings from './settings/settings.mjs';
+import D20Roll from './dice/d20-roll.mjs';
 
 import * as documents from './documents/_partial_module.mjs';
 import * as dice from './dice/_module.mjs';
@@ -41,22 +42,14 @@ Hooks.once('init', async function () {
 	game.ordemparanormal = {
 		OrdemActor,
 		OrdemItem,
-		// rollItemMacro,
+		D20Roll
 	};
 
-	// Pg. 169 of the Book
-	CONFIG.time.roundTime = 6;
-
-	// Add custom constants for configuration.
-	CONFIG.op = op;
-
-	CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.html';
-
-	/**
-	 * Set an initiative formula for the system
-	 * @type {String}
-	 */
-
+	CONFIG.time.roundTime = 6; // Pg. 169 of the Book
+	CONFIG.op = op; // Add custom constants for configuration.
+	CONFIG.Dice.D20Roll = D20Roll;
+	CONFIG.Dice.rolls = [D20Roll];
+	CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.hbs';
 	CONFIG.Combat.initiative = {
 		formula: '@rollInitiative',
 		decimals: 2,
