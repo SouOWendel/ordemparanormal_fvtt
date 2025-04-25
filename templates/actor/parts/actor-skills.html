@@ -9,7 +9,7 @@
 				<i class="fas fa-dice {{key}} rollable rollFreeSkill" data-roll="{{skill.formula}}" data-label="{{skill.label}}" data-key="{{key}}"></i>
 			{{else}}
 			<label for="system.skills.{{key}}.value" class="resource-label rollable flexlarge align-left"
-				data-roll="{{skill.formula}}" data-label="{{skill.label}}">{{skill.label}}</label>
+			 data-label="{{skill.label}}" data-key="{{key}}">{{skill.label}}</label>
 			{{/if}}
 			<label class="flex0 p-side-10">
 				<strong>{{toUpperCase (localize (concat "op." skill.attr.[0] "Abv")) }}</strong>
