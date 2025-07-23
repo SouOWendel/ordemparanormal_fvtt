@@ -1,0 +1,46 @@
+<form id="d20dice-dialog">
+	{{log this}}
+	<div class="header">
+		<span class="header-dice flex-1 flex-group-center">
+			<input type="number" class="diceMod" name="diceMod" value="1"/>
+			<i class="fa-solid fa-dice-d20"></i>
+			<span class="formula big-letters">+ 5</span>
+		</span>
+	</div>
+	<div class="form-group situational">
+		<label>Bônus Situacional</label>
+		<input type="text" name="bonus" placeholder="Ex.: +5, -8, 4, 1d6">
+	</div>
+	
+		<div class="form-group">
+			<label class="flex-1">Valor de Crítico</label>
+			<input type="text" name="critical" value="15">
+		</div>
+	
+	
+		<div class="form-group">
+			<label class="flex-1">Campo da Ficha</label>
+			<select name="dropdown">
+				<option>Teste
+						</option>
+			</select>
+		</div>
+	
+	<fieldset class="actions">
+		<legend>Configurações</legend>
+		<div class="form-group">
+			<label>Atributo Utilizado</label>
+			<select name="attribute">
+					<option>Teste
+						</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Modo de Rolagem</label>
+			<select name="rollMode">
+					<option>Teste
+						</option>
+			</select>
+		</div>
+	</fieldset>
+</form>
