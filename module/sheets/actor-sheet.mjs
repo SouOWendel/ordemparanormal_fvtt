@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { onManageActiveEffect, prepareActiveEffectCategories } from '../helpers/effects.mjs';
-import { d20Roll } from '../dice/dice.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -275,6 +274,9 @@ export class OrdemActorSheet extends ActorSheet {
 		for (const button of this.form.querySelectorAll('.adjustment-button')) {
 			button.addEventListener('click', this._onAdjustInput.bind(this));
 		}
+
+		// Roll Skill Checks
+		html.find('.skill-name').click(this._onRollSkillCheck.bind(this));
 	}
 
 	/**
@@ -445,23 +447,48 @@ export class OrdemActorSheet extends ActorSheet {
 		// 	});
 		// 	return roll;
 		// }
-
-		let label = dataset.label ? `Rolando ${dataset.label} ` : '';
-		if (dataset.key == 'freeSkill') label += `(${system.skills.freeSkill.name || 'Sem nome'})`;
-		const data = system.skills[dataset.key];
-		const roll = await d20Roll({
-			data,
-			title: `Configuração de ${label}`,
-			flavor: label,
-			messageData: {speaker: ChatMessage.getSpeaker({ actor: this.actor })},
-			event,
-			parts: [data.degree.value, data.mod, data.value],
-			shiftFastForward: event.shiftKey,
-			hasCritical: false,
-		});
-		return roll;
-			
+		// let roll;
+		// const options = {
+		// 	flavor: '',
+		// 	messageData: {speaker: ChatMessage.getSpeaker({ actor: this.actor })},
+		// 	shiftFastForward: event.shiftKey,
+		// 	hasCritical: false,
+		// 	event: event,
+		// 	type: dataset.rolltype
+		// };
+		// let app;
+		// switch(dataset.rolltype) {
+		// case 'attribute':
+		// 	options.flavor = dataset.label ? `Rolando ${dataset.label} ` : '';
+		// 	options.data = system.attributes[dataset.key];
+		// 	options.title = `Configuração de ${options.flavor}`;
+		// 	options.parts = [], 
+		// 	roll = await d20Roll(options);
+		// 	return roll;
+		// case 'skill':
+		// 	options.flavor = dataset.label ? `Rolando ${dataset.label} ` : '';
+		// 	if (dataset.key == 'freeSkill') options.flavor += `(${system.skills.freeSkill.name || 'Sem nome'})`;
+		// 	options.data = system.skills[dataset.key];
+		// 	options.title = `Configuração de ${options.flavor}`;
+		// 	options.parts = [options.data.degree.value, options.data.mod, options.data.value], 
+		// 	roll = await d20Roll(this.object, options);
+		// 	return roll;
+		// }	
 	}
+
+	/**
+   * Handle rolling a Skill check.
+   * @param {Event} event      The originating click event.
+   * @returns {Promise<Roll>}  The resulting roll.
+   * @private
+   */
+	_onRollSkillCheck(event) {
+		event.preventDefault();
+		const skill = event.currentTarget.closest('[data-key]').dataset.key;
+		console.log('skillcheck');
+		return this.actor.rollSkill({ skill, event });
+	}
+	
 
 	/* -------------------------------------------- */
 
