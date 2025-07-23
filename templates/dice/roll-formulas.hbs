@@ -1,0 +1,46 @@
+<div class="rolls">
+
+    {{!-- Dice Display --}}
+    <ul class="dice unlist">
+			{{log dice}}
+        {{#each dice}}
+				<li>
+						<span class="badge">
+							<span>{{number}}</span>
+							<i class="fa-solid fa-xmark display-flex align-center"></i>
+						</span>
+            <img src="{{ icon }}" alt="{{ label }}">
+						{{#if isD20Die}}
+							{{#if isKeepHighest}}
+								<span class="badge kh">
+									<i class="fa-solid fa-caret-up display-flex align-center"></i>
+								</span>
+							{{else}}
+								<span class="badge kl">
+									<i class="fa-solid fa-caret-down display-flex align-center"></i>
+								</span>
+							{{/if}}
+						{{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    {{!-- Formulas --}}
+    <ul class="formulas unlist">
+        {{#each rolls}}
+        <li>
+            {{!-- Formula --}}
+            <div class="formula-line">
+                <span class="formula">{{ roll.formula }}</span>
+                <span class="label">{{#if type}}{{ roll.type }}{{else}}{{ localize "op.Formula" }}{{/if}}</span>
+            </div>
+
+            {{!-- Situational Bonus --}}
+            <div class="form-group">
+                <input type="text" class="full-width" name="roll.{{ @index }}.situational"
+                       value="{{ roll.data.situational }}" placeholder="{{ localize "op.RollSituationalBonus" }}">
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+</div>
