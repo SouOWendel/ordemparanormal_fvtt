@@ -407,5 +407,15 @@
 
 	"op.damage": "Dano",
 	"op.rollDmg": "Rolar Dano",
-	"op.rollAtk": "Rolar Ataque"
+	"op.rollAtk": "Rolar Ataque",
+
+	"op.Advantage": "Vantagem (+1d20)",
+	"op.Normal": "Lançar Dados",
+	"op.Disadvantage": "Desvantagem (-1d20)",
+	"op.SkillPromptTitle": "Teste de {skill} com {ability}",
+	"op.RollMode": "Modo de Rolagem",
+	"op.RollConfiguration.Configuration": "Configuração de Rolagem",
+	"op.RollSituationalBonus": "Rolagem Situacional",
+	"op.Formula": "Formula",
+	"op.RollAttribute": "Atributo da Rolagem"
 }
