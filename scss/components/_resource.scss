@@ -1,3 +1,5 @@
+@use '../utils/colors';
+
 .resource-label {
   font-weight: bold;
 }
@@ -7,14 +9,14 @@
 .specifications {
   h4 {
     color: #16161670;
-    border-bottom: 1px solid $black-transparent;
+    border-bottom: 1px solid colors.$transparent-c-black;
   }
 }
 
 .combat {
   h4 {
     color: #16161670;
-    border-bottom: 1px solid $black-transparent;
+    border-bottom: 1px solid colors.$transparent-c-black;
   }
 
   .resource-label {
@@ -92,7 +94,7 @@
 }
 
 .resource-type {
-  border: 1px solid $black-transparent;
+  border: 1px solid colors.$transparent-c-black;
   border-radius: 4px;
   padding: 10px;
 }

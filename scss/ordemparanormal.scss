@@ -1,26 +1,24 @@
-// Add custom fonts by visiting and search https://fonts.google.com
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap');
-
+@use "sass:meta";
 // Import utilities.
-@import 'utils/typography';
-@import 'utils/colors';
-@import 'utils/mixins';
-@import 'utils/variables';
+@use 'utils/typography';
+@use 'utils/colors';
+@use 'utils/mixins';
+@use 'utils/variables';
 
 /* Global styles */
-@import 'global/window';
-@import 'global/grid';
-@import 'global/flex';
+@use 'global/window';
+@use 'global/grid';
+@use 'global/flex';
 
 /* Styles limited to ordemparanormal sheets */
 .system-ordemparanormal {
-	@import 'components/forms';
-	@import 'components/resource';
-	@import 'components/items';
-	@import 'components/effects';
-	@import 'components/dialog';
-	@import 'components/cards';
-	@import 'components/chat';
-	@import 'components/sidebar';
-	@import 'components/formApp';
+	@include meta.load-css('components/forms');
+	@include meta.load-css('components/resource');
+	@include meta.load-css('components/items');
+	@include meta.load-css('components/effects');
+	@include meta.load-css('components/dialog');
+	@include meta.load-css('components/cards');
+	@include meta.load-css('components/chat');
+	@include meta.load-css('components/sidebar');
+	@include meta.load-css('components/formApp');
 }

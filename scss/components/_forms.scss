@@ -1,3 +1,7 @@
+@use "../utils/typography";
+@use "../utils/colors";
+@use "../utils/variables";
+
 form.agentsheet, form.itemsheet {
 	height: 100%;
 	overflow: hidden;
@@ -31,7 +35,7 @@ form.agentsheet, form.itemsheet {
 }
 
 .item-form {
-	font-family: $font-primary;
+	font-family: typography.$font-primary;
 }
 
 .header-identify {
@@ -113,7 +117,7 @@ form.agentsheet, form.itemsheet {
 
 .tox {
 	.tox-editor-container {
-		background: $c-white;
+		background: colors.$c-white;
 	}
 
 	.tox-edit-area {
@@ -310,7 +314,7 @@ form.agentsheet, form.itemsheet {
 	}
 
 	fieldset {
-		border: $border-transparent;
+		border: variables.$border-transparent;
 		border-radius: 10px;
 	}
 
@@ -336,7 +340,7 @@ form.agentsheet, form.itemsheet {
 	text-align: center;
 
 	p {
-		font-family: $op-optima;
+		font-family: typography.$op-optima;
 		font-weight: bold;
 	}
 }

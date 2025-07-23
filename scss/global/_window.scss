@@ -1,5 +1,25 @@
+@use "../utils/typography";
+
+dialog.ordemparanormal.application {
+	margin: 0;
+	padding: 0;
+}
+
+.no-scroll {
+	overflow: hidden !important;
+}
+
+.scroll {
+	overflow: auto !important;
+}
+
+.no-orange-hyperlink {
+	color: initial;
+	text-decoration: none;
+}
+
 .window-app {
-	font-family: $font-primary;
+	font-family: typography.$font-primary;
 }
 
 .rollable {
