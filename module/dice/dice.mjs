@@ -1,19 +1,26 @@
+
 /**
  * 
  * @param {*} param0 
  * @returns 
  */
-export async function d20Roll({
-	parts=[], data={}, event, critical=15, failure=3,
-	shiftFastForward, template, title,
+export async function d20Roll(document, {
+	parts=[], data={}, event, critical=15, shiftFastForward, template, title, type,
 	chatMessage=true, messageData={}, rollMode, flavor, hasCritical=false, chatTemplate
 }={}) {
 
+	const rollDialog = await new RollConfigurationDialog(document);
+	console.log(document);
+	rollDialog.render(true);
+
 	// Handle input arguments
-	let attrValue = data.attr[1];
-	const mode = (attrValue > 0) ? 'kh': 'kl';
-	if (mode == 'kl') attrValue = 2 + (attrValue*-1);
-	let formula = [`${attrValue}d20${mode}`];
+	let value;
+	if (type == 'skill') value = data.attr[1];
+	else if (type == 'attribute') value = data.value;
+
+	const mode = (value > 0) ? 'kh': 'kl';
+	if (mode == 'kl') value = 2 + (value*-1);
+	let formula = [`${value}d20${mode}`];
 
 	// Additional numbers
 	parts = parts.filter((x) => (x !== null && x !== 0));
@@ -26,10 +33,14 @@ export async function d20Roll({
 		defaultRollMode,
 		rollMode,
 		critical,
-		failure,
 		hasCritical,
-		chatTemplate
+		chatTemplate,
+		document
 	});
+
+	const options = {
+		data
+	};
 
 	// Variável com os dados do Dialog
 	if (shiftFastForward) {
@@ -37,7 +48,7 @@ export async function d20Roll({
 			title,
 			defaultRollMode,
 			template
-		});
+		}, options);
 		if (configured === null) return null;
 	} else roll.options.rollMode ??= defaultRollMode;
 
