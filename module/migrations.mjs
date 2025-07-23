@@ -24,8 +24,8 @@ export async function migrateWorld({bypassVersionCheck=false}={}) {
 			const version = actor._stats.systemVersion; // Version in which the sheet is created.
 			const updateData = migrateActorData(actor, source, flags, { actorUuid: actor.uuid });
 			if (!foundry.utils.isEmpty(updateData)) {
-				ui.notifications.info(`Migrando os seus dados para a versão ${gameVersion}.`, {permanent: true});
-				console.log(`Migrando documento de Ator ${actor.name} (${version})`);
+				console.log(`Migrando os seus dados para a versão ${gameVersion}.`);
+				ui.notifications.info(`Migrando documento de Ator ${actor.name} (${version})`);
 				await actor.update(updateData, {enforceTypes: false, diff: valid, render: false});
 			}
 		} catch(err) {
@@ -54,6 +54,15 @@ export function migrateActorData(actor, actorData, migrationData, flags={}, { ac
 		if (actorData.system?.class == 'Combatente') updateData['system.class'] = 'fighter';
 		if (actorData.system?.class == 'Especialista') updateData['system.class'] = 'specialist';
 		if (actorData.system?.class == 'Ocultista') updateData['system.class'] = 'occultist';
+	}
+
+	// The degree path changed in 6.9.2 version.
+	if (foundry.utils.isNewerVersion('6.9.2', actorData._stats?.systemVersion) || flags.bypassVersionCheck) {
+		for (const [keySkill] of Object.entries(actorData.system.skills)) {
+			if (typeof actorData.system?.skills[keySkill]?.degree == 'string') {
+				updateData[`system.skills.${keySkill}.degree.label`] = actorData.system?.skills[keySkill]?.degree;
+			}
+		}
 	}
 	return updateData;
 }

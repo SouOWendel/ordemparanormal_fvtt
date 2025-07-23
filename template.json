@@ -67,7 +67,10 @@
 				"acrobatics": {
 					"value": 0,
 					"attr": ["dex", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": true,
 						"trained": false
@@ -76,7 +79,10 @@
 				"animal": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": true
@@ -85,7 +91,10 @@
 				"arts": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -94,7 +103,10 @@
 				"athleticism": {
 					"value": 0,
 					"attr": ["str", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -103,7 +115,10 @@
 				"relevance": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -112,7 +127,10 @@
 				"sciences": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -121,7 +139,10 @@
 				"crime": {
 					"value": 0,
 					"attr": ["dex", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": true,
 						"trained": true
@@ -130,7 +151,10 @@
 				"diplomacy": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -139,7 +163,10 @@
 				"deception": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -148,7 +175,10 @@
 				"resilience": {
 					"value": 0,
 					"attr": ["vit", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -157,7 +187,10 @@
 				"stealth": {
 					"value": 0,
 					"attr": ["dex", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": true,
 						"trained": false
@@ -166,7 +199,10 @@
 				"initiative": {
 					"value": 0,
 					"attr": ["dex", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -175,7 +211,10 @@
 				"intimidation": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -184,7 +223,10 @@
 				"intuition": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -193,7 +235,10 @@
 				"investigation": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -202,7 +247,10 @@
 				"fighting": {
 					"value": 0,
 					"attr": ["str", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -211,7 +259,10 @@
 				"medicine": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -220,7 +271,10 @@
 				"occultism": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": true
@@ -229,7 +283,10 @@
 				"perception": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -238,7 +295,10 @@
 				"driving": {
 					"value": 0,
 					"attr": ["dex", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": true
@@ -247,7 +307,10 @@
 				"aim": {
 					"value": 0,
 					"attr": ["dex", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -256,7 +319,10 @@
 				"reflexes": {
 					"value": 0,
 					"attr": ["dex", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -265,7 +331,10 @@
 				"religion": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": true
@@ -274,7 +343,10 @@
 				"survival": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -283,7 +355,10 @@
 				"tactics": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": true
@@ -292,7 +367,10 @@
 				"technology": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": true
@@ -301,7 +379,10 @@
 				"will": {
 					"value": 0,
 					"attr": ["pre", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false
@@ -310,7 +391,10 @@
 				"freeSkill": {
 					"value": 0,
 					"attr": ["int", 1],
-					"degree": "untrained",
+					"degree": {
+						"label": "untrained",
+						"value": 0
+					},
 					"conditions": {
 						"load": false,
 						"trained": false,
