@@ -19,7 +19,7 @@ import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { op } from './helpers/config.mjs';
 import displayMessages from './components/message-system.mjs';
 import registerSystemSettings from './settings/settings.mjs';
-import D20Roll from './dice/d20-roll.mjs';
+import { registerSystemKeybindings } from './settings/settings.mjs';
 
 import * as documents from './documents/_partial_module.mjs';
 import * as dice from './dice/_module.mjs';
@@ -35,34 +35,34 @@ globalThis.ordemparanormal = {
 /*  Init Hook                                   */
 /* -------------------------------------------- */
 
-Hooks.once('init', async function () {
+Hooks.once('init', function () {
 	CONFIG.debug.hooks = false;
 	// Add utility classes to the global game object so that they're more easily
 	// accessible in global contexts.
 	game.ordemparanormal = {
 		OrdemActor,
 		OrdemItem,
-		D20Roll
+		dice
 	};
 
+	CONFIG.op = op; 
+	CONFIG.ActiveEffect.legacyTransferral = false;
+	// Define custom Document classes
+	CONFIG.Actor.documentClass = OrdemActor;
+	CONFIG.Item.documentClass = OrdemItem;
 	CONFIG.time.roundTime = 6; // Pg. 169 of the Book
-	CONFIG.op = op; // Add custom constants for configuration.
-	CONFIG.Dice.D20Roll = D20Roll;
-	CONFIG.Dice.rolls = [D20Roll];
-	CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.hbs';
+	CONFIG.Dice.D20Die = dice.D20Die;
+	CONFIG.Dice.BasicRoll = dice.BasicRoll;
+	CONFIG.Dice.D20Roll = dice.D20Roll;
+
+	// Register Roll Extensions
+	CONFIG.Dice.rolls = [dice.BasicRoll, dice.D20Roll];
+
+	// CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.hbs';
 	CONFIG.Combat.initiative = {
 		formula: '@rollInitiative',
 		decimals: 2,
 	};
-
-	// Define custom Document classes
-	CONFIG.Actor.documentClass = OrdemActor;
-	CONFIG.Item.documentClass = OrdemItem;
-
-	// Active Effects are never copied to the Actor,
-	// but will still apply to the Actor from within the Item
-	// if the transfer property on the Active Effect is true.
-	CONFIG.ActiveEffect.legacyTransferral = false;
 
 	// Register sheet application classes
 	Actors.unregisterSheet('core', ActorSheet);
@@ -76,6 +76,7 @@ Hooks.once('init', async function () {
 
 	// Register System Settings in Other File
 	registerSystemSettings();
+	registerSystemKeybindings();
 
 	// TODO: arranjar uma maneira de atualizar ou excluir atores antigos.
 	// console.log(game.data.actors[0]);
