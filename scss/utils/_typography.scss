@@ -1,5 +1,9 @@
-$font-primary: 'Roboto', sans-serif;
-$font-secondary: 'Roboto', sans-serif;
+// Add custom fonts by visiting and search https://fonts.google.com
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+$font-primary: 'Roboto', sans-serif !default;
+$font-secondary: 'Roboto', sans-serif !default;
 
 $op-warnock: 'Warnock Pro', 'Roboto', sans-serif, 'Arial';
 $op-optima: 'Optima Nova LT PRO', 'Roboto', sans-serif, 'Arial';
