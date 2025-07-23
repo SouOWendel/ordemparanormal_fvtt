@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 .lowercase {
   text-transform: lowercase;
 }
@@ -12,6 +13,24 @@
 }
 
 /* Global styles */
+dialog.ordemparanormal.application {
+  margin: 0;
+  padding: 0;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+.scroll {
+  overflow: auto !important;
+}
+
+.no-orange-hyperlink {
+  color: initial;
+  text-decoration: none;
+}
+
 .window-app {
   font-family: "Roboto", sans-serif;
 }
@@ -317,11 +336,24 @@
 
 /* Styles limited to ordemparanormal sheets */
 .system-ordemparanormal {
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
   /* ITEM SHEET */
   /* ----------------------------------------- */
   /*  Items Lists                              */
   /* ----------------------------------------- */
   /* ITEMS IN ACTOR SHEET (AGENT) */
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+}
+.system-ordemparanormal .lowercase {
+  text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+  text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+  text-transform: capitalize;
 }
 .system-ordemparanormal form.agentsheet, .system-ordemparanormal form.itemsheet {
   height: 100%;
@@ -906,19 +938,6 @@
 .system-ordemparanormal .effects .item .effect-controls {
   border: none;
 }
-.system-ordemparanormal .teste {
-  background-color: black;
-}
-.system-ordemparanormal .no-scroll {
-  overflow: hidden !important;
-}
-.system-ordemparanormal .scroll {
-  overflow: auto !important;
-}
-.system-ordemparanormal .no-orange-hyperlink {
-  color: initial;
-  text-decoration: none;
-}
 .system-ordemparanormal .content-dialog {
   height: 500px;
   padding: 0 2px;
@@ -1006,6 +1025,301 @@
 }
 .system-ordemparanormal .dialog-credits a[href] {
   color: #464646;
+}
+.system-ordemparanormal #d20dice-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 10px;
+}
+.system-ordemparanormal #d20dice-dialog .situational {
+  padding: 0 10px;
+}
+.system-ordemparanormal #d20dice-dialog .fa-dice-d20 {
+  position: relative;
+  font-size: 2rem;
+  z-index: 0 !important;
+}
+.system-ordemparanormal #d20dice-dialog .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 10px;
+}
+.system-ordemparanormal #d20dice-dialog .header .header-dice {
+  display: inline-block;
+  gap: 10px;
+  justify-content: space-around;
+}
+.system-ordemparanormal #d20dice-dialog .header .header-dice input.diceMod {
+  position: relative;
+  font-size: 2.75rem;
+  font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
+  top: 2px;
+  width: 30px;
+  height: 40px;
+  border: none;
+  background: none;
+  z-index: 1 !important;
+}
+.system-ordemparanormal #d20dice-dialog .header .big-letters {
+  font-size: 2.5rem;
+  font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
+  text-align: center;
+  vertical-align: baseline;
+}
+.system-ordemparanormal #d20dice-dialog .header .formula {
+  padding-left: 5px;
+}
+.system-ordemparanormal #d20dice-dialog legend {
+  font-size: 15px;
+  font-weight: bold;
+}
+.system-ordemparanormal #d20dice-dialog fieldset {
+  display: flex;
+  gap: 0.1rem;
+  border-radius: 8px;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+.system-ordemparanormal #d20dice-dialog .adjusts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.system-ordemparanormal #d20dice-dialog .adjusts .hint {
+  font-size: 14px;
+  margin: 0;
+}
+.system-ordemparanormal #d20dice-dialog .submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 38px;
+  background: rgba(255, 255, 240, 0.8);
+  border: 1px solid #b5b3a4;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+}
+.system-ordemparanormal #d20dice-dialog .submit i {
+  padding: 4px;
+}
+.system-ordemparanormal .itemAreaTemplate #areaTemplate {
+  gap: 0.2rem !important;
+}
+.system-ordemparanormal .itemAreaTemplate .predefinedAreas {
+  padding: 0 !important;
+}
+.system-ordemparanormal .itemAreaTemplate input {
+  width: auto;
+}
+.system-ordemparanormal .itemAreaTemplate input[type=text] {
+  min-width: 30px !important;
+  width: auto !important;
+  text-align: center !important;
+}
+.system-ordemparanormal .areaTemplateWindow {
+  box-shadow: 0 0 10x #000 !important;
+  font-family: "Signika", "Roboto", sans-serif;
+}
+.system-ordemparanormal .areaTemplateWindow .window-header {
+  font-size: 13px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration {
+  font-family: "Source Sans 3", "Signika", sans-serif;
+  background: rgba(19, 19, 19, 0.9) 100% 80%/200% 200% url("../media/assets/ondulacoes.webp") !important;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content {
+  backdrop-filter: blur(3px);
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header {
+  position: relative;
+  overflow: visible;
+  justify-content: flex-end;
+  background: none;
+  margin-block-end: 30px;
+  border: none;
+  align-items: center;
+  margin-bottom: 0 !important;
+  padding: 5px 10px 50px 10px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-icon {
+  color: #999;
+  margin-right: auto;
+  font-size: 15px;
+  flex: none;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-icon* {
+  max-block-size: 100%;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-title {
+  flex: 1;
+  margin: 0;
+  line-height: 46px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-subtitle {
+  margin: 0;
+  font-size: 16;
+  line-height: 30px;
+  text-shadow: none;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .header-control {
+  margin: 0;
+  line-height: normal;
+  background: rgba(0, 0, 0, 0.25);
+  border-color: #242731;
+  font-size: 12px;
+  --color-light-text-heading: #f7f3e8;
+  --button-size: 20px;
+  --button-text-color: #f7f3e8;
+  padding: 3px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.13);
+  gap: 0.25rem;
+  min-height: unset;
+  display: flex;
+  align-items: center;
+  --button-hover-border-color: ;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header:has(h2:not(:empty)) {
+  margin-block-end: 36px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header h1 {
+  inset-block-start: 16px;
+  font-size: 20px;
+  position: absolute;
+  inset-inline: 20px;
+  font-weight: bold;
+  text-align: start;
+  z-index: -1;
+  font-family: "Libre Baskerville", "Signika", sans-serif;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header h2 {
+  inset-block-start: 52px;
+  margin: 0;
+  border: 0;
+  font-size: 14px;
+  text-shadow: none;
+  position: absolute;
+  inset-inline: 25px;
+  font-weight: bold;
+  text-align: start;
+  z-index: -1;
+  font-family: "Libre Baskerville", "Signika", sans-serif;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content {
+  margin-block-start: -8px;
+  padding-block-start: 8px;
+  padding-block-end: 14px;
+  padding-inline: 14px;
+  overflow-y: auto;
+  margin-top: 0em;
+  background: transparent;
+  unicode-bidi: isolate;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .unlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice {
+  margin: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice img {
+  width: 42px;
+  border: none;
+  -webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge {
+  position: relative;
+  display: flex;
+  height: 18px;
+  width: 28px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  border: 0.5 solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  gap: 4px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kh, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kl {
+  position: absolute;
+  width: 18px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kh {
+  color: #216E2F;
+  right: -8px;
+  top: -8px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kl {
+  color: #df2563;
+  right: -8px;
+  bottom: -8px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge span {
+  font-size: 14px;
+  text-align: center;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge i {
+  height: 12px;
+  font-size: 13px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: 4px;
+  margin: 0;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset .form-group {
+  margin: 0;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset .form-group label {
+  flex-basis: 50px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line .formula {
+  font-weight: bold;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line .label {
+  font-style: italic;
+  font-size: 12px;
+}
+.system-ordemparanormal .lowercase {
+  text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+  text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+  text-transform: capitalize;
 }
 .system-ordemparanormal .card-buttons button:first-of-type {
   margin-bottom: 2px;
