@@ -311,7 +311,7 @@
         "lang/pt-BR.json"
       ]
     },
-    "needsMigrationVersion": "6.9.0"
+    "needsMigrationVersion": "6.9.1"
   },
   "grid": {
     "distance": 1.5,
