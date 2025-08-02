@@ -191,32 +191,57 @@ export class OrdemItem extends Item {
 	 */
 	async rollAttack(options = {}) {
 		if (!this.system.formulas.attack.attr || !this.system.formulas.attack.skill)
-			throw new Error('This Item does not have a formula to roll!');
-
+			throw new Error('This item does not have a formula to roll!');
+		
 		const attack = this.system.formulas.attack;
-		const bonus = attack.bonus && '+' + attack.bonus;
+		const bonus = attack.bonus ? `+${attack.bonus}` : '';  // Cleanly handle undefined bonus
+		const diceModifierInput = attack.diceModifier || '';  // Retrieve user input
+
 		let attr = attack.attr;
 		let skill = attack.skill;
-		let rollMode = 'kh';
+		let rollMode = 'kh';  // Default roll mode
+		let baseDiceCount = 1;  // Default number of d20s to roll
 
-		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
-			if (i == attr) {
-				if (attrParent.value == 0) {
-					attr = 2;
-					rollMode = 'kl';
-				} else attr = attrParent.value;
-			}
+		// Parse the diceModifierInput to adjust baseDiceCount
+		const diceModifier = parseDiceModifier(diceModifierInput);
+
+		// Adjust attributes and skills based on system values
+		if (this.parent.system.attributes[attr]?.value) {
+			attr = this.parent.system.attributes[attr].value;
+			// If attr is explicitly set to zero, change rollMode
+			rollMode = attr === 0 ? 'kl' : 'kh';
+			baseDiceCount = attr;  // Set the baseDiceCount to attr value directly
+		} else {
+			// Default attr to 2 and rollMode to 'kl' if undefined or zero
+			attr = 2;
+			rollMode = 'kl';
+			baseDiceCount = attr;  // Set the baseDiceCount to the default value
 		}
 
-		for (const [i, skillParent] of Object.entries(this.parent.system.skills)) {
-			if (i == skill) skill = '+' + skillParent.value;
-		}
+		// Apply the dice modifier from the input
+		baseDiceCount += diceModifier;
+
+		skill = this.parent.system.skills[skill]?.value ? `+${this.parent.system.skills[skill].value}` : '+0';  // Default to +0 if undefined
+
+		let formula = `${baseDiceCount}d20${rollMode}${skill}${bonus}`;  // Use updated baseDiceCount for formula
 
 		const rollConfig = {
-			formula: attr + 'd20' + rollMode + skill + bonus,
+			formula: formula,
 			data: this.getRollData(),
 			chatMessage: true,
 		};
+
+		rollDice(rollConfig);
+
+		function parseDiceModifier(input) {
+			const match = input.match(/([+-]?\d+)/);
+			return match ? parseInt(match[1]) : 0;  // Extract and convert the modifier count from the match
+		}
+
+		function rollDice(config) {
+			console.log('Rolling dice with formula:', config.formula);
+			// Implement the logic to actually roll the dice here
+		}
 		// if ( spellLevel ) rollConfig.data.item.level = spellLevel;
 
 		/**
