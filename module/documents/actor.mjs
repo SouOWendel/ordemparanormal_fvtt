@@ -3,6 +3,7 @@
 import semverComp from '../../utils/semver-compare.mjs';
 import BasicRoll from '../dice/basic-roll.mjs';
 import SkillToolRollConfigurationDialog from '../applications/skill-tool-configuration-dialog.mjs';
+import AttributeRollConfigurationDialog from '../applications/attribute-configuration-dialog.mjs';
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
@@ -374,51 +375,9 @@ export class OrdemActor extends Actor {
 		const system = super.getRollData();
 
 		// Prepare character roll data.
-		this._getAgentRollData(actorData, system);
+		// this._getAgentRollData(actorData, system);
 
 		return system;
-	}
-
-	/**
-	 * Preparação do dados dos agentes.
-	 */
-	async _getAgentRollData(actorData, system) {
-		if (actorData.type !== 'agent') return;
-		// let skillUpper;
-
-		// Copy the skills scores to the top level, so that rolls can use
-		// formulas like `@iniciativa.value + 4`.
-		// TODO: criar acesso rapido de variavel para outras linguagens
-		// if (system.skills) {
-		// 	for (const [k, v] of Object.entries(system.skills)) {
-		// 		system[k] = foundry.utils.deepClone(v);
-
-		// 		skillUpper = k.charAt(0).toUpperCase() + k.slice(1);
-		// 		system[game.i18n.localize('op.skill.' + k).toLowerCase()] = foundry.utils.deepClone(v);
-		// 	}
-		// }
-
-		// Copy the attributes to the top level, so that rolls can use
-		// formulas like `@dex.value`.
-		if (system.attributes) {
-			for (const [k, v] of Object.entries(system.attributes)) {
-				system[k] = foundry.utils.deepClone(v);
-			}
-		}
-		if (system.attributes && system.skills) {
-			const mainDice = (this.system.dex.value || 2) + 'd20';
-			const rollMode = this.system.dex.value ? 'kh' : 'kl';
-			const formula = [];
-			formula.push(mainDice + rollMode);
-			if (system.skills.initiative.value != 0) formula.push(system.skills.initiative.value);
-			if (system.skills.initiative.mod) formula.push(system.skills.initiative.mod);
-			system.rollInitiative = formula.join('+');
-		}
-
-		// Add level for easier access, or fall back to 0.
-		if (system.NEX) {
-			system.nex = system.NEX.value ?? 0;
-		}
 	}
 
 	/**
@@ -428,12 +387,12 @@ export class OrdemActor extends Actor {
    * @param {Partial<BasicRollMessageConfiguration>} message   Configuration for the roll message.
    * @returns {Promise<D20Roll[]|null>}                        A Promise which resolves to the created Roll instance.
    */
-	async rollAbilityCheck(config={}, dialog={}, message={}) {
-		const abilityLabel = CONFIG.DND5E.abilities[config.ability]?.label ?? '';
+	async #rollAttributeCheck(type, config={}, dialog={}, message={}) {
+		const attributeLabel = game.i18n.localize(CONFIG.op.attributes[config.attribute] ?? '');
 		const dialogConfig = foundry.utils.mergeObject({
 			options: {
 				window: {
-					title: game.i18n.format('op.AbilityPromptTitle', { ability: abilityLabel }),
+					title: game.i18n.format('op.AttributePromptTitle', { attribute: attributeLabel }),
 					subtitle: this.name
 				}
 			}
@@ -448,47 +407,35 @@ export class OrdemActor extends Actor {
 
 	/**
    * Shared rolling functionality between ability checks & saving throws.
-   * @param {"check"|"save"} type                     D20 test type.
+   * @param {"check"} type                     								 D20 test type.
    * @param {Partial<AbilityRollProcessConfiguration>} config  Configuration information for the roll.
    * @param {Partial<BasicRollDialogConfiguration>} dialog     Configuration for the roll dialog.
    * @param {Partial<BasicRollMessageConfiguration>} message   Configuration for the roll message.
    * @returns {Promise<D20Roll[]|null>}               A Promise which resolves to the created Roll instance.
    */
 	async #rollD20Test(type, config={}, dialog={}, message={}) {
-		let oldFormat = false;
-		const name = type === 'check' ? 'AbilityCheck' : 'SavingThrow';
-		const oldName = type === 'check' ? 'AbilityTest' : 'AbilitySave';
+		const name = 'AttributeCheck';
+		const oldName = 'AttributeTest';
 
-		// Handle deprecated calling pattern
-		if ( config && (foundry.utils.getType(config) !== 'Object') ) {
-			foundry.utils.logCompatibilityWarning(
-				`The \`roll${oldName}\` method on Actor5e now takes roll, dialog, and message config objects as parameters.`,
-				{ since: 'DnD5e 4.1', until: 'DnD5e 5.0' }
-			);
-			oldFormat = true;
-			const oldConfig = dialog;
-			config = { ability: config };
-			dialog = {};
-			_applyDeprecatedD20Configs(config, dialog, message, oldConfig);
-		}
-
-		const ability = this.system.abilities?.[config.ability];
-		const abilityConfig = CONFIG.DND5E.abilities[config.ability];
-
+		const attribute = this.system.attributes?.[config.attribute];
+		const attributeConfig = game.i18n.localize(CONFIG.op.attributes[config.attribute]);
+		
 		const rollData = this.getRollData();
 		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
-			mod: ability?.mod,
-			prof: ability?.[`${type}Prof`].hasProficiency ? ability[`${type}Prof`].term : null,
-			[`${config.ability}${type.capitalize()}Bonus`]: ability?.bonuses[type],
-			[`${type}Bonus`]: this.system.bonuses?.abilities?.[type],
-			cover: (config.ability === 'dex') && (type === 'save') ? this.system.attributes?.ac?.cover : null
+			// bonus: attribute?.bonus,
+			// prof: ability?.[`${type}Prof`].hasProficiency ? ability[`${type}Prof`].term : null,
+			// [`${config.ability}${type.capitalize()}Bonus`]: ability?.bonuses[type],
+			// [`${type}Bonus`]: this.system.bonuses?.abilities?.[type],
+			// cover: (config.ability === 'dex') && (type === 'save') ? this.system.attributes?.ac?.cover : null
 		}, rollData);
 		const options = {};
 
-		// const rollConfig = foundry.utils.mergeObject({
-		// 	halflingLucky: this.getFlag('dnd5e', 'halflingLucky')
-		// }, config);
-		const rollConfig = config;
+		const buildConfig = this._buildAttributesConfig.bind(this, type);
+		console.log(config);
+		const rollConfig = foundry.utils.mergeObject({
+			attributeId: config.attribute
+		}, config);
+		// const rollConfig = config;
 		rollConfig.hookNames = [...(config.hookNames ?? []), name, 'd20Test'];
 		rollConfig.rolls = [
 			BasicRoll.mergeConfigs({ parts, data, options }, config.rolls?.shift())
@@ -496,7 +443,14 @@ export class OrdemActor extends Actor {
 		// rollConfig.rolls.forEach(({ parts, data }) => this.addRollExhaustion(parts, data));
 		rollConfig.subject = this;
 
-		const dialogConfig = foundry.utils.deepClone(dialog);
+		// const dialogConfig = foundry.utils.deepClone(dialog);
+		const dialogConfig = foundry.utils.mergeObject({
+			applicationClass: AttributeRollConfigurationDialog,
+			options: {
+				buildConfig,
+				chooseAbility: false,
+			}
+		}, dialog);
 
 		const messageConfig = foundry.utils.mergeObject({
 			create: true,
@@ -505,58 +459,66 @@ export class OrdemActor extends Actor {
 					ordemparanormal: {
 						messageType: 'roll',
 						roll: {
-							ability: config.ability,
-							type: type === 'check' ? 'ability' : 'save'
+							attribute: config.attribute,
+							type: 'attribute'
 						}
 					}
 				},
 				flavor: game.i18n.format(
-					`DND5E.${type === 'check' ? 'Ability' : 'Save'}PromptTitle`, { ability: abilityConfig?.label ?? '' }
+					'op.AttributePromptTitle', { attribute: attributeConfig ?? '' }
 				),
 				speaker: ChatMessage.getSpeaker({ actor: this })
 			}
 		}, message);
 
-		// if ( 'dnd5e.preRollAbilityTest' in Hooks.events ) {
-		// 	foundry.utils.logCompatibilityWarning(
-		// 		`The \`dnd5e.preRoll${oldName}\` hook has been deprecated and replaced with \`dnd5e.preRoll${name}V2\`.`,
-		// 		{ since: 'DnD5e 4.1', until: 'DnD5e 5.0' }
-		// 	);
-		// 	const oldConfig = _createDeprecatedD20Config(rollConfig, dialogConfig, messageConfig);
-		// 	if ( Hooks.call(`dnd5e.preRoll${oldName}`, this, oldConfig, config.ability) === false ) return null;
-		// 	_applyDeprecatedD20Configs(rollConfig, dialogConfig, messageConfig, oldConfig);
-		// }
-
 		const rolls = await CONFIG.Dice.D20Roll.build(rollConfig, dialogConfig, messageConfig);
 
-		// TODO: Temporary fix to re-apply roll mode back to original config object to allow calling methods to
-		// access the roll mode set in the dialog. There should be a better fix for this that works for all rolls.
 		message.rollMode = messageConfig.rollMode;
 
 		if ( !rolls.length ) return null;
 
-		/**
-     * A hook event that fires after an ability check or save has been rolled.
-     * @function dnd5e.rollAbilityCheck
-     * @function dnd5e.rollSavingThrow
-     * @memberof hookEvents
-     * @param {D20Roll[]} rolls       The resulting rolls.
-     * @param {object} data
-     * @param {string} data.ability   ID of the ability that was rolled as defined in `CONFIG.DND5E.abilities`.
-     * @param {Actor5e} data.subject  Actor for which the roll has been performed.
-     */
-		Hooks.callAll(`dnd5e.roll${name}`, rolls, { ability: config.ability, subject: this });
-
-		if ( `dnd5e.roll${name}` in Hooks.events ) {
-			foundry.utils.logCompatibilityWarning(
-				`The \`dnd5e.roll${oldName}\` hook has been deprecated and replaced with \`dnd5e.roll${name}\`.`,
-				{ since: 'DnD5e 4.1', until: 'DnD5e 5.0' }
-			);
-			Hooks.callAll(`dnd5e.roll${oldName}`, this, rolls[0], config.ability);
-		}
-
-		return oldFormat ? rolls[0] : rolls;
+		return rolls;
 	}
+
+	/* -------------------------------------------- */
+
+	/**
+   * Roll a generic ability test or saving throw.
+   * Prompt the user for input on which variety of roll they want to do.
+   * @param {Partial<AbilityRollProcessConfiguration>} config  Configuration information for the roll.
+   * @param {Partial<BasicRollDialogConfiguration>} dialog     Configuration for the roll dialog.
+   * @param {Partial<BasicRollMessageConfiguration>} message   Configuration for the roll message.
+   */
+	rollAttribute(config={}, dialog={}, message={}) {
+		const attributeId = config.attribute;
+		const attributeLabel = game.i18n.localize(CONFIG.op.attributes[attributeId] ?? '');
+		console.log(config);
+		// new foundry.applications.api.Dialog({
+		// 	window: { title: `${game.i18n.format('DND5E.AbilityPromptTitle', { ability: label })}: ${this.name}` },
+		// 	position: { width: 400 },
+		// 	content: `<p>${game.i18n.format('DND5E.AbilityPromptText', { ability: label })}</p>`,
+		// 	buttons: [
+		// 		{
+		// 			action: 'test',
+		// 			label: game.i18n.localize('DND5E.ActionAbil'),
+		// 			callback: () => this.rollAttributeCheck(config, dialog, message)
+		// 		}
+		// 	]
+		// }).render({ force: true });
+
+		const dialogConfig = foundry.utils.mergeObject({
+			options: {
+				window: {
+					title: game.i18n.format('op.AttributePromptTitle', { attribute: attributeLabel}),
+					subtitle: this.name
+				}
+			}
+		}, dialog);
+
+		return this.#rollAttributeCheck('attribute', config, dialogConfig, message);
+	}
+
+	/* -------------------------------------------- */
 
 	/**
    * Roll an ability check with a skill.
@@ -597,7 +559,7 @@ export class OrdemActor extends Actor {
 
 		// const toolConfig = CONFIG.DND5E.tools[config.tool];
 		if ( ((type === 'skill') && !skillConfig)) {
-			return this.rollAbilityCheck(config, dialog, message);
+			return this.rollAttributeCheck(config, dialog, message);
 		}
 
 		const relevant = this.system.skills[config.skill];
@@ -712,5 +674,27 @@ export class OrdemActor extends Actor {
 		config.data = { ...data, ...(config.data ?? {}) };
 		config.data.attributeId = attributeId;
 		console.log('_buildSkillToolConfig');
+	}
+
+	/** */
+	_buildAttributesConfig(type, process, config, formData, index) {
+		const rollData = this.getRollData();
+		const attributeId = formData?.get('attribute') ?? process.attributeId;
+		const attribute = this.system.attributes?.[attributeId];
+
+		// TODO: Local para adicionar possíveis partes adicionais de bônus. É preciso aprofundamento no método de constructParts;
+		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
+			// prof: hasProficiency ? prof : null,
+			// mod: skill?.mod || null,
+			// extraBonus: skill.value || null,
+			// [`${config[type]}Bonus`]: relevant?.bonuses?.check,
+			// [`${abilityId}CheckBonus`]: ability?.bonuses?.check,
+			// [`${type}Bonus`]: this.system.bonuses?.abilities?.[type],
+			// abilityCheckBonus: this.system.bonuses?.abilities?.check
+		}, { ...rollData });
+
+		config.parts = [...(config.parts ?? []), ...parts];
+		config.data = { ...data, ...(config.data ?? {}) };
+		config.data.attributeId = attributeId;
 	}
 }
