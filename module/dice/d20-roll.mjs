@@ -167,7 +167,7 @@ export default class D20Roll extends BasicRoll {
    * @type {integer}
    */
 	get attribute() {
-		return this.data?.attributes[this.data?.attributeId];
+		return (!(foundry.utils.isEmpty(this.data))) ? this.data?.attributes[this.data?.attributeId] : { value: 1 };
 	}
 
 	/* -------------------------------------------- */
@@ -206,7 +206,6 @@ export default class D20Roll extends BasicRoll {
 		if ( !this.validD20Roll ) return;
 		
 		console.log(this);
-		console.log(this.attribute);
 		this.d20.number = this.attribute.value;
 
 		if ( this.options.advantageMode === undefined ) {
@@ -241,7 +240,6 @@ export default class D20Roll extends BasicRoll {
 		if ( !(this.terms[0] instanceof foundry.dice.terms.Die) ) return;
 		const { number, faces, ...data } = this.terms[0];
 		this.terms[0] = new CONFIG.Dice.D20Die({ ...data, number, faces });
-		console.log(this.terms[0]);
 	}
 
 	/* -------------------------------------------- */
