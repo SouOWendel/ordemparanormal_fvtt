@@ -88,9 +88,8 @@ export class OrdemItem extends Item {
 
 		// Handle different actions
 		// let targets;
-		console.log(action);
 		switch (action) {
-			case 'attack': { console.log(action);
+			case 'attack': { 
 				const rollAttack = await item.rollAttack({
 					event: event,
 				});
@@ -98,7 +97,7 @@ export class OrdemItem extends Item {
 				item.critical = rollAttack.criticalStatus;
 				break;
 			}
-			case 'damage': console.log(action);
+			case 'damage': 
 				// case 'versatile':
 				await item.rollDamage({
 					event: event,

@@ -10,7 +10,6 @@ export async function d20Roll(document, {
 }={}) {
 
 	const rollDialog = await new RollConfigurationDialog(document);
-	console.log(document);
 	rollDialog.render(true);
 
 	// Handle input arguments

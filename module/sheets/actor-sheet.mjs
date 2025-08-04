@@ -99,10 +99,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	async _prepareContext(options) {
 		const context = await super._prepareContext(options);
 
-		console.log(this);
-
-		console.log(context);
-
 		foundry.utils.mergeObject(context, {
 			editable: this.isEditable,
 			owner: this.document.isOwner,
@@ -388,8 +384,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		this.#dragDrop.forEach((d) => d.bind(this.element));
 		this.#disableOverrides();
 
-		console.log(context, options, this);
-
 		for (const input of this.element.querySelectorAll('input[type=\'number\']')) {
 			input.addEventListener('change', this._onChangeInputOP.bind(this));
 		}
@@ -587,7 +581,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	async _onChangeInputOP(event, target) {
 		const itemId = event.currentTarget.closest('[data-item-id]')?.dataset.itemId;
 		if ( !itemId ) return;
-		console.log(event);
 
 		event.stopImmediatePropagation();
 		const item = this.document.items.get(itemId);
@@ -763,7 +756,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	static #onRollSkillCheck(event, target) {
 		event.preventDefault();
 		const skill = target.closest('[data-key]').dataset.key;
-		console.log('skillcheck');
 		return this.actor.rollSkill({ skill, event });
 	}
 	
@@ -780,7 +772,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
    */
 	_getEmbeddedDocument(target) {
 		const docRow = target.closest('li[data-document-class]');
-		console.log(docRow);
 		if (docRow.dataset.documentClass === 'Item') {
 			return this.actor.items.get(docRow.dataset.itemId);
 		} else if (docRow.dataset.documentClass === 'ActiveEffect') {

@@ -6,7 +6,6 @@ export default class ContextMenu5e extends ContextMenu {
 	/** @override */
 	_setPosition(html, target, options={}) {
 		html.classList.add('ordemparanormal');
-		console.log(target);
 		return this._setFixedPosition(html, target, options);
 	}
 
@@ -20,7 +19,6 @@ export default class ContextMenu5e extends ContextMenu {
 		event.preventDefault();
 		event.stopPropagation();
 		const { clientX, clientY } = event;
-		console.log(event);
 		const selector = '[data-id],[data-effect-id],[data-item-id],[data-message-id]';
 		const target = event.target.closest(selector) ?? event.currentTarget.closest(selector);
 		target?.dispatchEvent(new PointerEvent('contextmenu', {

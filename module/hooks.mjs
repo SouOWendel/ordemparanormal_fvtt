@@ -89,7 +89,6 @@ export default function () {
 		let title;
 		let credits;
 		let discord;
-		console.log(game.version.slice(0, 2));
 
 		if (game.version.slice(0, 2) === '12') {
 			html = html[0];

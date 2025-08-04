@@ -95,12 +95,10 @@ export default class ChatMessageOP extends ChatMessage {
 
 		const totals = html[0].querySelectorAll('.dice-total');
 		for (let [index, d20Roll] of this.rolls.entries()) {
-			console.log(d20Roll);
 			const d0 = d20Roll.dice[0];
 			if ( (d0?.faces !== 20) || (d0?.values.length !== 1)) continue;
 
 			d20Roll = ordemparanormal.dice.D20Roll.fromRoll(d20Roll);
-			console.log(d20Roll);
 			const d = d20Roll.dice[0];
 
 			const isModifiedRoll = ('success' in d.results[0]) || d.options.marginSuccess || d.options.marginFailure;

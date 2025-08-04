@@ -262,7 +262,6 @@ export class OrdemActor extends Actor {
 		spaces.max += spaces.bonus.max;
 
 		// TODO: V11 AND V12 SPACE/WEIGHT RETRO COMPATIBILITY
-		console.log(this.isV12);
 		if (this.isV12) spaces.pct = Math.clamp((spaces.value * 100) / spaces.max, 0, 100);
 		else spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
 
@@ -431,7 +430,7 @@ export class OrdemActor extends Actor {
 		const options = {};
 
 		const buildConfig = this._buildAttributesConfig.bind(this, type);
-		console.log(config);
+
 		const rollConfig = foundry.utils.mergeObject({
 			attributeId: config.attribute
 		}, config);
@@ -492,7 +491,6 @@ export class OrdemActor extends Actor {
 	rollAttribute(config={}, dialog={}, message={}) {
 		const attributeId = config.attribute;
 		const attributeLabel = game.i18n.localize(CONFIG.op.attributes[attributeId] ?? '');
-		console.log(config);
 		// new foundry.applications.api.Dialog({
 		// 	window: { title: `${game.i18n.format('DND5E.AbilityPromptTitle', { ability: label })}: ${this.name}` },
 		// 	position: { width: 400 },
@@ -579,7 +577,6 @@ export class OrdemActor extends Actor {
 				// minimum: relevant?.roll.min
 			}
 		}, config.rolls?.shift())].concat(config.rolls ?? []);
-		console.log(rollConfig.rolls);
 		rollConfig.subject = this;
 
 		const dialogConfig = foundry.utils.mergeObject({
@@ -650,10 +647,8 @@ export class OrdemActor extends Actor {
 		const rollData = this.getRollData();
 		const attributeId = formData?.get('attribute') ?? process.attributeId;
 		const attribute = this.system.attributes?.[attributeId];
-		console.log(skill);
 		const prof = skill.degree.value; // this.system.calculateAbilityCheckProficiency(relevant?.effectValue ?? 0, attributeId);
 		const hasProficiency = skill.degree.value > 0;
-		console.log('_buildSkillToolConfig');
 
 		// TODO: Local para adicionar possíveis partes adicionais de bônus. É preciso aprofundamento no método de constructParts;
 		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
@@ -665,15 +660,14 @@ export class OrdemActor extends Actor {
 			// [`${type}Bonus`]: this.system.bonuses?.abilities?.[type],
 			// abilityCheckBonus: this.system.bonuses?.abilities?.check
 		}, { ...rollData });
-		console.log('_buildSkillToolConfig');
+
 		// Add exhaustion reduction
 		// this.addRollExhaustion(parts, data);
 
 		config.parts = [...(config.parts ?? []), ...parts];
-		console.log(config.parts);
 		config.data = { ...data, ...(config.data ?? {}) };
 		config.data.attributeId = attributeId;
-		console.log('_buildSkillToolConfig');
+
 	}
 
 	/** */

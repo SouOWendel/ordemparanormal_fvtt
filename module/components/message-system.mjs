@@ -44,7 +44,6 @@ const isCurrent = (msg) => {
 		msg['max-sys-version'] ?? '100.0.0',
 		{ gEqMin: true, lEqMax: true }
 	);
-	console.log(correctSysVersion);
 	return isDisplayable && correctCoreVersion && correctSysVersion;
 	// return correctCoreVersion && correctSysVersion;
 };

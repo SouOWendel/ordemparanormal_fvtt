@@ -151,7 +151,6 @@ export default class RollConfigurationDialog extends DialogOP {
 				label: term.denomination,
 				denomination: (term.isValid) ? 'D20Die' : term.denomination,
 			});
-			console.log(term);
 		};
 
 		/**
@@ -177,14 +176,14 @@ export default class RollConfigurationDialog extends DialogOP {
 			obj[denomination].count++;
 			return obj;
 		}, {});
-		console.log(dice, byDenom, this.rolls);
+
 		dice = Object.entries(byDenom).map(([dice, {icon, count}]) => ({icon, label: `${count}${dice}`, number: count}));
 
 		dice[0] = foundry.utils.mergeObject({
 			isKeepHighest: this.rolls[0].isKeepHighest,
 			isD20Die: this.rolls[0].validD20Roll
 		}, dice[0]);
-		console.log(dice);
+
 		if (dice.length > this.options.rendering.dice.max) shouldDisplay = false;
 		if (!dice.length) shouldDisplay = false;
 		return shouldDisplay ? dice : [];
@@ -194,8 +193,6 @@ export default class RollConfigurationDialog extends DialogOP {
 
 	/** @inheritDoc */
 	async _preparePartContext(partId, context, options) {
-		console.log(context);
-		console.log(options);
 		context = await super._preparePartContext(partId, context, options);
 		switch ( partId ) {
 		case 'buttons':
@@ -219,7 +216,6 @@ export default class RollConfigurationDialog extends DialogOP {
    * @protected
    */
 	async _prepareButtonsContext(context, options) {
-		console.log('_prepareButtonsContext');
 		context.buttons = {
 			roll: {
 				default: true,
@@ -227,7 +223,6 @@ export default class RollConfigurationDialog extends DialogOP {
 				label: game.i18n.localize('op.Roll')
 			}
 		};
-		console.log('_prepareButtonsContext');
 		return context;
 	}
 
@@ -241,9 +236,6 @@ export default class RollConfigurationDialog extends DialogOP {
    * @protected
    */
 	async _prepareConfigurationContext(context, options) {
-		console.log('_prepareConfigurationContext');
-		console.log(options);
-		console.log(this);
 		context.fields = [
 			{
 				field: new foundry.data.fields.StringField({
@@ -254,7 +246,6 @@ export default class RollConfigurationDialog extends DialogOP {
 				options: Object.entries(CONFIG.Dice.rollModes)
 					.map(([value, l]) => ({ value, label: game.i18n.localize(`${game.release.generation < 13 ? l : l.label}`) }))
 			},];
-		console.log('_prepareConfigurationContext');
 		return context;
 	}
 
@@ -268,11 +259,8 @@ export default class RollConfigurationDialog extends DialogOP {
    * @protected
    */
 	async _prepareFormulasContext(context, options) {
-		console.log('_prepareFormulasContext');
-		console.log(context.rolls);
 		context.rolls = this.rolls.map(roll => ({ roll }));
 		context.dice = this._identifyDiceTerms() || [];
-		console.log('_prepareFormulasContext');
 		return context;
 	}
 
@@ -304,7 +292,6 @@ export default class RollConfigurationDialog extends DialogOP {
    */
 	_buildConfig(config, formData, index) {
 		config = foundry.utils.mergeObject({ parts: [], data: {}, options: {} }, config);
-		console.log('abc');
 		/**
      * A hook event that fires when a roll config is built using the roll prompt. Multiple hooks may be called depending
      * on the rolling method (e.g. `dnd5e.buildSkillRollConfig`, `dnd5e.buildAbilityCheckRollConfig`,
@@ -319,7 +306,6 @@ export default class RollConfigurationDialog extends DialogOP {
 		for ( const hookName of this.#config.hookNames ?? [''] ) {
 			Hooks.callAll(`dnd5e.build${hookName.capitalize()}RollConfig`, this, config, formData, index);
 		}
-		console.log('abc');
 		const situational = formData?.get(`roll.${index}.situational`);
 		if ( situational && (config.situational !== false) ) {
 			config.parts.push('@situational');
@@ -327,9 +313,9 @@ export default class RollConfigurationDialog extends DialogOP {
 		} else {
 			config.parts.findSplice(v => v === '@situational');
 		}
-		console.log('abc');
+
 		this.options.buildConfig?.(this.config, config, formData, index);
-		console.log('abc');
+
 		/**
      * A hook event that fires after a roll config has been built using the roll prompt. Multiple hooks may be called
      * depending on the rolling method (e.g. `dnd5e.postBuildSkillRollConfig`, `dnd5e.postBuildAbilityCheckRollConfig`,
@@ -348,7 +334,7 @@ export default class RollConfigurationDialog extends DialogOP {
 				app: this, formData
 			});
 		}
-		console.log('abc');
+
 		return config;
 	}
 
@@ -424,7 +410,6 @@ export default class RollConfigurationDialog extends DialogOP {
 		return new Promise(resolve => {
 			const app = new this(config, message, dialog.options);
 			app.addEventListener('close', () => resolve(app.rolls), {once: true});
-			console.log(app);
 			app.render({ force: true });
 		});
 	}

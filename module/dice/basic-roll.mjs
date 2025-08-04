@@ -35,7 +35,6 @@ export default class BasicRoll extends Roll {
 		const formula = (config.parts ?? []).join(' + ');
 		config.options ??= {};
 		config.options.target ??= process.target;
-		console.log(process);
 		return new this(formula, config.data, config.options);
 	}
 
@@ -104,10 +103,8 @@ export default class BasicRoll extends Roll {
 		}
 
 		this.applyKeybindings(config, dialog, message);
-		console.log(dialog);
 		let rolls;
-		if ( dialog.configure === false ) { console.log('aoba1');
-			console.log(config);
+		if ( dialog.configure === false ) {
 			rolls = config.rolls?.map((r, index) => {
 				dialog.options?.buildConfig?.(config, r, null, index);
 				// for ( const hookName of config.hookNames ) {
@@ -115,12 +112,10 @@ export default class BasicRoll extends Roll {
 				// }
 				return this.fromConfig(r, config);
 			}) ?? [];
-			console.log(rolls);
-		} else { console.log('aoba2');
+
+		} else { 
 			const DialogClass = dialog.applicationClass ?? this.DefaultConfigurationDialog;
-			console.log(DialogClass);
 			rolls = await DialogClass.configure(config, dialog, message);
-			console.log(rolls);
 		}
 		// Store the roll type in roll.options so it can be accessed from only the roll
 		const rollType = foundry.utils.getProperty(message, 'data.flags.dnd5e.roll.type');
@@ -142,7 +137,6 @@ export default class BasicRoll extends Roll {
 			const name = `dnd5e.post${hookName.capitalize()}RollConfiguration`;
 			if ( Hooks.call(name, rolls, config, dialog, message) === false ) return [];
 		}
-		console.log('aoba');
 		return rolls;
 	}
 

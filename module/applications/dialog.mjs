@@ -48,7 +48,6 @@ export default class DialogOP extends ApplicationOP {
 
 	/** @inheritDoc */
 	async _preparePartContext(partId, context, options) {
-		console.log(context, options);
 		context = { ...(await super._preparePartContext(partId, context, options))};
 		if (partId === 'context') return this._prepareContentContext(context, options);
 		if (partId === 'footer') return this._prepareFooterContext(context, options);

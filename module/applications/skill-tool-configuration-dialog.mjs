@@ -40,8 +40,6 @@ export default class SkillToolRollConfigurationDialog extends D20RollConfigurati
 	/** @inheritDoc */
 	_onChangeForm(formConfig, event) {
 		super._onChangeForm(formConfig, event);
-		console.log(this);
-		console.log(event.target?.name);
 		if ( this.config.skill && (event.target?.name === 'attribute') ) {
 			
 			const skillLabel = game.i18n.localize(CONFIG.op.skills[this.config.skill] ?? '');

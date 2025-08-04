@@ -205,7 +205,6 @@ export default class D20Roll extends BasicRoll {
 	configureModifiers() {
 		if ( !this.validD20Roll ) return;
 		
-		console.log(this);
 		this.d20.number = this.attribute.value;
 
 		if ( this.options.advantageMode === undefined ) {

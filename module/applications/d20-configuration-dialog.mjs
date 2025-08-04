@@ -13,13 +13,11 @@ export default class D20RollConfigurationDialog extends RollConfigurationDialog 
 	
 	/** @override */
 	async _prepareButtonsContext(context, options) {
-		console.log('_prepareButtonsContext');
 		let defaultButton = this.options.defaultButton;
 		if (!defaultButton){
 			let advantage = false;
 			let disadvantage = false;
 			for (const roll of this.config.rolls){
-				console.log(roll);
 				if (!roll.options) continue;
 				if (roll.options.advantageMode === CONFIG.Dice.D20Roll.ADV_MODE.ADVANTAGE) advantage = true;
 				else if (roll.options.advantageMode === CONFIG.Dice.D20Roll.ADV_MODE.DISADVANTAGE) disadvantage = true;
@@ -46,7 +44,6 @@ export default class D20RollConfigurationDialog extends RollConfigurationDialog 
 				icons: ['fa-solid fa-minus', 'fa-solid fa-dice-d20']
 			}
 		};
-		console.log('_prepareButtonsContext');
 		return context;
 	}
 
@@ -62,7 +59,6 @@ export default class D20RollConfigurationDialog extends RollConfigurationDialog 
 		return this.rolls.map(roll => {
 			roll.options.advantageMode = advantageMode;
 			roll.configureModifiers();
-			console.log(roll);
 			return roll;
 		});
 	}
