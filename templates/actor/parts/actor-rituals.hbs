@@ -1,3 +1,5 @@
+<section class="tab flexcol {{tab.cssClass}}" data-tab="rituals" data-group="primary">
+<div class="rituals-details">
 <ol class="items-list">
 	<div class="ritual-dt">
 		<p>{{localize "op.ritualdt"}} <span>{{system.ritual.DT}}</span></p>
@@ -14,18 +16,26 @@
 		<div class="item-space">{{localize "op.duration"}}</div>
 		<div class="item-space">{{localize "op.resistance"}}</div>
 		<div class="item-controls">
-			<a class="item-control item-create" title="Criar ritual de {{circle}}º círculo"
-			 data-type="ritual" data-circle="{{circle}}">
-				<i class="fas fa-plus"></i>
-			</a>
+			{{#if @root.editable}}
+				<a class="item-control item-create"
+				title="Criar ritual de {{circle}}º círculo"
+				data-action="createDoc" 
+				data-document-class='Item'
+				data-type="ritual" 
+				data-system.circle="{{circle}}">
+					<i class="fas fa-plus"></i>
+				</a>
+			{{/if}}
 		</div>
 	</li>
 	{{#each rituals as |item id|}}
-	<li class="item flexrow" data-item-id="{{item._id}}">
+	<li class="item flexrow draggable" data-document-class="Item" data-item-id="{{item._id}}">
 		<div class="item-name flexrow">
 			<div class="item-image slide">
 				<img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-				<a class="rollable" data-roll-type="item"><i class="fa-solid fa-dice-d20"></i></a>
+				<a class="rollable" data-roll-type="item" data-action="onRoll">
+					<i class="fa-solid fa-dice-d20"></i>
+				</a>
 			</div>
 			<h4>{{item.name}}</h4>
 		</div>
@@ -54,9 +64,9 @@
 			{{else}} — {{/if}}
 		</div>
 		<div class="item-controls">
-			<a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
-			<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-			<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+			{{!-- <a class="item-control" data-action="onSendChat" title="Enviar para o chat"><i class="fas fa-message"></i></a> --}}
+			<a class="item-control item-edit" data-action="viewDoc" title="Edit Item"><i class="fas fa-edit"></i></a>
+			<a class="item-control" data-action="deleteDoc" title="Delete Item"><i class="fas fa-trash"></i></a>
 		</div>
 	</li>
 	{{/each}} {{/each}} {{#if rituals.invalid }}
@@ -70,17 +80,22 @@
 				<div class="item-space">{{localize "op.duration"}}</div>
 				<div class="item-space">{{localize "op.resistance"}}</div>
 				<div class="item-controls">
-					<a class="item-control item-create" title="Criar ritual de {{circle}}º círculo"
-						data-type="ritual" data-circle="{{circle}}">
-						<i class="fas fa-plus"></i>
-					</a>
+					{{#if @root.editable}}
+						<a class="item-control item-create" 
+						data-action="createDoc" 
+						title="Criar ritual de {{circle}}º círculo"
+						data-type="ritual" 
+						data-circle="{{circle}}">
+							<i class="fas fa-plus"></i>
+						</a>
+					{{/if}}
 				</div>
 			</li>
 			{{#each rituals.invalid as |item id|}}
-			<li class="item flexrow" data-item-id="{{item._id}}">
+			<li class="item flexrow draggable" data-document-class="Item" data-item-id="{{item._id}}">
 				<div class="item-name flexrow">
 					<div class="item-image">
-						<a class="rollable" data-roll-type="item">
+						<a class="rollable" data-roll-type="item" data-action="onRoll">
 							<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
 						</a>
 					</div>
@@ -91,9 +106,9 @@
 				<div class="item-space item-prop">{{item.system.duration}}</div>
 				<div class="item-space item-prop">{{item.system.resistance}}</div>
 				<div class="item-controls">
-					<a class="item-control send-chat" title="Enviar para o chat"><i class="fas fa-message"></i></a>
-					<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-					<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+					{{!-- <a class="item-control" data-action="onSendChat" title="Enviar para o chat"><i class="fas fa-message"></i></a> --}}
+					<a class="item-control item-edit" data-action="viewDoc" title="Edit Item"><i class="fas fa-edit"></i></a>
+					<a class="item-control" data-action="deleteDoc" title="Delete Item"><i class="fas fa-trash"></i></a>
 				</div>
 			</li>
 			{{/each}}
@@ -101,3 +116,5 @@
 	</section>
 	{{/if}}
 </ol>
+</div>
+</section>

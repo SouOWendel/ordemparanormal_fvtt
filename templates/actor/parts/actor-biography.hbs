@@ -1,0 +1,20 @@
+{{! Biography Tab }}
+<section class='tab biography {{tab.cssClass}}' data-group='primary'data-tab='biography'>
+  {{! Editors must receive enriched text data from getData to properly handle rolls, UUID links, etc. }}
+	<span class="actor-title-header">Biografia do Personagem</span>
+  {{#if editable}} 
+    <prose-mirror name="system.biography" data-document-u-u-i-d="{{actor.uuid}}" value="{{system.biography}}" collaborate="true" toggled="true">
+      {{{enrichedBiography}}}
+    </prose-mirror>
+  	{{else}}
+		{{{enrichedBiography}}}
+  {{/if}}
+
+	<span class="actor-title-header">Objetivos do Personagem</span>
+	{{#if editable}} 
+    <prose-mirror name="system.goals" data-document-u-u-i-d="{{actor.uuid}}" value="{{system.goals}}" collaborate="true" toggled="true">
+      {{{enrichedGoals}}}
+    </prose-mirror>
+  	{{else}} {{{enrichedGoals}}}
+  {{/if}}
+</section>

@@ -1,4 +1,5 @@
-<section>
+<section class="tab flexcol {{tab.cssClass}}" data-tab="skills" data-group="primary">
+<div class="skills-details">
 	<div class="skills-content">
 		{{#each system.skills as |skill key|}}
 		<div class="skill flexrow flex-group-center">
@@ -6,9 +7,9 @@
 				<input type="text" name="system.skills.{{key}}.name" value="{{skill.name}}"
 				class="resource-label flexlarge align-center" 
 				data-type="String" placeholder="{{localize 'op.skill.freeSkill'}}">
-				<i class="fas fa-dice {{key}} rollable rollFreeSkill" data-roll="{{skill.formula}}" data-label="{{skill.label}}" data-key="{{key}}"></i>
+				<i class="fas fa-dice {{key}} rollable rollFreeSkill" data-action="onRollSkillCheck" data-roll="{{skill.formula}}" data-label="{{skill.label}}" data-key="{{key}}"></i>
 			{{else}}
-			<label for="system.skills.{{key}}.value" class="resource-label rollable flexlarge align-left skill-name"
+			<label for="system.skills.{{key}}.value" data-action="onRollSkillCheck" class="resource-label rollable flexlarge align-left skill-name"
 			 data-label="{{skill.label}}" data-key="{{key}}" data-rollType="skill">{{skill.label}}</label>
 			{{/if}}
 			<label class="flex0 p-side-10">
@@ -22,4 +23,5 @@
 		</div>
 		{{/each}}
 	</div>
+</div>
 </section>
