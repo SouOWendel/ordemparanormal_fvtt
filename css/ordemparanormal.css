@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 .lowercase {
@@ -267,84 +268,16 @@ dialog.ordemparanormal.application {
   align-items: center;
 }
 
-/* ----------------------------------------- */
-/*  Flexbox                                  */
-/* ----------------------------------------- */
-.flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-.flexrow > * {
-  flex: 1;
-}
-.flexrow .flex0 {
-  flex: 0 !important;
-}
-.flexrow .flex1 {
-  flex: 1 !important;
-}
-.flexrow .flex15 {
-  flex: 1.5 !important;
-}
-.flexrow .flex2 {
-  flex: 2 !important;
-}
-.flexrow .flex2-5 {
-  flex: 2.5 !important;
-}
-.flexrow .flex2-6 {
-  flex: 2.6 !important;
-}
-.flexrow .flex2-7 {
-  flex: 2.7 !important;
-}
-.flexrow .flex2-8 {
-  flex: 2.8 !important;
-}
-.flexrow .flex3 {
-  flex: 3 !important;
-}
-.flexrow .flex4 {
-  flex: 4 !important;
-}
-
-.flexcol {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-.flexcol > * {
-  flex: 1;
-}
-.flexcol .flex0 {
-  flex: 0;
-}
-.flexcol .flex1 {
-  flex: 1;
-}
-.flexcol .flex2 {
-  flex: 2;
-}
-.flexcol .flex3 {
-  flex: 3;
-}
-.flexcol .flex4 {
-  flex: 4;
-}
-
 /* Styles limited to ordemparanormal sheets */
 .system-ordemparanormal {
   @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
-  /* ITEM SHEET */
-  /* ----------------------------------------- */
-  /*  Items Lists                              */
-  /* ----------------------------------------- */
   /* ITEMS IN ACTOR SHEET (AGENT) */
   @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+  /* ---------------------------------- */
+  /*  Dice Rolls                        */
+  /* ---------------------------------- */
 }
 .system-ordemparanormal .lowercase {
   text-transform: lowercase;
@@ -355,17 +288,295 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .capitalize {
   text-transform: capitalize;
 }
-.system-ordemparanormal form.agentsheet, .system-ordemparanormal form.itemsheet {
+.system-ordemparanormal .application.theme-light {
+  background: url("../media/parchment.jpg") repeat;
+  --color-header-background: #333;
+  --color-border: #302831;
+  --color-tabs-border: #555;
+  --color-fieldset-border: #efe6d8;
+  --color-form-label: #222;
+  --color-form-label-hover: #111;
+  --color-form-hint: #444;
+  --color-form-hint-hover: #222;
+  --color-select-option-bg: #f7f3e8;
+  color: #222;
+}
+.system-ordemparanormal .application.theme-light input, .system-ordemparanormal .application.theme-light select {
+  color: #222 !important;
+}
+.system-ordemparanormal section.itemsheet, .system-ordemparanormal form.ordemparanormal.actor {
+  overflow: hidden;
+  color: #222;
+}
+.system-ordemparanormal section.itemsheet .scrollable, .system-ordemparanormal form.ordemparanormal.actor .scrollable {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+}
+.system-ordemparanormal section.itemsheet .prosemirror menu, .system-ordemparanormal section.itemsheet prosemirror menu, .system-ordemparanormal form.ordemparanormal.actor .prosemirror menu, .system-ordemparanormal form.ordemparanormal.actor prosemirror menu {
+  background: #eeede0;
+}
+.system-ordemparanormal section.itemsheet section.window-content, .system-ordemparanormal form.ordemparanormal.actor section.window-content {
+  position: relative;
+  display: flex;
+  background: #eeede0;
   height: 100%;
+}
+.system-ordemparanormal section.itemsheet section.window-content input, .system-ordemparanormal form.ordemparanormal.actor section.window-content input {
+  text-align: center;
+}
+.system-ordemparanormal section.itemsheet section.window-content .tab, .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab {
+  padding-top: 10px;
+  height: 100%;
+  overflow: auto;
+}
+.system-ordemparanormal section.itemsheet section.window-content .tab.active, .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab.active {
+  display: flex;
+  flex-direction: column;
+}
+.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab=inventory], .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab=inventory] {
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab=inventory] .inventory-body, .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab=inventory] .inventory-body {
+  margin-bottom: 5px;
+  overflow: auto;
+  height: 100%;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress {
+  padding-left: 10px;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .profile-img, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .profile-img {
+  flex: 0 0 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op h1.charname, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op h1.charname {
+  height: 45px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op h1.charname input, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op h1.charname input {
+  min-width: 235px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1, .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h2, .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h3, .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h4, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h1, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h2, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h3, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h4 {
+  border: 0;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1.charname, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h1.charname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1.charname input, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h1.charname input {
+  font-size: 0.6em;
+  font-family: "Signika";
+}
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #eeede0;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents {
+  display: flex;
+  padding: 0px 6px;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .limit, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .limit {
+  display: flex;
+  border: 1px solid #888;
+  border-radius: 4px;
+  width: 44px;
+  height: 32px;
+  text-align: center;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .prestige, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .prestige {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 12px;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .name, .system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .credit, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .name, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .credit {
+  display: flex;
+  flex-grow: 1;
+  padding: 4px 6px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.space, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space {
+  position: relative;
+  width: 100%;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body {
+  position: absolute;
+  border: 1px solid #272727;
+  border-radius: 3px;
+  width: 100%;
+  height: 13px;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .spacelabel, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .spacelabel {
+  position: absolute;
+  z-index: 12;
+  color: #fff;
+  font-size: 9px;
+  padding: 1px 4px;
+  mix-blend-mode: difference;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .bar, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .bar {
+  display: block !important;
+  margin-top: 0;
+  margin-left: 0;
+  border-radius: 2px;
+  background-color: #272727;
+  height: 12px;
+  z-index: 10;
   overflow: hidden;
 }
-.system-ordemparanormal .content {
-  height: 100%;
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .barover, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .barover {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block !important;
+  border-radius: 2px;
+  background-color: #691313;
+  height: 12px;
+  color: #fff;
+  font-size: 9px;
+  z-index: 11;
+  padding-top: 6px;
+  overflow: hidden;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label, .system-ordemparanormal section.itemsheet section.window-content section.space .space-body i, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
+  position: absolute;
+  top: 0px;
+  font-size: 10px;
+  z-index: 12;
+  mix-blend-mode: difference;
+  filter: invert(1);
+}
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body i, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
+  color: rgb(0, 0, 0);
+  left: 50%;
+}
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label {
+  right: 20px;
+}
+.system-ordemparanormal section.itemsheet section.window-content span.actor-title-header, .system-ordemparanormal form.ordemparanormal.actor section.window-content span.actor-title-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  padding: 4px;
+}
+.system-ordemparanormal section.itemsheet .items-list, .system-ordemparanormal form.ordemparanormal.actor .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.system-ordemparanormal section.itemsheet .items-list .item-list, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.system-ordemparanormal section.itemsheet .items-list .item-name, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.system-ordemparanormal section.itemsheet .items-list .item-name h3, .system-ordemparanormal section.itemsheet .items-list .item-name h4, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h3, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h4 {
+  color: #222;
+  font-size: 13px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: none;
+  font-family: "Signika";
+}
+.system-ordemparanormal section.itemsheet .items-list .item-controls, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls {
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: flex-end;
+}
+.system-ordemparanormal section.itemsheet .items-list .item-controls a, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.system-ordemparanormal section.itemsheet .items-list .item, .system-ordemparanormal form.ordemparanormal.actor .items-list .item {
+  align-items: center;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.system-ordemparanormal section.itemsheet .items-list .item:last-child, .system-ordemparanormal form.ordemparanormal.actor .items-list .item:last-child {
+  border-bottom: none;
+}
+.system-ordemparanormal section.itemsheet .items-list .item .item-name, .system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name {
+  color: #191813;
+}
+.system-ordemparanormal section.itemsheet .items-list .item .item-name .item-image, .system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name .item-image {
+  display: flex;
+  align-items: center;
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 1px;
+}
+.system-ordemparanormal section.itemsheet .items-list .item-prop, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.system-ordemparanormal section.itemsheet .items-list .items-header, .system-ordemparanormal form.ordemparanormal.actor .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.system-ordemparanormal section.itemsheet .items-list .items-header > *, .system-ordemparanormal form.ordemparanormal.actor .items-list .items-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.system-ordemparanormal section.itemsheet .items-list .items-header .item-name, .system-ordemparanormal form.ordemparanormal.actor .items-list .items-header .item-name {
+  padding-left: 5px;
+  text-align: left;
 }
 .system-ordemparanormal .sheet-body .tab {
   overflow-y: hidden;
-  height: 100%;
   align-content: flex-start;
   padding-right: 2px;
 }
@@ -383,58 +594,6 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .item-form {
   font-family: "Roboto", sans-serif;
-}
-.system-ordemparanormal .header-identify {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.system-ordemparanormal .header-identify h1, .system-ordemparanormal .header-identify h2, .system-ordemparanormal .header-identify h3, .system-ordemparanormal .header-identify h4 {
-  border: 0;
-}
-.system-ordemparanormal .header-identify h1.charname {
-  height: 50px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
-}
-.system-ordemparanormal .header-identify h1.charname input {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-.system-ordemparanormal .sheet-header-op {
-  flex: 0 auto;
-  overflow: hidden;
-  display: flex !important;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.system-ordemparanormal .sheet-header-op .progress {
-  padding-left: 10px;
-}
-.system-ordemparanormal .sheet-header-op .profile-img {
-  flex: 0 0 48px;
-  height: 48px;
-  margin-right: 10px;
-}
-.system-ordemparanormal .sheet-header-op .header-fields {
-  flex: 1;
-}
-.system-ordemparanormal .sheet-header-op h1.charname {
-  height: 45px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
-}
-.system-ordemparanormal .sheet-header-op h1.charname input {
-  min-width: 235px;
-  width: 100%;
-  height: 100%;
-  margin: 0;
 }
 .system-ordemparanormal .sheet-tabs {
   flex: 0;
@@ -459,8 +618,8 @@ dialog.ordemparanormal.application {
   margin-top: 0;
   column-count: 2;
 }
-.system-ordemparanormal .skills-content select,
-.system-ordemparanormal .skills-content input {
+.system-ordemparanormal .skills-content select, .system-ordemparanormal .skills-content input {
+  font-size: 11px;
   border: none;
   height: 21px;
 }
@@ -478,6 +637,9 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .skills-content .skill i {
   padding: 0 5px;
+}
+.system-ordemparanormal .resource .categoryCheck {
+  display: flex;
 }
 .system-ordemparanormal .resources {
   gap: 10px;
@@ -505,99 +667,6 @@ dialog.ordemparanormal.application {
   background: none;
   border: none;
 }
-.system-ordemparanormal .inventory-footer {
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 2px 2px;
-  background-color: #eeede0;
-}
-.system-ordemparanormal .sumWeight {
-  position: relative;
-  border: 1px solid #272727;
-  border-radius: 3px;
-  width: 96.5%;
-  height: 13px;
-  margin-right: 24px;
-  margin-top: 5px;
-}
-.system-ordemparanormal .sumWeight .spacelabel {
-  position: absolute;
-  z-index: 12;
-  color: #fff;
-  font-size: 9px;
-  padding: 1px 4px;
-  mix-blend-mode: difference;
-}
-.system-ordemparanormal .sumWeight .bar {
-  display: block !important;
-  margin-top: 0;
-  margin-left: 0;
-  border-radius: 2px;
-  background-color: #272727;
-  height: 12px;
-  z-index: 10;
-}
-.system-ordemparanormal .sumWeight .barover {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  display: block !important;
-  border-radius: 2px;
-  background-color: #691313;
-  height: 12px;
-  color: #fff;
-  font-size: 9px;
-  z-index: 11;
-  padding-top: 6px;
-}
-.system-ordemparanormal .sumWeight .label, .system-ordemparanormal .sumWeight i {
-  position: absolute;
-  top: 0px;
-  font-size: 10px;
-  z-index: 12;
-  mix-blend-mode: difference;
-  filter: invert(1);
-}
-.system-ordemparanormal .sumWeight i {
-  color: rgb(0, 0, 0);
-  left: 50%;
-}
-.system-ordemparanormal .sumWeight .label {
-  right: 20px;
-}
-.system-ordemparanormal .patents {
-  display: flex;
-  padding: 2px 1px;
-  gap: 6px;
-}
-.system-ordemparanormal .patents .limit {
-  display: flex;
-  border: 1px solid #888;
-  border-radius: 2px;
-  width: 44px;
-  height: 26px;
-  text-align: center;
-}
-.system-ordemparanormal .patents .prestige {
-  display: flex;
-  flex-grow: 1;
-  text-align: center;
-  font-size: 12px;
-}
-.system-ordemparanormal .patents .name, .system-ordemparanormal .patents .credit {
-  display: flex;
-  flex-grow: 1;
-  padding: 4px 6px;
-  border: 1px solid #888;
-  border-radius: 3px;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.05);
-  font-weight: bold;
-}
 .system-ordemparanormal .biography aside {
   padding: 2px;
 }
@@ -623,7 +692,10 @@ dialog.ordemparanormal.application {
   overflow: hidden !important;
 }
 .system-ordemparanormal .ritual-dt {
-  margin: 5px;
+  display: flex;
+  justify-content: center;
+  margin: 0 8px 8px 8px;
+  padding: 0 8px;
   border: 1px solid #b8b8b8;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   border-radius: 5px;
@@ -674,224 +746,43 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .threat #actions textarea, .system-ordemparanormal .threat #abilities textarea {
   height: 300px;
 }
-.system-ordemparanormal .resource-label {
-  font-weight: bold;
-}
-.system-ordemparanormal .specifications h4 {
-  color: rgba(22, 22, 22, 0.4392156863);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
-}
-.system-ordemparanormal .combat h4 {
-  color: rgba(22, 22, 22, 0.4392156863);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
-}
-.system-ordemparanormal .combat .resource-label {
-  font-size: 13px;
-}
-.system-ordemparanormal .item-sheet-form {
-  display: flex;
-  flex: 1 10px;
-  padding: 0 3px;
-  margin: 2px 0px;
-  align-items: center;
-  flex-direction: row;
-}
-.system-ordemparanormal .item-sheet-form input, .system-ordemparanormal .item-sheet-form select {
-  width: 100%;
-}
-.system-ordemparanormal .item-sheet-form i {
-  margin-left: 6px;
-}
-.system-ordemparanormal .item-sheet-space {
-  flex: 2 10px;
-  padding: 0 3px;
-}
-.system-ordemparanormal .item-sheet-space select {
-  width: 100%;
-}
-.system-ordemparanormal .item-damage-bonus {
-  flex: 2;
-}
-.system-ordemparanormal .minor-size {
-  flex: 0 60px;
-}
-.system-ordemparanormal .item-sheet-controls {
-  display: flex;
-  flex: 0 0 20px;
-  justify-content: flex-end;
-}
-.system-ordemparanormal .item-sheet-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
-}
-.system-ordemparanormal .item-sheet .item-attribute {
-  flex: 1;
-  padding: 0 8px;
-}
-.system-ordemparanormal .item-sheet .item-skill {
-  flex: 1;
-  padding: 0 8px;
-}
-.system-ordemparanormal .item-sheet .item-bonus {
-  flex: 2;
-  padding: 0 8px;
-}
-.system-ordemparanormal .item-sheet-prop {
-  text-align: center;
-  font-size: 12px;
-}
-.system-ordemparanormal .item-info-title {
-  margin-top: 10px;
-}
-.system-ordemparanormal .resource-type {
-  border: 1px solid rgba(0, 0, 0, 0.2509803922);
-  border-radius: 4px;
-  padding: 10px;
-}
-.system-ordemparanormal .damage-box {
-  color: rgba(0, 0, 0, 0.4392156863);
-  padding: 6px;
-  text-align: center;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.2509803922);
-}
-.system-ordemparanormal .damage-box a:hover {
-  color: #555;
-}
-.system-ordemparanormal .damage-control .fa-trash {
-  font-size: 12px;
-}
-.system-ordemparanormal .delete-damage, .system-ordemparanormal .promote-part {
-  margin-right: 15px;
-}
-.system-ordemparanormal .horizontal {
-  position: relative;
-  bottom: 15px;
-  padding-bottom: 1px;
-  margin-left: 24px;
-  margin-bottom: 0px;
-  box-shadow: 1px -1px 0 0.2px #7a7971 inset;
-  border: solid transparent;
-  border-width: 0 0 0px 0px;
-}
-.system-ordemparanormal .vertical {
-  position: relative;
-  height: 28px;
-  left: 24px;
-  width: 1px;
-  box-shadow: 1px -1px 0 0.2px #7a7971 inset;
-  border: solid transparent;
-  border-width: 0 0 0px 0px;
-}
-.system-ordemparanormal .damage-part a {
-  width: 10px;
-}
-.system-ordemparanormal .damage-part:last-of-type .vertical {
-  height: 14px !important;
-  opacity: 0;
-}
-.system-ordemparanormal .damage-part:last-of-type .horizontal {
-  height: 15px !important;
-}
-.system-ordemparanormal .items-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
-}
-.system-ordemparanormal .items-header > * {
-  font-size: 14px;
-  text-align: center;
-}
-.system-ordemparanormal .items-header .item-name {
-  font-weight: bold;
-  padding-left: 5px;
-  text-align: left;
-  display: flex;
-}
-.system-ordemparanormal .items-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  color: #444;
-}
-.system-ordemparanormal .items-list .item-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.system-ordemparanormal .items-list .item-name {
-  flex: 2;
-  margin: 0;
+.system-ordemparanormal .item .sheet-header {
+  flex: 0 auto;
   overflow: hidden;
-  font-size: 13px;
-  text-align: left;
-  align-items: center;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  height: 180px;
 }
-.system-ordemparanormal .items-list .item-name h3,
-.system-ordemparanormal .items-list .item-name h4 {
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden;
-}
-.system-ordemparanormal .items-list .item-controls {
-  display: flex;
+.system-ordemparanormal .item .sheet-header .profile-img {
   flex: 0 0 100px;
-  justify-content: flex-end;
+  height: 100px;
+  margin-right: 10px;
 }
-.system-ordemparanormal .items-list .item-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
-}
-.system-ordemparanormal .items-list .item {
-  align-items: center;
-  padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
-}
-.system-ordemparanormal .items-list .item:last-child {
-  border-bottom: none;
-}
-.system-ordemparanormal .items-list .item .item-name {
-  color: #191813;
-}
-.system-ordemparanormal .items-list .item .item-name .item-image {
+.system-ordemparanormal .item .sheet-header .header-fields {
   display: flex;
+  flex-direction: column;
+  flex: 1;
   align-items: center;
-  flex: 0 0 30px;
-  height: 30px;
-  background-size: 30px;
-  border: none;
-  margin-right: 1px;
+  justify-content: center;
 }
-.system-ordemparanormal .items-list .item-prop {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
+.system-ordemparanormal .item .sheet-header .header-fields .document-name {
+  width: 100%;
 }
-.system-ordemparanormal .items-list .items-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
+.system-ordemparanormal .item .window-content {
+  height: 100%;
 }
-.system-ordemparanormal .items-list .items-header > * {
-  font-size: 12px;
-  text-align: center;
+.system-ordemparanormal .item .content {
+  height: 100%;
+  overflow-y: auto;
 }
-.system-ordemparanormal .items-list .items-header .item-name {
-  padding-left: 5px;
-  text-align: left;
+.system-ordemparanormal .item .tab {
+  overflow-y: hidden;
+  height: 100%;
+  align-content: flex-start;
+  padding-right: 2px;
 }
 .system-ordemparanormal .item-space {
   flex: 1 20px;
@@ -926,6 +817,349 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .slide:hover > a {
   transform: translate(0, 0);
+}
+.system-ordemparanormal .resource-label {
+  font-weight: bold;
+}
+.system-ordemparanormal .application.item {
+  /* ITEM SHEET */
+  /* 1. Prepara o container principal para ser a referência de posicionamento */
+  /* 2. Cria a LINHA VERTICAL principal */
+  /* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
+  /* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
+  /* Estilos adicionais para parecer com a imagem (opcional) */
+}
+.system-ordemparanormal .application.item ul, .system-ordemparanormal .application.item ol, .system-ordemparanormal .application.item h1, .system-ordemparanormal .application.item h2, .system-ordemparanormal .application.item h3, .system-ordemparanormal .application.item h4 {
+  margin: 0;
+  padding: 0;
+}
+.system-ordemparanormal .application.item .prosemirror menu, .system-ordemparanormal .application.item prosemirror menu {
+  gap: 0;
+  background: #eeede0;
+}
+.system-ordemparanormal .application.item .scrollable {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+}
+.system-ordemparanormal .application.item span.item-title-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  padding: 4px;
+}
+.system-ordemparanormal .application.item .resource-type {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2509803922);
+  border-radius: 4px;
+  padding: 10px;
+}
+.system-ordemparanormal .application.item .content-item {
+  height: 100%;
+  overflow-y: auto;
+  padding-top: 10px;
+}
+.system-ordemparanormal .application.item .section-attack {
+  margin-bottom: 20px;
+}
+.system-ordemparanormal .application.item .attack-formula {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+.system-ordemparanormal .application.item .main-damage-formula {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+.system-ordemparanormal .application.item .damage-formula {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.system-ordemparanormal .application.item .damage-formula a {
+  width: 10px;
+}
+.system-ordemparanormal .application.item .specifications h4 {
+  color: rgba(22, 22, 22, 0.4392156863);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
+}
+.system-ordemparanormal .application.item .combat h4 {
+  color: rgba(22, 22, 22, 0.4392156863);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
+}
+.system-ordemparanormal .application.item .combat .resource-label {
+  font-size: 13px;
+}
+.system-ordemparanormal .application.item .item-sheet-form {
+  display: flex;
+  flex: 1 10px;
+  margin: 2px 0px;
+  align-items: center;
+  flex-direction: row;
+}
+.system-ordemparanormal .application.item .item-sheet-form input, .system-ordemparanormal .application.item .item-sheet-form select {
+  width: 100%;
+}
+.system-ordemparanormal .application.item .item-sheet-form i {
+  margin-left: 6px;
+}
+.system-ordemparanormal .application.item .item-damage-bonus {
+  flex: 2;
+}
+.system-ordemparanormal .application.item .minor-size {
+  flex: 0 60px;
+}
+.system-ordemparanormal .application.item .item-sheet-controls {
+  display: flex;
+  flex: 0 0 20px;
+  justify-content: flex-end;
+}
+.system-ordemparanormal .application.item .item-sheet-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.system-ordemparanormal .application.item .item-sheet .item-attribute {
+  flex: 1;
+  padding: 0 8px;
+}
+.system-ordemparanormal .application.item .item-sheet .item-skill {
+  flex: 1;
+  padding: 0 8px;
+}
+.system-ordemparanormal .application.item .item-sheet .item-bonus {
+  flex: 2;
+  padding: 0 8px;
+}
+.system-ordemparanormal .application.item .damage-box {
+  color: rgba(0, 0, 0, 0.4392156863);
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2509803922);
+}
+.system-ordemparanormal .application.item .damage-box a:hover {
+  color: #555;
+}
+.system-ordemparanormal .application.item .damage-control .fa-trash {
+  font-size: 12px;
+}
+.system-ordemparanormal .application.item .delete-damage, .system-ordemparanormal .application.item .promote-part {
+  margin-right: 15px;
+}
+.system-ordemparanormal .application.item .container-formula {
+  position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
+  padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
+  font-family: sans-serif; /* Apenas para estilização de exemplo */
+}
+.system-ordemparanormal .application.item .part-damage-section {
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.system-ordemparanormal .application.item .linhas-adicionais::before {
+  content: ""; /* Pseudo-elementos precisam disso para aparecer */
+  position: absolute; /* Posição absoluta em relação ao .container-formula */
+  /* Posição da linha */
+  left: 15px; /* Distância da borda esquerda do container */
+  top: 50px; /* Distância do topo (ajuste conforme a altura da sua linha principal) */
+  bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
+  /* Estilo da linha */
+  width: 2px; /* Espessura da linha */
+  background-color: #b0b0b0; /* Cor da linha */
+  border-radius: 2px;
+}
+.system-ordemparanormal .application.item .linha-secundaria {
+  position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
+  margin-left: 25px; /* Empurra o conteúdo para a direita, criando espaço para a conexão */
+  margin-bottom: 5px; /* Espaçamento entre as linhas */
+}
+.system-ordemparanormal .application.item .linha-secundaria::before {
+  content: "";
+  position: absolute;
+  /* Posição da linha */
+  top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
+  left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
+  /* Estilo da linha */
+  width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
+  height: 2px; /* Espessura da linha */
+  background-color: #b0b0b0; /* Mesma cor da linha vertical */
+  border-radius: 2px;
+}
+.system-ordemparanormal .application.item .linha-principal, .system-ordemparanormal .application.item .linha-secundaria {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.system-ordemparanormal .application.item .effects input, .system-ordemparanormal .application.item .effects select {
+  color: #cfd2da;
+}
+.system-ordemparanormal .application.item .effects .effects-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect-name h3, .system-ordemparanormal .application.item .effects .effects-list .effect-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect-controls {
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: flex-end;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect {
+  align-items: center;
+  padding: 0 2px;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect:last-child {
+  border-bottom: none;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect .effect-name {
+  color: #222;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect .effect-name .effect-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effect-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effects-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effects-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.system-ordemparanormal .application.item .effects .effects-list .effects-header .effect-name {
+  padding-left: 5px;
+  text-align: left;
+}
+.system-ordemparanormal .effects-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.system-ordemparanormal .effects-list .effect-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.system-ordemparanormal .effects-list .effect-list .effect-source, .system-ordemparanormal .effects-list .effect-list .effect-duration {
+  text-align: center;
+}
+.system-ordemparanormal .effects-list .effect-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.system-ordemparanormal .effects-list .effect-name h3, .system-ordemparanormal .effects-list .effect-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.system-ordemparanormal .effects-list .effect-controls {
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: flex-end;
+}
+.system-ordemparanormal .effects-list .effect-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.system-ordemparanormal .effects-list .effect {
+  align-items: center;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.system-ordemparanormal .effects-list .effect:last-child {
+  border-bottom: none;
+}
+.system-ordemparanormal .effects-list .effect .effect-name {
+  color: #191813;
+}
+.system-ordemparanormal .effects-list .effect .effect-name .effect-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.system-ordemparanormal .effects-list .effect-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.system-ordemparanormal .effects-list .effects-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.system-ordemparanormal .effects-list .effects-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.system-ordemparanormal .effects-list .effects-header .effect-name {
+  padding-left: 5px;
+  text-align: left;
+}
+.system-ordemparanormal .effect-formula {
+  flex: 0 0 200px;
+  padding: 0 8px;
 }
 .system-ordemparanormal .effects .item .effect-source,
 .system-ordemparanormal .effects .item .effect-duration,
@@ -997,6 +1231,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .dialog-buttons {
   display: flex;
+  gap: 4px;
 }
 .system-ordemparanormal .dialog-buttons button {
   height: 36px;
@@ -1321,8 +1556,41 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .capitalize {
   text-transform: capitalize;
 }
-.system-ordemparanormal .card-buttons button:first-of-type {
+.system-ordemparanormal .card-buttons {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  gap: 4px;
+}
+.system-ordemparanormal .card-buttons button {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  min-height: 2em;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #111;
+  font-family: "Signika", "Palatino Linotype", sans-serif;
+  font-size: 0.875rem;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.system-ordemparanormal .card-buttons button:hover {
+  background: #222;
+  color: #ccc;
+}
+.system-ordemparanormal .card-buttons:first-of-type {
   margin-bottom: 2px;
+}
+.system-ordemparanormal .card-footer {
+  margin-top: 6px;
 }
 .system-ordemparanormal .card-footer span {
   color: #161616;
@@ -1339,9 +1607,16 @@ dialog.ordemparanormal.application {
   font-family: "Warnock Pro", "Roboto", sans-serif, "Arial";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
 }
 .system-ordemparanormal .chat-card details summary {
   margin-left: 4px;
+}
+.system-ordemparanormal .chat-card details p {
+  hyphens: auto;
+}
+.system-ordemparanormal .chat-card h1, .system-ordemparanormal .chat-card h2, .system-ordemparanormal .chat-card h3, .system-ordemparanormal .chat-card h4, .system-ordemparanormal .chat-card h5, .system-ordemparanormal .chat-card h6 {
+  margin: 0 !important;
 }
 .system-ordemparanormal .chat-card span.element {
   display: inline-block;
@@ -1379,6 +1654,9 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .chat-card .ritual-info strong {
   color: #b92730;
 }
+.system-ordemparanormal .chat-card table {
+  margin: 10px 0;
+}
 .system-ordemparanormal .chat-card table tr {
   text-align: center;
 }
@@ -1393,9 +1671,10 @@ dialog.ordemparanormal.application {
   padding: 6px 0;
 }
 .system-ordemparanormal .chat-card .header h2 {
-  padding: 0 6px;
-  margin: 0;
+  padding-left: 6px;
   border: 0;
+  font-family: "Warnock Pro", "Signika" "Times New Roman", Times, serif;
+  padding-top: 10px;
 }
 .system-ordemparanormal .dice-roll .dice-total.success {
   color: inherit;
@@ -1416,6 +1695,53 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .dice-roll .dice-total.fumble {
   color: red;
 }
+.system-ordemparanormal .dice-result {
+  display: flex;
+  flex-direction: column;
+}
+.system-ordemparanormal .dice-result .dice-tooltip {
+  flex: none;
+}
+.system-ordemparanormal .dice-result .dice-formula, .system-ordemparanormal .dice-result .dice-total {
+  border-radius: 3px;
+  padding: 0.25rem;
+  line-height: normal;
+  flex: auto;
+  margin: 0;
+}
+.system-ordemparanormal .dice-result .wrapper, .system-ordemparanormal .dice-result .dice-tooltip {
+  padding-top: 5px;
+}
+.system-ordemparanormal .dice-result .dice-total {
+  font-weight: bold;
+  padding: 0.125rem;
+  margin-top: 0.25rem;
+  position: relative;
+}
+.system-ordemparanormal .dice-result .dice-total::before, .system-ordemparanormal .dice-result .dice-total::after {
+  position: absolute;
+  inset: 6px 0 6px auto;
+}
+.system-ordemparanormal .dice-result .dice-total::before {
+  content: "";
+  width: 36px;
+  border-left: 1px solid #bbb;
+}
+.system-ordemparanormal .dice-result .dice-total::after {
+  transition: all 250ms ease;
+}
+.system-ordemparanormal .dice-result .dice-total.critical, .system-ordemparanormal .dice-result .dice-total.fumble {
+  border-width: 3px;
+  border-style: double;
+}
+.system-ordemparanormal .dice-result .dice-total > .icons {
+  position: absolute;
+  inset: 0 auto 0 12px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  opacity: 0.35;
+}
 .system-ordemparanormal .op.system-badge {
   display: flex;
   flex-direction: column;
@@ -1431,26 +1757,6 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .op.system-badge a[href] {
   color: var(--color-text-light-highlight);
   text-decoration: none;
-}
-.system-ordemparanormal .op.sidebar-heading {
-  margin: 6px 0;
-  margin-bottom: 0 !important;
-  border-top: 1px solid var(--color-border-dark-4);
-  border-bottom: 1px solid var(--color-border-dark-4);
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-}
-.system-ordemparanormal .op.sidebar-heading .links {
-  list-style: none;
-  display: flex;
-  gap: 8px;
-  margin: 0;
-}
-.system-ordemparanormal .op.sidebar-heading h2 {
-  background-color: initial;
-  border: initial;
-  margin: 0;
 }
 .system-ordemparanormal .additionalContent .selectize-input {
   max-width: 330px !important;
