@@ -58,6 +58,14 @@
 		"effects": "Efeitos"
 	},
 
+	"op.item.tab": {
+		"description": "Descrição",
+		"attributes": "Atributos",
+		"combat": "Combate",
+		"spec": "Especificações",
+		"effects": "Efeitos"
+	},
+
 	"op.PV": "Pontos de Vida",
 	"op.PE": "Pontos de Esforço",
 	"op.PD": "Pontos de Determinação",
@@ -402,8 +410,8 @@
 	"op.Notes": "Notas de Atualização",
 	"op.Issues": "Problemas",
 	"op.Wiki": "Wiki",
-	"op.Discord": "Discord",
-	"op.Credits": "Créditos",
+	"op.Discord": "Discord do Sistema",
+	"op.Credits": "Créditos & Licenças",
 
 	"op.damage": "Dano",
 	"op.rollDmg": "Rolar Dano",
@@ -413,6 +421,7 @@
 	"op.Normal": "Lançar Dados",
 	"op.Disadvantage": "Desvantagem (-1d20)",
 	"op.SkillPromptTitle": "Teste de {skill} com {ability}",
+	"op.AttributePromptTitle": "Teste de {attribute}",
 	"op.RollMode": "Modo de Rolagem",
 	"op.RollConfiguration.Configuration": "Configuração de Rolagem",
 	"op.RollSituationalBonus": "Rolagem Situacional",
