@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { onManageActiveEffect, prepareActiveEffectCategories } from '../helpers/effects.mjs';
+import { prepareActiveEffectCategories } from '../helpers/effects.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -23,18 +23,31 @@ export class OrdemThreatSheet extends ActorSheet {
 		});
 	}
 
+	/** @inheritDoc */
+	static DEFAULT_OPTIONS = {
+		classes: ['ordemparanormal', 'sheet', 'actor', 'themed', 'theme-light'],
+		position: {
+			width: 600,
+			height: 820
+		},
+		window: {
+			resizable: true,
+			title: 'DCC.ActorSheetTitle' // Just the localization key
+		}
+	};
+
 	/** @override */
 	get template() {
 		return `systems/ordemparanormal/templates/threat/actor-${this.actor.type}-sheet.html`;
 	}
 
 	/** @override */
-	getData() {
+	async _prepareContext(options) {
 		// Retrieve the data structure from the base sheet. You can inspect or log
 		// the context variable to see the structure, but some key properties for
 		// sheets are the actor object, the data object, whether or not it's
 		// editable, the items array, and the effects array.
-		const context = super.getData();
+		const context = await super._prepareContext(options);
 		const actorData = context.data;
 		// Add the actor's data to context.data for easier access, as well as flags.
 		context.system = actorData.system;
