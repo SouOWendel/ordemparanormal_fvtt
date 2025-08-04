@@ -17,8 +17,8 @@ import { OrdemThreatSheet } from './sheets/threat-sheet.mjs';
 
 import { op } from './helpers/config.mjs';
 import displayMessages from './components/message-system.mjs';
-import registerSystemSettings from './settings/settings.mjs';
-import { registerSystemKeybindings } from './settings/settings.mjs';
+// import registerSystemSettings from './settings/settings.mjs';
+// import { registerSystemKeybindings } from './settings/settings.mjs';
 
 import * as documents from './documents/_partial_module.mjs';
 import * as dice from './dice/_module.mjs';
