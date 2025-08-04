@@ -351,6 +351,9 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress {
   padding-left: 10px;
 }
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress input, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress input {
+  width: 40px;
+}
 .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .profile-img, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .profile-img {
   flex: 0 0 48px;
   height: 48px;

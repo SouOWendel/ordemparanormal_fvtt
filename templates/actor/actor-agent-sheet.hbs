@@ -6,31 +6,37 @@
 			<h1 class="charname">
 				<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
 			</h1>
-			<div class="resource flex-group-center progress">
 				{{#if isSurvivor}}
+				<div class="resource flex-group-center progress">
 					<label for="system.stage.value" class="resource-label"> {{localize 'op.stage'}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
 						{{numberInputFVTT system.stage.value name="system.stage.value" step=1 min=0 max=5}}
 					</div>
+				</div>
 				{{else}}
 					{{#if progressRuleIsNEX}}
+					<div class="resource flex-group-center progress">
 						<label for="system.NEX.value" class="resource-label"> {{localize 'op.NEX'}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
 						</div>
+					</div>
 					{{/if}}
 					{{#if progressRuleIsNivel}}
+					<div class="resource flex-group-center progress">
 						<label for="system.nivel.value" class="resource-label"> {{localize 'op.nivel'}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							{{numberInputFVTT system.nivel.value name="system.nivel.value" step=1 min=0 max=20}}
 						</div>
+					</div>
+					<div class="resource flex-group-center progress">
 						<label for="system.NEX.value" class="resource-label"> {{localize 'op.NEX'}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
 						</div>
+					</div>
 					{{/if}}
 				{{/if}}
-			</div>
 		</div>
 		<div class="header-fields">
 			{{!-- The grid classes are defined in scss/global/_grid.scss. To use, use both the "grid" and "grid-Ncol" class where
