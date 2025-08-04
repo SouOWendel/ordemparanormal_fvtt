@@ -244,24 +244,16 @@ export default class RollConfigurationDialog extends DialogOP {
 		console.log('_prepareConfigurationContext');
 		console.log(options);
 		console.log(this);
-		context.fields = [{
-			field: new foundry.data.fields.StringField({
-				label: game.i18n.localize('op.RollAttribute'), blank: false, required: true
-			}),
-			name: 'attribute',
-			value: this.config.attributeId,
-			options: Object.entries(CONFIG.op.attributes)
-				.map(([value, l]) => ({ value, label: game.i18n.localize(l) }))
-		},
-		{
-			field: new foundry.data.fields.StringField({
-				label: game.i18n.localize('op.RollMode'), blank: false, required: true
-			}),
-			name: 'rollMode',
-			value: this.message.rollMode ?? this.options.default?.rollMode ?? game.settings.get('core', 'rollMode'),
-			options: Object.entries(CONFIG.Dice.rollModes)
-				.map(([value, l]) => ({ value, label: game.i18n.localize(`${game.release.generation < 13 ? l : l.label}`) }))
-		},];
+		context.fields = [
+			{
+				field: new foundry.data.fields.StringField({
+					label: game.i18n.localize('op.RollMode'), blank: false, required: true
+				}),
+				name: 'rollMode',
+				value: this.message.rollMode ?? this.options.default?.rollMode ?? game.settings.get('core', 'rollMode'),
+				options: Object.entries(CONFIG.Dice.rollModes)
+					.map(([value, l]) => ({ value, label: game.i18n.localize(`${game.release.generation < 13 ? l : l.label}`) }))
+			},];
 		console.log('_prepareConfigurationContext');
 		return context;
 	}
