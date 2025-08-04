@@ -14,8 +14,7 @@ import { OrdemItem } from './documents/item.mjs';
 import { OrdemActorSheet } from './sheets/actor-sheet.mjs';
 import { OrdemItemSheet } from './sheets/item-sheet.mjs';
 import { OrdemThreatSheet } from './sheets/threat-sheet.mjs';
-// Import helper/utility classes and constants.
-import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
+
 import { op } from './helpers/config.mjs';
 import displayMessages from './components/message-system.mjs';
 import registerSystemSettings from './settings/settings.mjs';
@@ -24,6 +23,10 @@ import { registerSystemKeybindings } from './settings/settings.mjs';
 import * as documents from './documents/_partial_module.mjs';
 import * as dice from './dice/_module.mjs';
 import * as migrations from './migrations.mjs';
+import * as hooks from './hooks.mjs';
+
+import * as utils from './utils.mjs';
+
 // import { rescueAllPathEffects } from '../utils/__test__/effects.mjs';
 
 globalThis.ordemparanormal = {
@@ -50,6 +53,7 @@ Hooks.once('init', function () {
 	// Define custom Document classes
 	CONFIG.Actor.documentClass = OrdemActor;
 	CONFIG.Item.documentClass = OrdemItem;
+	CONFIG.ChatMessage.documentClass = documents.ChatMessageOP;
 	CONFIG.time.roundTime = 6; // Pg. 169 of the Book
 	CONFIG.Dice.D20Die = dice.D20Die;
 	CONFIG.Dice.BasicRoll = dice.BasicRoll;
@@ -58,7 +62,6 @@ Hooks.once('init', function () {
 	// Register Roll Extensions
 	CONFIG.Dice.rolls = [dice.BasicRoll, dice.D20Roll];
 
-	// CONFIG.Dice.rolls[0].CHAT_TEMPLATE = 'systems/ordemparanormal/templates/dice/roll.hbs';
 	CONFIG.Combat.initiative = {
 		formula: '@rollInitiative',
 		decimals: 2,
@@ -77,17 +80,10 @@ Hooks.once('init', function () {
 	// Register System Settings in Other File
 	registerSystemSettings();
 	registerSystemKeybindings();
-
-	// TODO: arranjar uma maneira de atualizar ou excluir atores antigos.
-	// console.log(game.data.actors[0]);
-	// game.data.actors[0].updateSource({'type': 'agent'});
-	// console.log(game.data.actors[0]);
+	utils.preloadHandlebarsTemplates();
 
 	// Change the logo of Foundry for Ordem Paranormal logo.
 	if (navigator.onLine) $('#logo').attr('src', 'https://i.imgur.com/TTrDGM4.png');
-
-	// Preload Handlebars templates.
-	return preloadHandlebarsTemplates();
 });
 
 Hooks.once('ready', function () {
@@ -95,6 +91,9 @@ Hooks.once('ready', function () {
 	// ui.notifications.warn('This is a warning message');
 	// ui.notifications.error('This is an error message');
 	// ui.notifications.info('This is a 4th message which will not be shown until the first info message is done');
+
+	// Chat message listeners
+	// documents.ChatMessageOP.activateListeners();
 
 	// Display welcome messages, reports and release notes.
 	displayMessages();
@@ -262,142 +261,11 @@ Hooks.once('ready', function () {
 	});
 });
 
-Hooks.on('renderChatMessage', documents.chat.onRenderChatMessage);
-
 Hooks.on('renderChatLog', (app, html, data) => OrdemItem.chatListeners(html));
 Hooks.on('renderChatPopout', (app, html, data) => OrdemItem.chatListeners(html));
+// Hooks.on('renderChatMessage', (app, html, data) => OrdemItem.chatListeners(html));
 
-/**
- * Criando o Hook preCreateActor para o módulo Bar Brawl adicionar
- * uma terceira barra nos tokens criados, essa barra ira representar
- * uns dos atributos bases dos personagens — os pontos de esforço.
- * Bar Brawl Gitlab: https://gitlab.com/woodentavern/foundryvtt-bar-brawl
- */
-Hooks.on('preCreateActor', function (actor, data) {
-	if (actor.type === 'threat') {
-		const prototypeToken = { disposition: -1, actorLink: false };
-		actor.updateSource({ prototypeToken }); // Set disposition to "Hostile"
-		actor.updateSource({
-			'prototypeToken.flags.barbrawl.resourceBars': {
-				'threatHPBar': {
-					id: 'threatHPBar',
-					mincolor: '#ff1a1a',
-					maxcolor: '#80ff00',
-					position: 'bottom-outer',
-					attribute: 'attributes.hp',
-					label: 'Pontos de Vida',
-					style: 'fraction',
-					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
-        	otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
-				},
-			},
-		});
-	}
+/* -------------------------------------------- */
 
-	// TODO: APLICAR UMA CONFIGURAÇÃO DE BAR BRAWL PARA PD E OUTRA PARA PE E SAN.
-	// Filtrando por tipos de Actors disponíveis no sistema.
-	if (actor.type === 'agent') {
-		const prototypeToken = { disposition: 1, actorLink: true }; // Set disposition to "Friendly"
-		actor.updateSource({ prototypeToken });
-
-		/**
-		 * Adicionando configurações para todas as barras.
-		 * Criando uma barra extra com o módulo Bar Brawl (configuração para os Pontos de PE)
-		 */
-		actor.updateSource({
-			'prototypeToken.flags.barbrawl.resourceBars': {
-				'pv': {
-					id: 'pv',
-					mincolor: '#ff1a1a',
-					maxcolor: '#80ff00',
-					position: 'bottom-outer',
-					attribute: 'PV',
-					label: 'PV',
-					style: 'fraction',
-					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
-        	otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
-
-				},
-				'pe': {
-					id: 'pe',
-					mincolor: '#242899',
-					maxcolor: '#66a8ff',
-					position: 'bottom-outer',
-					attribute: 'PE',
-					label: 'PE',
-					style: 'fraction',
-					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
-        	otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
-				},
-				'san': {
-					id: 'san',
-					mincolor: '#000000',
-					maxcolor: '#000000',
-					position: 'bottom-outer',
-					attribute: 'SAN',
-					label: 'SAN',
-					style: 'fraction',
-					ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
-        	otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
-				},
-			},
-		});
-	}
-});
-
-Hooks.on('renderSettings', async (app, [html]) => {
-	const details = html.querySelector('#game-details');
-	const pip = details.querySelector('.system-info .update');
-	details.querySelector('.system').remove();
-
-	const heading = document.createElement('div');
-	heading.classList.add('op', 'sidebar-heading');
-	heading.innerHTML = `
-    <h2>${game.i18n.localize('WORLD.GameSystem')}</h2>
-    <ul class="links">
-      <li>
-        <a class="credits" href="javascript:void(0)" target="_blank">
-				${game.i18n.localize('op.Credits')}</a>
-      </li>
-      <li>
-        <a href="https://discord.gg/G8AwJwJXa5" target="_blank">
-          ${game.i18n.localize('op.Discord')}
-        </a>
-      </li>
-			<li>
-        <a href="href="javascript:void(0)" target="_blank" data-tooltip="op.soon">
-          ${game.i18n.localize('op.Wiki')}
-        </a>
-      </li>
-    </ul>
-  `;
-	details.insertAdjacentElement('afterend', heading);
-
-	const badge = document.createElement('div');
-	badge.classList.add('op', 'system-badge');
-	badge.innerHTML = `
-    <img src="systems/ordemparanormal/media/op-logo.png" 
-		data-tooltip="${game.i18n.localize('op.op')}" alt="${game.system.title}">
-    <span class="system-info">${game.i18n.localize('op.sidebar.updateNotes')} 
-		<strong>${game.system.version}</strong> </span>
-		<p><span class="system-info" data-tooltip="${game.i18n.localize('op.sidebar.discord')}">
-		<i class="fa-brands fa-discord"></i> souowendel</span>&nbsp;&nbsp;
-		<a href="https://x.com/EuSouOWendel" target="_blank" 
-		data-tooltip="${game.i18n.localize('op.sidebar.twitter')}">
-		<span class="system-info"><i class="fa-brands fa-twitter"></i> souowendel</span></p>
-  `;
-	if (pip) badge.querySelector('.system-info').insertAdjacentElement('beforeend', pip);
-	heading.insertAdjacentElement('afterend', badge);
-
-	const credits = html.querySelector('.credits');
-	credits.addEventListener('click', async function (ev) {
-		const content = await renderTemplate('systems/ordemparanormal/templates/dialog/credits.html');
-		new Dialog({
-			title: 'Créditos no Desenvolvimento do Sistema',
-			content: content,
-			buttons: {},
-			render: (html) => console.log('Janela (dialog) de créditos foi renderizada corretamente.'),
-			close: (html) => console.log('Janela (dialog) foi fechada com sucesso!'),
-		}).render(true);
-	});
-});
+// Load hooks
+hooks.default();
