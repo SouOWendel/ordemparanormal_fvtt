@@ -1,0 +1,10 @@
+<section class='tab ability {{tab.cssClass}} scrollable' data-group='primary' data-tab='abilityAttr'>
+	<div class="resource grid align-items-center">
+		<label class="resource-label">{{localize "op.powerType"}}</label>
+		<select name="system.abilityType" data-dtype="String">
+			{{ selectOptions optionPowerType selected=system.abilityType localize=true blank="—" }}
+		</select>
+		<label class="resource-label">{{localize "op.preRequisite"}}</label>
+		<input type="text" name="system.preRequisite" value="{{system.preRequisite}}" data-dtype="String" />
+	</div>
+</section>

@@ -1,0 +1,40 @@
+<section class='tab armament {{tab.cssClass}}' data-group='primary' data-tab='armamentSpec'>
+	<div class="content-item scrollable">
+		<fieldset class="resource-type">
+			<legend>Especificações</legend>
+			<div class="resource grid grid-2col">
+				<label class="resource-label">{{localize "op.category"}}</label>
+				<div class="categoryCheck">{{radioBoxes 'system.category' categories checked=system.category}}</div>
+			</div>
+			<div class="resource grid grid-2col">
+				<label class="resource-label">{{localize "op.proficiency"}}</label>
+				<select name="system.proficiency" data-dtype="String">
+					{{ selectOptions optionProficiency selected=system.proficiency  localize=true blank="—" }}
+				</select>
+			</div>
+			<div class="resource grid grid-2col">
+				<label class="resource-label">{{localize "op.gripType"}}</label>
+				<select name="system.types.gripType" data-dtype="String">
+					{{ selectOptions optionGripType selected=system.types.gripType  localize=true blank="—" }}
+				</select>
+			</div>
+		</fieldset>
+		<fieldset class="resource-type">
+			<legend>Condições do Armamento</legend>
+			<div class="resource align-items-center align-center">
+				<label class="resource-label">Improvisada</label>
+				<input type="checkbox" name="system.conditions.improvised" {{checked system.conditions.improvised}}>
+				<label class="resource-label">Arremessável</label>
+				<input type="checkbox" name="system.conditions.throwable" {{checked system.conditions.throwable}}>
+				<label class="resource-label">Arma Ágil</label>
+				<input type="checkbox" name="system.conditions.agile" {{checked system.conditions.agile}}>
+				<label class="resource-label">Automática</label>
+				<input type="checkbox" name="system.conditions.automatic" {{checked system.conditions.automatic}}>
+				<label class="resource-label">Empunhadura Adaptável</label>
+				<input type="checkbox" name="system.conditions.adaptableGrip" {{checked system.conditions.adaptableGrip}}>
+				<label class="resource-label">Coronhada</label>
+				<input type="checkbox" name="system.conditions.pistolBlow" {{checked system.conditions.pistolBlow}}>
+			</div>
+		</fieldset>
+	</div>
+</section>

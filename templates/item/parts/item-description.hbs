@@ -1,0 +1,12 @@
+<section class='tab description {{tab.cssClass}}' data-group='primary' data-tab='description'>
+	<div class="content-item scrollable">
+		<span class="item-title-header">Descrição do Item</span>
+		{{#if editable}}
+			<prose-mirror name="system.description" data-document-u-u-i-d="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+				{{{enrichedDescription}}}
+				{{log enrichedDescription}}
+			</prose-mirror>
+		{{else}} {{{enrichedDescription}}}
+		{{/if}}
+	</div>
+</section>

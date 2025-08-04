@@ -1,0 +1,34 @@
+{{!-- Reference: https://github.com/asacolips-projects/boilerplate/blob/v12/templates/item/header.hbs --}}
+
+<header class='sheet-header'>
+  <img class='profile-img' src='{{item.img}}' data-edit='img' data-action='onEditImage' title='{{item.name}}'/>
+  <div class='header-fields'>
+    <div class='document-name'>
+      <input name='name' type='text' value='{{item.name}}' placeholder='Name' />
+    </div>
+    {{! You may prefer to have a separate header file instead of this if statement}}
+		{{!-- {{#if (eq item.type 'protection')}} --}}
+    {{#if isPhysical}}
+      <div class='grid grid-2col'>
+        <div class='resource'>
+          <label class='resource-label'>{{localize 'op.quantity'}}</label>
+          <input
+            type='text'
+            name='system.quantity'
+            value='{{system.quantity}}'
+            data-dtype='Number'
+          />
+        </div>
+        <div class='resource'>
+          <label class='resource-label'>{{localize 'op.space'}}</label>
+          <input
+            type='text'
+            name='system.weight'
+            value='{{system.weight}}'
+            data-dtype='Number'
+          />
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</header>

@@ -1,0 +1,105 @@
+<section class='tab armament {{tab.cssClass}}' data-group='primary' data-tab='armamentCombat'>
+	<div class="content-item scrollable">
+		<fieldset class="resource-type grid align-items-center">
+			<legend>Tipos</legend>
+			<label class="resource-label">{{localize "op.weaponType"}}</label>
+			<select name="system.types.rangeType.name" data-dtype="String">
+				{{ selectOptions optionWeaponType selected=system.types.rangeType.name  localize=true blank="—" }}
+			</select>
+			{{#ifEquals system.types.rangeType.name "ranged" }}
+				<label class="resource-label">{{localize "op.subtypeWeapon"}}</label>
+				<select name="system.types.rangeType.subRangeType" data-dtype="String" {{inputValid system.types.rangeType.name "ranged" }}
+					{{ selectOptions optionWeaponSubType selected=system.types.rangeType.subRangeType localize=true blank="—" }}
+				</select>
+				<label class="resource-label">{{localize "op.ammunitionType"}}</label>
+				<select name="system.types.ammunitionType" data-dtype="String" {{inputValid system.types.rangeType.name "ranged" }}>
+					{{ selectOptions optionWeaponAmmunition selected=system.types.ammunitionType  localize=true blank="—" }}
+				</select>
+			{{/ifEquals}}
+		</fieldset>
+		<fieldset class="resource-type grid align-items-center">
+			<legend>Detalhes de Combate</legend>
+			<div class="grid grid-2col">
+				<div class="resource">
+					<label class="resource-label">{{localize "op.range"}}</label>
+					<input type="text" name="system.range" value="{{system.range}}" data-dtype="String" placeholder="Ex.: curto, médio, longo"/>
+				</div>
+				<div class="resource">
+					<label class="resource-label">{{localize "op.critical"}}</label>
+					<input type="text" name="system.critical" value="{{system.critical}}" data-dtype="String" placeholder="Ex.: 20/x2"/>
+				</div>
+			</div>
+		</fieldset>
+		<ol class="items-list">
+			<fieldset class="resource-type">
+				<legend>Formulas de Rolagem</legend>
+				<div class="section-attack">
+					<span>Formula de Ataque</span>
+					<li class="attack-formula" data-item-id="{{item._id}}">
+						<div>
+							<select name="system.formulas.attack.attr" data-dtype="String">
+								{{ selectOptions attributes selected=system.formulas.attack.attr localize=true blank="—" }}
+							</select>
+						</div>
+						<i class="fa-solid fa-dice-d20"></i>
+						<div>
+							<select name="system.formulas.attack.skill" data-dtype="String">
+								{{ selectOptions attackSkills selected=system.formulas.attack.skill localize=true blank="—" }}
+							</select>
+						</div>
+						<i class="fa-solid fa-plus"></i>
+						<div>
+							<input type="text" name="system.formulas.attack.bonus" value="{{system.formulas.attack.bonus}}"
+								data-dtype="String" placeholder="Adicione um bônus"/>
+						</div>
+					</li>
+				</div>
+
+			<ul class="flexcol container-formula">
+				<span>Formula de Dano</span>
+				<div class="linha-principal">
+					<li class="main-damage-formula" data-item-id="{{item._id}}">
+						<div>
+							<input type="text" name="system.formulas.damage.formula" value="{{system.formulas.damage.formula}}"
+								data-dtype="String" placeholder="Dados"/>
+						</div> 
+						<i class="fa-solid fa-plus"></i>
+						<div>
+							<select name="system.formulas.damage.attr" data-dtype="String">
+								{{ selectOptions attributes selected=system.formulas.damage.attr localize=true blank="—" }}
+							</select>
+						</div>
+						<i class="fa-solid fa-diamond"></i>
+						<div>
+							<select name="system.formulas.damage.type" data-dtype="String">
+								{{ selectOptions optionDamageType selected=system.formulas.damage.type  localize=true blank="—" }}
+							</select>
+						</div>
+					</li>
+				</div>
+				<div class="part-damage-section linhas-adicionais">
+				{{#each system.formulas.damage.parts as |part i| }}
+					<li class="damage-formula item flexrow linha-secundaria" data-item-id="{{item._id}}" data-damage-part="{{i}}">
+						<div class="flex4 item-sheet-form item-sheet-prop">
+							<!-- TODO: Criar função de ataques de multiplos ataques com hierarquias -->
+							<!-- <a class="damage-control promote-part"><i class="fas fa-chevron-left"></i></a> -->
+							<a class="delete-damage" data-action="onDamageControl"><i class="fas fa-trash"></i></a>
+							<input type="text" name="system.formulas.damage.parts.{{i}}.0" value="{{lookup this "0"}}" data-dtype="String" placeholder="Dados" data-formula-editor/>
+							<i class="fa-solid fa-dice"></i>
+						</div> 
+						<div class="flex2-5 item-sheet-form item-sheet-prop">
+							<select name="system.formulas.damage.parts.{{i}}.1" data-dtype="String">
+								{{ selectOptions ../optionDamageType selected=(lookup this "1")  localize=true blank="—" }}
+							</select>
+						</div>
+					</li>
+				{{/each}}
+				</div>
+				<div class="damage-box">
+					<a class="add-damage" data-action="onDamageControl"><i class="fas fa-plus"></i> Adicione mais uma formula</a>
+				</div>
+			</ul>
+			</fieldset>
+		</ol>
+	</div>
+</section>
