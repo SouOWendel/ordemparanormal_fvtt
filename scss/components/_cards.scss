@@ -1,17 +1,51 @@
 @use "../utils/typography";
 
-.card-buttons button {
+.card-buttons {
+	position: relative;
+	display: flex;
+	width: 100%;
+	flex-grow: 1;
+	gap: 4px;
+
+button {
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	height: 2em;
+	min-height: 2em;
+	gap: 0.25rem;
+	padding: 0 0.5rem;
+	background: rgba(0, 0, 0, 0.1);
+	border: 1px solid #555;
+	border-radius: 4px;
+	color: #111;
+	font-family: "Signika", "Palatino Linotype", sans-serif;
+	font-size: 0.875rem;
+	line-height: normal;
+	text-decoration: none;
+	cursor: pointer;
+	transition: 0.5s;
+
+	&:hover {
+		background: #222;
+		color: #ccc;
+	}
+}
 	&:first-of-type {
 		margin-bottom: 2px;
 	}
 }
 
-.card-footer span {
-	color: #161616;
-	font-size: 11px;
-	padding: 2px 3px;
-	border-radius: 6px;
-	border: 1px solid #00000030;
+.card-footer {
+	margin-top: 6px;
+
+	span {
+		color: #161616;
+		font-size: 11px;
+		padding: 2px 3px;
+		border-radius: 6px;
+		border: 1px solid #00000030;
+	}
 }
 
 .chat-card {
@@ -23,10 +57,19 @@
 		font-family: typography.$op-warnock;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+		font-size: 14px;
 
 		summary {
 			margin-left: 4px;
 		}
+
+		p {
+			hyphens: auto;
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0 !important;
 	}
 
 	span.element {
@@ -72,6 +115,7 @@
 	}
 
 	table {
+		margin: 10px 0;
 		tr {
 			text-align: center;
 			th,
@@ -87,9 +131,10 @@
 		align-items: center;
 		padding: 6px 0;
 		h2 {
-			padding: 0 6px;
-			margin: 0;
+			padding-left: 6px;
 			border: 0;
+			font-family: 'Warnock Pro', 'Signika' 'Times New Roman', Times, serif;
+			padding-top: 10px;
 		}
 	}
 }
