@@ -1,5 +1,76 @@
 # Changelog
 
+## [7.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.9.1...v7.0.0) (2025-08-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **application and roll configuration:** The ApplicationV2 implementation will close the supporte for V11 core version of Foundry.
+
+### Features
+
+* **actor document:** added attribute dialog configuration and rolls for attributes ([8bee998](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8bee998d9b00470055656881965551ffc4a2ee64))
+* **actor rolls:** added roll dialog and roll templates ([018c614](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/018c614266533cb2c50721689aaeecd6dbb10b24))
+* **actor sheet:** added the new D20 rolls in the rolls of sheet for tests ([0dd19c8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0dd19c8f67ec646a69c54b2dee00348c7288c916))
+* **actor skills part:** removed the formula dataset ([96eaa25](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/96eaa25fb096d34c84184fa905dc7e11268ee2ef))
+* **actor threat sheet:** added data action to EditImage ([234c86f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/234c86f7be57a24e8694182816730a0b5518acd3))
+* **actor-sheet:** update of actor sheet to V2, tabs and all actions ([24e589d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/24e589d588aca391b2674ee032ead46e6464c131))
+* **actor-skills part:** added rollType dataset and skill-name class to use on roll listener ([53e953b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/53e953b777a4bd68c0ee8ae9d7f42ebeb30165ea))
+* **agent sheet templates:** refactored the layout for v12 and v13 and fixed some layout bugs ([77ea7a6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/77ea7a6f67eb7ef8cd08b382e77ee800a5bc7995))
+* **application and roll configuration:** based on the dnd5e system, were created some apps/dialogs ([49f66df](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/49f66dfd0a5af98a1cdf4e6528a1779ef0345066))
+* **attribute dialog:** added class to extend and polymorph the d20 dialog ([c17673c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c17673cb801413fcc3f061a33d0af4a60b8d6b48))
+* **chatmessage:** added class to handle the messages of chat with HTML and Listeners ([7d98f56](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7d98f56a015c8929a9f040b4b721612c6306283d))
+* **core and hooks:** was moved the hooks to individual file ([233997d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/233997d3fc33a81a59197043326dab52bb9e390b))
+* **core:** added the new D20 roll class on pool of dices in the system ([a67e8b7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a67e8b77cfe6c4223bbb3b9118299b2d782b1d35))
+* **core:** register the D20Roll, BasicRolls and D20Die on system. Reorganized some codes ([b352549](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b3525498bf9a191ce262ac48580c9b2f3e198522))
+* **css and media:** added all the styles compiled by SASS (roll, dialogs, fixed) and a pattern img ([34d26ec](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/34d26ecedfbd0c949a9e18fcf9cc3ee44981d08c))
+* **css:** compilated all the scss ([3ebac3a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3ebac3a537a34ea4dbc3a20dc5b208d5cb931e3c))
+* **d20roll:** added configuration, validation, template and dialog about d20 rolls ([8f85b4c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8f85b4ce6a3834a4bea7e138980b40793da76b00))
+* **d20roll:** created a function to configure the d20 rolls ([29bb6f8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/29bb6f8468e91fda76cf5bc116a8a6071be92427))
+* **dialog:** generic template for dialog windows ([77dc922](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/77dc922c5ed05043d86dcb2375a87f66661f3dae))
+* **effects.hbs:** added shared file for effects tab ([5585e37](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5585e376450a1f8251485a4ef717e6e1447a243c))
+* **effects.mjs:** removed onManageActiveEffect function and sort the effects with categories ([0289a8d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0289a8d188e5055d0c07abd61f3a3f21e5c5de9d))
+* **item card:** removed a division (hr tag) ([2567433](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/25674332feaa8f52859ee54a451e583b67044e31))
+* **item-sheet:** updated the item sheet for v12 and v13 core version of foundry ([66b8652](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/66b86520fab9edc006a405d6f6477f11aebe1330))
+* **items sheet:** refactored the layout for v12 and v13 and fixed some layout bugs ([dd42e7d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dd42e7d441fbe8c5691f60154e1771e3f2e86cee))
+* **localization:** added some translates for roll dialogs ([d0094fa](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d0094faa2642d4d193d6cd36d4227c9b6c4e9e90))
+* **localization:** added translates for tabs and credits ([06f68bf](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/06f68bf1be8bafc237a13416a89312ecb0008c9e))
+* **localization:** added translations about the roll mode on foundry chat ([e1a03a5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e1a03a5dfb8375f63d4cf39b76f612571ad73028))
+* **media:** added background for actor and item sheets ([856a830](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/856a8303eca1e277839ea4b02117691f7eb19536))
+* **media:** added some dice svgs for roll configuration dialog ([9322441](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/932244159ee1f7f700cdd0857ef11ef55560d95d))
+* **migration:** migration of skill degree for skill.degree.label ([81efb0e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/81efb0ea418b115306a611ca2f10045de26c68e2))
+* **module:** updated the chat class export ([9d8f079](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9d8f0795ac628e5e4eb0d31a6768f2018157f291))
+* **patch notes:** added patch notes of 7.0.0 version ([a05c7dd](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a05c7dd6c52d2f0c51b43b658a4af1e53a9cb4d8))
+* **roll and skill dialogs:** the attribute field was removed from one class and moved to another ([2c5d15b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2c5d15b3df190935332b5c1fa3caf2c2f47d543a))
+* **roll dialog:** templates for roll dialogs ([b053776](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b053776da8dfb085411ee45ecffaf6117eb5ec08))
+* **roll-configuration:** a template for roll-configuration dialog ([c0e6e9f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c0e6e9f6331ce434163fe4460279f2245318448a))
+* **roll-dialog and listener:** replaced the old dice system for the D20Roll on actor Agent ([10ddae4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/10ddae416ee7daf6aa892ffa9197feee1c60a469))
+* **scss/sass:** added styles for roll dialog of skills, and Libre Baskerville and Source Pro fonts ([82832e1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/82832e163ec45c11225e838007f331ea04a70950))
+* **scss:** added gap propertie for dialog buttons ([6da4f0e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6da4f0e6403cd5c7275117054dd70933a768a015))
+* **scss:** added some properties to re style the chat card ([f91b9a7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f91b9a7dc846c27238d532130666afc5a7123679))
+* **scss:** re style the effects for v12 and v13 core version of foundry ([d449802](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d449802a9aa5c22de3359578590f7c557ca274b9))
+* **scss:** re-styled and fixed the actor sheet for v12 and v13 core version ([564121e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/564121e5bdcb0ea3914eb945d0eb9bcca4ebe008))
+* **scss:** re-styled and fixed the actor sheet for v12 and v13 core version ([38fcc7d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/38fcc7d69a8c3acd966a6ca9381e39ed466df44f))
+* **scss:** style for dice results, critical, fumble, failure and success ([f4ebfe4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f4ebfe4247c093fa6db35a8de880a5448737dc48))
+* **scss:** was moved and removed some properties and classes ([4532190](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/453219043a268354d7eabf0384c7a70cdb9f3472))
+* **system.json:** updated the minimum and verified version ([42b9517](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/42b95174b68ae0fa287e675618a148e5078b1ca6))
+* **system:** changed the migration version to 6.9.0 from 6.9.1 ([9798070](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9798070ab596dcb0be2e9aa58f612afe6ce32e49))
+* **templates handlebars:** was moved to utils.mjs ([0a7857d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0a7857df0aef104327824a6cc2d96aab0affbff5))
+* **threat sheet:** removed the onManageActiveEffect and begin the v2 application update ([3fff8d4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3fff8d4af51646751ee77781dc3cc9e7d431fed6))
+* **utils:** a function to identify when the alt, control or shift keys are pressed ([bd2d299](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bd2d299818976c9e8008ec709efa5c0e0f0f7245))
+
+
+### Bug Fixes
+
+* **actor agent sheet:** fixed the progress inputs ([2616ee2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2616ee2f7f7f24c9e05a9b8e09d34c4322b935d3))
+* **d20-roll:** fixed the attribute getter ([4ecda60](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4ecda60946ecd6e08926ca58ed8a12b347ae79d0))
+* **item document:** fixed the chatListener and target of _onChatCardAction ([2c4bf95](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2c4bf95b2e3250071945553a1c56d6d7c88331d3))
+
+
+### Performance Improvements
+
+* **actor:** improved the perfomance of skills information handling in 50% ([8f7969c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8f7969c278c8d4a42f15738dae3d0e4f4042f953))
+
 ## [6.9.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.9.0...v6.9.1) (2024-11-22)
 
 
