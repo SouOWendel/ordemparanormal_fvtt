@@ -20,3 +20,88 @@
 		color: red;
 	}
 }
+
+
+/* ---------------------------------- */
+/*  Dice Rolls                        */
+/* ---------------------------------- */
+
+.dice-result {
+  display: flex;
+  flex-direction: column;
+
+	.dice-tooltip {
+		flex: none;
+	}
+
+  .dice-formula, .dice-total {
+    border-radius: 3px;
+    padding: .25rem;
+    line-height: normal;
+    flex: auto;
+    margin: 0;
+  }
+
+	.wrapper, .dice-tooltip {
+		padding-top: 5px;
+	}
+
+  .dice-total {
+    font-weight: bold;
+    // font-size: var(--font-size-28);
+    padding: .125rem;
+    margin-top: .25rem;
+    // font-family: var(--font-primary);
+    position: relative;
+
+    &::before, &::after {
+      position: absolute;
+      inset: 6px 0 6px auto;
+    }
+
+    &::before {
+      content: "";
+      width: 36px;
+      border-left: 1px solid #bbb;
+    }
+
+    &::after {
+      // content: "\f054";
+      // font-family: var(--font-awesome);
+      // display: grid;
+      // place-content: center;
+      // padding: 0 .8125rem;
+      // color: var(--color-text-secondary);
+      // font-size: var(--font-size-16);
+      transition: all 250ms ease;
+    }
+
+    // &.success:not(.fumble), &.critical {
+    //   background: var(--dnd5e-color-success-background);
+    //   border-color: var(--dnd5e-color-success);
+    //   color: var(--dnd5e-color-success-critical);
+    //   &::after { color: var(--dnd5e-color-success); }
+    // }
+
+    // &.failure:not(.critical), &.fumble {
+    //   background: var(--dnd5e-color-failure-background);
+    //   border-color: var(--dnd5e-color-failure);
+    //   color: var(--dnd5e-color-failure-critical);
+    //   &::after { color: var(--dnd5e-color-failure); }
+    // }
+
+    &.critical, &.fumble {
+      border-width: 3px;
+      border-style: double;
+    }
+
+    > .icons {
+      position: absolute;
+      inset: 0 auto 0 12px;
+      display: flex;
+			gap: 2px;
+      align-items: center;
+      opacity: .35;
+    }
+  }
+}
