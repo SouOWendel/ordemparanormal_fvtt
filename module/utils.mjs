@@ -43,3 +43,50 @@ export function areKeysPressed(event, action) {
 		return activeModifiers[b.key];
 	});
 }
+
+/* -------------------------------------------- */
+/*  Handlebars Template Helpers                 */
+/* -------------------------------------------- */
+
+/**
+ * Define a set of template paths to pre-load. Pre-loaded templates are compiled and cached for fast access when
+ * rendering. These paths will also be available as Handlebars partials by using the file name
+ * @returns {Promise}
+ */
+export async function preloadHandlebarsTemplates() {
+	const partials = [
+		// Shared Partials
+		'systems/ordemparanormal/templates/shared/effects.hbs',
+
+		// Actor Sheet Partials
+		'systems/ordemparanormal/templates/actor/parts/actor-abilities.hbs',
+		'systems/ordemparanormal/templates/actor/parts/actor-inventory.hbs',
+		'systems/ordemparanormal/templates/actor/parts/actor-rituals.hbs',
+		'systems/ordemparanormal/templates/actor/parts/actor-skills.hbs',
+		'systems/ordemparanormal/templates/actor/parts/actor-effects.hbs',
+
+		// Chat Message Partials
+		'systems/ordemparanormal/templates/chat/item-card.html',
+
+		// Dialog
+		'systems/ordemparanormal/templates/chat/item-card.html',
+
+		// Item Sheet Partials
+		'systems/ordemparanormal/templates/item/item-header.hbs',
+		'systems/ordemparanormal/templates/item/parts/item-ability-attributes.hbs',
+		'systems/ordemparanormal/templates/item/parts/item-armament-combat.hbs',
+		'systems/ordemparanormal/templates/item/parts/item-armament-spec.hbs',
+		'systems/ordemparanormal/templates/item/parts/item-description.hbs',
+		'systems/ordemparanormal/templates/item/parts/item-general-attributes.hbs',
+		'systems/ordemparanormal/templates/item/parts/item-protection-attributes.hbs',
+		'systems/ordemparanormal/templates/item/parts/item-ritual-attributes.hbs',
+	];
+
+	const paths = {};
+	for ( const path of partials ) {
+		paths[path.replace('.hbs', '.html')] = path;
+		paths[`op.${path.split('/').pop().replace('.hbs', '')}`] = path;
+	}
+
+	return loadTemplates(paths);
+}
