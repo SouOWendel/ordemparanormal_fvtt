@@ -41,7 +41,13 @@ export class OrdemItem extends Item {
 	 * @param {HTML} html  Rendered chat message.
 	 */
 	static chatListeners(html) {
-		html.on('click', '.card-buttons button', this._onChatCardAction.bind(this));
+		html = (game.version.slice(0, 2) === '12') ? html[0] : html;
+		html.addEventListener('click', event => {
+			if (event.target.closest('.card-buttons button')) {
+				this._onChatCardAction(event);
+			};
+		});
+		// html.querySelector('.card-buttons button').addEventListener('click', this._onChatCardAction.bind(this));
 		// html.on('click', '.item-name', this._onChatCardToggleContent.bind(this));
 	}
 
@@ -55,9 +61,8 @@ export class OrdemItem extends Item {
 	 */
 	static async _onChatCardAction(event) {
 		event.preventDefault();
-
 		// Extract card data
-		const button = event.currentTarget;
+		const button = event.target;
 		button.disabled = true;
 		const card = button.closest('.chat-card');
 		const messageId = card.closest('.message').dataset.messageId;
@@ -83,8 +88,9 @@ export class OrdemItem extends Item {
 
 		// Handle different actions
 		// let targets;
+		console.log(action);
 		switch (action) {
-			case 'attack': {
+			case 'attack': { console.log(action);
 				const rollAttack = await item.rollAttack({
 					event: event,
 				});
@@ -92,7 +98,7 @@ export class OrdemItem extends Item {
 				item.critical = rollAttack.criticalStatus;
 				break;
 			}
-			case 'damage':
+			case 'damage': console.log(action);
 				// case 'versatile':
 				await item.rollDamage({
 					event: event,
