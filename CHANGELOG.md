@@ -1,5 +1,20 @@
 # Changelog
 
+## [7.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.0.0...v7.1.0) (2025-08-04)
+
+
+### Features
+
+* **console logs:** console logs used for testing have been removed ([6bb2e1c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6bb2e1c312800b56d7b20eab39a68c6057e7d503))
+* **patch notes:** titles have been changed from 7.0.0 to 7.0.1 ([3a0d869](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3a0d86911b8c5f3262daa90dc854309915dbce31))
+* **patch notes:** titles have been changed from 7.0.1 to 7.1.0 ([9b41db9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9b41db9821f8511f7c59a907319ab0b73b929edc))
+
+
+### Bug Fixes
+
+* **core:** removed a exportation to undefined function (registerSystemKeybindings) ([51d175c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/51d175ce8f7d5ce991f0479eefba2c427ce9a4cc))
+* **core:** was removed registerSystemKeybindings references ([83f9e00](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/83f9e00002ebbc77de30a42ae7ad808252d07111))
+
 ## [7.0.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v6.9.1...v7.0.0) (2025-08-04)
 
 
