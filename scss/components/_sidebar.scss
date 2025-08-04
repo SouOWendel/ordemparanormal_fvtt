@@ -19,26 +19,26 @@
 		}
 	}
 
-	&.sidebar-heading {
-		margin: 6px 0;
-		margin-bottom: 0 !important;
-		border-top: 1px solid var(--color-border-dark-4);
-		border-bottom: 1px solid var(--color-border-dark-4);
-		background: rgba(255, 255, 255, 0.1);
-		display: flex;
-		align-items: center;
+	// &.sidebar-heading {
+	// 	margin: 6px 0;
+	// 	margin-bottom: 0 !important;
+	// 	border-top: 1px solid var(--color-border-dark-4);
+	// 	border-bottom: 1px solid var(--color-border-dark-4);
+	// 	background: rgba(255, 255, 255, 0.1);
+	// 	display: flex;
+	// 	align-items: center;
 
-		.links {
-			list-style: none;
-			display: flex;
-			gap: 8px;
-			margin: 0;
-		}
+	// 	.links {
+	// 		list-style: none;
+	// 		display: flex;
+	// 		gap: 8px;
+	// 		margin: 0;
+	// 	}
 
-		h2 {
-			background-color: initial;
-			border: initial;
-			margin: 0;
-		}
-	}
+	// 	h2 {
+	// 		background-color: initial;
+	// 		border: initial;
+	// 		margin: 0;
+	// 	}
+	// }
 }
