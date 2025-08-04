@@ -1,165 +1,225 @@
 @use "../utils/variables";
 @use "../utils/colors";
 
-// Section Header
-.items-header {
-	height: 28px;
-	margin: 2px 0;
-	padding: 0;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.05);
-	border: variables.$border-groove;
-	font-weight: bold;
-	> * {
-		font-size: 14px;
-		text-align: center;
-	}
-	.item-name {
-		font-weight: bold;
-		padding-left: 5px;
-		text-align: left;
-		display: flex;
-		// font-size: 16px;
-	}
-}
+.application.item {
 
-/* ----------------------------------------- */
-/*  Items Lists                              */
-/* ----------------------------------------- */
-
-.items-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow-y: auto;
-	scrollbar-width: thin;
-	color: colors.$c-tan;
-
-	// Child lists
-	.item-list {
-		list-style: none;
+	ul, ol, h1, h2, h3, h4 { 
 		margin: 0;
 		padding: 0;
 	}
 
-	// Item Name
-	.item-name {
-		flex: 2;
-		margin: 0;
-		overflow: hidden;
-		font-size: 13px;
-		text-align: left;
-		align-items: center;
-		display: flex;
-		h3,
-		h4 {
-			margin: 0;
-			white-space: nowrap;
-			overflow-x: hidden;
-		}
+	.prosemirror menu, prosemirror menu {
+		gap: 0;
+		background: #eeede0;
 	}
 
-	// Control Buttons
-	.item-controls {
-		display: flex;
-		flex: 0 0 100px;
-		justify-content: flex-end;
-		a {
-			font-size: 12px;
-			text-align: center;
-			margin: 0 6px;
-		}
-	}
-
-	// Individual Item
-	.item {
-		align-items: center;
-		padding: 0 2px; // to align with the header border
-		border-bottom: 1px solid colors.$c-faint;
-		&:last-child {
-			border-bottom: none;
-		}
-		.item-name {
-			color: colors.$c-dark;
-			.item-image {
-				display: flex;
-				align-items: center;
-				flex: 0 0 30px;
-				height: 30px;
-				background-size: 30px;
-				border: none;
-				margin-right: 1px;
-			}
-		}
-	}
-
-	.item-prop {
-		text-align: center;
-		border-left: 1px solid #c9c7b8;
-		border-right: 1px solid #c9c7b8;
-		font-size: 12px;
-	}
-
-	// Section Header
-	.items-header {
-		height: 28px;
-		margin: 2px 0;
+	.scrollable {
+		box-sizing: border-box;
+		width: 100%;
 		padding: 0;
+	}
+
+	span.item-title-header {
+		display: flex;
+		justify-content: center;
 		align-items: center;
 		background: rgba(0, 0, 0, 0.05);
-		border: variables.$border-groove;
-		font-weight: bold;
-		> * {
-			font-size: 12px;
-			text-align: center;
-		}
-		.item-name {
-			padding-left: 5px;
-			text-align: left;
-			// font-size: 16px;
-		}
+		border: 2px groove #eeede0;
+		padding: 4px;
 	}
+
+	.resource-type {
+		margin-top: 0;
+		margin-right: 0;
+		margin-bottom: 10px;
+		border: 1px solid colors.$transparent-c-black;
+		border-radius: 4px;
+		padding: 10px;
+	}
+
+	.content-item {
+		height: 100%;
+  	overflow-y: auto;
+		padding-top: 10px;
+	}
+
+	.section-attack {
+		margin-bottom: 20px;
+	}
+
+	.attack-formula {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.main-damage-formula {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.damage-formula {
+		display: flex;
+		flex-direction: row;
+		gap: 40px;
+
+		a {
+			width: 10px;
+		}
+
+	}
+
+	
+/* ITEM SHEET */
+
+.specifications {
+  h4 {
+    color: #16161670;
+    border-bottom: 1px solid colors.$transparent-c-black;
+  }
 }
 
-/* ITEMS IN ACTOR SHEET (AGENT) */
-.item-space {
-	flex: 1 20px;
-	padding: 0 8px;
+.combat {
+  h4 {
+    color: #16161670;
+    border-bottom: 1px solid colors.$transparent-c-black;
+  }
+
+  .resource-label {
+    font-size: 13px;
+  }
+}
+
+.item-sheet-form {
+  display: flex;
+  flex: 1 10px;
+  margin: 2px 0px;
+  align-items: center;
+  flex-direction: row;
+
+  input, select {
+		width: 100%;
+  }
+
+  i {
+    margin-left: 6px;
+  }
+}
+
+.item-damage-bonus {
+  flex: 2;
+}
+
+.minor-size {
+  flex: 0 60px;
+}
+
+.item-sheet-controls {
+  display: flex;
+  flex: 0 0 20px;
+  justify-content: flex-end;
+  a {
+    font-size: 12px;
+    text-align: center;
+    margin: 0 6px;
+  }
 }
 
 .item-sheet {
-	display: flex;
-	flex: 1;
-	background-color: aqua;
+  .item-attribute {
+    flex: 1;
+    padding: 0 8px;
+  }
+  .item-skill {
+    flex: 1;
+    padding: 0 8px;
+  }
+  .item-bonus {
+    flex: 2;
+    padding: 0 8px;
+  }
 }
 
-.item-image {
-	perspective: 50px;
+.damage-box {
+	color:#00000070;
+	padding: 6px;
+	text-align: center;
+	border-bottom: 1px dashed #00000040;
 
-	img {
-		border: 1px solid #00000070;
+	a:hover {
+		color: #555;
+	}
+  }
+
+.damage-control {
+	.fa-trash {
+		font-size: 12px;
 	}
 }
 
-.slide {
-	overflow: hidden;
+.delete-damage, .promote-part {
+	margin-right: 15px;
+}
 
-	& > img,
-	a {
-		transition: 0.3s all ease-in-out;
-		position: absolute;
-	}
-	& > a {
-		margin-left: 4px;
-		font-size: 20px;
-		transform: translate(50px, 0);
-	}
-	&:hover {
-		& > img {
-			transform: translate(-(200px), 0);
+	/* 1. Prepara o container principal para ser a referência de posicionamento */
+		.container-formula {
+			position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
+			padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
+			font-family: sans-serif; /* Apenas para estilização de exemplo */
 		}
-		& > a {
-			transform: translate(0, 0);
+
+		.part-damage-section {
+			padding-left: 20px;
+			padding-top: 10px;
 		}
-	}
+
+		/* 2. Cria a LINHA VERTICAL principal */
+		.linhas-adicionais::before {
+			content: ''; /* Pseudo-elementos precisam disso para aparecer */
+			position: absolute; /* Posição absoluta em relação ao .container-formula */
+			
+			/* Posição da linha */
+			left: 15px; /* Distância da borda esquerda do container */
+			top: 50px;  /* Distância do topo (ajuste conforme a altura da sua linha principal) */
+			bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
+
+			/* Estilo da linha */
+			width: 2px; /* Espessura da linha */
+			background-color: #b0b0b0; /* Cor da linha */
+			border-radius: 2px;
+		}
+
+		/* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
+		.linha-secundaria {
+			position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
+			margin-left: 25px;  /* Empurra o conteúdo para a direita, criando espaço para a conexão */
+			margin-bottom: 5px; /* Espaçamento entre as linhas */
+		}
+
+		/* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
+		.linha-secundaria::before {
+			content: '';
+			position: absolute;
+			
+			/* Posição da linha */
+			top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
+			left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
+			
+			/* Estilo da linha */
+			width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
+			height: 2px; /* Espessura da linha */
+			background-color: #b0b0b0; /* Mesma cor da linha vertical */
+			border-radius: 2px;
+		}
+
+		/* Estilos adicionais para parecer com a imagem (opcional) */
+		.linha-principal, .linha-secundaria {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
 }
