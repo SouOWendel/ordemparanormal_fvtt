@@ -2,32 +2,32 @@
 /**
  * Register all of the system's keybindings.
  */
-// export function registerSystemKeybindings() {
-// 	game.keybindings.register('ordemparanormal', 'skipDialogNormal', {
-// 		name: 'KEYBINDINGS.DND5E.SkipDialogNormal',
-// 		editable: [{ key: 'ShiftLeft' }, { key: 'ShiftRight' }]
-// 	});
+export function registerSystemKeybindings() {
+	game.keybindings.register('ordemparanormal', 'skipDialogNormal', {
+		name: 'KEYBINDINGS.op.SkipDialogNormal',
+		editable: [{ key: 'ShiftLeft' }, { key: 'ShiftRight' }]
+	});
 
-// 	game.keybindings.register('ordemparanormal', 'skipDialogAdvantage', {
-// 		name: 'KEYBINDINGS.DND5E.SkipDialogAdvantage',
-// 		editable: [{ key: 'AltLeft' }, { key: 'AltRight' }]
-// 	});
+	game.keybindings.register('ordemparanormal', 'skipDialogAdvantage', {
+		name: 'KEYBINDINGS.op.SkipDialogAdvantage',
+		editable: [{ key: 'AltLeft' }, { key: 'AltRight' }]
+	});
 
-// 	game.keybindings.register('ordemparanormal', 'skipDialogDisadvantage', {
-// 		name: 'KEYBINDINGS.DND5E.SkipDialogDisadvantage',
-// 		editable: [{ key: 'ControlLeft' }, { key: 'ControlRight' }, { key: 'OsLeft' }, { key: 'OsRight' }]
-// 	});
+	game.keybindings.register('ordemparanormal', 'skipDialogDisadvantage', {
+		name: 'KEYBINDINGS.op.SkipDialogDisadvantage',
+		editable: [{ key: 'ControlLeft' }, { key: 'ControlRight' }, { key: 'OsLeft' }, { key: 'OsRight' }]
+	});
 
-// 	game.keybindings.register('ordemparanormal', 'dragCopy', {
-// 		name: 'KEYBINDINGS.DND5E.DragCopy',
-// 		editable: [{ key: 'ControlLeft' }, { key: 'ControlRight' }, { key: 'AltLeft' }, { key: 'AltRight' }]
-// 	});
+	// game.keybindings.register('ordemparanormal', 'dragCopy', {
+	// 	name: 'KEYBINDINGS.op.DragCopy',
+	// 	editable: [{ key: 'ControlLeft' }, { key: 'ControlRight' }, { key: 'AltLeft' }, { key: 'AltRight' }]
+	// });
 
-// 	game.keybindings.register('ordemparanormal', 'dragMove', {
-// 		name: 'KEYBINDINGS.DND5E.DragMove',
-// 		editable: [{ key: 'ShiftLeft' }, { key: 'ShiftRight' }, { key: 'OsLeft' }, { key: 'OsRight' }]
-// 	});
-// }
+	// game.keybindings.register('ordemparanormal', 'dragMove', {
+	// 	name: 'KEYBINDINGS.op.DragMove',
+	// 	editable: [{ key: 'ShiftLeft' }, { key: 'ShiftRight' }, { key: 'OsLeft' }, { key: 'OsRight' }]
+	// });
+}
 
 /**
  * Register all of the system's settings.
