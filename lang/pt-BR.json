@@ -412,6 +412,7 @@
 	"op.Wiki": "Wiki",
 	"op.Discord": "Discord do Sistema",
 	"op.Credits": "Créditos & Licenças",
+	"op.Twitter": "Twitter",
 
 	"op.damage": "Dano",
 	"op.rollDmg": "Rolar Dano",
@@ -426,5 +427,17 @@
 	"op.RollConfiguration.Configuration": "Configuração de Rolagem",
 	"op.RollSituationalBonus": "Rolagem Situacional",
 	"op.Formula": "Formula",
-	"op.RollAttribute": "Atributo da Rolagem"
+	"op.RollAttribute": "Atributo da Rolagem",
+
+	"KEYBINDINGS": {
+		"op": {
+			"SkipDialogNormal": "Pular diálogo",
+			"SkipDialogAdvantage": "Pular diálogo (rolagem com vantagem)",
+			"SkipDialogDisadvantage": "Pular diálogo (rolagem com desvantagem)"
+		}
+	},
+
+	"EFFECT": {
+		"TabDuration": "Duração"
+	}
 }

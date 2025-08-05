@@ -51,6 +51,14 @@
 		"effects": "Effects"
 	},
 
+	"op.item.tab": {
+		"description": "Description",
+		"attributes": "Attributes",
+		"combat": "Combat",
+		"spec": "Specifications",
+		"effects": "Effects"
+	},
+
 	"op.PV": "Health Points",
 	"op.PE": "Effort Points",
 	"op.PD": "Determination Points",
@@ -394,10 +402,34 @@
 	"op.Notes": "Update Notes",
 	"op.Issues": "Issues",
 	"op.Wiki": "Wiki",
-	"op.Discord": "Discord",
-	"op.Credits": "Credits",
+	"op.Discord": "Discord of System",
+	"op.Credits": "Credits & Licenses",
+	"op.Twitter": "Twitter",
 
 	"op.damage": "Damage",
 	"op.rollDmg": "Roll Damage",
-	"op.rollAtk": "Roll Attack"
+	"op.rollAtk": "Roll Attack",
+
+	"op.Advantage": "Advantage (+1d20)",
+	"op.Normal": "Roll Dice",
+	"op.Disadvantage": "Disadvantage (-1d20)",
+	"op.SkillPromptTitle": "{skill} Test with {ability}",
+	"op.AttributePromptTitle": "{attribute} Test",
+	"op.RollMode": "Roll Mode",
+	"op.RollConfiguration.Configuration": "Roll Configuration",
+	"op.RollSituationalBonus": "Situational Roll",
+	"op.Formula": "Formula",
+	"op.RollAttribute": "Roll Atribute",
+
+	"KEYBINDINGS": {
+		"op": {
+			"SkipDialogNormal": "Skip Dialog",
+			"SkipDialogAdvantage": "Skip Dialog (roll with advantage)",
+			"SkipDialogDisadvantage": "Skip Dialog (roll with disadvantage)"
+		}
+	},
+
+	"EFFECT": {
+		"TabDuration": "Duration"
+	}
 }
