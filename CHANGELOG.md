@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.0...v7.2.1) (2025-08-05)
+
+
+### Bug Fixes
+
+* **patch notes:** updated the number of version ([4b3ac03](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4b3ac0381e8ca313f0cc632f325ce27cdb5a9d31))
+
 ## [7.2.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.1.0...v7.2.0) (2025-08-05)
 
 
