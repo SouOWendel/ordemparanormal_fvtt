@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.2.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.1.0...v7.2.0) (2025-08-05)
+
+
+### Features
+
+* **localization:** added translates for roll dialogs, tabs and effects ([2430ab7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2430ab7f879ea6a6d9ec3d15bcae82dc2420803d))
+
+
+### Reverts
+
+* **keybindings:** keybindings has been reversed ([13f95c8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/13f95c87a1ba9cab21b6329e7fca771afa2afa87))
+
 ## [7.1.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.0.0...v7.1.0) (2025-08-04)
 
 
