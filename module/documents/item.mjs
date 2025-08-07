@@ -199,31 +199,35 @@ export class OrdemItem extends Item {
 			throw new Error('This Item does not have a formula to roll!');
 
 		const attack = this.system.formulas.attack;
-		const bonus = attack.bonus && '+' + attack.bonus;
-		let attr = attack.attr;
-		let skill = attack.skill;
+		const skill = this.parent.system.skills[attack.skill];
+		let attribute = this.parent.system.attributes[attack.attr];
 		let rollMode = 'kh';
 
-		for (const [i, attrParent] of Object.entries(this.parent.system.attributes)) {
-			if (i == attr) {
-				if (attrParent.value == 0) {
-					attr = 2;
-					rollMode = 'kl';
-				} else attr = attrParent.value;
-			}
-		}
+		if (attribute.value == 0) {
+			attribute = 2;
+			rollMode = 'kl';
+		} else attribute = attribute.value;
 
-		for (const [i, skillParent] of Object.entries(this.parent.system.skills)) {
-			if (i == skill) skill = '+' + skillParent.value;
-		}
+		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
+			degree: skill.degree.value || null,
+			bonus: skill.value || null,
+			modifier: skill.mod || null
+		});
 
 		const rollConfig = {
-			formula: attr + 'd20' + rollMode + skill + bonus,
+			parts: (parts ?? []).join(' + '),
+			formula: `${attribute}d20${rollMode}`,
 			data: this.getRollData(),
 			chatMessage: true,
 		};
-		// if ( spellLevel ) rollConfig.data.item.level = spellLevel;
 
+		// fromConfig
+		rollConfig.formula = [rollConfig.formula].concat(parts ?? []).join(' + ');
+		rollConfig.data = { ...(rollConfig.data ?? {}), ...data};
+		console.log(rollConfig);
+
+		// if ( spellLevel ) rollConfig.data.item.level = spellLevel;
+		console.log(this.parent.system.skills);
 		/**
 		 * A hook event that fires before a formula is rolled for an Item.
 		 * @function ordemparanormal.preRollFormula
