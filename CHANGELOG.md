@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.2.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.1...v7.2.2) (2025-08-07)
+
+
+### Bug Fixes
+
+* **item.mjs:** fixed a bug where when the attack roll of items was made, bonuses were not added ([52471cf](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/52471cf04a249e57a2fbb508f697c9398f2466ab))
+* **patch notes:** fixed the version interval, changed the version in titles, added fixed bugs ([b3b8d9c](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b3b8d9c8a8b80353f8d3c68b58f7405927bc7410))
+
 ## [7.2.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.0...v7.2.1) (2025-08-05)
 
 
