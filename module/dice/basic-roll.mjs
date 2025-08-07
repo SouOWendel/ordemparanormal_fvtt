@@ -89,9 +89,9 @@ export default class BasicRoll extends Roll {
 		config.hookNames = [...(config.hookNames ?? []), ''];
 		/**
      * A hook event that fires before a roll is performed. Multiple hooks may be called depending on the rolling
-     * method (e.g. `dnd5e.preRollSkillV2`, `dnd5e.preRollAbilityCheckV2`, `dnd5e.preRollV2`). Exact contents of the
+     * method (e.g. `op.preRollSkillV2`, `op.preRollAbilityCheckV2`, `op.preRollV2`). Exact contents of the
      * configuration object will also change based on the roll type, but the same objects will always be present.
-     * @function dnd5e.preRollV2
+     * @function op.preRollV2
      * @memberof hookEvents
      * @param {BasicRollProcessConfiguration} config   Configuration data for the pending roll.
      * @param {BasicRollDialogConfiguration} dialog    Presentation data for the roll configuration dialog.
@@ -99,7 +99,7 @@ export default class BasicRoll extends Roll {
      * @returns {boolean}                              Explicitly return `false` to prevent the roll.
      */
 		for ( const hookName of config.hookNames ) {
-			if ( Hooks.call(`dnd5e.preRoll${hookName.capitalize()}V2`, config, dialog, message) === false ) return [];
+			if ( Hooks.call(`op.preRoll${hookName.capitalize()}V2`, config, dialog, message) === false ) return [];
 		}
 
 		this.applyKeybindings(config, dialog, message);
@@ -108,7 +108,7 @@ export default class BasicRoll extends Roll {
 			rolls = config.rolls?.map((r, index) => {
 				dialog.options?.buildConfig?.(config, r, null, index);
 				// for ( const hookName of config.hookNames ) {
-				// 	Hooks.callAll(`dnd5e.postBuild${hookName.capitalize()}RollConfig`, config, r, index);
+				// 	Hooks.callAll(`op.postBuild${hookName.capitalize()}RollConfig`, config, r, index);
 				// }
 				return this.fromConfig(r, config);
 			}) ?? [];
@@ -118,14 +118,14 @@ export default class BasicRoll extends Roll {
 			rolls = await DialogClass.configure(config, dialog, message);
 		}
 		// Store the roll type in roll.options so it can be accessed from only the roll
-		const rollType = foundry.utils.getProperty(message, 'data.flags.dnd5e.roll.type');
+		const rollType = foundry.utils.getProperty(message, 'data.flags.op.roll.type');
 		if ( rollType ) rolls.forEach(roll => roll.options.rollType ??= rollType);
 		/**
      * A hook event that fires after roll configuration is complete, but before the roll is evaluated.
-     * Multiple hooks may be called depending on the rolling method (e.g. `dnd5e.postSkillCheckRollConfiguration`,
-     * `dnd5e.postAbilityTestRollConfiguration`, and `dnd5e.postRollConfiguration` for skill checks). Exact contents of
+     * Multiple hooks may be called depending on the rolling method (e.g. `op.postSkillCheckRollConfiguration`,
+     * `op.postAbilityTestRollConfiguration`, and `op.postRollConfiguration` for skill checks). Exact contents of
      * the configuration object will also change based on the roll type, but the same objects will always be present.
-     * @function dnd5e.postRollConfiguration
+     * @function op.postRollConfiguration
      * @memberof hookEvents
      * @param {BasicRoll[]} rolls                      Rolls that have been constructed but not evaluated.
      * @param {BasicRollProcessConfiguration} config   Configuration information for the roll.
@@ -134,7 +134,7 @@ export default class BasicRoll extends Roll {
      * @returns {boolean}                              Explicitly return `false` to prevent rolls.
      */
 		for ( const hookName of config.hookNames ) {
-			const name = `dnd5e.post${hookName.capitalize()}RollConfiguration`;
+			const name = `op.post${hookName.capitalize()}RollConfiguration`;
 			if ( Hooks.call(name, rolls, config, dialog, message) === false ) return [];
 		}
 		return rolls;
@@ -166,7 +166,7 @@ export default class BasicRoll extends Roll {
 	static async buildPost(rolls, config, message) {
 		message.data = foundry.utils.expandObject(message.data ?? {});
 		const messageId = config.event?.target.closest('[data-message-id]')?.dataset.messageId;
-		if ( messageId ) foundry.utils.setProperty(message.data, 'flags.dnd5e.originatingMessage', messageId);
+		if ( messageId ) foundry.utils.setProperty(message.data, 'flags.op.originatingMessage', messageId);
 
 		if ( rolls?.length && (config.evaluate !== false) && (message.create !== false) ) {
 			message.document = await this.toMessage(rolls, message.data, { rollMode: message.rollMode });

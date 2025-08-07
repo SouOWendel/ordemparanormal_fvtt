@@ -401,7 +401,7 @@ export class OrdemActor extends Actor {
 
 	/**
    * @typedef {D20RollProcessConfiguration} AbilityRollProcessConfiguration
-   * @property {string} [ability]  ID of the ability to roll as found in `CONFIG.DND5E.abilities`.
+   * @property {string} [ability]  ID of the ability to roll as found in `CONFIG.op.abilities`.
    */
 
 	/**
@@ -492,13 +492,13 @@ export class OrdemActor extends Actor {
 		const attributeId = config.attribute;
 		const attributeLabel = game.i18n.localize(CONFIG.op.attributes[attributeId] ?? '');
 		// new foundry.applications.api.Dialog({
-		// 	window: { title: `${game.i18n.format('DND5E.AbilityPromptTitle', { ability: label })}: ${this.name}` },
+		// 	window: { title: `${game.i18n.format('op.AbilityPromptTitle', { ability: label })}: ${this.name}` },
 		// 	position: { width: 400 },
-		// 	content: `<p>${game.i18n.format('DND5E.AbilityPromptText', { ability: label })}</p>`,
+		// 	content: `<p>${game.i18n.format('op.AbilityPromptText', { ability: label })}</p>`,
 		// 	buttons: [
 		// 		{
 		// 			action: 'test',
-		// 			label: game.i18n.localize('DND5E.ActionAbil'),
+		// 			label: game.i18n.localize('op.ActionAbil'),
 		// 			callback: () => this.rollAttributeCheck(config, dialog, message)
 		// 		}
 		// 	]
@@ -555,7 +555,7 @@ export class OrdemActor extends Actor {
 
 		const skillConfig = game.i18n.localize(CONFIG.op.skills[config.skill]);
 
-		// const toolConfig = CONFIG.DND5E.tools[config.tool];
+		// const toolConfig = CONFIG.op.tools[config.tool];
 		if ( ((type === 'skill') && !skillConfig)) {
 			return this.rollAttributeCheck(config, dialog, message);
 		}
@@ -609,27 +609,6 @@ export class OrdemActor extends Actor {
 
 		if ( !rolls.length ) return null;
 
-		/**
-     * A hook event that fires after a skill or tool check has been rolled.
-     * @function dnd5e.rollSkillV2
-     * @function dnd5e.rollToolCheckV2
-     * @memberof hookEvents
-     * @param {D20Roll[]} rolls       The resulting rolls.
-     * @param {object} data
-     * @param {string} [data.skill]   ID of the skill that was rolled as defined in `CONFIG.DND5E.skills`.
-     * @param {string} [data.tool]    ID of the tool that was rolled as defined in `CONFIG.DND5E.tools`.
-     * @param {Actor5e} data.subject  Actor for which the roll has been performed.
-     */
-		Hooks.callAll(`dnd5e.roll${name}V2`, rolls, { [type]: config[type], subject: this });
-
-		if ( `dnd5e.roll${name}` in Hooks.events ) {
-			foundry.utils.logCompatibilityWarning(
-				`The \`dnd5e.roll${name}\` hook has been deprecated and replaced with \`dnd5e.roll${type.capitalize()}V2\`.`,
-				{ since: 'DnD5e 4.1', until: 'DnD5e 5.0' }
-			);
-			Hooks.callAll(`dnd5e.roll${name}`, this, rolls[0], config.skill);
-		}
-
 		return rolls;
 	}
 
@@ -655,10 +634,6 @@ export class OrdemActor extends Actor {
 			prof: hasProficiency ? prof : null,
 			mod: skill?.mod || null,
 			extraBonus: skill.value || null,
-			// [`${config[type]}Bonus`]: relevant?.bonuses?.check,
-			// [`${abilityId}CheckBonus`]: ability?.bonuses?.check,
-			// [`${type}Bonus`]: this.system.bonuses?.abilities?.[type],
-			// abilityCheckBonus: this.system.bonuses?.abilities?.check
 		}, { ...rollData });
 
 		// Add exhaustion reduction

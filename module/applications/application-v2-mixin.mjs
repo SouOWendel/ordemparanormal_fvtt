@@ -157,7 +157,7 @@ export default function ApplicationV2Mixin(Base) {
 			// Icon
 			if ( (options.window?.icon ?? '').includes('.') ) {
 				const icon = frame.querySelector('.window-icon');
-				const newIcon = document.createElement(options.window.icon?.endsWith('.svg') ? 'dnd5e-icon' : 'img');
+				const newIcon = document.createElement(options.window.icon?.endsWith('.svg') ? 'op-icon' : 'img');
 				newIcon.classList.add('window-icon');
 				newIcon.src = options.window.icon;
 				icon.replaceWith(newIcon);
@@ -226,7 +226,7 @@ export default function ApplicationV2Mixin(Base) {
      */
 		_disableFields() {
 			const selector = `.window-content :is(${[
-				'INPUT', 'SELECT', 'TEXTAREA', 'BUTTON', 'DND5E-CHECKBOX', 'COLOR-PICKER', 'DOCUMENT-TAGS',
+				'INPUT', 'SELECT', 'TEXTAREA', 'BUTTON', 'COLOR-PICKER', 'DOCUMENT-TAGS',
 				'FILE-PICKER', 'HUE-SLIDER', 'MULTI-SELECT', 'PROSE-MIRROR', 'RANGE-PICKER', 'STRING-TAGS'
 			].join(', ')}):not(.always-interactive)`;
 			for ( const element of this.element.querySelectorAll(selector) ) {

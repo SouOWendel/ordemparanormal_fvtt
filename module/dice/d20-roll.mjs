@@ -179,14 +179,10 @@ export default class D20Roll extends BasicRoll {
 		let advantage = true;
 		let disadvantage = true;
 
-		const rtLabel = game.i18n.localize('DND5E.FlagsReliableTalent');
 		for ( const roll of rolls ) {
 			if ( !roll.validD20Roll ) continue;
 			if ( !roll.hasAdvantage ) advantage = false;
 			if ( !roll.hasDisadvantage ) disadvantage = false;
-			if ( roll.options.reliableTalent && roll.d20.results.every(r => !r.active || (r.result < 10)) ) {
-				roll.d20.options.flavor = roll.d20.options.flavor ? `${roll.d20.options.flavor} (${rtLabel})` : rtLabel;
-			}
 		}
 
 		messageData.flavor ??= '';
