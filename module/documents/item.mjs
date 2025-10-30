@@ -211,7 +211,8 @@ export class OrdemItem extends Item {
 		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
 			degree: skill.degree.value || null,
 			bonus: skill.value || null,
-			modifier: skill.mod || null
+			modifier: skill.mod || null,
+			attackBonus: attack.bonus || null
 		});
 
 		const rollConfig = {
