@@ -277,9 +277,9 @@
       {
         "id": "barbrawl",
         "type": "module",
-        "manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/34402efe34e02991545eebb5ea56611da812a3cc/src/module.json",
+        "manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/master/src/module.json",
         "compatibility": {
-          "verified": "1.8.2"
+          "verified": "1.8.13"
         }
       }
     ]
