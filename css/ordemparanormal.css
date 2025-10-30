@@ -272,12 +272,6 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal {
   @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
-  /* ITEMS IN ACTOR SHEET (AGENT) */
-  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
-  /* ---------------------------------- */
-  /*  Dice Rolls                        */
-  /* ---------------------------------- */
 }
 .system-ordemparanormal .lowercase {
   text-transform: lowercase;
@@ -787,6 +781,9 @@ dialog.ordemparanormal.application {
   align-content: flex-start;
   padding-right: 2px;
 }
+.system-ordemparanormal {
+  /* ITEMS IN ACTOR SHEET (AGENT) */
+}
 .system-ordemparanormal .item-space {
   flex: 1 20px;
   padding: 0 8px;
@@ -823,14 +820,6 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .resource-label {
   font-weight: bold;
-}
-.system-ordemparanormal .application.item {
-  /* ITEM SHEET */
-  /* 1. Prepara o container principal para ser a referência de posicionamento */
-  /* 2. Cria a LINHA VERTICAL principal */
-  /* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
-  /* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
-  /* Estilos adicionais para parecer com a imagem (opcional) */
 }
 .system-ordemparanormal .application.item ul, .system-ordemparanormal .application.item ol, .system-ordemparanormal .application.item h1, .system-ordemparanormal .application.item h2, .system-ordemparanormal .application.item h3, .system-ordemparanormal .application.item h4 {
   margin: 0;
@@ -889,6 +878,9 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .application.item .damage-formula a {
   width: 10px;
+}
+.system-ordemparanormal .application.item {
+  /* ITEM SHEET */
 }
 .system-ordemparanormal .application.item .specifications h4 {
   color: rgba(22, 22, 22, 0.4392156863);
@@ -957,6 +949,9 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .application.item .delete-damage, .system-ordemparanormal .application.item .promote-part {
   margin-right: 15px;
 }
+.system-ordemparanormal .application.item {
+  /* 1. Prepara o container principal para ser a referência de posicionamento */
+}
 .system-ordemparanormal .application.item .container-formula {
   position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
   padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
@@ -965,6 +960,9 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .application.item .part-damage-section {
   padding-left: 20px;
   padding-top: 10px;
+}
+.system-ordemparanormal .application.item {
+  /* 2. Cria a LINHA VERTICAL principal */
 }
 .system-ordemparanormal .application.item .linhas-adicionais::before {
   content: ""; /* Pseudo-elementos precisam disso para aparecer */
@@ -978,10 +976,16 @@ dialog.ordemparanormal.application {
   background-color: #b0b0b0; /* Cor da linha */
   border-radius: 2px;
 }
+.system-ordemparanormal .application.item {
+  /* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
+}
 .system-ordemparanormal .application.item .linha-secundaria {
   position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
   margin-left: 25px; /* Empurra o conteúdo para a direita, criando espaço para a conexão */
   margin-bottom: 5px; /* Espaçamento entre as linhas */
+}
+.system-ordemparanormal .application.item {
+  /* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
 }
 .system-ordemparanormal .application.item .linha-secundaria::before {
   content: "";
@@ -994,6 +998,9 @@ dialog.ordemparanormal.application {
   height: 2px; /* Espessura da linha */
   background-color: #b0b0b0; /* Mesma cor da linha vertical */
   border-radius: 2px;
+}
+.system-ordemparanormal .application.item {
+  /* Estilos adicionais para parecer com a imagem (opcional) */
 }
 .system-ordemparanormal .application.item .linha-principal, .system-ordemparanormal .application.item .linha-secundaria {
   display: flex;
@@ -1542,6 +1549,7 @@ dialog.ordemparanormal.application {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #e6ddd0;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line .formula {
   font-weight: bold;
@@ -1549,6 +1557,31 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line .label {
   font-style: italic;
   font-size: 12px;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h1, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h2, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h3, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h4, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration span {
+  color: #f7f3e8;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button {
+  color: #9f8475;
+  border-color: #9f8475;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration input, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration select {
+  background: #302831;
+  color: #e7d1b1;
+  border-color: rgba(0, 0, 0, 0);
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration input:placeholder {
+  color: #e7d1b1;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration label, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration legend {
+  color: #d0b8a3;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration fieldset {
+  border-color: #816b66;
+}
+.system-ordemparanormal {
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
   text-transform: lowercase;
@@ -1697,6 +1730,11 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .dice-roll .dice-total.fumble {
   color: red;
+}
+.system-ordemparanormal {
+  /* ---------------------------------- */
+  /*  Dice Rolls                        */
+  /* ---------------------------------- */
 }
 .system-ordemparanormal .dice-result {
   display: flex;

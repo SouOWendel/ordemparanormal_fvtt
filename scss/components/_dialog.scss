@@ -434,6 +434,7 @@ dialog.ordemparanormal.application.roll-configuration {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			color: #e6ddd0;
 
 			.formula {
 				font-weight: bold;
@@ -444,5 +445,33 @@ dialog.ordemparanormal.application.roll-configuration {
 				font-size: 12px;
 			}
 		}
+	}
+
+	// For Theme Dark
+	h1, h2, h3, h4, span {
+		color: #f7f3e8;
+	}
+
+	button {
+		 color: #9f8475;
+		 border-color: #9f8475;
+	}
+
+	input, select {
+		background: #302831;
+		color: #e7d1b1;
+		border-color: #00000000;
+	}
+
+	input:placeholder {
+		color: #e7d1b1;
+	}
+
+	label, legend {
+		color: #d0b8a3;
+	}
+	
+	fieldset {
+		border-color: #816b66;
 	}
 }
