@@ -1,5 +1,19 @@
 # Changelog
 
+## [7.2.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.2...v7.2.3) (2025-10-30)
+
+
+### Bug Fixes
+
+* **actor:** correct dodge calculation to use reflexes degree value ([c7fe177](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c7fe177bb24e5590205d99dafe55f115262e7179))
+* **item:** fixed the attack bonus of items, that's not calculated on rolls ([7a2f6cf](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7a2f6cf7a73e2dfefc0da81c90eff79eaf811c1d))
+* **item:** remove unnecessary console log statements from roll configuration ([9fc27b2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9fc27b2895eda7f4e77143c708244699431e829e))
+* **module:** update bar brawl manifest URL and compatibility version ([f3ecb02](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f3ecb029c3c190a3ded5edb10d41613833036fd4))
+* **styles:** update color scheme for dark theme in dialog components ([1634971](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/163497108f6c77e6304092dc12f938002237740e))
+* **system:** update compatibility version to 13.350 and remove redundant and deprecated grid properties ([fdb30ac](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/fdb30ac1c00c678963f0c0da7db24d71f9f40e39))
+* **templates:** remove debug log statements from various templates ([3fc19dd](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3fc19ddc3d126ad56f8386a43aad3dd1c9f9840b))
+* **template:** update actor threat sheet to improve input types and enhance warning message ([c3945ef](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c3945ef1822d12f932540a25592f9557decaec09))
+
 ## [7.2.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.1...v7.2.2) (2025-08-07)
 
 
