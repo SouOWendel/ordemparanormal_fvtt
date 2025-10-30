@@ -2,7 +2,6 @@
 	<div class="header">
 		<img src="{{item.img}}" title="{{item.name}}" width="36px" height="36px" style="float: left" />
 		<h2>{{item.name}}</h2>
-		{{log data}}
 	</div>
 	{{#if data.circle}} {{#if data.element}}
 	<span class="element {{data.element}}">{{localize (concat "op.elementChoices." data.element)}} {{data.circle}}</span>
