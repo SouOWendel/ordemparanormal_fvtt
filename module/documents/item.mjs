@@ -225,10 +225,8 @@ export class OrdemItem extends Item {
 		// fromConfig
 		rollConfig.formula = [rollConfig.formula].concat(parts ?? []).join(' + ');
 		rollConfig.data = { ...(rollConfig.data ?? {}), ...data};
-		console.log(rollConfig);
 
 		// if ( spellLevel ) rollConfig.data.item.level = spellLevel;
-		console.log(this.parent.system.skills);
 		/**
 		 * A hook event that fires before a formula is rolled for an Item.
 		 * @function ordemparanormal.preRollFormula
