@@ -180,7 +180,7 @@ export class OrdemActor extends Actor {
 		const REFLEXES = system.skills.reflexes;
 		const AGI = system.attributes.dex.value;
 		system.defense.value += AGI;
-		system.defense.dodge = system.defense.value + system.skills.reflexes.value + (system.skills.reflexes.mod || 0);
+		system.defense.dodge = system.defense.value + system.skills.reflexes.degree.value + (system.skills.reflexes.mod || 0);
 	}
 
 	
