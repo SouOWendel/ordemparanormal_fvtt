@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.4](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.3...v7.2.4) (2025-10-30)
+
+
+### Bug Fixes
+
+* **messages:** update release notes for versions 7.2.2 and 7.2.3, fix bugs, and improve configuration ([ab1ec0b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ab1ec0bfd9770b7a9c15f721eb3f62588aa5f95b))
+
 ## [7.2.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.2...v7.2.3) (2025-10-30)
 
 
