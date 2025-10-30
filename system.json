@@ -5,7 +5,7 @@
   "version": "7.2.2",
   "compatibility": {
     "minimum": "12",
-    "verified": "13.346"
+    "verified": "13.350"
   },
   "authors": [
     {
@@ -317,8 +317,6 @@
     "distance": 1.5,
     "units": "m"
   },
-  "gridDistance": 1.5,
-  "gridUnits": "m",
   "primaryTokenAttribute": "PV",
   "secondaryTokenAttribute": "SAN",
   "url": "https://github.com/SouOWendel/ordemparanormal_fvtt",
