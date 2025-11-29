@@ -249,6 +249,11 @@ op.dropdownDamageType = {
 	impactDamage: 'op.damageTypeChoices.impactDamage',
 	piercingDamage: 'op.damageTypeChoices.piercingDamage',
 	ballisticDamage: 'op.damageTypeChoices.ballisticDamage',
+	bloodDamage: 'op.damageTypeChoices.bloodDamage',
+	deathDamage: 'op.damageTypeChoices.deathDamage',
+	knowledgeDamage: 'op.damageTypeChoices.knowledgeDamage',
+	energyDamage: 'op.damageTypeChoices.energyDamage',
+	fearDamage: 'op.damageTypeChoices.fearDamage'
 };
 
 /**
@@ -259,6 +264,7 @@ op.dropdownPowerType = {
 	class: 'op.powerTypeChoices.class',
 	paranormal: 'op.powerTypeChoices.paranormal',
 	path: 'op.powerTypeChoices.path',
+	origin: 'op.powerTypeChoices.origin',
 	ability: 'op.powerTypeChoices.ability',
 };
 
