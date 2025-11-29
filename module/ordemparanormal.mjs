@@ -228,10 +228,11 @@ Handlebars.registerHelper('ifInequals', function (arg1, arg2, options) {
 });
 
 Handlebars.registerHelper('abilityTypeHelper', function (arg) {
-	if (arg == 1) return 'class';
-	else if (arg == 2) return 'path';
-	else if (arg == 3) return 'paranormal';
-	else if (arg == 4) return 'ability';
+	if (arg == 1) return 'origin';      // 1 agora cria Habilidade de Origem
+	else if (arg == 2) return 'class';  // 2 cria Poder de Classe
+	else if (arg == 3) return 'path';   // 3 cria Habilidade de Trilha
+	else if (arg == 4) return 'paranormal'; // 4 cria Poder Paranormal
+	else if (arg == 5) return 'ability';    // 5 cria Outra Habilidade
 });
 
 Handlebars.registerHelper('inputValid', function (arg1, arg2) {
