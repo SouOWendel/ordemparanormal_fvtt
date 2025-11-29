@@ -5,10 +5,11 @@
 	{{#each abilities.valid as |abilities type|}}
 	<li class="item flexrow items-header">
 		<div class="item-name">
-			{{#ifEquals type 1}} {{localize "op.abilitiesAbv.class"}} {{/ifEquals}}
-			{{#ifEquals type 2}} {{localize "op.abilitiesAbv.path"}}{{/ifEquals}}
-			{{#ifEquals type 3}} {{localize "op.abilitiesAbv.paranormal"}} {{/ifEquals}}
-			{{#ifEquals type 4}} {{localize "op.abilitiesAbv.ability"}} {{/ifEquals}}
+			{{#ifEquals type 1}} {{localize "op.powerTypeChoices.origin"}} {{/ifEquals}}
+			{{#ifEquals type 2}} {{localize "op.abilitiesAbv.class"}} {{/ifEquals}}
+			{{#ifEquals type 3}} {{localize "op.abilitiesAbv.path"}}{{/ifEquals}}
+			{{#ifEquals type 4}} {{localize "op.abilitiesAbv.paranormal"}} {{/ifEquals}}
+			{{#ifEquals type 5}} {{localize "op.abilitiesAbv.ability"}} {{/ifEquals}}
 		</div>
 		<div class="item-formula">{{localize "op.type"}}</div>
 		<div class="item-formula">{{localize "op.preRequisite"}}</div>
