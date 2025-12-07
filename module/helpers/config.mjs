@@ -265,6 +265,7 @@ op.dropdownPowerType = {
 	paranormal: 'op.powerTypeChoices.paranormal',
 	path: 'op.powerTypeChoices.path',
 	origin: 'op.powerTypeChoices.origin',
+	complication: 'op.powerTypeChoices.complication',
 	ability: 'op.powerTypeChoices.ability',
 };
 
