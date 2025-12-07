@@ -372,9 +372,26 @@ export class OrdemActor extends Actor {
 	getRollData() {
 		const actorData = this;
 		const system = super.getRollData();
+		// -------------------------------------------------------
+		// CÁLCULO DA FÓRMULA DE INICIATIVA (@rollInitiative)
+		// -------------------------------------------------------
+		
+		// 1. Definição da Fórmula de Dados (Baseada em Agilidade)
+		// Se Agilidade > 0, rola X dados e guarda o maior (Xd20kh1)
+		// Se Agilidade = 0, rola 2 dados e guarda o menor (2d20kl1)
+		const agi = system.attributes?.dex?.value || 0;
+		const diceFormula = agi > 0 ? `${agi}d20kh1` : "2d20kl1";
 
-		// Prepare character roll data.
-		// this._getAgentRollData(actorData, system);
+		// 2. Definição do Bônus Fixo
+		let bonus = 0;
+
+		if (this.type === 'agent' && system.skills?.initiative) {
+			// Para Agentes: Soma o grau de treinamento (0, 5, 10, 15) + modificadores variados
+			const degree = system.skills.initiative.degree?.value || 0;
+			const mod = Number(system.skills.initiative.mod) || 0;
+			bonus = degree + mod;
+		} 
+		system.rollInitiative = `${diceFormula} + ${bonus}`;
 
 		return system;
 	}

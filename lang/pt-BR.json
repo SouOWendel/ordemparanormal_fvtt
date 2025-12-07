@@ -109,7 +109,7 @@
 	},
 
 	"op.attDex": "Agilidade",
-	"op.attInt": "Inteligência",
+	"op.attInt": "Intelecto",
 	"op.attVit": "Vigor",
 	"op.attPre": "Presença",
 	"op.attStr": "Força",
@@ -320,20 +320,36 @@
 		"cuttingDamage": "Dano de Corte (C)",
 		"impactDamage": "Dano de Impacto (I)",
 		"piercingDamage": "Dano Perfurante (P)",
-		"ballisticDamage": "Dano Balístico (B)"
+		"ballisticDamage": "Dano Balístico (B)",
+		
+        "bloodDamage": "Dano de Sangue",
+        "deathDamage": "Dano de Morte",
+        "knowledgeDamage": "Dano de Conhecimento",
+        "energyDamage": "Dano de Energia",
+        "fearDamage": "Dano de Medo"
+        
 	},
 
 	"op.damageTypeAbv": {
 		"cuttingDamage": "Corte",
 		"impactDamage": "Impacto",
 		"piercingDamage": "Perfurante",
-		"ballisticDamage": "Balístico"
+		"ballisticDamage": "Balístico",
+		
+        "bloodDamage": "Sangue",
+        "deathDamage": "Morte",
+        "knowledgeDamage": "Conhecimento",
+        "energyDamage": "Energia",
+        "fearDamage": "Medo"
+        
 	},
 
 	"op.powerTypeChoices": {
 		"class": "Poder de Classe",
 		"paranormal": "Poder Paranormal",
 		"path": "Habilidade de Trilha",
+		"origin": "Poder de Origem",
+		"complication": "Complicação",
 		"ability": "Outra Habilidade"
 	},
 
