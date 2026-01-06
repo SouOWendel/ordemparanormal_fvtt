@@ -1,79 +1,71 @@
 /* eslint-disable no-unused-vars */
 import { prepareActiveEffectCategories } from '../helpers/effects.mjs';
 
+const { api, sheets } = foundry.applications;
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class OrdemThreatSheet extends ActorSheet {
-	/** @override */
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ['ordemparanormal', 'sheet', 'actor'],
-			template: 'systems/ordemparanormal/templates/threat/actor-sheet.html',
-			width: 600,
-			height: 820,
-			tabs: [
-				{
-					navSelector: '.sheet-tabs',
-					contentSelector: '.sheet-body',
-					initial: 'features',
-				},
-			],
-		});
-	}
-
+export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
 	/** @inheritDoc */
 	static DEFAULT_OPTIONS = {
-		classes: ['ordemparanormal', 'sheet', 'actor', 'themed', 'theme-light'],
+		classes: ['ordemparanormal', 'sheet', 'actor', 'threat', 'themed', 'theme-light'],
+		tag: 'form',
 		position: {
 			width: 600,
 			height: 820
 		},
 		window: {
-			resizable: true,
-			title: 'DCC.ActorSheetTitle' // Just the localization key
+			resizable: true
+		},
+		form: {
+			submitOnChange: true,
+			closeOnSubmit: false
 		}
 	};
 
 	/** @override */
-	get template() {
-		return `systems/ordemparanormal/templates/threat/actor-${this.actor.type}-sheet.html`;
-	}
+	static PARTS = {
+		sheet: { template: 'systems/ordemparanormal/templates/threat/actor-threat-sheet.html' }
+	};
 
 	/** @override */
 	async _prepareContext(options) {
-		// Retrieve the data structure from the base sheet. You can inspect or log
-		// the context variable to see the structure, but some key properties for
-		// sheets are the actor object, the data object, whether or not it's
-		// editable, the items array, and the effects array.
+		// Retrieve the data structure from the base sheet.
 		const context = await super._prepareContext(options);
-		const actorData = context.data;
+
 		// Add the actor's data to context.data for easier access, as well as flags.
-		context.system = actorData.system;
-		context.flags = actorData.flags;
+		context.system = this.document.system;
+		context.flags = this.document.flags;
+		context.actor = this.document;
+
 		// Add roll data for TinyMCE editors.
-		context.rollData = context.actor.getRollData();
+		context.rollData = this.document.getRollData();
+
 		// Prepare active effects
 		context.effects = prepareActiveEffectCategories(
 			// A generator that returns all effects stored on the actor
 			// as well as any items
-			this.actor.allApplicableEffects()
+			this.document.allApplicableEffects()
 		);
+
 		return context;
 	}
 
 	/** @override */
-	activateListeners(html) {
-		super.activateListeners(html);
+	_onRender(context, options) {
+		super._onRender(context, options);
 		
+		const html = $(this.element);
+
 		// Beta alert on the top of threat sheet
 		html.find('.link-alert').click((ev) => {
 			ev.preventDefault();
-			localStorage.setItem(`op-threat-sheet-beta-alert-${this.actor.id}`, true);
+			localStorage.setItem(`op-threat-sheet-beta-alert-${this.document.id}`, true);
 			html.find('#announcement').css('display', 'none');
 		});
-		if (localStorage.getItem(`op-threat-sheet-beta-alert-${this.actor.id}`)) {
+		if (localStorage.getItem(`op-threat-sheet-beta-alert-${this.document.id}`)) {
 			html.find('#announcement').css('display', 'none');
 		}
 	}
