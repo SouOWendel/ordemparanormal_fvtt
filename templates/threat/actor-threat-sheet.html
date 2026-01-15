@@ -1,146 +1,159 @@
 <div class="threat-sheet-container">
-	<div id="announcement" class="display-flex align-items-center item-alert">
-		<p><b style="color: #AA0000;">AVISO: A FICHA DE AMEAÇAS AINDA ESTÁ EM DESENVOLVIMENTO!</b><br><br>A depender da versão do Foundry e do sistema,
-			 ficha pode ficar inutilizável. Dados podem ser perdidos em atualizações futuras, por isso, use por sua conta e risco.</p>
-		<a class="link-alert"><i class="fas fa-xmark"></i></a>
-	</div>
 	<div class="header-identify align-center grid grid-3col">
 		<img class="profile-img" src="{{actor.img}}" data-edit="img" data-action="onEditImage" title="{{actor.name}}" height="64" width="64" />
 		<h1 class="charname">
-	<input name="name" type="text" value="{{actor.name}}" placeholder="Nome da Ameaça" />
-</h1>
-		<div class="VD">
-			<label for="">VD</label>
+			<input name="name" type="text" value="{{actor.name}}" placeholder="Nome da Ameaça" />
+		</h1>
+		<div class="resource flex-group-center">
+			<label for="system.attributes.vd.value" class="resource-label">VD</label>
 			<input type="number" name="system.attributes.vd.value" class="miniInput" data-dtype="Number"
-			value="{{system.attributes.vd.value}}" placeholder="" />
+			value="{{system.attributes.vd.value}}" placeholder="0" />
 		</div>
-		<div class="healthPoints">
-			<label for="">Pontos de Vida</label>
-			<div class="display-flex">
-				<input type="number" name="system.attributes.hp.value" class="miniInput" data-dtype="Number"
-				value="{{system.attributes.hp.value}}" placeholder="" /> /
-				<input type="number" name="system.attributes.hp.max" class="miniInput" data-dtype="Number"
-				value="{{system.attributes.hp.max}}" placeholder="" />
+	</div>
+
+	<div class="resources flexrow">
+		<div class="resource flex-group-center">
+			<label for="system.attributes.hp.value" class="resource-label">Pontos de Vida</label>
+			<div class="resource-content flexrow flex-center flex-between">
+				<input type="number" name="system.attributes.hp.value" data-dtype="Number"
+				value="{{system.attributes.hp.value}}" placeholder="0" />
+				<span> / </span>
+				<input type="number" name="system.attributes.hp.max" data-dtype="Number"
+				value="{{system.attributes.hp.max}}" placeholder="0" />
 			</div>
 		</div>
 	</div>
-	<div id="general" class="display-flex">
-			<div class="display-flex">
-				<label for="">Elementos</label>
-				<input type="text" name="system.elements.main" value="{{system.elements.main}}" placeholder="" />
-			</div>
-				<div class="display-flex"><label for="">Outros Elementos</label>
-				<input type="text" name="system.elements.others" value="{{system.elements.others}}" placeholder="" />
-			</div>
-			<div class="display-flex">
-				<label for="">Tamanho</label>
-				<input type="text" name="system.size" value="{{system.size}}" placeholder="" />
-			</div>
-			<div class="display-flex">
-				<label for="">Deslocamento</label>
-				<input type="number" name="system.attributes.movement.walk" data-dtype="Number"
-					value="{{system.attributes.movement.walk}}" placeholder="" />
-			</div>
+
+	<div class="resources flexrow">
+		<div class="resource flex-group-center">
+			<label for="system.elements.main" class="resource-label">Elemento Principal</label>
+			<input type="text" name="system.elements.main" value="{{system.elements.main}}" placeholder="Ex: Sangue" />
 		</div>
-		<div class="grid">
-			<div class="first-column">
-				<div id="disturbingPresence">
-					<div class="display-flex">
-						<label for="">DT de Presença Pertubadora</label>
-						<input type="number" name="system.disturbingPresence.dt" class="miniInput" data-dtype="Number"
-						value="{{system.disturbingPresence.dt}}" placeholder="" />
-					</div>
-					<div class="display-flex">
-						<label for="">Nex Imune</label>
-						<input type="number" name="system.disturbingPresence.immuneNex" class="miniInput" data-dtype="Number"
-						value="{{system.disturbingPresence.immuneNex}}" placeholder="" />
-					</div>
-					<div class="display-flex">
-						<label for="">Dano Mental</label>
-						<input type="number" name="system.disturbingPresence.mentalDamage" data-dtype="Number"
-						value="{{system.disturbingPresence.mentalDamage}}" placeholder="" />
-					</div>
+		<div class="resource flex-group-center">
+			<label for="system.elements.others" class="resource-label">Outros Elementos</label>
+			<input type="text" name="system.elements.others" value="{{system.elements.others}}" placeholder="Ex: Morte" />
+		</div>
+	</div>
+
+	<div class="resources flexrow">
+		<div class="resource flex-group-center">
+			<label for="system.size" class="resource-label">Tamanho</label>
+			<input type="text" name="system.size" value="{{system.size}}" placeholder="Ex: Grande" />
+		</div>
+		<div class="resource flex-group-center">
+			<label for="system.attributes.movement.walk" class="resource-label">Deslocamento</label>
+			<input type="number" name="system.attributes.movement.walk" data-dtype="Number"
+				value="{{system.attributes.movement.walk}}" placeholder="9" />
+		</div>
+	</div>
+
+	<div class="grid grid-2col">
+		<div class="first-column">
+			<fieldset id="disturbingPresence">
+				<legend>Presença Perturbadora</legend>
+				<div class="resource">
+					<label for="system.disturbingPresence.dt" class="resource-label">DT</label>
+					<input type="number" name="system.disturbingPresence.dt" data-dtype="Number"
+					value="{{system.disturbingPresence.dt}}" placeholder="0" />
 				</div>
-				<div id="defenses">
-					<div class="display-flex">
-						<label for="">Defesa</label>
-						<input type="number" name="system.defense.value" data-dtype="Number" value="{{system.defense.value}}" placeholder="" />
-					</div>
-					<div>
-						<label for="">Testes de Resistência</label>
-						<input type="text" name="system.temporary.defense.skillResistances"
-						value="{{system.temporary.defense.skillResistances}}" placeholder="" />
-					</div>
-					<div>
-						<label for="">Resistências gerais</label>
-						<input type="text" name="system.temporary.defense.damageResistances"
-							value="{{system.temporary.defense.damageResistances}}" placeholder="" />
-					</div>
-					<div>
-						<label for="">Vulnerabilidades</label>
-						<input type="text" name="system.temporary.vulnerabilities" 
-						value="{{system.temporary.vulnerabilities}}" placeholder="" />
-					</div>
+				<div class="resource">
+					<label for="system.disturbingPresence.immuneNex" class="resource-label">NEX Imune</label>
+					<input type="number" name="system.disturbingPresence.immuneNex" data-dtype="Number"
+					value="{{system.disturbingPresence.immuneNex}}" placeholder="0" />
 				</div>
-				<div id="senses">
-					<div>
-						<label for="">Sentidos</label>
-						<input type="text" name="system.temporary.senses" value="{{system.temporary.senses}}" placeholder="" />
-					</div>
-					<div>
-						<label for="">Características</label>
-						<input type="text" name="system.temporary.characteristics" value="{{system.temporary.characteristics}}" placeholder="" />
-					</div>
+				<div class="resource">
+					<label for="system.disturbingPresence.mentalDamage" class="resource-label">Dano Mental</label>
+					<input type="number" name="system.disturbingPresence.mentalDamage" data-dtype="Number"
+					value="{{system.disturbingPresence.mentalDamage}}" placeholder="0" />
 				</div>
-				<div id="descriptions">
-					<div class="display-flex">
-						<label for="">Descrição de Criatura</label>
-						<textarea name="system.details.description" placeholder="">{{system.details.description}}</textarea>
-					</div>
-					<div class="display-flex">
-						<label for="">Enigma de Medo</label>
-						<textarea name="system.details.fearRiddle" placeholder="">{{system.details.fearRiddle}}</textarea>
-					</div>
+			</fieldset>
+
+			<fieldset id="defenses">
+				<legend>Defesas</legend>
+				<div class="resource">
+					<label for="system.defense.value" class="resource-label">Defesa</label>
+					<input type="number" name="system.defense.value" data-dtype="Number" value="{{system.defense.value}}" placeholder="0" />
+				</div>
+				<div class="resource">
+					<label for="system.temporary.defense.skillResistances" class="resource-label">Resistências</label>
+					<input type="text" name="system.temporary.defense.skillResistances"
+					value="{{system.temporary.defense.skillResistances}}" placeholder="Ex: Fortitude +5" />
+				</div>
+				<div class="resource">
+					<label for="system.temporary.defense.damageResistances" class="resource-label">Resistências a Dano</label>
+					<input type="text" name="system.temporary.defense.damageResistances"
+						value="{{system.temporary.defense.damageResistances}}" placeholder="Ex: Corte 5" />
+				</div>
+				<div class="resource">
+					<label for="system.temporary.vulnerabilities" class="resource-label">Vulnerabilidades</label>
+					<input type="text" name="system.temporary.vulnerabilities" 
+					value="{{system.temporary.vulnerabilities}}" placeholder="Ex: Fogo" />
+				</div>
+			</fieldset>
+
+			<fieldset id="senses">
+				<legend>Sentidos e Características</legend>
+				<div class="resource">
+					<label for="system.temporary.senses" class="resource-label">Sentidos</label>
+					<input type="text" name="system.temporary.senses" value="{{system.temporary.senses}}" placeholder="Ex: Visão no escuro 18m" />
+				</div>
+				<div class="resource">
+					<label for="system.temporary.characteristics" class="resource-label">Características</label>
+					<input type="text" name="system.temporary.characteristics" value="{{system.temporary.characteristics}}" placeholder="Ex: Imune a Medo" />
+				</div>
+			</fieldset>
+
+			<fieldset id="descriptions">
+				<legend>Descrições</legend>
+				<div class="resource">
+					<label for="system.details.description" class="resource-label">Descrição</label>
+					<textarea name="system.details.description" rows="4" placeholder="Descrição da criatura...">{{system.details.description}}</textarea>
+				</div>
+				<div class="resource">
+					<label for="system.details.fearRiddle" class="resource-label">Enigma do Medo</label>
+					<textarea name="system.details.fearRiddle" rows="4" placeholder="Enigma do medo...">{{system.details.fearRiddle}}</textarea>
+				</div>
+			</fieldset>
+		</div>
+
+		<div class="second-column">
+			<div class="resources flexrow" id="attributes">
+				<div class="resource flex-group-center">
+					<label for="system.attributes.dex.value" class="resource-label rollable">AGI</label>
+					<input type="number" name="system.attributes.dex.value" data-dtype="Number"
+					value="{{system.attributes.dex.value}}" placeholder="0" />
+				</div>
+				<div class="resource flex-group-center">
+					<label for="system.attributes.str.value" class="resource-label rollable">FOR</label>
+					<input type="number" name="system.attributes.str.value" data-dtype="Number"
+					value="{{system.attributes.str.value}}" placeholder="0" />
+				</div>
+				<div class="resource flex-group-center">
+					<label for="system.attributes.int.value" class="resource-label rollable">INT</label>
+					<input type="number" name="system.attributes.int.value" data-dtype="Number"
+					value="{{system.attributes.int.value}}" placeholder="0" />
+				</div>
+				<div class="resource flex-group-center">
+					<label for="system.attributes.pre.value" class="resource-label rollable">PRE</label>
+					<input type="number" name="system.attributes.pre.value" data-dtype="Number"
+					value="{{system.attributes.pre.value}}" placeholder="0" />
+				</div>
+				<div class="resource flex-group-center">
+					<label for="system.attributes.vit.value" class="resource-label rollable">VIG</label>
+					<input type="number" name="system.attributes.vit.value" data-dtype="Number"
+					value="{{system.attributes.vit.value}}" placeholder="0" />
 				</div>
 			</div>
-			<div class="second-column">
-				<div id="attributes" class="display-flex">
-					<div class="dex">
-						<input type="number" name="system.attributes.dex.value" class="miniInput" data-dtype="Number"
-						value="{{system.attributes.dex.value}}" placeholder="" />
-						<label for="">Agilidade</label>
-					</div>
-					<div class="str">
-						<input type="number" name="system.attributes.str.value" class="miniInput" data-dtype="Number"
-						value="{{system.attributes.str.value}}" placeholder="" />
-						<label for="">Força</label>
-					</div>
-					<div class="int">
-						<input type="number" name="system.attributes.int.value" class="miniInput" data-dtype="Number"
-						value="{{system.attributes.int.value}}" placeholder="" />
-						<label for="">Inteligência</label>
-					</div>
-					<div class="pre">
-						<input type="number" name="system.attributes.pre.value" class="miniInput" data-dtype="Number"
-						value="{{system.attributes.pre.value}}" placeholder="" />
-						<label for="">Presença</label>
-					</div>
-					<div class="vit">
-						<input type="number" name="system.attributes.vit.value" class="miniInput" data-dtype="Number"
-						value="{{system.attributes.vit.value}}" placeholder="" />
-						<label for="">Vigor</label>
-					</div>
-				</div>
-				<div id="actions">
-					<label for="">Ações</label>
-					<textarea type="text" name="system.temporary.actions"
-					 placeholder="">{{system.temporary.actions}}</textarea>
-				</div>
-				<div id="abilities">
-					<label for="">Habilidades</label>
-					<textarea type="text" name="system.temporary.abilities"
-					 placeholder="">{{system.temporary.abilities}}</textarea>
-				</div>
-			</div>
-		</div>	
+
+			<fieldset id="actions">
+				<legend>Ações</legend>
+				<textarea name="system.temporary.actions" rows="10" placeholder="Ações da criatura...">{{system.temporary.actions}}</textarea>
+			</fieldset>
+
+			<fieldset id="abilities">
+				<legend>Habilidades</legend>
+				<textarea name="system.temporary.abilities" rows="10" placeholder="Habilidades especiais...">{{system.temporary.abilities}}</textarea>
+			</fieldset>
+		</div>
+	</div>
 </div>
