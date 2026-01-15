@@ -1,13 +1,14 @@
+<div class="threat-sheet-container">
 	<div id="announcement" class="display-flex align-items-center item-alert">
 		<p><b style="color: #AA0000;">AVISO: A FICHA DE AMEAÇAS AINDA ESTÁ EM DESENVOLVIMENTO!</b><br><br>A depender da versão do Foundry e do sistema,
 			 ficha pode ficar inutilizável. Dados podem ser perdidos em atualizações futuras, por isso, use por sua conta e risco.</p>
 		<a class="link-alert"><i class="fas fa-xmark"></i></a>
 	</div>
 	<div class="header-identify align-center grid grid-3col">
-		<img class="profile-img" src="{{actor.img}}" data-action="editImage" title="{{actor.name}}" height="64" width="64" />
+		<img class="profile-img" src="{{actor.img}}" data-edit="img" data-action="onEditImage" title="{{actor.name}}" height="64" width="64" />
 		<h1 class="charname">
-			<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
-		</h1>
+	<input name="name" type="text" value="{{actor.name}}" placeholder="Nome da Ameaça" />
+</h1>
 		<div class="VD">
 			<label for="">VD</label>
 			<input type="number" name="system.attributes.vd.value" class="miniInput" data-dtype="Number"
@@ -142,3 +143,4 @@
 				</div>
 			</div>
 		</div>	
+</div>

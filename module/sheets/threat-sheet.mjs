@@ -17,56 +17,84 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			height: 820
 		},
 		window: {
-			resizable: true
+			resizable: true,
+			title: 'DCC.ActorSheetTitle'
 		},
 		form: {
-			submitOnChange: true,
-			closeOnSubmit: false
+			submitOnChange: true
+		},
+		actions: {
+			onEditImage: this.#onEditImage
 		}
 	};
 
-	/** @override */
+	/** @inheritDoc */
 	static PARTS = {
-		sheet: { template: 'systems/ordemparanormal/templates/threat/actor-threat-sheet.html' }
+		sheet: {
+			template: 'systems/ordemparanormal/templates/threat/actor-threat-sheet.html',
+			scrollable: ['.scrollable']
+		}
 	};
 
 	/** @override */
 	async _prepareContext(options) {
-		// Retrieve the data structure from the base sheet.
 		const context = await super._prepareContext(options);
-
-		// Add the actor's data to context.data for easier access, as well as flags.
-		context.system = this.document.system;
-		context.flags = this.document.flags;
-		context.actor = this.document;
-
-		// Add roll data for TinyMCE editors.
-		context.rollData = this.document.getRollData();
-
-		// Prepare active effects
-		context.effects = prepareActiveEffectCategories(
-			// A generator that returns all effects stored on the actor
-			// as well as any items
-			this.document.allApplicableEffects()
-		);
+		
+		foundry.utils.mergeObject(context, {
+			editable: this.isEditable,
+			owner: this.document.isOwner,
+			limited: this.document.limited,
+			system: this.actor.system,
+			flags: this.actor.flags,
+			actor: this.actor,
+			config: CONFIG.op
+		});
 
 		return context;
 	}
 
-	/** @override */
+	/** @inheritDoc */
 	_onRender(context, options) {
 		super._onRender(context, options);
 		
-		const html = $(this.element);
-
 		// Beta alert on the top of threat sheet
-		html.find('.link-alert').click((ev) => {
-			ev.preventDefault();
-			localStorage.setItem(`op-threat-sheet-beta-alert-${this.document.id}`, true);
-			html.find('#announcement').css('display', 'none');
-		});
-		if (localStorage.getItem(`op-threat-sheet-beta-alert-${this.document.id}`)) {
-			html.find('#announcement').css('display', 'none');
+		const alertLink = this.element.querySelector('.link-alert');
+		const announcement = this.element.querySelector('#announcement');
+		
+		if (alertLink) {
+			alertLink.addEventListener('click', (ev) => {
+				ev.preventDefault();
+				localStorage.setItem(`op-threat-sheet-beta-alert-${this.actor.id}`, 'true');
+				if (announcement) announcement.style.display = 'none';
+			});
 		}
+		
+		if (localStorage.getItem(`op-threat-sheet-beta-alert-${this.actor.id}`)) {
+			if (announcement) announcement.style.display = 'none';
+		}
+	}
+
+	/**
+	 * Handle changing a Document's image.
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @returns {Promise}
+	 * @protected
+	 */
+	static async #onEditImage(event, target) {
+		const attr = target.dataset.edit || 'img';
+		const current = foundry.utils.getProperty(this.document, attr);
+		const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+		const fp = new FilePicker({
+			current,
+			type: 'image',
+			redirectToRoot: img ? [img] : [],
+			callback: (path) => {
+				this.document.update({ [attr]: path });
+			},
+			top: this.position.top + 40,
+			left: this.position.left + 10,
+		});
+		return fp.browse();
 	}
 }
