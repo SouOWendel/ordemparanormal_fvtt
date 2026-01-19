@@ -26,11 +26,11 @@
   ],
   "packs": [
     {
-      "name": "generalptbr",
+      "name": "others",
       "label": "Origem e Insanidade",
       "system": "ordemparanormal",
       "type": "RollTable",
-      "path": "packs/generalptbr",
+      "path": "packs/others",
       "private": false,
       "flags": {},
       "ownership": {
@@ -38,23 +38,11 @@
       }
     },
     {
-      "name": "createmissionptbr",
+      "name": "creatingmissions",
       "label": "Criando Missões",
       "system": "ordemparanormal",
       "type": "RollTable",
-      "path": "packs/createmissionptbr",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "maps",
-      "label": "Mapas Populares",
-      "system": "ordemparanormal",
-      "path": "packs/maps",
-      "type": "Scene",
+      "path": "packs/creatingmissions",
       "private": false,
       "flags": {},
       "ownership": {
@@ -74,10 +62,10 @@
       }
     },
     {
-      "name": "generalEquipments",
+      "name": "general",
       "label": "Equipamentos Gerais",
       "system": "ordemparanormal",
-      "path": "packs/generalEquipments",
+      "path": "packs/general",
       "type": "Item",
       "private": false,
       "flags": {},
@@ -98,10 +86,10 @@
       }
     },
     {
-      "name": "fighterAbilities",
-      "label": "Habilidades de Combatente",
+      "name": "fighterPowers",
+      "label": "Poderes de Combatente",
       "system": "ordemparanormal",
-      "path": "packs/fighterAbilities",
+      "path": "packs/fighterPowers",
       "type": "Item",
       "private": false,
       "flags": {},
@@ -110,10 +98,10 @@
       }
     },
     {
-      "name": "specialistAbilities",
-      "label": "Habilidades de Especialista",
+      "name": "specialistPowers",
+      "label": "Poderes de Especialista",
       "system": "ordemparanormal",
-      "path": "packs/specialistAbilities",
+      "path": "packs/specialistPowers",
       "type": "Item",
       "private": false,
       "flags": {},
@@ -122,10 +110,22 @@
       }
     },
     {
-      "name": "occultistAbilities",
-      "label": "Habilidades de Ocultista",
+      "name": "occultistPowers",
+      "label": "Poderes de Ocultista",
       "system": "ordemparanormal",
-      "path": "packs/occultistAbilities",
+      "path": "packs/occultistPowers",
+      "type": "Item",
+      "private": false,
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+		{
+      "name": "survivalPowers",
+      "label": "Poderes de Sobrevivente",
+      "system": "ordemparanormal",
+      "path": "packs/survivalPowers",
       "type": "Item",
       "private": false,
       "flags": {},
@@ -134,22 +134,10 @@
       }
     },
     {
-      "name": "originAbilities",
-      "label": "Habilidades de Origem",
+      "name": "originPowers",
+      "label": "Poderes de Origem",
       "system": "ordemparanormal",
-      "path": "packs/originAbilities",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "paranormalAbilities",
-      "label": "Poderes Paranormais",
-      "system": "ordemparanormal",
-      "path": "packs/paranormalAbilities",
+      "path": "packs/originPowers",
       "type": "Item",
       "private": false,
       "flags": {},
@@ -193,11 +181,23 @@
         "PLAYER": "OBSERVER"
       }
     },
-    {
-      "name": "documentation",
-      "label": "Documentação do Sistema",
+		{
+      "name": "generalPowers",
+      "label": "Poderes Gerais",
       "system": "ordemparanormal",
-      "path": "packs/documentation",
+      "path": "packs/generalPowers",
+      "type": "Item",
+      "private": false,
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
+      "name": "bookrules",
+      "label": "Livro de Regras",
+      "system": "ordemparanormal",
+      "path": "packs/bookrules",
       "type": "JournalEntry",
       "private": false,
       "flags": {},
@@ -212,10 +212,9 @@
       "sorting": "m",
       "color": "#000000",
       "packs": [
-        "documentation",
-        "generalptbr",
-        "createmissionptbr",
-        "maps"
+        "bookrules",
+        "others",
+        "creatingmissions"
       ],
       "folders": [
         {
@@ -224,22 +223,23 @@
           "color": "#1f0300",
           "packs": [
             "armaments",
-            "generalEquipments",
+            "general",
             "protections"
           ]
         },
         {
-          "name": "Habilidades de Classe",
+          "name": "Poderes de Classe",
           "sorting": "m",
           "color": "#171717",
           "packs": [
-            "fighterAbilities",
-            "specialistAbilities",
-            "occultistAbilities"
+            "fighterPowers",
+            "specialistPowers",
+            "occultistPowers",
+						"survivalPowers"
           ]
         },
         {
-          "name": "Habilidades de Trilha",
+          "name": "Poderes de Trilha",
           "sorting": "m",
           "color": "#272727",
           "packs": [
@@ -249,12 +249,11 @@
           ]
         },
         {
-          "name": "Outras Habilidades",
+          "name": "Outros Poderes",
           "sorting": "m",
           "color": "#373737",
           "packs": [
-            "originAbilities",
-            "paranormalAbilities"
+            "originPowers"
           ]
         }
       ]
