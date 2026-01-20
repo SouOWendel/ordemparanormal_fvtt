@@ -87,9 +87,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		case 'agent':
 			options.parts.push('skills', 'inventory', 'abilities', 'rituals', 'biography', 'effects');
 			break;
-		case 'npc':
-			options.parts.push('gear', 'effects');
-			break;
 		}
 	}
 
@@ -122,7 +119,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			usingWithoutSanityRule: this.usingWithoutSanityRule,
 			isV12: this.isV12,
 			isSurvivor: this.isSurvivor,
-			tabs: this._getTabs(options.parts)
+			tabs: this._getTabs(options.parts),
+			costLabel: this.usingWithoutSanityRule ? 'PD' : 'PE'
 		});
 
 		// Prepara os dados do Agente e seus Items.
@@ -391,6 +389,20 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		for (const button of this.element.querySelectorAll('.adjustment-button')) {
 			button.addEventListener('click', this._onAdjustInput.bind(this));
 		}
+
+		const html = $(this.element);
+        
+		html.find('.item-toggle').click(event => {
+			event.preventDefault();
+			event.stopPropagation(); // Garante que o clique não ative outras coisas
+            
+			// Encontra o item pai (li) e depois a descrição dentro dele
+			const li = $(event.currentTarget).parents('.item');
+			const desc = li.find('.item-description');
+            
+			// Faz a animação de abrir/fechar
+			desc.slideToggle(200);
+		});
 		// You may want to add other special handling here
 		// Foundry comes with a large number of utility classes, e.g. SearchFilter
 		// That you may want to implement yourself.
@@ -553,6 +565,20 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 				input.disabled = true;
 			}
 		}
+	}
+
+	/** */
+	static _onToggleDescription(event) {
+		event.preventDefault();
+		const li = event.currentTarget.closest('.item');
+		const itemId = li.dataset.itemId;
+
+		if (this.expanded.has(itemId)) {
+			this.expanded.delete(itemId);
+		} else {
+			this.expanded.add(itemId);
+		}
+		this.render();
 	}
 
 	/**
@@ -846,6 +872,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		const actor = this.actor;
 		const allowed = Hooks.call('dropActorSheetData', actor, this, data);
 		if (allowed === false) return;
+		console.log('OP FVTT | Dropping data on actor sheet...');
 
 		// Handle different data types
 		switch (data.type) {
@@ -854,6 +881,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		case 'Actor':
 			return this._onDropActor(event, data);
 		case 'Item':
+			console.log('OP FVTT | Dropping item on actor sheet...');
 			return this._onDropItem(event, data);
 		case 'Folder':
 			return this._onDropFolder(event, data);
@@ -873,14 +901,22 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
    */
 	async _onDropItem(event, data) {
 		if (!this.actor.isOwner) return false;
+		
 		const item = await Item.implementation.fromDropData(data);
-
+		
 		// Handle item sorting within the same Actor
-		if (this.actor.uuid === item.parent?.uuid)
+		if (this.actor.uuid === item.parent?.uuid) {
 			return this._onSortItem(event, item);
-
+		}
+		
 		// Create the owned item
-		return this._onDropItemCreate(item, event);
+		try {
+			return await this._onDropItemCreate(item, event);
+		} catch (error) {
+			console.error('Erro ao criar item no ator:', error);
+			ui.notifications.error(`Erro ao adicionar item: ${error.message}`);
+			throw error;
+		}
 	}
 
 	/**
@@ -914,7 +950,14 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
    */
 	async _onDropItemCreate(itemData, event) {
 		itemData = itemData instanceof Array ? itemData : [itemData];
-		return this.actor.createEmbeddedDocuments('Item', itemData);
+		
+		// Converter objetos Item para dados antes de criar
+		const itemDataArray = itemData.map(item => {
+			if (item instanceof Item) return item.toObject();
+			return item;
+		});
+		
+		return this.actor.createEmbeddedDocuments('Item', itemDataArray);
 	}
 
 	/**
@@ -1007,4 +1050,5 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/* -------------------------------------------- */
+
 }
