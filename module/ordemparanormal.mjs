@@ -68,12 +68,21 @@ Hooks.once('init', function () {
 	};
 
 	// Register sheet application classes
-	Actors.unregisterSheet('core', ActorSheet);
-	Items.unregisterSheet('core', ItemSheet);
-	Actors.registerSheet('ordemparanormal', OrdemActorSheet, { types: ['agent'], makeDefault: true });
-	Actors.registerSheet('ordemparanormal', OrdemThreatSheet, { types: ['threat'], makeDefault: true });
-	Items.registerSheet('ordemparanormal', OrdemItemSheet, { makeDefault: true });
+	const DocumentSheetConfig = foundry.applications.apps.DocumentSheetConfig;
+	DocumentSheetConfig.unregisterSheet(Actor, 'core', foundry.appv1.sheets.ActorSheet);
+	DocumentSheetConfig.registerSheet(Actor, 'ordemparanormal', OrdemActorSheet, {
+		types: ['agent'],
+		makeDefault: true
+	});
+	DocumentSheetConfig.registerSheet(Actor, 'ordemparanormal', OrdemThreatSheet, {
+		types: ['threat'],
+		makeDefault: true
+	});
 
+	DocumentSheetConfig.unregisterSheet(Item, 'core', foundry.appv1.sheets.ItemSheet);
+	DocumentSheetConfig.registerSheet(Item, 'ordemparanormal', OrdemItemSheet, {
+		makeDefault: true
+	});
 	// Configure Fonts
 	_configureFonts();
 
@@ -87,14 +96,6 @@ Hooks.once('init', function () {
 });
 
 Hooks.once('ready', function () {
-	// ui.notifications.info('This is an info message');
-	// ui.notifications.warn('This is a warning message');
-	// ui.notifications.error('This is an error message');
-	// ui.notifications.info('This is a 4th message which will not be shown until the first info message is done');
-
-	// Chat message listeners
-	// documents.ChatMessageOP.activateListeners();
-
 	// Display welcome messages, reports and release notes.
 	displayMessages();
 
@@ -228,10 +229,11 @@ Handlebars.registerHelper('ifInequals', function (arg1, arg2, options) {
 });
 
 Handlebars.registerHelper('abilityTypeHelper', function (arg) {
-	if (arg == 1) return 'class';
-	else if (arg == 2) return 'path';
-	else if (arg == 3) return 'paranormal';
-	else if (arg == 4) return 'ability';
+	if (arg == 1) return 'origin';
+	else if (arg == 2) return 'class';
+	else if (arg == 3) return 'path';
+	else if (arg == 4) return 'paranormal';
+	else if (arg == 5) return 'ability';
 });
 
 Handlebars.registerHelper('inputValid', function (arg1, arg2) {
