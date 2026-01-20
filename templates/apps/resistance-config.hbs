@@ -1,0 +1,34 @@
+<form autocomplete="off" class="ordemparanormal-config">
+    <p class="notes">Configure as defesas da ameaça.</p>
+    
+    <div class="form-group header flexrow" style="margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #333;">
+        <label style="flex: 2;">Tipo de Dano</label>
+        <label style="flex: 0 0 60px; text-align: center;">RD</label>
+        <label style="flex: 0 0 40px; text-align: center;" title="Vulnerabilidade (Dano x2 ou +Dano)"><i class="fas fa-heart-broken"></i></label>
+        <label style="flex: 0 0 40px; text-align: center;" title="Imunidade"><i class="fas fa-shield-alt"></i></label>
+    </div>
+
+    {{#each resistances as |data key|}}
+    <div class="form-group flexrow" style="align-items: center; margin-bottom: 3px;">
+        <label style="flex: 2;">{{localize data.label}}</label>
+
+        <div style="flex: 0 0 60px;">
+            <input type="number" name="{{key}}.value" value="{{data.value}}" placeholder="0" min="0" style="text-align: center;"/>
+        </div>
+
+        <div style="flex: 0 0 40px; display: flex; justify-content: center;">
+            <input type="checkbox" name="{{key}}.vulnerable" {{checked data.vulnerable}} />
+        </div>
+
+        <div style="flex: 0 0 40px; display: flex; justify-content: center;">
+            <input type="checkbox" name="{{key}}.immune" {{checked data.immune}} />
+        </div>
+    </div>
+    {{/each}}
+
+    <footer class="sheet-footer flexrow" style="margin-top: 10px;">
+        <button type="submit" name="submit">
+            <i class="far fa-save"></i> {{localize "Salvar"}}
+        </button>
+    </footer>
+</form>
