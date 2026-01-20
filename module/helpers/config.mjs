@@ -375,3 +375,20 @@ op.dropdownElement = {
 	energy: 'op.elementChoices.energy',
 	fear: 'op.elementChoices.fear',
 };
+
+/** Threat Sheet */
+
+op.dropdownThreatType = {
+	'creature': 'op.threatTypeChoices.creature',
+	'person': 'op.threatTypeChoices.person',
+	'animal': 'op.threatTypeChoices.animal'
+};
+
+op.dropdownThreatSize = {
+	'tiny': 'op.threatSizeChoices.tiny',
+	'small': 'op.threatSizeChoices.small',
+	'medium': 'op.threatSizeChoices.medium',
+	'large': 'op.threatSizeChoices.large',
+	'huge': 'op.threatSizeChoices.huge',
+	'colossal': 'op.threatSizeChoices.colossal'
+};
