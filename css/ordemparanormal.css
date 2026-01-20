@@ -288,11 +288,11 @@ dialog.ordemparanormal.application {
   --color-border: #302831;
   --color-tabs-border: #555;
   --color-fieldset-border: #efe6d8;
-  --color-form-label: #222;
+  --color-form-label: $text-dark;
   --color-form-label-hover: #111;
   --color-form-hint: #444;
-  --color-form-hint-hover: #222;
-  --color-select-option-bg: #f7f3e8;
+  --color-form-hint-hover: $text-dark;
+  --color-select-option-bg: $bg-parchment;
   color: #222;
 }
 .system-ordemparanormal .application.theme-light input, .system-ordemparanormal .application.theme-light select {
@@ -393,7 +393,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents {
   display: flex;
-  padding: 0px 6px;
+  padding: 0 6px;
   gap: 8px;
   margin-bottom: 8px;
 }
@@ -408,18 +408,17 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .prestige, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .prestige {
   display: flex;
   flex: 1;
-  flex-grow: 1;
   text-align: center;
   font-size: 12px;
 }
 .system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .name, .system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .credit, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .name, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .credit {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-grow: 1;
   padding: 4px 6px;
   border: 1px solid #888;
   border-radius: 4px;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(0, 0, 0, 0.05);
   font-weight: bold;
 }
@@ -444,8 +443,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal section.itemsheet section.window-content section.space .space-body .bar, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .bar {
   display: block !important;
-  margin-top: 0;
-  margin-left: 0;
+  margin: 0;
   border-radius: 2px;
   background-color: #272727;
   height: 12px;
@@ -454,8 +452,8 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal section.itemsheet section.window-content section.space .space-body .barover, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .barover {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   display: block !important;
   border-radius: 2px;
   background-color: #691313;
@@ -572,19 +570,22 @@ dialog.ordemparanormal.application {
   padding-left: 5px;
   text-align: left;
 }
+.system-ordemparanormal .sheet-body {
+  overflow: hidden;
+}
 .system-ordemparanormal .sheet-body .tab {
   overflow-y: hidden;
   align-content: flex-start;
   padding-right: 2px;
-}
-.system-ordemparanormal .sheet-body,
-.system-ordemparanormal .sheet-body .tab,
-.system-ordemparanormal .sheet-body .tab .editor {
   height: 100%;
   min-height: 150px;
 }
-.system-ordemparanormal .sheet-body {
-  overflow: hidden;
+.system-ordemparanormal .sheet-body .tab.skills, .system-ordemparanormal .sheet-body .tab.inventory, .system-ordemparanormal .sheet-body .tab.abilities, .system-ordemparanormal .sheet-body .tab.rituals, .system-ordemparanormal .sheet-body .tab.biography, .system-ordemparanormal .sheet-body .tab.effects {
+  overflow-y: auto;
+}
+.system-ordemparanormal .sheet-body .tab .editor {
+  height: 100%;
+  min-height: 150px;
 }
 .system-ordemparanormal .window-content {
   overflow: hidden;
@@ -594,14 +595,6 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .sheet-tabs {
   flex: 0;
-}
-.system-ordemparanormal .tab.skills,
-.system-ordemparanormal .tab.inventory,
-.system-ordemparanormal .tab.abilities,
-.system-ordemparanormal .tab.rituals,
-.system-ordemparanormal .tab.biography,
-.system-ordemparanormal .tab.effects {
-  overflow-y: auto;
 }
 .system-ordemparanormal .tox .tox-editor-container {
   background: #fff;
@@ -629,7 +622,6 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .skills-content .skill .rollFreeSkill {
   position: absolute;
   left: 48%;
-  right: 0;
   width: 24px;
 }
 .system-ordemparanormal .skills-content .skill i {
@@ -664,14 +656,10 @@ dialog.ordemparanormal.application {
   background: none;
   border: none;
 }
-.system-ordemparanormal .biography aside {
+.system-ordemparanormal .biography aside, .system-ordemparanormal .biography div:first-of-type {
   padding: 2px;
 }
-.system-ordemparanormal .biography div:first-of-type {
-  padding: 2px;
-}
-.system-ordemparanormal .biography .class,
-.system-ordemparanormal .biography .trail {
+.system-ordemparanormal .biography .class, .system-ordemparanormal .biography .trail {
   font-size: 12px;
 }
 .system-ordemparanormal .biography fieldset {
@@ -691,10 +679,10 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .ritual-dt {
   display: flex;
   justify-content: center;
-  margin: 0 8px 8px 8px;
+  margin: 0 8px 8px;
   padding: 0 8px;
   border: 1px solid #b8b8b8;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
   border-radius: 5px;
   text-align: center;
 }
@@ -705,7 +693,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .threat #senses, .system-ordemparanormal .threat #defenses, .system-ordemparanormal .threat #attributes, .system-ordemparanormal .threat #general,
 .system-ordemparanormal .threat #disturbingPresence, .system-ordemparanormal .threat #actions, .system-ordemparanormal .threat #abilities {
   padding: 5px;
-  border: 1px solid rgba(39, 39, 39, 0.2509803922);
+  border: 1px solid rgba(39, 39, 39, 0.25);
   margin-top: 5px;
   border-radius: 5px;
 }
@@ -742,6 +730,170 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .threat #actions textarea, .system-ordemparanormal .threat #abilities textarea {
   height: 300px;
+}
+.system-ordemparanormal .threat {
+  /* --- LAYOUT GERAL --- */
+}
+.system-ordemparanormal .threat .sheet-body {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+}
+.system-ordemparanormal .threat .sheet-body .tab {
+  display: none;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.system-ordemparanormal .threat .sheet-body .tab.active {
+  display: block;
+}
+.system-ordemparanormal .threat .sheet-tabs .item.active {
+  text-decoration: underline;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--color-shadow-primary);
+}
+.system-ordemparanormal .threat .sheet-tabs .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.system-ordemparanormal .threat .sheet-tabs .item img {
+  border: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+.system-ordemparanormal .threat {
+  /* --- IMAGEM E CABEÇALHO --- */
+}
+.system-ordemparanormal .threat .header-identify {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.system-ordemparanormal .threat .threat-profile-img {
+  flex: 0 0 110px;
+  height: 110px;
+  width: 110px;
+  object-fit: cover;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+@container (max-width: 400px) {
+  .system-ordemparanormal .threat .header-identify {
+    justify-content: center;
+  }
+  .system-ordemparanormal .threat .threat-profile-img {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+.system-ordemparanormal .threat .header-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+  align-items: stretch;
+  width: 100%;
+}
+.system-ordemparanormal .threat .disturbing-presence {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.system-ordemparanormal .threat {
+  /* --- ABA ENIGMA --- */
+}
+.system-ordemparanormal .threat .sheet-body .tab.enigma {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden !important;
+}
+.system-ordemparanormal .threat .enigma-container {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid #999;
+  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.system-ordemparanormal .threat .actor-title-header {
+  font-family: "Special Elite", "Courier New", serif;
+  font-size: 1.4em;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  display: block;
+  text-transform: uppercase;
+  color: #191813;
+}
+.system-ordemparanormal .threat prose-mirror {
+  min-height: 200px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  border-radius: 4px;
+  color: #191813;
+}
+.system-ordemparanormal .threat {
+  /* --- PERÍCIAS (FIXADO EM 4 COLUNAS) --- */
+}
+.system-ordemparanormal .threat .threat-skills-container {
+  margin-top: 5px;
+  display: grid;
+  /* Força exatamente 4 colunas de tamanho igual */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  justify-content: space-between;
+}
+.system-ordemparanormal .threat {
+  /* --- RESISTÊNCIAS --- */
+}
+.system-ordemparanormal .threat .resistance-container-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+}
+.system-ordemparanormal .threat .resistance-tag {
+  flex: 1 0 auto;
+  min-width: 60px;
+  font-size: 10px;
+  border: 1px solid #7a7971;
+  padding: 2px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.system-ordemparanormal .threat .resource-content select {
+  max-width: 100%;
+}
+.system-ordemparanormal .threat .items-list .item {
+  flex-wrap: wrap;
 }
 .system-ordemparanormal .item .sheet-header {
   flex: 0 auto;

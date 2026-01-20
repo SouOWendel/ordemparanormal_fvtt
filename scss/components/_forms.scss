@@ -2,26 +2,53 @@
 @use "../utils/colors";
 @use "../utils/variables";
 
+// Local variables
+$bg-light: #eeede0;
+$bg-parchment: #f7f3e8;
+$border-dark: #272727;
+$border-medium: #888;
+$border-light: #c9c7b8;
+$text-dark: #222;
+$space-bar-over: #691313;
+$bg-transparent-light: rgba(0, 0, 0, 0.05);
+$border-transparent-medium: rgba(39, 39, 39, 0.25);
+
+// Mixins
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin item-header {
+	height: 28px;
+	margin: 2px 0;
+	padding: 0;
+	align-items: center;
+	background: $bg-transparent-light;
+	border: variables.$border-groove;
+	font-weight: bold;
+}
+
 .application.theme-light {
 	background: url('../media/parchment.jpg') repeat;
 	--color-header-background: #333;
 	--color-border: #302831;
 	--color-tabs-border: #555;
 	--color-fieldset-border: #efe6d8;
-	--color-form-label: #222;
+	--color-form-label: $text-dark;
 	--color-form-label-hover: #111;
 	--color-form-hint: #444;
-	--color-form-hint-hover: #222;
-	--color-select-option-bg: #f7f3e8;
-	color: #222;
-	input, select {
-		color: #222 !important;
-	}
+	--color-form-hint-hover: $text-dark;
+	--color-select-option-bg: $bg-parchment;
+	color: $text-dark;
+	
+	input, select { color: $text-dark !important; }
 }
 
 section.itemsheet, form.ordemparanormal.actor {
 	overflow: hidden;
-	color: #222;
+	color: $text-dark;
 
 	.scrollable {
 		box-sizing: border-box;
@@ -30,13 +57,13 @@ section.itemsheet, form.ordemparanormal.actor {
 	}
 
 	.prosemirror menu, prosemirror menu {
-		background: #eeede0;
+		background: $bg-light;
 	}
 
 	section.window-content {
 		position: relative;
 		display: flex;
-		background: #eeede0;
+		background: $bg-light;
 		height: 100%;
 
 		input {
@@ -97,18 +124,12 @@ section.itemsheet, form.ordemparanormal.actor {
 			}
 
 			.header-identify {
-				display: flex;
-				justify-content: center;
-				align-items: center;
+				@include flex-center;
 
-				h1, h2, h3, h4 {
-					border: 0;
-				}
+				h1, h2, h3, h4 { border: 0; }
 
 				h1.charname {
-					display: flex;
-					justify-content: center;
-					align-items: center;
+					@include flex-center;
 					width: 100%;
 					margin: 0;
 
@@ -126,17 +147,17 @@ section.itemsheet, form.ordemparanormal.actor {
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		background-color: #eeede0;
+		background-color: $bg-light;
 
 		.patents {
 			display: flex;
-			padding: 0px 6px;
+			padding: 0 6px;
 			gap: 8px;
 			margin-bottom: 8px;
 
 			.limit {
 				display: flex;
-				border: 1px solid #888;
+				border: 1px solid $border-medium;
 				border-radius: 4px;
 				width: 44px;
 				height: 32px;
@@ -146,20 +167,17 @@ section.itemsheet, form.ordemparanormal.actor {
 			.prestige {
 				display: flex;
 				flex: 1;
-				flex-grow: 1;
 				text-align: center;
 				font-size: 12px;
 			}
 
 			.name, .credit {
-				display: flex;
+				@include flex-center;
 				flex-grow: 1;
 				padding: 4px 6px;
-				border: 1px solid #888;
+				border: 1px solid $border-medium;
 				border-radius: 4px;
-				justify-content: center;
-				align-items: center;
-				background-color: rgba(0,0,0,0.05);
+				background-color: $bg-transparent-light;
 				font-weight: bold;
 			}
 		}
@@ -171,7 +189,7 @@ section.itemsheet, form.ordemparanormal.actor {
 
 		.space-body {
 			position: absolute;
-			border: 1px solid #272727;
+			border: 1px solid $border-dark;
 			border-radius: 3px;
 			width: 100%;
 			height: 13px;
@@ -187,10 +205,9 @@ section.itemsheet, form.ordemparanormal.actor {
 
 			.bar {
 				display: block !important;
-				margin-top: 0;
-				margin-left: 0;
+				margin: 0;
 				border-radius: 2px;
-				background-color: #272727;
+				background-color: $border-dark;
 				height: 12px;
 				z-index: 10;
 				overflow: hidden;
@@ -198,13 +215,13 @@ section.itemsheet, form.ordemparanormal.actor {
 
 			.barover {
 				position: absolute;
-				top: 0px;
-				left: 0px;
+				top: 0;
+				left: 0;
 				display: block !important;
 				border-radius: 2px;
-				background-color: #691313;
+				background-color: $space-bar-over;
 				height: 12px;
-				color: #fff;
+				color: colors.$c-white;
 				font-size: 9px;
 				z-index: 11;
 				padding-top: 6px;
@@ -232,11 +249,9 @@ section.itemsheet, form.ordemparanormal.actor {
 	}
 
 	span.actor-title-header {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: rgba(0, 0, 0, 0.05);
-		border: 2px groove #eeede0;
+		@include flex-center;
+		background: $bg-transparent-light;
+		border: 2px groove $bg-light;
 		padding: 4px;
 	}
 	}
@@ -249,14 +264,12 @@ section.itemsheet, form.ordemparanormal.actor {
 	scrollbar-width: thin;
 	color: colors.$c-tan;
 
-	// Child lists
 	.item-list {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}
 
-	// Item Name
 	.item-name {
 		flex: 2;
 		margin: 0;
@@ -266,7 +279,7 @@ section.itemsheet, form.ordemparanormal.actor {
 		display: flex;
 
 		h3, h4 {
-			color: #222;
+			color: $text-dark;
 			font-size: 13px;
 			margin: 0;
 			white-space: nowrap;
@@ -288,16 +301,16 @@ section.itemsheet, form.ordemparanormal.actor {
 		}
 	}
 
-	// Individual Item
 	.item {
 		align-items: center;
-		padding: 0 2px; // to align with the header border
+		padding: 0 2px;
 		border-bottom: 1px solid colors.$c-faint;
-		&:last-child {
-			border-bottom: none;
-		}
+		
+		&:last-child { border-bottom: none; }
+		
 		.item-name {
 			color: colors.$c-dark;
+			
 			.item-image {
 				display: flex;
 				align-items: center;
@@ -310,83 +323,53 @@ section.itemsheet, form.ordemparanormal.actor {
 		}
 	}
 
-		.item-prop {
-			text-align: center;
-			border-left: 1px solid #c9c7b8;
-			border-right: 1px solid #c9c7b8;
-			font-size: 12px;
-		}
+	.item-prop {
+		text-align: center;
+		border-left: 1px solid $border-light;
+		border-right: 1px solid $border-light;
+		font-size: 12px;
+	}
 
-		// Section Header
-		.items-header {
-			height: 28px;
-			margin: 2px 0;
-			padding: 0;
-			align-items: center;
-			background: rgba(0, 0, 0, 0.05);
-			border: variables.$border-groove;
-			font-weight: bold;
-			> * {
-				font-size: 12px;
-				text-align: center;
-			}
-			.item-name {
-				padding-left: 5px;
-				text-align: left;
-				// font-size: 16px;
-			}
+	.items-header {
+		@include item-header;
+		
+		> * {
+			font-size: 12px;
+			text-align: center;
+		}
+		
+		.item-name {
+			padding-left: 5px;
+			text-align: left;
 		}
 	}
-}
-
-// input[type="text"], input[type="number"],
-// input[type="password"], input[type="date"],
-// input[type="time"],  input[type="search"],
-// input[type="file"], select {
-// 	color: #FFF;
-// }
-
-.sheet-body .tab {
-  overflow-y: hidden;
-  align-content: flex-start;
-  padding-right: 2px;
-}
-
-.sheet-body,
-.sheet-body .tab,
-.sheet-body .tab .editor {
-	height: 100%;
-	min-height: 150px;
+	}
 }
 
 .sheet-body {
 	overflow: hidden;
+	
+	.tab {
+		overflow-y: hidden;
+		align-content: flex-start;
+		padding-right: 2px;
+		height: 100%;
+		min-height: 150px;
+		
+		&.skills, &.inventory, &.abilities, &.rituals, &.biography, &.effects {
+			overflow-y: auto;
+		}
+		
+		.editor {
+			height: 100%;
+			min-height: 150px;
+		}
+	}
 }
 
-.window-content {
-	overflow: hidden;
-}
-
-.item-form {
-	font-family: typography.$font-primary;
-}
-
-.sheet-tabs {
-	flex: 0;
-}
-
-// .agent .sheet-body {
-// 	max-height: 398px !important;
-// }
-
-.tab.skills,
-.tab.inventory,
-.tab.abilities,
-.tab.rituals,
-.tab.biography,
-.tab.effects {
-	overflow-y: auto;
-}
+.window-content { overflow: hidden; }
+.item-form { font-family: typography.$font-primary; }
+.sheet-tabs { flex: 0; }
 
 .tox {
 	.tox-editor-container {
@@ -397,8 +380,6 @@ section.itemsheet, form.ordemparanormal.actor {
 		padding: 0 8px;
 	}
 }
-
-// SKILLS
 
 .skills-content {
 	font-size: 12px;
@@ -415,39 +396,21 @@ section.itemsheet, form.ordemparanormal.actor {
 	.skill {
 		padding: 3.3px 6px;
 
-		.modifier {
-			max-width: 30px;
-		}
+		.modifier { max-width: 30px; }
 
 		.rollFreeSkill {
 			position: absolute;
 			left: 48%;
-			right: 0;
 			width: 24px;
 		}
 
-		i {
-			padding: 0 5px;
-		}
+		i { padding: 0 5px; }
 	}
 }
 
-// OTHERS
-
-.resource {
-	.categoryCheck {
-		display: flex;
-	}
-}
-
-.resources {
-	gap: 10px;
-	margin: 5px 0;
-}
-
-.invalid {
-	position: relative;
-}
+.resource .categoryCheck { display: flex; }
+.resources { gap: 10px; margin: 5px 0; }
+.invalid { position: relative; }
 
 .item-alert {
 	position: relative;
@@ -470,34 +433,18 @@ section.itemsheet, form.ordemparanormal.actor {
 }
 
 
-// BIOGRAPHY
-
 .biography {
-	aside {
-		padding: 2px;
-	}
+	aside, div:first-of-type { padding: 2px; }
 
-	div:first-of-type {
-		padding: 2px;
-	}
-
-	.class,
-	.trail {
-		font-size: 12px;
-	}
+	.class, .trail { font-size: 12px; }
 
 	fieldset {
 		border: variables.$border-transparent;
 		border-radius: 10px;
 	}
 
-	.bio-desc .editor {
-		min-height: 230px;
-	}
-
-	.bio-goals .editor {
-		min-height: 100px;
-	}
+	.bio-desc .editor { min-height: 230px; }
+	.bio-goals .editor { min-height: 100px; }
 }
 
 .inventory {
@@ -508,10 +455,10 @@ section.itemsheet, form.ordemparanormal.actor {
 .ritual-dt {
 	display: flex;
 	justify-content: center;
-	margin: 0 8px 8px 8px;
+	margin: 0 8px 8px;
 	padding: 0 8px;
 	border: 1px solid #b8b8b8;
-	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
 	border-radius: 5px;
 	text-align: center;
 
@@ -520,12 +467,12 @@ section.itemsheet, form.ordemparanormal.actor {
 		font-weight: bold;
 	}
 }
-// TODO: Separar SCSS entre geral, agente, ameaça.
+
 .threat {
 	#senses, #defenses, #attributes, #general,
 	#disturbingPresence, #actions, #abilities {
 		padding: 5px;
-		border: 1px solid #27272740;
+		border: 1px solid $border-transparent-medium;
 		margin-top: 5px;
 		border-radius: 5px;
 
@@ -554,28 +501,161 @@ section.itemsheet, form.ordemparanormal.actor {
 	}
 
 	#announcement {
-		a {
-			color: #272727;
-		}
-
-		.link-alert {
-			padding: 0 10px;
-		}
+		a { color: $border-dark; }
+		.link-alert { padding: 0 10px; }
 	}
 
 	#descriptions div {
 		margin: 8px 0;
-
-		textarea {
-			height: 200px;
-		}
+		textarea { height: 200px; }
 	}
 
-	#actions, #abilities {
-		textarea {
-			height: 300px;
-		}
-	}
+	#actions textarea, #abilities textarea { height: 300px; }
+
+	/* --- LAYOUT GERAL --- */
+        .sheet-body { 
+            height: 100%; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            container-type: inline-size;
+        }
+        
+        .sheet-body .tab { 
+            display: none; 
+            height: 100%; 
+            overflow-y: auto; 
+            padding-right: 5px; 
+        }
+        .sheet-body .tab.active { display: block; }
+
+        .sheet-tabs .item.active { text-decoration: underline; font-weight: bold; text-shadow: 0 0 5px var(--color-shadow-primary); }
+        .sheet-tabs .item { display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .sheet-tabs .item img { border: none; margin: 0; padding: 0; vertical-align: middle; }
+
+        /* --- IMAGEM E CABEÇALHO --- */
+        .header-identify {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .threat-profile-img {
+            flex: 0 0 110px;
+            height: 110px;
+            width: 110px;
+            object-fit: cover;
+            border: 1px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        @container (max-width: 400px) {
+            .header-identify { justify-content: center; }
+            .threat-profile-img { margin-right: 0; margin-bottom: 5px; }
+        }
+
+        .header-stats-row {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 5px; 
+            margin-top: 5px; 
+            align-items: stretch; 
+            width: 100%;
+        }
+
+        .disturbing-presence {
+            background: rgba(0, 0, 0, 0.05); 
+            border-radius: 5px; 
+            border: 1px solid #ccc; 
+            padding: 5px 10px; 
+            flex: 1; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* --- ABA ENIGMA --- */
+        .sheet-body .tab.enigma {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden !important; 
+        }
+
+        .enigma-container {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid #999;
+            border-radius: 5px;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; 
+        }
+
+        .actor-title-header {
+            font-family: 'Special Elite', 'Courier New', serif;
+            font-size: 1.4em;
+            font-weight: bold;
+            border-bottom: 2px solid #333;
+            margin-bottom: 10px;
+            padding-bottom: 2px;
+            display: block;
+            text-transform: uppercase;
+            color: #191813;
+        }
+
+        prose-mirror {
+            min-height: 200px;
+            flex: 1;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px;
+            border-radius: 4px;
+            color: #191813;
+        }
+
+        /* --- PERÍCIAS (FIXADO EM 4 COLUNAS) --- */
+        .threat-skills-container {
+            margin-top: 5px; 
+            display: grid; 
+            /* Força exatamente 4 colunas de tamanho igual */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 5px; 
+            justify-content: space-between;
+        }
+
+        /* --- RESISTÊNCIAS --- */
+        .resistance-container-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            padding: 2px;
+            align-items: center;
+            justify-content: center;
+            min-height: 30px;
+        }
+
+        .resistance-tag {
+            flex: 1 0 auto;
+            min-width: 60px;
+            font-size: 10px; 
+            border: 1px solid #7a7971; 
+            padding: 2px; 
+            border-radius: 4px; 
+            background: rgba(0,0,0,0.05); 
+            white-space: nowrap; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+        }
+
+        .resource-content select { max-width: 100%; }
+        .items-list .item { flex-wrap: wrap; }
 }
 
 // .item-form {
