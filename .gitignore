@@ -1,21 +1,8 @@
 node_modules
 
 # PACKS
-packs/createMissionPTBR
-packs/generalPTBR
-packs/armaments
-packs/documentation
-packs/generalEquipments
-packs/maps
-packs/protections
-packs/fighterAbilities
-packs/occultistAbilities
-packs/specialistAbilities
-packs/originAbilities
-packs/paranormalAbilities
-packs/pathFighter
-packs/pathOccultist
-packs/pathSpecialist
+packs/*
+!packs/_source/
 
 # FORMATS
 *.map
