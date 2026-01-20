@@ -1,0 +1,35 @@
+{
+  "name": "NEX 10% - Ser Amaldiçoado (Conhecimento)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Monstruoso/monstruoso-conhecimento-10.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Monstruoso (Conhecimento)",
+    "description": "<p>Voc&ecirc; se torna treinado em Ocultismo (se j&aacute; for treinado, em vez disso recebe +2 nessa per&iacute;cia). Uma vez por dia, voc&ecirc; precisa executar uma etapa ritual&iacute;stica desse elemento. Se fizer isso, at&eacute; o fim do dia voc&ecirc; recebe os efeitos descritos a seguir, conforme o elemento escolhido. Caso contr&aacute;rio, voc&ecirc; sofre de fome e sede nesse dia.</p><p><strong>Conhecimento:</strong> Seus olhos s&atilde;o banhados em um dourado sobrenatural. Voc&ecirc; recebe resist&ecirc;ncia a bal&iacute;stico e Conhecimento 5 e vis&atilde;o no escuro e soma seu Intelecto na Defesa, mas sofre <strong>&ndash;1d20</strong> em Atletismo e Acrobacia.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": "Passiva"
+  },
+  "effects": [],
+  "folder": "T7nHXNBc4tUJFZLO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767392764932,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "DM1kUruFsp7xEkD8",
+  "sort": 0,
+  "_key": "!items!DM1kUruFsp7xEkD8"
+}

@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "64arkzjRaqWh1lLD",
+  "name": "Sangue",
+  "color": "#781115",
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "lastModifiedBy": "uX8kbsijC8bcpBa3",
+    "modifiedTime": 1767469432452
+  },
+  "_id": "RUYBbiKm4OwqxxFC",
+  "sort": 0,
+  "_key": "!folders!RUYBbiKm4OwqxxFC"
+}

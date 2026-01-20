@@ -1,0 +1,37 @@
+{
+  "name": "Algemas",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/algemas.svg",
+  "system": {
+    "description": "<p>Um par de algemas de a&ccedil;o. Para prender uma pessoa que n&atilde;o esteja indefesa voc&ecirc; precisa em\u0002punhar a algema, agarrar a pessoa (veja &ldquo;Manobras de Combate&rdquo;, no Cap&iacute;tulo 4) e ent&atilde;o vencer um novo teste de agarrar contra ela. Voc&ecirc; pode prender os dois pulsos da pessoa (&ndash;5 em testes que exijam o uso das m&atilde;os, impede conjura&ccedil;&atilde;o) ou um dos pulsos dela em um objeto im&oacute;vel adjacente, caso haja, para impedir que ela se mova. Escapar das algemas exige um teste de Acrobacia contra DT 30 (ou ter as chaves...).</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "SNAahUqirU71PEh2",
+  "sort": 2200000,
+  "_key": "!items!SNAahUqirU71PEh2"
+}

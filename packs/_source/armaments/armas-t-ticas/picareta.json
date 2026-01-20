@@ -1,0 +1,73 @@
+{
+  "name": "Picareta",
+  "type": "armament",
+  "img": "systems/ordemparanormal/media/icons/armament/picareta.svg",
+  "system": {
+    "description": "<p>Essencialmente uma ferramenta de mineração e demolição, uma picareta pode ser empregada em combate na falta de armas apropriadas.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "quantity": 1,
+    "proficiency": "tacticalWeapons",
+    "types": {
+      "rangeType": {
+        "name": "melee",
+        "subRangeType": ""
+      },
+      "ammunitionType": "",
+      "gripType": "oneHand"
+    },
+    "critical": "x4",
+    "range": "",
+    "formulas": {
+      "attack": {
+        "formula": "1d20",
+        "attr": "str",
+        "skill": "fighting",
+        "bonus": ""
+      },
+      "damage": {
+        "formula": "1d6",
+        "attr": "str",
+        "bonus": 0,
+        "type": "piercingDamage",
+        "parts": []
+      },
+      "extraFormula": "1d4"
+    },
+    "penalty": "",
+    "conditions": {
+      "improvised": false,
+      "throwable": false,
+      "agile": false,
+      "automatic": false,
+      "adaptableGrip": false,
+      "pistolBlow": false,
+      "twoHanded": true
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012531614,
+    "modifiedTime": 1768670700903,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "oQ5SGgJ1piu3TeOh",
+  "sort": 106250,
+  "folder": "9zWQRhWXjJ6wTwVK",
+  "_key": "!items!oQ5SGgJ1piu3TeOh"
+}

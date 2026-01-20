@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Tornamo-nos Um (conhecimento)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Possuido/possuido-99-conhecimento.svg",
+  "system": {
+    "id": "vJ7nB3hV9gC1xZ5q",
+    "abilityType": "path",
+    "preRequisite": "Trilha: Possuído",
+    "description": "<p>Desabrochando em seu interior, o paranormal se manifesta como uma dádiva poderosa. Baseado no elemento com que tem afinidade, você recebe um dos poderes a seguir.</p><p>Uma vez por cena, você pode gastar <strong>6 PE</strong> para reescrever uma fração de seu próprio ser. Você recebe um poder qualquer até o fim da cena. Você deve cumprir os pré-requisitos do poder escolhido, e não pode escolher poderes de trilha de NEX 99%. A cada vez que usa este poder, você deve fazer um <strong>teste de Vontade (DT 15 + 5 para cada vez que usou este poder na mesma missão)</strong>. Se falhar, perde <strong>1d6 pontos de Sanidade</strong> para cada vez que usou esse poder nesta missão.</p>",
+    "cost": "5",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "uIhZEFesJyaSYIJU",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767395917296,
+    "modifiedTime": 1767399877546,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "RfGprjveey5qRFPb",
+  "sort": 100000,
+  "_key": "!items!RfGprjveey5qRFPb"
+}

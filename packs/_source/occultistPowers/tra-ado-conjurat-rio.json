@@ -1,0 +1,35 @@
+{
+  "name": "Traçado Conjuratório",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/tracado-conjuratorio.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Você conhece versões de proteção e fortalecimento de vários símbolos paranormais, e pode usá-los para reforçar seus rituais. Você pode gastar 1 PE e uma ação completa traçando um símbolo paranormal no chão que ocupa um quadrado de 1,5m. Enquanto estiver dentro desse símbolo, você recebe +2 em testes de Ocultismo e de resistência e a DT para resistir aos seus rituais aumenta em +2. O símbolo dura até o fim da cena.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768017130260,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "e0cWs6goSfIgPLZR",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!e0cWs6goSfIgPLZR"
+}

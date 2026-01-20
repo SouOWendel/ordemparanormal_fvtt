@@ -1,0 +1,35 @@
+{
+  "folder": "6yPboMVupPb1bBBL",
+  "name": "NEX 65% - Conjuração Marcial - Variante",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/L%C3%A2mina%20Paranormal/Conjura%C3%A7%C3%A3o%20Marcial.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Você pode preparar rituais (veja a seguir) com tempo de conjuração de uma ação padrão ou menor, e armazená-los em suas armas (uma mesma arma pode armazenar um único ritual). Uma vez por rodada, quando faz um ataque corpo a corpo com a arma, você pode gastar o ritual armazenado nela para conjurá-lo como uma ação livre.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767391166811,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "cMmqgbPqbG46W8hK",
+  "sort": 0,
+  "_key": "!items!cMmqgbPqbG46W8hK"
+}

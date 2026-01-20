@@ -1,0 +1,37 @@
+{
+  "name": "Faixa de Pregos",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/faixa-de-pregos.svg",
+  "system": {
+    "description": "<p>Este aparato compacto é uma trilha de hastes metálicas sanfonadas com pregos em toda sua extensão. Utilizado primariamente para parar veículos, pode ser empregado contra outros oponentes. Uma faixa de pregos funciona como estre\u0002pes, exceto que ocupa uma linha de 9m. Além disso, veículos com pneus de borracha que passem pela faixa têm seus pneus automaticamente perfurados, o que reduz seu deslocamento pela metade.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "J30jAI9mdeIRiQ87",
+  "sort": 1900000,
+  "_key": "!items!J30jAI9mdeIRiQ87"
+}

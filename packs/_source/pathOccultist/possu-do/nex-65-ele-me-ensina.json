@@ -1,0 +1,35 @@
+{
+  "name": "NEX 65% - Ele Me Ensina",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Possuido/possuido-65.svg",
+  "system": {
+    "id": "mP5oI2uY4tG8rL0k",
+    "abilityType": "path",
+    "preRequisite": "Trilha: Possuído",
+    "description": "<p>Mais do que apenas uma força, o paranormal lentamente se torna uma voz, sussurrando segredos em sua mente. Escolha entre transcender ou receber o primeiro poder de uma trilha de ocultista que não a sua. Você precisa atender os pré-requisitos do poder.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "uIhZEFesJyaSYIJU",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767399759601,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "XNYdFPePXoFQCjOE",
+  "sort": 75000,
+  "_key": "!items!XNYdFPePXoFQCjOE"
+}

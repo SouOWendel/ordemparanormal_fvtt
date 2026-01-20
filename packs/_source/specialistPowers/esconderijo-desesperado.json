@@ -1,0 +1,35 @@
+{
+  "name": "Esconderijo Desesperado",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/esconderijo-desesperado.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Você já esteve diante de coisas que não podem ser derrotadas e aprendeu da forma mais trágica que às vezes se esconder é a única chance de vitória. Você não sofre –1d20 em testes de Furtividade por se mover ao seu deslocamento normal. Além disso, em cenas de furtividade (veja p. 92), sempre que passa em um teste para esconder-se, sua visibilidade diminui em –2 (em vez de apenas –1).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768024456215,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "fAWeFKaHZITlzvDE",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!fAWeFKaHZITlzvDE"
+}

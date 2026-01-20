@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "F7deDDQkexbVRYSO",
+  "name": "Catalisadores",
+  "color": null,
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "lastModifiedBy": null
+  },
+  "_id": "JLMrvcQENQQqF66K",
+  "sort": 0,
+  "_key": "!folders!JLMrvcQENQQqF66K"
+}

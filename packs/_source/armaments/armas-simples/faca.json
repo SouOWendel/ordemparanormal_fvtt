@@ -1,0 +1,73 @@
+{
+  "name": "Faca",
+  "type": "armament",
+  "img": "systems/ordemparanormal/media/icons/armament/faca.svg",
+  "system": {
+    "description": "<p>Uma l&acirc;mina longa e afiada, como uma navalha, uma faca de churrasco ou uma faca militar (facas de cozinha pequenas causam apenas 1d3 pontos de dano). &Eacute; uma arma &aacute;gil e pode ser arremessada.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "quantity": 1,
+    "proficiency": "simpleWeapons",
+    "types": {
+      "rangeType": {
+        "name": "melee",
+        "subRangeType": ""
+      },
+      "ammunitionType": "",
+      "gripType": "light",
+      "damageType": ""
+    },
+    "critical": "19",
+    "range": "Curto",
+    "formulas": {
+      "attack": {
+        "formula": "1d4",
+        "attr": "str",
+        "skill": "fighting",
+        "bonus": ""
+      },
+      "damage": {
+        "formula": "1d4",
+        "attr": "str",
+        "bonus": "",
+        "type": "cuttingDamage",
+        "parts": []
+      },
+      "extraFormula": "1d4"
+    },
+    "penalty": "",
+    "conditions": {
+      "improvised": false,
+      "throwable": true,
+      "agile": true,
+      "automatic": false,
+      "adaptableGrip": false,
+      "pistolBlow": false
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012531614,
+    "modifiedTime": 1768670614419,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "FUaxvHHHaWh7HBdY",
+  "sort": 106250,
+  "folder": "NV5EZGqqlc3o3VXc",
+  "_key": "!items!FUaxvHHHaWh7HBdY"
+}

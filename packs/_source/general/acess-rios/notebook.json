@@ -1,0 +1,37 @@
+{
+  "name": "Notebook",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/accessories/notebook.svg",
+  "system": {
+    "description": "<p>Um utensílio especial. Como um celular, se tiver acesso a internet fornece +2 em testes de perícia que envolvem adquirir informações. Além disso, por sua tela maior, pode ser usado para entretenimento de forma mais agradável; ao relaxar em cenas de interlúdio, você recupera 1 ponto adicional de Sanidade. A luz do monitor ilumina em um cone de 4,5m. Tablets estão inclusos como uma variação de notebook.</p>",
+    "weight": 2,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "Ni1u5qDHXarXRlij",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441746216,
+    "modifiedTime": 1768447306291,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "zKCzqCu0Qlknojn3",
+  "sort": 0,
+  "_key": "!items!zKCzqCu0Qlknojn3"
+}

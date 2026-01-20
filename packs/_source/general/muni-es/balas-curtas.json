@@ -1,0 +1,37 @@
+{
+  "name": "Balas Curtas",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/ammunition/balas-curtas.svg",
+  "system": {
+    "description": "<p>Munição básica, usada em pistolas, revólveres e submetralhadoras. Um pacote de balas curtas dura duas cenas.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "M5T2YNH1LYCnBRP7",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447404896,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "h2axyQUeBVB7DhDr",
+  "sort": 0,
+  "_key": "!items!h2axyQUeBVB7DhDr"
+}

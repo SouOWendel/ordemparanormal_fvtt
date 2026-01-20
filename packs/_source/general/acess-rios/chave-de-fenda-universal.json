@@ -1,0 +1,37 @@
+{
+  "name": "Chave de Fenda Universal",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/accessories/chave-de-fenda-universal.svg",
+  "system": {
+    "description": "<p>Esta ferramenta pode ser considerada um milagre da engenharia humana. Com ela em mãos, você é capaz de resolver quase qualquer problema. Fornece +2 em testes de perícia para criar ou reparar objetos, desde panelas de cozi\u0002nha até motores de avião. Também fornece o bônus se usada como item de apoio em situações especiais, como lidar com cabos para hackear um servidor.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "Ni1u5qDHXarXRlij",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447325344,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "mBsSVkJh8vxbYOfj",
+  "sort": 0,
+  "_key": "!items!mBsSVkJh8vxbYOfj"
+}

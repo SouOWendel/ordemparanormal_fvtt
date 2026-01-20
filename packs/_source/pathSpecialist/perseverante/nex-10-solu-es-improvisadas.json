@@ -1,0 +1,35 @@
+{
+  "name": "NEX 10% - Soluções Improvisadas",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Perseverante/perseverante-10.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Perseverante",
+    "description": "<p>Você não é um sobrevivente à toa. Quando as coisas dão errado, você consegue pensar em alguma solução inusitada. Você pode gastar <strong>2 PE</strong> para rolar novamente 1 dos dados de um teste recém-realizado (apenas uma vez por teste) e ficar com o melhor resultado entre as duas rolagens.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "AMgdnmCO4bzW70V9",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767401196301,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "AsQPzKsiARpeP7s4",
+  "sort": 0,
+  "_key": "!items!AsQPzKsiARpeP7s4"
+}

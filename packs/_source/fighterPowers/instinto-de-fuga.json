@@ -1,0 +1,35 @@
+{
+  "name": "Instinto de Fuga",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/instinto-de-fuga.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Agilidade 2",
+    "description": "<p>Sabendo que nem toda batalha pode ser vencida, você desenvolveu um sexto sentido para prever quando é hora de fugir. Quando uma cena de perseguição (ou semelhante) tem início, você recebe +2 em todos os testes de perícia que fizer durante a cena. <em>Pré-requisito: treinado em Intuição.</em></p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768018967526,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "FbAgRzAZ9k56MiNF",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!FbAgRzAZ9k56MiNF"
+}

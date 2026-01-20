@@ -1,0 +1,35 @@
+{
+  "name": "Sentido Premonitório",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/sentido-premonitorio.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Sua exposição paranormal dá outros significados para arrepios e calafrios. Você pode gastar 3 PE para ativar um sentido premonitório. Enquanto seu sentido estiver ativo, você tem um déjà vu do futuro próximo (equivalente a uma rodada). Entre outras coisas, você sabe com uma rodada de antecedência quando a urgência de uma investigação vai acabar, se irá ocorrer um evento na investigação e qual será ele (o mestre rola antecipadamente o evento) e sabe quais ações seus inimigos irão tomar em cenas de furtividade e perseguição (essencialmente, você pode decidir suas próprias ações após ver o resultado das ro\u0002lagens dos demais envolvidos na cena). O mestre pode aprovar outros usos criativos deste poder. Devido à natureza acelerada e caótica de um com\u0002bate, este poder não tem efeito nestas cenas. Para manter seu sentido ativado, você deve gastar 1 PE no início de cada rodada.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768017108312,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "IbIsooHFPJqFKN6o",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!IbIsooHFPJqFKN6o"
+}

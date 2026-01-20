@@ -1,0 +1,37 @@
+{
+  "folder": "Ni1u5qDHXarXRlij",
+  "name": "Celular",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/accessories/celular.svg",
+  "system": {
+    "description": "<p>Um utensílio especial (embora comum hoje em dia). Serve para tirar fotos, gravar áudios e vídeos, acessar a internet e até, veja só, ligar para outras pessoas. Se tiver acesso a internet, fornece +2 em testes de perícia que envolvam adquirir informações. Por fim, possui uma lanterna fraca, mas útil na falta de um equipamento melhor, que ilumina em um cone de 4,5m.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447328791,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "q2TLkaryumPiwKu6",
+  "sort": 0,
+  "_key": "!items!q2TLkaryumPiwKu6"
+}

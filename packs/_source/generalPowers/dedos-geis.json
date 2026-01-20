@@ -1,0 +1,35 @@
+{
+  "name": "Dedos Ágeis",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/dedos-ageis.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Agilidade 2",
+    "description": "<p>Você possui uma motricidade fina precisa, particularmente útil para manipular ferramentas delicadas. Você recebe treinamento em Crime ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, pode arrombar com uma ação padrão, furtar com uma ação livre (apenas uma vez por rodada) e sabotar com uma ação completa. <i>Pré-requisito: Agi 2.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767841916700,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "KAN7wWb9xmcjwBaB",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!KAN7wWb9xmcjwBaB"
+}

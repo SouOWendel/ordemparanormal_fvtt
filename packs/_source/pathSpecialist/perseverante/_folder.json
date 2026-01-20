@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Perseverante",
+  "color": null,
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187583,
+    "modifiedTime": 1767391187583,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_id": "AMgdnmCO4bzW70V9",
+  "sort": 0,
+  "_key": "!folders!AMgdnmCO4bzW70V9"
+}

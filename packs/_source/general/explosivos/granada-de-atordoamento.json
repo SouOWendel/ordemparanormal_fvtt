@@ -1,0 +1,37 @@
+{
+  "name": "Granada de Atordoamento",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/explosives/granada-de-atordoamento.svg",
+  "system": {
+    "description": "<p>Para usar uma granada, voc&ecirc; precisa empunh&aacute;-la e ent&atilde;o gastar uma a&ccedil;&atilde;o padr&atilde;o para arremess&aacute;-la em um ponto &agrave; sua escolha em alcance m&eacute;dio. A granada afeta um raio de 6m a partir do ponto de impacto. O efeito que ela causa varia con\u0002forme o tipo de granada.</p>\n<p><strong>Atordoamento.</strong> Tamb&eacute;m chamadas de flash-bang, por criarem um estouro barulhento e lumi\u0002noso. Seres na &aacute;rea ficam atordoados por 1 rodada (Fortitude DT Agi reduz para ofuscado e surdo por uma rodada).</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "vMqLnEQxQdNEG795",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768516005453,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "OgH4LvVHceqeJ0f8",
+  "sort": 0,
+  "_key": "!items!OgH4LvVHceqeJ0f8"
+}

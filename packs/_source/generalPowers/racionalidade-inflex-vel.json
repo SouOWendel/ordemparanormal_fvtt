@@ -1,0 +1,35 @@
+{
+  "name": "Racionalidade Inflexível",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/racionalidade-inflexivel.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Intelecto 3",
+    "description": "<p>Suas convicções e sua visão de mundo são baseadas em argumentos racionais e lógicos. Você pode usar Intelecto no lugar de Presença como atributo-chave de Vontade e para calcular seus pontos de esforço. <i>Pré-requisito: Int 3.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767842010717,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "LXPadubPHUiE7FTD",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!LXPadubPHUiE7FTD"
+}

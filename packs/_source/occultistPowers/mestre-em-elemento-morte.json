@@ -1,0 +1,35 @@
+{
+  "name": "Mestre em Elemento (Morte)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Mestre%20em%20Elemento(MORTE).svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Especialista em <Elemento> & NEX 45%",
+    "description": "<p>Escolha um elemento. O custo para lan&ccedil;ar rituais desse elemento dimi\u0002nui em &ndash;1 PE.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768012562479,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "VGlohyMJH6QDXQy7",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!VGlohyMJH6QDXQy7"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Presteza Atlética",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Presteza%20Atl%C3%A9tica.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Quando faz um teste de facilitar a investiga&ccedil;&atilde;o, voc&ecirc; pode gastar 1 PE para usar For&ccedil;a ou Agilidade no lugar do atributo-base da per&iacute;cia. Se passar no teste, o pr&oacute;ximo aliado que usar seu b&ocirc;nus tamb&eacute;m recebe +1d20 no teste.</p>",
+    "cost": "1",
+    "costType": "PE",
+    "activation": "Livre"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768012548817,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "S4IK2V5h7BZ9ahnR",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!S4IK2V5h7BZ9ahnR"
+}

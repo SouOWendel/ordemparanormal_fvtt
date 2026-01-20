@@ -1,0 +1,37 @@
+{
+  "name": "Pé de Cabra",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/pe-de-cabra.svg",
+  "system": {
+    "description": "<p>Esta barra de ferro fornece +5 em testes de For&ccedil;a para arrombar portas. Pode ser usada em combate como um bast&atilde;o.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "Bd6fZaoS6CMgTF6B",
+  "sort": 700000,
+  "_key": "!items!Bd6fZaoS6CMgTF6B"
+}

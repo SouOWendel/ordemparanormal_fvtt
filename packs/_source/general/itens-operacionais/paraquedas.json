@@ -1,0 +1,37 @@
+{
+  "name": "Paraquedas",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/paraquedas.svg",
+  "system": {
+    "description": "<p>Anula o dano de queda. Personagens com grau de treinamento veterano em Acrobacia, Pilotagem, Reflexos, Tática ou uma Profissão específica sabem usar paraquedas. Caso contrário, ou em quedas muito curtas, usar o paraquedas requer um teste de Reflexos (DT 20). Se falhar, o paraquedas não funciona adequadamente, reduzindo o dano de queda apenas à metade.</p>",
+    "weight": 2,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "CCXsx5cDfPyXhkan",
+  "sort": 800000,
+  "_key": "!items!CCXsx5cDfPyXhkan"
+}

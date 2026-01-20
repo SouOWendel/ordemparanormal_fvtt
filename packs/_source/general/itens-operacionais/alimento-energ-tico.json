@@ -1,0 +1,37 @@
+{
+  "name": "Alimento Energético",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/alimento-energetico.svg",
+  "system": {
+    "description": "<p>Existem diversos alimentos e suplementos de alta tecnologia capazes de recuperar as energias mentais de um agente. Você pode gastar uma ação padrão para consumir este item e recuperar 1d4 PE.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "D40uRGP13vDLinC5",
+  "sort": 1000000,
+  "_key": "!items!D40uRGP13vDLinC5"
+}

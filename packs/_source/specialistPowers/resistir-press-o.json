@@ -1,0 +1,35 @@
+{
+  "name": "Resistir à Pressão",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/resistir-a-pressao.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>A ansiedade de correr contra o relógio o deixa mais eficiente. Uma vez por cena de investigação, você pode gastar 5 PE para coordenar os esforços de seus companheiros. A urgência da investigação aumenta em 1 rodada, e durante esta rodada adicional todos os personagens (incluindo você) recebem +2 em testes de perícia. <em>Pré-requisito: treinado em Investigação.</em></p>",
+    "cost": "5",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768024369300,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "SRzajyqkV6UPbER8",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!SRzajyqkV6UPbER8"
+}

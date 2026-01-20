@@ -1,0 +1,37 @@
+{
+  "name": "Amuleto Sagrado",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/accessories/amuleto-sagrado.svg",
+  "system": {
+    "description": "<p>Um utensílio especial (segue todas as regras de utensílios comuns, mas possui efeitos adicionais) na forma de shimenawa, rosário, fio de contas, contas de oração ou qualquer outro objeto que reforce sua fé e ajude a blindá-lo das desgraças do dia a dia. Fornece +2 em Religião e Vontade.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "Ni1u5qDHXarXRlij",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447288636,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "GI2TcHq5sEIeilhG",
+  "sort": 0,
+  "_key": "!items!GI2TcHq5sEIeilhG"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Tornamo-nos Um (energia)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Possuido/possuido-99-energia.svg",
+  "system": {
+    "id": "vJ7nB3hV9gC1xZ5q",
+    "abilityType": "path",
+    "preRequisite": "Trilha: Possuído",
+    "description": "<p>Desabrochando em seu interior, o paranormal se manifesta como uma dádiva poderosa. Baseado no elemento com que tem afinidade, você recebe um dos poderes a seguir.</p><p>Uma vez por rodada, você pode gastar <strong>6 PE</strong> para se teletransportar para outro ponto em <strong>alcance médio</strong>. Você não precisa conhecer o local para onde vai nem precisa vê-lo, mas se teletransportar-se para um espaço ocupado vai ser arremessado para o espaço disponível mais próximo.</p>",
+    "cost": "5",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "uIhZEFesJyaSYIJU",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767395919117,
+    "modifiedTime": 1767400003317,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "aWJrR26BsDY8cPKY",
+  "sort": 200000,
+  "_key": "!items!aWJrR26BsDY8cPKY"
+}

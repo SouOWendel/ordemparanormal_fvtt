@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Ser Aterrorizante (Sangue)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Monstruoso/monstruoso-sangue-99.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Monstruoso (Sangue)",
+    "description": "<p>Voc&ecirc; foi transformado no habitat perfeito para a entidade que reside no interior de seu corpo e mente. Os efeitos por executar sua etapa ritual&iacute;stica se tornam permanentes (mas voc&ecirc; ainda precisa execut&aacute;-la para evitar sentir fome e sede) e voc&ecirc; passa a ser considerado uma criatura paranormal para efeitos de habilidades e itens. Al&eacute;m disso, a resist&ecirc;ncia a dano que voc&ecirc; recebe por essa trilha aumenta para <strong>20</strong>.</p><p><strong>Sangue:</strong> Voc&ecirc; se move como uma criatura bestial; n&atilde;o existe sensibilidade ou empatia. Apenas o instinto e a necessidade de consumir mais. Seu Intelecto diminui em &ndash;1 e sua For&ccedil;a aumenta em +1. Sempre que causa dano com sua mordida em um ser, voc&ecirc; recupera 5 PV (esse ganho tamb&eacute;m &eacute; multiplicado em um acerto cr&iacute;tico). Al&eacute;m disso, voc&ecirc; aprende o ritual <em>Forma Monstruosa</em>. Entretanto, seu desejo de assumir essa forma pode sobrepujar sua pr&oacute;pria vontade; sempre que sofre dano, voc&ecirc; deve fazer um teste de Vontade (DT 10 + o dano sofrido). Se falhar e n&atilde;o estiver sob efeito de <em>Forma Monstruosa</em>, sua pr&oacute;xima a&ccedil;&atilde;o padr&atilde;o deve ser conjurar esse ritual (se n&atilde;o puder, voc&ecirc; perde a a&ccedil;&atilde;o).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": "Passiva"
+  },
+  "effects": [],
+  "folder": "RUYBbiKm4OwqxxFC",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767392869280,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "GG6jZNUwnrsyXoLe",
+  "sort": 0,
+  "_key": "!items!GG6jZNUwnrsyXoLe"
+}

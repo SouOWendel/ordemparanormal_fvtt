@@ -1,0 +1,37 @@
+{
+  "name": "Alarme de Movimento",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/alarme-de-movimento.svg",
+  "system": {
+    "description": "<p>Este pequeno objeto de fácil aquisição pode ser controlado por um dispositivo móvel específico ou um aplicativo de celular. Você pode gastar uma ação completa para posicionar e ativar o alarme; após isso, sempre que houver movimento significativo em um cone de 30m para onde ele foi apontado, ele irá sinalizar o dispositivo de controle. Ao acionar o alarme você pode regular sua sensibilidade ao movimento (como padrão, ele é acionado sempre que um ser Pequeno ou maior se move na área). A sinalização pode ser discreta, apenas no dispositivo, ou barulhenta, acionando um alarme sonoro alto e agudo.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "wAvKsYTzGr7u5rOA",
+  "sort": 3400000,
+  "_key": "!items!wAvKsYTzGr7u5rOA"
+}

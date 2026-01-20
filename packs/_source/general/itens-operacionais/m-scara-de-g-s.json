@@ -1,0 +1,37 @@
+{
+  "name": "Máscara de Gás",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/mascara-de-gas.svg",
+  "system": {
+    "description": "<p>Uma m&aacute;scara com filtro que cobre o rosto inteiro. Fornece +10 em testes de For\u0002titude contra efeitos que dependam de respira&ccedil;&atilde;o.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "jtFXUU2N7jt1jdAJ",
+  "sort": 3100000,
+  "_key": "!items!jtFXUU2N7jt1jdAJ"
+}

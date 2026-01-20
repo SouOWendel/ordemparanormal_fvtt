@@ -1,0 +1,35 @@
+{
+  "name": "Sem Tempo, Irmão",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/sem-tempo-irmao.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Atletismo",
+    "description": "<p>Você sabe que pistas são importantes, mas com o paranormal podendo surgir a qualquer momento, cada segundo conta. Uma vez por cena de investigação, quando usa a ação facilitar investigação (OPRPG, p. 80), você pode prestar ajuda de forma apressada e descuidada. Você passa automaticamente no teste para auxiliar seus aliados, mas faz uma rolagem adicional na tabela de eventos de investigação (p. 82).</p>",
+    "cost": "1",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768019037673,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "bTtObViyv5kGX9dL",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!bTtObViyv5kGX9dL"
+}

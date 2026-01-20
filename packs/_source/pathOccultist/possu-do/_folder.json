@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Possuído",
+  "color": null,
+  "sorting": "m",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166786,
+    "modifiedTime": 1767391166786,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_id": "uIhZEFesJyaSYIJU",
+  "sort": 0,
+  "_key": "!folders!uIhZEFesJyaSYIJU"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Minha Dor me Impulsiona",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/minha-dor-me-impulsiona.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Você está acostumado com sacrifícios dolorosos e aprendeu a transformar sua dor em impulso físico. Quando faz um teste de Acrobacia, Atletismo ou Furtividade, você pode gastar 1 PE para receber +1d6 no teste. Você só pode usar este poder se estiver com pelo menos 5 pontos de dano em seus PV. <em>Pré-requisito: Vig 2.</em></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768017062422,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "VMaMOJPeiklBlgaW",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!VMaMOJPeiklBlgaW"
+}

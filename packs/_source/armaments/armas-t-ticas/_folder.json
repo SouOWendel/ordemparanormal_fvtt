@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Armas Táticas",
+  "color": null,
+  "sorting": "a",
+  "_id": "9zWQRhWXjJ6wTwVK",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768516068212,
+    "modifiedTime": 1768516068212,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_key": "!folders!9zWQRhWXjJ6wTwVK"
+}

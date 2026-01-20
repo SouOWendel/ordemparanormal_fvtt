@@ -1,0 +1,161 @@
+{
+  "name": "4. Aliado",
+  "_id": "MUizBbFoZhHS7gXR",
+  "img": "icons/svg/ice-aura.svg",
+  "description": "<p><strong>Atenção!</strong> Antes de rolar a tabela, defina o modo padrão de rolagem no chat para <strong>Pessoal.</strong></p><p>Este NPC pode aparecer no início da missão (talvez tenha sido ele a chamar a Ordem ou os personagens) ou ser “guardado” para mais tarde — nesse caso, você pode introduzi-lo se o grupo estiver “empacado” ou se tiver uma ideia envolvendo um NPC. (veja o livro de regras para uma descrição detalhada)</p>",
+  "results": [
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_id": "zccHE8wwYZZDqlHn",
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_stats": {
+        "coreVersion": "13.351",
+        "systemId": null,
+        "systemVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "description": "Aliado: civil alheio ao paranormal",
+      "name": "",
+      "_key": "!tables.results!MUizBbFoZhHS7gXR.zccHE8wwYZZDqlHn"
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "GwwfJUC8o93ZYdrU",
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_stats": {
+        "coreVersion": "13.351",
+        "systemId": null,
+        "systemVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "description": "Aliado: civil exposto ao paranormal",
+      "name": "",
+      "_key": "!tables.results!MUizBbFoZhHS7gXR.GwwfJUC8o93ZYdrU"
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_id": "ZL5PBGoCZ7MTLrly",
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_stats": {
+        "coreVersion": "13.351",
+        "systemId": null,
+        "systemVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "description": "Aliado: antigo conhecido de um dos agentes (amigo de infância, ex-colega de faculdade ou trabalho, ex-namorado...)",
+      "name": "",
+      "_key": "!tables.results!MUizBbFoZhHS7gXR.ZL5PBGoCZ7MTLrly"
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "QK7tvbAw8Kl9ULzK",
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_stats": {
+        "coreVersion": "13.351",
+        "systemId": null,
+        "systemVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "description": "Aliado: outro agente da Ordo Realitas",
+      "name": "",
+      "_key": "!tables.results!MUizBbFoZhHS7gXR.QK7tvbAw8Kl9ULzK"
+    },
+    {
+      "type": "document",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "m2pCWNST3JN5IX9X",
+      "flags": {},
+      "img": "icons/svg/circle.svg",
+      "_stats": {
+        "coreVersion": "13.351",
+        "systemId": null,
+        "systemVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "name": "X. Agente Aposentado ou Ativo",
+      "documentUuid": "RollTable.MfgHcfXxItWJBrdS",
+      "description": "",
+      "_key": "!tables.results!MUizBbFoZhHS7gXR.m2pCWNST3JN5IX9X"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": false,
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "FuUFTW4c9AMp3vrN": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "2.0.0",
+    "coreVersion": "13.351",
+    "createdTime": 1696393887874,
+    "modifiedTime": 1696461357522,
+    "lastModifiedBy": "sk2CJ7OrkNIgGZV3",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "formula": "1d4",
+  "_key": "!tables!MUizBbFoZhHS7gXR"
+}

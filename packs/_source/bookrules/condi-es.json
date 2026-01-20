@@ -1,0 +1,1469 @@
+{
+  "name": "Condições",
+  "_id": "6ScuWm5M8qwtUNaH",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Abalado",
+      "type": "text",
+      "_id": "shBwCY0J58f1HarD",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Abalado.</strong> O personagem sofre –1d20 em testes. Se ficar abalado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ThV6jSd1m1K6sLXi]{Apavorado}. Condição de medo.</p><blockquote><p><strong style=\"color:#b92a4c\">Apavorado.</strong> O personagem sofre –2d20 em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível (mas pode parar de fazê-lo assim que a perder de vista ou se afastar mais do que alcance médio). Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo. Condição de medo.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675150506,
+        "modifiedTime": 1768676814524,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.shBwCY0J58f1HarD"
+    },
+    {
+      "sort": 100000,
+      "name": "Agarrado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Agarrado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.RoklJtHposaRZ5pF]{Imóvel}, sofre –1d20 em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. Condição de paralisia.</p><blockquote><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><strong style=\"color:#b92a4c\">Imóvel.</strong> Todas as formas de deslocamento do personagem são reduzidas a 0m. Condição de paralisia.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.shBwCY0J58f1HarD",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675320686,
+        "modifiedTime": 1768676912775,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "PBNwfnS3Dgkz719I",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.PBNwfnS3Dgkz719I"
+    },
+    {
+      "sort": 100000,
+      "name": "Alquebrado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Alquebrado.</strong> O custo em pontos de esforço das habilidades e dos rituais do personagem aumenta em +1. Condição mental.</p><blockquote><p>Definição: \"que caminha curvado (vergado) por motivo de doença, fadiga ou velhice.</p><p>Que demonstra cansaço; abatido.\"</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBNwfnS3Dgkz719I",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675357722,
+        "modifiedTime": 1768685088795,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "6TvjpG8uDoQEcYxp",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.6TvjpG8uDoQEcYxp"
+    },
+    {
+      "sort": 100000,
+      "name": "Apavorado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Apavorado.</strong> O personagem sofre –2d20 em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível (mas pode parar de fazê-lo assim que a perder de vista ou se afastar mais do que alcance médio). Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo. Condição de medo.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.6TvjpG8uDoQEcYxp",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675361617,
+        "modifiedTime": 1768675416565,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "ThV6jSd1m1K6sLXi",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.ThV6jSd1m1K6sLXi"
+    },
+    {
+      "sort": 100000,
+      "name": "Asfixiado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Asfixiado.</strong> O personagem não pode respirar. Um personagem asfixiado pode prender a respiração por um número de rodadas igual ao seu Vigor. Depois disso, deve fazer um teste de Fortitude por rodada (DT 5 + 5 por teste anterior). Se falhar, cai inconsciente e perde 1d6 PV por rodada até respirar novamente ou morrer.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBNwfnS3Dgkz719I",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675363711,
+        "modifiedTime": 1768675443731,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "LySrUpmZisJp9SiL",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.LySrUpmZisJp9SiL"
+    },
+    {
+      "sort": 100000,
+      "name": "Atordoado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Atordoado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido} e não pode fazer ações. Condição mental.</p><blockquote><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBNwfnS3Dgkz719I",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675365535,
+        "modifiedTime": 1768676978990,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "Bw0UQJ6PuZWnoEYy",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.Bw0UQJ6PuZWnoEYy"
+    },
+    {
+      "sort": 100000,
+      "name": "Caído",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Caído.</strong> Deitado no chão. O personagem sofre –2d20 em ataques corpo a corpo e seu deslocamento é reduzido a 1,5m. Além disso, sofre –5 na Defesa contra ataques corpo a corpo, mas recebe +5 na Defesa contra ataques à distância.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBNwfnS3Dgkz719I",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675366591,
+        "modifiedTime": 1768675514132,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "tQpmaUDZU0kRf7PM",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.tQpmaUDZU0kRf7PM"
+    },
+    {
+      "sort": 100000,
+      "name": "Cego",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Cego.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PEYDqTNzIiaoP2gI]{Lento}, não pode fazer testes de Percepção para observar e sofre –2d20 em testes de perícias baseadas em Agilidade ou Força. Todos os alvos de seus ataques recebem camuflagem total. Você é considerado cego enquanto estiver em uma área de escuridão total, a menos que algo lhe permita perceber no escuro. Condição de sentidos.</p><blockquote><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><strong style=\"color:#b92a4c\">Lento.</strong> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.tQpmaUDZU0kRf7PM",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675519648,
+        "modifiedTime": 1768677044343,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "JNy15BeIzi6sy8Zg",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.JNy15BeIzi6sy8Zg"
+    },
+    {
+      "sort": 100000,
+      "name": "Confuso",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Confuso.</strong> O personagem comporta-se de modo aleatório. Role 1d6 no início de seus turnos: 1) Movimenta-se em uma direção escolhida por uma rolagem de 1d8; 2-3) Não pode fazer ações e fica balbuciando de forma incoerente; 4-5) Usa a arma que estiver empunhando para atacar o ser mais próximo, ou a si mesmo se estiver sozinho (nesse caso, apenas role o dano); 6) A condição termina e pode agir normalmente. Condição mental</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.tQpmaUDZU0kRf7PM",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675521012,
+        "modifiedTime": 1768677064920,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "faCIyNDhfy9DWRer",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.faCIyNDhfy9DWRer"
+    },
+    {
+      "sort": 100000,
+      "name": "Debilitado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Debilitado.</strong> O personagem sofre –2d20 em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente}.</p><blockquote><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.tQpmaUDZU0kRf7PM",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675522106,
+        "modifiedTime": 1768677154780,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "m3oSlHuqatyhotB7",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.m3oSlHuqatyhotB7"
+    },
+    {
+      "sort": 100000,
+      "name": "Desprevenido",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.tQpmaUDZU0kRf7PM",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675523291,
+        "modifiedTime": 1768675652402,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "PBsw2LF5mFPkNmnI",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.PBsw2LF5mFPkNmnI"
+    },
+    {
+      "sort": 100000,
+      "name": "Doente",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Doente.</strong> Sob efeito de uma doença.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.tQpmaUDZU0kRf7PM",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675524776,
+        "modifiedTime": 1768675674269,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "SKFVfB4HMcLLt8p9",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.SKFVfB4HMcLLt8p9"
+    },
+    {
+      "sort": 100000,
+      "name": "Em Chamas",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Em Chamas.</strong> O personagem está pegando fogo. No início de seus turnos, sofre 1d6 pontos de dano de fogo. O personagem pode gastar uma ação padrão para apagar o fogo com as mãos. Imersão em água também apaga as chamas.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.SKFVfB4HMcLLt8p9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675682876,
+        "modifiedTime": 1768675713237,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "Le5ABhvqauNjOG6K",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.Le5ABhvqauNjOG6K"
+    },
+    {
+      "sort": 100000,
+      "name": "Enjoado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Enjoado.</strong> O personagem só pode realizar uma ação padrão ou de movimento (não ambas) por rodada.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.SKFVfB4HMcLLt8p9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675684430,
+        "modifiedTime": 1768675730515,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "x9qUPGep3XLfHNhU",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.x9qUPGep3XLfHNhU"
+    },
+    {
+      "sort": 100000,
+      "name": "Enlouquecendo",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Enlouquecendo.</strong> Se iniciar três turnos enlouquecendo na mesma cena (não necessariamente consecutivos), você fica insano — seu personagem se torna um NPC. A condição pode ser encerrada com um teste de Diplomacia (DT 20 +5 por vez que já tiver sido acalmado na cena) ou por qualquer efeito que cure pelo menos 1 de Sanidade.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.SKFVfB4HMcLLt8p9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675685723,
+        "modifiedTime": 1768675759010,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "vSZs6kFbmIoeULVe",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.vSZs6kFbmIoeULVe"
+    },
+    {
+      "sort": 100000,
+      "name": "Enredado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Enredado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PEYDqTNzIiaoP2gI]{Lento}, @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.AdjaRpiAT25HpOds]{Vulnerável} e sofre –1d20 em testes de ataque. Condição de paralisia.</p><blockquote><p><strong style=\"color:#b92a4c\">Lento.</strong> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p><p><strong style=\"color:#b92a4c\">Vulnerável. </strong>O personagem sofre –2 na Defesa.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.SKFVfB4HMcLLt8p9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675687138,
+        "modifiedTime": 1768677300676,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "Aeyta54fQbqXqOfs",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.Aeyta54fQbqXqOfs"
+    },
+    {
+      "sort": 100000,
+      "name": "Envenenado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Envenenado.</strong> Varia de acordo com o veneno. Pode ser outra condição (por exemplo, fraco ou enjoado) ou dano recorrente (por exemplo, 1d12 pontos de dano de veneno por rodada). A descrição do veneno determina a duração dele (caso nada seja dito, a condição dura pela cena). Dano recorrente de condições envenenado sempre se acumula (mesmo se as condições ou fontes que as causam forem iguais)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.SKFVfB4HMcLLt8p9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675688372,
+        "modifiedTime": 1768677324396,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "IDGDPfohBJdMKSQQ",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.IDGDPfohBJdMKSQQ"
+    },
+    {
+      "sort": 100000,
+      "name": "Esmorecido",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Esmorecido.</strong> O personagem sofre –2d20 em testes de Intelecto e Presença. Condição mental.</p><blockquote><p><strong>Definição:</strong> \"que possui esmorecimento; que se esmoreceu; que deixou de ter forças; desprovido de ânimo; desanimado ou enfraquecido.</p><p>Que ficou mais fraco; que perdeu a intensidade; atenuado ou abatido.\"</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.Aeyta54fQbqXqOfs",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675886907,
+        "modifiedTime": 1768685030884,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "niiNP7SUrzakt9Xn",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.niiNP7SUrzakt9Xn"
+    },
+    {
+      "sort": 100000,
+      "name": "Exausto",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Exausto.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.m3oSlHuqatyhotB7]{Debilitado}, @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PEYDqTNzIiaoP2gI]{Lento} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.AdjaRpiAT25HpOds]{Vulnerável}. Se ficar exausto novamente, em vez disso fica inconsciente. Condição de fadiga.</p><blockquote><p><strong style=\"color:#b92a4c\">Debilitado.</strong> O personagem sofre –2d20 em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><strong style=\"color:#b92a4c\">Lento.</strong> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.Aeyta54fQbqXqOfs",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675888940,
+        "modifiedTime": 1768677481035,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "FqkcMa42xT3NJLBo",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.FqkcMa42xT3NJLBo"
+    },
+    {
+      "sort": 100000,
+      "name": "Fascinado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Fascinado.</strong> Com a atenção presa em alguma coisa. O personagem sofre –2d20 em Percepção e não pode fazer ações, exceto observar aquilo que o fascinou. Qualquer ação hostil contra o personagem anula esta condição. Balançar um ser fascinado para tirá-lo desse estado gasta uma ação padrão. Condição mental.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.Aeyta54fQbqXqOfs",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675890687,
+        "modifiedTime": 1768675971205,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "kaur8BsY1mKO7KJg",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.kaur8BsY1mKO7KJg"
+    },
+    {
+      "sort": 100000,
+      "name": "Fatigado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Fatigado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.wenLaotyXMIFynuT]{Fraco} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.AdjaRpiAT25HpOds]{Vulnerável}. Se o personagem ficar fatigado novamente, em vez disso fica exausto. Condição de fadiga.</p><blockquote><p><strong style=\"color:#b92a4c\">Fraco.</strong> O personagem sofre –1d20 em testes de Agilidade, Força e Vigor. Se ficar fraco novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.m3oSlHuqatyhotB7]{Debilitado}.</p><p><strong style=\"color:#b92a4c\">Vulnerável. </strong>O personagem sofre –2 na Defesa.</p><hr /><p><strong style=\"color:#b92a4c\">Debilitado.</strong> O personagem sofre –2d20 em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p></p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.Aeyta54fQbqXqOfs",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675892620,
+        "modifiedTime": 1768677673071,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "zP2whsW0tDiBGFtS",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.zP2whsW0tDiBGFtS"
+    },
+    {
+      "sort": 100000,
+      "name": "Fraco",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Fraco.</strong> O personagem sofre –1d20 em testes de Agilidade, Força e Vigor. Se ficar fraco novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.m3oSlHuqatyhotB7]{Debilitado}.</p><blockquote><p><strong style=\"color:#b92a4c\">Debilitado.</strong> O personagem sofre –2d20 em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675996414,
+        "modifiedTime": 1768677741183,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "wenLaotyXMIFynuT",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.wenLaotyXMIFynuT"
+    },
+    {
+      "sort": 100000,
+      "name": "Frustrado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Frustrado.</strong> O personagem sofre –1d20 em testes de Intelecto e Presença. Se ficar frustrado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.niiNP7SUrzakt9Xn]{Esmorecido}. Condição mental.</p><blockquote><p><strong style=\"color:#b92a4c\">Esmorecido.</strong> O personagem sofre –2d20 em testes de Intelecto e Presença. Condição mental.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768675998628,
+        "modifiedTime": 1768677776881,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "H1HSkm9JP4cCOdKE",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.H1HSkm9JP4cCOdKE"
+    },
+    {
+      "sort": 100000,
+      "name": "Imóvel",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Imóvel.</strong> Todas as formas de deslocamento do personagem são reduzidas a 0m. Condição de paralisia.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676000263,
+        "modifiedTime": 1768676075343,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "RoklJtHposaRZ5pF",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.RoklJtHposaRZ5pF"
+    },
+    {
+      "sort": 100000,
+      "name": "Inconsciente",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><blockquote><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676001607,
+        "modifiedTime": 1768677833751,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "ESKcAMVbDybUV71A",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.ESKcAMVbDybUV71A"
+    },
+    {
+      "sort": 100000,
+      "name": "Indefeso",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><blockquote><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676002791,
+        "modifiedTime": 1768677872925,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "FDttwZmd5h3DFhMA",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.FDttwZmd5h3DFhMA"
+    },
+    {
+      "sort": 100000,
+      "name": "Lento",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Lento.</strong> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676129521,
+        "modifiedTime": 1768676163611,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "PEYDqTNzIiaoP2gI",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.PEYDqTNzIiaoP2gI"
+    },
+    {
+      "sort": 100000,
+      "name": "Machucado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Machucado.</strong> O personagem tem metade ou menos de seus pontos de vida totais.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676131912,
+        "modifiedTime": 1768676184383,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "bCPK6D2oPzYEmcQe",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.bCPK6D2oPzYEmcQe"
+    },
+    {
+      "sort": 100000,
+      "name": "Morrendo",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Morrendo.</strong> Com 0 pontos de vida. Se iniciar três turnos morrendo na mesma cena (não necessariamente consecutivos), você morre. A condição pode ser encerrada com um teste de Medicina (DT 20 +5 por vez que já tiver sido estabilizado na cena) ou por efeitos específicos.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676133646,
+        "modifiedTime": 1768676205105,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "EyF8tO1JiyaB1wtD",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.EyF8tO1JiyaB1wtD"
+    },
+    {
+      "sort": 100000,
+      "name": "Ofuscado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Ofuscado.</strong> O personagem sofre –1d20 em testes de ataque e de Percepção. Condição de sentidos.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676134911,
+        "modifiedTime": 1768676230241,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "NpKkY6oQ4Tud6p22",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.NpKkY6oQ4Tud6p22"
+    },
+    {
+      "sort": 100000,
+      "name": "Paralisado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Paralisado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.RoklJtHposaRZ5pF]{Imóvel} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e só pode realizar ações puramente mentais. Condição de paralisia.</p><blockquote><p><strong style=\"color:#b92a4c\">Imóvel.</strong> Todas as formas de deslocamento do personagem são reduzidas a 0m. Condição de paralisia.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676136106,
+        "modifiedTime": 1768677940408,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "Sst1Uih53pIKklXW",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.Sst1Uih53pIKklXW"
+    },
+    {
+      "sort": 100000,
+      "name": "Pasmo",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Pasmo.</strong> O personagem não pode fazer ações. Condição mental.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676137328,
+        "modifiedTime": 1768676264431,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "3n5OHPs59M30EvJk",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.3n5OHPs59M30EvJk"
+    },
+    {
+      "sort": 100000,
+      "name": "Pertubado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Pertubado.</strong> Na primeira vez que isso acontece em uma cena, você recebe um efeito de insanidade (veja a p. 111).</p><p><strong>Tabela de Rolagem:</strong> @UUID[Compendium.ordemparanormal.generalptbr.RollTable.GKt9JswZXY1I2QGd]{5.1: Efeitos de Insanidade}</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.3n5OHPs59M30EvJk",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676268520,
+        "modifiedTime": 1768677977666,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "WvQW4H9HxASNmIbe",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.WvQW4H9HxASNmIbe"
+    },
+    {
+      "sort": 100000,
+      "name": "Petrificado",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Petrificado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente} e recebe resistência a dano 10.</p><blockquote><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e –1d20 Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.3n5OHPs59M30EvJk",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676270414,
+        "modifiedTime": 1768678629628,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "7hS0vJ93WMea5LuX",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.7hS0vJ93WMea5LuX"
+    },
+    {
+      "sort": 100000,
+      "name": "Sangrando",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Sangrando.</strong> Com um ferimento aberto. No início de seus turnos, o personagem deve fazer um teste de Vigor (DT 20). Se passar, estabiliza e remove essa condição. Se falhar, perde 1d6 pontos de vida e continua sangrando. Também é possível estabili\u0002zar alguém com uma ação completa e um teste de Medicina (DT 20).</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.3n5OHPs59M30EvJk",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676271847,
+        "modifiedTime": 1768676369360,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "uD2bxULmv2APsNnm",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.uD2bxULmv2APsNnm"
+    },
+    {
+      "sort": 100000,
+      "name": "Surdo",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Surdo.</strong> O personagem não pode fazer testes de Percepção para ouvir e sofre –2d20 em testes de Iniciativa. Além disso, é considerado em condição ruim para lançar rituais. Condição de sentidos.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.3n5OHPs59M30EvJk",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676273061,
+        "modifiedTime": 1768676392329,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "f6NyZPfkU9zMhBsA",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.f6NyZPfkU9zMhBsA"
+    },
+    {
+      "sort": 100000,
+      "name": "Vulnerável",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong style=\"color:#b92a4c\">Vulnerável. </strong>O personagem sofre –2 na Defesa.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "uX8kbsijC8bcpBa3": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.3n5OHPs59M30EvJk",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "createdTime": 1768676274135,
+        "modifiedTime": 1768676417683,
+        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+      },
+      "_id": "AdjaRpiAT25HpOds",
+      "_key": "!journal.pages!6ScuWm5M8qwtUNaH.AdjaRpiAT25HpOds"
+    }
+  ],
+  "folder": null,
+  "categories": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768675078036,
+    "modifiedTime": 1768675078036,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_key": "!journal!6ScuWm5M8qwtUNaH"
+}

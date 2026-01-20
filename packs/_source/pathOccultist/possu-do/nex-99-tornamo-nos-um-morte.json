@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Tornamo-nos Um (morte)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Possuido/possuido-99-morte.svg",
+  "system": {
+    "id": "vJ7nB3hV9gC1xZ5q",
+    "abilityType": "path",
+    "preRequisite": "Trilha: Possuído",
+    "description": "<p>Desabrochando em seu interior, o paranormal se manifesta como uma dádiva poderosa. Baseado no elemento com que tem afinidade, você recebe um dos poderes a seguir.</p><p>Uma vez por rodada, você pode gastar <strong>6 PE</strong> para receber um turno adicional na última contagem de iniciativa da rodada. Você pode ativar essa habilidade mesmo inconsciente.</p>",
+    "cost": "5",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "uIhZEFesJyaSYIJU",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767395920741,
+    "modifiedTime": 1767399940197,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "tfAVSIylkFcOVkXg",
+  "sort": 400000,
+  "_key": "!items!tfAVSIylkFcOVkXg"
+}

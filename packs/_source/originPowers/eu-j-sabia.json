@@ -1,0 +1,32 @@
+{
+  "name": "Eu Já Sabia",
+  "type": "ability",
+  "_id": "Drthw4YSxknmzLLG",
+  "img": "systems/ordemparanormal/media/icons/abilities/origin/eu-ja-sabia.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "ability",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; n&atilde;o se abala com entidades ou anomalias. Afinal, sempre soube que isso tudo existia. Voc&ecirc; recebe resist&ecirc;ncia a dano mental igual ao seu Intelecto.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 325000,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "13.351",
+    "createdTime": 1712011769649,
+    "modifiedTime": 1768851839484,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Drthw4YSxknmzLLG"
+}

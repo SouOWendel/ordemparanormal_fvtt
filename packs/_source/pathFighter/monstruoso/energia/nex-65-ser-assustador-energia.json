@@ -1,0 +1,35 @@
+{
+  "name": "NEX 65% - Ser Assustador (Energia)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Monstruoso/monstruoso-energia-65.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Monstruoso (Energia)",
+    "description": "<p>Como um parasita, voc&ecirc; sente a Entidade andar por todo o seu corpo, fazendo de voc&ecirc; uma morada. A resist&ecirc;ncia a dano que voc&ecirc; recebe por executar a etapa ritual&iacute;stica de seu elemento aumenta para <strong>15</strong>, mas sua Presen&ccedil;a &eacute; reduzida permanentemente em 1.</p><p><strong>Energia:</strong> A intensidade dos choques aumenta, al&eacute;m de ter conectado em suas veias pequenos tubos para gotejamento de &aacute;cido. Sua resist&ecirc;ncia a dano passa a se aplicar tamb&eacute;m a dano Qu&iacute;mico. Al&eacute;m disso, voc&ecirc; pode extrair energia de fontes el&eacute;tricas; para isso, deve gastar uma a&ccedil;&atilde;o de movimento e tocar uma fonte de eletricidade. Voc&ecirc; recupera uma quantidade de PE conforme o tipo de fonte: 1d4 PE para um dispositivo port&aacute;til, como um tablet ou celular, 2d4 PE para um dispositivo grande, como uma moto ou um carro el&eacute;trico, e 4d4 para uma fonte do tamanho de uma casa. Usar este efeito descarrega completamente a fonte e sobrecarrega seus circuitos, que se tornam incapazes de transmitir energia.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": "Passiva"
+  },
+  "effects": [],
+  "folder": "dO7VaSBS6asgV6AC",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767392807412,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "PPk5W0Xh44LDWuUc",
+  "sort": 0,
+  "_key": "!items!PPk5W0Xh44LDWuUc"
+}

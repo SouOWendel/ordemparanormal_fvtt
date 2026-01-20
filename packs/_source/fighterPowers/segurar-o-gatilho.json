@@ -1,0 +1,35 @@
+{
+  "name": "Segurar o Gatilho",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Segurar%20o%20Gatilho.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "NEX 60%",
+    "description": "<p>Sempre que acerta um ataque com uma arma de fogo, pode fazer outro ataque com a mesma arma contra o mesmo alvo, pagando 2 PE por cada ataque j&aacute; realizado no turno. Ou seja, pode fazer o primeiro ataque extra gastando 2 PE e, se acertar, pode fazer um segundo ataque extra gastando mais 4 PE e assim por diante, at&eacute; errar um ataque ou atingir o limite de seus PE por rodada.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": "Livre"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768012548817,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "tmoBGJLH2l3WWkin",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!tmoBGJLH2l3WWkin"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Deixe os Sussurros Guiarem",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/deixe-os-sussurros-guiarem.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "NEX 30%",
+    "description": "<p>Você sabe abrir sua mente para os sussurros do Paranormal, vozes que lhe guiam às custas de sua Sanidade. Uma vez por cena, você pode gastar 2 PE e uma rodada para receber +2 em testes de perícia para investigação até o fim da cena. Entretanto, enquanto este poder estiver ativo, sempre que falha em um teste de perícia, você perde 1 ponto de Sanidade.</p>",
+    "cost": "3",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768016995977,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "Qu8GFQ5LJjQd5e1h",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!Qu8GFQ5LJjQd5e1h"
+}

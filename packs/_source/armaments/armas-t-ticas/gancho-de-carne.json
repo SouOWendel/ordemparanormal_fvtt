@@ -1,0 +1,72 @@
+{
+  "name": "Gancho de Carne",
+  "type": "armament",
+  "img": "systems/ordemparanormal/media/icons/armament/gancho-de-carne.svg",
+  "system": {
+    "description": "<p>Usado para pendurar carne em frigoríficos, este gancho metálico pode servir como arma. Também pode ser amarrado a um pedaço de corda ou corrente; isso aumenta seu alcance para 4,5m e o transforma em um item de espaço 2.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "quantity": 1,
+    "proficiency": "tacticalWeapons",
+    "types": {
+      "rangeType": {
+        "name": "melee",
+        "subRangeType": ""
+      },
+      "ammunitionType": "",
+      "gripType": "light"
+    },
+    "critical": "x4",
+    "range": "",
+    "formulas": {
+      "attack": {
+        "formula": "1d20",
+        "attr": "str",
+        "skill": "fighting",
+        "bonus": ""
+      },
+      "damage": {
+        "formula": "1d4",
+        "attr": "str",
+        "bonus": 0,
+        "type": "piercingDamage",
+        "parts": []
+      },
+      "extraFormula": "1d4"
+    },
+    "penalty": "",
+    "conditions": {
+      "improvised": false,
+      "throwable": false,
+      "agile": false,
+      "automatic": false,
+      "adaptableGrip": false,
+      "pistolBlow": false
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012531614,
+    "modifiedTime": 1768670677938,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "IJqRWeTIeYMjTZfe",
+  "sort": 700000,
+  "folder": "9zWQRhWXjJ6wTwVK",
+  "_key": "!items!IJqRWeTIeYMjTZfe"
+}

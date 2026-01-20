@@ -1,0 +1,37 @@
+{
+  "name": "Cicatrizante",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/cicatrizante.svg",
+  "system": {
+    "description": "<p>Um spray contendo um rem&eacute;dio com potente efeito cicatrizante.</p>\n<p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o e este item para curar 2d8+2 PV em voc&ecirc; ou em um ser adjacente.</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688146,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "JxJ49N9OY5GTIPQu",
+  "sort": 200000,
+  "_key": "!items!JxJ49N9OY5GTIPQu"
+}

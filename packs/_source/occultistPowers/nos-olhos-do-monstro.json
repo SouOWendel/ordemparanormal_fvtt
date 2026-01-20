@@ -1,0 +1,35 @@
+{
+  "name": "Nos Olhos do Monstro",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/nos-olhos-do-monstro.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Ocultismo",
+    "description": "<p>Por mais assustador que seja encarar o paranormal, fazer isso pode fornecer a chave para escapar dele com vida. Se estiver em uma cena envolvendo uma criatura paranormal, você pode gastar uma rodada e 3 PE para encarar essa criatura (você precisa ser capaz de ver os olhos ou o mais próximo de um “rosto” da criatura, definido pelo mestre). Se fizer isso, você recebe +5 em testes contra a criatura (exceto testes de ataque) até o fim da cena.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768017088256,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "mQwB7bPTN0uFuCxM",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!mQwB7bPTN0uFuCxM"
+}

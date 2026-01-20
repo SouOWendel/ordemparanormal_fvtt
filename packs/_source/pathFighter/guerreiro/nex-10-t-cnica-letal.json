@@ -2,30 +2,34 @@
   "folder": "hWIJSF5wxtKlXPON",
   "name": "NEX 10% - Técnica Letal",
   "type": "ability",
-  "_id": "ZyIM8H9mIzZ5ZrEj",
   "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Guerreiro/T%C3%A9cnica%20Letal.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Voc&ecirc; recebe um au\u0002mento de +2 na margem de amea&ccedil;a com todos os seus ataques corpo a corpo.</p>"
+    "description": "<p>Voc&ecirc; recebe um au\u0002mento de +2 na margem de amea&ccedil;a com todos os seus ataques corpo a corpo.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 0,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712181419308,
-    "modifiedTime": 1712186445570,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767391179358,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "ZyIM8H9mIzZ5ZrEj",
+  "sort": 0,
   "_key": "!items!ZyIM8H9mIzZ5ZrEj"
 }

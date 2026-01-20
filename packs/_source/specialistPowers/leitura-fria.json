@@ -1,0 +1,35 @@
+{
+  "name": "Leitura Fria",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/leitura-fria.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Você estudou técnicas de “leitura fria”, a capacidade de analisar e compreender uma pessoa através de suas mais sutis reações. Uma vez em cada interlúdio, se passar alguns minutos interagindo com uma pessoa, ou mesmo obser\u0002vando-a no mesmo ambiente, você pode fazer três perguntas pessoais sobre ela, tais como “Qual seu filme favorito?”, “Qual sua profissão?” “Tem algum animal de estimação?”. O mestre pode responder com a verdade ou se negar a responder, mas, para cada pergunta não respondida, você recebe 2 PE temporários que duram até o fim da missão. Esse poder só pode ser usado uma vez em cada pessoa, e apenas em NPCs. <em>Pré-requisito: treinado em Intuição.</em></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768024430444,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "SfjEaEiQxAXqw8Gn",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!SfjEaEiQxAXqw8Gn"
+}

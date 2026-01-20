@@ -2,30 +2,34 @@
   "folder": "hWIJSF5wxtKlXPON",
   "name": "NEX 40% - Revidar",
   "type": "ability",
-  "_id": "LlAalkuUzpYEiDxP",
   "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Guerreiro/Revidar.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Sempre que bloquear um ata\u0002que, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 2 PE para fazer um ataque corpo a corpo no inimigo que o atacou.</p>"
+    "description": "<p>Sempre que bloquear um ata\u0002que, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 2 PE para fazer um ataque corpo a corpo no inimigo que o atacou.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 0,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712181442532,
-    "modifiedTime": 1712186448268,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767391179358,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "LlAalkuUzpYEiDxP",
+  "sort": 0,
   "_key": "!items!LlAalkuUzpYEiDxP"
 }

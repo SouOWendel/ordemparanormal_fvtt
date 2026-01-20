@@ -1,0 +1,37 @@
+{
+  "name": "Braçadeira Reforçada",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/bracadeira-reforcada.svg",
+  "system": {
+    "description": "<p>Semelhante às proteções usadas em artes marciais e outros esportes de contato, estas braçadeiras ajudam a absorver o impacto ao bloquear golpes com o braço. Elas aumentam em +2 a RD que você recebe por usar um bloqueio.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "89jrTjgxEih7KVs0",
+  "sort": 500000,
+  "_key": "!items!89jrTjgxEih7KVs0"
+}

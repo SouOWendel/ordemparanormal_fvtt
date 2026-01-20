@@ -1,0 +1,37 @@
+{
+  "name": "Ligação Direta Infernal",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/paranormal/ligacao-direta-infernal.svg",
+  "system": {
+    "description": "<p>Um amontoado de fios de cobre contaminados com Sangue e Energia. Você pode gastar uma ação completa para usar os fios para ligar um veículo automaticamente. Isso faz os fios invadirem os controles do veículo animando-o de forma paranormal; o veículo recebe resistência a dano 20 (cumulativa com qualquer RD que já possua) e imunidade a Sangue, e você recebe +5 em testes de Pilotagem para conduzi-lo. Entretanto, nesse estado o veículo tentará causar o máximo de confusão possível; as consequências de qualquer falha nos testes de Pilotagem são amplificadas a critério do mestre (de forma geral, qualquer dano ou penalidade causado por uma falha é dobrado). Remover a ligação direta infernal de um veículo é uma ação completa.</p>",
+    "weight": 1,
+    "category": "2",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "F7deDDQkexbVRYSO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447142709,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "kK82Sf1v18X1MEXx",
+  "sort": 0,
+  "_key": "!items!kK82Sf1v18X1MEXx"
+}

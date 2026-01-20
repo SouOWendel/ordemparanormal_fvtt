@@ -1,0 +1,37 @@
+{
+  "name": "Prolongador de Conhecimento",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/paranormal/prolongador-conhecimento.svg",
+  "system": {
+    "description": "A descrição do seu item aqui.",
+    "weight": 0.5,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "anXUYinOLZL63nuR",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447053370,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "Hvoo00DBrXq7iHcR",
+  "sort": 0,
+  "_key": "!items!Hvoo00DBrXq7iHcR"
+}

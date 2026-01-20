@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Tornamo-nos Um (sangue)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Possuido/possuido-99-sangue.svg",
+  "system": {
+    "id": "vJ7nB3hV9gC1xZ5q",
+    "abilityType": "path",
+    "preRequisite": "Trilha: Possuído",
+    "description": "<p>Desabrochando em seu interior, o paranormal se manifesta como uma dádiva poderosa. Baseado no elemento com que tem afinidade, você recebe um dos poderes a seguir.</p><p>Uma vez por rodada, você pode gastar <strong>6 PE</strong> para recuperar <strong>50 PV</strong>. Quando faz isso, até o início do seu próximo turno, os bônus por treinamento em suas perícias baseadas em <strong>Força</strong> e <strong>Vigor</strong>, e em <strong>Intimidação</strong>, mudam para +35. As demais perícias baseadas em <strong>Presença</strong> mudam para –10. Você pode ativar esse poder mesmo inconsciente.</p>",
+    "cost": "5",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "uIhZEFesJyaSYIJU",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767395922373,
+    "modifiedTime": 1767399978097,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "Hq7UYIBQBWXQzzvW",
+  "sort": 300000,
+  "_key": "!items!Hq7UYIBQBWXQzzvW"
+}

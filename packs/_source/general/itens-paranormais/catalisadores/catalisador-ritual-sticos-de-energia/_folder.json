@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "JLMrvcQENQQqF66K",
+  "name": "Catalisador Ritualísticos de Energia",
+  "color": null,
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "lastModifiedBy": null
+  },
+  "_id": "SahB8I755bfFakmb",
+  "sort": 0,
+  "_key": "!folders!SahB8I755bfFakmb"
+}

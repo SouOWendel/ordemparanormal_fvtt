@@ -1,0 +1,35 @@
+{
+  "name": "Cicatrizado",
+  "type": "ability",
+  "_id": "aOv0Oo7sBiBADEI4",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/survivor/cicatrizado.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "",
+    "preRequisite": "",
+    "description": "<p>No 5º estágio, você já viu — e sobreviveu — a sua cota de horrores. Isso deixou marcas em seu corpo e sua mente, mas também o deixou mais forte. Escolha um tipo de perigo paranormal que seu personagem já enfrentou, de um elemento específico (Sangue, Morte…). Você possui algum trauma em re\u0002lação a esse perigo e sofre –1d20 em testes de resistência contra ele. Contudo, uma vez por sessão de jogo você pode se esforçar ao máximo para não se deixar cair ou se abater. Como uma reação, você pode sacrificar 1 PV permanentemente para ignorar um dano mental ou gasto de PE, ou pode sacrificar permanentemente 1 PE para reduzir um dano físico à metade.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768024706995,
+    "modifiedTime": 1768025228830,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_key": "!items!aOv0Oo7sBiBADEI4"
+}

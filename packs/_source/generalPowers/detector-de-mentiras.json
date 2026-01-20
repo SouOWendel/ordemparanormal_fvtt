@@ -1,0 +1,35 @@
+{
+  "name": "Detector de Mentiras",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/detector-de-mentiras.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Presença 2",
+    "description": "<p>Você possui uma aptidão para perceber os sutis sinais de alguém que está mentindo. Você recebe treinamento em Intuição ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, outros seres sofrem uma penalidade de –10 em testes de Enganação para mentir para você. <i>Pré-requisito: Pre 2.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767841921497,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "sGzKl8JNvCQzFf6s",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!sGzKl8JNvCQzFf6s"
+}

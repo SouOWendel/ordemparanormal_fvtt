@@ -1,0 +1,35 @@
+{
+  "name": "Ritual Potente",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Ritual%20Potente.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Inteligência 2",
+    "description": "<p>Voc&ecirc; soma seu Intelecto nas rolagens de dano ou nos efeitos de cura de seus rituais.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768012562479,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "dG8bGpslULW7Mw7b",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!dG8bGpslULW7Mw7b"
+}

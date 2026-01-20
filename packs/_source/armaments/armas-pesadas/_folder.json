@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Armas Pesadas",
+  "color": null,
+  "sorting": "a",
+  "_id": "2rwWm8vFBPOX363L",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768516074856,
+    "modifiedTime": 1768516074856,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_key": "!folders!2rwWm8vFBPOX363L"
+}

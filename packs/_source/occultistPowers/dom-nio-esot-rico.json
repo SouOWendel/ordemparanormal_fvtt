@@ -1,0 +1,35 @@
+{
+  "name": "Domínio Esotérico",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/dominio-esoterico.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Você estudou a fundo a complexidade de catalisadores esotéricos e aprendeu a combinar suas propriedades paranormais. Ao lançar um ritual, você pode combinar os efeitos de até dois catalisadores ritualísticos diferentes ao mesmo tempo. <em>Pré-requisito: Int 3.</em></p>",
+    "cost": "1",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768017020881,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "HUkyPpbZahNGG2cX",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!HUkyPpbZahNGG2cX"
+}

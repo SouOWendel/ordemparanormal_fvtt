@@ -1,0 +1,37 @@
+{
+  "name": "Bandoleira",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/bandoleira.svg",
+  "system": {
+    "description": "<p>Um cinto com bolsos e al&ccedil;as. Uma vez por rodada, voc&ecirc; pode sacar ou guardar um item em seu invent&aacute;rio como uma a&ccedil;&atilde;o livre.</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "YlKIs2XJ49ioan5Y",
+  "sort": 2700000,
+  "_key": "!items!YlKIs2XJ49ioan5Y"
+}

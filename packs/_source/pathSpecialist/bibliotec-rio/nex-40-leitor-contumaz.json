@@ -1,0 +1,35 @@
+{
+  "name": "NEX 40% - Leitor Contumaz",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Bibliotecario/bibliotecario-40.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Bibliotecário",
+    "description": "<p>Você consome livros de forma obstinada. Cada dado de bônus que você recebe pela ação de interlúdio ler aumenta para <strong>1d8</strong> e você pode aplicar esse bônus em testes de qualquer perícia. Além disso, quando usa este bônus em um teste, você pode gastar <strong>2 PE</strong> para aumentá-lo em <strong>+1 dado (de 1d8 para 2d8)</strong>.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "diewwdueVbtezoUg",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767400872111,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "qcFLcZCSCPe15WBH",
+  "sort": 0,
+  "_key": "!items!qcFLcZCSCPe15WBH"
+}

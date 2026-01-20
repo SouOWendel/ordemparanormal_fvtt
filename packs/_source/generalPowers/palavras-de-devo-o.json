@@ -1,0 +1,35 @@
+{
+  "name": "Palavras de Devoção",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/palavras-de-devocao.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Presença 2",
+    "description": "<p>Você combina uma fé verdadeira com o conhecimento dos ritos e tradições de sua religião. Você recebe treinamento em Religião ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, uma vez por cena, pode gastar 3 PE e uma ação completa para executar uma oração para um número de pessoas até o dobro de sua Presença. Até o fim da cena, todos os participantes dessa oração recebem resistência a dano mental 5. <i>Pré-requisito: Pre 2.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767841971002,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "rwA9oS3Tb9kLFf8L",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!rwA9oS3Tb9kLFf8L"
+}

@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Exorcista",
+  "color": null,
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166786,
+    "modifiedTime": 1767391166786,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_id": "LCEcZuYQb3E8NfWE",
+  "sort": 0,
+  "_key": "!folders!LCEcZuYQb3E8NfWE"
+}

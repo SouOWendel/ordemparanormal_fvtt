@@ -1,0 +1,37 @@
+{
+  "name": "Pertubador de Conhecimento",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/paranormal/pertubador-conhecimento.svg",
+  "system": {
+    "description": "<blockquote><p><strong>Catalisadores Ritualísticos.</strong> Componentes ritualísticos que já foram alterados através de exposição paranormal e por isso são mais eficientes. Ao contrário de componentes comuns, um catalisador é consumido ao ser usado. Existem diversos tipos de catalisadores, uma para cada elemento. Você precisa estar empunhando um catalisador para usá-lo e só pode usar um catalisador por ritual. Por sua natureza, catalisadores não podem ser improvisados, como pela habilidade Improvisar Componentes, mas ainda podem ser fabricados em campo (veja p. 94).</p></blockquote><p>A DT para resistir ao ritual aumenta em +2.</p>",
+    "weight": 0.5,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "anXUYinOLZL63nuR",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768446989842,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "PQ4ihfa4Sx0rWucT",
+  "sort": 0,
+  "_key": "!items!PQ4ihfa4Sx0rWucT"
+}

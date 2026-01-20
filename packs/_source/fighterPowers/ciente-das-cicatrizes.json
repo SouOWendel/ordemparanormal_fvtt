@@ -1,0 +1,35 @@
+{
+  "name": "Ciente das Cicatrizes",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/ciente-das-cicatrizes.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Vigor 3",
+    "description": "<p>Acostumado a manusear armas, você aprendeu também a identificar as marcas que elas deixam. Quando faz um teste para encontrar uma pista relacionada a armas ou ferimentos (como um teste para necropsia ou para identificar uma arma amaldiçoada), você pode usar Luta ou Pontaria no lugar da perícia original. <em>Pré-requisito: treinado em Luta ou Pontaria.</em></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768018949437,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "P6ZJtUcggBppt25X",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!P6ZJtUcggBppt25X"
+}

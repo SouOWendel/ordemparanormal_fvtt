@@ -1,0 +1,35 @@
+{
+  "folder": "AEQiidc9LGTECU7t",
+  "name": "NEX 10% - Carteirada",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Agente%20Secreto/agente-secreto-10.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Agente Secreto",
+    "description": "<p>Escolha uma perícia entre <strong>Diplomacia</strong> ou <strong>Enganação</strong>. Você recebe treinamento na perícia escolhida ou, se já for treinado, recebe <strong>+2</strong> nela. Como parte do esforço conjunto da sua agência e da Ordem, no início de cada missão você recebe documentos que lhe fornecem privilégios jurídicos especiais. Esses documentos po\u0002dem incluir a sua identidade verdadeira ou não, e podem ser individuais ou incluir os demais membros da sua equipe (confor\u0002me apropriado à missão). Os benef ícios específicos desses documentos ficam a critério do mestre, mas em geral incluem acesso a locais restritos ou proibidos, permissão para portar armas de fogo e autoridade para assumir a jurisdição de investigações da polícia. Pessoas comuns não conseguem perceber que seus documentos são falsos, mas membros de agências de segurança ou indivíduos veteranos em <strong>Crime</strong> podem desconfiar de sua veracidade. Os documentos contam como itens operacionais que não ocupam espaço — mas cuidado para não perdê-los em locais onde novos não podem ser fornecidos!</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767400387387,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "xS1OcaP72TAWPIwC",
+  "sort": 0,
+  "_key": "!items!xS1OcaP72TAWPIwC"
+}

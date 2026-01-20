@@ -1,0 +1,35 @@
+{
+  "name": "Sentido Tático",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Sentido%20T%C3%A1tico.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Inteligência 2 & Percepção e Tática",
+    "description": "<p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento e 2 PE para analisar o ambiente. Se fizer isso, recebe um b&ocirc;nus em Defesa e em testes de resist&ecirc;ncia igual ao seu Intelecto at&eacute; o final da cena.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": "Movimento"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768012548817,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "c0mdeIyALNfI6vXj",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!c0mdeIyALNfI6vXj"
+}

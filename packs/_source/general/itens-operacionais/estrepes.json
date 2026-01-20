@@ -1,0 +1,37 @@
+{
+  "name": "Estrepes",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/estrepes.svg",
+  "system": {
+    "description": "<p>Uma ferramenta medieval cuja utilidade a manteve ativa até os dias de hoje, um estrepe é uma peça de metal com quatro pontas afiadas, construída de modo que uma ponta sempre fique voltada para cima. Usar um saco de estrepes em combate exige uma ação padrão para cobrir um quadrado de 1,5m de lado. Um ser que pise numa área coberta de estrepes sofre 1d4 pontos de dano de perfuração e fica lento por um dia. Em uma cena de perseguição, você pode aplicar os estrepes como parte de sua ação, mas sofre –1d20 em seu teste nessa rodada. Um perseguidor que pise nos estrepes sofre –1d20 em testes de perseguição até o fim da cena. Tanto em combate quanto em perseguição, passar em um teste de Reflexos (DT Agi) evita os estrepes. Os estrepes não afetam seres capazes de resistir a todo o seu dano.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "hgwe6UTFUFcnx7DE",
+  "sort": 3000000,
+  "_key": "!items!hgwe6UTFUFcnx7DE"
+}

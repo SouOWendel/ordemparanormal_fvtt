@@ -1,0 +1,35 @@
+{
+  "name": "Plano de Fuga",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/plano-de-fuga.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>A todo momento você está criando cenários imaginários e possibilidades na sua mente, pensando em estratégias que usaria para escapar de perseguidores. Você pode usar Intelecto no lugar de Força para a ação criar obstáculos (p. 90) em uma perseguição. Além disso, uma vez por cena, pode gastar 2 PE para dispensar o teste e ser bem-sucedido nesta ação. </p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768024380847,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "kyNZwNmnR5DMc7Db",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!kyNZwNmnR5DMc7Db"
+}

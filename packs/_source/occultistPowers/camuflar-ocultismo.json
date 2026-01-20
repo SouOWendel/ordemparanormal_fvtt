@@ -1,0 +1,35 @@
+{
+  "name": "Camuflar Ocultismo",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Camuflar%20Ocultismo.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; pode gastar uma a&ccedil;&atilde;o livre para esconder s&iacute;mbolos e sigilos que estejam desenhados ou gravados em objetos ou em sua pele, tornando-os invis&iacute;veis para ou\u0002tras pessoas al&eacute;m de voc&ecirc; mesmo. Al&eacute;m disso, quando lan&ccedil;a um ritual, pode gastar +2 PE para lan&ccedil;&aacute;-lo sem usar componentes ritual&iacute;sticos e sem gesticular (o que permite conjurar um ritual com as m&atilde;os presas), usando apenas concentra\u0002&ccedil;&atilde;o. Outros seres s&oacute; perceber&atilde;o que voc&ecirc; lan&ccedil;ou uma ritual se passarem num teste de Ocultismo (DT 25).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768012562479,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "vJd27O7HBgrJ0Jmp",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!vJd27O7HBgrJ0Jmp"
+}

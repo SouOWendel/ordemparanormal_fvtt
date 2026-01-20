@@ -1,0 +1,35 @@
+{
+  "name": "NEX 10% - Conhecimento Prático",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Bibliotecario/bibliotecario-10.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Bibliotecário",
+    "description": "<p>Você pode se lembrar de muitas informações úteis de suas leituras. Quando faz um teste de perícia (exceto Luta e Pontaria), você pode gastar <strong>2 PE</strong> para mudar o atributo-base da perícia para <strong>Intelecto</strong>. Se possuir o poder <strong>Conhecimento Aplicado</strong>, em vez disso seu custo é reduzido em <strong>–1 PE</strong>.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "diewwdueVbtezoUg",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767400845677,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "fKGxJijUZSiDP6Qo",
+  "sort": 0,
+  "_key": "!items!fKGxJijUZSiDP6Qo"
+}

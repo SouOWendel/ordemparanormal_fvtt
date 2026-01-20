@@ -1,0 +1,37 @@
+{
+  "name": "Pen Drive Selado",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/paranormal/pendrive-selado.svg",
+  "system": {
+    "description": "<p>Este dispositivo está gravado com sigilos dourados de Conhecimento. Graças à proteção desses sigilos, o pen drive não pode ser invadido ou afetado por rituais, seres e efeitos de Energia. Isso mantém seus arquivos protegidos, e permite que ele seja usado para invadir outros dispositivos sem ser contaminado pela entidade. Existem outros modelos de dispositivos selados, como HDs externos e celulares.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "F7deDDQkexbVRYSO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447177529,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "ZIi1z9EBYn42Ilfq",
+  "sort": 0,
+  "_key": "!items!ZIi1z9EBYn42Ilfq"
+}

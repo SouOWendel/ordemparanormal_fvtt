@@ -1,0 +1,37 @@
+{
+  "name": "Manual Operacional",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/accessories/manual-operacional.svg",
+  "system": {
+    "description": "<p>Um livro com lições práti\u0002cas sobre um assunto. Existe um manual operacional para cada perícia; gastar uma ação de interlúdio lendo um manual permite que você use essa perícia como se fosse treinado nela até o próximo interlúdio. Um manual operacional aprimorado (veja OPRPG, p. 64) também fornece +5 na perícia.Você só pode receber o benefício de um manual operacional por vez.</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "Ni1u5qDHXarXRlij",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447311412,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "V7qwOYJJbXxoBO5g",
+  "sort": 0,
+  "_key": "!items!V7qwOYJJbXxoBO5g"
+}

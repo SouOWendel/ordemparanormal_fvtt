@@ -1,0 +1,35 @@
+{
+  "name": "Disfarce Sutil",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/disfarce-sutil.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Você sabe como se disfarçar rapidamente, usando pequenos detalhes para alterar sua aparência. Quando faz um disfarce em si mesmo usando Enganação, você pode gastar 1 PE para se disfarçar como uma ação completa e sem necessidade de um kit de disfarces (se usar um kit, recebe +5 no teste). <em>Pré-requisitos: Pre 2, treinado em Enganação.</em></p>",
+    "cost": "1",
+    "costType": "PE",
+    "activation": "complete"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768024463258,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "ndbCqWPn7iL9w35U",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!ndbCqWPn7iL9w35U"
+}

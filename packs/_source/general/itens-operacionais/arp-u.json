@@ -1,0 +1,37 @@
+{
+  "name": "Arpéu",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/arpeu.svg",
+  "system": {
+    "description": "<p>Um gancho de a&ccedil;o amarrado na ponta de uma corda para se fixar em muros, janelas, parapeitos de pr&eacute;dios... Prender um arp&eacute;u exige um teste de Pontaria (DT 15). Subir um muro com a ajuda de uma corda fornece +5 no teste de Atletismo.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "IQmJUXPCPeS57OCr",
+  "sort": 1700000,
+  "_key": "!items!IQmJUXPCPeS57OCr"
+}

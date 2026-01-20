@@ -1,0 +1,35 @@
+{
+  "name": "NEX 65% - Atacar das Sombras",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Cacador/cacador-65.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Caçador",
+    "description": "<p>Você aprende a usar as sombras contra o Paranormal. Você não sofre a penalidade de <strong>–1d20</strong> em testes de Furtividade por se mover ao seu deslocamento normal e, se estiver usando uma arma que não faça barulho (como uma faca ou um arco), a penalidade que você sofre em <strong>Furtividade</strong> por atacar na mesma rodada é reduzida para <strong>–1d20</strong>. Além disso, sua visibilidade inicial em <strong>cenas de furtividade</strong> (veja p. 92) é sempre 1 ponto abaixo da inicial (podendo ser negativa).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "0BInFPs2RhJWr4fh",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767400688837,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "dxajk8DPcFvpeyHt",
+  "sort": 0,
+  "_key": "!items!dxajk8DPcFvpeyHt"
+}

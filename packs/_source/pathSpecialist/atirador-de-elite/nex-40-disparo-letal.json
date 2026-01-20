@@ -2,30 +2,34 @@
   "folder": "vIAEiT4UJ4KWZoI1",
   "name": "NEX 40% - Disparo Letal",
   "type": "ability",
-  "_id": "6voh52S7U7k4QJ7H",
   "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Atirador%20de%20Elite/Disparo%20Letal.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Quando faz a a&ccedil;&atilde;o mirar voc&ecirc; pode gastar 1 PE para aumentar em +2 a margem de amea&ccedil;a do pr&oacute;ximo ataque que fizer at&eacute; o final de seu pr&oacute;ximo turno.</p>"
+    "description": "<p>Quando faz a a&ccedil;&atilde;o mirar voc&ecirc; pode gastar 1 PE para aumentar em +2 a margem de amea&ccedil;a do pr&oacute;ximo ataque que fizer at&eacute; o final de seu pr&oacute;ximo turno.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 0,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712182983730,
-    "modifiedTime": 1712186580371,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767391187608,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "6voh52S7U7k4QJ7H",
+  "sort": 0,
   "_key": "!items!6voh52S7U7k4QJ7H"
 }

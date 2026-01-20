@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Ser Aterrorizante (Conhecimento)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Monstruoso/monstruoso-conhecimento-99.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Monstruoso (Conhecimento)",
+    "description": "<p>Voc&ecirc; foi transformado no habitat perfeito para a entidade que reside no interior de seu corpo e mente. Os efeitos por executar sua etapa ritual&iacute;stica se tornam permanentes (mas voc&ecirc; ainda precisa execut&aacute;-la para evitar sentir fome e sede) e voc&ecirc; passa a ser considerado uma criatura paranormal para efeitos de habilidades e itens. Al&eacute;m disso, a resist&ecirc;ncia a dano que voc&ecirc; recebe por essa trilha aumenta para <strong>20</strong>.</p><p><strong>Conhecimento:</strong> Sua boca desapareceu ap&oacute;s voc&ecirc; costur&aacute;-la com fios dourados, pois ningu&eacute;m &eacute; digno do seu ensinamento. Seus olhos aumentaram e ficaram mais profundos, com escleras negras. A verdade que voc&ecirc; deve esquecer est&aacute; atr&aacute;s de uma porta dourada. Sua For&ccedil;a diminui em &ndash;1 e seu Intelecto aumenta em +1. Al&eacute;m disso, voc&ecirc; recebe Percep&ccedil;&atilde;o &agrave;s Cegas e aprende um ritual de Conhecimento de 4&ordm; c&iacute;rculo a sua escolha. Entretanto, sempre que conjura esse ritual, voc&ecirc; perde a mem&oacute;ria de tudo que vivenciou desde o in&iacute;cio da cena.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": "Passiva"
+  },
+  "effects": [],
+  "folder": "T7nHXNBc4tUJFZLO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767392784448,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "fKpJmP51DR5FUjZR",
+  "sort": 0,
+  "_key": "!items!fKpJmP51DR5FUjZR"
+}

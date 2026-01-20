@@ -1,0 +1,37 @@
+{
+  "name": "Valete da Salvação",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/paranormal/valete-da-salvacao.svg",
+  "system": {
+    "description": "<p>Assim como um valete servia a seus senhores, esta carta — um valete de ouros pinta\u0002da de dourado e coberta com sigilos de Conhecimento — serve para salvá-lo de uma situação complicada. Para usá-la, você deve gastar uma ação padrão para atirá-la ao ar. Ela então irá voar em alcance médio, apontando para a melhor rota de fuga dentro deste alcance, e deixará de existir. Se a carta for gasta em uma cena de perseguição (p. 90), você é bem-sucedido em uma ação de cortar caminho.</p>",
+    "weight": 0.5,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "F7deDDQkexbVRYSO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447196862,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "Zkn0o7SDrxh6RvCp",
+  "sort": 0,
+  "_key": "!items!Zkn0o7SDrxh6RvCp"
+}

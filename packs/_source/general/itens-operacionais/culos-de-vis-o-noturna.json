@@ -1,0 +1,37 @@
+{
+  "name": "Óculos de Visão Noturna",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/oculos-de-visao-noturna.svg",
+  "system": {
+    "description": "<p>Alimentados por uma bateria, estes óculos permitem enxergar no escuro, como se o personagem tivesse visão no escuro. Entretanto, o usuário recebe –1d20 em testes de resistência contra a condição ofuscado e efeitos baseados em luz (como uma granada de atordoamento).</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "kPnbahvtGqEClMCd",
+  "sort": 3200000,
+  "_key": "!items!kPnbahvtGqEClMCd"
+}

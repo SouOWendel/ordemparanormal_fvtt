@@ -1,0 +1,35 @@
+{
+  "folder": "ht8EMXm53oYO1MK6",
+  "name": "NEX 65% - Mesclar Elemento - troca Anular Ritual",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Especialista%20em%20Elemento.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "",
+    "description": "<p>Substituir - Anular Ritual, Você aprende a combinar outros elementos em seus rituais. Se adicionar um elemento ao seu ritual na 1ª etapa de conjuração, você pode incluir o efeito de um segundo elemento. </p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767391166811,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "rHZKZ13FPbJXTtiu",
+  "sort": 0,
+  "_key": "!items!rHZKZ13FPbJXTtiu"
+}

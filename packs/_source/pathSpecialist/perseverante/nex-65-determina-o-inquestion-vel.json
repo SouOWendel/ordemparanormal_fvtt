@@ -1,0 +1,35 @@
+{
+  "name": "NEX 65% - Determinação Inquestionável",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Perseverante/perseverante-65.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Perseverante",
+    "description": "<p>Nos momentos mais sombrios, você consegue encontrar em seu interior a força para perseverar. Uma vez por cena, você pode gastar <strong>5 PE</strong> e uma <strong>ação padrão</strong> para remover uma condição de <strong>medo</strong>, <strong>mental</strong> ou de <strong>paralisia</strong> que esteja lhe afligindo. A critério do mestre, certas condições, como paralisia causada por uma doença, não podem ser removidas por essa habilidade.</p>",
+    "cost": "3",
+    "costType": "PE",
+    "activation": "default"
+  },
+  "effects": [],
+  "folder": "AMgdnmCO4bzW70V9",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767401143017,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "4r3NsuYEvjPyvP9f",
+  "sort": 0,
+  "_key": "!items!4r3NsuYEvjPyvP9f"
+}

@@ -1,0 +1,37 @@
+{
+  "folder": "vMqLnEQxQdNEG795",
+  "name": "Granada Incendiária",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/explosives/granada-incendiaria.svg",
+  "system": {
+    "description": "<p>Para usar uma granada, você precisa empunhá-la e então gastar uma ação padrão para arremessá-la em um ponto à sua escolha em alcance médio. A granada afeta um raio de 6m a partir do ponto de impacto. O efeito que ela causa varia con\u0002forme o tipo de granada.</p><p><strong>Incendiária.</strong> Espalha labaredas incandescentes. Seres na área sofrem 6d6 pontos de dano de fogo e ficam em chamas (Reflexos DT Agi reduz o dano à metade e evita a condição em chamas).</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447252464,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "Bnm0GC4HejlVovsu",
+  "sort": 0,
+  "_key": "!items!Bnm0GC4HejlVovsu"
+}

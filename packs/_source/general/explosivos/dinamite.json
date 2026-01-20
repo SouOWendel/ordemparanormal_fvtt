@@ -1,0 +1,37 @@
+{
+  "name": "Dinamite",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/explosives/dinamite.svg",
+  "system": {
+    "description": "<p>Dinamite é um artefato explosivo à base de nitroglicerina, ajeitado em um bastão com 20 cm de comprimento. Com a mesma ação padrão é possível acender seu pavio com uma das mãos e arremessá-la com a outra em um ponto à sua escolha em alcance médio. A dinamite afeta um raio de 6m a partir do ponto de impacto; seres e objetos soltos na área sofrem 4d6 pontos de dano de impacto e 4d6 pontos de dano de fogo e ficam em chamas (Reflexos DT Agi reduz à metade e evita condição em chamas).</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "vMqLnEQxQdNEG795",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447222732,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "aZCbtxEKVq5wC82P",
+  "sort": 0,
+  "_key": "!items!aZCbtxEKVq5wC82P"
+}

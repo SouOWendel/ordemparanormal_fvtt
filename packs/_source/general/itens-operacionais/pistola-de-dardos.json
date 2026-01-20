@@ -1,0 +1,37 @@
+{
+  "name": "Pistola de Dardos",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/pistola-de-dardos.svg",
+  "system": {
+    "description": "<p>Esta arma dispara dardos com um poderoso son&iacute;fero. Para disparar em um ser, fa&ccedil;a um ataque &agrave; dist&acirc;ncia contra ele. Se acert&aacute;-lo, ele fica inconsciente at&eacute; o fim da cena (Fortitude DT Agi reduz para desprevenida e lenta por uma rodada). A pistola vem com 2 dardos. Uma caixa adicional com 2 dardos &eacute; um item de categoria 0 que ocupa 1 espa&ccedil;o.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "hNOccu9TKfj1AHOv",
+  "sort": 2900000,
+  "_key": "!items!hNOccu9TKfj1AHOv"
+}

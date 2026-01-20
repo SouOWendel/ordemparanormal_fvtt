@@ -1,0 +1,73 @@
+{
+  "name": "Montante",
+  "type": "armament",
+  "img": "systems/ordemparanormal/media/icons/armament/montante.svg",
+  "system": {
+    "description": "<p>Enorme e pesada, esta espada de 1,5m de comprimento foi uma das armas mais poderosas em seu tempo.</p>",
+    "weight": 2,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "quantity": 1,
+    "proficiency": "tacticalWeapons",
+    "types": {
+      "rangeType": {
+        "name": "melee",
+        "subRangeType": ""
+      },
+      "ammunitionType": "",
+      "gripType": "twoHands",
+      "damageType": ""
+    },
+    "critical": "19",
+    "range": "",
+    "formulas": {
+      "attack": {
+        "formula": "1d4",
+        "attr": "str",
+        "skill": "fighting",
+        "bonus": ""
+      },
+      "damage": {
+        "formula": "2d6",
+        "attr": "str",
+        "bonus": "",
+        "type": "cuttingDamage",
+        "parts": []
+      },
+      "extraFormula": "1d4"
+    },
+    "penalty": "",
+    "conditions": {
+      "improvised": false,
+      "throwable": false,
+      "agile": false,
+      "automatic": false,
+      "adaptableGrip": false,
+      "pistolBlow": false
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012531614,
+    "modifiedTime": 1768670688988,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "osFsLfSmQLwFYOIe",
+  "sort": 150000,
+  "folder": "9zWQRhWXjJ6wTwVK",
+  "_key": "!items!osFsLfSmQLwFYOIe"
+}

@@ -2,30 +2,34 @@
   "folder": "Ya1CUMabmZD5MjOX",
   "name": "NEX 40% - Ataque Extra",
   "type": "ability",
-  "_id": "HGMWTtK0c223FYZb",
   "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Opera%C3%A7%C3%B5es%20Especiais/Ataque%20Extra.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Uma vez por rodada, quando faz um ataque, voc&ecirc; pode gastar 2 PE para fazer um ataque adicional.</p>"
+    "description": "<p>Uma vez por rodada, quando faz um ataque, voc&ecirc; pode gastar 2 PE para fazer um ataque adicional.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 0,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712181508531,
-    "modifiedTime": 1712186461269,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767391179358,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "HGMWTtK0c223FYZb",
+  "sort": 0,
   "_key": "!items!HGMWTtK0c223FYZb"
 }

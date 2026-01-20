@@ -1,0 +1,35 @@
+{
+  "name": "Eclético",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Ecl%C3%A9tico.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Quando faz um teste de uma per&iacute;cia, voc&ecirc; pode gastar 2 PE para receber os benef&iacute;cios de ser treinado nesta per&iacute;cia.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768014041889,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "1SBrscGZGTA1InkC",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!1SBrscGZGTA1InkC"
+}

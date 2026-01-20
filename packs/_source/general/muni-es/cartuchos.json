@@ -1,0 +1,37 @@
+{
+  "name": "Cartuchos",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/ammunition/cartuchos.svg",
+  "system": {
+    "description": "<p>Usados em espingardas, esses cartuchos são carregados com esferas de chumbo. Um pacote de cartuchos dura uma cena.</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "M5T2YNH1LYCnBRP7",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447381198,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "bKGvvC3G2BEEmYBO",
+  "sort": 0,
+  "_key": "!items!bKGvvC3G2BEEmYBO"
+}

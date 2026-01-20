@@ -2,30 +2,34 @@
   "folder": "vIAEiT4UJ4KWZoI1",
   "name": "NEX 10% - Mira de Elite",
   "type": "ability",
-  "_id": "DxshaIvYn0QOHel3",
   "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Atirador%20de%20Elite/Mira%20de%20Elite.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Voc&ecirc; recebe profici&ecirc;ncia com armas de fogo que usam balas longas e soma seu Intelecto em rolagens de dano com essas armas.</p>"
+    "description": "<p>Voc&ecirc; recebe profici&ecirc;ncia com armas de fogo que usam balas longas e soma seu Intelecto em rolagens de dano com essas armas.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 0,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712182947982,
-    "modifiedTime": 1712186577659,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767391187608,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "DxshaIvYn0QOHel3",
+  "sort": 0,
   "_key": "!items!DxshaIvYn0QOHel3"
 }

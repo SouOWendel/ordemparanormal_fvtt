@@ -1,0 +1,37 @@
+{
+  "name": "Cão Adestrado",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/cao-adestrado.svg",
+  "system": {
+    "description": "<p>Um cachorro pode ser um parceiro (e amigo!) valioso para um agente. Um personagem treinado em Adestramento pode usar um cão adestrado como um aliado (veja o quadro abaixo).</p>",
+    "weight": null,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "48T4E2fanDFYJ1S4",
+  "sort": 300000,
+  "_key": "!items!48T4E2fanDFYJ1S4"
+}

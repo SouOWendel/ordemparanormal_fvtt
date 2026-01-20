@@ -1,0 +1,37 @@
+{
+  "name": "Granada de Gás Sonífero",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/explosives/granada-de-sonifero.svg",
+  "system": {
+    "description": "<p>Esta granada libera uma fumaça branca que preenche um raio de 6m a partir do ponto de impacto. Seres que comecem seus turnos na área ficam inconscientes e caídos ou, se estiverem envolvidos em atividade física intensa (como combate), ficam exaustos por 1 rodada, depois fatigados (em ambos os casos, Fortitude DT Agi reduz para fatigado por 1d4 rodadas). O gás permanece na área por 2 rodadas. </p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "vMqLnEQxQdNEG795",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447239279,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "r2qsiUgayDf3hUJW",
+  "sort": 0,
+  "_key": "!items!r2qsiUgayDf3hUJW"
+}

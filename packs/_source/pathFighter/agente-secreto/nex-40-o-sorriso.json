@@ -1,0 +1,35 @@
+{
+  "folder": "AEQiidc9LGTECU7t",
+  "name": "NEX 40% - O Sorriso",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Agente%20Secreto/agente-secreto-40.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Agente Secreto",
+    "description": "<p>Em seu trabalho como agente, você aprendeu que se manter contido com um sorriso “sincero” e palavras gentis são ferramentas muito eficientes em uma investigação. Você recebe <strong>+2</strong> em <strong>Diplomacia</strong> e <strong>Enganação</strong> e, quando falha em um teste de uma dessas perícias, pode gastar <strong>2 PE</strong> para repetir a rolagem (apenas uma vez por teste), mas deve aceitar o novo resultado, mesmo que seja pior que o primeiro. Por fim, uma vez por cena, você pode fazer um teste de <strong>Diplomacia</strong> para acalmar a si mesmo.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767400600294,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "GxDuUDDni22Nk4nv",
+  "sort": 0,
+  "_key": "!items!GxDuUDDni22Nk4nv"
+}

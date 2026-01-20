@@ -1,0 +1,37 @@
+{
+  "name": "Aplicador de Medicamentos",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/aplicador-de-medicamentos.svg",
+  "system": {
+    "description": "<p>Essa adaptação portátil de bombas injetoras hospitalares pode ser presa ao redor do braço ou perna para aplicar uma substância, como um cicatrizante ou medicamento, com uma ação de movimento. O aplicador tem espaço para três doses de substâncias (já contabilizadas no espaço do item). Carregar uma dose de uma substância no aplicador é uma ação padrão.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "NcmskMdy2FPcUM8l",
+  "sort": 2000000,
+  "_key": "!items!NcmskMdy2FPcUM8l"
+}

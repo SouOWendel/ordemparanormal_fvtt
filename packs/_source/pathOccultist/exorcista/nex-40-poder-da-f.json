@@ -1,0 +1,35 @@
+{
+  "name": "NEX 40% - Poder da Fé",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Exorcista/exorcista-40.svg",
+  "system": {
+    "id": "exo40nexDEF456",
+    "abilityType": "class",
+    "preRequisite": "Trilha: Exorcista",
+    "description": "<p>Sua fé e o estudo de suas doutrinas religiosas alimentam suas defesas mentais e espirituais. Você se torna veterano em <strong>Religião</strong> ou, se já for veterano, recebe <strong>+1d20</strong> nessa perícia. Quando falha em um teste de resistência, você pode gastar <strong>2 PE</strong> para repetir o teste usando <strong>Religião</strong>, mas deve aceitar o resultado da segunda rolagem, mesmo que seja menor que a primeira.</p>",
+    "cost": "4",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "LCEcZuYQb3E8NfWE",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767400138583,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "TuG0X0JeWr8FFkU0",
+  "sort": 0,
+  "_key": "!items!TuG0X0JeWr8FFkU0"
+}

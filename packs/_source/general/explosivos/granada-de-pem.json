@@ -1,0 +1,37 @@
+{
+  "name": "Granada de PEM",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/explosives/granada-de-pem.svg",
+  "system": {
+    "description": "<p>Esta granada emite um poderoso pulso eletromagnético que desativa todos os equipamentos elétricos em um raio de 18m até o fim da cena. Criaturas de Energia na área sofrem 6d6 pontos de dano de impacto e ficam paralisadas por 1 rodada (apenas uma vez por cena, Fortitude DT Agi reduz à metade e evita a condição)</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "vMqLnEQxQdNEG795",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447243355,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "J9ELGZKXldQc2GN8",
+  "sort": 0,
+  "_key": "!items!J9ELGZKXldQc2GN8"
+}

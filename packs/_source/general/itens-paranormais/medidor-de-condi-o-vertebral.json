@@ -1,0 +1,37 @@
+{
+  "name": "Medidor de Condição Vertebral",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/paranormal/medidor-de-condicao-vertebral.svg",
+  "system": {
+    "description": "<p>Este item grotesco é uma coluna vertebral sustentada por Lodo de Morte e revestida com cabos e fios de Energia. Para ser usado, deve ser conectado à coluna vertebral, em um procedimento que exige uma ação completa e causa profunda dor e agonia, deixando o usuário atordoado por uma rodada. O medidor conta como uma vestimenta que fornece +2 em Fortitude. Além disso, uma vez conectado ele se ilumina em cores que vão do vermelho, na base, passando por amarelo no centro até verde no topo. Essas cores indicam a saúde do usuário, sendo verde a melhor condição. Além disso, se o usuário estiver sob um efeito paranormal, o item emitirá pulsos de luz lilás. Por fim, as informações fornecidas pelo item concedem um bônus de +5 em testes de Medicina feitos para auxiliar o usuário.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "F7deDDQkexbVRYSO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447147372,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "KFPJb4vmCODWoL3k",
+  "sort": 0,
+  "_key": "!items!KFPJb4vmCODWoL3k"
+}

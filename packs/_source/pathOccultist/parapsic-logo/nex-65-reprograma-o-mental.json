@@ -1,0 +1,35 @@
+{
+  "name": "Nex 65% - Reprogramação Mental",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Parapsicologo/parapsicologo-65.svg",
+  "system": {
+    "id": "tU9vWx5yZ7aB1cD2",
+    "abilityType": "class",
+    "preRequisite": "Trilha: Parapsicólogo",
+    "description": "<p>Ignorando os avisos de cautela de seus pares, você descobriu como hipnotizar e manipular a mente humana para reprogramar suas capacidades. Você pode gastar <strong>5 PE</strong> e uma ação de interlúdio para manipular o cérebro de outra pessoa voluntária em alcance curto (essa pessoa também gasta sua ação de interlúdio). Até o próximo interlúdio, a pessoa recebe, à escolha dela, um poder geral, um poder da própria classe ou o primeiro poder de uma trilha que não a dela, acreditando que isso sempre fez parte de sua vida. A pessoa precisa cumprir os pré-requisitos do poder escolhido.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "bxfo0A2o3rfDDQFG",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767400316257,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "DZXrgcdp1mH5dgFL",
+  "sort": 0,
+  "_key": "!items!DZXrgcdp1mH5dgFL"
+}

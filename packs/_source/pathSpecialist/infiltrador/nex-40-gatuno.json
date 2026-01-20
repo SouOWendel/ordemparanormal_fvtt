@@ -2,30 +2,34 @@
   "folder": "DgAGcPTJjdlKZetD",
   "name": "NEX 40% - Gatuno",
   "type": "ability",
-  "_id": "NVZB7cH0CuN6GBiO",
   "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Infiltrador/Gatuno.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Voc&ecirc; recebe +5 em Atletismo e Crime e pode percorrer seu deslocamento normal quando se esconder sem penalidade (veja a per&iacute;cia Furtividade).</p>"
+    "description": "<p>Voc&ecirc; recebe +5 em Atletismo e Crime e pode percorrer seu deslocamento normal quando se esconder sem penalidade (veja a per&iacute;cia Furtividade).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 200000,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712182830897,
-    "modifiedTime": 1712186594574,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767391187608,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "NVZB7cH0CuN6GBiO",
+  "sort": 0,
   "_key": "!items!NVZB7cH0CuN6GBiO"
 }

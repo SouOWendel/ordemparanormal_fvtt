@@ -1,0 +1,35 @@
+{
+  "name": "Entendido",
+  "type": "ability",
+  "_id": "jNDnb1eqrYlA9pk2",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/survivor/entendido.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "",
+    "preRequisite": "",
+    "description": "<p>Escolha duas perícias nas quais você é treinado (exceto Luta e Pontaria). Quando faz um teste de uma dessas perícias, você pode gastar 1 PE para somar +1d4 no resultado do teste. Se você se tornar um especialista (veja “Treinamento Especial”, a seguir), perde esta habilidade, mas reduz o custo de ativação de Perito em –1 PE.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768024802355,
+    "modifiedTime": 1768025247905,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_key": "!items!jNDnb1eqrYlA9pk2"
+}

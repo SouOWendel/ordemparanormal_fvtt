@@ -1,0 +1,37 @@
+{
+  "name": "Pá",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/pa.svg",
+  "system": {
+    "description": "<p>Esta pesada ferramenta fornece +5 em testes de Força para cavar buracos e mover detritos. Pode ser usada em combate como um bastão.</p>",
+    "weight": 2,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "IRDgvTPvdRIonYyN",
+  "sort": 1800000,
+  "_key": "!items!IRDgvTPvdRIonYyN"
+}

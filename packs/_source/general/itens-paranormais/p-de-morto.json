@@ -1,0 +1,37 @@
+{
+  "name": "Pé de Morto",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/paranormal/pe-de-morto.svg",
+  "system": {
+    "description": "<p>Estas botas macabras foram costuradas com a pele de cadáveres amaldiçoados pela Morte. Com essa matéria grotesca, a bota mantém os passos do usuário leves e quase inaudíveis, como se ele fosse um fantasma se aproximando sem fazer barulho. Você recebe +5 em Furtividade e, em cenas de furtividade (p. 92), qualquer ação chamativa que envolva apenas se mover (como correr ou saltar) aumenta a visibilidade em apenas +1.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "F7deDDQkexbVRYSO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447166225,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "YCk3NtjtwKJ860oi",
+  "sort": 0,
+  "_key": "!items!YCk3NtjtwKJ860oi"
+}

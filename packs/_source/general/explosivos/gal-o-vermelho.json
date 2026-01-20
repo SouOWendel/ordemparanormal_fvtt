@@ -1,0 +1,37 @@
+{
+  "name": "Galão vermelho",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/explosives/galao-vermelho.svg",
+  "system": {
+    "description": "<p>Galões vermelhos, ou marcados com um símbolo de chama, carregam substâncias inflamáveis. Apesar de serem mais frequentes em ambientes industriais, também são encontrados em ambientes inusitados quando menos se espera. Ao sofrer dano de fogo ou balístico, um galão vermelho explode, atingindo uma esfera de 6m de raio. Seres na área sofrem 12d6 pontos de dano de fogo e ficam em chamas (Reflexos DT 25 reduz à metade e evita a condição). A área afetada pelo raio da explosão fica em chamas (1d6 pontos de dano de fogo por rodada em seres e objetos) até ser apagada ou a cena acabar. Veja mais sobre as consequências de um galão vermelho em Fogo e Fumaça (OPRPG, p. 292)</p>",
+    "weight": 2,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "vMqLnEQxQdNEG795",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447228797,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "EQJgjl4rwirwAAWR",
+  "sort": 0,
+  "_key": "!items!EQJgjl4rwirwAAWR"
+}

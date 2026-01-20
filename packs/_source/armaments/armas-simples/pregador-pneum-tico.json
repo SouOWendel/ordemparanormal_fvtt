@@ -1,0 +1,72 @@
+{
+  "name": "Pregador Pneumático",
+  "type": "armament",
+  "img": "systems/ordemparanormal/media/icons/armament/pregador-pneumatico.svg",
+  "system": {
+    "description": "<p>Outra ferramenta que pode ser empregada como arma em uma situação extrema, um pregador pneumático é um aparelho semelhante a uma pistola que dispara pregos sob pressão. Embora seja um dispositivo mecânico, ele conta como uma arma de fogo para seus poderes que afetam armas deste tipo. Um pregador armazena 300 pregos em rolo, o suficiente para durar uma missão inteira.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "quantity": 1,
+    "proficiency": "simpleWeapons",
+    "types": {
+      "rangeType": {
+        "name": "ranged",
+        "subRangeType": "shoot"
+      },
+      "ammunitionType": "",
+      "gripType": "oneHand"
+    },
+    "critical": "x4",
+    "range": "Curto",
+    "formulas": {
+      "attack": {
+        "formula": "1d20",
+        "attr": "dex",
+        "skill": "aim",
+        "bonus": "0"
+      },
+      "damage": {
+        "formula": "1d4",
+        "attr": "",
+        "bonus": 0,
+        "type": "piercingDamage",
+        "parts": []
+      },
+      "extraFormula": "1d4"
+    },
+    "penalty": "",
+    "conditions": {
+      "improvised": false,
+      "throwable": false,
+      "agile": false,
+      "automatic": false,
+      "adaptableGrip": false,
+      "pistolBlow": false
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012531614,
+    "modifiedTime": 1768670712002,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "dEwWqZGOGmoD2dBY",
+  "sort": 100098,
+  "folder": "NV5EZGqqlc3o3VXc",
+  "_key": "!items!dEwWqZGOGmoD2dBY"
+}

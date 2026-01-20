@@ -1,0 +1,80 @@
+{
+  "name": "Mochila Militar",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/mochila-militar.svg",
+  "system": {
+    "description": "<p>Uma mochila leve e de alta qualidade. Ela n&atilde;o usa nenhum espa&ccedil;o e aumenta sua capacidade de carga em 2 espa&ccedil;os.</p>",
+    "weight": 0,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [
+    {
+      "origin": "Compendium.ordemparanormal.generalEquipments.Item.0KKFBP9GfASOMSbX",
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "disabled": false,
+      "name": "Espaço Extra",
+      "_id": "1qK9LWrvE2Z4Etej",
+      "changes": [
+        {
+          "key": "system.spaces.bonus.max",
+          "mode": 2,
+          "value": "2",
+          "priority": null
+        }
+      ],
+      "description": "",
+      "transfer": true,
+      "statuses": [],
+      "flags": {},
+      "tint": "#ffffff",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.2.4",
+        "lastModifiedBy": null
+      },
+      "img": "systems/ordemparanormal/media/icons/general%20equipments/Mochila%20militar.svg",
+      "type": "base",
+      "system": {},
+      "sort": 0,
+      "_key": "!items.effects!GDZEPqEU7qaPBIKp.1qK9LWrvE2Z4Etej"
+    }
+  ],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "GDZEPqEU7qaPBIKp",
+  "sort": 1400000,
+  "_key": "!items!GDZEPqEU7qaPBIKp"
+}

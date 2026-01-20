@@ -1,0 +1,35 @@
+{
+  "name": "NEX 65% - Rato de Biblioteca",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Bibliotecario/bibliotecario-65.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Bibliotecário",
+    "description": "<p>Acostumado com bibliotecas, você sabe como extrair informações de qualquer lugar repleto de livros. Se estiver em um ambiente com muitos livros (como uma livraria, uma biblioteca ou um antiquário), você pode gastar alguns minutos (ou, se estiver em uma cena de investigação, uma rodada) para receber os benefícios de uma ação de interlúdio à sua escolha entre ler e revisar caso. Você só pode usar essa habilidade uma vez por cena.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "diewwdueVbtezoUg",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767400914652,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "KxAX2DP0P8lHgDJ3",
+  "sort": 0,
+  "_key": "!items!KxAX2DP0P8lHgDJ3"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Binóculos",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/binoculos.svg",
+  "system": {
+    "description": "<p>Estes bin&oacute;culos militares fornecem +5 em testes de Percep&ccedil;&atilde;o para observar coisas distantes.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "wibuWy2s2dmYJ93Z",
+  "sort": 3500000,
+  "_key": "!items!wibuWy2s2dmYJ93Z"
+}

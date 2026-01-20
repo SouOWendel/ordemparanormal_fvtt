@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Caçador",
+  "color": null,
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179321,
+    "modifiedTime": 1767391179321,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_id": "0BInFPs2RhJWr4fh",
+  "sort": 0,
+  "_key": "!folders!0BInFPs2RhJWr4fh"
+}

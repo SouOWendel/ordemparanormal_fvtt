@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "JLMrvcQENQQqF66K",
+  "name": "Catalisador Ritualísticos de Sangue",
+  "color": null,
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "lastModifiedBy": null
+  },
+  "_id": "9kCxt8ffBjvAVVLJ",
+  "sort": 0,
+  "_key": "!folders!9kCxt8ffBjvAVVLJ"
+}

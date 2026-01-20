@@ -1,0 +1,35 @@
+{
+  "name": "Talentoso",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/Talentoso.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Presença 2",
+    "description": "<p>Você possui inclinação para todas as formas de expressão artística. Você recebe treinamento em Artes ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, quando faz um teste de Artes para impressionar, o bônus em perícias que você recebe aumenta em +1 para cada 5 pontos adicionais em que o resultado de seu teste passar a DT. <i>Pré-requisito: Pre 2.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767468426324,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "xp8vhrLJVPaOjnRz",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!xp8vhrLJVPaOjnRz"
+}

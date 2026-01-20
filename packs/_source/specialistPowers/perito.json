@@ -1,0 +1,35 @@
+{
+  "name": "Perito",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Perito.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Escolha duas per&iacute;cias nas quais voc&ecirc; &eacute; trei\u0002nado (exceto Luta e Pontaria). Quando faz um teste de uma dessas per&iacute;cias, voc&ecirc; pode gastar 2 PE para somar +1d6 no resultado do teste. Conforme avan&ccedil;a de NEX, voc&ecirc; pode gastar +1 PE para aumentar o dado de b&ocirc;nus (veja a Tabela 1.4). Por exemplo, em NEX 55%, pode gastar 4 PE para receber +1d10 no teste.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768014041889,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "YDM7F4FdRT0rd9DA",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!YDM7F4FdRT0rd9DA"
+}

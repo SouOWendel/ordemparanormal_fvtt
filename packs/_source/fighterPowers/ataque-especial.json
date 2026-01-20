@@ -1,0 +1,35 @@
+{
+  "name": "Ataque Especial",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Ataque%20Especial.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Quando faz um ataque, voc&ecirc; pode gastar 2 PE para re\u0002ceber +5 no teste de ataque ou na rolagem de dano. Conforme avan&ccedil;a de NEX, voc&ecirc; pode gastar +1 PE para receber mais b&ocirc;nus de +5 (veja a Tabela 1.3). Voc&ecirc; pode aplicar cada b&ocirc;nus de +5 em ataque ou dano. Por exemplo, em NEX 55%, voc&ecirc; pode gastar 4 PE para receber +5 no teste de ataque e +10 na rolagem de dano.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": "Livre"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768012548817,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "KQVFxaXeDflAHUoN",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!KQVFxaXeDflAHUoN"
+}

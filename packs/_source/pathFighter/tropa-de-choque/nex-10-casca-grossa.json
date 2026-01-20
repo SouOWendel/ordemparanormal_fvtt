@@ -2,30 +2,34 @@
   "folder": "Zt0892Z29qDSodHi",
   "name": "NEX 10% - Casca Grossa",
   "type": "ability",
-  "_id": "jZrPS6Sb3Wg2pqRp",
   "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Tropa%20de%20Choque/Casca%20Grossa.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Voc&ecirc; recebe +1 PV para cada 5% de NEX e, quando faz um bloqueio, soma seu Vigor na resist&ecirc;ncia a dano recebida.</p>"
+    "description": "<p>Voc&ecirc; recebe +1 PV para cada 5% de NEX e, quando faz um bloqueio, soma seu Vigor na resist&ecirc;ncia a dano recebida.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 0,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712181570033,
-    "modifiedTime": 1712186474310,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767391179358,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "jZrPS6Sb3Wg2pqRp",
+  "sort": 0,
   "_key": "!items!jZrPS6Sb3Wg2pqRp"
 }

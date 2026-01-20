@@ -1,0 +1,37 @@
+{
+  "name": "Antihistamínico",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/medicine/medicamentos.svg",
+  "system": {
+    "description": "<p> Reduz reações alérgicas perigosas. Fornece +5 no próximo teste contra efeitos de uma alergia feito até o fim do dia.</p>",
+    "weight": 0.5,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "ZOYcrZVYqetyMZZl",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768446655357,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "BWlIOmeVSxQro88I",
+  "sort": 0,
+  "_key": "!items!BWlIOmeVSxQro88I"
+}

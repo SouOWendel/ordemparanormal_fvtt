@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Chagas da Resistência",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Exorcista/exorcista-99.svg",
+  "system": {
+    "id": "exo99nexJKL012",
+    "abilityType": "class",
+    "preRequisite": "Trilha: Exorcista",
+    "description": "<p>Por meio de sua fé, sua mente consegue extrair forças de seu corpo para suportar qualquer agressão. Quando sua <strong>Sanidade</strong> é reduzida a <strong>0</strong>, você pode gastar <strong>10 PV</strong> para, em vez disso, ficar com <strong>SAN 1</strong>.</p>",
+    "cost": "10",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "LCEcZuYQb3E8NfWE",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767400076001,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "85ebEI9K2JX3T2JZ",
+  "sort": 0,
+  "_key": "!items!85ebEI9K2JX3T2JZ"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Ser Aterrorizante (Morte)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Monstruoso/monstruoso-morte-99.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Monstruoso (Morte)",
+    "description": "<p>Voc&ecirc; foi transformado no habitat perfeito para a entidade que reside no interior de seu corpo e mente. Os efeitos por executar sua etapa ritual&iacute;stica se tornam permanentes (mas voc&ecirc; ainda precisa execut&aacute;-la para evitar sentir fome e sede) e voc&ecirc; passa a ser considerado uma criatura paranormal para efeitos de habilidades e itens. Al&eacute;m disso, a resist&ecirc;ncia a dano que voc&ecirc; recebe por essa trilha aumenta para <strong>20</strong>.</p><p><strong>Morte:</strong> Voc&ecirc; est&aacute; morto, mas ainda &eacute; for&ccedil;ado a existir. Sua apar&ecirc;ncia &eacute; a de um cad&aacute;ver apodrecido, todos os seus &oacute;rg&atilde;os foram consumidos pela Morte. Sua Presen&ccedil;a diminui em &ndash;1 e seu Vigor aumenta em +1. Voc&ecirc; recebe imunidade a dano de Morte e se torna imortal (se morrer, voc&ecirc; volta &agrave; vida no dia seguinte, sendo &ldquo;restaurado&rdquo; pelo Lodo). Entretanto, se for reduzido a 0 PV por dano de fogo ou Energia, seu Lodo &eacute; destru&iacute;do e voc&ecirc; n&atilde;o retorna &agrave; vida. Por fim, voc&ecirc; aprende o ritual <em>Fim Inevit&aacute;vel</em>.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": "Passiva"
+  },
+  "effects": [],
+  "folder": "xXPifqxwwA0vfDNJ",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767392835548,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "PSjGZ3HxrapikAVq",
+  "sort": 0,
+  "_key": "!items!PSjGZ3HxrapikAVq"
+}

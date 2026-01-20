@@ -2,30 +2,34 @@
   "folder": "DgAGcPTJjdlKZetD",
   "name": "NEX 99% - Sombra Fugaz",
   "type": "ability",
-  "_id": "GHVek8517d8plThx",
   "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Infiltrador/Sombra%20Fugaz.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Quando faz um teste de Furtividade ap&oacute;s atacar ou fazer outra a&ccedil;&atilde;o chamativa, voc&ecirc; pode gastar 3 PE para n&atilde;o sofrer a penalidade de &ndash;15 no teste.</p>"
+    "description": "<p>Quando faz um teste de Furtividade ap&oacute;s atacar ou fazer outra a&ccedil;&atilde;o chamativa, voc&ecirc; pode gastar 3 PE para n&atilde;o sofrer a penalidade de &ndash;15 no teste.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 125000,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712182904722,
-    "modifiedTime": 1712186599165,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767391187608,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "GHVek8517d8plThx",
+  "sort": 0,
   "_key": "!items!GHVek8517d8plThx"
 }

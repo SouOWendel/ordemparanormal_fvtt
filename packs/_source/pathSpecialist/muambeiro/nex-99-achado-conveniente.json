@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Achado Conveniente",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Muambeiro/muambeiro-99.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Muambeiro",
+    "description": "<p>Entre protótipos e itens encontrados durante a missão, sua mochila sempre pode ter a ferramenta certa para a ocasião. Você pode gastar uma <strong>ação completa</strong> e <strong>5 PE</strong> para “produzir” um item de até <strong>categoria III</strong> (exceto itens paranormais). O item pode ser um protótipo em que você estava trabalhando, um item encontrado anteriormente na missão ou qualquer outra justificativa aprovada pelo mestre. O item permanece em funcionamento até o fim da cena, quando então deixa de funcionar permanentemente (fica sem energia ou munição, uma peça fundamental se gasta ou quebra etc).</p>",
+    "cost": "5",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "5dbEqkTRU9YiATQg",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767400960682,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "k7uELL98Aq6ZSutP",
+  "sort": 0,
+  "_key": "!items!k7uELL98Aq6ZSutP"
+}

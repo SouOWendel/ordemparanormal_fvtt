@@ -1,0 +1,37 @@
+{
+  "name": "Equipamento de Sobrevivência",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/equipamento-de-sobrevivencia.svg",
+  "system": {
+    "description": "<p>Uma mochila com saco de dormir, panelas, GPS e outros itens &uacute;teis para sobreviver no mato. Fornece +5 em testes de Sobreviv&ecirc;ncia para acampar e orientar-se e permite que voc&ecirc; fa&ccedil;a esses testes sem treinamento.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "PMf5l06CrPOmzJie",
+  "sort": 2100000,
+  "_key": "!items!PMf5l06CrPOmzJie"
+}

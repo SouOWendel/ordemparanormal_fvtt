@@ -1,0 +1,35 @@
+{
+  "name": "NEX 10% - Mascate",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Muambeiro/muambeiro-10.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Muambeiro",
+    "description": "<p>Você aprendeu um ofício útil e desenvolveu métodos para ter sempre à mão o que precisa para praticá-lo. Você recebe treinamento em uma <strong>Profissão</strong> à sua escolha entre armeiro, engenheiro ou químico, e recebe +5 em sua capacidade de carga. Além disso, quando fabrica um item improvisado a DT é reduzida em –10 (em vez de –5).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "5dbEqkTRU9YiATQg",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767401027580,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "VfxD1TrgeYBdjJp0",
+  "sort": 0,
+  "_key": "!items!VfxD1TrgeYBdjJp0"
+}

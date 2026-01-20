@@ -1,0 +1,37 @@
+{
+  "name": "Anti-inflamatório",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/medicine/medicamentos.svg",
+  "system": {
+    "description": "<p>Reduz reações inflamatórias, diminuindo dor e inchaço. Fornece 1d8+2 PV temporários</p>",
+    "weight": 0.5,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "ZOYcrZVYqetyMZZl",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768446638272,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "8SHXNp9HD4hPuNyE",
+  "sort": 0,
+  "_key": "!items!8SHXNp9HD4hPuNyE"
+}

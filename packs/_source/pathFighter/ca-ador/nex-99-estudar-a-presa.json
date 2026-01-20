@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Estudar a Presa",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Cacador/cacador-99.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Caçador",
+    "description": "<p>Você sabe que eles são mais fortes e que para derrotá-los precisará revelar todos os seus segredos. Quando usa <strong>Estudar Fraquezas</strong> contra uma criatura paranormal ou um cultista, você pode transformar o tipo desse ser em sua “presa”. Contra seres desse tipo, você recebe <strong>+1d20</strong> em testes de perícia, <strong>+1 na margem de ameaça</strong> e no <strong>multiplicador de crítico e resistência a dano 5</strong>. Você só pode ter um tipo de ser como presa ao mesmo tempo.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "0BInFPs2RhJWr4fh",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767400652754,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "BXVx1bO3w8d3Malr",
+  "sort": 0,
+  "_key": "!items!BXVx1bO3w8d3Malr"
+}

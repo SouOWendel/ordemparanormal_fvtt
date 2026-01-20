@@ -1,0 +1,37 @@
+{
+  "name": "Chaves",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/accessories/chaves.svg",
+  "system": {
+    "description": "<p>Molhos de chaves (de casa, veículo, cadeados etc.) são itens comuns. Usar o barulho de um molho de chaves para distrair alguém (jogando as chaves, por exemplo) fornece +2 em testes de Furtividade feitos na mesma rodada.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "Ni1u5qDHXarXRlij",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447318779,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "mU4rXaKx3Y9MOJa1",
+  "sort": 0,
+  "_key": "!items!mU4rXaKx3Y9MOJa1"
+}

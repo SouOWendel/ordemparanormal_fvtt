@@ -1,0 +1,37 @@
+{
+  "name": "Equipamento de Escuta",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/equipamento-de-escuta.svg",
+  "system": {
+    "description": "<p>Este conjunto contém um receptor, com alcance de 90m, e três minúsculos transmissores capazes de captar conversas e outros sons em um raio de 9m. Instalar um transmissor demora alguns minutos e exige um teste de Crime contra DT 20 (uma falha indica que a escuta não irá transmitir). O resultado desse teste é também a DT para outras pessoas encontrarem o transmissor. É possível instalar um transmissor discretamente com outras pessoas presentes; fazer isso é uma ação completa, requer um teste de Furtividade oposto à Percepção dos presentes e aumenta a DT do teste de Crime em +5.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "GRq6tK8iZ7NTQqOh",
+  "sort": 1500000,
+  "_key": "!items!GRq6tK8iZ7NTQqOh"
+}

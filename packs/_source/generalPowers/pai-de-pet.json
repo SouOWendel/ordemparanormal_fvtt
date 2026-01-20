@@ -1,0 +1,35 @@
+{
+  "name": "Pai de Pet",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/pai-de-pet.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Presença 2",
+    "description": "<p>Você adora animais, e cuida de seus pets como se fossem seus filhos. Você recebe treinamento em Adestramento ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, possui um animal de estimação que o auxilia e o acompanha em suas aventuras. Em termos de jogo, é um aliado que fornece +2 em duas perícias a sua escolha (exceto Luta ou Pontaria e aprovadas pelo mestre). <i>Pré-requisito: Pre 2.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767841963666,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "ENOerTYdtVazl3xb",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!ENOerTYdtVazl3xb"
+}

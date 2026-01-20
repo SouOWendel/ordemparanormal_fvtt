@@ -1,0 +1,35 @@
+{
+  "name": "NEX 65% - Laboratório de Campo",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Muambeiro/muambeiro-65.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Muambeiro",
+    "description": "<p>Sua habilidade em reparar e fabricar itens permite que você lide com a complexidade de dispositivos paranormais. Você recebe treinamento em uma <strong>Profissão</strong> à sua escolha entre armeiro, engenheiro ou químico ou, se já for treinado em uma dessas perícias, recebe <strong>+5</strong> nela. Além disso, você pode usar fabricação em campo para fabricar e consertar itens paranormais (fabricar um item paranormal exige <strong>três ações de interlúdio</strong> que não precisam ser consecutivas, veja p. 94).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "5dbEqkTRU9YiATQg",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767400990209,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "Igo2EW8ENl1F6ijy",
+  "sort": 0,
+  "_key": "!items!Igo2EW8ENl1F6ijy"
+}

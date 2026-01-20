@@ -1,0 +1,37 @@
+{
+  "name": "Pistola Sinalizadora",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/pistola-sinalizadora.svg",
+  "system": {
+    "description": "<p>Esta pistola dispara um sinalizador luminoso, &uacute;til para chamar outras pes\u0002soas para sua localiza&ccedil;&atilde;o. Pode ser usada como uma arma de disparo leve com alcance curto que causa 2d6 pontos de dano de fogo. A pistola vem com 2 cargas. Uma caixa adicional com 2 cargas &eacute; um item de categoria 0 que ocupa 1 espa&ccedil;o.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "FCyXZXst2T4aam5l",
+  "sort": 1300000,
+  "_key": "!items!FCyXZXst2T4aam5l"
+}

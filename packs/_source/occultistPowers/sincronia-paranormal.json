@@ -1,0 +1,35 @@
+{
+  "name": "Sincronia Paranormal",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/sincronia-paranormal.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "NEX 60%",
+    "description": "<p>A exposição Paranormal de momentos terríveis que você compartilhou com seus aliados criou uma conexão invisível de Medo entre vocês, como uma linha entrelaçada dos seus destinos. Você pode gastar uma ação padrão e 2 PE para estabelecer uma sincronia mental com qualquer número de personagens, em alcance médio, com os quais você já tenha sobrevivido a pelo menos um encontro com o Paranormal. Essa sincronia é uma conexão inconsciente, e não permite uma troca clara de informações; em termos de regras, no início de cada rodada em que a sincronia estiver em efeito você pode distribuir uma quantidade de d20 de bônus igual à sua Presença entre os demais participantes. Estes dados podem ser usados em testes de perícias baseadas em Intelecto ou Presença e desaparecem no final de cada rodada. Manter a sincronia custa 1 PE no início de cada rodada. <em>Pré-requisito: Pre 2.</em></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768017120092,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "VQmczFYTx5EufehH",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!VQmczFYTx5EufehH"
+}

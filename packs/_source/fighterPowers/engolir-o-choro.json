@@ -1,0 +1,35 @@
+{
+  "name": "Engolir o Choro",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/engolir-o-choro.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Vigor 2",
+    "description": "<p>Mesmo ferido, você não vai emitir um pio até que a ameaça se afaste. Você não sofre penalidades por condições em testes de perícia para fugir e em testes de Furtividade.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768018959653,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "5vdHa9m7WU5rEGho",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!5vdHa9m7WU5rEGho"
+}

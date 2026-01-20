@@ -1,0 +1,35 @@
+{
+  "name": "Combater com Duas Armas",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/combater-com-duas-armas.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Agilidade 3 & Luta ou Pontaria",
+    "description": "<p>Se estiver usando duas armas (e pelo menos uma for leve) e fizer a a&ccedil;&atilde;o agredir, voc&ecirc; pode fazer dois ataques, um com cada arma. Se fizer isso, sofre &ndash;1d20 em todos os testes de ataque at&eacute; o seu pr&oacute;ximo turno.<i>Pré-requisitos: Agi 3, treinado em Luta ou Pontaria.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1768005730398,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "J4BjtdQ2D0gJ60FQ",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!J4BjtdQ2D0gJ60FQ"
+}

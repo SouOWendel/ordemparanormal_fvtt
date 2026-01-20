@@ -1,0 +1,35 @@
+{
+  "name": "Ataque de Oportunidade",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Ataque%20de%20Oportunidade.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Sempre que um ser sair voluntariamente de um espa&ccedil;o adjacente ao seu, voc&ecirc; pode gastar uma rea&ccedil;&atilde;o e 1 PE para fazer um ataque corpo a corpo contra ele.</p>",
+    "cost": "1",
+    "costType": "PE",
+    "activation": "Reação"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012548817,
+    "modifiedTime": 1768012548817,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "1seOPWw18K1GvHrQ",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!1seOPWw18K1GvHrQ"
+}

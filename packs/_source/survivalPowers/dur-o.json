@@ -1,0 +1,35 @@
+{
+  "name": "Durão",
+  "type": "ability",
+  "_id": "YJGs8aWNCN8rg2G6",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/survivor/durao.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "",
+    "preRequisite": "",
+    "description": "<p>Você recebe +4 PV. Quando subir para o 3º estágio, recebe +2 PV.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768024745767,
+    "modifiedTime": 1768025236607,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "_key": "!items!YJGs8aWNCN8rg2G6"
+}

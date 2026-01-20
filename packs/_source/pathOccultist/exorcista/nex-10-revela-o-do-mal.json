@@ -1,0 +1,35 @@
+{
+  "name": "NEX 10% - Revelação do Mal",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Exorcista/exorcista-10.svg",
+  "system": {
+    "id": "exo10nexABC123",
+    "abilityType": "class",
+    "preRequisite": "Trilha: Exorcista",
+    "description": "<p>Qualquer que seja sua fé, seus estudos teológicos o prepararam para perceber os sinais do paranormal. Você recebe treinamento em <strong>Religião</strong> ou, se já for treinado nesta perícia, recebe <strong>+2</strong> nela. Além disso, pode usar essa perícia no lugar de Investigação e Percepção para notar e encontrar seres, rastros ou pistas que tenham traços paranormaise no lugar de <strong>Ocultismo</strong>.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "LCEcZuYQb3E8NfWE",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767400171252,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "Ki47ynBN9JlYNVYK",
+  "sort": 0,
+  "_key": "!items!Ki47ynBN9JlYNVYK"
+}

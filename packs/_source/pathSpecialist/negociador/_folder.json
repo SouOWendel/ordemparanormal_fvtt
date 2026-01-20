@@ -3,17 +3,21 @@
   "sorting": "a",
   "folder": null,
   "type": "Item",
-  "_id": "Fa9a35aqB8oqkXbE",
-  "sort": 0,
   "color": null,
   "flags": {},
   "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
     "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "11.315",
-    "createdTime": 1712182665573,
-    "modifiedTime": 1712182665573,
-    "lastModifiedBy": "D087Zkcpssj33iAO"
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187583,
+    "modifiedTime": 1767391187583,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "description": "",
+  "_id": "Fa9a35aqB8oqkXbE",
+  "sort": 0,
   "_key": "!folders!Fa9a35aqB8oqkXbE"
 }

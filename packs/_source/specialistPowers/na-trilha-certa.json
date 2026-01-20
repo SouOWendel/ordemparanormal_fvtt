@@ -1,0 +1,35 @@
+{
+  "name": "Na Trilha Certa",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Na%20Trilha%20Certa.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Sempre que tiver sucesso em um teste para procurar pistas, voc&ecirc; pode gastar 1 PE para receber +1d20 no pr&oacute;ximo teste. Os custos e os b&ocirc;nus s&atilde;o cumulativos (se passar num segundo teste, pode pagar 2 PE para receber um total de +2d20 no pr&oacute;ximo teste, e assim por diante).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768014041889,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "ecelL9jselcPtNZQ",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!ecelL9jselcPtNZQ"
+}

@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "64arkzjRaqWh1lLD",
+  "name": "Morte",
+  "color": "#303030",
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "lastModifiedBy": "uX8kbsijC8bcpBa3",
+    "modifiedTime": 1767469424606
+  },
+  "_id": "xXPifqxwwA0vfDNJ",
+  "sort": 0,
+  "_key": "!folders!xXPifqxwwA0vfDNJ"
+}

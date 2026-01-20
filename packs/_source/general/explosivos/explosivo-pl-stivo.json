@@ -1,0 +1,37 @@
+{
+  "folder": "vMqLnEQxQdNEG795",
+  "name": "Explosivo Plástivo",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/explosives/explosivo-plastico.svg",
+  "system": {
+    "description": "<p>Essa massa adesiva do tamanho de uma esponja é acompanhada de pinos de ignição e um detonador remoto. Para utilizá-la, você precisa gastar duas rodadas para preparar os pinos e grudar o explosivo em uma superf ície. Por fim, você pode detonar o explosivo acionando um detonador (uma ação livre que pode ser feita de alcance longo) ou causando pelo menos 1 ponto de dano de fogo ou eletricidade nele. Quando detonado, o explosivo plástico causa 16d6 pontos de dano de impacto em todos os seres e objetos em um raio de 3m (Reflexos DT Int reduz à metade). Se usado por um especialista em explosivos (alguém treinado em Crime ou uma Profissão adequada, a critério do mestre), causa o dobro de dano em objetos e estruturas e ignora sua RD</p>",
+    "weight": 1,
+    "category": "1",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768447225923,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "MgLsHTPaZFKwXPZs",
+  "sort": 0,
+  "_key": "!items!MgLsHTPaZFKwXPZs"
+}

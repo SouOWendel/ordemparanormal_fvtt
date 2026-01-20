@@ -1,0 +1,35 @@
+{
+  "name": "NEX 10% - Ser Amaldiçoado (Energia)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Monstruoso/monstruoso-energia-10.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Monstruoso (Energia)",
+    "description": "<p>Voc&ecirc; se torna treinado em Ocultismo (se j&aacute; for treinado, em vez disso recebe +2 nessa per&iacute;cia). Uma vez por dia, voc&ecirc; precisa executar uma etapa ritual&iacute;stica desse elemento. Se fizer isso, at&eacute; o fim do dia voc&ecirc; recebe os efeitos descritos a seguir, conforme o elemento escolhido. Caso contr&aacute;rio, voc&ecirc; sofre de fome e sede nesse dia.</p><p><strong>Energia:</strong> Sua pele ganha cicatrizes de queimaduras el&eacute;tricas com m&uacute;ltiplas cores. Voc&ecirc; recebe resist&ecirc;ncia a corte, eletricidade, fogo e Energia 5 e soma sua Agilidade na RD recebida por um bloqueio bem-sucedido, mas sofre <strong>&ndash;1d20</strong> em Investiga&ccedil;&atilde;o e Percep&ccedil;&atilde;o.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": "Passiva"
+  },
+  "effects": [],
+  "folder": "dO7VaSBS6asgV6AC",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767392797296,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "5nZCpJV6bNb2nyuq",
+  "sort": 0,
+  "_key": "!items!5nZCpJV6bNb2nyuq"
+}

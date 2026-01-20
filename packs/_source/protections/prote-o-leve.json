@@ -2,7 +2,7 @@
   "name": "Proteção Leve",
   "type": "protection",
   "_id": "rKXFgARbu2Z5luyt",
-  "img": "systems/ordemparanormal/media/icons/general%20equipments/Prote%C3%A7%C3%A3o%20Leve.svg",
+  "img": "systems/ordemparanormal/media/icons/protections/protecao-leve.svg",
   "system": {
     "description": "<p>Jaqueta de couro pesada ou um colete de kevlar. Essa prote&ccedil;&atilde;o &eacute; tipicamente usada por seguran&ccedil;as e policiais.</p>",
     "weight": 1,
@@ -26,12 +26,13 @@
   "_stats": {
     "systemId": "ordemparanormal",
     "systemVersion": "6.3.3",
-    "coreVersion": "12.331",
+    "coreVersion": "13.351",
     "createdTime": 1710371083174,
-    "modifiedTime": 1710376580771,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
+    "modifiedTime": 1768848094021,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null
   },
   "_key": "!items!rKXFgARbu2Z5luyt"
 }

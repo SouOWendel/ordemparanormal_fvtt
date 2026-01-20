@@ -1,0 +1,35 @@
+{
+  "name": "NEX 40% - Fuga Obstinada",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Perseverante/perseverante-40.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Perseverante",
+    "description": "<p>Seu instinto de sobrevivência lhe impulsiona para desprender as mais desesperadas fugas. Você recebe <strong>+1d20</strong> em testes de perícia para fugir de um inimigo (seja em uma perseguição ou não). Além disso, em <strong>cenas de perseguição</strong>, se você for a presa, pode acumular até 4 falhas antes de ser pego.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "AMgdnmCO4bzW70V9",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767401180394,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "UNBMkqXdude7NvST",
+  "sort": 0,
+  "_key": "!items!UNBMkqXdude7NvST"
+}

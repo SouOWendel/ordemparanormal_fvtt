@@ -1,0 +1,35 @@
+{
+  "name": "Sorrateiro",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/Sorrateiro.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Agilidade 2",
+    "description": "<p>Você sabe ser discreto em qualquer situação. Você recebe treinamento em Furtividade ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, você não sofre penalidades por se mover normalmente enquanto está furtivo, nem por seguir alguém em ambientes sem esconderijos ou sem movimento. <i>Pré-requisito: Agi 2.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767468426324,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "EaUslI7S8MeMQ0uY",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!EaUslI7S8MeMQ0uY"
+}

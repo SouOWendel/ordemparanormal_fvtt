@@ -1,0 +1,35 @@
+{
+  "name": "Primeira Impressão",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Primeira%20Impress%C3%A3o.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Voc&ecirc; recebe +2d20 no primei\u0002ro teste de Diplomacia, Engana&ccedil;&atilde;o, Intimida&ccedil;&atilde;o ou Intui&ccedil;&atilde;o que fizer em uma cena.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768014041889,
+    "modifiedTime": 1768014041889,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "UK4bTdoGrL5pKbsH",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!UK4bTdoGrL5pKbsH"
+}

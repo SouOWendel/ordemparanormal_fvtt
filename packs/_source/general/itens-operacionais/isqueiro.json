@@ -1,0 +1,37 @@
+{
+  "name": "Isqueiro",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/isqueiro.svg",
+  "system": {
+    "description": "<p>Existem isqueiros de vários tipos, desde os sofisticados de metal até os descartáveis de plástico. Todos seguem o mesmo princípio; você pode gastar uma ação de movimento para produzir uma pequena chama. Além de incendiar objetos inflamáveis, emite luz em um raio de 3m.</p>",
+    "weight": 0.5,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "ZgkcucAZShWR1Rn7",
+  "sort": 2800000,
+  "_key": "!items!ZgkcucAZShWR1Rn7"
+}

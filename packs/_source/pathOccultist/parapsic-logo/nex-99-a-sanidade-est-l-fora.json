@@ -1,0 +1,35 @@
+{
+  "name": "Nex 99% - A Sanidade Está Lá Fora",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Parapsicologo/parapsicologo-99.svg",
+  "system": {
+    "id": "eF3gHi4jK6lM8nO0",
+    "abilityType": "class",
+    "preRequisite": "Trilha: Parapsicólogo",
+    "description": "<p>Graças aos seus estudos, a capacidade de curar a mente humana de (quase) todas as mazelas está ao seu alcance. Você pode gastar <strong>uma ação de movimento</strong> e <strong>5 PE</strong> para remover todas as condições de medo ou mentais de uma pessoa adjacente (incluindo você mesmo).</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "bxfo0A2o3rfDDQFG",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767400339502,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "SozVwQDWsw4lySUo",
+  "sort": 0,
+  "_key": "!items!SozVwQDWsw4lySUo"
+}

@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "peeofSVjDPX82dVA",
+  "name": "Medicamentos",
+  "color": "#002903",
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "lastModifiedBy": "uX8kbsijC8bcpBa3",
+    "modifiedTime": 1768446745317
+  },
+  "_id": "ZOYcrZVYqetyMZZl",
+  "sort": 0,
+  "_key": "!folders!ZOYcrZVYqetyMZZl"
+}

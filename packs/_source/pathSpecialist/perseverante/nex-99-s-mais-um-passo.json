@@ -1,0 +1,35 @@
+{
+  "name": "NEX 99% - Só Mais um Passo...",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/specialist/Perseverante/perseverante-99.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Perseverante",
+    "description": "<p>Você não chegou até aqui para morrer, e fará qualquer coisa para escapar com vida. <strong>Uma vez por rodada</strong>, quando sofre dano que reduziria seus PV a 0, você pode gastar <strong>5 PE</strong> para, em vez disso, ficar com 1 PV. Esta habilidade não funciona contra dano massivo.</p>",
+    "cost": "5",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "AMgdnmCO4bzW70V9",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391187608,
+    "modifiedTime": 1767401059501,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "67u8GTM8xJb9hQQB",
+  "sort": 0,
+  "_key": "!items!67u8GTM8xJb9hQQB"
+}

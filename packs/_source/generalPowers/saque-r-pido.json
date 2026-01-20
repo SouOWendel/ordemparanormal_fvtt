@@ -1,0 +1,35 @@
+{
+  "name": "Saque Rápido",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/saque-rapido.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Iniciativa",
+    "description": "<p>Você pode sacar ou guardar itens como uma ação livre (em vez de ação de movimento). Além disso, caso esteja usando a regra opcional de contagem de munição, uma vez por rodada pode recarregar uma arma de disparo como uma ação livre.<i>Pré-requisitos: treinado em Iniciativa</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1768005750958,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "8ol2KOUHIkkKkgqa",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!8ol2KOUHIkkKkgqa"
+}

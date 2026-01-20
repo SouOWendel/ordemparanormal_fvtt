@@ -1,0 +1,35 @@
+{
+  "name": "Nex 40% - Palavras-Chave",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Parapsicologo/parapsicologo-40.svg",
+  "system": {
+    "id": "rJ8kLm4nO6pQ2rS3",
+    "abilityType": "class",
+    "preRequisite": "Trilha: Parapsicólogo",
+    "description": "<p>Combinando psicologia e estudos do Outro Lado, você desenvolveu técnicas e sabe o que dizer para restaurar a sanidade de seus pacientes. Quando passa em um teste de perícia para acalmar (veja OPRPG, p. 44), você pode gastar uma quantidade de pontos de esforço até seu limite de PE. Para cada <strong>1 PE</strong> gasto desta forma, a pessoa que está sendo tratada recupera <strong>1 ponto de Sanidade</strong> (ou 1 PD, se estiver usando a regra “Jogando sem Sanidade” da p. 104).</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "folder": "bxfo0A2o3rfDDQFG",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767400273683,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "oAgJ7CpVbzesvoud",
+  "sort": 0,
+  "_key": "!items!oAgJ7CpVbzesvoud"
+}

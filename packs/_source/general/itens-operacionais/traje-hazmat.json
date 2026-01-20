@@ -1,0 +1,37 @@
+{
+  "name": "Traje Hazmat",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/traje-hazmat.svg",
+  "system": {
+    "description": "<p>Uma roupa imperme&aacute;vel e que cobre o corpo inteiro, usada para impedir o con\u0002tato do usu&aacute;rio com materiais t&oacute;xicos. Fornece +5 em testes de resist&ecirc;ncia contra efeitos ambientais e resist&ecirc;ncia a qu&iacute;mico 10.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "T8h7m1G8o5NQYVHw",
+  "sort": 2400000,
+  "_key": "!items!T8h7m1G8o5NQYVHw"
+}

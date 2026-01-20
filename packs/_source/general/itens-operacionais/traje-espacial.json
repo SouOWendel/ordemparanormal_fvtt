@@ -1,0 +1,37 @@
+{
+  "name": "Traje Espacial",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/traje-espacial.svg",
+  "system": {
+    "description": "<p>Uma roupa impermeável e que cobre o corpo inteiro, usada para garantir a segurança do astronauta no vácuo do espaço. Possui um suprimento de água e oxigênio de oito horas, e protege contra os raios cósmicos e de minúsculas rochas errantes no espaço. Fornece +10 em testes de resistência contra efeitos ambientais e resistência a dano químico 20. Ocupa o espaço de uma vestimenta e vesti-lo, ou despi-lo, demora duas rodadas.</p>",
+    "weight": 5,
+    "category": "2",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "EJIv7UpLbIBw55Pw",
+  "sort": 1100000,
+  "_key": "!items!EJIv7UpLbIBw55Pw"
+}

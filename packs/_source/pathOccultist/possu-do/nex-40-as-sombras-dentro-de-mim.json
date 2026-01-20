@@ -1,0 +1,35 @@
+{
+  "folder": "uIhZEFesJyaSYIJU",
+  "name": "NEX 40% - As Sombras Dentro de Mim",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Possuido/possuido-40.svg",
+  "system": {
+    "id": "bW3yA7dX1cE6fH9s",
+    "abilityType": "path",
+    "preRequisite": "Trilha: Possuído",
+    "description": "<p>Cada vez mais a Entidade cresce dentro de você, tomando seus músculos e guiando seus movimentos. Sua recuperação de PP aumenta para 2 por ação <strong>dormir</strong>. Além disso, você pode gastar <strong>2 PE</strong> para permitir que sua Entidade controle temporariamente seus músculos. Você assume uma postura desnatural que permite movimentos bizarros e silenciosos; você recebe <strong>+1d20</strong> em <strong>Acrobacia</strong>, <strong>Atletismo</strong> e <strong>Furtividade</strong> por <strong>uma rodada</strong> e, se estiver em uma <strong>cena de furtividade</strong> (veja p. 92), nesta rodada o aumento em sua visibilidade por qualquer ação é reduzido em –1.</p>",
+    "cost": "2",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767399724378,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "4ysHVaOvZymvSwMH",
+  "sort": 50000,
+  "_key": "!items!4ysHVaOvZymvSwMH"
+}

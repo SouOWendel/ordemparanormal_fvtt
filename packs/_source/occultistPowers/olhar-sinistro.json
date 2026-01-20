@@ -1,0 +1,35 @@
+{
+  "name": "Olhar Sinistro",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/olhar-sinistro.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "",
+    "description": "<p>Aquilo que para outros é quase uma ciência, para você é a imposição da própria vontade. Você pode usar Presença no lugar de Intelecto para Ocultismo e pode usar esta perícia para coagir (veja Intimidação). <em>Pré-requisito: Pre 1.</em></p>",
+    "cost": "1",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768012562479,
+    "modifiedTime": 1768017097207,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "KTTrozCIY4Gf24KB",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!KTTrozCIY4Gf24KB"
+}

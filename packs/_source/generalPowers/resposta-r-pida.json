@@ -1,0 +1,35 @@
+{
+  "name": "Resposta Rápida",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/resposta-rapida.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Agilidade 2",
+    "description": "<p>Seus reflexos são tão apurados que o permitem agir antes mesmo de você perceber as ameaças de forma consciente. Você recebe treinamento em Reflexos ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, ao falhar em um teste de Percepção para evitar ficar desprevenido, você pode gastar 2 PE para rolar novamente o teste usando Reflexos. <i>Pré-requisito: Agi 2.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767842031884,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "hffrP1t6vER1PL95",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!hffrP1t6vER1PL95"
+}

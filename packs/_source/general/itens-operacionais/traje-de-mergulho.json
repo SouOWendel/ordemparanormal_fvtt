@@ -1,0 +1,37 @@
+{
+  "name": "Traje de Mergulho",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/traje-de-mergulho.svg",
+  "system": {
+    "description": "<p>Uma roupa impermeável e que cobre quase o corpo inteiro, usada para garantir a segurança do mergulhador debaixo d’água. Vem acompanhado de tanque e máscara que garantem 1 hora de oxigênio. Fornece +5 em testes de resistência contra efeitos ambientais e resistência a dano químico 5. Ocupa o espaço de uma vestimenta e vesti-lo ou despi-lo é uma ação completa.</p>",
+    "weight": 2,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "9V0a3Dazws5T3Z1A",
+  "sort": 600000,
+  "_key": "!items!9V0a3Dazws5T3Z1A"
+}

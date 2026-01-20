@@ -1,0 +1,37 @@
+{
+  "name": "Bloqueador de Sinal",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/bloqueador-de-sinais.svg",
+  "system": {
+    "description": "<p>Este dispositivo compacto emite ondas que &ldquo;poluem&rdquo; a frequ&ecirc;ncia de r&aacute;dio usada por celulares, impedindo que qualquer aparelho desse tipo em alcance m&eacute;dio se conecte</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "EgzqvbyHnbzu9sTN",
+  "sort": 1200000,
+  "_key": "!items!EgzqvbyHnbzu9sTN"
+}

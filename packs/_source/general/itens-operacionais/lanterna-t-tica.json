@@ -1,0 +1,37 @@
+{
+  "name": "Lanterna Tática",
+  "type": "generalEquipment",
+  "img": "systems/ordemparanormal/media/icons/equipments/operational/lanterna-tatica.svg",
+  "system": {
+    "description": "<p>Ilumina lugares escuros. Al&eacute;m disso, voc&ecirc; pode gastar uma a&ccedil;&atilde;o de movimento para mirar a luz nos olhos de um ser em alcance curto. Ele fica ofuscado por 1 rodada, mas imune &agrave; lanterna pelo resto da cena.</p>",
+    "weight": 1,
+    "category": "0",
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "type": "",
+    "quantity": 1
+  },
+  "effects": [],
+  "folder": "peeofSVjDPX82dVA",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1768441745795,
+    "modifiedTime": 1768848688162,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "5In8djqh0AyO70wS",
+  "sort": 400000,
+  "_key": "!items!5In8djqh0AyO70wS"
+}

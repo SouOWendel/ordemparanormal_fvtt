@@ -2,30 +2,34 @@
   "folder": "p0PO4vWrBCx9Vmor",
   "name": "NEX 10% - Poder do Flagelo",
   "type": "ability",
-  "_id": "w4ih964dVXLyT6h4",
   "img": "systems/ordemparanormal/media/icons/abilities/class/occultist/Flagelador/Poder%20do%20Flagelo.svg",
   "system": {
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Ao conjurar um ritual, voc&ecirc; pode gastar seus pr&oacute;prios pontos de vida para pagar o custo em pontos de esfor&ccedil;o, &agrave; taxa de 2 PV por PE pago. Pontos de vida gastos dessa forma s&oacute; podem ser recuperados com descanso.</p>"
+    "description": "<p>Ao conjurar um ritual, voc&ecirc; pode gastar seus pr&oacute;prios pontos de vida para pagar o custo em pontos de esfor&ccedil;o, &agrave; taxa de 2 PV por PE pago. Pontos de vida gastos dessa forma s&oacute; podem ser recuperados com descanso.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
   },
   "effects": [],
-  "sort": 0,
-  "ownership": {
-    "default": 0,
-    "D087Zkcpssj33iAO": 3
-  },
   "flags": {},
   "_stats": {
-    "systemId": "ordemparanormal",
-    "systemVersion": "6.5.0",
-    "coreVersion": "12.331",
-    "createdTime": 1712184349405,
-    "modifiedTime": 1712186691839,
-    "lastModifiedBy": "D087Zkcpssj33iAO",
     "compendiumSource": null,
-    "duplicateSource": null
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391166811,
+    "modifiedTime": 1767391166811,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
   },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "w4ih964dVXLyT6h4",
+  "sort": 0,
   "_key": "!items!w4ih964dVXLyT6h4"
 }

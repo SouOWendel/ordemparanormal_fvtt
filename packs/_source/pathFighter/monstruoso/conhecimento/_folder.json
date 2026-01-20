@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "64arkzjRaqWh1lLD",
+  "name": "Conhecimento",
+  "color": "#806200",
+  "sorting": "a",
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "lastModifiedBy": "uX8kbsijC8bcpBa3",
+    "modifiedTime": 1767469405199
+  },
+  "_id": "T7nHXNBc4tUJFZLO",
+  "sort": 0,
+  "_key": "!folders!T7nHXNBc4tUJFZLO"
+}

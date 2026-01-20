@@ -1,0 +1,35 @@
+{
+  "name": "Tiro Certeiro",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/tiro-certeiro.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "class",
+    "preRequisite": "Pontaria",
+    "description": "<p>Se estiver usando uma arma de disparo, voc&ecirc; soma sua Agilidade nas rolagens de dano e ignora a penalidade contra alvos envolvidos em combate corpo a corpo (mesmo se n&atilde;o usar a a&ccedil;&atilde;o mirar).<i>Pré-requisitos: treinado em Pontaria.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1768005761981,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "vzZDwl7fg9r3BvdP",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!vzZDwl7fg9r3BvdP"
+}

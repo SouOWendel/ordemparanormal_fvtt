@@ -1,0 +1,35 @@
+{
+  "name": "Atlético",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/general/atletico.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "general",
+    "preRequisite": "Força 2",
+    "description": "<p>Você possui um corpo atlético, resultado de uma fortuita disposição genética ou árduo treinamento. Você recebe treinamento em Atletismo ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, recebe +3m em seu deslocamento. <i>Pré-requisito: For 2.</i></p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767468426324,
+    "modifiedTime": 1767841912881,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "IkMrVs8UVejhM6JG",
+  "sort": 0,
+  "folder": null,
+  "_key": "!items!IkMrVs8UVejhM6JG"
+}

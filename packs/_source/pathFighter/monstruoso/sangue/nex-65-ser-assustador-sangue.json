@@ -1,0 +1,35 @@
+{
+  "name": "NEX 65% - Ser Assustador (Sangue)",
+  "type": "ability",
+  "img": "systems/ordemparanormal/media/icons/abilities/class/fighter/Monstruoso/monstruoso-sangue-65.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "path",
+    "preRequisite": "Trilha: Monstruoso (Sangue)",
+    "description": "<p>Como um parasita, voc&ecirc; sente a Entidade andar por todo o seu corpo, fazendo de voc&ecirc; uma morada. A resist&ecirc;ncia a dano que voc&ecirc; recebe por executar a etapa ritual&iacute;stica de seu elemento aumenta para <strong>15</strong>, mas sua Presen&ccedil;a &eacute; reduzida permanentemente em 1.</p><p><strong>Sangue:</strong> Voc&ecirc; dilacerou seus pr&oacute;prios &oacute;rg&atilde;os sensitivos, como olhos, nariz e orelhas, para que possa sentir com total intensidade o sabor e a dor da sua exist&ecirc;ncia. Voc&ecirc; tem 50% de chance de ignorar o dano adicional de um acerto cr&iacute;tico ou ataque furtivo. Al&eacute;m disso, recebe uma arma natural de mordida (dano 1d8, cr&iacute;tico x2, perfura&ccedil;&atilde;o). Uma vez por rodada, quando usa a a&ccedil;&atilde;o agredir para atacar com outra arma, voc&ecirc; pode gastar 1 PE para fazer um ataque corpo a corpo extra com a mordida.</p>",
+    "cost": "",
+    "costType": "PE",
+    "activation": "Passiva"
+  },
+  "effects": [],
+  "folder": "RUYBbiKm4OwqxxFC",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.2.4",
+    "createdTime": 1767391179358,
+    "modifiedTime": 1767392865015,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+  },
+  "ownership": {
+    "default": 0,
+    "uX8kbsijC8bcpBa3": 3
+  },
+  "_id": "wf6SGnhXCxUtyrXf",
+  "sort": 0,
+  "_key": "!items!wf6SGnhXCxUtyrXf"
+}

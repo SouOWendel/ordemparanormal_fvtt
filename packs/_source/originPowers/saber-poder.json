@@ -1,0 +1,32 @@
+{
+  "name": "Saber é Poder",
+  "type": "ability",
+  "_id": "0GFP5aaUALJPmZQd",
+  "img": "systems/ordemparanormal/media/icons/abilities/origin/saber-e-poder.svg",
+  "system": {
+    "id": 0,
+    "abilityType": "ability",
+    "preRequisite": "",
+    "description": "<p>Quando faz um teste usando Intelecto, voc&ecirc; pode gastar 2 PE para receber +5 nesse teste.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "D087Zkcpssj33iAO": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ordemparanormal",
+    "systemVersion": "6.5.0",
+    "coreVersion": "13.351",
+    "createdTime": 1712008246389,
+    "modifiedTime": 1768851747268,
+    "lastModifiedBy": "uX8kbsijC8bcpBa3",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!0GFP5aaUALJPmZQd"
+}
