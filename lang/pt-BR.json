@@ -55,7 +55,9 @@
 		"abilities": "Habilidades",
 		"rituals": "Rituais",
 		"biography": "Biografia",
-		"effects": "Efeitos"
+		"effects": "Efeitos",
+		"attacks": "Ataques",
+		"enigmas": "Enigmas"
 	},
 
 	"op.item.tab": {
@@ -405,6 +407,21 @@
 		"knowledge": "Conhecimento",
 		"energy": "Energia",
 		"fear": "Medo"
+	},
+
+	"op.threatTypeChoices": {
+		"creature": "Criatura",
+		"person": "Pessoa",
+		"animal": "Animal"
+	},
+
+	"op.threatSizeChoices": {
+		"tiny": "Minúsculo",
+		"small": "Pequeno",
+		"medium": "Médio",
+		"large": "Grande",
+		"huge": "Enorme",
+		"colossal": "Colossal"
 	},
 
 	"op.Notes": "Notas de Atualização",

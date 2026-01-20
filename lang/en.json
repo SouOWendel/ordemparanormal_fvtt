@@ -1,13 +1,14 @@
 {
 	"op.op": "Paranormal Order",
+
 	"TYPES.Actor.agent": "Agent",
 	"TYPES.Actor.threat": "Threat",
 
 	"TYPES.Item.protection": "Protection",
-	"op.protection.plural": "Proteções",
+	"op.protection.plural": "Protections",
 
 	"TYPES.Item.generalEquipment": "General Equipment",
-	"op.generalEquipment.plural": "Equipments",
+	"op.generalEquipment.plural": "Equipment",
 
 	"TYPES.Item.armament": "Armament",
 	"op.armament.plural": "Armaments",
@@ -18,29 +19,40 @@
 	"TYPES.Item.ability": "Ability",
 	"op.ability.plural": "Abilities",
 
-	"op.OrdemActorSheet": "Agent's Sheet",
+	"op.OrdemActorSheet": "Agent Sheet",
 
-	"SETTINGS.opPatchNotes": "Desativar Notas de Atualização",
-	"SETTINGS.opPatchNotesHint": "Ao iniciar um mundo com o sistema Ordem Paranormal, ou, ao atualizar o sistema, notas de atualizações com as novidades são exibidas em uma janela, marque/desmarque essa opção para desativar/ativar.",
-	"SETTINGS.globalProgressRules": "Regras de Evolução",
-	"SETTINGS.globalProgressRulesHint": "As regras de evolução definem o modo de progresso das fichas de agente alterando a forma como elas funcionam. Consulte o livro de regras para mais informações sobre cada modo de progresso.",
-	"SETTINGS.nexProgressRule": "Evolução por NEX",
-	"SETTINGS.nexExpProgressRule": "NEX & Experiência",
-	"SETTINGS.patentesProgressRule": "Evolução por Patentes",
-	"SETTINGS.globalPlayingWithoutSanity": "Jogando sem Sanidade",
-	"SETTINGS.globalPlayingWithoutSanityHint": "Marcar esta opção funde os pontos de esforço e a sanidade das fichas de agente em pontos de determinação, uma opção que representa ambos PE e SAN.",
+	"SETTINGS.opPatchNotes": "Disable Update Notes",
+	"SETTINGS.opPatchNotesHint": "When starting a world with the Paranormal Order system, or when updating the system, update notes with news are displayed in a window. Check/uncheck this option to disable/enable it.",
+	"SETTINGS.globalProgressRules": "Progression Rules",
+	"SETTINGS.globalProgressRulesHint": "Progression rules define the progress mode for agent sheets, altering how they work. Consult the rulebook for more information about each progress mode.",
+	"SETTINGS.nexProgressRule": "NEX Progression",
+	"SETTINGS.nexExpProgressRule": "NEX & Experience",
+	"SETTINGS.patentesProgressRule": "Rank Progression",
+	"SETTINGS.globalPlayingWithoutSanity": "Playing Without Sanity",
+	"SETTINGS.globalPlayingWithoutSanityHint": "Checking this option merges effort points and sanity of agent sheets into determination points, an option that represents both EP and SAN.",
 
 	"MACRO.opUnownedWarn": "You can only create macro buttons for owned Items.",
 	"MACRO.opNoActorSelected": "No selected or assigned actor could be found to target with macro.",
-	"MACRO.opMissingTargetWarn": "Your controlled actor '{actor}' does not have an {type} with name '{name}'.",
+	"MACRO.opMissingTargetWarn": "Your controlled actor '{actor}' does not have a '{type}' with name '{name}'.",
 	"MACRO.opMultipleTargetsWarn": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen.",
-	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 
-	"WORLD.GameSystem": "System Game",
+	"WARN.overWeight": "What you carry cannot exceed twice your maximum weight!",
+
+	"CHAT.RollBlind": "Blind Roll for GM",
+	"CHAT.RollDefault": "Default Roll Mode",
+	"CHAT.RollPublic": "Public Roll",
+	"CHAT.RollPrivate": "Private Roll for GM",
+	"CHAT.RollSelf": "Self Roll",
+	"CHAT.RollTables": "Roll Tables",
+
+	"WORLD.GameSystem": "Game System",
+
 	"op.sidebar.updateNotes": "An unofficial system in version",
-	"op.soon": "Soon.",
 	"op.sidebar.discord": "Contact me on Discord",
 	"op.sidebar.bluesky": "Follow me on Bluesky",
+	"op.sidebar.twitter": "Follow me on Twitter",
+
+	"op.soon": "Coming Soon",
 
 	"op.tab": {
 		"skills": "Skills",
@@ -66,9 +78,9 @@
 	"op.pdPerRound": "DP / Round",
 	"op.San": "Sanity",
 	"op.NEX": "NEX",
-	"op.nivel": "Nivel",
+	"op.nivel": "Level",
 	"op.stage": "Stage",
-	"op.ritualdt": "Ritual DT is",
+	"op.ritualdt": "Ritual DC is",
 
 	"op.skill": {
 		"acrobatics": "Acrobatics",
@@ -117,7 +129,9 @@
 	"op.vigAbv": "Vit",
 	"op.forAbv": "Str",
 
-	"op.newItem": "Novo(a)",
+	"op.newItem": "New",
+
+	"op.add": "Add",
 
 	"op.effectCreate": "Create Effect",
 	"op.effectToggle": "Toggle Effect",
@@ -128,8 +142,6 @@
 	"op.inactiveEffects": "Inactive Effects",
 	"op.newEffect": "New Effect",
 	"op.sourceEffect": "Source",
-
-	"op.Add": "Add",
 
 	"op.degreeTrainingChoices": {
 		"dest": "Untrained",
@@ -150,43 +162,43 @@
 	"op.originsChoices": {
 		"academico": "Scholar",
 		"agenteDeSaude": "Health Agent",
-		"amigoDosAnimais": "Amigo dos Animais",
+		"amigoDosAnimais": "Animal Friend",
 		"amnesico": "Amnesiac",
 		"artista": "Artist",
-		"astronauta": "Astronauta",
+		"astronauta": "Astronaut",
 		"atleta": "Athlete",
-		"chefDoOutroLado": "Chef do Outro Lado",
+		"chefDoOutroLado": "Chef from the Other Side",
 		"chef": "Chef",
-		"colegial": "Colegial",
+		"colegial": "High School Student",
 		"cosplayer": "Cosplayer",
 		"criminoso": "Criminal",
 		"cultistaArrependido": "Regretful Cultist",
 		"desgarrado": "Stray",
-		"diplomata": "Diplomata",
+		"diplomata": "Diplomat",
 		"engenheiro": "Engineer",
 		"executivo": "Executive",
-		"explorador": "Explorador",
-		"experimento": "Experimento",
-		"fanaticoPorCriaturas": "Fanático por Criaturas",
-		"fotografo": "Fotógrafo",
-		"inventorParanormal": "Inventor Paranormal",
+		"explorador": "Explorer",
+		"experimento": "Experiment",
+		"fanaticoPorCriaturas": "Creature Fanatic",
+		"fotografo": "Photographer",
+		"inventorParanormal": "Paranormal Inventor",
 		"investigador": "Investigator",
-		"jovemMistico": "Jovem Místico",
-		"legistaDoTurnoDaNoite": "Legista do Turno da Noite",
+		"jovemMistico": "Young Mystic",
+		"legistaDoTurnoDaNoite": "Night Shift Coroner",
 		"lutador": "Fighter",
 		"magnata": "Tycoon",
-		"mateiro": "Mateiro",
+		"mateiro": "Woodsman",
 		"mercenario": "Mercenary",
-		"mergulhador": "Mergulhador",
+		"mergulhador": "Diver",
 		"militar": "Military",
-		"motorista": "Motorista",
-		"nerdEntusiasta": "Nerd Entusiasta",
+		"motorista": "Driver",
+		"nerdEntusiasta": "Nerd Enthusiast",
 		"operario": "Factory Worker",
 		"policial": "Police Officer",
-		"profetizado": "Profetizado",
-		"psicologo": "Psicólogo",
+		"profetizado": "The Prophesied",
+		"psicologo": "Psychologist",
 		"religioso": "Religious",
-		"reporterInvestigativo": "Reporter Investigativo",
+		"reporterInvestigativo": "Investigative Reporter",
 		"servidorPublico": "Civil Servant",
 		"teóricoDaConspiracao": "Conspiracy Theorist",
 		"TI": "I.T.",
@@ -196,28 +208,28 @@
 		"vítima": "Victim"
 	},
 
-	"op.trilhasName": "Trails",
+	"op.trilhasName": "Paths",
 	"op.trilhas": {
 		"agenteSecreto": "Secret Agent",
 		"aniquilador": "Annihilator",
 		"cacador": "Hunter",
-		"comandanteDeCampo": "Field Leader",
+		"comandanteDeCampo": "Field Commander",
 		"monstruoso": "Monstrous",
-		"operacoesEspeciais": "Special Ops",
+		"operacoesEspeciais": "Special Operations",
 		"tropaDeChoque": "Shock Trooper",
 		"guerreiro": "Warrior",
 		"infiltrador": "Infiltrator",
-		"atiradorDeElite": "Elite Sharpshooter",
+		"atiradorDeElite": "Elite Sniper",
 		"bibliotecario": "Librarian",
 		"medicoDeCampo": "Field Medic",
-		"muambeiro": "Muambeiro",
+		"muambeiro": "Smuggler",
 		"negociador": "Negotiator",
-		"perseverante": "Perseverante",
-		"tecnico": "Tinkerer",
+		"perseverante": "Perseverant",
+		"tecnico": "Technician",
 		"conduite": "Conduit",
 		"exorcista": "Exorcist",
-		"flagelador": "Flagellator",
-		"graduado": "Graduated",
+		"flagelador": "Flagellant",
+		"graduado": "Graduate",
 		"intuitivo": "Intuitive",
 		"laminaParanormal": "Paranormal Blade",
 		"parapsicologo": "Parapsychologist",
@@ -260,14 +272,15 @@
 	"op.gripType": "Grip",
 	"op.duration": "Duration",
 	"op.subtypeWeapon": "Weapon Subtype",
-	"op.powerType": "Power Type",
+	"op.powerType": "Ability Type",
 	"op.execution": "Execution",
+	"op.element": "Element",
 
 	"op.executionChoices": {
-		"free": "Livre",
-		"default": "Padrão",
-		"complete": "Completa",
-		"reaction": "Reação"
+		"free": "Free",
+		"default": "Standard",
+		"complete": "Full",
+		"reaction": "Reaction"
 	},
 
 	"op.weaponTypeChoices": {
@@ -316,24 +329,24 @@
 	},
 
 	"op.damageTypeAbv": {
-		"cuttingDamage": "Corte",
-		"impactDamage": "Impacto",
-		"piercingDamage": "Perfurante",
-		"ballisticDamage": "Balístico"
+		"cuttingDamage": "Cutting",
+		"impactDamage": "Impact",
+		"piercingDamage": "Piercing",
+		"ballisticDamage": "Ballistic"
 	},
 
 	"op.powerTypeChoices": {
-		"class": "Poder de Classe",
-		"paranormal": "Poder Paranormal",
-		"path": "Habilidade de Trilha",
-		"ability": "Outra Habilidade"
+		"class": "Class Power",
+		"paranormal": "Paranormal Power",
+		"path": "Path Ability",
+		"ability": "Other Ability"
 	},
 
 	"op.abilitiesAbv": {
-		"class": "Poderes de Classe",
-		"paranormal": "Poderes Paranormais",
-		"path": "Habilidades de Trilha",
-		"ability": "Outras Habilidades"
+		"class": "Class Powers",
+		"paranormal": "Paranormal Powers",
+		"path": "Path Abilities",
+		"ability": "Other Abilities"
 	},
 
 	"op.improvised": "Improvised",
@@ -380,7 +393,7 @@
 		"instantaneous": "Instantaneous",
 		"scene": "Scene",
 		"sustained": "Sustained",
-		"setDuration": "SetDuration",
+		"setDuration": "Set Duration",
 		"permanent": "Permanent"
 	},
 
@@ -388,7 +401,7 @@
 		"nullifies": "Nullifies",
 		"discredits": "Discredits",
 		"partial": "Partial",
-		"reducesByHalf": "Red. by half"
+		"reducesByHalf": "Reduces by Half"
 	},
 
 	"op.elementChoices": {
@@ -399,10 +412,25 @@
 		"fear": "Fear"
 	},
 
+	"op.threatTypeChoices": {
+		"creature": "Creature",
+		"person": "Person",
+		"animal": "Animal"
+	},
+
+	"op.threatSizeChoices": {
+		"tiny": "Tiny",
+		"small": "Small",
+		"medium": "Medium",
+		"large": "Large",
+		"huge": "Huge",
+		"colossal": "Colossal"
+	},
+
 	"op.Notes": "Update Notes",
 	"op.Issues": "Issues",
 	"op.Wiki": "Wiki",
-	"op.Discord": "Discord of System",
+	"op.Discord": "System Discord",
 	"op.Credits": "Credits & Licenses",
 	"op.Twitter": "Twitter",
 
@@ -417,9 +445,9 @@
 	"op.AttributePromptTitle": "{attribute} Test",
 	"op.RollMode": "Roll Mode",
 	"op.RollConfiguration.Configuration": "Roll Configuration",
-	"op.RollSituationalBonus": "Situational Roll",
+	"op.RollSituationalBonus": "Situational Bonus",
 	"op.Formula": "Formula",
-	"op.RollAttribute": "Roll Atribute",
+	"op.RollAttribute": "Roll Attribute",
 
 	"KEYBINDINGS": {
 		"op": {
