@@ -5,70 +5,83 @@
 		<p>{{localize "op.ritualdt"}} <span>{{system.ritual.DT}}</span></p>
 	</div>
 	{{#each rituals.valid as |rituals circle|}}
-	<li class="item flexrow items-header">
-		{{#ifEquals circle 5}}
-			<div class="item-name"></div>
-		{{else}}
-			<div class="item-name">{{circle}}º {{localize "op.circle"}}</div>
-		{{/ifEquals}}
-		<div class="item-space">{{localize "op.range"}}</div>
-		<div class="item-space">{{localize "op.target"}}</div>
-		<div class="item-space">{{localize "op.duration"}}</div>
-		<div class="item-space">{{localize "op.resistance"}}</div>
-		<div class="item-controls">
-			{{#if @root.editable}}
-				<a class="item-control item-create"
-				title="Criar ritual de {{circle}}º círculo"
-				data-action="createDoc" 
-				data-document-class='Item'
-				data-type="ritual" 
-				data-system.circle="{{circle}}">
-					<i class="fas fa-plus"></i>
-				</a>
-			{{/if}}
-		</div>
-	</li>
-	{{#each rituals as |item id|}}
-	<li class="item flexrow draggable" data-document-class="Item" data-item-id="{{item._id}}">
-		<div class="item-name flexrow">
-			<div class="item-image slide">
-				<img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-				<a class="rollable" data-roll-type="item" data-action="onRoll">
-					<i class="fa-solid fa-dice-d20"></i>
-				</a>
-			</div>
-			<h4>{{item.name}}</h4>
-		</div>
-		<div class="item-space item-prop">
-			{{#if item.system.range}}
-			{{localize (concat "op.rangeChoices." item.system.range)}}
-			{{else}} — {{/if}}
-		</div>
-		<div class="item-space item-prop">
-			{{#if item.system.target}}
-				{{item.system.targetQtd}}
-				<span class="lowercase">{{localize (concat "op.targetChoices." item.system.target)}}</span>
-			{{else}} — {{/if}}
-		</div>
-		<div class="item-space item-prop">
-			{{#if item.system.duration}}
-			{{localize (concat "op.durationChoices." item.system.duration)}} 
-			{{else}} — {{/if}}
-		</div>
-		<div class="item-space item-prop">
-			{{#if item.system.resistance}} 
-				{{#if item.system.skillResis}}
-					{{localize (concat "op.skill." item.system.skillResis)}}
+		<li class="item flexrow items-header">
+			{{#ifEquals circle 5}}
+				<div class="item-name"></div>
+			{{else}}
+				<div class="item-name">
+					{{circle}}º {{localize "op.circle"}} - 
+					{{#ifEquals circle 1}}1 {{@root.costLabel}}{{/ifEquals}}
+					{{#ifEquals circle 2}}3 {{@root.costLabel}}{{/ifEquals}}
+					{{#ifEquals circle 3}}6 {{@root.costLabel}}{{/ifEquals}}
+					{{#ifEquals circle 4}}10 {{@root.costLabel}}{{/ifEquals}}
+				</div>
+			{{/ifEquals}}
+			<div class="item-space">{{localize "op.range"}}</div>
+			<div class="item-space">{{localize "op.target"}}</div>
+			<div class="item-space">{{localize "op.duration"}}</div>
+			<div class="item-space">{{localize "op.resistance"}}</div>
+			<div class="item-controls">
+				{{#if @root.editable}}
+					<a class="item-control item-create"
+					title="Criar ritual de {{circle}}º círculo"
+					data-action="createDoc" 
+					data-document-class='Item'
+					data-type="ritual" 
+					data-system.circle="{{circle}}">
+						<i class="fas fa-plus"></i>
+					</a>
 				{{/if}}
-				{{localize (concat "op.resistanceChoices." item.system.resistance)}}
-			{{else}} — {{/if}}
+			</div>
+		</li>
+	{{#each rituals as |item id|}}
+	<li class="item flexrow draggable" data-document-class="Item" data-item-id="{{item._id}}" style="display: flex; flex-direction: column; height: auto;">
+		<div class="flexrow item-row" style="width: 100%; align-items: center;">
+			<div class="item-name flexrow">
+				<div class="item-image slide">
+					<img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+					<a class="rollable" data-roll-type="item" data-action="onRoll">
+						<i class="fa-solid fa-dice-d20"></i>
+					</a>
+				</div>
+				<h4 class="item-toggle" style="cursor: pointer;" data-tooltip="{{item.name}}">{{item.name}}</h4>
+			</div>
+			<div class="item-space item-prop">
+				{{#if item.system.range}}
+				{{localize (concat "op.rangeChoices." item.system.range)}}
+				{{else}} — {{/if}}
+			</div>
+			<div class="item-space item-prop">
+				{{#if item.system.target}}
+					{{item.system.targetQtd}}
+					<span class="lowercase">{{localize (concat "op.targetChoices." item.system.target)}}</span>
+				{{else}} — {{/if}}
+			</div>
+			<div class="item-space item-prop">
+				{{#if item.system.duration}}
+				{{localize (concat "op.durationChoices." item.system.duration)}} 
+				{{else}} — {{/if}}
+			</div>
+			<div class="item-space item-prop">
+				{{#if item.system.resistance}} 
+					{{#if item.system.skillResis}}
+						{{localize (concat "op.skill." item.system.skillResis)}}
+					{{/if}}
+					{{localize (concat "op.resistanceChoices." item.system.resistance)}}
+				{{else}} — {{/if}}
+			</div>
+			<div class="item-controls">
+				{{!-- <a class="item-control" data-action="onSendChat" title="Enviar para o chat"><i class="fas fa-message"></i></a> --}}
+				<a class="item-control item-edit" data-action="viewDoc" title="Edit Item"><i class="fas fa-edit"></i></a>
+				<a class="item-control" data-action="deleteDoc" title="Delete Item"><i class="fas fa-trash"></i></a>
+			</div>
 		</div>
-		<div class="item-controls">
-			{{!-- <a class="item-control" data-action="onSendChat" title="Enviar para o chat"><i class="fas fa-message"></i></a> --}}
-			<a class="item-control item-edit" data-action="viewDoc" title="Edit Item"><i class="fas fa-edit"></i></a>
-			<a class="item-control" data-action="deleteDoc" title="Delete Item"><i class="fas fa-trash"></i></a>
+		{{!-- Descrição Oculta --}}
+		<div class="item-description" style="display: none; width: 100%; padding: 5px 10px; border-top: 1px dashed #777; margin-top: 5px; font-size: 0.9em; text-align: left;">
+			{{{item.system.description}}}
 		</div>
 	</li>
+
 	{{/each}} {{/each}} {{#if rituals.invalid }}
 	<section class="invalid">
 		<div class="item-alert">Os itens abaixo não se encaixam nas categorias acima.</div>
@@ -92,23 +105,29 @@
 				</div>
 			</li>
 			{{#each rituals.invalid as |item id|}}
-			<li class="item flexrow draggable" data-document-class="Item" data-item-id="{{item._id}}">
-				<div class="item-name flexrow">
-					<div class="item-image">
-						<a class="rollable" data-roll-type="item" data-action="onRoll">
-							<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-						</a>
+			<li class="item flexrow draggable" data-document-class="Item" data-item-id="{{item._id}}" style="display: flex; flex-direction: column; height: auto;">
+				<div class="flexrow item-row" style="width: 100%; align-items: center;">
+					<div class="item-name flexrow">
+						<div class="item-image">
+							<a class="rollable" data-roll-type="item" data-action="onRoll">
+								<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+							</a>
+						</div>
+						<h4 class="item-toggle" style="cursor: pointer;" data-tooltip="{{item.name}}">{{item.name}}</h4>
 					</div>
-					<h4>{{item.name}}</h4>
+					<div class="item-space item-prop">{{item.system.range}}</div>
+					<div class="item-space item-prop">{{item.system.areaEffect}}</div>
+					<div class="item-space item-prop">{{item.system.duration}}</div>
+					<div class="item-space item-prop">{{item.system.resistance}}</div>
+					<div class="item-controls">
+						{{!-- <a class="item-control" data-action="onSendChat" title="Enviar para o chat"><i class="fas fa-message"></i></a> --}}
+						<a class="item-control item-edit" data-action="viewDoc" title="Edit Item"><i class="fas fa-edit"></i></a>
+						<a class="item-control" data-action="deleteDoc" title="Delete Item"><i class="fas fa-trash"></i></a>
+					</div>
 				</div>
-				<div class="item-space item-prop">{{item.system.range}}</div>
-				<div class="item-space item-prop">{{item.system.areaEffect}}</div>
-				<div class="item-space item-prop">{{item.system.duration}}</div>
-				<div class="item-space item-prop">{{item.system.resistance}}</div>
-				<div class="item-controls">
-					{{!-- <a class="item-control" data-action="onSendChat" title="Enviar para o chat"><i class="fas fa-message"></i></a> --}}
-					<a class="item-control item-edit" data-action="viewDoc" title="Edit Item"><i class="fas fa-edit"></i></a>
-					<a class="item-control" data-action="deleteDoc" title="Delete Item"><i class="fas fa-trash"></i></a>
+				{{!-- Descrição Oculta --}}
+				<div class="item-description" style="display: none; width: 100%; padding: 5px 10px; border-top: 1px dashed #777; margin-top: 5px; font-size: 0.9em; text-align: left;">
+					{{{item.system.description}}}
 				</div>
 			</li>
 			{{/each}}
