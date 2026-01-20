@@ -72,6 +72,11 @@ export class OrdemActor extends Actor {
 			this._prepareBaseSkills(systemData);
 			this._preparePatent(actorData);
 		}
+
+		// Calcular perícias para Ameaças também
+		// if (actorData.type == 'threat') {
+		// 	this._prepareBaseSkills(systemData);
+		// }
 	}
 
 	/**
@@ -203,8 +208,27 @@ export class OrdemActor extends Actor {
 		const attributes = system.attributes;
 		const skills = system.skills;
 
+		// Mapa de backup caso o attr não exista no ator antigo
+		const defaultAttrs = {
+			fighting: 'str', aim: 'dex', resilience: 'vit', reflexes: 'dex',
+			will: 'pre', initiative: 'dex', perception: 'pre',
+			freeSkill: 'int',
+
+			// Perícias de Agente
+			acrobatics: 'dex', animal: 'pre', arts: 'pre', athleticism: 'str',
+			relevance: 'int', sciences: 'int', crime: 'dex', diplomacy: 'pre',
+			deception: 'pre', stealth: 'dex', intimidation: 'pre', intuition: 'pre',
+			investigation: 'int', medicine: 'int', occultism: 'int', driving: 'dex',
+			religion: 'pre', survival: 'int', tactics: 'int', technology: 'int'
+		};
+
 		// Loop through ability scores, and add their modifiers to our sheet output.
 		for (const [keySkill, skill] of Object.entries(skills)) {
+			// Se não tiver attr definido (ator antigo), tenta usar o padrão
+			if (!skill.attr || skill.attr.length === 0) {
+				const def = defaultAttrs[keySkill];
+				if (def) skill.attr = [def, 1];
+			}
 			if (skill && Array.isArray(skill.attr) && skill.attr.length > 0) {
 				const requiredAttrKey = skill.attr[0]; // Pega a chave do atributo
 		
@@ -221,11 +245,20 @@ export class OrdemActor extends Actor {
 				const overLoad = skill?.conditions?.load || false;
 				const needTraining = skill?.conditions?.trained || false;
 
+				// Garantir que degree existe
+				if (!skill.degree) skill.degree = { value: 0, label: 'untrained' };
+
 				// Calculate the modifier using d20 rules.
 				skill.degree.value = this.calculateSkillProficiency(skill);
 
 				// Formando o nome com base nas condições de carga e treino da perícia.
-				skill.label = game.i18n.localize(CONFIG.op.skills[keySkill]) + (overLoad ? '+' : needTraining ? '*' : '') ?? k;
+				// Se for a perícia livre e tiver nome, usa ele.
+				if (keySkill === 'freeSkill' && skill.name) {
+					skill.label = skill.name + (overLoad ? '+' : needTraining ? '*' : '');
+				} else {
+					const labelKey = CONFIG.op.skills[keySkill] || keySkill;
+					skill.label = game.i18n.localize(labelKey) + (overLoad ? '+' : needTraining ? '*' : '') ?? keySkill;
+				}
 			}
 		}
 		console.timeEnd('Tempo de atualização das perícias');
@@ -373,9 +406,20 @@ export class OrdemActor extends Actor {
 		const actorData = this;
 		const system = super.getRollData();
 
-		// Prepare character roll data.
-		// this._getAgentRollData(actorData, system);
+		// Cálculo da Formula de Iniciativa (@rollInitiative)
+		const agi = system.attributes?.dex?.value || 0;
+		const diceFormula = agi > 0 ? `${agi}d20kh` : '2d20kl';
 
+		let bonus = 0;
+		// Verifica se a perícia de iniciativa existe (vale para Agente e Ameaça)
+		if (system.skills?.initiative) {
+			const degree = system.skills.initiative.degree?.value || 0;
+			const mod = Number(system.skills.initiative.mod) || 0; // Modificador manual (opcional)
+			const flatValue = Number(system.skills.initiative.value) || 0;
+			bonus = (degree > 0 ? degree : flatValue) + mod;
+		} 
+
+		system.rollInitiative = `${diceFormula} + ${bonus}`;
 		return system;
 	}
 
