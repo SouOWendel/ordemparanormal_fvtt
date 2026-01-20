@@ -8,7 +8,10 @@ export default function () {
 	 * Bar Brawl Gitlab: https://gitlab.com/woodentavern/foundryvtt-bar-brawl
 	 */
 	Hooks.on('preCreateActor', function (actor, data) {
+		console.log('preCreateActor hook disparado para:', actor.type, actor.name);
+		
 		if (actor.type === 'threat') {
+			console.log('Configurando protótipo de token para ameaça:', actor.name);
 			const prototypeToken = { disposition: -1, actorLink: false };
 			actor.updateSource({ prototypeToken }); // Set disposition to "Hostile"
 			actor.updateSource({
@@ -26,6 +29,7 @@ export default function () {
 					},
 				},
 			});
+			console.log('Protótipo de token configurado. Verificando:', actor.prototypeToken);
 		}
 
 		// TODO: APLICAR UMA CONFIGURAÇÃO DE BAR BRAWL PARA PD E OUTRA PARA PE E SAN.
