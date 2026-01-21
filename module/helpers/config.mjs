@@ -82,6 +82,14 @@ op.dropdownDegree = {
 	expert: 'op.degreeTrainingChoices.expe',
 };
 
+op.dropdownDegreeThreat = {
+	...op.dropdownDegree, // Pega tudo que tem na lista de cima
+	master: 'op.degreeTrainingChoices.Mast', // +20
+	alfa: 'op.degreeTrainingChoices.Alfa',   // +25
+	gama: 'op.degreeTrainingChoices.Gama',   // +30
+	delta: 'op.degreeTrainingChoices.Delta'  // +35
+};
+
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
@@ -249,6 +257,20 @@ op.dropdownDamageType = {
 	impactDamage: 'op.damageTypeChoices.impactDamage',
 	piercingDamage: 'op.damageTypeChoices.piercingDamage',
 	ballisticDamage: 'op.damageTypeChoices.ballisticDamage',
+    
+	// Elementos Paranormais
+	bloodDamage: 'op.damageTypeChoices.bloodDamage',
+	deathDamage: 'op.damageTypeChoices.deathDamage',
+	knowledgeDamage: 'op.damageTypeChoices.knowledgeDamage',
+	energyDamage: 'op.damageTypeChoices.energyDamage',
+	fearDamage: 'op.damageTypeChoices.fearDamage',
+
+	// --- NOVOS DANOS ADICIONADOS ---
+	fireDamage: 'op.damageTypeChoices.fireDamage',
+	coldDamage: 'op.damageTypeChoices.coldDamage',
+	eletricDamage: 'op.damageTypeChoices.eletricDamage',
+	chemicalDamage: 'op.damageTypeChoices.chemicalDamage',
+	mentalDamage: 'op.damageTypeChoices.mentalDamage'
 };
 
 /**
@@ -256,10 +278,13 @@ op.dropdownDamageType = {
  * @type {Object}
  */
 op.dropdownPowerType = {
-	class: 'op.powerTypeChoices.class',
-	paranormal: 'op.powerTypeChoices.paranormal',
-	path: 'op.powerTypeChoices.path',
-	ability: 'op.powerTypeChoices.ability',
+	origin: 'op.powerTypeChoices.origin',             // 1. Poder de Origem
+	class: 'op.powerTypeChoices.class',               // 2. Poder de Classe
+	path: 'op.powerTypeChoices.path',                 // 3. Trilha
+	general: 'op.powerTypeChoices.general',           // 4. Geral
+	paranormal: 'op.powerTypeChoices.paranormal',     // 5. Paranormal
+	complication: 'op.powerTypeChoices.complication', // 6. Complicação
+	ability: 'op.powerTypeChoices.ability',           // 7. Outra Habilidade
 };
 
 /**
