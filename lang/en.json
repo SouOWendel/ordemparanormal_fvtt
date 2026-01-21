@@ -325,20 +325,47 @@
 		"cuttingDamage": "Cutting Damage (C)",
 		"impactDamage": "Impact Damage (I)",
 		"piercingDamage": "Piercing Damage (P)",
-		"ballisticDamage": "Ballistic Damage (B)"
+		"ballisticDamage": "Ballistic Damage (B)",
+
+		"bloodDamage": "Blood",
+		"deathDamage": "Death",
+		"knowledgeDamage": "Knowledge",
+		"energyDamage": "Energy",
+		"fearDamage": "Fear",
+		
+		"fireDamage": "Fire",
+		"eletricDamage": "Electricity",
+		"coldDamage": "Cold",
+		"chemicalDamage": "Chemical",
+		"mentalDamage": "Mental"
 	},
 
 	"op.damageTypeAbv": {
 		"cuttingDamage": "Cutting",
 		"impactDamage": "Impact",
 		"piercingDamage": "Piercing",
-		"ballisticDamage": "Ballistic"
-	},
+		"ballisticDamage": "Ballistic",
+		
+		"bloodDamage": "Blood",
+		"deathDamage": "Death",
+		"knowledgeDamage": "Knowledge",
+		"energyDamage": "Energy",
+		"fearDamage": "Fear",
+		
+		"fireDamage": "Fire",
+		"eletricDamage": "Electricity",
+		"coldDamage": "Cold",
+		"chemicalDamage": "Chemical",
+		"mentalDamage": "Mental"
+  },
 
 	"op.powerTypeChoices": {
 		"class": "Class Power",
 		"paranormal": "Paranormal Power",
 		"path": "Path Ability",
+		"origin": "Origin Power",
+		"general": "General Ability",
+		"complication": "Complication",
 		"ability": "Other Ability"
 	},
 

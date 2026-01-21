@@ -272,6 +272,7 @@
 	"op.powerType": "Tipo de Habilidade",
 	"op.execution": "Execução",
 	"op.element": "Elemento",
+	"op.cost": "Custo",
 
 	"op.executionChoices": {
 		"free": "Livre",
@@ -319,32 +320,62 @@
 	},
 
 	"op.damageTypeChoices": {
-		"cuttingDamage": "Dano de Corte (C)",
-		"impactDamage": "Dano de Impacto (I)",
-		"piercingDamage": "Dano Perfurante (P)",
-		"ballisticDamage": "Dano Balístico (B)"
-	},
+		"cuttingDamage": "Corte (C)",
+		"impactDamage": "Impacto (I)",
+		"piercingDamage": "Perfurante (P)",
+		"ballisticDamage": "Balístico (B)",
+		
+		"bloodDamage": "Sangue",
+		"deathDamage": "Morte",
+		"knowledgeDamage": "Conhecimento",
+		"energyDamage": "Energia",
+		"fearDamage": "Medo",
+		
+		"fireDamage": "Fogo",
+		"eletricDamage": "Eletricidade",
+		"coldDamage": "Frio",
+		"chemicalDamage": "Químico",
+		"mentalDamage": "Mental"
+  },
 
 	"op.damageTypeAbv": {
 		"cuttingDamage": "Corte",
 		"impactDamage": "Impacto",
 		"piercingDamage": "Perfurante",
-		"ballisticDamage": "Balístico"
-	},
+		"ballisticDamage": "Balístico",
+		
+		"bloodDamage": "Sangue",
+		"deathDamage": "Morte",
+		"knowledgeDamage": "Conhecimento",
+		"energyDamage": "Energia",
+		"fearDamage": "Medo",
+		
+		"fireDamage": "Fogo",
+		"eletricDamage": "Eletricidade",
+		"coldDamage": "Frio",
+		"chemicalDamage": "Químico",
+		"mentalDamage": "Mental"
+  },
 
 	"op.powerTypeChoices": {
 		"class": "Poder de Classe",
 		"paranormal": "Poder Paranormal",
 		"path": "Habilidade de Trilha",
+		"origin": "Poder de Origem",
+		"general": "Habilidade Geral",
+		"complication": "Complicação",
 		"ability": "Outra Habilidade"
 	},
 
 	"op.abilitiesAbv": {
+		"origin": "Poder de Origem",
 		"class": "Poderes de Classe",
 		"paranormal": "Poderes Paranormais",
 		"path": "Habilidades de Trilha",
+		"general": "Habilidades Gerais",
+		"complication": "Complicações",
 		"ability": "Outras Habilidades"
-	},
+    },
 
 	"op.improvised": "Improvisada",
 	"op.throwable": "Arremessável",
