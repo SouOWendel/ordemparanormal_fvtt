@@ -37,23 +37,23 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		},      
 		// Mapeamento de Ações (data-action="nomeDaAcao")
 		actions: {
-			onTab: this._onTab,
-			onEditImage: this._onEditImage,
+			onTab: this.prototype._onTab,
+			onEditImage: this.prototype._onEditImage,
                 
 			// Rolagens
-			onRollAttributeTest: this._onRollAttributeTest,
-			onRollSkill: this._onRollSkill,
-			onRollMentalDamage: this._onRollMentalDamage,
-			onRoll: this._onRoll,
+			onRollAttributeTest: this.prototype._onRollAttributeTest,
+			onRollSkill: this.prototype._onRollSkill,
+			onRollMentalDamage: this.prototype._onRollMentalDamage,
+			onRoll: this.prototype._onRoll,
                 
 			// Gestão de Itens e Efeitos
-			createDoc: this._onCreateDoc,
-			viewDoc: this._onViewDoc,
-			deleteDoc: this._onDeleteDoc,
-			toggleDescription: this._onToggleDescription,
-			toggleEffect: this._onToggleEffect,
+			createDoc: this.prototype._onCreateDoc,
+			viewDoc: this.prototype._onViewDoc,
+			deleteDoc: this.prototype._onDeleteDoc,
+			toggleDescription: this.prototype._onToggleDescription,
+			toggleEffect: this.prototype._onToggleEffect,
 			// Configurações
-			openResistanceConfig: this._onOpenResistanceConfig
+			openResistanceConfig: this.prototype._onOpenResistanceConfig
 		},
 		dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }]
 	};
