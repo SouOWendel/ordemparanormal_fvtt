@@ -43,7 +43,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			toggleEffect: this._toggleEffect,
 			onRoll: this.#onRoll,
 			onRollSkillCheck: this.#onRollSkillCheck,
-			onRollAttributeTest: this.#onRollAttributeTest
+			onRollAttributeTest: this.#onRollAttributeTest,
+			toggleResources: this._onToggleResources
 		},
 		 dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
 	};
@@ -95,6 +96,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	/** @override */
 	async _prepareContext(options) {
 		const context = await super._prepareContext(options);
+
+		context.mostrarRecursos = this.actor.getFlag('ordemparanormal', 'showResources') || false;
 
 		foundry.utils.mergeObject(context, {
 			editable: this.isEditable,
@@ -285,29 +288,16 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	 * @return {undefined}
 	 */
 	_prepareItems(context) {
-		// Initialize containers.
-		const gear = [];
-		const features = [];
-
 		const protection = [];
 		const generalEquipment = [];
 		const armament = [];
 		const rituals = {
-			valid: {
-				1: [],
-				2: [],
-				3: [],
-				4: [],
-			},
+			valid: { 1: [], 2: [], 3: [], 4: [] },
 			invalid: [],
 		};
 		const abilities = {
-			valid: {
-				1: [],
-				2: [],
-				3: [],
-				4: [],
-			},
+			// 1 = Origem 2 = Classe 3 = Trilha 4 = Paranormal 5 = Outra
+			valid: { 1: [], 2: [], 3: [], 4: [], 5: [] },
 			invalid: [],
 		};
 
@@ -332,13 +322,9 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			else if (i.type === 'armament') {
 				armament.push(i);
 			}
-			// Append to gear.
+			// Append to item.
 			else if (i.type === 'item') {
 				gear.push(i);
-			}
-			// Append to features.
-			else if (i.type === 'feature') {
-				features.push(i);
 			}
 			// Append to rituals.
 			else if (i.type === 'ritual') {
@@ -347,11 +333,23 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			}
 			// Append to abilities.
 			else if (i.type === 'ability') {
-				if (i.system.abilityType == 'class') abilities.valid[1].push(i);
-				else if (i.system.abilityType == 'path') abilities.valid[2].push(i);
-				else if (i.system.abilityType == 'paranormal') abilities.valid[3].push(i);
-				else if (i.system.abilityType == 'ability') abilities.valid[4].push(i);
-				else if (!i.system.abilityType) abilities.invalid.push(i);
+				const type = i.system.abilityType;
+				const costVal = i.system.cost || '';
+        
+				// Em vez de ler i.system.costType, usamos a configuração global (labelCusto)
+				i.displayCost = (costVal !== '') ? `${costVal} ${labelCusto}` : '—';
+                
+				if (i.system.activation) {
+					i.activationLabel = game.i18n.localize(`op.executionChoices.${i.system.activation}`);
+				} else { i.activationLabel = '—'; }
+                
+				if (type === 'origin') abilities.valid[1].push(i);
+				else if (type === 'class') abilities.valid[2].push(i);
+				else if (type === 'path') abilities.valid[3].push(i);
+				else if (type === 'paranormal') abilities.valid[4].push(i);
+				else if (type === 'ability' || type === 'complication') abilities.valid[5].push(i);
+                
+				else if (!type) abilities.invalid.push(i);
 			}
 		}
 
@@ -565,6 +563,15 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 				input.disabled = true;
 			}
 		}
+	}
+
+	/** */
+	static async _onToggleResources(event, target) {
+		event.preventDefault();
+		// Pega o estado atual (ou false se não existir)
+		const currentState = this.actor.getFlag('ordemparanormal', 'showResources') || false;
+		// Salva o inverso (!currentState)
+		await this.actor.setFlag('ordemparanormal', 'showResources', !currentState);
 	}
 
 	/** */
