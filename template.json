@@ -423,6 +423,23 @@
 					"value": 1,
 					"bonus": 0
 				}
+			},
+			"resources": {
+				"res1": {
+					"value": 0,
+					"max": 0,
+					"label": ""
+				},
+				"res2": {
+					"value": 0,
+					"max": 0,
+					"label": ""
+				},
+				"res3": {
+					"value": 0,
+					"max": 0,
+					"label": ""
+				}
 			}
 		},
 		"threat": {
@@ -438,12 +455,26 @@
 				"str": { "value": 0 },
 				"vit": { "value": 0 },
 				"movement": {
-					"walk": 0,
+					"walk": "",
 					"unit": "m",
 					"squares": 0
 				},
 				"vd": { "value": 0 }
 			},
+			
+			"attacks": {},
+			
+			"skills": {
+				"fighting": { "value": 0, "attr": ["str", 1], "degree": { "label": "untrained", "value": 0 } },
+				"aim": { "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
+				"resilience": { "value": 0, "attr": ["vit", 1], "degree": { "label": "untrained", "value": 0 } },
+				"reflexes": { "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
+				"will": { "value": 0, "attr": ["pre", 1], "degree": { "label": "untrained", "value": 0 } },
+				"initiative": { "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
+				"perception": { "value": 0, "attr": ["pre", 1], "degree": { "label": "untrained", "value": 0 } },
+				"freeSkill": { "value": 0, "name": "", "attr": ["int", 1], "degree": { "label": "untrained", "value": 0 } }
+			},
+			
 			"elements": {
 				"main": "",
 				"others": ""
@@ -459,25 +490,32 @@
 			"defense": {
 				"value": "",
 				"skillResistances": [],
-				"damageResistances": []
+				"damageResistances": ""
 			},
-			"vulnerabilities": [],
+			"vulnerabilities": "",
 			"actions": [],
 			"details": {
 				"description": "",
 				"fearRiddle": ""
 			},
-			"temporary": {
-				"abilities": "",
-				"senses": "",
-				"defense": {
-					"skillResistances": "",
-					"damageResistances": ""
-				},
-				"vulnerabilities": "",
-				"actions": "",
-				"characteristics": ""
-			}
+			"temporary": {"abilities": "", "senses": "", "defense": {
+					"skillResistances": "",	"damageResistances": ""
+				}, "vulnerabilities": "", "actions": "", "characteristics": ""},
+			"resistances": {
+                "cuttingDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "impactDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "piercingDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "ballisticDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "fireDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "eletricDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "coldDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "chemicalDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "mentalDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "bloodDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "deathDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "knowledgeDamage": { "value": 0, "vulnerable": false, "immune": false },
+                "energyDamage": { "value": 0, "vulnerable": false, "immune": false }
+            }
 		}
 	},
 	"Item": {
@@ -571,7 +609,8 @@
 			"id": 0,
 			"abilityType": "",
 			"preRequisite": "",
-			"description": "Your text here."
+			"description": "Your text here.",
+			"activation": ""
 		}
 	}
 }
