@@ -1,27 +1,27 @@
 <section class="tab flexcol {{tab.cssClass}}" data-tab="skills" data-group="primary">
-<div class="skills-details">
-	<div class="skills-content">
-		{{#each system.skills as |skill key|}}
-		<div class="skill flexrow flex-group-center">
-			{{#if skill.conditions.open}}
-				<input type="text" name="system.skills.{{key}}.name" value="{{skill.name}}"
-				class="resource-label flexlarge align-center" 
-				data-type="String" placeholder="{{localize 'op.skill.freeSkill'}}">
-				<i class="fas fa-dice {{key}} rollable rollFreeSkill" data-action="onRollSkillCheck" data-roll="{{skill.formula}}" data-label="{{skill.label}}" data-key="{{key}}"></i>
-			{{else}}
-			<label for="system.skills.{{key}}.value" data-action="onRollSkillCheck" class="resource-label rollable flexlarge align-left skill-name"
-			 data-label="{{skill.label}}" data-key="{{key}}" data-rollType="skill">{{skill.label}}</label>
-			{{/if}}
-			<label class="flex0 p-side-10">
-				<strong>{{toUpperCase (localize (concat "op." skill.attr.[0] "Abv")) }}</strong>
-			</label>
-			<select name="system.skills.{{key}}.degree.label" data-dtype="String">
-				{{ selectOptions ../optionDegree selected=skill.degree.label localize=true }}
-			</select>
-			<i class="fa-solid fa-plus flex0"></i>
-			<input type="text" name="system.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number" class="modifier"/>
+	<div class="skills-details">
+		<div class="skills-content">
+			{{#each system.skills as |skill key|}}
+			<div class="skill flexrow flex-group-center">
+				{{#if skill.conditions.open}}
+					<input type="text" name="system.skills.{{key}}.name" value="{{skill.name}}"
+					class="resource-label flexlarge align-center" 
+					data-type="String" placeholder="{{localize 'op.skill.freeSkill'}}">
+					<i class="fas fa-dice {{key}} rollable rollFreeSkill" data-action="onRollSkillCheck" data-roll="{{skill.formula}}" data-label="{{skill.label}}" data-key="{{key}}"></i>
+				{{else}}
+				<label for="system.skills.{{key}}.value" data-action="onRollSkillCheck" class="resource-label rollable flexlarge align-left skill-name"
+				data-label="{{skill.label}}" data-key="{{key}}" data-rollType="skill">{{skill.label}}</label>
+				{{/if}}
+				<label class="flex0 p-side-10">
+					<strong>{{toUpperCase (localize (concat "op." skill.attr.[0] "Abv")) }}</strong>
+				</label>
+				<select name="system.skills.{{key}}.degree.label" data-dtype="String">
+					{{ selectOptions ../optionDegree selected=skill.degree.label localize=true }}
+				</select>
+				<i class="fa-solid fa-plus flex0"></i>
+				<input type="text" name="system.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number" class="modifier"/>
+			</div>
+			{{/each}}
 		</div>
-		{{/each}}
 	</div>
-</div>
 </section>
