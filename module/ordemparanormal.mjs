@@ -248,6 +248,32 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 	return str.toUpperCase();
 });
 
+/**
+ * Custom radioBoxes helper that properly handles numeric values
+ * @param {string} name - The name attribute for the radio inputs
+ * @param {Object} choices - Object with key-value pairs for the radio options
+ * @param {Object} options - Handlebars options object containing hash parameters
+ * @returns {Handlebars.SafeString} HTML string of radio inputs
+ */
+Handlebars.registerHelper('radioBoxes', function (name, choices, options) {
+	const hash = options.hash || {};
+	const checked = hash.checked;
+	
+	let html = '';
+	for (const [key, label] of Object.entries(choices)) {
+		// Compare both as strings and as their original types to handle number/string mismatches
+		const isChecked = (checked == key) || (String(checked) === String(key));
+		const checkedAttr = isChecked ? 'checked' : '';
+		
+		html += `<label class="radio-label">
+			<input type="radio" name="${name}" value="${key}" ${checkedAttr}>
+			<span>${label}</span>
+		</label>`;
+	}
+	
+	return new Handlebars.SafeString(html);
+});
+
 /* -------------------------------------------- */
 /*  Ready Hooks                                  */
 /* -------------------------------------------- */
