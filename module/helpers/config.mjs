@@ -417,3 +417,12 @@ op.dropdownThreatSize = {
 	'huge': 'op.threatSizeChoices.huge',
 	'colossal': 'op.threatSizeChoices.colossal'
 };
+
+op.traits = {
+	smell: 'op.traits.smell',
+	acceleratedHealing: 'op.traits.acceleratedHealing',
+	incorporeal: 'op.traits.incorporeal',
+	blindsight: 'op.traits.blindsight',
+	lowLightVision: 'op.traits.lowLightVision',
+	darkvision: 'op.traits.darkvision'
+};
