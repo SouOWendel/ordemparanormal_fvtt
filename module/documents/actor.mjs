@@ -74,9 +74,9 @@ export class OrdemActor extends Actor {
 		}
 
 		// Calcular perícias para Ameaças também
-		// if (actorData.type == 'threat') {
-		// 	this._prepareBaseSkills(systemData);
-		// }
+		if (actorData.type == 'threat') {
+			this._prepareBaseSkillsThreat(systemData);
+		}
 	}
 
 	/**
@@ -265,6 +265,69 @@ export class OrdemActor extends Actor {
 	}
 
 	/**
+	 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
+	 * depois disso, salva o valor nas informações.
+	 * @param {*} system
+	 */
+	async _prepareBaseSkillsThreat(system) {
+		console.time('Tempo de atualização das perícias');
+		const attributes = system.attributes;
+		const skills = system.skills;
+
+		// Mapa de backup caso o attr não exista no ator antigo
+		const defaultAttrs = {
+			fighting: 'str', aim: 'dex', resilience: 'vit', reflexes: 'dex',
+			will: 'pre', initiative: 'dex', perception: 'pre',
+			freeSkill: 'int',
+
+			// Perícias de Agente
+			acrobatics: 'dex', animal: 'pre', arts: 'pre', athleticism: 'str',
+			relevance: 'int', sciences: 'int', crime: 'dex', diplomacy: 'pre',
+			deception: 'pre', stealth: 'dex', intimidation: 'pre', intuition: 'pre',
+			investigation: 'int', medicine: 'int', occultism: 'int', driving: 'dex',
+			religion: 'pre', survival: 'int', tactics: 'int', technology: 'int'
+		};
+
+		// Loop through ability scores, and add their modifiers to our sheet output.
+		for (const [keySkill, skill] of Object.entries(skills)) {
+			// Se não tiver attr definido (ator antigo), tenta usar o padrão
+			if (!skill.attr || skill.attr.length === 0) {
+				const def = defaultAttrs[keySkill];
+				if (def) skill.attr = [def, 1];
+			}
+			if (skill && Array.isArray(skill.attr) && skill.attr.length > 0) {
+				const requiredAttrKey = skill.attr[0]; // Pega a chave do atributo
+		
+				// Verifica se o atributo correspondente existe
+				if (attributes.hasOwnProperty(requiredAttrKey)) {
+					// Atualiza o valor na perícia diretamente
+					skill.attr[1] = attributes[requiredAttrKey].value;
+				} else {
+					// Opcional: Aviso se o atributo não for encontrado
+					console.warn(`Atributo '${requiredAttrKey}' necessário para a perícia '${keySkill}' não foi encontrado em system.attributes.`);
+				}
+
+				// Definindo constantes para acesso simplificado.
+				const overLoad = skill?.conditions?.load || false;
+				const needTraining = skill?.conditions?.trained || false;
+
+				// Garantir que degree existe
+				if (!skill.degree) skill.degree = { value: 0, label: 'untrained' };
+
+				// Formando o nome com base nas condições de carga e treino da perícia.
+				// Se for a perícia livre e tiver nome, usa ele.
+				if (keySkill === 'freeSkill' && skill.name) {
+					skill.label = skill.name + (overLoad ? '+' : needTraining ? '*' : '');
+				} else {
+					const labelKey = CONFIG.op.skills[keySkill] || keySkill;
+					skill.label = game.i18n.localize(labelKey) + (overLoad ? '+' : needTraining ? '*' : '') ?? keySkill;
+				}
+			}
+		}
+		console.timeEnd('Tempo de atualização das perícias');
+	}
+
+	/**
 	 * Prepare and calcule the spaces of actors
 	 *
 	 * @param {Object} actorData The actor to prepare.
@@ -395,7 +458,45 @@ export class OrdemActor extends Actor {
 
 	/** @inheritDoc */
 	applyActiveEffects() {
+		// 1. Preparar dados para rolagem (para resolver variáveis como @NEX.value)
+		// Atenção: Aqui só estarão disponíveis os dados base (prepareBaseData),
+		// pois os dados derivados ainda não foram calculados.
+		const rollData = this.getRollData();
+
+		// 2. Iterar sobre todos os efeitos aplicáveis ao ator
+		// (Isso inclui efeitos do próprio ator e efeitos transferidos de itens)
+		const effects = this.allApplicableEffects ? this.allApplicableEffects() : this.effects;
+
+		for (const effect of effects) {
+			if (effect.disabled) continue;
+
+			// Iterar sobre as mudanças (changes) de cada efeito
+			for (const change of effect.changes) {
+				// Verifica se o valor é uma string e contém "@" indicando uma variável
+				if (typeof change.value === 'string' && change.value.includes('@')) {
+					try {
+						// Substitui as variáveis pelos valores reais do ator
+						// Ex: "@NEX.value" vira "50"
+						const formula = Roll.replaceFormulaData(change.value, rollData);
+						
+						// Avalia a expressão matemática com segurança
+						// Ex: "50 * 1" vira 50
+						const result = Roll.safeEval(formula);
+
+						// Atualiza o valor na memória para ser aplicado corretamente pelo Foundry
+						// Importante: Convertemos para string pois o sistema espera isso em alguns casos
+						change.value = result.toString();
+					} catch (e) {
+						console.error(`Ordem Paranormal | Erro ao calcular fórmula no efeito "${effect.name}":`, e);
+					}
+				}
+			}
+		}
+
+		// 3. Executa a lógica padrão do sistema (hook prepareEmbeddedData)
 		if (this.system?.prepareEmbeddedData instanceof Function) this.system.prepareEmbeddedData();
+		
+		// 4. Chama o método original para aplicar os valores já calculados
 		return super.applyActiveEffects();
 	}
 
@@ -420,7 +521,21 @@ export class OrdemActor extends Actor {
 		} 
 
 		system.rollInitiative = `${diceFormula} + ${bonus}`;
-		return system;
+		
+		// Adiciona referências diretas para Active Effects
+		// Isso permite que variáveis como @NEX.value, @PV.value, etc. funcionem nos efeitos ativos
+		return {
+			...system,
+			NEX: system.NEX,
+			PV: system.PV,
+			PE: system.PE,
+			PD: system.PD,
+			SAN: system.SAN,
+			defense: system.defense,
+			desloc: system.desloc,
+			attributes: system.attributes,
+			skills: system.skills
+		};
 	}
 
 	/**
