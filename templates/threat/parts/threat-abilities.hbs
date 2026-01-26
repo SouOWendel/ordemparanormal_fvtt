@@ -1,9 +1,9 @@
 <section class="tab flexcol abilities {{tab.cssClass}}" data-tab="abilities" data-group="primary">
 		<ol class="items-list">
 				<li class="item flexrow items-header">
-						<div class="item-name">Habilidade</div>
-						<div class="item-formula" style="flex: 0 0 80px; text-align: center;">Custo</div>
-						<div class="item-formula" style="flex: 0 0 100px; text-align: center;">Execução</div>
+						<div class="item-name">{{localize 'op.ability.plural'}}</div>
+						<div class="item-formula" style="flex: 0 0 80px; text-align: center;">{{localize 'op.cost'}}</div>
+						<div class="item-formula" style="flex: 0 0 100px; text-align: center;">{{localize 'op.execution'}}</div>
 						<div class="item-controls">
 								{{#if editable}}
 										<a class="item-control item-create" data-action="createDoc" title="Adicionar Habilidade" 
@@ -47,7 +47,7 @@
 		</ol>
 
 		<div class="section-group" style="margin-top: 10px;">
-				<span class="actor-title-header">Habilidades Diversas</span>
+				<span class="actor-title-header">{{localize 'op.ability.diverse'}}</span>
 				{{#if editable}} 
 						<prose-mirror name="system.temporary.abilities" data-document-u-u-i-d="{{actor.uuid}}" value="{{system.temporary.abilities}}" collaborate="true" toggled="true">
 								{{{enrichedAbilities}}}
