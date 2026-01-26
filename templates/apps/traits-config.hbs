@@ -1,0 +1,24 @@
+<form autocomplete="off" class="ordemparanormal-config">
+    <p class="notes">Configure as características da ameaça.</p>
+    
+    <div class="form-group header flexrow" style="margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #333;">
+			<label style="flex: 2;">Características</label>
+			<label style="flex: 0 0 40px; text-align: center;" title="Ativar ou desativar característica"><i class="fas fa-shield-alt"></i></label>
+    </div>
+
+		{{log traits}}
+    {{#each traits as |trait key|}}
+			<div class="form-group flexrow" style="align-items: center; margin-bottom: 3px;">
+				<label style="flex: 2;">{{localize trait.label}}</label>
+				<div style="flex: 0 0 40px; display: flex; justify-content: center;">
+					<input type="checkbox" name="{{key}}" {{checked trait.enabled}} />
+				</div>
+			</div>
+    {{/each}}
+
+    <footer class="sheet-footer flexrow" style="margin-top: 10px;">
+        <button type="submit" name="submit">
+            <i class="far fa-save"></i> {{localize "Salvar"}}
+        </button>
+    </footer>
+</form>
