@@ -17,6 +17,7 @@
 
 	"TYPES.Item.ability": "Ability",
 	"op.ability.plural": "Abilities",
+	"op.ability.diverse": "Diverse Abilities",
 
 	"op.OrdemActorSheet": "Agent's Sheet",
 
@@ -435,6 +436,15 @@
 		"large": "Large",
 		"huge": "Huge",
 		"colossal": "Colossal"
+	},
+
+	"op.traits": {
+		"smell": "Smell",
+		"acceleratedHealing": "Accelerated Healing",
+		"incorporeal": "Incorporeal",
+		"blindsight": "Blindsight",
+		"lowLightVision": "Low Light Vision",
+		"darkvision": "Darkvision"
 	},
 
 	"op.Notes": "Update Notes",

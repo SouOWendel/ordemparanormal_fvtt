@@ -17,6 +17,7 @@
 
 	"TYPES.Item.ability": "Habilidade",
 	"op.ability.plural": "Habilidades",
+	"op.ability.diverse": "Habilidades Diversas",
 
 	"op.OrdemActorSheet": "Ficha de Agente",
 
@@ -453,6 +454,15 @@
 		"large": "Grande",
 		"huge": "Enorme",
 		"colossal": "Colossal"
+	},
+
+	"op.traits": {
+		"smell": "Faro",
+		"acceleratedHealing": "Cura Acelerada",
+		"incorporeal": "Incorpóreo",
+		"blindsight": "Percepção Às Cegas",
+		"lowLightVision": "Visão na Penumbra",
+		"darkvision": "Visão no Escuro"
 	},
 
 	"op.Notes": "Notas de Atualização",
