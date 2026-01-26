@@ -502,20 +502,28 @@
 					"skillResistances": "",	"damageResistances": ""
 				}, "vulnerabilities": "", "actions": "", "characteristics": ""},
 			"resistances": {
-                "cuttingDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "impactDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "piercingDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "ballisticDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "fireDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "eletricDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "coldDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "chemicalDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "mentalDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "bloodDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "deathDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "knowledgeDamage": { "value": 0, "vulnerable": false, "immune": false },
-                "energyDamage": { "value": 0, "vulnerable": false, "immune": false }
-            }
+				"cuttingDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"impactDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"piercingDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"ballisticDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"fireDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"eletricDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"coldDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"chemicalDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"mentalDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"bloodDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"deathDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"knowledgeDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"energyDamage": { "value": 0, "vulnerable": false, "immune": false }
+			},
+			"traits": {
+				"smell": false,
+				"acceleratedHealing": false,
+				"incorporeal": false,
+				"blindsight": false,
+				"lowLightVision": false,
+				"darkvision": false
+			}
 		}
 	},
 	"Item": {
