@@ -1,16 +1,15 @@
 <section class="{{actor.type}} threat flexcol" id="threat" autocomplete="off">
     {{!-- HEADER --}}
     <header class="sheet-header-op">
-        <div class="header-identify align-center flex">
-            <img class="threat-profile-img" src="{{actor.img}}" data-edit="img" data-action="onEditImage" title="{{actor.name}}" />
-            
-            <div class="flexcol" style="flex: 1; justify-content: flex-start; gap: 5px; min-width: 200px;">
-                <div class="flexrow flex-center">
-                    <h1 class="charname" style="margin: 0; flex: 1;">
-                        <input name="name" type="text" value="{{actor.name}}" placeholder="Nome da Ameaça" 
-                               style="text-align: center; font-weight: bold; font-size: 24px; width: 100%;" />
-                    </h1>
-                </div>
+			<div class="header-identify align-center flex">
+				<img class="threat-profile-img" src="{{actor.img}}" data-edit="img" data-action="onEditImage" title="{{actor.name}}" />
+					<div class="flexcol" style="flex: 1; justify-content: flex-start; gap: 5px; min-width: 200px;">
+						<div class="flexrow flex-center">
+							<h1 class="charname" style="margin: 0; flex: 1;">
+								<input name="name" type="text" value="{{actor.name}}" placeholder="Nome da Ameaça" 
+								style="text-align: center; font-weight: bold; font-size: 24px; width: 100%;" />
+							</h1>
+						</div>
 
                 <div class="header-stats-row">
                     <div style="background: rgba(0, 0, 0, 0.05); border-radius: 5px; border: 1px solid #ccc; padding: 2px 5px; flex: 0 0 60px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -42,146 +41,162 @@
         </div>
 
         <div class="header-fields" style="margin-top: 2px;">
-            <div class="resources flexrow">
-                <div class="resource flex-group-center">
-                    <label class="resource-label"> {{localize 'op.PV'}} </label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" data-dtype="Number" />
-                        <span> / </span>
-                        <input type="text" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" data-dtype="Number" />
-                    </div>
-                </div>
+					<div class="resources flexrow">
+						<div class="resource flex-group-center">
+							<label class="resource-label"> {{localize 'op.PV'}} </label>
+							<div class="resource-content flexrow flex-center flex-between">
+								<input type="text" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" data-dtype="Number" />
+								<span> / </span>
+								<input type="text" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" data-dtype="Number" />
+							</div>
+						</div>
+						<div class="resources flexrow" style="margin-top: 5px; flex-wrap: wrap;">
+							<div class="resource flex-group-center" style="flex: 1; min-width: 100px;">
+								<label class="resource-label">{{localize 'op.defense'}}</label>
+								<div class="resource-content flexrow flex-center flex-between">
+									<input type="text" name="system.defense.value" value="{{system.defense.value}}" data-dtype="Number"/>
+								</div>
+							</div>
+							<div class="resource flex-group-center" style="flex: 1; min-width: 100px;">
+								<label class="resource-label">{{localize 'op.deslocamento'}}</label>
+								<div class="resource-content flexrow flex-center flex-between">
+									<input type="text" name="system.attributes.movement.walk" value="{{system.attributes.movement.walk}}" data-dtype="String"  />
+								</div>
+							</div>
             </div>
+					</div>
 
-            <div class="resources flexrow" style="margin-top: 5px; margin-bottom: 5px; gap: 10px; flex-wrap: wrap;">
-                <div class="resource flex-group-center" style="flex: 1 0 30%;">
-                    <label class="resource-label">Tipo</label>
-                    <div class="resource-content">
-                        <select name="system.details.creatureType" style="width: 100%; text-align: center;">
-                            {{selectOptions threatTypes selected=system.details.creatureType localize=true}}
-                        </select>
-                    </div>
-                </div>
-                <div class="resource flex-group-center" style="flex: 1 0 30%;">
-                    <label class="resource-label">Elemento</label>
-                    <div class="resource-content">
-                        <select name="system.details.element" style="width: 100%; text-align: center;">
-                            {{selectOptions elements selected=system.details.element localize=true}}
-                        </select>
-                    </div>
-                </div>
-                <div class="resource flex-group-center" style="flex: 1 0 30%;">
-                    <label class="resource-label">Tamanho</label>
-                    <div class="resource-content">
-                        <select name="system.details.size" style="width: 100%; text-align: center;">
-                            {{selectOptions threatSizes selected=system.details.size localize=true}}
-                        </select>
-                    </div>
-                </div>
-            </div>
+					<div class="resources flexrow" style="margin-top: 5px; margin-bottom: 5px; gap: 10px; flex-wrap: wrap;">
+						<div class="resource flex-group-center" style="flex: 1 0 30%;">
+							<label class="resource-label">Tipo</label>
+							<div class="resource-content">
+								<select name="system.details.creatureType" style="width: 100%; text-align: center;">
+									{{selectOptions threatTypes selected=system.details.creatureType localize=true}}
+								</select>
+							</div>
+						</div>
+						<div class="resource flex-group-center" style="flex: 1 0 30%;">
+							<label class="resource-label">Elemento</label>
+							<div class="resource-content">
+								<select name="system.details.element" style="width: 100%; text-align: center;">
+									{{selectOptions elements selected=system.details.element localize=true}}
+								</select>
+							</div>
+						</div>
+						<div class="resource flex-group-center" style="flex: 1 0 30%;">
+							<label class="resource-label">Tamanho</label>
+							<div class="resource-content">
+								<select name="system.details.size" style="width: 100%; text-align: center;">
+									{{selectOptions threatSizes selected=system.details.size localize=true}}
+								</select>
+							</div>
+						</div>
+					</div>
 
             <div class="resources flexrow" style="flex-wrap: wrap; gap: 5px;">
-                <div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
-                    <label class="resource-label rollable pointer" data-action="onRollAttributeTest" data-key="dex">{{localize 'op.attDex'}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="system.attributes.dex.value" value="{{system.attributes.dex.value}}" data-dtype="Number" />
-                    </div>
-                </div>
-                <div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
-                    <label class="resource-label rollable pointer" data-action="onRollAttributeTest" data-key="str">{{localize 'op.attStr'}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="system.attributes.str.value" value="{{system.attributes.str.value}}" data-dtype="Number" />
-                    </div>
-                </div>
-                <div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
-                    <label class="resource-label rollable pointer" data-action="onRollAttributeTest" data-key="int">{{localize 'op.attInt'}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="system.attributes.int.value" value="{{system.attributes.int.value}}" data-dtype="Number" />
-                    </div>
-                </div>
-                <div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
-                    <label class="resource-label rollable pointer" data-action="onRollAttributeTest" data-key="pre">{{localize 'op.attPre'}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="system.attributes.pre.value" value="{{system.attributes.pre.value}}" data-dtype="Number" />
-                    </div>
-                </div>
-                <div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
-                    <label class="resource-label rollable pointer" data-action="onRollAttributeTest" data-key="vit">{{localize 'op.attVit'}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="system.attributes.vit.value" value="{{system.attributes.vit.value}}" data-dtype="Number" />
-                    </div>
-                </div>
+							<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+								<label class="resource-label rollable pointer" data-action="onRollSkillCheck" data-key="dex">{{localize 'op.attDex'}}</label>
+								<div class="resource-content flexrow flex-center flex-between">
+									<input type="text" name="system.attributes.dex.value" value="{{system.attributes.dex.value}}" data-dtype="Number" />
+								</div>
+							</div>
+							<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+								<label class="resource-label rollable pointer" data-action="onRollSkillCheck" data-key="str">{{localize 'op.attStr'}}</label>
+								<div class="resource-content flexrow flex-center flex-between">
+									<input type="text" name="system.attributes.str.value" value="{{system.attributes.str.value}}" data-dtype="Number" />
+								</div>
+							</div>
+							<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+								<label class="resource-label rollable pointer" data-action="onRollSkillCheck" data-key="int">{{localize 'op.attInt'}}</label>
+								<div class="resource-content flexrow flex-center flex-between">
+									<input type="text" name="system.attributes.int.value" value="{{system.attributes.int.value}}" data-dtype="Number" />
+								</div>
+							</div>
+							<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+								<label class="resource-label rollable pointer" data-action="onRollSkillCheck" data-key="pre">{{localize 'op.attPre'}}</label>
+								<div class="resource-content flexrow flex-center flex-between">
+									<input type="text" name="system.attributes.pre.value" value="{{system.attributes.pre.value}}" data-dtype="Number" />
+								</div>
+							</div>
+							<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+								<label class="resource-label rollable pointer" data-action="onRollSkillCheck" data-key="vit">{{localize 'op.attVit'}}</label>
+								<div class="resource-content flexrow flex-center flex-between">
+									<input type="text" name="system.attributes.vit.value" value="{{system.attributes.vit.value}}" data-dtype="Number" />
+								</div>
+							</div>
             </div>
 
             <div class="resources threat-skills-container">
-                {{#each threatSkills as |skill|}}
-                <div class="resource flex-group-center" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; width: 100%;">
-                    {{#if skill.isFree}}
-                        <div class="flexrow flex-center" style="gap: 3px; margin-bottom: 2px; width: 100%; justify-content: center; align-items: center;">
-                            <input type="text" name="system.skills.{{skill.key}}.name" value="{{skill.name}}" placeholder="Livre" 
-                                   style="font-size: 11px; height: 16px; text-align: center; width: 65px; border: none; border-bottom: 1px solid #7a7971; background: transparent; padding: 0;" />
-                            <i class="fas fa-dice rollable pointer" data-action="onRollSkill" data-key="{{skill.key}}" data-attr="{{skill.attr}}" data-label="{{skill.label}}" style="font-size: 10px; color: #4b4a44;"></i>
-                        </div>
-                    {{else}}
-                        <label class="resource-label rollable pointer" data-action="onRollSkill" data-key="{{skill.key}}" data-attr="{{skill.attr}}" data-label="{{skill.label}}" 
-                               style="font-size: 11px; margin-bottom: 3px; display: flex; justify-content: center; align-items: center; text-align: center; width: 100%;">
-                            {{skill.label}} <span style="font-size: 9px; color: #555; font-weight: normal; margin-left: 3px;">({{skill.attrLabel}})</span>
-                        </label>
-                    {{/if}}
-                    <div class="resource-content flexrow flex-center" style="width: 100%; justify-content: center; gap: 2px;">
-                        <select name="system.skills.{{skill.key}}.degree.label" style="font-size: 10px; height: 18px; width: 60px; text-align: center; padding: 0;">
-                            {{selectOptions ../optionDegree selected=skill.degreeLabel localize=true}}
-                        </select>
-                        <span style="font-size: 11px; min-width: 30px; text-align: center; font-weight: bold; line-height: 18px; color: #222; border-bottom: 1px dotted #999;">
-                            {{#if (gt skill.value 0)}}+{{/if}}{{skill.value}}
-                        </span>
-                    </div>
-                </div>
-                {{/each}}
+							{{#each system.skills as |skill key|}}
+								<div class="resource flex-group-center" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; width: 100%;">
+									<label for="system.skills.{{key}}.value" data-action="onRollSkillCheck" class="resource-label rollable flexlarge align-left skill-name"
+									data-label="{{skill.label}}" data-key="{{key}}" data-rollType="skill">{{skill.label}}</label>
+									<div class="item-space item-prop item-editable-resource">
+										{{#if @root.owner}}
+											<a class="adjustment-button" data-action="decrease" data-property="system.skills.{{key}}.degree.value">
+												<i class="fas fa-minus"></i>
+											</a>
+										{{/if}}
+										<input type="number" value="{{skill.degree.value}}" placeholder="0" data-dtype="Number"
+											data-name="system.skills.{{key}}.degree.value" inputmode="numeric" pattern="[0-9+=\-]*" min="0">
+										{{#if @root.owner}}
+											<a class="adjustment-button" data-action="increase" data-property="system.skills.{{key}}.degree.value">
+												<i class="fas fa-plus"></i>
+											</a>
+										{{/if}}
+									</div>
+								</div>
+							{{/each}}
             </div>
 
-            <div class="resources flexrow" style="margin-top: 5px;">
-                <div class="resource flex-group-center">
-                    <label class="resource-label">
-                        <a class="config-button" data-action="openResistanceConfig" title="Configurar Resistências" style="text-decoration: none; color: inherit;">
-                            <i class="fas fa-shield-alt"></i> Resistências <i class="fas fa-cog" style="font-size: 0.8em; opacity: 0.5;"></i>
-                        </a>
-                    </label>
-                    
-                    <div class="resource-content resistance-container-grid">
-                        {{#each viewResistances as |res key|}}
-                            {{#if res.isVisible}}
-                                <div class="resistance-tag" title="{{res.translatedLabel}}">
-                                    <span style="font-weight: bold; text-transform: uppercase; font-size: 9px; margin-bottom: 1px;">
-                                        {{res.translatedLabel}}
-                                    </span>
-                                    <div style="display: flex; gap: 3px; align-items: center;">
-                                        {{#if (gt res.value 0)}}<span style="font-size: 11px; font-weight: bold;">{{res.value}}</span>{{/if}}
-                                        {{#if res.immune}}<i class="fas fa-shield-alt" style="color: #2c3e50; font-size: 10px;" title="Imune"></i>{{/if}}
-                                        {{#if res.vulnerable}}<i class="fas fa-heart-broken" style="color: #c0392b; font-size: 10px;" title="Vulnerável"></i>{{/if}}
-                                    </div>
-                                </div>
-                            {{/if}}
-                        {{/each}}
-                    </div>
-                </div>
-            </div>
+						<div class="threat-tags flexrow">
+							<div class="resources flexrow" style="margin-top: 5px;">
+								<div class="resource flex-group-center">
+									<label class="resource-label">
+										<a class="config-button" data-action="openResistanceConfig" title="Configurar Resistências" style="text-decoration: none; color: inherit;">
+											<i class="fas fa-shield-alt"></i> Resistências <i class="fas fa-cog" style="font-size: 0.8em; opacity: 0.5;"></i>
+										</a>
+									</label>
+										
+									<div class="resource-content resistance-container-grid">
+										{{#each viewResistances as |res key|}}
+											{{#if res.isVisible}}
+												<span class="resistance-tag" title="{{res.translatedLabel}}">
+													<span class="resistance-tag-label">{{res.translatedLabel}}</span>
+													<span class="resistance-tag-values">
+														{{#if (gt res.value 0)}}<span class="resistance-tag-value">{{res.value}}</span>{{/if}}
+														{{#if res.immune}}<i class="fas fa-shield-alt resistance-tag-immune" title="Imune"></i>{{/if}}
+														{{#if res.vulnerable}}<i class="fas fa-heart-broken resistance-tag-vulnerable" title="Vulnerável"></i>{{/if}}
+													</span>
+												</span>
+											{{/if}}
+										{{/each}}
+									</div>
+								</div>
+							</div>
 
-            <div class="resources flexrow" style="margin-top: 5px; flex-wrap: wrap;">
-                <div class="resource flex-group-center" style="flex: 1; min-width: 100px;">
-                    <label class="resource-label">{{localize 'op.defense'}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="system.defense.value" value="{{system.defense.value}}" data-dtype="Number"/>
-                    </div>
-                </div>
-                <div class="resource flex-group-center" style="flex: 1; min-width: 100px;">
-                    <label class="resource-label">{{localize 'op.deslocamento'}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="system.attributes.movement.walk" value="{{system.attributes.movement.walk}}" data-dtype="String"  />
-                    </div>
-                </div>
-            </div>
-
+							<div class="resources flexrow" style="margin-top: 5px;">
+								<div class="resource flex-group-center">
+									<label class="resource-label">
+										<a class="config-button" data-action="openTraitsConfig" title="Configurar Características" style="text-decoration: none; color: inherit;">
+											<i class="fas fa-shield-alt"></i> Características <i class="fas fa-cog" style="font-size: 0.8em; opacity: 0.5;"></i>
+										</a>
+									</label>
+										
+									<div class="resource-content traits-container-grid">
+										{{#each viewTraits as |trait key|}}
+											{{#if trait.isVisible}}
+												<span class="traits-tag" title="{{trait.translatedLabel}}">
+													<span class="traits-tag-label">
+														{{trait.translatedLabel}}
+													</span>
+												</span>
+											{{/if}}
+										{{/each}}
+									</div>
+								</div>
+							</div>
+						</div>
         </div>
     </header>
 </section>
