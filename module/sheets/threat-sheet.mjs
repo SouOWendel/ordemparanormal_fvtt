@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 import { prepareActiveEffectCategories } from '../helpers/effects.mjs';
 import { ResistanceConfig } from '../applications/resistance-config.mjs';
+import { TraitsConfig } from '../applications/traits-config.mjs';
 
 const { api, sheets } = foundry.applications;
 
@@ -32,8 +33,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			title: 'Ficha de Ameaça'
 		},
 		form: { 
-			submitOnChange: true, 
-			closeOnSubmit: false 
+			submitOnChange: true
 		},      
 		// Mapeamento de Ações (data-action="nomeDaAcao")
 		actions: {
@@ -42,6 +42,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
                 
 			// Rolagens
 			onRollAttributeTest: this.prototype._onRollAttributeTest,
+			onRollSkillCheck: this.#onRollSkillCheck,
 			onRollSkill: this.prototype._onRollSkill,
 			onRollMentalDamage: this.prototype._onRollMentalDamage,
 			onRoll: this.prototype._onRoll,
@@ -53,7 +54,8 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			toggleDescription: this.prototype._onToggleDescription,
 			toggleEffect: this.prototype._onToggleEffect,
 			// Configurações
-			openResistanceConfig: this.prototype._onOpenResistanceConfig
+			openResistanceConfig: this.prototype._onOpenResistanceConfig,
+			openTraitsConfig: this.prototype._onOpenTraitsConfig
 		},
 		dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }]
 	};
@@ -103,6 +105,15 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 	_onRender(context, options) {
 		// Re-bind do Drag & Drop após renderizar
 		this.#dragDrop.forEach((d) => d.bind(this.element));
+		this.#disableOverrides();
+
+		for (const input of this.element.querySelectorAll('input[type=\'number\']')) {
+			input.addEventListener('change', this._onChangeInputOP.bind(this));
+		}
+
+		for (const button of this.element.querySelectorAll('.adjustment-button')) {
+			button.addEventListener('click', this._onAdjustInput.bind(this));
+		}
 	}
 
 	/** * Prepara os dados para o Handlebars 
@@ -127,12 +138,12 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			tabs: this._getTabs(options.parts)
 		});
 
-		// Prepara visualização de Resistências
+		// Prepara visualização de Resistências e Características
 		this._prepareResistances(context);
+		this._prepareTraits(context);
 
 		// Prepara Itens e Perícias
 		this._prepareItems(context);
-		this._prepareThreatSkills(context);
         
 		return context;
 	}
@@ -154,6 +165,27 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 				...resData,
 				isVisible: isVisible,
 				translatedLabel: game.i18n.localize(`op.damageTypeAbv.${key}`)
+			};
+		}
+	}
+
+	/**
+	 *  Separei a lógica de resistências para limpar o _prepareContext
+	 * */
+	_prepareTraits(context) {
+		context.viewTraits = {};
+		const allTraitsTypes = CONFIG.op.traits || {}; 
+		const actorTraits = context.system.traits || {};
+
+		for (const [key, ] of Object.entries(allTraitsTypes)) {
+			const traitData = actorTraits[key];
+			// Mostra apenas se tiver algum valor relevante
+			const isVisible = (traitData == undefined) || (traitData === true);
+
+			context.viewTraits[key] = {
+				...traitData,
+				isVisible: isVisible,
+				translatedLabel: game.i18n.localize(`op.traits.${key}`)
 			};
 		}
 	}
@@ -211,46 +243,6 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 
 		context.attacks = attacks;
 		context.abilities = abilities;
-	}
-
-	/** */
-	_prepareThreatSkills(context) {
-		const s = this.document.system.skills || {};
-        
-		// Tabela de valores para exibição
-		const degreeValues = { 'untrained': 0, 'trained': 5, 'veteran': 10, 'expert': 15, 'master': 20 };
-
-		const buildSkill = (key, label, attr) => {
-			const skillData = s[key] || {};
-			const rawName = (key === 'freeSkill' && skillData.name) ? skillData.name : '';
-			const displayLabel = (key === 'freeSkill' && skillData.name) ? skillData.name : label;
-			const attrLabel = game.i18n.localize(`op.${attr}Abv`).toUpperCase();
-            
-			const currentDegreeLabel = skillData.degree?.label || 'untrained';
-			const calculatedValue = degreeValues[currentDegreeLabel] || 0;
-
-			return {
-				key: key,
-				label: displayLabel,
-				name: rawName,
-				attr: attr,
-				attrLabel: attrLabel,
-				degreeLabel: currentDegreeLabel, 
-				value: calculatedValue, 
-				isFree: key === 'freeSkill'
-			};
-		};
-
-		context.threatSkills = [
-			buildSkill('fighting', 'Luta', 'str'),
-			buildSkill('aim', 'Pontaria', 'dex'),
-			buildSkill('resilience', 'Fortitude', 'vit'),
-			buildSkill('reflexes', 'Reflexo', 'dex'),
-			buildSkill('will', 'Vontade', 'pre'),
-			buildSkill('initiative', 'Iniciativa', 'dex'),
-			buildSkill('perception', 'Percepção', 'pre'),
-			buildSkill('freeSkill', 'Perícia Livre', 'int')
-		];
 	}
 
 	/** */
@@ -395,6 +387,18 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		}
 	}
 
+	/**
+   * Handle rolling a Skill check.
+   * @param {Event} event      The originating click event.
+   * @returns {Promise<Roll>}  The resulting roll.
+   * @private
+   */
+	static #onRollSkillCheck(event, target) {
+		event.preventDefault();
+		const skill = target.closest('[data-key]').dataset.key;
+		return this.actor.rollSkill({ skill, event });
+	}
+
 	/** */
 	async _onRollSkill(event, target) {
 		event.preventDefault();
@@ -496,6 +500,41 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		if (doc) return doc.roll();
 	}
 
+	/**
+	 * 
+	 * @param {*} event 
+	 * @returns 
+	 */
+	async _onAdjustInput(event) {
+		const button = event.currentTarget;
+		const { action } = button.dataset;
+		const input = button.parentElement.querySelector('input');
+		const min = input.min ? Number(input.min) : -Infinity;
+		const max = input.max ? Number(input.max) : Infinity;
+		let value = Number(input.value);
+		if (isNaN(value)) return;
+		value += action === 'increase' ? 5 : -5;
+		input.value = Math.clamp(value, min, max);
+		input.dispatchEvent(new Event('change'));
+	}
+
+	/**
+	 * 
+	 * @param {*} event 
+	 * @returns 
+	 */
+	async _onChangeInputOP(event) {
+		event.stopImmediatePropagation();
+		const min = event.target.min !== '' ? Number(event.target.min) : -Infinity;
+		const max = event.target.max !== '' ? Number(event.target.max) : Infinity;
+		const value = Math.clamp(event.target.valueAsNumber, min, max);
+
+		if ( Number.isNaN(value) ) return;
+
+		event.target.value = value;
+		await this.document.update({[event.target.dataset.name]: value});
+	}
+
 	/** */
 	async _onToggleDescription(event, target) {
 		const li = target.closest('li');
@@ -527,10 +566,29 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		if (effect) await effect.update({ disabled: !effect.disabled });
 	}
 
+	/**
+   * Disables inputs subject to active effects
+   */
+	#disableOverrides() {
+		const flatOverrides = foundry.utils.flattenObject(this.actor.overrides);
+		for (const override of Object.keys(flatOverrides)) {
+			const input = this.element.querySelector(`[name="${override}"]`);
+			if (input) {
+				input.disabled = true;
+			}
+		}
+	}
+
 	/** */
 	async _onOpenResistanceConfig(event, target) {
 		event.preventDefault();
 		new ResistanceConfig(this.document).render(true);
+	}
+
+	/** */
+	async _onOpenTraitsConfig(event, target) {
+		event.preventDefault();
+		new TraitsConfig(this.document).render(true);
 	}
 
 	/* -------------------------------------------- */
@@ -601,4 +659,36 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		if (!this.actor.isOwner || !effect) return false;
 		return aeCls.create(effect, { parent: this.actor });
 	}
+
+	/** ******************
+   *
+   * Actor Override Handling
+   *
+   ********************/
+
+	/**
+   * Submit a document update based on the processed form data.
+   * @param {SubmitEvent} event                   The originating form submission event
+   * @param {HTMLFormElement} form                The form element that was submitted
+   * @param {object} submitData                   Processed and validated form data to be used for a document update
+   * @returns {Promise<void>}
+   * @protected
+   * @override
+   */
+	async _processSubmitData(event, form, submitData) {
+		const overrides = foundry.utils.flattenObject(this.actor.overrides);
+		for (const k of Object.keys(overrides)) delete submitData[k];
+		await this.document.update(submitData);
+	}
+
+	/* -------------------------------------------- */
+	/*  Form Submission                             */
+	/* -------------------------------------------- */
+
+	/** @inheritdoc */
+	async _onSubmit(...args) {
+		await super._onSubmit(...args);
+	}
+
+	/* -------------------------------------------- */
 }
