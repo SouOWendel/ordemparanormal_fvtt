@@ -2,7 +2,7 @@
   "id": "ordemparanormal",
   "title": "Ordem Paranormal",
   "description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
-  "version": "7.2.4",
+  "version": "7.3.0",
   "compatibility": {
     "minimum": "12",
     "verified": "13.350"
@@ -121,7 +121,7 @@
         "PLAYER": "OBSERVER"
       }
     },
-		{
+    {
       "name": "survivalPowers",
       "label": "Poderes de Sobrevivente",
       "system": "ordemparanormal",
@@ -181,7 +181,7 @@
         "PLAYER": "OBSERVER"
       }
     },
-		{
+    {
       "name": "generalPowers",
       "label": "Poderes Gerais",
       "system": "ordemparanormal",
@@ -235,7 +235,7 @@
             "fighterPowers",
             "specialistPowers",
             "occultistPowers",
-						"survivalPowers"
+            "survivalPowers"
           ]
         },
         {

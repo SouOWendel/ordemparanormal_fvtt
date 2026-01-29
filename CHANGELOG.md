@@ -1,5 +1,57 @@
 # Changelog
 
+## [7.3.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.4...v7.3.0) (2026-01-29)
+
+
+### Features
+
+* **actor parts:** enhance ritual display with cost information and improve item layout with toggle description function ([7f0acfc](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7f0acfc050da4ab956a1ddfe332a6fecd5dbd4ca))
+* **actor-abilities:** enhance resource management UI and improve abilities display ([7445ad9](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7445ad9f02aa22b8569435ff01bca80c19f4e698))
+* **actor-rituals:** improve indentation ([a3dda61](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a3dda61c2149a00e1d98412b87c9f8eddb32844c))
+* **actor-sheet:** add toggle for resource visibility and enhance ability handling ([21a87ac](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/21a87ac7522528cb0f9f20378acc55d30f1a5d2f))
+* **actor-skills:** add total value display for skills and improve layout ([2e32de0](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2e32de0cbeac0359ec68b054b90ff5cc8cbab5a2))
+* **actor-threat-sheet:** enhance layout and functionality of threat attributes and skills ([6b87b6d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6b87b6d8681d4eecdb296c911d4cfa148cbc2fce))
+* **actor-threat:** add resources, skills, and resistances to enhance threat attributes ([e9d1abc](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e9d1abc706343c8cd681a65e6b11ae6b92e3ec81))
+* **actor:** add traits and enhance resistances structure in template ([4f3b564](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4f3b5648fe90353b7acb5cae1bd58c67625c8654))
+* **actor:** enhance item handling and toggle description functionality in actor sheet ([2eeab7e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2eeab7e34e8f739fd85ba44c9960e9d91adc08cf))
+* **actor:** enhance skill preparation and initiative calculation for threats ([9e3f44e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9e3f44eb286591e8e303a24c1de98133ff7d0f39))
+* **actor:** enhance threat handling by adding _prepareBaseSkillsThreat method ([309880d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/309880d6826a75b84a432d7b89b9bcfa87e13a6c))
+* **agent actor sheet:** add _prepareSkillTotals method to calculate skill totals for display ([08f1e0f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/08f1e0f1b74a70bd9985116b0da3ce7da10be701))
+* **config:** add new dropdown options for threat degrees and damage types ([41ca95e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/41ca95e1b9dc20d8034664281f246d1c75c7e5c1))
+* **config:** add traits configuration ([7436de6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7436de68bead9a408b2f0fa16c2c8c2189ad3b8a))
+* **css/sass:** update styles for threat sheet: title header, resistance tags, and traits tags for improved layout and readability ([3438234](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/3438234049f977e13f8297c36fbdbdce057f8708))
+* **handlebars:** add custom radioBoxes helper for numeric value handling ([a04d25e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a04d25eda7b29c0b565e2c5bdcd54b67945108f2))
+* **hooks:** enhance preCreateActor hook with additional logging for threat actor configuration ([5c2fd90](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/5c2fd902350b0779b298642454c27f30c3e48577))
+* **item-ability-attributes:** update ability attributes section to include activation options ([971b5e2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/971b5e22e28c61e4af62a0c6d62538b7d8b54dc2))
+* **item:** improve chat card action handling and item validation ([0d7b8b7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0d7b8b7841c787cd46b702cff8247168db6caac2))
+* **lang:** added new attack and enigma entries, with english translates, and threat type/size choices in language files ([cb1a3ba](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/cb1a3bab2b36758b97c02f25b6ab02e4e1c94d20))
+* **localization:** add diverse abilities and traits translations ([42fe92f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/42fe92f8f266bef2d354bef026c188f2512bd9fc))
+* **localization:** added new damage types and abbreviations, cost translate ([26f36d7](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/26f36d7211394fe0aaff3af7d4d86eef8d179226))
+* **localization:** enhance localization for threat attributes, abilities, and traits ([597e3a4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/597e3a4d10ef1b445f6da0a4079db32be62c6afa))
+* **media:** added icons for new packs ([0849112](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0849112b34545231fa36e89a2e00f6e67ffef6a1))
+* **messages:** updated release notes from version 7.2.3 to version 7.2.4 ([abaeb20](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/abaeb2011741d667fc42faec703dd2ab799a6a32))
+* **packs:** items have been updated, revised, and more items have been added ([aa895de](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/aa895dee4b1c7e89dc339946c000b1fcdce8c322))
+* **resistance-config:** add resistance configuration form for managing actor defenses ([a0aa6fc](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a0aa6fc1cd774eab6e780f0ca52641bba97f1af8))
+* **resistance:** add ResistanceConfig class for managing actor damage resistances ([ccf7571](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/ccf75718ef6f3c017208ab67a52555339daae2e5))
+* **sheet:** update document sheet registration for actors and items ([d5d76b3](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d5d76b3de4e2586aec7be12ff05d8de206a92a6e))
+* **tabs:** add new Handlebars template for sheet tab navigation ([adb1bba](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/adb1bba2ada518c2f19edabea888e2695cf9ef81))
+* **template.json:** initialize threat attributes with default values ([30d471e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/30d471e6ab26c8d4d8b255c9797bdc968e47cfa8))
+* **threat-abilities:** localize ability headers and labels for better internationalization ([9f546cf](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9f546cf1325cdad9637d80845bc1c71a662efc50))
+* **threat-sheet:** integrate TraitsConfig and enhance input handling for improved functionality ([1ea8a50](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1ea8a50365b4fe1e7589311c946167c0bbbed549))
+* **threat-sheet:** replace HTML template with Handlebars for actor threat sheet and add new sections for abilities, attacks, effects, and enigmas ([e32b6df](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/e32b6dfda862797408cf5ae6db8b02d91d4af74e))
+* **threat:** add dropdown options for threat types and sizes ([614efc8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/614efc823dfaa1eb21702ba87b6eb2c186426a1c))
+* **threat:** refactor threat sheet to extend HandlebarsApplicationMixin and improve all structure ([2001ebc](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/2001ebc56d597625f55c5aa4317b35b190f3f4e4))
+* **traits-config:** add traits configuration form for threat characteristics ([7d2750f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7d2750ffc3fc46aa3bd05df1af4314f53c84d48c))
+* **traits-config:** add TraitsConfig class for actor traits management ([8f108f5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8f108f56f459fa9ac49007d71e012154c3547726))
+
+
+### Bug Fixes
+
+* **.gitignore:** simplify pack exclusions by removing specific entries ([430cef6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/430cef697ee8be0761405726467d3e1002cda3c8))
+* **item-card:** add token ID attribute to item card for enhanced functionality ([fcdaf03](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/fcdaf035285b7ff9869f055e8d911fdfe552250c))
+* **language:** update translation for "muambeiro" to "Hawker" for clarity ([bec2af6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bec2af6baac8e785d736a11f40aec65a0011e47e))
+* **threat-sheet:** update action method references to use prototype ([4c94a63](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/4c94a630674a18a8a7cfc2908d643313c9d034f0))
+
 ## [7.2.4](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.3...v7.2.4) (2025-10-30)
 
 
