@@ -435,41 +435,22 @@ export class OrdemItem extends Item {
 		}
 
 		const html = await renderTemplate('systems/ordemparanormal/templates/chat/item-card.html', templateData);
-		// If there's no roll data, send a chat message.
-		// if (!this.system.formulas) {
-		ChatMessage.create({
+
+		const chatMessageData = {
 			speaker: speaker,
 			rollMode: rollMode,
-			// flavor: label,
-			content: html,
-			// content: item.system.description ?? '',
-		});
-		// }
-		// // Otherwise, create a roll and send a chat message from it.
-		// else {
-		// Retrieve roll data.
-		// const rollData = this.getRollData();
+			content: html
+		};
 
-		// // Invoke the roll and submit it to chat.
-		// const roll = new Roll(rollData.item.damage, rollData);
-
-		// // If you need to store the value first, uncomment the next line.
-		// // let result = await roll.roll({async: true});
-		// roll.toMessage({
-		// 	speaker: speaker,
-		// 	rollMode: rollMode,
-		// 	flavor: label,
-		// });
-
-		// 	ChatMessage.create({
-		// 		speaker: speaker,
-		// 		rollMode: rollMode,
-		// 		flavor: label,
-		// 		content: html,
-		// 	});
-
-		// 	// return roll;
-		// }
+		// Whisper to GM if roll mode is set to GM rolls
+		if (rollMode == 'blindroll') chatMessageData.whisper = ChatMessage.getWhisperRecipients('GM');
+		if (rollMode == 'selfroll') chatMessageData.whisper = [game.user.id];
+		if (rollMode == 'gmroll') {
+				const gmUsers = game.users.filter(u => u.isGM).map(u => u.id);
+				chatMessageData.whisper = [... new Set([...gmUsers, game.user.id])].flat();
+		}
+		ChatMessage.create(chatMessageData);
+		
 	}
 
 	/**
