@@ -446,24 +446,22 @@
 			"templates": [],
 			"attributes": {
 				"hp": {
-					"value": 0,
+					"value": 10,
 					"max": 10
 				},
-				"dex": { "value": 0 },
-				"int": { "value": 0 },
-				"pre": { "value": 0 },
-				"str": { "value": 0 },
-				"vit": { "value": 0 },
+				"dex": { "value": 1 },
+				"int": { "value": 1 },
+				"pre": { "value": 1 },
+				"str": { "value": 1 },
+				"vit": { "value": 1 },
 				"movement": {
-					"walk": "",
+					"walk": 0,
 					"unit": "m",
 					"squares": 0
 				},
 				"vd": { "value": 0 }
 			},
-			
 			"attacks": {},
-			
 			"skills": {
 				"fighting": { "value": 0, "attr": ["str", 1], "degree": { "label": "untrained", "value": 0 } },
 				"aim": { "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
@@ -474,7 +472,6 @@
 				"perception": { "value": 0, "attr": ["pre", 1], "degree": { "label": "untrained", "value": 0 } },
 				"freeSkill": { "value": 0, "name": "", "attr": ["int", 1], "degree": { "label": "untrained", "value": 0 } }
 			},
-			
 			"elements": {
 				"main": "",
 				"others": ""
@@ -488,7 +485,7 @@
 			},
 			"senses": [],
 			"defense": {
-				"value": "",
+				"value": 0,
 				"skillResistances": [],
 				"damageResistances": ""
 			},
