@@ -1,16 +1,16 @@
 <section class="tab flexcol enigmas {{tab.cssClass}}" data-tab="enigmas" data-group="primary">
-		<div class="enigma-container">
-				<span class="actor-title-header">Enigma de Medo</span>        
-				<div style="flex: 1; display: flex; flex-direction: column;">
-						{{#if editable}}
-								<prose-mirror name="system.details.fearRiddle" data-document-u-u-i-d="{{actor.uuid}}" value="{{system.details.fearRiddle}}" collaborate="true" toggled="true">
-										{{{enrichedFearRiddle}}}
-								</prose-mirror>
-						{{else}}
-								<div style="padding: 10px; background: rgba(255,255,255,0.5); border: 1px solid #ccc; border-radius: 4px; height: 100%; overflow-y: auto;">
-										{{{enrichedFearRiddle}}}
-								</div>
-						{{/if}}
+	<div class="enigma-container">
+		<span class="actor-title-header">{{localize "op.enigma"}}</span>        
+		<div style="flex: 1; display: flex; flex-direction: column;">
+			{{#if editable}}
+				<prose-mirror name="system.details.fearRiddle" data-document-u-u-i-d="{{actor.uuid}}" value="{{system.details.fearRiddle}}" collaborate="true" toggled="true">
+					{{{enrichedFearRiddle}}}
+				</prose-mirror>
+			{{else}}
+				<div style="padding: 10px; background: rgba(255,255,255,0.5); border: 1px solid #ccc; border-radius: 4px; height: 100%; overflow-y: auto;">
+					{{{enrichedFearRiddle}}}
 				</div>
+			{{/if}}
 		</div>
+	</div>
 </section>

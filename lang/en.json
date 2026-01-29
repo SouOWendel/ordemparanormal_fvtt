@@ -438,6 +438,29 @@
 		"colossal": "Colossal"
 	},
 
+	"op.threatName": "Threat Name",
+	"op.VD": "VD",
+	"op.size": "Size",
+	"op.resistances": "Resistances",
+	"op.resistancesTitle": "Configure Threat Resistances",
+	"op.immune": "Immune",
+	"op.vulnerable": "Vulnerable",
+	"op.noAbilities": "No abilities added.",
+	"op.attack": "Attack",
+	"op.armament": "Armament",
+	"op.test": "Test",
+	"op.addAttackArmament": "Add Attack",
+	"op.noAttacks": "No attacks configured.",
+	"op.enigma": "Fear Enigma",
+	"op.addAbility": "Add Ability",
+	"op.edit": "Edit",
+	"op.delete": "Delete",
+	"op.configTraitsDescription": "Configure the threat traits that will be available for selection in threat sheets.",
+	"op.traitsToggle": "Enable or disable trait",
+	"op.saveChanges": "Save Changes",
+
+	"op.traitsLabel": "Traits",
+	"op.traitsTitle": "Configure Threat Traits",
 	"op.traits": {
 		"smell": "Smell",
 		"acceleratedHealing": "Accelerated Healing",
@@ -457,6 +480,7 @@
 	"op.damage": "Damage",
 	"op.rollDmg": "Roll Damage",
 	"op.rollAtk": "Roll Attack",
+	"op.rollMentalDamage": "Roll Mental Damage",
 
 	"op.Advantage": "Advantage (+1d20)",
 	"op.Normal": "Roll Dice",
