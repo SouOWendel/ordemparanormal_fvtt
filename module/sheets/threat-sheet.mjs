@@ -41,11 +41,11 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			onEditImage: this.prototype._onEditImage,
                 
 			// Rolagens
-			onRollAttributeTest: this.prototype._onRollAttributeTest,
+			onRollAttributeTest: this.#onRollAttributeTest,
 			onRollSkillCheck: this.#onRollSkillCheck,
-			onRollSkill: this.prototype._onRollSkill,
-			onRollMentalDamage: this.prototype._onRollMentalDamage,
-			onRoll: this.prototype._onRoll,
+			onRollSkill: this.#onRollSkill,
+			onRollMentalDamage: this.#onRollMentalDamage,
+			onRoll: this.#onRoll,
                 
 			// Gestão de Itens e Efeitos
 			createDoc: this.prototype._onCreateDoc,
@@ -54,8 +54,8 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			toggleDescription: this.prototype._onToggleDescription,
 			toggleEffect: this.prototype._onToggleEffect,
 			// Configurações
-			openResistanceConfig: this.prototype._onOpenResistanceConfig,
-			openTraitsConfig: this.prototype._onOpenTraitsConfig
+			openResistanceConfig: this.#onOpenResistanceConfig,
+			openTraitsConfig: this.#onOpenTraitsConfig
 		},
 		dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }]
 	};
@@ -377,7 +377,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 
 	// CORREÇÃO: Passando o objeto corretamente para evitar o erro "One of original or other are not Objects"
 	/** */
-	_onRollAttributeTest(event, target) {
+	static #onRollAttributeTest(event, target) {
 		event.preventDefault();
 		const attribute = target.dataset.key;
 		if (this.actor.rollAttribute) {
@@ -400,7 +400,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 	}
 
 	/** */
-	async _onRollSkill(event, target) {
+	static async #onRollSkill(event, target) {
 		event.preventDefault();
 		const skillKey = target.dataset.key;
 		const attrKey = target.dataset.attr;
@@ -427,7 +427,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 	}
 
 	/** */
-	async _onRollMentalDamage(event, target) {
+	static async #onRollMentalDamage(event, target) {
 		event.preventDefault();
 		let formula = this.document.system.disturbingPresence.mentalDamage;
         
@@ -487,17 +487,23 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		if (doc) await doc.delete();
 	}
 
-	/** */
-	async _onRoll(event, target) {
+	/**
+	 * Handle clickable rolls.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	static async #onRoll(event, target) {
 		event.preventDefault();
-		let doc = this._getEmbeddedDocument(target);
-		if (!doc) {
-			const itemRow = target.closest('.item');
-			if (itemRow && itemRow.dataset.itemId) {
-				doc = this.actor.items.get(itemRow.dataset.itemId);
+		const dataset = target.dataset;
+
+		// Handle item rolls.
+		if (dataset.rollType) {
+			if (dataset.rollType == 'item') {
+				const itemId = target.closest('.item').dataset.itemId;
+				const item = this.actor.items.get(itemId);
+				if (item) return item.roll();
 			}
 		}
-		if (doc) return doc.roll();
 	}
 
 	/**
@@ -580,13 +586,13 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 	}
 
 	/** */
-	async _onOpenResistanceConfig(event, target) {
+	static async #onOpenResistanceConfig(event, target) {
 		event.preventDefault();
 		new ResistanceConfig(this.document).render(true);
 	}
 
 	/** */
-	async _onOpenTraitsConfig(event, target) {
+	static async #onOpenTraitsConfig(event, target) {
 		event.preventDefault();
 		new TraitsConfig(this.document).render(true);
 	}
