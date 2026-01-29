@@ -326,17 +326,17 @@
 		"piercingDamage": "Perfurante (P)",
 		"ballisticDamage": "Balístico (B)",
 		
-		"bloodDamage": "Sangue",
-		"deathDamage": "Morte",
-		"knowledgeDamage": "Conhecimento",
-		"energyDamage": "Energia",
-		"fearDamage": "Medo",
+		"bloodDamage": "Sangue (S)",
+		"deathDamage": "Morte (M)",
+		"knowledgeDamage": "Conhecimento (C)",
+		"energyDamage": "Energia (E)",
+		"fearDamage": "Medo (Me)",
 		
-		"fireDamage": "Fogo",
-		"eletricDamage": "Eletricidade",
-		"coldDamage": "Frio",
-		"chemicalDamage": "Químico",
-		"mentalDamage": "Mental"
+		"fireDamage": "Fogo (F)",
+		"eletricDamage": "Eletricidade (El)",
+		"coldDamage": "Frio (Fr)",
+		"chemicalDamage": "Químico (Q)",
+		"mentalDamage": "Mental (M)"
   },
 
 	"op.damageTypeAbv": {
@@ -357,6 +357,8 @@
 		"chemicalDamage": "Químico",
 		"mentalDamage": "Mental"
   },
+
+	"op.undefined": "Indefinido",
 
 	"op.powerTypeChoices": {
 		"class": "Poder de Classe",

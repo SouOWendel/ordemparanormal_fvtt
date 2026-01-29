@@ -270,7 +270,7 @@
 	"op.subtypeWeapon": "Weapon Subtype",
 	"op.powerType": "Ability Type",
 	"op.execution": "Execution",
-	"op.element": "Elemento",
+	"op.element": "Element",
 
 	"op.executionChoices": {
 		"free": "Free",
@@ -318,17 +318,34 @@
 	},
 
 	"op.damageTypeChoices": {
-		"cuttingDamage": "Slashing Damage (S)",
-		"impactDamage": "Bludgeoning Damage (B)",
-		"piercingDamage": "Piercing Damage (P)",
-		"ballisticDamage": "Ballistic Damage (Ba)",
+		"cuttingDamage": "Slashing (S)",
+		"impactDamage": "Bludgeoning (B)",
+		"piercingDamage": "Piercing (P)",
+		"ballisticDamage": "Ballistic (Ba)",
 
+		"bloodDamage": "Blood (Bl)",
+		"deathDamage": "Death (De)",
+		"knowledgeDamage": "Knowledge (Kn)",
+		"energyDamage": "Energy (En)",
+		"fearDamage": "Fear (Fe)",
+		
+		"fireDamage": "Fire (Fi)",
+		"eletricDamage": "Electricity (El)",
+		"coldDamage": "Cold (Co)",
+		"chemicalDamage": "Chemical (Ch)",
+		"mentalDamage": "Mental (Me)"
+	},
+
+	"op.damageTypeAbv": {
+		"cuttingDamage": "Slashing",
+		"impactDamage": "Bludgeoning",
+		"piercingDamage": "Piercing",
+		"ballisticDamage": "Ballistic",
 		"bloodDamage": "Blood",
 		"deathDamage": "Death",
 		"knowledgeDamage": "Knowledge",
 		"energyDamage": "Energy",
 		"fearDamage": "Fear",
-		
 		"fireDamage": "Fire",
 		"eletricDamage": "Electricity",
 		"coldDamage": "Cold",
@@ -336,12 +353,7 @@
 		"mentalDamage": "Mental"
 	},
 
-	"op.damageTypeAbv": {
-		"cuttingDamage": "Slashing",
-		"impactDamage": "Blu",
-		"piercingDamage": "Piercing",
-		"ballisticDamage": "Ballistic"
-	},
+	"op.undefined": "Undefined",
 
 	"op.powerTypeChoices": {
 		"class": "Class Power",
