@@ -300,7 +300,7 @@ export class OrdemItem extends Item {
 		}
 
 		// Get the main type damage
-		damageTypes.push(game.i18n.localize('op.damageTypeAbv.' + damage.type));
+		damageTypes.push(game.i18n.has('op.damageTypeAbv.' + damage.type) ? game.i18n.localize('op.damageTypeAbv.' + damage.type) : 'Indefinido');
 
 		// Get all the other formulas
 		for (const parts of damage.parts) {
