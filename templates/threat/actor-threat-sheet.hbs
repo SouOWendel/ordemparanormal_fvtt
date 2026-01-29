@@ -129,9 +129,20 @@
             <div class="resources threat-skills-container">
 							{{#each system.skills as |skill key|}}
 								<div class="resource flex-group-center" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; width: 100%;">
-									<label for="system.skills.{{key}}.value" data-action="onRollSkillCheck" class="resource-label rollable flexlarge align-left skill-name"
-									data-label="{{skill.label}}" data-key="{{key}}" data-rollType="skill">{{skill.label}}</label>
-									<div class="item-space item-prop item-editable-resource">
+									{{#if (eq key 'freeSkill')}}
+										<div class="flexrow flex-center" style="gap: 3px; margin-bottom: 2px; justify-content: center; align-items: center;">
+											<input type="text" name="system.skills.{{key}}.name" value="{{skill.name}}" placeholder="{{localize 'op.skill.freeSkill'}}" 
+											style="font-size: 11px; height: 16px; text-align: center; width: 65px; border: none; border-bottom: 1px solid #7a7971; background: transparent; padding: 0;" />
+											<i class="fas fa-dice rollable pointer" data-action="onRollSkillCheck" data-key="{{key}}" data-roll="{{skill.formula}}" data-label="{{skill.label}}" style="font-size: 10px; color: #4b4a44;"></i>
+										</div>
+									{{else}}
+										<label class="resource-label rollable pointer" data-action="onRollSkillCheck" data-key="{{key}}" data-label="{{skill.label}}" data-rollType="skill" 
+										style="font-size: 12px; margin-bottom: 3px; display: flex; justify-content: center; align-items: center; text-align: center; width: 100%;">
+											{{skill.label}} <span style="font-size: 9px; color: #555; font-weight: normal; margin-left: 3px;">({{skill.attr.[0]}})</span>
+										</label>
+									{{/if}}
+									
+									<div class="item-space item-prop flexrow" style="align-items: center; gap: 5px;">
 										{{#if @root.owner}}
 											<a class="adjustment-button" data-action="decrease" data-property="system.skills.{{key}}.degree.value">
 												<i class="fas fa-minus"></i>
