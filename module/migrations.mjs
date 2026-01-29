@@ -47,7 +47,7 @@ export async function migrateWorld({bypassVersionCheck=false}={}) {
  * @param {*} param4 
  * @returns 
  */
-export function migrateActorData(actor, actorData, migrationData, flags={}, { actorUuid }={}) {
+export async function migrateActorData(actor, actorData, migrationData, flags={}, { actorUuid }={}) {
 	const updateData = {};
 	// isNewerVersion return whether a target version is more advanced than some other reference version.
 	if (foundry.utils.isNewerVersion('6.3.1', actorData._stats?.systemVersion) || flags.bypassVersionCheck) {
@@ -61,6 +61,99 @@ export function migrateActorData(actor, actorData, migrationData, flags={}, { ac
 		for (const [keySkill] of Object.entries(actorData.system.skills)) {
 			if (typeof actorData.system?.skills[keySkill]?.degree == 'string') {
 				updateData[`system.skills.${keySkill}.degree.label`] = actorData.system?.skills[keySkill]?.degree;
+			}
+		}
+	}
+
+	// Migração de imagens renomeadas - versão 7.3.0
+	if (foundry.utils.isNewerVersion('7.3.0', actorData._stats?.systemVersion) || flags.bypassVersionCheck) {
+		// Função para remover acentos e caracteres especiais
+		const removeAccents = (str) => {
+			return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+		};
+		
+		// Função para buscar arquivo em subpastas de equipments
+		const findInEquipments = async (normalizedFileName) => {
+			const subfolders = ['accessories', 'ammunition', 'explosives', 'operational', 'paranormal'];
+			const basePath = 'systems/ordemparanormal/media/icons/equipments';
+			
+			for (const folder of subfolders) {
+				const testPath = `${basePath}/${folder}/${normalizedFileName}`;
+				try {
+					// Verifica se o arquivo existe usando FilePicker
+					const response = await fetch(testPath, { method: 'HEAD' });
+					if (response.ok) {
+						return testPath;
+					}
+				} catch (err) {
+					console.error(`Erro ao verificar o arquivo ${testPath}:`, err);
+				}
+			}
+			return null;
+		};
+		
+		for (const item of actor.items) {
+			const itemUpdate = {};
+			const itemImg = item.img;
+			
+			// Verifica se a imagem está no caminho media/icons/
+			if (itemImg && itemImg.includes('media/icons/')) {
+				let needsUpdate = false;
+				let newImg = itemImg;
+				let isEquipmentItem = false;
+				
+				// Corrige pasta "general equipments" ou "general%20equipments"
+				if (newImg.includes('general%20equipments') || newImg.includes('general equipments')) {
+					// Para itens do tipo protection, move para pasta protections
+					if (item.type === 'protection') {
+						newImg = newImg.replace('general%20equipments', 'protections');
+						newImg = newImg.replace('general equipments', 'protections');
+					} else {
+						// Para outros itens, marca como equipment para busca
+						isEquipmentItem = true;
+					}
+					needsUpdate = true;
+				}
+				
+				// Extrai o nome do arquivo e converte para minúsculas com hífens
+				const parts = newImg.split('/');
+				const fileName = parts[parts.length - 1];
+				
+				// Decodifica URL encoding (ex: %20 → espaço, %C3%A3 → ã)
+				const decodedFileName = decodeURIComponent(fileName);
+				
+				// Remove acentos, converte para minúsculas e substitui espaços por hífens
+				const normalizedFileName = removeAccents(decodedFileName)
+					.toLowerCase()
+					.replace(/\s+/g, '-');
+				
+				// Se é um item de equipment, busca nas subpastas
+				if (isEquipmentItem) {
+					const foundPath = await findInEquipments(normalizedFileName);
+					if (foundPath) {
+						newImg = foundPath;
+						needsUpdate = true;
+					} else {
+						// Se não encontrou, usa o caminho base com nome normalizado
+						newImg = `systems/ordemparanormal/media/icons/equipments/${normalizedFileName}`;
+						needsUpdate = true;
+					}
+				} else if (decodedFileName !== normalizedFileName) {
+					// Para outros tipos, apenas atualiza o nome do arquivo
+					parts[parts.length - 1] = normalizedFileName;
+					newImg = parts.join('/');
+					needsUpdate = true;
+				}
+				
+				// Aplica a atualização se necessário
+				if (needsUpdate && newImg !== itemImg) {
+					itemUpdate.img = newImg;
+					console.log(`Atualizando imagem do item ${item.name}: ${itemImg} → ${newImg}`);
+				}
+			}
+			
+			if (!foundry.utils.isEmpty(itemUpdate)) {
+				await item.update(itemUpdate);
 			}
 		}
 	}
