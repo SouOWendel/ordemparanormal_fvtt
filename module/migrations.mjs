@@ -156,6 +156,9 @@ export async function migrateActorData(actor, actorData, migrationData, flags={}
 				await item.update(itemUpdate);
 			}
 		}
+		if (!foundry.utils.isEmpty(updateData)) {
+			console.log(`Imagens dos itens do ator ${actor.name} foram atualizadas na migração para a versão 7.3.0.`);
+		}
 	}
 	return updateData;
 }
