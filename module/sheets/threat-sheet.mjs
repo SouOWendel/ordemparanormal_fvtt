@@ -253,7 +253,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		case 'attacks':
 			context.tab = context.tabs[partId];
 			break;
-		case 'enigma':
+		case 'enigmas':
 			context.tab = context.tabs[partId];
 			context.enrichedFearRiddle = await TextEditor.enrichHTML(
 				this.actor.system.details.fearRiddle, { 
