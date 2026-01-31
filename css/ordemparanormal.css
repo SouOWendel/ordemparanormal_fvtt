@@ -1445,7 +1445,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .dialog-buttons button {
   height: 36px;
-  opacity: 0.4;
+  opacity: 0.6;
   transition: all 0.2s ease-in;
 }
 .system-ordemparanormal .dialog-buttons button:hover {
@@ -1762,8 +1762,15 @@ dialog.ordemparanormal.application {
   color: #f7f3e8;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button {
-  color: #9f8475;
+  color: #c2c2c2;
   border-color: #9f8475;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button.normal {
+  color: #e0e0e0 !important;
+}
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button:hover {
+  background: #816b66;
+  border-color: #e7d1b1;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration input, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration select {
   background: #302831;

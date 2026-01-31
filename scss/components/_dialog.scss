@@ -75,7 +75,7 @@
 
 	button {
 		height: 36px;
-		opacity: 0.4;
+		opacity: 0.6;
 		transition: all 0.2s ease-in;
 	}
 
@@ -453,8 +453,17 @@ dialog.ordemparanormal.application.roll-configuration {
 	}
 
 	button {
-		 color: #9f8475;
+		 color: #c2c2c2;
 		 border-color: #9f8475;
+
+		 &.normal {
+			color: #e0e0e0 !important;
+		 }
+
+		 &:hover {
+			background: #816b66;
+			border-color: #e7d1b1;
+		 }
 	}
 
 	input, select {
