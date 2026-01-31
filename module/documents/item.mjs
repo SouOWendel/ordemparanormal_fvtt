@@ -158,7 +158,7 @@ export class OrdemItem extends Item {
 		const data = this.toObject().system;
 
 		// Rich text description
-		data.description = await TextEditor.enrichHTML(data.description, {
+		data.description = await foundry.applications.ux.TextEditor.implementation.enrichHTML(data.description, {
 			relativeTo: this,
 			rollData: this.getRollData(),
 			...htmlOptions,
@@ -211,9 +211,7 @@ export class OrdemItem extends Item {
 		rollConfig.data = { ...(rollConfig.data ?? {}), ...data};
 
 		// Realiza a rolagem
-		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({
-			async: true,
-		});
+		const roll = new Roll(rollConfig.formula, rollConfig.data).evaluateSync({allowStrings: true, strict: false});
 
 		// Verificações de Crítico
 		const criticalStatus = this.isCritical({
@@ -337,9 +335,7 @@ export class OrdemItem extends Item {
 
 		// if ( Hooks.call('ordemparanormal.preRollFormula', this, rollConfig) === false ) return;
 
-		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({
-			async: true,
-		});
+		const roll = new Roll(rollConfig.formula, rollConfig.data).evaluateSync({allowStrings: true, strict: false});
 
 		if (rollConfig.chatMessage) {
 			roll.toMessage({
