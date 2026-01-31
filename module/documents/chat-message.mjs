@@ -13,8 +13,7 @@ export default class ChatMessageOP extends ChatMessage {
 	 * @param {object} data     Data passed to the render context
 	 */
 	async getHTML(options={}) {
-		const html = await super.getHTML(options);
-
+		const html = await super.renderHTML(options);
 		if (foundry.utils.getType(this.system?.getHTML) === 'function') {
 			await this.system.getHTML(html, options);
 			return html;
@@ -52,15 +51,16 @@ export default class ChatMessageOP extends ChatMessage {
 	 * @param {object} data          Configuration data passed to the message.
 	 */
 	_displayChatActionButtons(html) {
-		const chatCard = html.find('.ordemparanormal.chat-card');
-		if ( chatCard.length > 0 ) {
-			const flavor = html.find('.flavor-text');
-			if ( flavor.text() === html.find('.item-name').text() ) flavor.remove();
+		const chatCard = html.querySelector('.ordemparanormal.chat-card');
+		if (chatCard) {
+			const flavor = html.querySelector('.flavor-text');
+			const itemName = html.querySelector('.item-name');
+			if (flavor && itemName && flavor.textContent === itemName.textContent) flavor.remove();
 		
 			// If the user is the message author or the actor owner, proceed
 			const actor = game.actors.get(this.speaker.actor);
 			const isCreator = game.user.isGM || actor?.isOwner || (this.author.id === game.user.id);
-			for (const button of html[0].querySelectorAll('.card-buttons button')) {
+			for (const button of html.querySelectorAll('.card-buttons button')) {
 				if (button.dataset.visibility === 'all') continue;
 
 				// GM buttons should only be visible to GMs, otherwise button should only be visible to message's creator
@@ -93,7 +93,7 @@ export default class ChatMessageOP extends ChatMessage {
 			return icon;
 		}
 
-		const totals = html[0].querySelectorAll('.dice-total');
+		const totals = html.querySelectorAll('.dice-total');
 		for (let [index, d20Roll] of this.rolls.entries()) {
 			const d0 = d20Roll.dice[0];
 			if ( (d0?.faces !== 20) || (d0?.values.length !== 1)) continue;
