@@ -37,15 +37,6 @@ export class OrdemActor extends Actor {
 	/**
 	 * 
 	 */
-	get isV12() {
-		// A versão atual está entre 12.000 e 12.999?
-		return foundry.utils.isNewerVersion(game.version, '12.000') &&
-		foundry.utils.isNewerVersion('12.999', game.version);
-	}
-
-	/**
-	 * 
-	 */
 	get isSurvivor() {
 		return this.system.class == 'survivor';
 	}
@@ -357,9 +348,7 @@ export class OrdemActor extends Actor {
 		spaces.value += spaces.bonus.value;
 		spaces.max += spaces.bonus.max;
 
-		// TODO: V11 AND V12 SPACE/WEIGHT RETRO COMPATIBILITY
-		if (this.isV12) spaces.pct = Math.clamp((spaces.value * 100) / spaces.max, 0, 100);
-		else spaces.pct = Math.clamped((spaces.value * 100) / spaces.max, 0, 100);
+		spaces.pct = Math.clamp((spaces.value * 100) / spaces.max, 0, 100);
 
 		// Apply the debuffs
 		if (spaces.value > spaces.max) {
@@ -367,9 +356,7 @@ export class OrdemActor extends Actor {
 			system.desloc.value += -3;
 			system.defense.value += -5;
 
-			// TODO: V11 AND V12 SPACE/WEIGHT RETRO COMPATIBILITY
-			if (this.isV12) spaces.pctMax = Math.clamp((spaces.over * 100) / spaces.max, 0, 100);
-			else spaces.pctMax = Math.clamped((spaces.over * 100) / spaces.max, 0, 100);
+			spaces.pctMax = Math.clamp((spaces.over * 100) / spaces.max, 0, 100);
 		}
 		if (spaces.value > spaces.max * 2) ui.notifications.warn(game.i18n.localize('WARN.overWeight'));
 	}
