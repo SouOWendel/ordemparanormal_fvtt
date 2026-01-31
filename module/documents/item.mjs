@@ -41,12 +41,20 @@ export class OrdemItem extends Item {
 	 * @param {HTML} html  Rendered chat message.
 	 */
 	static chatListeners(html) {
-		html = (game.version.slice(0, 2) === '12') ? html[0] : html;
-		html.addEventListener('click', event => {
+		
+		// Remove listener antigo se existir para evitar duplicação
+		if (html._ordemListener) {
+			html.removeEventListener('click', html._ordemListener);
+		}
+		
+		// Cria e armazena o listener
+		html._ordemListener = event => {
 			if (event.target.closest('.card-buttons button')) {
 				this._onChatCardAction(event);
-			};
-		});
+			}
+		};
+		
+		html.addEventListener('click', html._ordemListener);
 		// html.querySelector('.card-buttons button').addEventListener('click', this._onChatCardAction.bind(this));
 		// html.on('click', '.item-name', this._onChatCardToggleContent.bind(this));
 	}
@@ -211,8 +219,8 @@ export class OrdemItem extends Item {
 		rollConfig.data = { ...(rollConfig.data ?? {}), ...data};
 
 		// Realiza a rolagem
-		const roll = new Roll(rollConfig.formula, rollConfig.data).evaluateSync({allowStrings: true, strict: false});
-
+		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({async: true});
+		
 		// Verificações de Crítico
 		const criticalStatus = this.isCritical({
 			crtalFormula: this.system.critical,
@@ -335,12 +343,12 @@ export class OrdemItem extends Item {
 
 		// if ( Hooks.call('ordemparanormal.preRollFormula', this, rollConfig) === false ) return;
 
-		const roll = new Roll(rollConfig.formula, rollConfig.data).evaluateSync({allowStrings: true, strict: false});
+		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({async: true});
 
 		if (rollConfig.chatMessage) {
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: `Deu dano com ${this.name}. <br>(${types})`,
+				flavor: game.i18n.format('op.rollDamageChat', { name: this.name, types: types }),
 				rollMode: game.settings.get('core', 'rollMode'),
 				// messageData: {'flags.ordemparanormal.roll': {type: 'other', itemId: this.id, itemUuid: this.uuid}}
 			});
@@ -434,7 +442,7 @@ export class OrdemItem extends Item {
 			}
 		}
 
-		const html = await renderTemplate('systems/ordemparanormal/templates/chat/item-card.html', templateData);
+		const html = await foundry.applications.handlebars.renderTemplate('systems/ordemparanormal/templates/chat/item-card.html', templateData);
 
 		const chatMessageData = {
 			speaker: speaker,
