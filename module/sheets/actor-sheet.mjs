@@ -120,7 +120,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			progressRuleIsNivel: this.progressRuleIsNivel,
 			progressRuleIsNEX: this.progressRuleIsNEX,
 			usingWithoutSanityRule: this.usingWithoutSanityRule,
-			isV12: this.isV12,
 			isSurvivor: this.isSurvivor,
 			tabs: this._getTabs(options.parts),
 			costLabel: this.usingWithoutSanityRule ? 'PD' : 'PE'
@@ -144,7 +143,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		// Enrichment turns text like `[[/r 1d20]]` into buttons
 		case 'biography':
 			context.tab = context.tabs[partId];
-			context.enrichedBiography = await TextEditor.enrichHTML(
+			context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 				this.actor.system.biography, {
 					// Whether to show secret blocks in the finished html
 					secrets: this.document.isOwner,
@@ -156,7 +155,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			);
 			// Enrich biography info for display
 			// Enrichment turns text like `[[/r 1d20]]` into buttons
-			context.enrichedGoals = await TextEditor.enrichHTML(
+			context.enrichedGoals = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 				this.actor.system.goals, {
 					// Whether to show secret blocks in the finished html
 					secrets: this.document.isOwner,
@@ -266,13 +265,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	get progressRuleIsNEX() {
 		const rule = game.settings.get('ordemparanormal', 'globalProgressRules');
 		return (rule == 1) ? true : false;
-	}
-
-	/**
-	 * 
-	 */
-	get isV12() {
-		return game.version > 11;
 	}
 
 	/**
