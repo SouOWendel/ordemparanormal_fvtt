@@ -2,7 +2,6 @@
 	<ol class="items-list">
 		<li class="item flexrow items-header">
 			<div class="item-name">{{localize 'op.ability.plural'}}</div>
-			<div class="item-formula" style="flex: 0 0 80px; text-align: center;">{{localize 'op.cost'}}</div>
 			<div class="item-formula" style="flex: 0 0 100px; text-align: center;">{{localize 'op.execution'}}</div>
 			<div class="item-controls">
 				{{#if editable}}
@@ -22,9 +21,6 @@
 						</a>
 					</div>
 					<h4 class="rollable pointer" data-action="toggleDescription" style="flex: 1;">{{item.name}}</h4>
-				</div>
-				<div class="item-formula item-prop" style="flex: 0 0 80px; text-align: center; font-size: 11px;">
-					{{item.displayCost}}
 				</div>
 				<div class="item-formula item-prop" style="flex: 0 0 100px; text-align: center; font-size: 11px;">
 					{{item.activationLabel}}
