@@ -88,5 +88,5 @@ export async function preloadHandlebarsTemplates() {
 		paths[`op.${path.split('/').pop().replace('.hbs', '')}`] = path;
 	}
 
-	return loadTemplates(paths);
+	return foundry.applications.handlebars.loadTemplates(paths);
 }

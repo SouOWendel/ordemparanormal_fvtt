@@ -145,7 +145,7 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			break;
 		case 'description':
 			context.tab = context.tabs[partId];
-			context.enrichedDescription = await TextEditor.enrichHTML(this.item.system.description, {
+			context.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.description, {
 				secrets: this.document.isOwner,
 				relativeTo: this.item,
 				rollData: this.item.getRollData()

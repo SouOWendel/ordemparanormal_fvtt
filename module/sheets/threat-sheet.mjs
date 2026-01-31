@@ -255,7 +255,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			break;
 		case 'enigmas':
 			context.tab = context.tabs[partId];
-			context.enrichedFearRiddle = await TextEditor.enrichHTML(
+			context.enrichedFearRiddle = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 				this.actor.system.details.fearRiddle, { 
 					secrets: this.document.isOwner, 
 					rollData: this.actor.getRollData(), 
@@ -265,7 +265,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			break;
 		case 'abilities':
 			context.tab = context.tabs[partId];
-			context.enrichedAbilities = await TextEditor.enrichHTML(
+			context.enrichedAbilities = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 				this.actor.system.temporary.abilities, { 
 					secrets: this.document.isOwner, 
 					rollData: this.actor.getRollData(), 
@@ -438,17 +438,17 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		}
 
 		if (!formula || formula.trim() === '') {
-			return ui.notifications.warn('Defina um valor para o Dano Mental (Ex: 2d6).');
+			return ui.notifications.warn(game.i18n.localize('op.disturbingPresence.noFormula'));
 		}
         
 		try {
 			const roll = new Roll(formula, this.actor.getRollData());
 			await roll.toMessage({
-				flavor: 'Dano Mental (Presença Perturbadora)',
+				flavor: game.i18n.localize('op.disturbingPresence.mentalDamageRollFlavor'),
 				speaker: ChatMessage.getSpeaker({ actor: this.document })
 			});
 		} catch (err) {
-			ui.notifications.error(`Erro na fórmula de dano: ${err.message}`);
+			ui.notifications.error(`${game.i18n.localize('op.disturbingPresence.errorFormula')} ${err.message}`);
 		}
 	}
 
@@ -557,7 +557,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			div.style.fontSize = '0.9em';
 			div.style.borderTop = '1px dashed #ccc';
 			div.style.marginTop = '5px';
-			div.innerHTML = await TextEditor.enrichHTML(item.system.description, {
+			div.innerHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description, {
 				secrets: this.document.isOwner,
 				rollData: this.actor.getRollData(),
 				async: true
@@ -606,7 +606,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		return this.options.dragDrop.map((d) => {
 			d.permissions = { dragstart: this._canDragStart.bind(this), drop: this._canDragDrop.bind(this) };
 			d.callbacks = { dragstart: this._onDragStart.bind(this), dragover: this._onDragOver.bind(this), drop: this._onDrop.bind(this) };
-			return new DragDrop(d);
+			return new foundry.applications.ux.DragDrop.implementation(d);
 		});
 	}
 
