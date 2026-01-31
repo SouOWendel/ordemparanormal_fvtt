@@ -469,6 +469,8 @@
 		"colossal": "Colossal"
 	},
 
+	"op.rollDamageChat": "Deu dano com {name} ({types})",
+
 	"op.threatName": "Nome da Ameaça",
 	"op.VD": "VD",
 	"op.size": "Tamanho",
@@ -498,7 +500,6 @@
 	"op.disturbingPresence.mentalDamageRollFlavor": "Dano Mental (Presença Perturbadora)",
 	"op.disturbingPresence.errorFormula": "Erro na fórmula de dano:",
 	
-
 	"op.traitsLabel": "Características",
 	"op.traitsTitle": "Configurar Características da Ameaça",
 	"op.traits": {

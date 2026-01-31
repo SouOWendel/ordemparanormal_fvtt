@@ -463,6 +463,8 @@
 		"colossal": "Colossal"
 	},
 
+	"op.rollDamageChat": "Dealt damage with {name} ({types})",
+
 	"op.threatName": "Threat Name",
 	"op.VD": "VD",
 	"op.size": "Size",
