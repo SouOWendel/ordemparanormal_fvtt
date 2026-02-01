@@ -114,6 +114,9 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		for (const button of this.element.querySelectorAll('.adjustment-button')) {
 			button.addEventListener('click', this._onAdjustInput.bind(this));
 		}
+
+		const html = $(this.element);
+		html.find('.compendium-skill').on('contextmenu', this._onOpenCompendiumEntry.bind(this));
 	}
 
 	/** * Prepara os dados para o Handlebars 
@@ -146,6 +149,19 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		this._prepareItems(context);
         
 		return context;
+	}
+
+	/**
+	 * Handle opening a skill's compendium entry
+	 * @param {Event} event	 The originating click event
+	 * @private
+	 */
+	async _onOpenCompendiumEntry(event) {
+		const parent = event.currentTarget.closest('li') ?? event.currentTarget;
+		const skill = parent.dataset.key ?? null;
+		if (!skill || !CONFIG.op.skillCompendiumEntries[skill]) return;
+		const entryKey = CONFIG.op.skillCompendiumEntries[skill];
+		await foundry.documents.collections.Journal._showEntry(entryKey, true);
 	}
 
 	/**

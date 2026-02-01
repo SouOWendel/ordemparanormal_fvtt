@@ -437,3 +437,34 @@ op.traits = {
 	lowLightVision: 'op.traits.lowLightVision',
 	darkvision: 'op.traits.darkvision'
 };
+
+op.skillCompendiumEntries = {
+	acrobatics: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.LMCpSuAqNeZZFBfA',
+	animal: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.o7Tqot1J7TYquL3L',
+	arts: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.ixNbkqVWEPLcoiYi',
+	athleticism: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.5uAvk2kYLodAcPHY',
+	relevance: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.izbgO3Y0A6FIkcsh',
+	sciences: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.OE8mCZr3vNHDG4Bs',
+	crime: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.lQ2YSZW5CUvkqzyH',
+	diplomacy: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.yomwdUkpK7upuPg0',
+	deception: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.NhPNVOm4ABbXpZbd',
+	resilience: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.hGPnWaG7zumrDeVs',
+	stealth: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.JpfAWV28JQNeq0uM',
+	initiative: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.GtLGDclIIip5hjox',
+	intimidation: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.ELJjXBsXKECi7Raw',
+	intuition: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.lZhUbUsXLmuaAeJv',
+	investigation: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.1NfmXHRPjjNAY1RS',
+	fighting: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.d0lSCS9e039Z1I3s',
+	medicine: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.UU9XeAXxhgXWf08g',
+	occultism: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.EmvZRNH3XD0pV9PB',
+	perception: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.jPaP3THzsKFcK1m1',
+	driving: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.uDVs9hxTpo8mjCCZ',
+	aim: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.VRJs74f5xScuJB99',
+	reflexes: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.BnV9RZ6YCb6GAhxf',
+	religion: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.7u5CqztQjry1rl19',
+	survival: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.H7B1RXX5egULlUNW',
+	tactics: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.kUTkDbhLmYfNWZMH',
+	technology: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.DSLIxmTFfyoNtO5s',
+	will: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.xt8G3szvcjfUn55D',
+	freeSkill: 'Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.qTwpNeH48xyzrz1w'
+};

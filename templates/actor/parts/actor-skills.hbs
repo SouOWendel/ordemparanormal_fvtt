@@ -9,9 +9,9 @@
                 <input type="text" name="system.skills.{{key}}.name" value="{{skill.name}}"
                 class="resource-label flexlarge align-center" 
                 data-type="String" placeholder="{{localize 'op.skill.freeSkill'}}">
-                <i class="fas fa-dice {{key}} rollable rollFreeSkill" data-action="onRollSkillCheck" data-roll="{{skill.formula}}" data-label="{{skill.label}}" data-key="{{key}}"></i>
+                <i class="fas fa-dice {{key}} rollable rollFreeSkill compendium-skill" data-action="onRollSkillCheck" data-roll="{{skill.formula}}" data-label="{{skill.label}}" data-key="{{key}}"></i>
             {{else}}
-                <label for="system.skills.{{key}}.value" data-action="onRollSkillCheck" class="resource-label rollable flexlarge align-left skill-name"
+                <label for="system.skills.{{key}}.value" data-action="onRollSkillCheck" class="resource-label rollable flexlarge align-left skill-name compendium-skill"
                  data-label="{{skill.label}}" data-key="{{key}}" data-rollType="skill">{{skill.label}}</label>
             {{/if}}
 

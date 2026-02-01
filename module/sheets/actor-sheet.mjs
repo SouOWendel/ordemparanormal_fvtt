@@ -428,6 +428,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			// Faz a animação de abrir/fechar
 			desc.slideToggle(200);
 		});
+
+		html.find('.compendium-skill').on('contextmenu', this._onOpenCompendiumEntry.bind(this));
 		// You may want to add other special handling here
 		// Foundry comes with a large number of utility classes, e.g. SearchFilter
 		// That you may want to implement yourself.
@@ -590,6 +592,19 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 				input.disabled = true;
 			}
 		}
+	}
+
+	/**
+	 * Handle opening a skill's compendium entry
+	 * @param {Event} event	 The originating click event
+	 * @private
+	 */
+	async _onOpenCompendiumEntry(event) {
+		const parent = event.currentTarget.closest('li') ?? event.currentTarget;
+		const skill = parent.dataset.key ?? null;
+		if (!skill || !CONFIG.op.skillCompendiumEntries[skill]) return;
+		const entryKey = CONFIG.op.skillCompendiumEntries[skill];
+		await foundry.documents.collections.Journal._showEntry(entryKey, true);
 	}
 
 	/** */
@@ -1049,7 +1064,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 				dragover: this._onDragOver.bind(this),
 				drop: this._onDrop.bind(this),
 			};
-			return new DragDrop(d);
+			return new foundry.applications.ux.DragDrop.implementation(d);
 		});
 	}
 
