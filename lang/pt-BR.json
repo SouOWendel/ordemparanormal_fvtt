@@ -372,21 +372,21 @@
 	"op.undefined": "Indefinido",
 
 	"op.powerTypeChoices": {
-		"class": "Poder de Classe",
-		"paranormal": "Poder Paranormal",
-		"path": "Habilidade de Trilha",
-		"origin": "Poder de Origem",
-		"general": "Habilidade Geral",
-		"complication": "Complicação",
-		"ability": "Outra Habilidade"
+		"origin": "Poderes de Origem",
+		"class": "Poderes de Classe",
+		"path": "Poderes de Trilha",
+		"general": "Poderes Gerais",
+		"paranormal": "Poderes Paranormais",
+		"complication": "Complicações",
+		"ability": "Outras Habilidades"
 	},
 
 	"op.abilitiesAbv": {
-		"origin": "Poder de Origem",
+		"origin": "Poderes de Origem",
 		"class": "Poderes de Classe",
+		"path": "Poderes de Trilha",
+		"general": "Poderes Gerais",
 		"paranormal": "Poderes Paranormais",
-		"path": "Habilidades de Trilha",
-		"general": "Habilidades Gerais",
 		"complication": "Complicações",
 		"ability": "Outras Habilidades"
     },

@@ -369,20 +369,23 @@
 	"op.undefined": "Undefined",
 
 	"op.powerTypeChoices": {
-		"class": "Class Power",
-		"paranormal": "Paranormal Power",
-		"path": "Path Ability",
 		"origin": "Origin Power",
+		"class": "Class Power",
+		"path": "Path Ability",
+		"paranormal": "Paranormal Power",
 		"general": "General Ability",
 		"complication": "Complication",
 		"ability": "Other Ability"
 	},
 
 	"op.abilitiesAbv": {
-		"class": "Class Powers",
-		"paranormal": "Paranormal Powers",
-		"path": "Path Abilities",
-		"ability": "Other Abilities"
+		"origin": "Origin Power",
+		"class": "Class Power",
+		"path": "Path Ability",
+		"paranormal": "Paranormal Power",
+		"general": "General Ability",
+		"complication": "Complication",
+		"ability": "Other Ability"
 	},
 
 	"op.improvised": "Improvised",
