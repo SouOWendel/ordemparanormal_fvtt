@@ -10,7 +10,7 @@
 	"op.generalEquipment.plural": "General Gear",
 
 	"TYPES.Item.armament": "Weapon",
-	"op.armament.plural": "Weapons",
+	"op.armaments": "Weapons",
 
 	"TYPES.Item.ritual": "Ritual",
 	"op.ritual.plural": "Rituals",
