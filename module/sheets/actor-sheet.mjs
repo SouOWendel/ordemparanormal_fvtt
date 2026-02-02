@@ -291,8 +291,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			invalid: [],
 		};
 		const abilities = {
-			// 1 = Origem 2 = Classe 3 = Trilha 4 = Paranormal 5 = Outra
-			valid: { 1: [], 2: [], 3: [], 4: [], 5: [] },
+			// 1 = Origem 2 = Classe 3 = Trilha 4 = Paranormal 5 = Geral 6 = Habilidade/Complicação
+			valid: { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] },
 			invalid: [],
 		};
 
@@ -345,7 +345,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 				else if (type === 'class') abilities.valid[2].push(i);
 				else if (type === 'path') abilities.valid[3].push(i);
 				else if (type === 'paranormal') abilities.valid[4].push(i);
-				else if (type === 'ability' || type === 'complication') abilities.valid[5].push(i);
+				else if (type === 'general') abilities.valid[5].push(i);
+				else if (type === 'ability' || type === 'complication') abilities.valid[6].push(i);
                 
 				else if (!type) abilities.invalid.push(i);
 			}
