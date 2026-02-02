@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.1...v7.3.2) (2026-02-02)
+
+
+### Bug Fixes
+
+* **localization:** fixed the key for armaments in English and Portuguese ([7671eeb](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7671eeb305de79e20ff56f5742ba71124b4f6bb6))
+
 ## [7.3.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.0...v7.3.1) (2026-02-02)
 
 
