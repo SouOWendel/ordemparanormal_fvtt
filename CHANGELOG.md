@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.3.1](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.0...v7.3.1) (2026-02-02)
+
+
+### Bug Fixes
+
+* **localization:** fixed the display of general powers and dropdowns ([929f575](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/929f575136534e630373dd7bdebbdb3a0d3c3a58))
+* **localization:** update power type choices and ability abbreviations in English and Portuguese translations ([be35db2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/be35db260b74350034c260e31bc5bb0a7d869075))
+
 ## [7.3.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.2.4...v7.3.0) (2026-02-01)
 
 
