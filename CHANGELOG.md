@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.2...v7.3.3) (2026-04-26)
+
+
+### Bug Fixes
+
+* **module:** update manifest URL and compatibility version for barbrawl module ([1369c5a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1369c5a597f9fae141164140f71b89764b190abe))
+
 ## [7.3.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.1...v7.3.2) (2026-02-02)
 
 
