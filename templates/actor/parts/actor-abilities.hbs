@@ -1,8 +1,12 @@
 <section class="tab flexcol {{tab.cssClass}}" data-tab="abilities" data-group="primary">
 
 	{{! 1. Botão de Controle }}
-	<div style="text-align: right; margin-bottom: {{#if mostrarRecursos}}2px{{else}}10px{{/if}}; padding-right: 5px;">
-		<a data-action="toggleResources" title="Gerenciar Recursos" style="color: {{#if mostrarRecursos}}#d4af37{{else}}#555{{/if}}; text-decoration: none; font-size: 12px;">
+	<div style="text-align: right; margin-bottom: {{ternary mostrarRecursos '2px' '10px'}}; padding-right: 5px;">
+		<a
+			data-action="toggleResources"
+			title="Gerenciar Recursos"
+			style="color: {{ternary mostrarRecursos '#d4af37' '#555'}}; text-decoration: none; font-size: 12px;"
+		>
 			<i class="fas fa-boxes"></i>
 			{{#if mostrarRecursos}}Ocultar Recursos{{else}}Gerir Recursos{{/if}}
 		</a>

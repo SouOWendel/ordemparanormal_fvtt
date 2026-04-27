@@ -254,6 +254,32 @@ Handlebars.registerHelper("toUpperCase", function (str) {
 });
 
 /**
+ * Optional `name="value"` for optional data attributes (e.g. data-token-id on chat cards).
+ * @returns {Handlebars.SafeString} Empty when value is null/empty.
+ */
+Handlebars.registerHelper("opOptionalDataAttr", function (name, value) {
+	if (value == null || value === "") {
+		return new Handlebars.SafeString("");
+	}
+	return new Handlebars.SafeString(` ${name}="${String(value)}"`);
+});
+
+/**
+ * `data-disabled` or `data-duration.rounds` for the "create effect" control by section type.
+ * Used in `actor-effects`, `shared/effects`, and `threat-effects` templates.
+ */
+Handlebars.registerHelper("opActiveEffectCreateAttrs", function (section) {
+	const t = section?.type;
+	if (t === "inactive") {
+		return new Handlebars.SafeString(' data-disabled="true"');
+	}
+	if (t === "temporary") {
+		return new Handlebars.SafeString(' data-duration.rounds="1"');
+	}
+	return new Handlebars.SafeString("");
+});
+
+/**
  * Custom radioBoxes helper that properly handles numeric values
  * @param {string} name - The name attribute for the radio inputs
  * @param {Object} choices - Object with key-value pairs for the radio options

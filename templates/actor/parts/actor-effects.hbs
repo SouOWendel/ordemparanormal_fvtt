@@ -18,11 +18,7 @@
 							data-document-class="ActiveEffect"
 							data-origin="{{@root.actor.uuid}}"
 							data-img="icons/svg/aura.svg"
-							{{#if (eq section.type "inactive")}}
-								data-disabled="true"
-							{{else if (eq section.type "temporary")}}
-								data-duration.rounds="1"
-							{{/if}}
+							{{opActiveEffectCreateAttrs section}}
 							title="{{localize 'op.effectCreate'}}"
 						>
 							<i class="fas fa-plus"></i>
@@ -49,7 +45,7 @@
 							<div class="effect-controls flexrow">
 								{{#if @root.editable}}
 									<a class="effect-control" data-action="toggleEffect" title="{{localize 'BOILERPLATE.Effect.Toggle'}}">
-										<i class='fas {{#if effect.disabled}}fa-check{{else}}fa-times{{/if}}'></i>
+										<i class="fas {{ternary effect.disabled 'fa-check' 'fa-times'}}"></i>
 									</a>
 								{{/if}}
 								<a class="effect-control" data-action="viewDoc" title="{{localize 'DOCUMENT.Update' type="Effect"}}">
