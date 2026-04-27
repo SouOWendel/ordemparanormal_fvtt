@@ -4,100 +4,99 @@
 # https://github.com/google-github-actions/release-please-action/blob/v3.7.11/.github/workflows/release-please.yaml
 
 on:
-    push:
-        branches:
-            - main
+ push:
+  branches:
+   - main
 
 permissions:
-    contents: write
-    pull-requests: write
+ contents: write
+ pull-requests: write
 
 name: release-please
 
 jobs:
-    release-please:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
+ release-please:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
 
-            # Criar uma release e um PR (pull-request) com base no manifest (comando e arquivo).
-            # O comando manifest faz uma PR utilizando as configurações do release-please-config.json
-            # se forem validas. Dentro deste arquivo, há a configuração do system.json.
-            - uses: googleapis/release-please-action@v3.7.13
-              id: release
-              with:
-                  command: manifest
-                  token: ${{secrets.GITHUB_TOKEN}}
-                  release-type: node
+   # Criar uma release e um PR (pull-request) com base no manifest (comando e arquivo).
+   # O comando manifest faz uma PR utilizando as configurações do release-please-config.json
+   # se forem validas. Dentro deste arquivo, há a configuração do system.json.
+   - uses: googleapis/release-please-action@v3.7.13
+     id: release
+     with:
+      command: manifest
+      token: ${{secrets.GITHUB_TOKEN}}
+      release-type: node
 
-                
-            # Set up our some variables for future use
-            # Adapted from https://github.community/t/how-to-get-just-the-tag-name/16241/7
-            # Release version: ${{ steps.release.outputs.release_created }}
-            # Zip name: ${{ steps.get_vars.outputs.ZIP_NAME }}
-            # Expected Release Download URL: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
-            - name: Set up variables
-              if: ${{ steps.release.outputs.release_created }}
-              id: get_vars
-              run: |
-                TAG=${{steps.release.outputs.tag_name}}
-                echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
-                echo "ZIP_NAME=ordem_fvtt-$TAG.zip" >> $GITHUB_OUTPUT
-                echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/ordem_fvtt-$TAG.zip" >> $GITHUB_OUTPUT
+   # Set up our some variables for future use
+   # Adapted from https://github.community/t/how-to-get-just-the-tag-name/16241/7
+   # Release version: ${{ steps.release.outputs.release_created }}
+   # Zip name: ${{ steps.get_vars.outputs.ZIP_NAME }}
+   # Expected Release Download URL: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
+   - name: Set up variables
+     if: ${{ steps.release.outputs.release_created }}
+     id: get_vars
+     run: |
+      TAG=${{steps.release.outputs.tag_name}}
+      echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
+      echo "ZIP_NAME=ordem_fvtt-$TAG.zip" >> $GITHUB_OUTPUT
+      echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/ordem_fvtt-$TAG.zip" >> $GITHUB_OUTPUT
 
-            # Run some tests to make sure our `system.json` is correct
-            # Exit before setting up node if not
-            # - name: Change the download link with release version created
-            #   shell: bash
-            #   env:
-            #     RELEASE_DOWNLOAD: ${{steps.get_vars.outputs.RELEASE_DOWNLOAD_URL}}
-            #   run: |
-            #     echo $(jq --arg a "$RELEASE_DOWNLOAD" '.download = ($a)' . system.json) > ./system.json
+   # Run some tests to make sure our `system.json` is correct
+   # Exit before setting up node if not
+   # - name: Change the download link with release version created
+   #   shell: bash
+   #   env:
+   #     RELEASE_DOWNLOAD: ${{steps.get_vars.outputs.RELEASE_DOWNLOAD_URL}}
+   #   run: |
+   #     echo $(jq --arg a "$RELEASE_DOWNLOAD" '.download = ($a)' . system.json) > ./system.json
 
-            - name: Update system.json version
-              if: ${{ steps.release.outputs.release_created }}
-              uses: jossef/action-set-json-field@v2.1
-              with:
-                file: system.json
-                field: download
-                value: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
-              
-            # Set up Node
-            - name: Use Node.js
-              uses: actions/setup-node@v4
-              with:
-                node-version: '18.x'
-                cache: 'npm'
+   - name: Update system.json version
+     if: ${{ steps.release.outputs.release_created }}
+     uses: jossef/action-set-json-field@v2.1
+     with:
+      file: system.json
+      field: download
+      value: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
 
-            # `npm ci` is recommended:
-            # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-            - name: Install Dependencies
-              run: npm ci
+   # Set up Node
+   - name: Use Node.js
+     uses: actions/setup-node@v4
+     with:
+      node-version: "18.x"
+      cache: "npm"
 
-            # Run our `build` script
-            - name: Build All
-              run: |
-                npm run build:db --if-present
+   # `npm ci` is recommended:
+   # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+   - name: Install Dependencies
+     run: npm ci
 
-            # Create a zip file with all files required by the module to add to the release
-            - name: Create Zip with Name and Release Version
-              if: ${{ steps.release.outputs.release_created }}
-              env:
-                ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
-              run: zip $ZIP_NAME -r css lang packs utils media module templates system.json template.json LICENSE.txt README.md CHANGELOG.md
+   # Run our `build` script
+   - name: Build All
+     run: |
+      npm run build:db --if-present
 
-            # Adiciona o arquivo System.json as releases do sistema.
-            - name: Upload Release Artifacts
-              if: ${{ steps.release.outputs.release_created }}
-              env:
-                  ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                  gh release upload ${{ steps.release.outputs.tag_name }} ./system.json
-                  gh release upload ${{ steps.release.outputs.tag_name }} ./$ZIP_NAME
-            
-            # Commit all changed files back to the repository
-            - uses: stefanzweifel/git-auto-commit-action@v4
-              with: 
-                file_pattern: '*.json'
-                commit_message: Changing the download link in JSON - Release ${{ steps.release.outputs.tag_name }}
+   # Create a zip file with all files required by the module to add to the release
+   - name: Create Zip with Name and Release Version
+     if: ${{ steps.release.outputs.release_created }}
+     env:
+      ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
+     run: zip $ZIP_NAME -r css lang packs utils media module templates system.json template.json LICENSE.txt README.md CHANGELOG.md
+
+   # Adiciona o arquivo System.json as releases do sistema.
+   - name: Upload Release Artifacts
+     if: ${{ steps.release.outputs.release_created }}
+     env:
+      ZIP_NAME: ${{steps.get_vars.outputs.ZIP_NAME}}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     run: |
+      gh release upload ${{ steps.release.outputs.tag_name }} ./system.json
+      gh release upload ${{ steps.release.outputs.tag_name }} ./$ZIP_NAME
+
+   # Commit all changed files back to the repository
+   - uses: stefanzweifel/git-auto-commit-action@v4
+     with:
+      file_pattern: "*.json"
+      commit_message: Changing the download link in JSON - Release ${{ steps.release.outputs.tag_name }}

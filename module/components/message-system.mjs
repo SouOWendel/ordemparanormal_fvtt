@@ -1,9 +1,9 @@
 /* -------------------------------------------- */
 /*  Author: @aMediocreDad                       */
 /* -------------------------------------------- */
-import semverComp from '../../utils/semver-compare.mjs';
+import semverComp from "../../utils/semver-compare.mjs";
 
-const SYSTEM_NAME = 'ordemparanormal';
+const SYSTEM_NAME = "ordemparanormal";
 
 // eslint-disable-next-line require-jsdoc
 export default async function displayMessages() {
@@ -22,26 +22,26 @@ const fetchMessage = async (url) => {
 };
 
 const stripJSON = (data) => {
-	return data.replace(/[^:]\/\/(.*)/g, '');
+	return data.replace(/[^:]\/\/(.*)/g, "");
 };
 
 const handleDisplay = (msg, i, messages) => {
 	const { content, title, type } = msg;
 	if (!isCurrent(msg)) return;
-	if (type === 'prompt') return displayPrompt(title, content, i, messages);
-	if (type === 'chat') return sendToChat(title, content);
+	if (type === "prompt") return displayPrompt(title, content, i, messages);
+	if (type === "chat") return sendToChat(title, content);
 };
 
 const isCurrent = (msg) => {
-	const settings = game.settings.get(SYSTEM_NAME, 'patchNotes');
-	const isDisplayable = !msg.display === 'once' || !settings; /* !hasDisplayed(msg.title); */
+	const settings = game.settings.get(SYSTEM_NAME, "patchNotes");
+	const isDisplayable = !msg.display === "once" || !settings; /* !hasDisplayed(msg.title); */
 	const correctCoreVersion =
-		foundry.utils.isNewerVersion(msg['max-core-version'] ?? '100.0.0', game.version) &&
-		foundry.utils.isNewerVersion(game.version, msg['min-core-version'] ?? '0.0.0');
+		foundry.utils.isNewerVersion(msg["max-core-version"] ?? "100.0.0", game.version) &&
+		foundry.utils.isNewerVersion(game.version, msg["min-core-version"] ?? "0.0.0");
 	const correctSysVersion = semverComp(
-		msg['min-sys-version'] ?? '0.0.0',
+		msg["min-sys-version"] ?? "0.0.0",
 		game.system.version,
-		msg['max-sys-version'] ?? '100.0.0',
+		msg["max-sys-version"] ?? "100.0.0",
 		{ gEqMin: true, lEqMax: true }
 	);
 	return isDisplayable && correctCoreVersion && correctSysVersion;
@@ -56,12 +56,12 @@ const isCurrent = (msg) => {
 // };
 
 const displayPrompt = (title, content, i, messages) => {
-	content = content.replace('{name}', game.user.name);
+	content = content.replace("{name}", game.user.name);
 
 	const dialogOptions = {
 		width: 800,
 		height: 630,
-		classes: ['ordemparanormal', 'no-scroll'],
+		classes: ["ordemparanormal", "no-scroll"],
 	};
 
 	const config = {
@@ -96,14 +96,14 @@ const displayPrompt = (title, content, i, messages) => {
 		buttons: {
 			previous: {
 				icon: '<i class="fas fa-arrow-left"></i>',
-				label: 'Atualização Anterior',
+				label: "Atualização Anterior",
 				callback: async () => {
 					const b = messages[i - 1] ? i - 1 : i;
 					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
 				},
 			},
 			next: {
-				icon: '',
+				icon: "",
 				label: 'Próxima Atualização <i class="fas fa-arrow-right"></i>',
 				callback: async () => {
 					const b = messages[i + 1] ? i + 1 : i;
@@ -126,12 +126,12 @@ const displayPrompt = (title, content, i, messages) => {
 };
 
 const sendToChat = (title, content) => {
-	content = content.replace('{name}', game.user.name);
+	content = content.replace("{name}", game.user.name);
 	// setDisplayed(title);
 	const footer = '<footer class="nue">aaaaaaa</footer>';
 	return ChatMessage.create({
 		whisper: [game.user.id],
-		speaker: { alias: 'Twilight: 2000 4E' },
+		speaker: { alias: "Twilight: 2000 4E" },
 		flags: { core: { canPopout: true } },
 		title: title,
 		content: `<div class="chat-card"><h3 class="nue">${title}</h3>${content}${footer}</div>`,

@@ -5,27 +5,27 @@
  * @param {number} slot         The hotbar slot to use
  */
 export async function createOPMacro(dropData, slot) {
-	const macroData = { type: 'script', scope: 'actor' };
+	const macroData = { type: "script", scope: "actor" };
 	switch (dropData.type) {
-		case 'Item': {
+		case "Item": {
 			const itemData = await Item.implementation.fromDropData(dropData);
-			if (!itemData) return ui.notifications.warn(game.i18n.localize('MACRO.opUnownedWarn'));
+			if (!itemData) return ui.notifications.warn(game.i18n.localize("MACRO.opUnownedWarn"));
 			foundry.utils.mergeObject(macroData, {
 				name: itemData.name,
 				img: itemData.img,
 				command: `ordemparanormal.documents.macro.rollItem('${itemData.name}')`,
-				flags: { 'ordemparanormal.itemMacro': true },
+				flags: { "ordemparanormal.itemMacro": true },
 			});
 			break;
 		}
-		case 'ActiveEffect': {
+		case "ActiveEffect": {
 			const effectData = await ActiveEffect.implementation.fromDropData(dropData);
-			if (!effectData) return ui.notifications.warn(game.i18n.localize('MACRO.opUnownedWarn'));
+			if (!effectData) return ui.notifications.warn(game.i18n.localize("MACRO.opUnownedWarn"));
 			foundry.utils.mergeObject(macroData, {
 				name: effectData.name,
 				img: effectData.icon,
 				command: `ordemparanormal.documents.macro.toggleEffect('${effectData.name}')`,
-				flags: { 'ordemparanormal.effectMacro': true },
+				flags: { "ordemparanormal.effectMacro": true },
 			});
 			break;
 		}
@@ -54,19 +54,19 @@ function getMacroTarget(name, documentType) {
 	const speaker = ChatMessage.getSpeaker();
 	if (speaker.token) actor = game.actors.tokens[speaker.token];
 	actor ??= game.actors.get(speaker.actor);
-	if (!actor) return ui.notifications.warn(game.i18n.localize('MACRO.opNoActorSelected'));
+	if (!actor) return ui.notifications.warn(game.i18n.localize("MACRO.opNoActorSelected"));
 
-	const collection = documentType === 'Item' ? actor.items : Array.from(actor.allApplicableEffects());
+	const collection = documentType === "Item" ? actor.items : Array.from(actor.allApplicableEffects());
 
 	// Find item in collection
 	const documents = collection.filter((i) => i.name === name);
 	const type = game.i18n.localize(`DOCUMENT.${documentType}`);
 	if (documents.length === 0) {
-		ui.notifications.warn(game.i18n.format('MACRO.opMissingTargetWarn', { actor: actor.name, type, name }));
+		ui.notifications.warn(game.i18n.format("MACRO.opMissingTargetWarn", { actor: actor.name, type, name }));
 		return null;
 	}
 	if (documents.length > 1) {
-		ui.notifications.warn(game.i18n.format('MACRO.opMultipleTargetsWarn', { actor: actor.name, type, name }));
+		ui.notifications.warn(game.i18n.format("MACRO.opMultipleTargetsWarn", { actor: actor.name, type, name }));
 	}
 
 	return documents[0];
@@ -80,7 +80,7 @@ function getMacroTarget(name, documentType) {
  * @returns {Promise<ChatMessage|object>}  Roll result.
  */
 export function rollItem(itemName) {
-	return getMacroTarget(itemName, 'Item').use();
+	return getMacroTarget(itemName, "Item").use();
 }
 
 /* -------------------------------------------- */
@@ -91,6 +91,6 @@ export function rollItem(itemName) {
  * @returns {Promise<ActiveEffect>}  The effect after it has been toggled.
  */
 export function toggleEffect(effectName) {
-	const effect = getMacroTarget(effectName, 'ActiveEffect');
+	const effect = getMacroTarget(effectName, "ActiveEffect");
 	return effect?.update({ disabled: !effect.disabled });
 }

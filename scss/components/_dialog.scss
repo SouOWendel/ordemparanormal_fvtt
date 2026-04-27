@@ -31,7 +31,7 @@
 			text-shadow: 1px 1px 1px #000;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			font-family: 'PT Sans', 'Roboto', 'sans-serif';
+			font-family: "PT Sans", "Roboto", "sans-serif";
 
 			p {
 				font-size: medium;
@@ -194,32 +194,36 @@
 	}
 
 	.submit {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			height: 38px;
-			background: rgba(255, 255, 240, 0.8);
-			border: 1px solid #b5b3a4;
-			border-radius: 3px;
-			font-size: 14px;
-			cursor: pointer;
-			width: 100%;
-			margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		height: 38px;
+		background: rgba(255, 255, 240, 0.8);
+		border: 1px solid #b5b3a4;
+		border-radius: 3px;
+		font-size: 14px;
+		cursor: pointer;
+		width: 100%;
+		margin: 0;
 
-			i {
-				padding: 4px;
-			}
+		i {
+			padding: 4px;
+		}
 	}
 }
 
 .itemAreaTemplate {
-	#areaTemplate { gap: 0.2rem !important; }
+	#areaTemplate {
+		gap: 0.2rem !important;
+	}
 
-	.predefinedAreas { 
+	.predefinedAreas {
 		padding: 0 !important;
 	}
-	input { width: auto; }
+	input {
+		width: auto;
+	}
 	input[type="text"] {
 		min-width: 30px !important;
 		width: auto !important;
@@ -229,19 +233,19 @@
 
 .areaTemplateWindow {
 	box-shadow: 0 0 10x #000 !important;
-	font-family: 'Signika', 'Roboto', sans-serif;
+	font-family: "Signika", "Roboto", sans-serif;
 
 	.window-header {
 		font-size: 13px;
-		
 	}
 }
 
 dialog.ordemparanormal.application.roll-configuration {
-	font-family: 'Source Sans 3', 'Signika', sans-serif;
-	background: rgba(19,19,19,0.9) 100% 80% / 200% 200% url('../media/assets/ondulacoes.webp') !important;
+	font-family: "Source Sans 3", "Signika", sans-serif;
+	background: rgba(19, 19, 19, 0.9) 100% 80% / 200% 200% url("../media/assets/ondulacoes.webp") !important;
 
-	.window-header, form.window-content {
+	.window-header,
+	form.window-content {
 		backdrop-filter: blur(3px);
 	}
 
@@ -262,7 +266,7 @@ dialog.ordemparanormal.application.roll-configuration {
 			font-size: calc(20px * 0.75);
 			flex: none;
 
-			&*{
+			&* {
 				max-block-size: 100%;
 			}
 		}
@@ -286,7 +290,7 @@ dialog.ordemparanormal.application.roll-configuration {
 		.header-control {
 			margin: 0;
 			line-height: normal;
-			background: rgba(0,0,0,0.25);
+			background: rgba(0, 0, 0, 0.25);
 			border-color: #242731;
 			font-size: 12px;
 			--color-light-text-heading: #f7f3e8;
@@ -313,7 +317,7 @@ dialog.ordemparanormal.application.roll-configuration {
 			font-weight: bold;
 			text-align: start;
 			z-index: -1;
-			font-family: 'Libre Baskerville', 'Signika', sans-serif;
+			font-family: "Libre Baskerville", "Signika", sans-serif;
 		}
 
 		h2 {
@@ -327,7 +331,7 @@ dialog.ordemparanormal.application.roll-configuration {
 			font-weight: bold;
 			text-align: start;
 			z-index: -1;
-			font-family: 'Libre Baskerville', 'Signika', sans-serif;
+			font-family: "Libre Baskerville", "Signika", sans-serif;
 		}
 	}
 
@@ -367,7 +371,7 @@ dialog.ordemparanormal.application.roll-configuration {
 					width: 42px;
 					border: none;
 					-webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
-  				filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+					filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 				}
 
 				.badge {
@@ -375,27 +379,28 @@ dialog.ordemparanormal.application.roll-configuration {
 					display: flex;
 					height: 18px;
 					width: 28px;
-					box-shadow: 0 0 4px rgba(0,0,0,0.25);
-					border: .5 solid rgba(255,255,255,0.1);
-					background-color: rgba(0,0,0,0.40);
+					box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+					border: 0.5 solid rgba(255, 255, 255, 0.1);
+					background-color: rgba(0, 0, 0, 0.4);
 					border-radius: 4px;
 					justify-content: center;
 					align-items: center;
 					padding: 2px;
 					gap: 4px;
 
-					&.kh, &.kl {
+					&.kh,
+					&.kl {
 						position: absolute;
 						width: 18px;
 					}
 
-					&.kh { 
-						color: #216E2F;
+					&.kh {
+						color: #216e2f;
 						right: -8px;
 						top: -8px;
 					}
 
-					&.kl { 
+					&.kl {
 						color: #df2563;
 						right: -8px;
 						bottom: -8px;
@@ -448,25 +453,30 @@ dialog.ordemparanormal.application.roll-configuration {
 	}
 
 	// For Theme Dark
-	h1, h2, h3, h4, span {
+	h1,
+	h2,
+	h3,
+	h4,
+	span {
 		color: #f7f3e8;
 	}
 
 	button {
-		 color: #c2c2c2;
-		 border-color: #9f8475;
+		color: #c2c2c2;
+		border-color: #9f8475;
 
-		 &.normal {
+		&.normal {
 			color: #e0e0e0 !important;
-		 }
+		}
 
-		 &:hover {
+		&:hover {
 			background: #816b66;
 			border-color: #e7d1b1;
-		 }
+		}
 	}
 
-	input, select {
+	input,
+	select {
 		background: #302831;
 		color: #e7d1b1;
 		border-color: #00000000;
@@ -476,10 +486,11 @@ dialog.ordemparanormal.application.roll-configuration {
 		color: #e7d1b1;
 	}
 
-	label, legend {
+	label,
+	legend {
 		color: #d0b8a3;
 	}
-	
+
 	fieldset {
 		border-color: #816b66;
 	}

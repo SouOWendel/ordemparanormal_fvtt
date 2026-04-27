@@ -1,326 +1,290 @@
 {
-  "id": "ordemparanormal",
-  "title": "Ordem Paranormal",
-  "description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
-  "version": "7.3.3",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13.351"
-  },
-  "authors": [
-    {
-      "name": "Mark57449",
-      "email": "souowendel@gmail.com",
-      "discord": "souowendel"
-    }
-  ],
-  "esmodules": [
-    "module/ordemparanormal.mjs"
-  ],
-  "styles": [
-    "css/ordemparanormal.css",
-    "media/vendor/selectize/selectize.default.min.css"
-  ],
-  "scripts": [
-    "media/vendor/selectize/selectize.min.js"
-  ],
-  "packs": [
-    {
-      "name": "others",
-      "label": "Origem e Insanidade",
-      "system": "ordemparanormal",
-      "type": "RollTable",
-      "path": "packs/others",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "creatingmissions",
-      "label": "Criando Missões",
-      "system": "ordemparanormal",
-      "type": "RollTable",
-      "path": "packs/creatingmissions",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "armaments",
-      "label": "Armamentos",
-      "system": "ordemparanormal",
-      "type": "Item",
-      "path": "packs/armaments",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "general",
-      "label": "Equipamentos Gerais",
-      "system": "ordemparanormal",
-      "path": "packs/general",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "protections",
-      "label": "Proteções",
-      "system": "ordemparanormal",
-      "path": "packs/protections",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "fighterPowers",
-      "label": "Poderes de Combatente",
-      "system": "ordemparanormal",
-      "path": "packs/fighterPowers",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "specialistPowers",
-      "label": "Poderes de Especialista",
-      "system": "ordemparanormal",
-      "path": "packs/specialistPowers",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "occultistPowers",
-      "label": "Poderes de Ocultista",
-      "system": "ordemparanormal",
-      "path": "packs/occultistPowers",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "survivalPowers",
-      "label": "Poderes de Sobrevivente",
-      "system": "ordemparanormal",
-      "path": "packs/survivalPowers",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "originPowers",
-      "label": "Poderes de Origem",
-      "system": "ordemparanormal",
-      "path": "packs/originPowers",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "pathFighter",
-      "label": "Trilhas de Combatente",
-      "system": "ordemparanormal",
-      "path": "packs/pathFighter",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "pathSpecialist",
-      "label": "Trilhas de Especialista",
-      "system": "ordemparanormal",
-      "path": "packs/pathSpecialist",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "pathOccultist",
-      "label": "Trilhas de Ocultista",
-      "system": "ordemparanormal",
-      "path": "packs/pathOccultist",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "generalPowers",
-      "label": "Poderes Gerais",
-      "system": "ordemparanormal",
-      "path": "packs/generalPowers",
-      "type": "Item",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    },
-    {
-      "name": "bookrules",
-      "label": "Livro de Regras",
-      "system": "ordemparanormal",
-      "path": "packs/bookrules",
-      "type": "JournalEntry",
-      "private": false,
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER"
-      }
-    }
-  ],
-  "packFolders": [
-    {
-      "name": "Conteúdos para Ordem Paranormal",
-      "sorting": "m",
-      "color": "#000000",
-      "packs": [
-        "bookrules",
-        "others",
-        "creatingmissions"
-      ],
-      "folders": [
-        {
-          "name": "Equipamentos do Livro",
-          "sorting": "m",
-          "color": "#1f0300",
-          "packs": [
-            "armaments",
-            "general",
-            "protections"
-          ]
-        },
-        {
-          "name": "Poderes de Classe",
-          "sorting": "m",
-          "color": "#171717",
-          "packs": [
-            "fighterPowers",
-            "specialistPowers",
-            "occultistPowers",
-            "survivalPowers"
-          ]
-        },
-        {
-          "name": "Poderes de Trilha",
-          "sorting": "m",
-          "color": "#272727",
-          "packs": [
-            "pathFighter",
-            "pathSpecialist",
-            "pathOccultist"
-          ]
-        },
-        {
-          "name": "Outros Poderes",
-          "sorting": "m",
-          "color": "#373737",
-          "packs": [
-            "originPowers"
-          ]
-        }
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    },
-    {
-      "lang": "pt-BR",
-      "name": "Português (Brasil)",
-      "path": "lang/pt-BR.json"
-    }
-  ],
-  "relationships": {
-    "requires": [
-      {
-        "id": "barbrawl",
-        "type": "module",
-        "manifest": "https://gist.githubusercontent.com/SouOWendel/9c8ca8f3e9b700824b7a3da4924e6675/raw/894832434b81c95dcc2e60447e76a0b9a803e292/module.json",
-        "compatibility": {
-          "verified": "1.9.0"
-        }
-      }
-    ]
-  },
-  "media": [
-    {
-      "type": "cover",
-      "loop": false,
-      "flags": {}
-    },
-    {
-      "type": "setup",
-      "url": "systems/ordemparanormal/media/op-thumb.png",
-      "thumbnail": "systems/ordemparanormal/media/op-thumb.png"
-    }
-  ],
-  "flags": {
-    "hotReload": {
-      "extensions": [
-        "css",
-        "html",
-        "hbs",
-        "json"
-      ],
-      "paths": [
-        "templates",
-        "css",
-        "lang/en.json",
-        "lang/pt-BR.json"
-      ]
-    },
-    "needsMigrationVersion": "7.3.0"
-  },
-  "grid": {
-    "distance": 1.5,
-    "units": "m"
-  },
-  "primaryTokenAttribute": "PV",
-  "secondaryTokenAttribute": "SAN",
-  "url": "https://github.com/SouOWendel/ordemparanormal_fvtt",
-  "manifest": "https://raw.githubusercontent.com/souowendel/ordemparanormal_fvtt/main/system.json",
-  "download": "https://github.com/SouOWendel/ordemparanormal_fvtt/releases/download/v7.3.3/ordem_fvtt-v7.3.3.zip",
-  "bugs": "https://github.com/SouOWendel/ordemparanormal_fvtt/issues",
-  "license": "https://github.com/SouOWendel/ordemparanormal_fvtt/blob/main/LICENSE.txt"
+	"id": "ordemparanormal",
+	"title": "Ordem Paranormal",
+	"description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
+	"version": "7.3.3",
+	"compatibility": {
+		"minimum": "13",
+		"verified": "13.351"
+	},
+	"authors": [
+		{
+			"name": "Mark57449",
+			"email": "souowendel@gmail.com",
+			"discord": "souowendel"
+		}
+	],
+	"esmodules": ["module/ordemparanormal.mjs"],
+	"styles": ["css/ordemparanormal.css", "media/vendor/selectize/selectize.default.min.css"],
+	"scripts": ["media/vendor/selectize/selectize.min.js"],
+	"packs": [
+		{
+			"name": "others",
+			"label": "Origem e Insanidade",
+			"system": "ordemparanormal",
+			"type": "RollTable",
+			"path": "packs/others",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "creatingmissions",
+			"label": "Criando Missões",
+			"system": "ordemparanormal",
+			"type": "RollTable",
+			"path": "packs/creatingmissions",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "armaments",
+			"label": "Armamentos",
+			"system": "ordemparanormal",
+			"type": "Item",
+			"path": "packs/armaments",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "general",
+			"label": "Equipamentos Gerais",
+			"system": "ordemparanormal",
+			"path": "packs/general",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "protections",
+			"label": "Proteções",
+			"system": "ordemparanormal",
+			"path": "packs/protections",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "fighterPowers",
+			"label": "Poderes de Combatente",
+			"system": "ordemparanormal",
+			"path": "packs/fighterPowers",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "specialistPowers",
+			"label": "Poderes de Especialista",
+			"system": "ordemparanormal",
+			"path": "packs/specialistPowers",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "occultistPowers",
+			"label": "Poderes de Ocultista",
+			"system": "ordemparanormal",
+			"path": "packs/occultistPowers",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "survivalPowers",
+			"label": "Poderes de Sobrevivente",
+			"system": "ordemparanormal",
+			"path": "packs/survivalPowers",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "originPowers",
+			"label": "Poderes de Origem",
+			"system": "ordemparanormal",
+			"path": "packs/originPowers",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "pathFighter",
+			"label": "Trilhas de Combatente",
+			"system": "ordemparanormal",
+			"path": "packs/pathFighter",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "pathSpecialist",
+			"label": "Trilhas de Especialista",
+			"system": "ordemparanormal",
+			"path": "packs/pathSpecialist",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "pathOccultist",
+			"label": "Trilhas de Ocultista",
+			"system": "ordemparanormal",
+			"path": "packs/pathOccultist",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "generalPowers",
+			"label": "Poderes Gerais",
+			"system": "ordemparanormal",
+			"path": "packs/generalPowers",
+			"type": "Item",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "bookrules",
+			"label": "Livro de Regras",
+			"system": "ordemparanormal",
+			"path": "packs/bookrules",
+			"type": "JournalEntry",
+			"private": false,
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		}
+	],
+	"packFolders": [
+		{
+			"name": "Conteúdos para Ordem Paranormal",
+			"sorting": "m",
+			"color": "#000000",
+			"packs": ["bookrules", "others", "creatingmissions"],
+			"folders": [
+				{
+					"name": "Equipamentos do Livro",
+					"sorting": "m",
+					"color": "#1f0300",
+					"packs": ["armaments", "general", "protections"]
+				},
+				{
+					"name": "Poderes de Classe",
+					"sorting": "m",
+					"color": "#171717",
+					"packs": ["fighterPowers", "specialistPowers", "occultistPowers", "survivalPowers"]
+				},
+				{
+					"name": "Poderes de Trilha",
+					"sorting": "m",
+					"color": "#272727",
+					"packs": ["pathFighter", "pathSpecialist", "pathOccultist"]
+				},
+				{
+					"name": "Outros Poderes",
+					"sorting": "m",
+					"color": "#373737",
+					"packs": ["originPowers"]
+				}
+			]
+		}
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		},
+		{
+			"lang": "pt-BR",
+			"name": "Português (Brasil)",
+			"path": "lang/pt-BR.json"
+		}
+	],
+	"relationships": {
+		"requires": [
+			{
+				"id": "barbrawl",
+				"type": "module",
+				"manifest": "https://gist.githubusercontent.com/SouOWendel/9c8ca8f3e9b700824b7a3da4924e6675/raw/894832434b81c95dcc2e60447e76a0b9a803e292/module.json",
+				"compatibility": {
+					"verified": "1.9.0"
+				}
+			}
+		]
+	},
+	"media": [
+		{
+			"type": "cover",
+			"loop": false,
+			"flags": {}
+		},
+		{
+			"type": "setup",
+			"url": "systems/ordemparanormal/media/op-thumb.png",
+			"thumbnail": "systems/ordemparanormal/media/op-thumb.png"
+		}
+	],
+	"flags": {
+		"hotReload": {
+			"extensions": ["css", "html", "hbs", "json"],
+			"paths": ["templates", "css", "lang/en.json", "lang/pt-BR.json"]
+		},
+		"needsMigrationVersion": "7.3.0"
+	},
+	"grid": {
+		"distance": 1.5,
+		"units": "m"
+	},
+	"primaryTokenAttribute": "PV",
+	"secondaryTokenAttribute": "SAN",
+	"url": "https://github.com/SouOWendel/ordemparanormal_fvtt",
+	"manifest": "https://raw.githubusercontent.com/souowendel/ordemparanormal_fvtt/main/system.json",
+	"download": "https://github.com/SouOWendel/ordemparanormal_fvtt/releases/download/v7.3.3/ordem_fvtt-v7.3.3.zip",
+	"bugs": "https://github.com/SouOWendel/ordemparanormal_fvtt/issues",
+	"license": "https://github.com/SouOWendel/ordemparanormal_fvtt/blob/main/LICENSE.txt"
 }

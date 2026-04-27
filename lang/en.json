@@ -37,11 +37,11 @@
 	"MACRO.opMultipleTargetsWarn": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen.",
 	"WARN.overWeight": "What you carry can't surpass double your maximum weight!",
 	"CHAT.RollBlind": "Blind GM Roll",
-  "CHAT.RollDefault": "Default Roll",
-  "CHAT.RollPublic": "Public Roll",
-  "CHAT.RollPrivate": "Private GM Roll",
-  "CHAT.RollSelf": "Personal Roll",
-  "CHAT.RollTables": "Roll Tables",
+	"CHAT.RollDefault": "Default Roll",
+	"CHAT.RollPublic": "Public Roll",
+	"CHAT.RollPrivate": "Private GM Roll",
+	"CHAT.RollSelf": "Personal Roll",
+	"CHAT.RollTables": "Roll Tables",
 
 	"WORLD.GameSystem": "System Game",
 	"op.sidebar.updateNotes": "An unofficial system in version",
@@ -341,7 +341,7 @@
 		"knowledgeDamage": "Knowledge (Kn)",
 		"energyDamage": "Energy (En)",
 		"fearDamage": "Fear (Fe)",
-		
+
 		"fireDamage": "Fire (Fi)",
 		"eletricDamage": "Electricity (El)",
 		"coldDamage": "Cold (Co)",

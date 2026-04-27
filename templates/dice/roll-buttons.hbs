@@ -1,8 +1,8 @@
 <nav class="dialog-buttons flexrow">
 	{{log buttons}}
 	{{#each buttons}}
-		<button type="submit" class="{{@key}}" data-action="{{ @key }}" {{#if default}}autofocus{{/if}}>
-			{{{label}}}<i class="{{{ icons.[0] }}}"></i><i class="{{{ icons.[1] }}}"></i>
+		<button type="submit" class="{{@key}}" data-action="{{@key}}" {{#if default}}autofocus{{/if}}>
+			{{{label}}}<i class="{{{lookup icons 0}}}"></i><i class="{{{lookup icons 1}}}"></i>
 		</button>
 	{{/each}}
 </nav>

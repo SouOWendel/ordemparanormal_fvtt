@@ -37,11 +37,11 @@
 	"MACRO.opMultipleTargetsWarn": "O ator controlado '{actor}' tem mais de um {type} com o mesmo nome '{name}'. O primeiro correspondente será escolhido.",
 	"WARN.overWeight": "O que você carrega não pode ultrapassar o dobro do seu peso máximo!",
 	"CHAT.RollBlind": "Rolagem Cega pro MJ",
-  "CHAT.RollDefault": "Modo de Rolagem Padrão",
-  "CHAT.RollPublic": "Rolagem Pública",
-  "CHAT.RollPrivate": "Rolagem Privada pro MJ",
-  "CHAT.RollSelf": "Rolagem Pessoal",
-  "CHAT.RollTables": "Tabelas de Rolagem",
+	"CHAT.RollDefault": "Modo de Rolagem Padrão",
+	"CHAT.RollPublic": "Rolagem Pública",
+	"CHAT.RollPrivate": "Rolagem Privada pro MJ",
+	"CHAT.RollSelf": "Rolagem Pessoal",
+	"CHAT.RollTables": "Tabelas de Rolagem",
 
 	"WORLD.GameSystem": "Sistema de Jogo",
 	"op.sidebar.updateNotes": "Um sistema não-oficial na versão",
@@ -336,38 +336,38 @@
 		"impactDamage": "Impacto (I)",
 		"piercingDamage": "Perfurante (P)",
 		"ballisticDamage": "Balístico (B)",
-		
+
 		"bloodDamage": "Sangue (S)",
 		"deathDamage": "Morte (M)",
 		"knowledgeDamage": "Conhecimento (C)",
 		"energyDamage": "Energia (E)",
 		"fearDamage": "Medo (Me)",
-		
+
 		"fireDamage": "Fogo (F)",
 		"eletricDamage": "Eletricidade (El)",
 		"coldDamage": "Frio (Fr)",
 		"chemicalDamage": "Químico (Q)",
 		"mentalDamage": "Mental (M)"
-  },
+	},
 
 	"op.damageTypeAbv": {
 		"cuttingDamage": "Corte",
 		"impactDamage": "Impacto",
 		"piercingDamage": "Perfurante",
 		"ballisticDamage": "Balístico",
-		
+
 		"bloodDamage": "Sangue",
 		"deathDamage": "Morte",
 		"knowledgeDamage": "Conhecimento",
 		"energyDamage": "Energia",
 		"fearDamage": "Medo",
-		
+
 		"fireDamage": "Fogo",
 		"eletricDamage": "Eletricidade",
 		"coldDamage": "Frio",
 		"chemicalDamage": "Químico",
 		"mentalDamage": "Mental"
-  },
+	},
 
 	"op.undefined": "Indefinido",
 
@@ -389,7 +389,7 @@
 		"paranormal": "Poderes Paranormais",
 		"complication": "Complicações",
 		"ability": "Outras Habilidades"
-    },
+	},
 
 	"op.improvised": "Improvisada",
 	"op.throwable": "Arremessável",
@@ -499,7 +499,7 @@
 	"op.disturbingPresence.noFormula": "Defina um valor para o Dano Mental (Ex: 2d6).",
 	"op.disturbingPresence.mentalDamageRollFlavor": "Dano Mental (Presença Perturbadora)",
 	"op.disturbingPresence.errorFormula": "Erro na fórmula de dano:",
-	
+
 	"op.traitsLabel": "Características",
 	"op.traitsTitle": "Configurar Características da Ameaça",
 	"op.traits": {
