@@ -3,17 +3,14 @@
 		"browser": true,
 		"es2021": true
 	},
-	"extends": ["eslint:recommended", "google", "prettier"],
+	"extends": ["eslint:recommended", "google", "plugin:prettier/recommended"],
 	"parserOptions": {
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
 	"rules": {
-		"indent": ["error", "tab"],
-		"quotes": ["error", "single"],
-		"semi": ["error", "always"],
-		"valid-jsdoc": ["off"],
-		"no-undef": ["off"],
-		"prefer-rest-params": ["off"]
+		"valid-jsdoc": "off",
+		"no-undef": "off",
+		"prefer-rest-params": "off"
 	}
 }
