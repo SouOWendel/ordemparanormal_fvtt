@@ -15,13 +15,28 @@ export default function () {
 			actor.updateSource({ prototypeToken }); // Set disposition to "Hostile"
 			actor.updateSource({
 				"prototypeToken.flags.barbrawl.resourceBars": {
+					// Espaço entre o token e a barra de PV.
+					threatSpaceBar: {
+						id: "threatSpaceBar",
+						mincolor: "#000000",
+						maxcolor: "#FFFFFF",
+						position: "bottom-outer",
+						value: 1,
+						max: 1,
+						opacity: 0,
+						label: "",
+						attribute: "custom",
+						style: "fraction",
+						ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
+						otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+					},
 					threatHPBar: {
 						id: "threatHPBar",
 						mincolor: "#ff1a1a",
 						maxcolor: "#80ff00",
 						position: "bottom-outer",
 						attribute: "attributes.hp",
-						label: "Pontos de Vida",
+						label: "PV",
 						style: "fraction",
 						ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
 						otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
@@ -43,6 +58,21 @@ export default function () {
 			 */
 			actor.updateSource({
 				"prototypeToken.flags.barbrawl.resourceBars": {
+					// Espaço entre o token e as barras de PE, PD e SAN.
+					agentSpaceBar: {
+						id: "agentSpaceBar",
+						mincolor: "#000000",
+						maxcolor: "#FFFFFF",
+						position: "bottom-outer",
+						value: 1,
+						max: 1,
+						opacity: 0,
+						label: "",
+						attribute: "custom",
+						style: "fraction",
+						ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
+						otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+					},
 					pv: {
 						id: "pv",
 						mincolor: "#ff1a1a",
