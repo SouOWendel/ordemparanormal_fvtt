@@ -2,7 +2,7 @@
 	"id": "ordemparanormal",
 	"title": "Ordem Paranormal",
 	"description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
-	"version": "7.3.3",
+	"version": "7.4.0",
 	"compatibility": {
 		"minimum": "13",
 		"verified": "13.351"
@@ -14,9 +14,16 @@
 			"discord": "souowendel"
 		}
 	],
-	"esmodules": ["module/ordemparanormal.mjs"],
-	"styles": ["css/ordemparanormal.css", "media/vendor/selectize/selectize.default.min.css"],
-	"scripts": ["media/vendor/selectize/selectize.min.js"],
+	"esmodules": [
+		"module/ordemparanormal.mjs"
+	],
+	"styles": [
+		"css/ordemparanormal.css",
+		"media/vendor/selectize/selectize.default.min.css"
+	],
+	"scripts": [
+		"media/vendor/selectize/selectize.min.js"
+	],
 	"packs": [
 		{
 			"name": "others",
@@ -204,31 +211,50 @@
 			"name": "Conteúdos para Ordem Paranormal",
 			"sorting": "m",
 			"color": "#000000",
-			"packs": ["bookrules", "others", "creatingmissions"],
+			"packs": [
+				"bookrules",
+				"others",
+				"creatingmissions"
+			],
 			"folders": [
 				{
 					"name": "Equipamentos do Livro",
 					"sorting": "m",
 					"color": "#1f0300",
-					"packs": ["armaments", "general", "protections"]
+					"packs": [
+						"armaments",
+						"general",
+						"protections"
+					]
 				},
 				{
 					"name": "Poderes de Classe",
 					"sorting": "m",
 					"color": "#171717",
-					"packs": ["fighterPowers", "specialistPowers", "occultistPowers", "survivalPowers"]
+					"packs": [
+						"fighterPowers",
+						"specialistPowers",
+						"occultistPowers",
+						"survivalPowers"
+					]
 				},
 				{
 					"name": "Poderes de Trilha",
 					"sorting": "m",
 					"color": "#272727",
-					"packs": ["pathFighter", "pathSpecialist", "pathOccultist"]
+					"packs": [
+						"pathFighter",
+						"pathSpecialist",
+						"pathOccultist"
+					]
 				},
 				{
 					"name": "Outros Poderes",
 					"sorting": "m",
 					"color": "#373737",
-					"packs": ["originPowers"]
+					"packs": [
+						"originPowers"
+					]
 				}
 			]
 		}
@@ -271,8 +297,18 @@
 	],
 	"flags": {
 		"hotReload": {
-			"extensions": ["css", "html", "hbs", "json"],
-			"paths": ["templates", "css", "lang/en.json", "lang/pt-BR.json"]
+			"extensions": [
+				"css",
+				"html",
+				"hbs",
+				"json"
+			],
+			"paths": [
+				"templates",
+				"css",
+				"lang/en.json",
+				"lang/pt-BR.json"
+			]
 		},
 		"needsMigrationVersion": "7.3.0"
 	},
