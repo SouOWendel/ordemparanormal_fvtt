@@ -1,0 +1,5 @@
+# Format the project files
+npm run format
+
+# Add the formatted files to the commit
+git add .

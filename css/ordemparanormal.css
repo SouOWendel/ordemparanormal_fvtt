@@ -2,2043 +2,2233 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 .lowercase {
-  text-transform: lowercase;
+	text-transform: lowercase;
 }
 
 .uppercase {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .capitalize {
-  text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 /* Global styles */
 dialog.ordemparanormal.application {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .no-scroll {
-  overflow: hidden !important;
+	overflow: hidden !important;
 }
 
 .scroll {
-  overflow: auto !important;
+	overflow: auto !important;
 }
 
 .no-orange-hyperlink {
-  color: initial;
-  text-decoration: none;
+	color: initial;
+	text-decoration: none;
 }
 
 .window-app {
-  font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 
-.rollable:hover, .rollable:focus {
-  color: #000;
-  text-shadow: 0 0 10px red;
-  cursor: pointer;
+.rollable:hover,
+.rollable:focus {
+	color: #000;
+	text-shadow: 0 0 10px red;
+	cursor: pointer;
 }
 
 .p-side-10 {
-  padding: 0 10px;
+	padding: 0 10px;
 }
 
 .directory-list::-webkit-scrollbar {
-  width: 3px;
-  height: 6px;
+	width: 3px;
+	height: 6px;
 }
 .directory-list::-webkit-scrollbar-thumb {
-  outline: none !important;
-  border-radius: 3px !important;
-  background: #782e22 !important;
-  border: 1px solid var(--color-border-highlight) !important;
+	outline: none !important;
+	border-radius: 3px !important;
+	background: #782e22 !important;
+	border: 1px solid var(--color-border-highlight) !important;
 }
 .directory-list::-webkit-scrollbar-track {
-  box-shadow: 0 0 1px #999 inset;
-  border-radius: 4px;
+	box-shadow: 0 0 1px #999 inset;
+	border-radius: 4px;
 }
 
 :root {
-  scrollbar-width: initial !important;
-  scrollbar-color: initial !important;
+	scrollbar-width: initial !important;
+	scrollbar-color: initial !important;
 }
 
 .grid,
 .grid-2col {
-  display: grid;
-  grid-column: span 2/span 2;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin: 10px 0;
-  padding: 0;
+	display: grid;
+	grid-column: span 2 / span 2;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+	margin: 10px 0;
+	padding: 0;
 }
 
 .grid-3col {
-  grid-column: span 3/span 3;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-column: span 3 / span 3;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-4col {
-  grid-column: span 4/span 4;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-column: span 4 / span 4;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .grid-5col {
-  grid-column: span 5/span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+	grid-column: span 5 / span 5;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .grid-6col {
-  grid-column: span 6/span 6;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+	grid-column: span 6 / span 6;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .grid-7col {
-  grid-column: span 7/span 7;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+	grid-column: span 7 / span 7;
+	grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .grid-8col {
-  grid-column: span 8/span 8;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
+	grid-column: span 8 / span 8;
+	grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 
 .grid-9col {
-  grid-column: span 9/span 9;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
+	grid-column: span 9 / span 9;
+	grid-template-columns: repeat(9, minmax(0, 1fr));
 }
 
 .grid-10col {
-  grid-column: span 10/span 10;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
+	grid-column: span 10 / span 10;
+	grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 
 .grid-11col {
-  grid-column: span 11/span 11;
-  grid-template-columns: repeat(11, minmax(0, 1fr));
+	grid-column: span 11 / span 11;
+	grid-template-columns: repeat(11, minmax(0, 1fr));
 }
 
 .grid-12col {
-  grid-column: span 12/span 12;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+	grid-column: span 12 / span 12;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .grid-start-2 {
-  grid-column-start: 2;
+	grid-column-start: 2;
 }
 
 .grid-start-3 {
-  grid-column-start: 3;
+	grid-column-start: 3;
 }
 
 .grid-start-4 {
-  grid-column-start: 4;
+	grid-column-start: 4;
 }
 
 .grid-start-5 {
-  grid-column-start: 5;
+	grid-column-start: 5;
 }
 
 .grid-start-6 {
-  grid-column-start: 6;
+	grid-column-start: 6;
 }
 
 .grid-start-7 {
-  grid-column-start: 7;
+	grid-column-start: 7;
 }
 
 .grid-start-8 {
-  grid-column-start: 8;
+	grid-column-start: 8;
 }
 
 .grid-start-9 {
-  grid-column-start: 9;
+	grid-column-start: 9;
 }
 
 .grid-start-10 {
-  grid-column-start: 10;
+	grid-column-start: 10;
 }
 
 .grid-start-11 {
-  grid-column-start: 11;
+	grid-column-start: 11;
 }
 
 .grid-start-12 {
-  grid-column-start: 12;
+	grid-column-start: 12;
 }
 
 .grid-span-2 {
-  grid-column-end: span 2;
+	grid-column-end: span 2;
 }
 
 .grid-span-3 {
-  grid-column-end: span 3;
+	grid-column-end: span 3;
 }
 
 .grid-span-4 {
-  grid-column-end: span 4;
+	grid-column-end: span 4;
 }
 
 .grid-span-5 {
-  grid-column-end: span 5;
+	grid-column-end: span 5;
 }
 
 .grid-span-6 {
-  grid-column-end: span 6;
+	grid-column-end: span 6;
 }
 
 .grid-span-7 {
-  grid-column-end: span 7;
+	grid-column-end: span 7;
 }
 
 .grid-span-8 {
-  grid-column-end: span 8;
+	grid-column-end: span 8;
 }
 
 .grid-span-9 {
-  grid-column-end: span 9;
+	grid-column-end: span 9;
 }
 
 .grid-span-10 {
-  grid-column-end: span 10;
+	grid-column-end: span 10;
 }
 
 .grid-span-11 {
-  grid-column-end: span 11;
+	grid-column-end: span 11;
 }
 
 .grid-span-12 {
-  grid-column-end: span 12;
+	grid-column-end: span 12;
 }
 
 .display-flex {
-  display: flex;
+	display: flex;
 }
 
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
 .flex-group-left {
-  justify-content: flex-start;
-  text-align: left;
+	justify-content: flex-start;
+	text-align: left;
 }
 
 .flex-group-right {
-  justify-content: flex-end;
-  text-align: right;
+	justify-content: flex-end;
+	text-align: right;
 }
 
 .flexshrink {
-  flex: 1;
+	flex: 1;
 }
 
 .flex-between {
-  justify-content: space-between;
+	justify-content: space-between;
 }
 
 .flexlarge {
-  flex: 2;
+	flex: 2;
 }
 
 .align-left {
-  justify-content: flex-start;
-  text-align: left;
+	justify-content: flex-start;
+	text-align: left;
 }
 
 .align-right {
-  justify-content: flex-end;
-  text-align: right;
+	justify-content: flex-end;
+	text-align: right;
 }
 
 .align-center {
-  justify-content: center;
-  text-align: center;
+	justify-content: center;
+	text-align: center;
 }
 
 .align-items-center {
-  justify-content: center;
-  align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Styles limited to ordemparanormal sheets */
 .system-ordemparanormal {
-  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
-  text-transform: lowercase;
+	text-transform: lowercase;
 }
 .system-ordemparanormal .uppercase {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 .system-ordemparanormal .capitalize {
-  text-transform: capitalize;
+	text-transform: capitalize;
 }
 .system-ordemparanormal .application.theme-light {
-  background: url("../media/parchment.jpg") repeat;
-  --color-header-background: #333;
-  --color-border: #302831;
-  --color-tabs-border: #555;
-  --color-fieldset-border: #efe6d8;
-  --color-form-label: $text-dark;
-  --color-form-label-hover: #111;
-  --color-form-hint: #444;
-  --color-form-hint-hover: $text-dark;
-  --color-select-option-bg: $bg-parchment;
-  color: #222;
+	background: url("../media/parchment.jpg") repeat;
+	--color-header-background: #333;
+	--color-border: #302831;
+	--color-tabs-border: #555;
+	--color-fieldset-border: #efe6d8;
+	--color-form-label: $text-dark;
+	--color-form-label-hover: #111;
+	--color-form-hint: #444;
+	--color-form-hint-hover: $text-dark;
+	--color-select-option-bg: $bg-parchment;
+	color: #222;
 }
-.system-ordemparanormal .application.theme-light input, .system-ordemparanormal .application.theme-light select {
-  color: #222 !important;
+.system-ordemparanormal .application.theme-light input,
+.system-ordemparanormal .application.theme-light select {
+	color: #222 !important;
 }
-.system-ordemparanormal section.itemsheet, .system-ordemparanormal form.ordemparanormal.actor {
-  overflow: hidden;
-  color: #222;
+.system-ordemparanormal section.itemsheet,
+.system-ordemparanormal form.ordemparanormal.actor {
+	overflow: hidden;
+	color: #222;
 }
-.system-ordemparanormal section.itemsheet .scrollable, .system-ordemparanormal form.ordemparanormal.actor .scrollable {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0;
+.system-ordemparanormal section.itemsheet .scrollable,
+.system-ordemparanormal form.ordemparanormal.actor .scrollable {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0;
 }
-.system-ordemparanormal section.itemsheet .prosemirror menu, .system-ordemparanormal section.itemsheet prosemirror menu, .system-ordemparanormal form.ordemparanormal.actor .prosemirror menu, .system-ordemparanormal form.ordemparanormal.actor prosemirror menu {
-  background: #eeede0;
+.system-ordemparanormal section.itemsheet .prosemirror menu,
+.system-ordemparanormal section.itemsheet prosemirror menu,
+.system-ordemparanormal form.ordemparanormal.actor .prosemirror menu,
+.system-ordemparanormal form.ordemparanormal.actor prosemirror menu {
+	background: #eeede0;
 }
-.system-ordemparanormal section.itemsheet section.window-content, .system-ordemparanormal form.ordemparanormal.actor section.window-content {
-  position: relative;
-  display: flex;
-  background: #eeede0;
-  height: 100%;
+.system-ordemparanormal section.itemsheet section.window-content,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content {
+	position: relative;
+	display: flex;
+	background: #eeede0;
+	height: 100%;
 }
-.system-ordemparanormal section.itemsheet section.window-content input, .system-ordemparanormal form.ordemparanormal.actor section.window-content input {
-  text-align: center;
+.system-ordemparanormal section.itemsheet section.window-content input,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content input {
+	text-align: center;
 }
-.system-ordemparanormal section.itemsheet section.window-content .tab, .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab {
-  padding-top: 10px;
-  height: 100%;
-  overflow: auto;
+.system-ordemparanormal section.itemsheet section.window-content .tab,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab {
+	padding-top: 10px;
+	height: 100%;
+	overflow: auto;
 }
-.system-ordemparanormal section.itemsheet section.window-content .tab.active, .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab.active {
-  display: flex;
-  flex-direction: column;
+.system-ordemparanormal section.itemsheet section.window-content .tab.active,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab.active {
+	display: flex;
+	flex-direction: column;
 }
-.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab=inventory], .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab=inventory] {
-  overflow: hidden;
-  padding-bottom: 20px;
+.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab="inventory"],
+.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab="inventory"] {
+	overflow: hidden;
+	padding-bottom: 20px;
 }
-.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab=inventory] .inventory-body, .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab=inventory] .inventory-body {
-  margin-bottom: 5px;
-  overflow: auto;
-  height: 100%;
+.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab="inventory"] .inventory-body,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab="inventory"] .inventory-body {
+	margin-bottom: 5px;
+	overflow: auto;
+	height: 100%;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress {
-  padding-left: 10px;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress {
+	padding-left: 10px;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress input, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress input {
-  width: 40px;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress input,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress input {
+	width: 40px;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .profile-img, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .profile-img {
-  flex: 0 0 48px;
-  height: 48px;
-  margin-right: 10px;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .profile-img,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .profile-img {
+	flex: 0 0 48px;
+	height: 48px;
+	margin-right: 10px;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op h1.charname, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op h1.charname {
-  height: 45px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op h1.charname,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op h1.charname {
+	height: 45px;
+	padding: 0px;
+	margin: 5px 0;
+	border-bottom: 0;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op h1.charname input, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op h1.charname input {
-  min-width: 235px;
-  width: 100%;
-  height: 100%;
-  margin: 0;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op h1.charname input,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op h1.charname input {
+	min-width: 235px;
+	width: 100%;
+	height: 100%;
+	margin: 0;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1, .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h2, .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h3, .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h4, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h1, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h2, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h3, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h4 {
-  border: 0;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1,
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h2,
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h3,
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h4,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h1,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h2,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h3,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h4 {
+	border: 0;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1.charname, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h1.charname {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0;
+.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1.charname,
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	section.window-content
+	header.sheet-header-op
+	.header-identify
+	h1.charname {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 0;
 }
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1.charname input, .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h1.charname input {
-  font-size: 0.6em;
-  font-family: "Signika";
+.system-ordemparanormal
+	section.itemsheet
+	section.window-content
+	header.sheet-header-op
+	.header-identify
+	h1.charname
+	input,
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	section.window-content
+	header.sheet-header-op
+	.header-identify
+	h1.charname
+	input {
+	font-size: 0.6em;
+	font-family: "Signika";
 }
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige {
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: #eeede0;
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige {
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: #eeede0;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents {
-  display: flex;
-  padding: 0 6px;
-  gap: 8px;
-  margin-bottom: 8px;
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents {
+	display: flex;
+	padding: 0 6px;
+	gap: 8px;
+	margin-bottom: 8px;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .limit, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .limit {
-  display: flex;
-  border: 1px solid #888;
-  border-radius: 4px;
-  width: 44px;
-  height: 32px;
-  text-align: center;
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .limit,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .limit {
+	display: flex;
+	border: 1px solid #888;
+	border-radius: 4px;
+	width: 44px;
+	height: 32px;
+	text-align: center;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .prestige, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .prestige {
-  display: flex;
-  flex: 1;
-  text-align: center;
-  font-size: 12px;
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .prestige,
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	section.window-content
+	section.inventory-prestige
+	.patents
+	.prestige {
+	display: flex;
+	flex: 1;
+	text-align: center;
+	font-size: 12px;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .name, .system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .credit, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .name, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .credit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  padding: 4px 6px;
-  border: 1px solid #888;
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.05);
-  font-weight: bold;
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .name,
+.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .credit,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .name,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .credit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	padding: 4px 6px;
+	border: 1px solid #888;
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.05);
+	font-weight: bold;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.space, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space {
-  position: relative;
-  width: 100%;
+.system-ordemparanormal section.itemsheet section.window-content section.space,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space {
+	position: relative;
+	width: 100%;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body {
-  position: absolute;
-  border: 1px solid #272727;
-  border-radius: 3px;
-  width: 100%;
-  height: 13px;
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body {
+	position: absolute;
+	border: 1px solid #272727;
+	border-radius: 3px;
+	width: 100%;
+	height: 13px;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .spacelabel, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .spacelabel {
-  position: absolute;
-  z-index: 12;
-  color: #fff;
-  font-size: 9px;
-  padding: 1px 4px;
-  mix-blend-mode: difference;
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .spacelabel,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .spacelabel {
+	position: absolute;
+	z-index: 12;
+	color: #fff;
+	font-size: 9px;
+	padding: 1px 4px;
+	mix-blend-mode: difference;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .bar, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .bar {
-  display: block !important;
-  margin: 0;
-  border-radius: 2px;
-  background-color: #272727;
-  height: 12px;
-  z-index: 10;
-  overflow: hidden;
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .bar,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .bar {
+	display: block !important;
+	margin: 0;
+	border-radius: 2px;
+	background-color: #272727;
+	height: 12px;
+	z-index: 10;
+	overflow: hidden;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .barover, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .barover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block !important;
-  border-radius: 2px;
-  background-color: #691313;
-  height: 12px;
-  color: #fff;
-  font-size: 9px;
-  z-index: 11;
-  padding-top: 6px;
-  overflow: hidden;
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .barover,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .barover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block !important;
+	border-radius: 2px;
+	background-color: #691313;
+	height: 12px;
+	color: #fff;
+	font-size: 9px;
+	z-index: 11;
+	padding-top: 6px;
+	overflow: hidden;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label, .system-ordemparanormal section.itemsheet section.window-content section.space .space-body i, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
-  position: absolute;
-  top: 0px;
-  font-size: 10px;
-  z-index: 12;
-  mix-blend-mode: difference;
-  filter: invert(1);
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label,
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body i,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
+	position: absolute;
+	top: 0px;
+	font-size: 10px;
+	z-index: 12;
+	mix-blend-mode: difference;
+	filter: invert(1);
 }
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body i, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
-  color: rgb(0, 0, 0);
-  left: 50%;
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body i,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
+	color: rgb(0, 0, 0);
+	left: 50%;
 }
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label, .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label {
-  right: 20px;
+.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label {
+	right: 20px;
 }
-.system-ordemparanormal section.itemsheet section.window-content span.actor-title-header, .system-ordemparanormal form.ordemparanormal.actor section.window-content span.actor-title-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  padding: 4px;
+.system-ordemparanormal section.itemsheet section.window-content span.actor-title-header,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content span.actor-title-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.05);
+	border: 2px groove #eeede0;
+	padding: 4px;
 }
-.system-ordemparanormal section.itemsheet .items-list, .system-ordemparanormal form.ordemparanormal.actor .items-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  color: #444;
+.system-ordemparanormal section.itemsheet .items-list,
+.system-ordemparanormal form.ordemparanormal.actor .items-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	color: #444;
 }
-.system-ordemparanormal section.itemsheet .items-list .item-list, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.system-ordemparanormal section.itemsheet .items-list .item-list,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
-.system-ordemparanormal section.itemsheet .items-list .item-name, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-name {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  text-align: left;
-  align-items: center;
-  display: flex;
+.system-ordemparanormal section.itemsheet .items-list .item-name,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name {
+	flex: 2;
+	margin: 0;
+	overflow: hidden;
+	text-align: left;
+	align-items: center;
+	display: flex;
 }
-.system-ordemparanormal section.itemsheet .items-list .item-name h3, .system-ordemparanormal section.itemsheet .items-list .item-name h4, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h3, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h4 {
-  color: #222;
-  font-size: 13px;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-shadow: none;
-  font-family: "Signika";
+.system-ordemparanormal section.itemsheet .items-list .item-name h3,
+.system-ordemparanormal section.itemsheet .items-list .item-name h4,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h3,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h4 {
+	color: #222;
+	font-size: 13px;
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-shadow: none;
+	font-family: "Signika";
 }
-.system-ordemparanormal section.itemsheet .items-list .item-controls, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls {
-  display: flex;
-  flex: 0 0 100px;
-  justify-content: flex-end;
+.system-ordemparanormal section.itemsheet .items-list .item-controls,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls {
+	display: flex;
+	flex: 0 0 100px;
+	justify-content: flex-end;
 }
-.system-ordemparanormal section.itemsheet .items-list .item-controls a, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
+.system-ordemparanormal section.itemsheet .items-list .item-controls a,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls a {
+	font-size: 12px;
+	text-align: center;
+	margin: 0 6px;
 }
-.system-ordemparanormal section.itemsheet .items-list .item, .system-ordemparanormal form.ordemparanormal.actor .items-list .item {
-  align-items: center;
-  padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
+.system-ordemparanormal section.itemsheet .items-list .item,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item {
+	align-items: center;
+	padding: 0 2px;
+	border-bottom: 1px solid #c9c7b8;
 }
-.system-ordemparanormal section.itemsheet .items-list .item:last-child, .system-ordemparanormal form.ordemparanormal.actor .items-list .item:last-child {
-  border-bottom: none;
+.system-ordemparanormal section.itemsheet .items-list .item:last-child,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item:last-child {
+	border-bottom: none;
 }
-.system-ordemparanormal section.itemsheet .items-list .item .item-name, .system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name {
-  color: #191813;
+.system-ordemparanormal section.itemsheet .items-list .item .item-name,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name {
+	color: #191813;
 }
-.system-ordemparanormal section.itemsheet .items-list .item .item-name .item-image, .system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name .item-image {
-  display: flex;
-  align-items: center;
-  flex: 0 0 30px;
-  height: 30px;
-  background-size: 30px;
-  border: none;
-  margin-right: 1px;
+.system-ordemparanormal section.itemsheet .items-list .item .item-name .item-image,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name .item-image {
+	display: flex;
+	align-items: center;
+	flex: 0 0 30px;
+	height: 30px;
+	background-size: 30px;
+	border: none;
+	margin-right: 1px;
 }
-.system-ordemparanormal section.itemsheet .items-list .item-prop, .system-ordemparanormal form.ordemparanormal.actor .items-list .item-prop {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
+.system-ordemparanormal section.itemsheet .items-list .item-prop,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item-prop {
+	text-align: center;
+	border-left: 1px solid #c9c7b8;
+	border-right: 1px solid #c9c7b8;
+	font-size: 12px;
 }
-.system-ordemparanormal section.itemsheet .items-list .items-header, .system-ordemparanormal form.ordemparanormal.actor .items-list .items-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
+.system-ordemparanormal section.itemsheet .items-list .items-header,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header {
+	height: 28px;
+	margin: 2px 0;
+	padding: 0;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.05);
+	border: 2px groove #eeede0;
+	font-weight: bold;
 }
-.system-ordemparanormal section.itemsheet .items-list .items-header > *, .system-ordemparanormal form.ordemparanormal.actor .items-list .items-header > * {
-  font-size: 12px;
-  text-align: center;
+.system-ordemparanormal section.itemsheet .items-list .items-header > *,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header > * {
+	font-size: 12px;
+	text-align: center;
 }
-.system-ordemparanormal section.itemsheet .items-list .items-header .item-name, .system-ordemparanormal form.ordemparanormal.actor .items-list .items-header .item-name {
-  padding-left: 5px;
-  text-align: left;
+.system-ordemparanormal section.itemsheet .items-list .items-header .item-name,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header .item-name {
+	padding-left: 5px;
+	text-align: left;
 }
 .system-ordemparanormal .sheet-body {
-  overflow: hidden;
+	overflow: hidden;
 }
 .system-ordemparanormal .sheet-body .tab {
-  overflow-y: hidden;
-  align-content: flex-start;
-  padding-right: 2px;
-  height: 100%;
-  min-height: 150px;
+	overflow-y: hidden;
+	align-content: flex-start;
+	padding-right: 2px;
+	height: 100%;
+	min-height: 150px;
 }
-.system-ordemparanormal .sheet-body .tab.skills, .system-ordemparanormal .sheet-body .tab.inventory, .system-ordemparanormal .sheet-body .tab.abilities, .system-ordemparanormal .sheet-body .tab.rituals, .system-ordemparanormal .sheet-body .tab.biography, .system-ordemparanormal .sheet-body .tab.effects {
-  overflow-y: auto;
+.system-ordemparanormal .sheet-body .tab.skills,
+.system-ordemparanormal .sheet-body .tab.inventory,
+.system-ordemparanormal .sheet-body .tab.abilities,
+.system-ordemparanormal .sheet-body .tab.rituals,
+.system-ordemparanormal .sheet-body .tab.biography,
+.system-ordemparanormal .sheet-body .tab.effects {
+	overflow-y: auto;
 }
 .system-ordemparanormal .sheet-body .tab .editor {
-  height: 100%;
-  min-height: 150px;
+	height: 100%;
+	min-height: 150px;
 }
 .system-ordemparanormal .window-content {
-  overflow: hidden;
+	overflow: hidden;
 }
 .system-ordemparanormal .item-form {
-  font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 .system-ordemparanormal .sheet-tabs {
-  flex: 0;
+	flex: 0;
 }
 .system-ordemparanormal .tox .tox-editor-container {
-  background: #fff;
+	background: #fff;
 }
 .system-ordemparanormal .tox .tox-edit-area {
-  padding: 0 8px;
+	padding: 0 8px;
 }
 .system-ordemparanormal .skills-content {
-  font-size: 12px;
-  padding: 0 2px;
-  margin-top: 0;
-  column-count: 2;
+	font-size: 12px;
+	padding: 0 2px;
+	margin-top: 0;
+	column-count: 2;
 }
-.system-ordemparanormal .skills-content select, .system-ordemparanormal .skills-content input {
-  font-size: 11px;
-  border: none;
-  height: 21px;
+.system-ordemparanormal .skills-content select,
+.system-ordemparanormal .skills-content input {
+	font-size: 11px;
+	border: none;
+	height: 21px;
 }
 .system-ordemparanormal .skills-content .skill {
-  padding: 3.3px 6px;
+	padding: 3.3px 6px;
 }
 .system-ordemparanormal .skills-content .skill .modifier {
-  max-width: 30px;
+	max-width: 30px;
 }
 .system-ordemparanormal .skills-content .skill .rollFreeSkill {
-  position: absolute;
-  left: 48%;
-  width: 24px;
+	position: absolute;
+	left: 48%;
+	width: 24px;
 }
 .system-ordemparanormal .skills-content .skill i {
-  padding: 0 5px;
+	padding: 0 5px;
 }
 .system-ordemparanormal .resource .categoryCheck {
-  display: flex;
+	display: flex;
 }
 .system-ordemparanormal .resources {
-  gap: 10px;
-  margin: 5px 0;
+	gap: 10px;
+	margin: 5px 0;
 }
 .system-ordemparanormal .invalid {
-  position: relative;
+	position: relative;
 }
 .system-ordemparanormal .item-alert {
-  position: relative;
-  border-radius: 5px;
-  padding: 8px;
-  margin: 10px 5px;
-  background-color: aliceblue;
+	position: relative;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 10px 5px;
+	background-color: aliceblue;
 }
 .system-ordemparanormal .item-editable-resource {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 }
 .system-ordemparanormal .item-editable-resource i {
-  padding: 4px;
+	padding: 4px;
 }
 .system-ordemparanormal .item-editable-resource input {
-  background: none;
-  border: none;
+	background: none;
+	border: none;
 }
-.system-ordemparanormal .biography aside, .system-ordemparanormal .biography div:first-of-type {
-  padding: 2px;
+.system-ordemparanormal .biography aside,
+.system-ordemparanormal .biography div:first-of-type {
+	padding: 2px;
 }
-.system-ordemparanormal .biography .class, .system-ordemparanormal .biography .trail {
-  font-size: 12px;
+.system-ordemparanormal .biography .class,
+.system-ordemparanormal .biography .trail {
+	font-size: 12px;
 }
 .system-ordemparanormal .biography fieldset {
-  border: 1px solid rgba(0, 0, 0, 0.2509803922);
-  border-radius: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.2509803922);
+	border-radius: 10px;
 }
 .system-ordemparanormal .biography .bio-desc .editor {
-  min-height: 230px;
+	min-height: 230px;
 }
 .system-ordemparanormal .biography .bio-goals .editor {
-  min-height: 100px;
+	min-height: 100px;
 }
 .system-ordemparanormal .inventory {
-  padding-bottom: 24px;
-  overflow: hidden !important;
+	padding-bottom: 24px;
+	overflow: hidden !important;
 }
 .system-ordemparanormal .ritual-dt {
-  display: flex;
-  justify-content: center;
-  margin: 0 8px 8px;
-  padding: 0 8px;
-  border: 1px solid #b8b8b8;
-  box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
-  border-radius: 5px;
-  text-align: center;
+	display: flex;
+	justify-content: center;
+	margin: 0 8px 8px;
+	padding: 0 8px;
+	border: 1px solid #b8b8b8;
+	box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
+	border-radius: 5px;
+	text-align: center;
 }
 .system-ordemparanormal .ritual-dt p {
-  font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
-  font-weight: bold;
+	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+	font-weight: bold;
 }
-.system-ordemparanormal .threat #senses, .system-ordemparanormal .threat #defenses, .system-ordemparanormal .threat #attributes, .system-ordemparanormal .threat #general,
-.system-ordemparanormal .threat #disturbingPresence, .system-ordemparanormal .threat #actions, .system-ordemparanormal .threat #abilities {
-  padding: 5px;
-  border: 1px solid rgba(39, 39, 39, 0.25);
-  margin-top: 5px;
-  border-radius: 5px;
+.system-ordemparanormal .threat #senses,
+.system-ordemparanormal .threat #defenses,
+.system-ordemparanormal .threat #attributes,
+.system-ordemparanormal .threat #general,
+.system-ordemparanormal .threat #disturbingPresence,
+.system-ordemparanormal .threat #actions,
+.system-ordemparanormal .threat #abilities {
+	padding: 5px;
+	border: 1px solid rgba(39, 39, 39, 0.25);
+	margin-top: 5px;
+	border-radius: 5px;
 }
-.system-ordemparanormal .threat #senses .display-flex, .system-ordemparanormal .threat #defenses .display-flex, .system-ordemparanormal .threat #attributes .display-flex, .system-ordemparanormal .threat #general .display-flex,
-.system-ordemparanormal .threat #disturbingPresence .display-flex, .system-ordemparanormal .threat #actions .display-flex, .system-ordemparanormal .threat #abilities .display-flex {
-  align-items: center;
+.system-ordemparanormal .threat #senses .display-flex,
+.system-ordemparanormal .threat #defenses .display-flex,
+.system-ordemparanormal .threat #attributes .display-flex,
+.system-ordemparanormal .threat #general .display-flex,
+.system-ordemparanormal .threat #disturbingPresence .display-flex,
+.system-ordemparanormal .threat #actions .display-flex,
+.system-ordemparanormal .threat #abilities .display-flex {
+	align-items: center;
 }
 .system-ordemparanormal .threat .miniInput {
-  width: 32px;
+	width: 32px;
 }
 .system-ordemparanormal .threat #attributes {
-  justify-content: space-between;
+	justify-content: space-between;
 }
-.system-ordemparanormal .threat #attributes .pre, .system-ordemparanormal .threat #attributes .vit, .system-ordemparanormal .threat #attributes .str, .system-ordemparanormal .threat #attributes .int, .system-ordemparanormal .threat #attributes .dex {
-  text-align: center;
+.system-ordemparanormal .threat #attributes .pre,
+.system-ordemparanormal .threat #attributes .vit,
+.system-ordemparanormal .threat #attributes .str,
+.system-ordemparanormal .threat #attributes .int,
+.system-ordemparanormal .threat #attributes .dex {
+	text-align: center;
 }
-.system-ordemparanormal .threat #attributes .pre input, .system-ordemparanormal .threat #attributes .vit input, .system-ordemparanormal .threat #attributes .str input, .system-ordemparanormal .threat #attributes .int input, .system-ordemparanormal .threat #attributes .dex input {
-  height: 32px;
+.system-ordemparanormal .threat #attributes .pre input,
+.system-ordemparanormal .threat #attributes .vit input,
+.system-ordemparanormal .threat #attributes .str input,
+.system-ordemparanormal .threat #attributes .int input,
+.system-ordemparanormal .threat #attributes .dex input {
+	height: 32px;
 }
 .system-ordemparanormal .threat label + input {
-  margin-left: 5px;
+	margin-left: 5px;
 }
 .system-ordemparanormal .threat #announcement a {
-  color: #272727;
+	color: #272727;
 }
 .system-ordemparanormal .threat #announcement .link-alert {
-  padding: 0 10px;
+	padding: 0 10px;
 }
 .system-ordemparanormal .threat #descriptions div {
-  margin: 8px 0;
+	margin: 8px 0;
 }
 .system-ordemparanormal .threat #descriptions div textarea {
-  height: 200px;
+	height: 200px;
 }
-.system-ordemparanormal .threat #actions textarea, .system-ordemparanormal .threat #abilities textarea {
-  height: 300px;
+.system-ordemparanormal .threat #actions textarea,
+.system-ordemparanormal .threat #abilities textarea {
+	height: 300px;
 }
 .system-ordemparanormal .threat {
-  /* --- LAYOUT GERAL --- */
+	/* --- LAYOUT GERAL --- */
 }
 .system-ordemparanormal .threat .sheet-body {
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  container-type: inline-size;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	container-type: inline-size;
 }
 .system-ordemparanormal .threat .sheet-body .tab {
-  display: none;
-  height: 100%;
-  overflow-y: auto;
-  padding-right: 5px;
+	display: none;
+	height: 100%;
+	overflow-y: auto;
+	padding-right: 5px;
 }
 .system-ordemparanormal .threat .sheet-body .tab.active {
-  display: block;
+	display: block;
 }
 .system-ordemparanormal .threat .sheet-tabs .item.active {
-  text-decoration: underline;
-  font-weight: bold;
-  text-shadow: 0 0 5px var(--color-shadow-primary);
+	text-decoration: underline;
+	font-weight: bold;
+	text-shadow: 0 0 5px var(--color-shadow-primary);
 }
 .system-ordemparanormal .threat .sheet-tabs .item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
 }
 .system-ordemparanormal .threat .sheet-tabs .item img {
-  border: none;
-  margin: 0;
-  padding: 0;
-  vertical-align: middle;
+	border: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
 }
 .system-ordemparanormal .threat {
-  /* --- IMAGEM E CABEÇALHO --- */
+	/* --- IMAGEM E CABEÇALHO --- */
 }
 .system-ordemparanormal .threat .header-identify {
-  flex-wrap: wrap;
-  gap: 10px;
+	flex-wrap: wrap;
+	gap: 10px;
 }
 .system-ordemparanormal .threat .threat-profile-img {
-  flex: 0 0 110px;
-  height: 110px;
-  width: 110px;
-  object-fit: cover;
-  border: 1px solid #000;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 15px;
+	flex: 0 0 110px;
+	height: 110px;
+	width: 110px;
+	object-fit: cover;
+	border: 1px solid #000;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 15px;
 }
 @container (max-width: 400px) {
-  .system-ordemparanormal .threat .header-identify {
-    justify-content: center;
-  }
-  .system-ordemparanormal .threat .threat-profile-img {
-    margin-right: 0;
-    margin-bottom: 5px;
-  }
+	.system-ordemparanormal .threat .header-identify {
+		justify-content: center;
+	}
+	.system-ordemparanormal .threat .threat-profile-img {
+		margin-right: 0;
+		margin-bottom: 5px;
+	}
 }
 .system-ordemparanormal .threat .header-stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 5px;
-  align-items: stretch;
-  width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 5px;
+	align-items: stretch;
+	width: 100%;
 }
 .system-ordemparanormal .threat .disturbing-presence {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+	background: rgba(0, 0, 0, 0.05);
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	flex-wrap: wrap;
 }
 .system-ordemparanormal .threat {
-  /* --- ABA ENIGMA --- */
+	/* --- ABA ENIGMA --- */
 }
 .system-ordemparanormal .threat .sheet-body .tab.enigma {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden !important;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden !important;
 }
 .system-ordemparanormal .threat .enigma-container {
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid #999;
-  border-radius: 5px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+	padding: 15px;
+	background: rgba(0, 0, 0, 0.03);
+	border: 1px solid #999;
+	border-radius: 5px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
 }
 .system-ordemparanormal .threat .actor-title-header {
-  font-size: 1.4em;
-  font-weight: bold;
-  border-bottom: 2px solid #333;
-  margin-bottom: 10px;
-  padding-bottom: 2px;
-  display: block;
-  text-transform: uppercase;
-  color: #191813;
+	font-size: 1.4em;
+	font-weight: bold;
+	border-bottom: 2px solid #333;
+	margin-bottom: 10px;
+	padding-bottom: 2px;
+	display: block;
+	text-transform: uppercase;
+	color: #191813;
 }
 .system-ordemparanormal .threat prose-mirror {
-  min-height: 200px;
-  flex: 1;
-  background: rgba(255, 255, 255, 0.3);
-  padding: 5px;
-  border-radius: 4px;
-  color: #191813;
+	min-height: 200px;
+	flex: 1;
+	background: rgba(255, 255, 255, 0.3);
+	padding: 5px;
+	border-radius: 4px;
+	color: #191813;
 }
 .system-ordemparanormal .threat {
-  /* --- PERÍCIAS (FIXADO EM 4 COLUNAS) --- */
+	/* --- PERÍCIAS (FIXADO EM 4 COLUNAS) --- */
 }
 .system-ordemparanormal .threat .threat-skills-container {
-  margin-top: 5px;
-  display: grid;
-  /* Força exatamente 4 colunas de tamanho igual */
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  justify-content: space-between;
+	margin-top: 5px;
+	display: grid;
+	/* Força exatamente 4 colunas de tamanho igual */
+	grid-template-columns: repeat(4, 1fr);
+	gap: 5px;
+	justify-content: space-between;
 }
 .system-ordemparanormal .threat .threat-tags {
-  gap: 10px;
+	gap: 10px;
 }
 .system-ordemparanormal .threat {
-  /* --- RESISTÊNCIAS --- */
+	/* --- RESISTÊNCIAS --- */
 }
-.system-ordemparanormal .threat .resistance-container-grid, .system-ordemparanormal .threat .traits-container-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
-  padding: 2px;
-  align-items: center;
-  justify-content: center;
-  min-height: 30px;
+.system-ordemparanormal .threat .resistance-container-grid,
+.system-ordemparanormal .threat .traits-container-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 3px;
+	padding: 2px;
+	align-items: center;
+	justify-content: center;
+	min-height: 30px;
 }
 .system-ordemparanormal .threat .resistance-tag {
-  flex: 1 0 auto;
-  min-width: 60px;
-  font-size: 10px;
-  border: 1px solid #7a7971;
-  padding: 2px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.05);
-  white-space: nowrap;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 4px;
+	flex: 1 0 auto;
+	min-width: 60px;
+	font-size: 10px;
+	border: 1px solid #7a7971;
+	padding: 2px;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.05);
+	white-space: nowrap;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 4px;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-label {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 10px;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-values {
-  display: flex;
-  gap: 3px;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	gap: 3px;
+	align-items: center;
+	justify-content: center;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-value {
-  font-size: 11px;
-  font-weight: bold;
+	font-size: 11px;
+	font-weight: bold;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-immune {
-  color: #2c3e50;
-  font-size: 10px;
+	color: #2c3e50;
+	font-size: 10px;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-vulnerable {
-  color: #c0392b;
-  font-size: 10px;
+	color: #c0392b;
+	font-size: 10px;
 }
 .system-ordemparanormal .threat .traits-tag {
-  flex: 1 0 auto;
-  min-width: 60px;
-  font-size: 10px;
-  border: 1px solid #7a7971;
-  padding: 2px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.05);
-  white-space: nowrap;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 4px;
+	flex: 1 0 auto;
+	min-width: 60px;
+	font-size: 10px;
+	border: 1px solid #7a7971;
+	padding: 2px;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.05);
+	white-space: nowrap;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 4px;
 }
 .system-ordemparanormal .threat .traits-tag-label {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 10px;
-  margin-bottom: 1px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 10px;
+	margin-bottom: 1px;
 }
 .system-ordemparanormal .threat .resource-content select {
-  max-width: 100%;
+	max-width: 100%;
 }
 .system-ordemparanormal .threat .items-list .item {
-  flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 .system-ordemparanormal .item .sheet-header {
-  flex: 0 auto;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-  height: 180px;
+	flex: 0 auto;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-bottom: 10px;
+	height: 180px;
 }
 .system-ordemparanormal .item .sheet-header .profile-img {
-  flex: 0 0 100px;
-  height: 100px;
-  margin-right: 10px;
+	flex: 0 0 100px;
+	height: 100px;
+	margin-right: 10px;
 }
 .system-ordemparanormal .item .sheet-header .header-fields {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
 }
 .system-ordemparanormal .item .sheet-header .header-fields .document-name {
-  width: 100%;
+	width: 100%;
 }
 .system-ordemparanormal .item .window-content {
-  height: 100%;
+	height: 100%;
 }
 .system-ordemparanormal .item .content {
-  height: 100%;
-  overflow-y: auto;
+	height: 100%;
+	overflow-y: auto;
 }
 .system-ordemparanormal .item .tab {
-  overflow-y: hidden;
-  height: 100%;
-  align-content: flex-start;
-  padding-right: 2px;
+	overflow-y: hidden;
+	height: 100%;
+	align-content: flex-start;
+	padding-right: 2px;
 }
 .system-ordemparanormal {
-  /* ITEMS IN ACTOR SHEET (AGENT) */
+	/* ITEMS IN ACTOR SHEET (AGENT) */
 }
 .system-ordemparanormal .item-space {
-  flex: 1 20px;
-  padding: 0 8px;
+	flex: 1 20px;
+	padding: 0 8px;
 }
 .system-ordemparanormal .item-sheet {
-  display: flex;
-  flex: 1;
-  background-color: aqua;
+	display: flex;
+	flex: 1;
+	background-color: aqua;
 }
 .system-ordemparanormal .item-image {
-  perspective: 50px;
+	perspective: 50px;
 }
 .system-ordemparanormal .item-image img {
-  border: 1px solid rgba(0, 0, 0, 0.4392156863);
+	border: 1px solid rgba(0, 0, 0, 0.4392156863);
 }
 .system-ordemparanormal .slide {
-  overflow: hidden;
+	overflow: hidden;
 }
 .system-ordemparanormal .slide > img,
 .system-ordemparanormal .slide a {
-  transition: 0.3s all ease-in-out;
-  position: absolute;
+	transition: 0.3s all ease-in-out;
+	position: absolute;
 }
 .system-ordemparanormal .slide > a {
-  margin-left: 4px;
-  font-size: 20px;
-  transform: translate(50px, 0);
+	margin-left: 4px;
+	font-size: 20px;
+	transform: translate(50px, 0);
 }
 .system-ordemparanormal .slide:hover > img {
-  transform: translate(-200px, 0);
+	transform: translate(-200px, 0);
 }
 .system-ordemparanormal .slide:hover > a {
-  transform: translate(0, 0);
+	transform: translate(0, 0);
 }
 .system-ordemparanormal .resource-label {
-  font-weight: bold;
+	font-weight: bold;
 }
-.system-ordemparanormal .application.item ul, .system-ordemparanormal .application.item ol, .system-ordemparanormal .application.item h1, .system-ordemparanormal .application.item h2, .system-ordemparanormal .application.item h3, .system-ordemparanormal .application.item h4 {
-  margin: 0;
-  padding: 0;
+.system-ordemparanormal .application.item ul,
+.system-ordemparanormal .application.item ol,
+.system-ordemparanormal .application.item h1,
+.system-ordemparanormal .application.item h2,
+.system-ordemparanormal .application.item h3,
+.system-ordemparanormal .application.item h4 {
+	margin: 0;
+	padding: 0;
 }
-.system-ordemparanormal .application.item .prosemirror menu, .system-ordemparanormal .application.item prosemirror menu {
-  gap: 0;
-  background: #eeede0;
+.system-ordemparanormal .application.item .prosemirror menu,
+.system-ordemparanormal .application.item prosemirror menu {
+	gap: 0;
+	background: #eeede0;
 }
 .system-ordemparanormal .application.item .scrollable {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0;
 }
 .system-ordemparanormal .application.item span.item-title-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  padding: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.05);
+	border: 2px groove #eeede0;
+	padding: 4px;
 }
 .system-ordemparanormal .application.item .resource-type {
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2509803922);
-  border-radius: 4px;
-  padding: 10px;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.2509803922);
+	border-radius: 4px;
+	padding: 10px;
 }
 .system-ordemparanormal .application.item .content-item {
-  height: 100%;
-  overflow-y: auto;
-  padding-top: 10px;
+	height: 100%;
+	overflow-y: auto;
+	padding-top: 10px;
 }
 .system-ordemparanormal .application.item .section-attack {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 .system-ordemparanormal .application.item .attack-formula {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
 }
 .system-ordemparanormal .application.item .main-damage-formula {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	gap: 4px;
 }
 .system-ordemparanormal .application.item .damage-formula {
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
 }
 .system-ordemparanormal .application.item .damage-formula a {
-  width: 10px;
+	width: 10px;
 }
 .system-ordemparanormal .application.item {
-  /* ITEM SHEET */
+	/* ITEM SHEET */
 }
 .system-ordemparanormal .application.item .specifications h4 {
-  color: rgba(22, 22, 22, 0.4392156863);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
+	color: rgba(22, 22, 22, 0.4392156863);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
 }
 .system-ordemparanormal .application.item .combat h4 {
-  color: rgba(22, 22, 22, 0.4392156863);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
+	color: rgba(22, 22, 22, 0.4392156863);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
 }
 .system-ordemparanormal .application.item .combat .resource-label {
-  font-size: 13px;
+	font-size: 13px;
 }
 .system-ordemparanormal .application.item .item-sheet-form {
-  display: flex;
-  flex: 1 10px;
-  margin: 2px 0px;
-  align-items: center;
-  flex-direction: row;
+	display: flex;
+	flex: 1 10px;
+	margin: 2px 0px;
+	align-items: center;
+	flex-direction: row;
 }
-.system-ordemparanormal .application.item .item-sheet-form input, .system-ordemparanormal .application.item .item-sheet-form select {
-  width: 100%;
+.system-ordemparanormal .application.item .item-sheet-form input,
+.system-ordemparanormal .application.item .item-sheet-form select {
+	width: 100%;
 }
 .system-ordemparanormal .application.item .item-sheet-form i {
-  margin-left: 6px;
+	margin-left: 6px;
 }
 .system-ordemparanormal .application.item .item-damage-bonus {
-  flex: 2;
+	flex: 2;
 }
 .system-ordemparanormal .application.item .minor-size {
-  flex: 0 60px;
+	flex: 0 60px;
 }
 .system-ordemparanormal .application.item .item-sheet-controls {
-  display: flex;
-  flex: 0 0 20px;
-  justify-content: flex-end;
+	display: flex;
+	flex: 0 0 20px;
+	justify-content: flex-end;
 }
 .system-ordemparanormal .application.item .item-sheet-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
+	font-size: 12px;
+	text-align: center;
+	margin: 0 6px;
 }
 .system-ordemparanormal .application.item .item-sheet .item-attribute {
-  flex: 1;
-  padding: 0 8px;
+	flex: 1;
+	padding: 0 8px;
 }
 .system-ordemparanormal .application.item .item-sheet .item-skill {
-  flex: 1;
-  padding: 0 8px;
+	flex: 1;
+	padding: 0 8px;
 }
 .system-ordemparanormal .application.item .item-sheet .item-bonus {
-  flex: 2;
-  padding: 0 8px;
+	flex: 2;
+	padding: 0 8px;
 }
 .system-ordemparanormal .application.item .damage-box {
-  color: rgba(0, 0, 0, 0.4392156863);
-  padding: 6px;
-  text-align: center;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.2509803922);
+	color: rgba(0, 0, 0, 0.4392156863);
+	padding: 6px;
+	text-align: center;
+	border-bottom: 1px dashed rgba(0, 0, 0, 0.2509803922);
 }
 .system-ordemparanormal .application.item .damage-box a:hover {
-  color: #555;
+	color: #555;
 }
 .system-ordemparanormal .application.item .damage-control .fa-trash {
-  font-size: 12px;
+	font-size: 12px;
 }
-.system-ordemparanormal .application.item .delete-damage, .system-ordemparanormal .application.item .promote-part {
-  margin-right: 15px;
+.system-ordemparanormal .application.item .delete-damage,
+.system-ordemparanormal .application.item .promote-part {
+	margin-right: 15px;
 }
 .system-ordemparanormal .application.item {
-  /* 1. Prepara o container principal para ser a referência de posicionamento */
+	/* 1. Prepara o container principal para ser a referência de posicionamento */
 }
 .system-ordemparanormal .application.item .container-formula {
-  position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
-  padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
-  font-family: sans-serif; /* Apenas para estilização de exemplo */
+	position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
+	padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
+	font-family: sans-serif; /* Apenas para estilização de exemplo */
 }
 .system-ordemparanormal .application.item .part-damage-section {
-  padding-left: 20px;
-  padding-top: 10px;
+	padding-left: 20px;
+	padding-top: 10px;
 }
 .system-ordemparanormal .application.item {
-  /* 2. Cria a LINHA VERTICAL principal */
+	/* 2. Cria a LINHA VERTICAL principal */
 }
 .system-ordemparanormal .application.item .linhas-adicionais::before {
-  content: ""; /* Pseudo-elementos precisam disso para aparecer */
-  position: absolute; /* Posição absoluta em relação ao .container-formula */
-  /* Posição da linha */
-  left: 15px; /* Distância da borda esquerda do container */
-  top: 50px; /* Distância do topo (ajuste conforme a altura da sua linha principal) */
-  bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
-  /* Estilo da linha */
-  width: 2px; /* Espessura da linha */
-  background-color: #b0b0b0; /* Cor da linha */
-  border-radius: 2px;
+	content: ""; /* Pseudo-elementos precisam disso para aparecer */
+	position: absolute; /* Posição absoluta em relação ao .container-formula */
+	/* Posição da linha */
+	left: 15px; /* Distância da borda esquerda do container */
+	top: 50px; /* Distância do topo (ajuste conforme a altura da sua linha principal) */
+	bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
+	/* Estilo da linha */
+	width: 2px; /* Espessura da linha */
+	background-color: #b0b0b0; /* Cor da linha */
+	border-radius: 2px;
 }
 .system-ordemparanormal .application.item {
-  /* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
+	/* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
 }
 .system-ordemparanormal .application.item .linha-secundaria {
-  position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
-  margin-left: 25px; /* Empurra o conteúdo para a direita, criando espaço para a conexão */
-  margin-bottom: 5px; /* Espaçamento entre as linhas */
+	position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
+	margin-left: 25px; /* Empurra o conteúdo para a direita, criando espaço para a conexão */
+	margin-bottom: 5px; /* Espaçamento entre as linhas */
 }
 .system-ordemparanormal .application.item {
-  /* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
+	/* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
 }
 .system-ordemparanormal .application.item .linha-secundaria::before {
-  content: "";
-  position: absolute;
-  /* Posição da linha */
-  top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
-  left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
-  /* Estilo da linha */
-  width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
-  height: 2px; /* Espessura da linha */
-  background-color: #b0b0b0; /* Mesma cor da linha vertical */
-  border-radius: 2px;
+	content: "";
+	position: absolute;
+	/* Posição da linha */
+	top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
+	left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
+	/* Estilo da linha */
+	width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
+	height: 2px; /* Espessura da linha */
+	background-color: #b0b0b0; /* Mesma cor da linha vertical */
+	border-radius: 2px;
 }
 .system-ordemparanormal .application.item {
-  /* Estilos adicionais para parecer com a imagem (opcional) */
+	/* Estilos adicionais para parecer com a imagem (opcional) */
 }
-.system-ordemparanormal .application.item .linha-principal, .system-ordemparanormal .application.item .linha-secundaria {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.system-ordemparanormal .application.item .linha-principal,
+.system-ordemparanormal .application.item .linha-secundaria {
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
-.system-ordemparanormal .application.item .effects input, .system-ordemparanormal .application.item .effects select {
-  color: #cfd2da;
+.system-ordemparanormal .application.item .effects input,
+.system-ordemparanormal .application.item .effects select {
+	color: #cfd2da;
 }
 .system-ordemparanormal .application.item .effects .effects-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	scrollbar-width: thin;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect-name {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  font-size: 13px;
-  text-align: left;
-  align-items: center;
-  display: flex;
+	flex: 2;
+	margin: 0;
+	overflow: hidden;
+	font-size: 13px;
+	text-align: left;
+	align-items: center;
+	display: flex;
 }
-.system-ordemparanormal .application.item .effects .effects-list .effect-name h3, .system-ordemparanormal .application.item .effects .effects-list .effect-name h4 {
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden;
+.system-ordemparanormal .application.item .effects .effects-list .effect-name h3,
+.system-ordemparanormal .application.item .effects .effects-list .effect-name h4 {
+	margin: 0;
+	white-space: nowrap;
+	overflow-x: hidden;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect-controls {
-  display: flex;
-  flex: 0 0 100px;
-  justify-content: flex-end;
+	display: flex;
+	flex: 0 0 100px;
+	justify-content: flex-end;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
+	font-size: 12px;
+	text-align: center;
+	margin: 0 6px;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect {
-  align-items: center;
-  padding: 0 2px;
+	align-items: center;
+	padding: 0 2px;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect .effect-name {
-  color: #222;
+	color: #222;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect .effect-name .effect-image {
-  flex: 0 0 30px;
-  height: 30px;
-  background-size: 30px;
-  border: none;
-  margin-right: 5px;
+	flex: 0 0 30px;
+	height: 30px;
+	background-size: 30px;
+	border: none;
+	margin-right: 5px;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effect-prop {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
+	text-align: center;
+	border-left: 1px solid #c9c7b8;
+	border-right: 1px solid #c9c7b8;
+	font-size: 12px;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effects-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
+	height: 28px;
+	margin: 2px 0;
+	padding: 0;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	border: 2px groove #eeede0;
+	font-weight: bold;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effects-header > * {
-  font-size: 12px;
-  text-align: center;
+	font-size: 12px;
+	text-align: center;
 }
 .system-ordemparanormal .application.item .effects .effects-list .effects-header .effect-name {
-  padding-left: 5px;
-  text-align: left;
+	padding-left: 5px;
+	text-align: left;
 }
 .system-ordemparanormal .effects-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  color: #444;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	color: #444;
 }
 .system-ordemparanormal .effects-list .effect-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
-.system-ordemparanormal .effects-list .effect-list .effect-source, .system-ordemparanormal .effects-list .effect-list .effect-duration {
-  text-align: center;
+.system-ordemparanormal .effects-list .effect-list .effect-source,
+.system-ordemparanormal .effects-list .effect-list .effect-duration {
+	text-align: center;
 }
 .system-ordemparanormal .effects-list .effect-name {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  font-size: 13px;
-  text-align: left;
-  align-items: center;
-  display: flex;
+	flex: 2;
+	margin: 0;
+	overflow: hidden;
+	font-size: 13px;
+	text-align: left;
+	align-items: center;
+	display: flex;
 }
-.system-ordemparanormal .effects-list .effect-name h3, .system-ordemparanormal .effects-list .effect-name h4 {
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden;
+.system-ordemparanormal .effects-list .effect-name h3,
+.system-ordemparanormal .effects-list .effect-name h4 {
+	margin: 0;
+	white-space: nowrap;
+	overflow-x: hidden;
 }
 .system-ordemparanormal .effects-list .effect-controls {
-  display: flex;
-  flex: 0 0 100px;
-  justify-content: flex-end;
+	display: flex;
+	flex: 0 0 100px;
+	justify-content: flex-end;
 }
 .system-ordemparanormal .effects-list .effect-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
+	font-size: 12px;
+	text-align: center;
+	margin: 0 6px;
 }
 .system-ordemparanormal .effects-list .effect {
-  align-items: center;
-  padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
+	align-items: center;
+	padding: 0 2px;
+	border-bottom: 1px solid #c9c7b8;
 }
 .system-ordemparanormal .effects-list .effect:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 .system-ordemparanormal .effects-list .effect .effect-name {
-  color: #191813;
+	color: #191813;
 }
 .system-ordemparanormal .effects-list .effect .effect-name .effect-image {
-  flex: 0 0 30px;
-  height: 30px;
-  background-size: 30px;
-  border: none;
-  margin-right: 5px;
+	flex: 0 0 30px;
+	height: 30px;
+	background-size: 30px;
+	border: none;
+	margin-right: 5px;
 }
 .system-ordemparanormal .effects-list .effect-prop {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
+	text-align: center;
+	border-left: 1px solid #c9c7b8;
+	border-right: 1px solid #c9c7b8;
+	font-size: 12px;
 }
 .system-ordemparanormal .effects-list .effects-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
+	height: 28px;
+	margin: 2px 0;
+	padding: 0;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.05);
+	border: 2px groove #eeede0;
+	font-weight: bold;
 }
 .system-ordemparanormal .effects-list .effects-header > * {
-  font-size: 12px;
-  text-align: center;
+	font-size: 12px;
+	text-align: center;
 }
 .system-ordemparanormal .effects-list .effects-header .effect-name {
-  padding-left: 5px;
-  text-align: left;
+	padding-left: 5px;
+	text-align: left;
 }
 .system-ordemparanormal .effect-formula {
-  flex: 0 0 200px;
-  padding: 0 8px;
+	flex: 0 0 200px;
+	padding: 0 8px;
 }
 .system-ordemparanormal .effects .item .effect-source,
 .system-ordemparanormal .effects .item .effect-duration,
 .system-ordemparanormal .effects .item .effect-controls {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
+	text-align: center;
+	border-left: 1px solid #c9c7b8;
+	border-right: 1px solid #c9c7b8;
+	font-size: 12px;
 }
 .system-ordemparanormal .effects .item .effect-controls {
-  border: none;
+	border: none;
 }
 .system-ordemparanormal .content-dialog {
-  height: 500px;
-  padding: 0 2px;
-  line-height: 1.3;
+	height: 500px;
+	padding: 0 2px;
+	line-height: 1.3;
 }
 .system-ordemparanormal .content-dialog li {
-  padding-top: 2px;
-  padding-bottom: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 .system-ordemparanormal .content-dialog a {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
-.system-ordemparanormal .content-dialog a:hover, .system-ordemparanormal .content-dialog a:focus {
-  color: #000;
-  text-shadow: 0 0 10px rgb(255, 255, 255);
-  cursor: pointer;
+.system-ordemparanormal .content-dialog a:hover,
+.system-ordemparanormal .content-dialog a:focus {
+	color: #000;
+	text-shadow: 0 0 10px rgb(255, 255, 255);
+	cursor: pointer;
 }
 .system-ordemparanormal .content-dialog a h1,
 .system-ordemparanormal .content-dialog a h2,
 .system-ordemparanormal .content-dialog a h3,
 .system-ordemparanormal .content-dialog a h4 {
-  border: 0;
-  text-decoration: none;
-  font-weight: 700;
+	border: 0;
+	text-decoration: none;
+	font-weight: 700;
 }
 .system-ordemparanormal .content-dialog a .discord {
-  color: white;
-  text-shadow: 1px 1px 1px #000;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "PT Sans", "Roboto", "sans-serif";
+	color: white;
+	text-shadow: 1px 1px 1px #000;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: "PT Sans", "Roboto", "sans-serif";
 }
 .system-ordemparanormal .content-dialog a .discord p {
-  font-size: medium;
-  font-weight: 700;
+	font-size: medium;
+	font-weight: 700;
 }
 .system-ordemparanormal .content-dialog::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.13);
-  border: 0;
+	background: rgba(0, 0, 0, 0.13);
+	border: 0;
 }
 .system-ordemparanormal .announcement {
-  position: relative;
-  width: 100%;
-  height: 156px;
-  margin: 8px 0;
-  border-radius: 5px !important;
-  display: flex;
-  background-position: center !important;
-  background-size: 100% 100% !important;
-  background-repeat: no-repeat !important;
+	position: relative;
+	width: 100%;
+	height: 156px;
+	margin: 8px 0;
+	border-radius: 5px !important;
+	display: flex;
+	background-position: center !important;
+	background-size: 100% 100% !important;
+	background-repeat: no-repeat !important;
 }
 .system-ordemparanormal .announcement p {
-  width: 100%;
+	width: 100%;
 }
 .system-ordemparanormal .content-dialog a:first-child .adverts {
-  margin: 0;
+	margin: 0;
 }
 .system-ordemparanormal .dialog-buttons {
-  display: flex;
-  gap: 4px;
+	display: flex;
+	gap: 4px;
 }
 .system-ordemparanormal .dialog-buttons button {
-  height: 36px;
-  opacity: 0.6;
-  transition: all 0.2s ease-in;
+	height: 36px;
+	opacity: 0.6;
+	transition: all 0.2s ease-in;
 }
 .system-ordemparanormal .dialog-buttons button:hover {
-  opacity: 1;
+	opacity: 1;
 }
 .system-ordemparanormal .dialog-credits li {
-  padding-top: 2px;
-  padding-bottom: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
-.system-ordemparanormal .dialog-credits a:hover, .system-ordemparanormal .dialog-credits a:focus {
-  color: #000;
-  text-shadow: 0 0 10px rgb(255, 255, 255);
-  cursor: pointer;
+.system-ordemparanormal .dialog-credits a:hover,
+.system-ordemparanormal .dialog-credits a:focus {
+	color: #000;
+	text-shadow: 0 0 10px rgb(255, 255, 255);
+	cursor: pointer;
 }
 .system-ordemparanormal .dialog-credits a h1,
 .system-ordemparanormal .dialog-credits a h2,
 .system-ordemparanormal .dialog-credits a h3,
 .system-ordemparanormal .dialog-credits a h4 {
-  border: 0;
-  text-decoration: none;
-  font-weight: 700;
+	border: 0;
+	text-decoration: none;
+	font-weight: 700;
 }
 .system-ordemparanormal .dialog-credits a[href] {
-  color: #464646;
+	color: #464646;
 }
 .system-ordemparanormal #d20dice-dialog {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-bottom: 10px;
 }
 .system-ordemparanormal #d20dice-dialog .situational {
-  padding: 0 10px;
+	padding: 0 10px;
 }
 .system-ordemparanormal #d20dice-dialog .fa-dice-d20 {
-  position: relative;
-  font-size: 2rem;
-  z-index: 0 !important;
+	position: relative;
+	font-size: 2rem;
+	z-index: 0 !important;
 }
 .system-ordemparanormal #d20dice-dialog .header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  padding: 1rem 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	padding: 1rem 10px;
 }
 .system-ordemparanormal #d20dice-dialog .header .header-dice {
-  display: inline-block;
-  gap: 10px;
-  justify-content: space-around;
+	display: inline-block;
+	gap: 10px;
+	justify-content: space-around;
 }
 .system-ordemparanormal #d20dice-dialog .header .header-dice input.diceMod {
-  position: relative;
-  font-size: 2.75rem;
-  font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
-  top: 2px;
-  width: 30px;
-  height: 40px;
-  border: none;
-  background: none;
-  z-index: 1 !important;
+	position: relative;
+	font-size: 2.75rem;
+	font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
+	top: 2px;
+	width: 30px;
+	height: 40px;
+	border: none;
+	background: none;
+	z-index: 1 !important;
 }
 .system-ordemparanormal #d20dice-dialog .header .big-letters {
-  font-size: 2.5rem;
-  font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
-  text-align: center;
-  vertical-align: baseline;
+	font-size: 2.5rem;
+	font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
+	text-align: center;
+	vertical-align: baseline;
 }
 .system-ordemparanormal #d20dice-dialog .header .formula {
-  padding-left: 5px;
+	padding-left: 5px;
 }
 .system-ordemparanormal #d20dice-dialog legend {
-  font-size: 15px;
-  font-weight: bold;
+	font-size: 15px;
+	font-weight: bold;
 }
 .system-ordemparanormal #d20dice-dialog fieldset {
-  display: flex;
-  gap: 0.1rem;
-  border-radius: 8px;
-  flex-wrap: nowrap;
-  flex-direction: column;
+	display: flex;
+	gap: 0.1rem;
+	border-radius: 8px;
+	flex-wrap: nowrap;
+	flex-direction: column;
 }
 .system-ordemparanormal #d20dice-dialog .adjusts {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
 }
 .system-ordemparanormal #d20dice-dialog .adjusts .hint {
-  font-size: 14px;
-  margin: 0;
+	font-size: 14px;
+	margin: 0;
 }
 .system-ordemparanormal #d20dice-dialog .submit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 38px;
-  background: rgba(255, 255, 240, 0.8);
-  border: 1px solid #b5b3a4;
-  border-radius: 3px;
-  font-size: 14px;
-  cursor: pointer;
-  width: 100%;
-  margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 38px;
+	background: rgba(255, 255, 240, 0.8);
+	border: 1px solid #b5b3a4;
+	border-radius: 3px;
+	font-size: 14px;
+	cursor: pointer;
+	width: 100%;
+	margin: 0;
 }
 .system-ordemparanormal #d20dice-dialog .submit i {
-  padding: 4px;
+	padding: 4px;
 }
 .system-ordemparanormal .itemAreaTemplate #areaTemplate {
-  gap: 0.2rem !important;
+	gap: 0.2rem !important;
 }
 .system-ordemparanormal .itemAreaTemplate .predefinedAreas {
-  padding: 0 !important;
+	padding: 0 !important;
 }
 .system-ordemparanormal .itemAreaTemplate input {
-  width: auto;
+	width: auto;
 }
-.system-ordemparanormal .itemAreaTemplate input[type=text] {
-  min-width: 30px !important;
-  width: auto !important;
-  text-align: center !important;
+.system-ordemparanormal .itemAreaTemplate input[type="text"] {
+	min-width: 30px !important;
+	width: auto !important;
+	text-align: center !important;
 }
 .system-ordemparanormal .areaTemplateWindow {
-  box-shadow: 0 0 10x #000 !important;
-  font-family: "Signika", "Roboto", sans-serif;
+	box-shadow: 0 0 10x #000 !important;
+	font-family: "Signika", "Roboto", sans-serif;
 }
 .system-ordemparanormal .areaTemplateWindow .window-header {
-  font-size: 13px;
+	font-size: 13px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration {
-  font-family: "Source Sans 3", "Signika", sans-serif;
-  background: rgba(19, 19, 19, 0.9) 100% 80%/200% 200% url("../media/assets/ondulacoes.webp") !important;
+	font-family: "Source Sans 3", "Signika", sans-serif;
+	background: rgba(19, 19, 19, 0.9) 100% 80%/200% 200% url("../media/assets/ondulacoes.webp") !important;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content {
-  backdrop-filter: blur(3px);
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header,
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content {
+	backdrop-filter: blur(3px);
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header {
-  position: relative;
-  overflow: visible;
-  justify-content: flex-end;
-  background: none;
-  margin-block-end: 30px;
-  border: none;
-  align-items: center;
-  margin-bottom: 0 !important;
-  padding: 5px 10px 50px 10px;
+	position: relative;
+	overflow: visible;
+	justify-content: flex-end;
+	background: none;
+	margin-block-end: 30px;
+	border: none;
+	align-items: center;
+	margin-bottom: 0 !important;
+	padding: 5px 10px 50px 10px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-icon {
-  color: #999;
-  margin-right: auto;
-  font-size: 15px;
-  flex: none;
+	color: #999;
+	margin-right: auto;
+	font-size: 15px;
+	flex: none;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-icon* {
-  max-block-size: 100%;
+	max-block-size: 100%;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-title {
-  flex: 1;
-  margin: 0;
-  line-height: 46px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+	flex: 1;
+	margin: 0;
+	line-height: 46px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-subtitle {
-  margin: 0;
-  font-size: 16;
-  line-height: 30px;
-  text-shadow: none;
+	margin: 0;
+	font-size: 16;
+	line-height: 30px;
+	text-shadow: none;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .header-control {
-  margin: 0;
-  line-height: normal;
-  background: rgba(0, 0, 0, 0.25);
-  border-color: #242731;
-  font-size: 12px;
-  --color-light-text-heading: #f7f3e8;
-  --button-size: 20px;
-  --button-text-color: #f7f3e8;
-  padding: 3px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.13);
-  gap: 0.25rem;
-  min-height: unset;
-  display: flex;
-  align-items: center;
-  --button-hover-border-color: ;
+	margin: 0;
+	line-height: normal;
+	background: rgba(0, 0, 0, 0.25);
+	border-color: #242731;
+	font-size: 12px;
+	--color-light-text-heading: #f7f3e8;
+	--button-size: 20px;
+	--button-text-color: #f7f3e8;
+	padding: 3px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.13);
+	gap: 0.25rem;
+	min-height: unset;
+	display: flex;
+	align-items: center;
+	--button-hover-border-color: ;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header:has(h2:not(:empty)) {
-  margin-block-end: 36px;
+	margin-block-end: 36px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header h1 {
-  inset-block-start: 16px;
-  font-size: 20px;
-  position: absolute;
-  inset-inline: 20px;
-  font-weight: bold;
-  text-align: start;
-  z-index: -1;
-  font-family: "Libre Baskerville", "Signika", sans-serif;
+	inset-block-start: 16px;
+	font-size: 20px;
+	position: absolute;
+	inset-inline: 20px;
+	font-weight: bold;
+	text-align: start;
+	z-index: -1;
+	font-family: "Libre Baskerville", "Signika", sans-serif;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header h2 {
-  inset-block-start: 52px;
-  margin: 0;
-  border: 0;
-  font-size: 14px;
-  text-shadow: none;
-  position: absolute;
-  inset-inline: 25px;
-  font-weight: bold;
-  text-align: start;
-  z-index: -1;
-  font-family: "Libre Baskerville", "Signika", sans-serif;
+	inset-block-start: 52px;
+	margin: 0;
+	border: 0;
+	font-size: 14px;
+	text-shadow: none;
+	position: absolute;
+	inset-inline: 25px;
+	font-weight: bold;
+	text-align: start;
+	z-index: -1;
+	font-family: "Libre Baskerville", "Signika", sans-serif;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content {
-  margin-block-start: -8px;
-  padding-block-start: 8px;
-  padding-block-end: 14px;
-  padding-inline: 14px;
-  overflow-y: auto;
-  margin-top: 0em;
-  background: transparent;
-  unicode-bidi: isolate;
+	margin-block-start: -8px;
+	padding-block-start: 8px;
+	padding-block-end: 14px;
+	padding-inline: 14px;
+	overflow-y: auto;
+	margin-top: 0em;
+	background: transparent;
+	unicode-bidi: isolate;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .unlist {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice {
-  margin: 12px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+	margin: 12px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice li {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice img {
-  width: 42px;
-  border: none;
-  -webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+	width: 42px;
+	border: none;
+	-webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+	filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge {
-  position: relative;
-  display: flex;
-  height: 18px;
-  width: 28px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-  border: 0.5 solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 4px;
-  justify-content: center;
-  align-items: center;
-  padding: 2px;
-  gap: 4px;
+	position: relative;
+	display: flex;
+	height: 18px;
+	width: 28px;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+	border: 0.5 solid rgba(255, 255, 255, 0.1);
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 4px;
+	justify-content: center;
+	align-items: center;
+	padding: 2px;
+	gap: 4px;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kh, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kl {
-  position: absolute;
-  width: 18px;
+.system-ordemparanormal
+	dialog.ordemparanormal.application.roll-configuration
+	form.window-content
+	.rolls
+	.dice
+	.badge.kh,
+.system-ordemparanormal
+	dialog.ordemparanormal.application.roll-configuration
+	form.window-content
+	.rolls
+	.dice
+	.badge.kl {
+	position: absolute;
+	width: 18px;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kh {
-  color: #216E2F;
-  right: -8px;
-  top: -8px;
+.system-ordemparanormal
+	dialog.ordemparanormal.application.roll-configuration
+	form.window-content
+	.rolls
+	.dice
+	.badge.kh {
+	color: #216e2f;
+	right: -8px;
+	top: -8px;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kl {
-  color: #df2563;
-  right: -8px;
-  bottom: -8px;
+.system-ordemparanormal
+	dialog.ordemparanormal.application.roll-configuration
+	form.window-content
+	.rolls
+	.dice
+	.badge.kl {
+	color: #df2563;
+	right: -8px;
+	bottom: -8px;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge span {
-  font-size: 14px;
-  text-align: center;
+.system-ordemparanormal
+	dialog.ordemparanormal.application.roll-configuration
+	form.window-content
+	.rolls
+	.dice
+	.badge
+	span {
+	font-size: 14px;
+	text-align: center;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge i {
-  height: 12px;
-  font-size: 13px;
+.system-ordemparanormal
+	dialog.ordemparanormal.application.roll-configuration
+	form.window-content
+	.rolls
+	.dice
+	.badge
+	i {
+	height: 12px;
+	font-size: 13px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  border-radius: 4px;
-  margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	border-radius: 4px;
+	margin: 0;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset .form-group {
-  margin: 0;
+	margin: 0;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset .form-group label {
-  flex-basis: 50px;
+.system-ordemparanormal
+	dialog.ordemparanormal.application.roll-configuration
+	form.window-content
+	fieldset
+	.form-group
+	label {
+	flex-basis: 50px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #e6ddd0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #e6ddd0;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line .formula {
-  font-weight: bold;
+.system-ordemparanormal
+	dialog.ordemparanormal.application.roll-configuration
+	form.window-content
+	.formula-line
+	.formula {
+	font-weight: bold;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line .label {
-  font-style: italic;
-  font-size: 12px;
+	font-style: italic;
+	font-size: 12px;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h1, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h2, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h3, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h4, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration span {
-  color: #f7f3e8;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h1,
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h2,
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h3,
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h4,
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration span {
+	color: #f7f3e8;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button {
-  color: #c2c2c2;
-  border-color: #9f8475;
+	color: #c2c2c2;
+	border-color: #9f8475;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button.normal {
-  color: #e0e0e0 !important;
+	color: #e0e0e0 !important;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button:hover {
-  background: #816b66;
-  border-color: #e7d1b1;
+	background: #816b66;
+	border-color: #e7d1b1;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration input, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration select {
-  background: #302831;
-  color: #e7d1b1;
-  border-color: rgba(0, 0, 0, 0);
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration input,
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration select {
+	background: #302831;
+	color: #e7d1b1;
+	border-color: rgba(0, 0, 0, 0);
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration input:placeholder {
-  color: #e7d1b1;
+	color: #e7d1b1;
 }
-.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration label, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration legend {
-  color: #d0b8a3;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration label,
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration legend {
+	color: #d0b8a3;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration fieldset {
-  border-color: #816b66;
+	border-color: #816b66;
 }
 .system-ordemparanormal {
-  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
-  text-transform: lowercase;
+	text-transform: lowercase;
 }
 .system-ordemparanormal .uppercase {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 .system-ordemparanormal .capitalize {
-  text-transform: capitalize;
+	text-transform: capitalize;
 }
 .system-ordemparanormal .card-buttons {
-  position: relative;
-  display: flex;
-  width: 100%;
-  flex-grow: 1;
-  gap: 4px;
+	position: relative;
+	display: flex;
+	width: 100%;
+	flex-grow: 1;
+	gap: 4px;
 }
 .system-ordemparanormal .card-buttons button {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  height: 2em;
-  min-height: 2em;
-  gap: 0.25rem;
-  padding: 0 0.5rem;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid #555;
-  border-radius: 4px;
-  color: #111;
-  font-family: "Signika", "Palatino Linotype", sans-serif;
-  font-size: 0.875rem;
-  line-height: normal;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.5s;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	height: 2em;
+	min-height: 2em;
+	gap: 0.25rem;
+	padding: 0 0.5rem;
+	background: rgba(0, 0, 0, 0.1);
+	border: 1px solid #555;
+	border-radius: 4px;
+	color: #111;
+	font-family: "Signika", "Palatino Linotype", sans-serif;
+	font-size: 0.875rem;
+	line-height: normal;
+	text-decoration: none;
+	cursor: pointer;
+	transition: 0.5s;
 }
 .system-ordemparanormal .card-buttons button:hover {
-  background: #222;
-  color: #ccc;
+	background: #222;
+	color: #ccc;
 }
 .system-ordemparanormal .card-buttons:first-of-type {
-  margin-bottom: 2px;
+	margin-bottom: 2px;
 }
 .system-ordemparanormal .card-footer {
-  margin-top: 6px;
+	margin-top: 6px;
 }
 .system-ordemparanormal .card-footer span {
-  color: #161616;
-  font-size: 11px;
-  padding: 2px 3px;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1882352941);
+	color: #161616;
+	font-size: 11px;
+	padding: 2px 3px;
+	border-radius: 6px;
+	border: 1px solid rgba(0, 0, 0, 0.1882352941);
 }
 .system-ordemparanormal .chat-card details {
-  padding: 4px 4px;
-  border: 1px solid #b8b8b8;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-  border-radius: 5px;
-  font-family: "Warnock Pro", "Roboto", sans-serif, "Arial";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
+	padding: 4px 4px;
+	border: 1px solid #b8b8b8;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+	border-radius: 5px;
+	font-family: "Warnock Pro", "Roboto", sans-serif, "Arial";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 14px;
 }
 .system-ordemparanormal .chat-card details summary {
-  margin-left: 4px;
+	margin-left: 4px;
 }
 .system-ordemparanormal .chat-card details p {
-  hyphens: auto;
+	hyphens: auto;
 }
-.system-ordemparanormal .chat-card h1, .system-ordemparanormal .chat-card h2, .system-ordemparanormal .chat-card h3, .system-ordemparanormal .chat-card h4, .system-ordemparanormal .chat-card h5, .system-ordemparanormal .chat-card h6 {
-  margin: 0 !important;
+.system-ordemparanormal .chat-card h1,
+.system-ordemparanormal .chat-card h2,
+.system-ordemparanormal .chat-card h3,
+.system-ordemparanormal .chat-card h4,
+.system-ordemparanormal .chat-card h5,
+.system-ordemparanormal .chat-card h6 {
+	margin: 0 !important;
 }
 .system-ordemparanormal .chat-card span.element {
-  display: inline-block;
-  font-size: 12px;
-  color: #fff;
-  padding: 1px 4px;
-  margin-top: 4px;
-  margin-bottom: 1px;
-  text-transform: uppercase;
-  font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: bold;
+	display: inline-block;
+	font-size: 12px;
+	color: #fff;
+	padding: 1px 4px;
+	margin-top: 4px;
+	margin-bottom: 1px;
+	text-transform: uppercase;
+	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: bold;
 }
 .system-ordemparanormal .chat-card span.element.death {
-  background-color: #000;
+	background-color: #000;
 }
 .system-ordemparanormal .chat-card span.element.blood {
-  background-color: #b1161a;
+	background-color: #b1161a;
 }
 .system-ordemparanormal .chat-card span.element.knowledge {
-  background-color: #bf9100;
+	background-color: #bf9100;
 }
 .system-ordemparanormal .chat-card span.element.energy {
-  background-color: #9a00fd;
+	background-color: #9a00fd;
 }
 .system-ordemparanormal .chat-card span.element.fear {
-  background-color: #b8b8b8;
+	background-color: #b8b8b8;
 }
 .system-ordemparanormal .chat-card .ritual-info {
-  font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 .system-ordemparanormal .chat-card .ritual-info strong {
-  color: #b92730;
+	color: #b92730;
 }
 .system-ordemparanormal .chat-card table {
-  margin: 10px 0;
+	margin: 10px 0;
 }
 .system-ordemparanormal .chat-card table tr {
-  text-align: center;
+	text-align: center;
 }
 .system-ordemparanormal .chat-card table tr th,
 .system-ordemparanormal .chat-card table tr td {
-  padding: 5px;
+	padding: 5px;
 }
 .system-ordemparanormal .chat-card .header {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  padding: 6px 0;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	padding: 6px 0;
 }
 .system-ordemparanormal .chat-card .header h2 {
-  padding-left: 6px;
-  border: 0;
-  font-family: "Warnock Pro", "Signika" "Times New Roman", Times, serif;
-  padding-top: 10px;
+	padding-left: 6px;
+	border: 0;
+	font-family:
+		"Warnock Pro",
+		"Signika" "Times New Roman",
+		Times,
+		serif;
+	padding-top: 10px;
 }
 .system-ordemparanormal .dice-roll .dice-total.success {
-  color: inherit;
-  background: #c7d0c0;
-  border: 1px solid #006c00;
+	color: inherit;
+	background: #c7d0c0;
+	border: 1px solid #006c00;
 }
 .system-ordemparanormal .dice-roll .dice-total.failure {
-  color: inherit;
-  background: #ffdddd;
-  border: 1px solid #6e0000;
+	color: inherit;
+	background: #ffdddd;
+	border: 1px solid #6e0000;
 }
 .system-ordemparanormal .dice-roll .dice-total.critical {
-  color: green;
+	color: green;
 }
 .system-ordemparanormal .dice-roll .dice-total.critical small {
-  font-size: 15px;
+	font-size: 15px;
 }
 .system-ordemparanormal .dice-roll .dice-total.fumble {
-  color: red;
+	color: red;
 }
 .system-ordemparanormal {
-  /* ---------------------------------- */
-  /*  Dice Rolls                        */
-  /* ---------------------------------- */
+	/* ---------------------------------- */
+	/*  Dice Rolls                        */
+	/* ---------------------------------- */
 }
 .system-ordemparanormal .dice-result {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 .system-ordemparanormal .dice-result .dice-tooltip {
-  flex: none;
+	flex: none;
 }
-.system-ordemparanormal .dice-result .dice-formula, .system-ordemparanormal .dice-result .dice-total {
-  border-radius: 3px;
-  padding: 0.25rem;
-  line-height: normal;
-  flex: auto;
-  margin: 0;
+.system-ordemparanormal .dice-result .dice-formula,
+.system-ordemparanormal .dice-result .dice-total {
+	border-radius: 3px;
+	padding: 0.25rem;
+	line-height: normal;
+	flex: auto;
+	margin: 0;
 }
-.system-ordemparanormal .dice-result .wrapper, .system-ordemparanormal .dice-result .dice-tooltip {
-  padding-top: 5px;
+.system-ordemparanormal .dice-result .wrapper,
+.system-ordemparanormal .dice-result .dice-tooltip {
+	padding-top: 5px;
 }
 .system-ordemparanormal .dice-result .dice-total {
-  font-weight: bold;
-  padding: 0.125rem;
-  margin-top: 0.25rem;
-  position: relative;
+	font-weight: bold;
+	padding: 0.125rem;
+	margin-top: 0.25rem;
+	position: relative;
 }
-.system-ordemparanormal .dice-result .dice-total::before, .system-ordemparanormal .dice-result .dice-total::after {
-  position: absolute;
-  inset: 6px 0 6px auto;
+.system-ordemparanormal .dice-result .dice-total::before,
+.system-ordemparanormal .dice-result .dice-total::after {
+	position: absolute;
+	inset: 6px 0 6px auto;
 }
 .system-ordemparanormal .dice-result .dice-total::before {
-  content: "";
-  width: 36px;
-  border-left: 1px solid #bbb;
+	content: "";
+	width: 36px;
+	border-left: 1px solid #bbb;
 }
 .system-ordemparanormal .dice-result .dice-total::after {
-  transition: all 250ms ease;
+	transition: all 250ms ease;
 }
-.system-ordemparanormal .dice-result .dice-total.critical, .system-ordemparanormal .dice-result .dice-total.fumble {
-  border-width: 3px;
-  border-style: double;
+.system-ordemparanormal .dice-result .dice-total.critical,
+.system-ordemparanormal .dice-result .dice-total.fumble {
+	border-width: 3px;
+	border-style: double;
 }
 .system-ordemparanormal .dice-result .dice-total > .icons {
-  position: absolute;
-  inset: 0 auto 0 12px;
-  display: flex;
-  gap: 2px;
-  align-items: center;
-  opacity: 0.35;
+	position: absolute;
+	inset: 0 auto 0 12px;
+	display: flex;
+	gap: 2px;
+	align-items: center;
+	opacity: 0.35;
 }
 .system-ordemparanormal .op.system-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
 }
 .system-ordemparanormal .op.system-badge img {
-  border: 0;
+	border: 0;
 }
 .system-ordemparanormal .op.system-badge p {
-  margin: 0;
+	margin: 0;
 }
 .system-ordemparanormal .op.system-badge a[href] {
-  color: var(--color-text-light-highlight);
-  text-decoration: none;
+	color: var(--color-text-light-highlight);
+	text-decoration: none;
 }
 .system-ordemparanormal .additionalContent .selectize-input {
-  max-width: 330px !important;
-  height: 40px;
-  display: inline-flex;
-  text-wrap: wrap;
-  overflow: hidden;
+	max-width: 330px !important;
+	height: 40px;
+	display: inline-flex;
+	text-wrap: wrap;
+	overflow: hidden;
 }
 .system-ordemparanormal .additionalContent .selectize-input .item {
-  width: 100px !important;
+	width: 100px !important;
 }
 .system-ordemparanormal .additionalContent label {
-  font-weight: 400 !important;
-  line-height: 1.25;
+	font-weight: 400 !important;
+	line-height: 1.25;
 }
 .system-ordemparanormal .additionalContent p {
-  font-size: 12px;
-  line-height: 16px;
-  color: #4b4a44;
-  margin: 3px 0;
-  text-align: justify;
-  hyphens: auto;
+	font-size: 12px;
+	line-height: 16px;
+	color: #4b4a44;
+	margin: 3px 0;
+	text-align: justify;
+	hyphens: auto;
 }
 .system-ordemparanormal .additionalContent input {
-  max-height: 10px !important;
+	max-height: 10px !important;
 }
 .system-ordemparanormal .additionalContent input::placeholder {
-  opacity: 0.4;
+	opacity: 0.4;
 }
 .system-ordemparanormal .additionalContent .container > div {
-  padding: 10px;
+	padding: 10px;
 }
 .system-ordemparanormal .additionalContent .flexe {
-  display: flex !important;
+	display: flex !important;
 }
 
 /*# sourceMappingURL=ordemparanormal.css.map */

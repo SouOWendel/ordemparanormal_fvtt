@@ -12,14 +12,13 @@
 [![Conventional Changelog](https://img.shields.io/badge/changelog-conventional-brightgreen.svg)](http://conventional-changelog.github.io)
 ![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/SouOWendel/ordemparanormal_fvtt/latest/total)
 
-
 </div>
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y8PRQ6Z)
 
 # Sobre o Ordem Paranormal.
 
-Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado por Rafael Lange, mais conhecido pelo seu pseudônimo Cellbit. Com base nisso, este é um **sistema não-oficial** adaptado para o FoundryVTT, que utiliza dos conteúdos considerados <i>Open Game License¹</i>, conforme a licença incluída juntamente ao livro de regras. 
+Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado por Rafael Lange, mais conhecido pelo seu pseudônimo Cellbit. Com base nisso, este é um **sistema não-oficial** adaptado para o FoundryVTT, que utiliza dos conteúdos considerados <i>Open Game License¹</i>, conforme a licença incluída juntamente ao livro de regras.
 
 > No universo de Ordem Paranormal, o paranormal existe, mas está separado da nossa realidade por uma membrana. Essa membrana pode ser enfraquecida pelo medo, e alguns grupos de ocultistas estão dispostos a fazer isso para invocar entidades do Outro Lado.
 > Para combater essa ameaça, foi criada a Ordo Realitas, uma organização de detetives paranormais que vivem vidas duplas. Os agentes da Ordem secretamente investigam e combatem o paranormal, protegendo a Realidade e lutando contra aqueles que querem mergulhar o mundo em caos.
@@ -31,9 +30,10 @@ Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado
 
 ## Modulos Obrigatórios.
 
--   **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
+- **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
 
 ## Contribuidores
+
 - Agradecimento ao <a href="https://twitter.com/ciconiaborns">@jojo</a> pelas traduções do sistema para o Inglês.
 
 ## Demonstração do Sistema
@@ -41,6 +41,7 @@ Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado
 https://github.com/user-attachments/assets/ae649c77-42df-4e1d-ae8f-e8989f570f05
 
 ## Licenças e Observações.
+
 <sub>
 Este repositório utiliza <a href="https://semver.org/lang/pt-BR/">Versionamento Semântico 2.0</a>, <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> e o guia de estilo para <a href="https://google.github.io/styleguide/jsguide.html">ESLint do Google</a>, além disso, desenvolvido com muita dedicação e código. Se precisar, contate-me através do e-mail ou redes sociais: <a href="https://mail.google.com/mail/u/0/?fs=1&to=souowendel@gmail.com&su=Enquiry&tf=cm">souowendel@gmail.com</a>, discord: souowendel, twitter: <a href="https://twitter.com/EuSouOWendel">eusouowendel</a><br><br>
 </sub>
@@ -52,7 +53,7 @@ This work is permitted under the <a href="https://github.com/SouOWendel/ordempar
 </sub>
 <sub>
 Observação: A marca Ordem Paranormal não é de minha autoria, todos os direitos são reservados aos seus respectivos donos.
-</sub> 
+</sub>
 
 <!-- Links Uteis -->
 <!-- https://foundryvtt.wiki/en/development/guides/SD-tutorial -->

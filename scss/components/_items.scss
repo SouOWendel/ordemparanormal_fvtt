@@ -2,13 +2,18 @@
 @use "../utils/colors";
 
 .application.item {
-
-	ul, ol, h1, h2, h3, h4 { 
+	ul,
+	ol,
+	h1,
+	h2,
+	h3,
+	h4 {
 		margin: 0;
 		padding: 0;
 	}
 
-	.prosemirror menu, prosemirror menu {
+	.prosemirror menu,
+	prosemirror menu {
 		gap: 0;
 		background: #eeede0;
 	}
@@ -39,7 +44,7 @@
 
 	.content-item {
 		height: 100%;
-  	overflow-y: auto;
+		overflow-y: auto;
 		padding-top: 10px;
 	}
 
@@ -70,156 +75,157 @@
 		a {
 			width: 10px;
 		}
-
 	}
 
-	
-/* ITEM SHEET */
+	/* ITEM SHEET */
 
-.specifications {
-  h4 {
-    color: #16161670;
-    border-bottom: 1px solid colors.$transparent-c-black;
-  }
-}
-
-.combat {
-  h4 {
-    color: #16161670;
-    border-bottom: 1px solid colors.$transparent-c-black;
-  }
-
-  .resource-label {
-    font-size: 13px;
-  }
-}
-
-.item-sheet-form {
-  display: flex;
-  flex: 1 10px;
-  margin: 2px 0px;
-  align-items: center;
-  flex-direction: row;
-
-  input, select {
-		width: 100%;
-  }
-
-  i {
-    margin-left: 6px;
-  }
-}
-
-.item-damage-bonus {
-  flex: 2;
-}
-
-.minor-size {
-  flex: 0 60px;
-}
-
-.item-sheet-controls {
-  display: flex;
-  flex: 0 0 20px;
-  justify-content: flex-end;
-  a {
-    font-size: 12px;
-    text-align: center;
-    margin: 0 6px;
-  }
-}
-
-.item-sheet {
-  .item-attribute {
-    flex: 1;
-    padding: 0 8px;
-  }
-  .item-skill {
-    flex: 1;
-    padding: 0 8px;
-  }
-  .item-bonus {
-    flex: 2;
-    padding: 0 8px;
-  }
-}
-
-.damage-box {
-	color:#00000070;
-	padding: 6px;
-	text-align: center;
-	border-bottom: 1px dashed #00000040;
-
-	a:hover {
-		color: #555;
+	.specifications {
+		h4 {
+			color: #16161670;
+			border-bottom: 1px solid colors.$transparent-c-black;
+		}
 	}
-  }
 
-.damage-control {
-	.fa-trash {
-		font-size: 12px;
+	.combat {
+		h4 {
+			color: #16161670;
+			border-bottom: 1px solid colors.$transparent-c-black;
+		}
+
+		.resource-label {
+			font-size: 13px;
+		}
 	}
-}
 
-.delete-damage, .promote-part {
-	margin-right: 15px;
-}
+	.item-sheet-form {
+		display: flex;
+		flex: 1 10px;
+		margin: 2px 0px;
+		align-items: center;
+		flex-direction: row;
+
+		input,
+		select {
+			width: 100%;
+		}
+
+		i {
+			margin-left: 6px;
+		}
+	}
+
+	.item-damage-bonus {
+		flex: 2;
+	}
+
+	.minor-size {
+		flex: 0 60px;
+	}
+
+	.item-sheet-controls {
+		display: flex;
+		flex: 0 0 20px;
+		justify-content: flex-end;
+		a {
+			font-size: 12px;
+			text-align: center;
+			margin: 0 6px;
+		}
+	}
+
+	.item-sheet {
+		.item-attribute {
+			flex: 1;
+			padding: 0 8px;
+		}
+		.item-skill {
+			flex: 1;
+			padding: 0 8px;
+		}
+		.item-bonus {
+			flex: 2;
+			padding: 0 8px;
+		}
+	}
+
+	.damage-box {
+		color: #00000070;
+		padding: 6px;
+		text-align: center;
+		border-bottom: 1px dashed #00000040;
+
+		a:hover {
+			color: #555;
+		}
+	}
+
+	.damage-control {
+		.fa-trash {
+			font-size: 12px;
+		}
+	}
+
+	.delete-damage,
+	.promote-part {
+		margin-right: 15px;
+	}
 
 	/* 1. Prepara o container principal para ser a referência de posicionamento */
-		.container-formula {
-			position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
-			padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
-			font-family: sans-serif; /* Apenas para estilização de exemplo */
-		}
+	.container-formula {
+		position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
+		padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
+		font-family: sans-serif; /* Apenas para estilização de exemplo */
+	}
 
-		.part-damage-section {
-			padding-left: 20px;
-			padding-top: 10px;
-		}
+	.part-damage-section {
+		padding-left: 20px;
+		padding-top: 10px;
+	}
 
-		/* 2. Cria a LINHA VERTICAL principal */
-		.linhas-adicionais::before {
-			content: ''; /* Pseudo-elementos precisam disso para aparecer */
-			position: absolute; /* Posição absoluta em relação ao .container-formula */
-			
-			/* Posição da linha */
-			left: 15px; /* Distância da borda esquerda do container */
-			top: 50px;  /* Distância do topo (ajuste conforme a altura da sua linha principal) */
-			bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
+	/* 2. Cria a LINHA VERTICAL principal */
+	.linhas-adicionais::before {
+		content: ""; /* Pseudo-elementos precisam disso para aparecer */
+		position: absolute; /* Posição absoluta em relação ao .container-formula */
 
-			/* Estilo da linha */
-			width: 2px; /* Espessura da linha */
-			background-color: #b0b0b0; /* Cor da linha */
-			border-radius: 2px;
-		}
+		/* Posição da linha */
+		left: 15px; /* Distância da borda esquerda do container */
+		top: 50px; /* Distância do topo (ajuste conforme a altura da sua linha principal) */
+		bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
 
-		/* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
-		.linha-secundaria {
-			position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
-			margin-left: 25px;  /* Empurra o conteúdo para a direita, criando espaço para a conexão */
-			margin-bottom: 5px; /* Espaçamento entre as linhas */
-		}
+		/* Estilo da linha */
+		width: 2px; /* Espessura da linha */
+		background-color: #b0b0b0; /* Cor da linha */
+		border-radius: 2px;
+	}
 
-		/* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
-		.linha-secundaria::before {
-			content: '';
-			position: absolute;
-			
-			/* Posição da linha */
-			top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
-			left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
-			
-			/* Estilo da linha */
-			width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
-			height: 2px; /* Espessura da linha */
-			background-color: #b0b0b0; /* Mesma cor da linha vertical */
-			border-radius: 2px;
-		}
+	/* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
+	.linha-secundaria {
+		position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
+		margin-left: 25px; /* Empurra o conteúdo para a direita, criando espaço para a conexão */
+		margin-bottom: 5px; /* Espaçamento entre as linhas */
+	}
 
-		/* Estilos adicionais para parecer com a imagem (opcional) */
-		.linha-principal, .linha-secundaria {
-			display: flex;
-			align-items: center;
-			gap: 8px;
-		}
+	/* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
+	.linha-secundaria::before {
+		content: "";
+		position: absolute;
+
+		/* Posição da linha */
+		top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
+		left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
+
+		/* Estilo da linha */
+		width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
+		height: 2px; /* Espessura da linha */
+		background-color: #b0b0b0; /* Mesma cor da linha vertical */
+		border-radius: 2px;
+	}
+
+	/* Estilos adicionais para parecer com a imagem (opcional) */
+	.linha-principal,
+	.linha-secundaria {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
 }

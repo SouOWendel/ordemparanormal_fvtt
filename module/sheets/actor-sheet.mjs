@@ -1,7 +1,7 @@
 /* eslint-disable new-cap */
 // TABS: https://foundryvtt.wiki/en/development/guides/Tabs-and-Templates/Tabs-in-AppV2
 
-import { prepareActiveEffectCategories } from '../helpers/effects.mjs';
+import { prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 const { api, sheets } = foundry.applications;
 // const TextEditor = foundry.applications.ux.TextEditor.implementation;
@@ -19,18 +19,18 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 
 	/** @inheritDoc */
 	static DEFAULT_OPTIONS = {
-		classes: ['ordemparanormal', 'sheet', 'actor', 'themed', 'theme-light'],
-		tag: 'form',
+		classes: ["ordemparanormal", "sheet", "actor", "themed", "theme-light"],
+		tag: "form",
 		position: {
 			width: 600,
-			height: 820
+			height: 820,
 		},
 		window: {
 			resizable: true,
-			title: 'DCC.ActorSheetTitle' // Just the localization key
+			title: "DCC.ActorSheetTitle", // Just the localization key
 		},
 		form: {
-			submitOnChange: true
+			submitOnChange: true,
 		},
 		actions: {
 			onEditImage: this.#onEditImage,
@@ -44,50 +44,51 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			onRoll: this.#onRoll,
 			onRollSkillCheck: this.#onRollSkillCheck,
 			onRollAttributeTest: this.#onRollAttributeTest,
-			toggleResources: this._onToggleResources
+			toggleResources: this._onToggleResources,
 		},
-		 dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
+		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
 	};
 
 	/** @inheritDoc */
 	static PARTS = {
-		agent: { id: 'agent', template: 'systems/ordemparanormal/templates/actor/actor-agent-sheet.hbs' },
-		tabs: { id: 'tabs', template: 'templates/generic/tab-navigation.hbs' },
-		skills: { id: 'skills', template: 'systems/ordemparanormal/templates/actor/parts/actor-skills.hbs' },
-		inventory: { id: 'inventory', template: 'systems/ordemparanormal/templates/actor/parts/actor-inventory.hbs' },
-		abilities: { id: 'abilities', template: 'systems/ordemparanormal/templates/actor/parts/actor-abilities.hbs' },
-		rituals: { id: 'rituals', template: 'systems/ordemparanormal/templates/actor/parts/actor-rituals.hbs' },
-		biography: { id: 'biography', template: 'systems/ordemparanormal/templates/actor/parts/actor-biography.hbs' },
-		effects: { id: 'effects', template: 'systems/ordemparanormal/templates/shared/effects.hbs' },
+		agent: { id: "agent", template: "systems/ordemparanormal/templates/actor/actor-agent-sheet.hbs" },
+		tabs: { id: "tabs", template: "templates/generic/tab-navigation.hbs" },
+		skills: { id: "skills", template: "systems/ordemparanormal/templates/actor/parts/actor-skills.hbs" },
+		inventory: { id: "inventory", template: "systems/ordemparanormal/templates/actor/parts/actor-inventory.hbs" },
+		abilities: { id: "abilities", template: "systems/ordemparanormal/templates/actor/parts/actor-abilities.hbs" },
+		rituals: { id: "rituals", template: "systems/ordemparanormal/templates/actor/parts/actor-rituals.hbs" },
+		biography: { id: "biography", template: "systems/ordemparanormal/templates/actor/parts/actor-biography.hbs" },
+		effects: { id: "effects", template: "systems/ordemparanormal/templates/shared/effects.hbs" },
 	};
 
 	/** @inheritDoc */
 	static TABS = {
-		primary: { // This is the group name
+		primary: {
+			// This is the group name
 			tabs: [
-				{ id: 'skills', label: 'op.tab.skills' },
-				{ id: 'inventory', label: 'op.tab.inventory' },
-				{ id: 'abilities', label: 'op.tab.abilities' },
-				{ id: 'rituals', label: 'op.tab.rituals' },
-				{ id: 'biography', label: 'op.tab.biography' },
-				{ id: 'effects', label: 'op.tab.effects' },
+				{ id: "skills", label: "op.tab.skills" },
+				{ id: "inventory", label: "op.tab.inventory" },
+				{ id: "abilities", label: "op.tab.abilities" },
+				{ id: "rituals", label: "op.tab.rituals" },
+				{ id: "biography", label: "op.tab.biography" },
+				{ id: "effects", label: "op.tab.effects" },
 			],
-			initial: 'skills'
-		}
+			initial: "skills",
+		},
 	};
 
 	/** @override */
 	_configureRenderOptions(options) {
 		super._configureRenderOptions(options);
 		// Not all parts always render
-		options.parts = ['agent', 'tabs'];
+		options.parts = ["agent", "tabs"];
 		// Don't show the other tabs if only limited view
 		if (this.document.limited) return;
 		// Control which parts show based on document subtype
 		switch (this.document.type) {
-		case 'agent':
-			options.parts.push('skills', 'inventory', 'abilities', 'rituals', 'biography', 'effects');
-			break;
+			case "agent":
+				options.parts.push("skills", "inventory", "abilities", "rituals", "biography", "effects");
+				break;
 		}
 	}
 
@@ -97,7 +98,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	async _prepareContext(options) {
 		const context = await super._prepareContext(options);
 
-		context.mostrarRecursos = this.actor.getFlag('ordemparanormal', 'showResources') || false;
+		context.mostrarRecursos = this.actor.getFlag("ordemparanormal", "showResources") || false;
 
 		foundry.utils.mergeObject(context, {
 			editable: this.isEditable,
@@ -122,11 +123,11 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			usingWithoutSanityRule: this.usingWithoutSanityRule,
 			isSurvivor: this.isSurvivor,
 			tabs: this._getTabs(options.parts),
-			costLabel: this.usingWithoutSanityRule ? 'PD' : 'PE'
+			costLabel: this.usingWithoutSanityRule ? "PD" : "PE",
 		});
 
 		// Prepara os dados do Agente e seus Items.
-		if (this.document.type == 'agent') {
+		if (this.document.type == "agent") {
 			this._prepareItems(context);
 
 			// --- NOVO: Calcula os totais das perícias para exibição ---
@@ -139,140 +140,141 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	/** */
 	async _preparePartContext(partId, context) {
 		switch (partId) {
-		// Enrich biography info for display
-		// Enrichment turns text like `[[/r 1d20]]` into buttons
-		case 'biography':
-			context.tab = context.tabs[partId];
-			context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-				this.actor.system.biography, {
-					// Whether to show secret blocks in the finished html
-					secrets: this.document.isOwner,
-					// Data to fill in for inline rolls
-					rollData: this.actor.getRollData(),
-					// Relative UUID resolution
-					relativeTo: this.actor,
-				}
-			);
 			// Enrich biography info for display
 			// Enrichment turns text like `[[/r 1d20]]` into buttons
-			context.enrichedGoals = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-				this.actor.system.goals, {
-					// Whether to show secret blocks in the finished html
-					secrets: this.document.isOwner,
-					// Data to fill in for inline rolls
-					rollData: this.actor.getRollData(),
-					// Relative UUID resolution
-					relativeTo: this.actor,
-				}
-			);
+			case "biography":
+				context.tab = context.tabs[partId];
+				context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+					this.actor.system.biography,
+					{
+						// Whether to show secret blocks in the finished html
+						secrets: this.document.isOwner,
+						// Data to fill in for inline rolls
+						rollData: this.actor.getRollData(),
+						// Relative UUID resolution
+						relativeTo: this.actor,
+					}
+				);
+				// Enrich biography info for display
+				// Enrichment turns text like `[[/r 1d20]]` into buttons
+				context.enrichedGoals = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+					this.actor.system.goals,
+					{
+						// Whether to show secret blocks in the finished html
+						secrets: this.document.isOwner,
+						// Data to fill in for inline rolls
+						rollData: this.actor.getRollData(),
+						// Relative UUID resolution
+						relativeTo: this.actor,
+					}
+				);
 
-			break;
-		case 'skills':
-		case 'abilities':
-		case 'inventory':
-		case 'rituals':
-			context.tab = context.tabs[partId];
-			break;
-		case 'effects':
-			context.tab = context.tabs[partId];
-			// Prepare active effects
-			context.effects = prepareActiveEffectCategories(
-				// A generator that returns all effects stored on the actor
-				// as well as any items
-				this.actor.allApplicableEffects()
-			);
-			break;
+				break;
+			case "skills":
+			case "abilities":
+			case "inventory":
+			case "rituals":
+				context.tab = context.tabs[partId];
+				break;
+			case "effects":
+				context.tab = context.tabs[partId];
+				// Prepare active effects
+				context.effects = prepareActiveEffectCategories(
+					// A generator that returns all effects stored on the actor
+					// as well as any items
+					this.actor.allApplicableEffects()
+				);
+				break;
 		}
 		return context;
 	}
 
 	/**
-   * Generates the data for the generic tab navigation template
-   * @param {string[]} parts An array of named template parts to render
-   * @returns {Record<string, Partial<ApplicationTab>>}
-   * @protected
-   */
+	 * Generates the data for the generic tab navigation template
+	 * @param {string[]} parts An array of named template parts to render
+	 * @returns {Record<string, Partial<ApplicationTab>>}
+	 * @protected
+	 */
 	_getTabs(parts) {
 		// If you have sub-tabs this is necessary to change
-		const tabGroup = 'primary';
+		const tabGroup = "primary";
 		// Default tab for first time it's rendered this session
-		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = 'skills';
+		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = "skills";
 		return parts.reduce((tabs, partId) => {
 			const tab = {
-				cssClass: '',
+				cssClass: "",
 				group: tabGroup,
 				// Matches tab property to
-				id: '',
+				id: "",
 				// FontAwesome Icon, if you so choose
-				icon: '',
+				icon: "",
 				// Run through localization
-				label: 'op.tab.',
+				label: "op.tab.",
 			};
 			switch (partId) {
-			case 'agent':
-			case 'tabs':
-				return tabs;
-			case 'skills':
-				tab.id = 'skills';
-				tab.label += 'skills';
-				break;
-			case 'abilities':
-				tab.id = 'abilities';
-				tab.label += 'abilities';
-				break;
-			case 'effects':
-				tab.id = 'effects';
-				tab.label += 'effects';
-				break;
-			case 'rituals':
-				tab.id = 'rituals';
-				tab.label += 'rituals';
-				break;
-			case 'biography':
-				tab.id = 'biography';
-				tab.label += 'biography';
-				break;
-			case 'inventory':
-				tab.id = 'inventory';
-				tab.label += 'inventory';
-				break;
+				case "agent":
+				case "tabs":
+					return tabs;
+				case "skills":
+					tab.id = "skills";
+					tab.label += "skills";
+					break;
+				case "abilities":
+					tab.id = "abilities";
+					tab.label += "abilities";
+					break;
+				case "effects":
+					tab.id = "effects";
+					tab.label += "effects";
+					break;
+				case "rituals":
+					tab.id = "rituals";
+					tab.label += "rituals";
+					break;
+				case "biography":
+					tab.id = "biography";
+					tab.label += "biography";
+					break;
+				case "inventory":
+					tab.id = "inventory";
+					tab.label += "inventory";
+					break;
 			}
-			if (this.tabGroups[tabGroup] === tab.id) tab.cssClass = 'active';
+			if (this.tabGroups[tabGroup] === tab.id) tab.cssClass = "active";
 			tabs[partId] = tab;
 			return tabs;
 		}, {});
 	}
 
-	
 	/**
-	 * 
+	 *
 	 */
 	get progressRuleIsNivel() {
-		const rule = game.settings.get('ordemparanormal', 'globalProgressRules');
-		return (rule == 2) ? true : false;
+		const rule = game.settings.get("ordemparanormal", "globalProgressRules");
+		return rule == 2 ? true : false;
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	get usingWithoutSanityRule() {
-		return game.settings.get('ordemparanormal', 'globalPlayingWithoutSanity');
+		return game.settings.get("ordemparanormal", "globalPlayingWithoutSanity");
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	get progressRuleIsNEX() {
-		const rule = game.settings.get('ordemparanormal', 'globalProgressRules');
-		return (rule == 1) ? true : false;
+		const rule = game.settings.get("ordemparanormal", "globalProgressRules");
+		return rule == 1 ? true : false;
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	get isSurvivor() {
 		const system = this.actor.system;
-		return system.class == 'survivor';
+		return system.class == "survivor";
 	}
 
 	/**
@@ -297,7 +299,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		};
 
 		// Pega o rótulo global (PE ou PD) que já foi definido no _prepareContext com base na configuração
-		const labelCusto = context.custoLabel || 'PE';
+		const labelCusto = context.custoLabel || "PE";
 
 		// const invalid = [];
 
@@ -306,48 +308,49 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			i.img = i.img || DEFAULT_TOKEN;
 
 			// Creating the data to use an item
-			i.system.using = !i.system.using ? [true, 'fas'] : i.system.using;
+			i.system.using = !i.system.using ? [true, "fas"] : i.system.using;
 
 			// Append to protections.
-			if (i.type === 'protection') {
+			if (i.type === "protection") {
 				protection.push(i);
 			}
 			// Append to general equipment.
-			else if (i.type === 'generalEquipment') {
+			else if (i.type === "generalEquipment") {
 				generalEquipment.push(i);
 			}
 			// Append to armament.
-			else if (i.type === 'armament') {
+			else if (i.type === "armament") {
 				armament.push(i);
 			}
 			// Append to item.
-			else if (i.type === 'item') {
+			else if (i.type === "item") {
 				gear.push(i);
 			}
 			// Append to rituals.
-			else if (i.type === 'ritual') {
+			else if (i.type === "ritual") {
 				if (i.system.circle != 5) rituals.valid[i.system.circle].push(i);
 				else rituals.invalid.push(i);
 			}
 			// Append to abilities.
-			else if (i.type === 'ability') {
+			else if (i.type === "ability") {
 				const type = i.system.abilityType;
-				const costVal = i.system.cost || '';
-        
+				const costVal = i.system.cost || "";
+
 				// Em vez de ler i.system.costType, usamos a configuração global (labelCusto)
-				i.displayCost = (costVal !== '') ? `${costVal} ${labelCusto}` : '—';
-                
+				i.displayCost = costVal !== "" ? `${costVal} ${labelCusto}` : "—";
+
 				if (i.system.activation) {
 					i.activationLabel = game.i18n.localize(`op.executionChoices.${i.system.activation}`);
-				} else { i.activationLabel = '—'; }
-                
-				if (type === 'origin') abilities.valid[1].push(i);
-				else if (type === 'class') abilities.valid[2].push(i);
-				else if (type === 'path') abilities.valid[3].push(i);
-				else if (type === 'paranormal') abilities.valid[4].push(i);
-				else if (type === 'general') abilities.valid[5].push(i);
-				else if (type === 'ability' || type === 'complication') abilities.valid[6].push(i);
-                
+				} else {
+					i.activationLabel = "—";
+				}
+
+				if (type === "origin") abilities.valid[1].push(i);
+				else if (type === "class") abilities.valid[2].push(i);
+				else if (type === "path") abilities.valid[3].push(i);
+				else if (type === "paranormal") abilities.valid[4].push(i);
+				else if (type === "general") abilities.valid[5].push(i);
+				else if (type === "ability" || type === "complication") abilities.valid[6].push(i);
 				else if (!type) abilities.invalid.push(i);
 			}
 		}
@@ -363,29 +366,29 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		context.rituals = rituals;
 		context.abilities = abilities;
 		context.protection = protection.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		context.generalEquip = generalEquipment.sort((a, b) => (a.sort || 0) - (b.sort || 0));;
-		context.armament = armament.sort((a, b) => (a.sort || 0) - (b.sort || 0));;
+		context.generalEquip = generalEquipment.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		context.armament = armament.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 	}
 
 	/**
-     * Calcula o valor total das perícias para exibição na ficha.
-     * Soma: Valor do Grau de Treinamento + Bônus (Mod)
-     * @param {Object} context O contexto de renderização da ficha
-     */
+	 * Calcula o valor total das perícias para exibição na ficha.
+	 * Soma: Valor do Grau de Treinamento + Bônus (Mod)
+	 * @param {Object} context O contexto de renderização da ficha
+	 */
 	_prepareSkillTotals(context) {
 		const skills = context.system.skills;
-        
+
 		// Definição dos valores de cada grau (Ajuste conforme sua regra da casa ou sistema)
 		const degreeValues = {
-			'untrained': 0, // Destreinado
-			'trained': 5,   // Treinado
-			'veteran': 10,  // Veterano
-			'expert': 15    // Expert
+			untrained: 0, // Destreinado
+			trained: 5, // Treinado
+			veteran: 10, // Veterano
+			expert: 15, // Expert
 		};
 
 		for (const [, skill] of Object.entries(skills)) {
 			// 1. Identifica o valor do Grau
-			const degreeLabel = skill.degree?.label || 'untrained';
+			const degreeLabel = skill.degree?.label || "untrained";
 			const degreeBonus = degreeValues[degreeLabel] || 0;
 
 			// 2. Pega o Bônus Editável (Input manual)
@@ -397,50 +400,50 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/**
-   * Actions performed after any render of the Application.
-   * Post-render steps are not awaited by the render process.
-   * @param {ApplicationRenderContext} context      Prepared context data
-   * @param {RenderOptions} options                 Provided render options
-   * @protected
-   * @override
-   */
+	 * Actions performed after any render of the Application.
+	 * Post-render steps are not awaited by the render process.
+	 * @param {ApplicationRenderContext} context      Prepared context data
+	 * @param {RenderOptions} options                 Provided render options
+	 * @protected
+	 * @override
+	 */
 	_onRender(context, options) {
 		this.#dragDrop.forEach((d) => d.bind(this.element));
 		this.#disableOverrides();
 
-		for (const input of this.element.querySelectorAll('input[type=\'number\']')) {
-			input.addEventListener('change', this._onChangeInputOP.bind(this));
+		for (const input of this.element.querySelectorAll("input[type='number']")) {
+			input.addEventListener("change", this._onChangeInputOP.bind(this));
 		}
 
-		for (const button of this.element.querySelectorAll('.adjustment-button')) {
-			button.addEventListener('click', this._onAdjustInput.bind(this));
+		for (const button of this.element.querySelectorAll(".adjustment-button")) {
+			button.addEventListener("click", this._onAdjustInput.bind(this));
 		}
 
 		const html = $(this.element);
-        
-		html.find('.item-toggle').click(event => {
+
+		html.find(".item-toggle").click((event) => {
 			event.preventDefault();
 			event.stopPropagation(); // Garante que o clique não ative outras coisas
-            
+
 			// Encontra o item pai (li) e depois a descrição dentro dele
-			const li = $(event.currentTarget).parents('.item');
-			const desc = li.find('.item-description');
-            
+			const li = $(event.currentTarget).parents(".item");
+			const desc = li.find(".item-description");
+
 			// Faz a animação de abrir/fechar
 			desc.slideToggle(200);
 		});
 
-		html.find('.compendium-skill').on('contextmenu', this._onOpenCompendiumEntry.bind(this));
+		html.find(".compendium-skill").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
 		// You may want to add other special handling here
 		// Foundry comes with a large number of utility classes, e.g. SearchFilter
 		// That you may want to implement yourself.
 	}
 
 	/** ************
-   *
-   *   ACTIONS
-   *
-   **************/
+	 *
+	 *   ACTIONS
+	 *
+	 **************/
 
 	/**
 	 * Handle changing a Document's image.
@@ -454,12 +457,10 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	static async #onEditImage(event, target) {
 		const attr = target.dataset.edit;
 		const current = foundry.utils.getProperty(this.document, attr);
-		const { img } =
-	    this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
-	    {};
+		const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
 		const fp = new FilePicker({
 			current,
-			type: 'image',
+			type: "image",
 			redirectToRoot: img ? [img] : [],
 			callback: (path) => {
 				this.document.update({ [attr]: path });
@@ -471,39 +472,39 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/**
-   * Renders an embedded document's sheet
-   *
-   * @this BoilerplateActorSheet
-   * @param {PointerEvent} event   The originating click event
-   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-   * @protected
-   */
+	 * Renders an embedded document's sheet
+	 *
+	 * @this BoilerplateActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @protected
+	 */
 	static async _viewDoc(event, target) {
 		const doc = this._getEmbeddedDocument(target);
 		doc.sheet.render(true);
 	}
 
 	/**
-   * Handles item deletion
-   *
-   * @this BoilerplateActorSheet
-   * @param {PointerEvent} event   The originating click event
-   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-   * @protected
-   */
+	 * Handles item deletion
+	 *
+	 * @this BoilerplateActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @protected
+	 */
 	static async _deleteDoc(event, target) {
 		const doc = this._getEmbeddedDocument(target);
 		await doc.delete();
 	}
 
 	/**
-   * Handle creating a new Owned Item or ActiveEffect for the actor using initial data defined in the HTML dataset
-   *
-   * @this BoilerplateActorSheet
-   * @param {PointerEvent} event   The originating click event
-   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-   * @private
-   */
+	 * Handle creating a new Owned Item or ActiveEffect for the actor using initial data defined in the HTML dataset
+	 *
+	 * @this BoilerplateActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @private
+	 */
 	static async _createDoc(event, target) {
 		// Retrieve the configured document class for Item or ActiveEffect
 		const docCls = getDocumentClass(target.dataset.documentClass);
@@ -519,7 +520,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		// Loop through the dataset and add it to our docData
 		for (const [dataKey, value] of Object.entries(target.dataset)) {
 			// These data attributes are reserved for the action handling
-			if (['action', 'documentClass'].includes(dataKey)) continue;
+			if (["action", "documentClass"].includes(dataKey)) continue;
 			// Nested properties require dot notation in the HTML, e.g. anything with `system`
 			// An example exists in spells.hbs, with `data-system.spell-level`
 			// which turns into the dataKey 'system.spellLevel'
@@ -543,7 +544,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		// Grab any data associated with this control.
 		const data = foundry.utils.duplicate(header.dataset);
 		// Initialize a default name.
-		const name = game.i18n.localize('op.newItem') + ' ' + game.i18n.localize('TYPES.Item.' + type);
+		const name = game.i18n.localize("op.newItem") + " " + game.i18n.localize("TYPES.Item." + type);
 		// Prepare the item object.
 		const itemData = {
 			name: name,
@@ -551,29 +552,29 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			system: data,
 		};
 		// Remove the type from the dataset since it's in the itemData.type prop.
-		delete itemData.system['type'];
+		delete itemData.system["type"];
 
 		// Finally, create the item!
 		return await Item.create(itemData, { parent: this.actor });
 	}
 
 	/**
-   * Determines effect parent to pass to helper
-   *
-   * @this BoilerplateActorSheet
-   * @param {PointerEvent} event   The originating click event
-   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-   * @private
-   */
+	 * Determines effect parent to pass to helper
+	 *
+	 * @this BoilerplateActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @private
+	 */
 	static async _toggleEffect(event, target) {
 		const effect = this._getEmbeddedDocument(target);
 		await effect.update({ disabled: !effect.disabled });
 	}
 
-	 /**
-   * Returns an array of DragDrop instances
-   * @type {DragDrop[]}
-   */
+	/**
+	 * Returns an array of DragDrop instances
+	 * @type {DragDrop[]}
+	 */
 	get dragDrop() {
 		return this.#dragDrop;
 	}
@@ -583,8 +584,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	#dragDrop;
 
 	/**
-   * Disables inputs subject to active effects
-   */
+	 * Disables inputs subject to active effects
+	 */
 	#disableOverrides() {
 		const flatOverrides = foundry.utils.flattenObject(this.actor.overrides);
 		for (const override of Object.keys(flatOverrides)) {
@@ -601,7 +602,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	 * @private
 	 */
 	async _onOpenCompendiumEntry(event) {
-		const parent = event.currentTarget.closest('li') ?? event.currentTarget;
+		const parent = event.currentTarget.closest("li") ?? event.currentTarget;
 		const skill = parent.dataset.key ?? null;
 		if (!skill || !CONFIG.op.skillCompendiumEntries[skill]) return;
 		const entryKey = CONFIG.op.skillCompendiumEntries[skill];
@@ -612,15 +613,15 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	static async _onToggleResources(event, target) {
 		event.preventDefault();
 		// Pega o estado atual (ou false se não existir)
-		const currentState = this.actor.getFlag('ordemparanormal', 'showResources') || false;
+		const currentState = this.actor.getFlag("ordemparanormal", "showResources") || false;
 		// Salva o inverso (!currentState)
-		await this.actor.setFlag('ordemparanormal', 'showResources', !currentState);
+		await this.actor.setFlag("ordemparanormal", "showResources", !currentState);
 	}
 
 	/** */
 	static _onToggleDescription(event) {
 		event.preventDefault();
-		const li = event.currentTarget.closest('.item');
+		const li = event.currentTarget.closest(".item");
 		const itemId = li.dataset.itemId;
 
 		if (this.expanded.has(itemId)) {
@@ -632,42 +633,42 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/**
-	 * 
-	 * @param {*} event 
-	 * @returns 
+	 *
+	 * @param {*} event
+	 * @returns
 	 */
 	async _onAdjustInput(event) {
 		const button = event.currentTarget;
 		const { action } = button.dataset;
-		const input = button.parentElement.querySelector('input');
+		const input = button.parentElement.querySelector("input");
 		const min = input.min ? Number(input.min) : -Infinity;
 		const max = input.max ? Number(input.max) : Infinity;
 		let value = Number(input.value);
 		if (isNaN(value)) return;
-		value += action === 'increase' ? 1 : -1;
+		value += action === "increase" ? 1 : -1;
 		input.value = Math.clamp(value, min, max);
-		input.dispatchEvent(new Event('change'));
+		input.dispatchEvent(new Event("change"));
 	}
 
 	/**
-	 * 
-	 * @param {*} event 
-	 * @returns 
+	 *
+	 * @param {*} event
+	 * @returns
 	 */
 	async _onChangeInputOP(event, target) {
-		const itemId = event.currentTarget.closest('[data-item-id]')?.dataset.itemId;
-		if ( !itemId ) return;
+		const itemId = event.currentTarget.closest("[data-item-id]")?.dataset.itemId;
+		if (!itemId) return;
 
 		event.stopImmediatePropagation();
 		const item = this.document.items.get(itemId);
-		const min = event.target.min !== '' ? Number(event.target.min) : -Infinity;
-		const max = event.target.max !== '' ? Number(event.target.max) : Infinity;
+		const min = event.target.min !== "" ? Number(event.target.min) : -Infinity;
+		const max = event.target.max !== "" ? Number(event.target.max) : Infinity;
 		const value = Math.clamp(event.target.valueAsNumber, min, max);
 
-		if ( !item || Number.isNaN(value) ) return;
+		if (!item || Number.isNaN(value)) return;
 
 		event.target.value = value;
-		item.update({[event.target.dataset.name]: value});
+		item.update({ [event.target.dataset.name]: value });
 	}
 
 	/* -------------------------------------------- */
@@ -677,23 +678,22 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		// const effect = await ActiveEffect.implementation.fromDropData(data);
 		// if (effect?.target === this.actor) return false;
 		// return super._onDropActiveEffect(event, data);
-		const aeCls = getDocumentClass('ActiveEffect');
+		const aeCls = getDocumentClass("ActiveEffect");
 		const effect = await aeCls.fromDropData(data);
 		if (!this.actor.isOwner || !effect) return false;
-		if (effect.target === this.actor)
-			return this._onSortActiveEffect(event, effect);
+		if (effect.target === this.actor) return this._onSortActiveEffect(event, effect);
 		return aeCls.create(effect, { parent: this.actor });
 	}
 
 	/**
-   * Handle a drop event for an existing embedded Active Effect to sort that Active Effect relative to its siblings
-   *
-   * @param {DragEvent} event
-   * @param {ActiveEffect} effect
-   */
+	 * Handle a drop event for an existing embedded Active Effect to sort that Active Effect relative to its siblings
+	 *
+	 * @param {DragEvent} event
+	 * @param {ActiveEffect} effect
+	 */
 	async _onSortActiveEffect(event, effect) {
 		/** @type {HTMLElement} */
-		const dropTarget = event.target.closest('[data-effect-id]');
+		const dropTarget = event.target.closest("[data-effect-id]");
 		if (!dropTarget) return;
 		const target = this._getEmbeddedDocument(dropTarget);
 
@@ -705,11 +705,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		for (const el of dropTarget.parentElement.children) {
 			const siblingId = el.dataset.effectId;
 			const parentId = el.dataset.parentId;
-			if (
-				siblingId &&
-        parentId &&
-        (siblingId !== effect.id || parentId !== effect.parent.id)
-			)
+			if (siblingId && parentId && (siblingId !== effect.id || parentId !== effect.parent.id))
 				siblings.push(this._getEmbeddedDocument(el));
 		}
 
@@ -736,23 +732,21 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 
 		// Effects-on-items updates
 		for (const [itemId, updates] of Object.entries(grandchildUpdateData)) {
-			await this.actor.items
-				.get(itemId)
-				.updateEmbeddedDocuments('ActiveEffect', updates);
+			await this.actor.items.get(itemId).updateEmbeddedDocuments("ActiveEffect", updates);
 		}
 
 		// Update on the main actor
-		return this.actor.updateEmbeddedDocuments('ActiveEffect', directUpdates);
+		return this.actor.updateEmbeddedDocuments("ActiveEffect", directUpdates);
 	}
 
 	/**
-   * Handle dropping of an Actor data onto another Actor sheet
-   * @param {DragEvent} event            The concluding DragEvent which contains drop data
-   * @param {object} data                The data transfer extracted from the event
-   * @returns {Promise<object|boolean>}  A data object which describes the result of the drop, or false if the drop was
-   *                                     not permitted.
-   * @protected
-   */
+	 * Handle dropping of an Actor data onto another Actor sheet
+	 * @param {DragEvent} event            The concluding DragEvent which contains drop data
+	 * @param {object} data                The data transfer extracted from the event
+	 * @returns {Promise<object|boolean>}  A data object which describes the result of the drop, or false if the drop was
+	 *                                     not permitted.
+	 * @protected
+	 */
 	async _onDropActor(event, data) {
 		if (!this.actor.isOwner) return false;
 	}
@@ -767,7 +761,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	static async #onSendChat(event, target) {
 		event.preventDefault();
 
-		const itemId = target.closest('.item').dataset.itemId;
+		const itemId = target.closest(".item").dataset.itemId;
 		const item = this.actor.items.get(itemId);
 
 		if (item.system.description) ChatMessage.create({ content: item.system.description });
@@ -781,15 +775,15 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	static async #onMarkItem(event, target) {
 		event.preventDefault();
 
-		const itemId = target.closest('.item').dataset.itemId;
+		const itemId = target.closest(".item").dataset.itemId;
 		const item = this.actor.items.get(itemId);
 
 		if (!item.system.using || item.system.using.state == false) {
 			console.log(`OP FVTT | Definindo ${item.name} como ativado.`);
-			return item.update({ 'system.using': { state: true, class: 'fas' } });
+			return item.update({ "system.using": { state: true, class: "fas" } });
 		} else {
 			console.log(`OP FVTT | Definindo ${item.name} como desativado.`);
-			return item.update({ 'system.using': { state: false, class: 'far' } });
+			return item.update({ "system.using": { state: false, class: "far" } });
 		}
 	}
 
@@ -804,8 +798,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 
 		// Handle item rolls.
 		if (dataset.rollType) {
-			if (dataset.rollType == 'item') {
-				const itemId = target.closest('.item').dataset.itemId;
+			if (dataset.rollType == "item") {
+				const itemId = target.closest(".item").dataset.itemId;
 				const item = this.actor.items.get(itemId);
 				if (item) return item.roll();
 			}
@@ -813,88 +807,85 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/**
-   * Handle rolling an Ability test or saving throw.
-   * @param {Event} event      The originating click event.
-   * @private
-   */
+	 * Handle rolling an Ability test or saving throw.
+	 * @param {Event} event      The originating click event.
+	 * @private
+	 */
 	static #onRollAttributeTest(event, target) {
 		event.preventDefault();
-		const attribute = target.closest('[data-key]').dataset.key;
+		const attribute = target.closest("[data-key]").dataset.key;
 		this.actor.rollAttribute({ attribute, event });
 	}
 
 	/**
-   * Handle rolling a Skill check.
-   * @param {Event} event      The originating click event.
-   * @returns {Promise<Roll>}  The resulting roll.
-   * @private
-   */
+	 * Handle rolling a Skill check.
+	 * @param {Event} event      The originating click event.
+	 * @returns {Promise<Roll>}  The resulting roll.
+	 * @private
+	 */
 	static #onRollSkillCheck(event, target) {
 		event.preventDefault();
-		const skill = target.closest('[data-key]').dataset.key;
+		const skill = target.closest("[data-key]").dataset.key;
 		return this.actor.rollSkill({ skill, event });
 	}
-	
 
 	/* -------------------------------------------- */
 
 	/** Helper Functions */
 
 	/**
-   * Fetches the embedded document representing the containing HTML element
-   *
-   * @param {HTMLElement} target    The element subject to search
-   * @returns {Item | ActiveEffect} The embedded Item or ActiveEffect
-   */
+	 * Fetches the embedded document representing the containing HTML element
+	 *
+	 * @param {HTMLElement} target    The element subject to search
+	 * @returns {Item | ActiveEffect} The embedded Item or ActiveEffect
+	 */
 	_getEmbeddedDocument(target) {
-		const docRow = target.closest('li[data-document-class]');
-		if (docRow.dataset.documentClass === 'Item') {
+		const docRow = target.closest("li[data-document-class]");
+		if (docRow.dataset.documentClass === "Item") {
 			return this.actor.items.get(docRow.dataset.itemId);
-		} else if (docRow.dataset.documentClass === 'ActiveEffect') {
+		} else if (docRow.dataset.documentClass === "ActiveEffect") {
 			const parent =
-        docRow.dataset.parentId === this.actor.id
-        	? this.actor
-        	: this.actor.items.get(docRow?.dataset.parentId);
+				docRow.dataset.parentId === this.actor.id ? this.actor : this.actor.items.get(docRow?.dataset.parentId);
 			return parent.effects.get(docRow?.dataset.effectId);
-		} else return console.warn('Could not find document class');
+		} else return console.warn("Could not find document class");
 	}
 
 	/** *************
-   *
-   * Drag and Drop
-   *
-   ***************/
+	 *
+	 * Drag and Drop
+	 *
+	 ***************/
 
 	/**
-   * Define whether a user is able to begin a dragstart workflow for a given drag selector
-   * @param {string} selector       The candidate HTML selector for dragging
-   * @returns {boolean}             Can the current user drag this selector?
-   * @protected
-   */
+	 * Define whether a user is able to begin a dragstart workflow for a given drag selector
+	 * @param {string} selector       The candidate HTML selector for dragging
+	 * @returns {boolean}             Can the current user drag this selector?
+	 * @protected
+	 */
 	_canDragStart(selector) {
 		// game.user fetches the current user
 		return this.isEditable;
 	}
 
 	/**
-   * Define whether a user is able to conclude a drag-and-drop workflow for a given drop selector
-   * @param {string} selector       The candidate HTML selector for the drop target
-   * @returns {boolean}             Can the current user drop on this selector?
-   * @protected
-   */
+	 * Define whether a user is able to conclude a drag-and-drop workflow for a given drop selector
+	 * @param {string} selector       The candidate HTML selector for the drop target
+	 * @returns {boolean}             Can the current user drop on this selector?
+	 * @protected
+	 */
 	_canDragDrop(selector) {
 		// game.user fetches the current user
 		return this.isEditable;
 	}
 
 	/**
-   * Callback actions which occur at the beginning of a drag start workflow.
-   * @param {DragEvent} event       The originating DragEvent
-   * @protected
-   */
+	 * Callback actions which occur at the beginning of a drag start workflow.
+	 * @param {DragEvent} event       The originating DragEvent
+	 * @protected
+	 */
 	_onDragStart(event) {
-		const docRow = event.currentTarget.closest('li');
-		if ('link' in event.target.dataset) return;
+		const docRow = event.currentTarget.closest("li");
+		if ("link" in event.target.dataset) return;
 
 		// Chained operation
 		const dragData = this._getEmbeddedDocument(docRow)?.toDragData();
@@ -902,39 +893,39 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		if (!dragData) return;
 
 		// Set data transfer
-		event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+		event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
 	}
 
 	/**
-   * Callback actions which occur when a dragged element is over a drop target.
-   * @param {DragEvent} event       The originating DragEvent
-   * @protected
-   */
+	 * Callback actions which occur when a dragged element is over a drop target.
+	 * @param {DragEvent} event       The originating DragEvent
+	 * @protected
+	 */
 	_onDragOver(event) {}
 
 	/**
-   * Callback actions which occur when a dragged element is dropped on a target.
-   * @param {DragEvent} event       The originating DragEvent
-   * @protected
-   */
+	 * Callback actions which occur when a dragged element is dropped on a target.
+	 * @param {DragEvent} event       The originating DragEvent
+	 * @protected
+	 */
 	async _onDrop(event) {
 		const data = TextEditor.getDragEventData(event);
 		const actor = this.actor;
-		const allowed = Hooks.call('dropActorSheetData', actor, this, data);
+		const allowed = Hooks.call("dropActorSheetData", actor, this, data);
 		if (allowed === false) return;
-		console.log('OP FVTT | Dropping data on actor sheet...');
+		console.log("OP FVTT | Dropping data on actor sheet...");
 
 		// Handle different data types
 		switch (data.type) {
-		case 'ActiveEffect':
-			return this._onDropActiveEffect(event, data);
-		case 'Actor':
-			return this._onDropActor(event, data);
-		case 'Item':
-			console.log('OP FVTT | Dropping item on actor sheet...');
-			return this._onDropItem(event, data);
-		case 'Folder':
-			return this._onDropFolder(event, data);
+			case "ActiveEffect":
+				return this._onDropActiveEffect(event, data);
+			case "Actor":
+				return this._onDropActor(event, data);
+			case "Item":
+				console.log("OP FVTT | Dropping item on actor sheet...");
+				return this._onDropItem(event, data);
+			case "Folder":
+				return this._onDropFolder(event, data);
 		}
 	}
 
@@ -943,44 +934,44 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	/* -------------------------------------------- */
 
 	/**
-   * Handle dropping of an item reference or item data onto an Actor Sheet
-   * @param {DragEvent} event            The concluding DragEvent which contains drop data
-   * @param {object} data                The data transfer extracted from the event
-   * @returns {Promise<Item[]|boolean>}  The created or updated Item instances, or false if the drop was not permitted.
-   * @protected
-   */
+	 * Handle dropping of an item reference or item data onto an Actor Sheet
+	 * @param {DragEvent} event            The concluding DragEvent which contains drop data
+	 * @param {object} data                The data transfer extracted from the event
+	 * @returns {Promise<Item[]|boolean>}  The created or updated Item instances, or false if the drop was not permitted.
+	 * @protected
+	 */
 	async _onDropItem(event, data) {
 		if (!this.actor.isOwner) return false;
-		
+
 		const item = await Item.implementation.fromDropData(data);
-		
+
 		// Handle item sorting within the same Actor
 		if (this.actor.uuid === item.parent?.uuid) {
 			return this._onSortItem(event, item);
 		}
-		
+
 		// Create the owned item
 		try {
 			return await this._onDropItemCreate(item, event);
 		} catch (error) {
-			console.error('Erro ao criar item no ator:', error);
+			console.error("Erro ao criar item no ator:", error);
 			ui.notifications.error(`Erro ao adicionar item: ${error.message}`);
 			throw error;
 		}
 	}
 
 	/**
-   * Handle dropping of a Folder on an Actor Sheet.
-   * The core sheet currently supports dropping a Folder of Items to create all items as owned items.
-   * @param {DragEvent} event     The concluding DragEvent which contains drop data
-   * @param {object} data         The data transfer extracted from the event
-   * @returns {Promise<Item[]>}
-   * @protected
-   */
+	 * Handle dropping of a Folder on an Actor Sheet.
+	 * The core sheet currently supports dropping a Folder of Items to create all items as owned items.
+	 * @param {DragEvent} event     The concluding DragEvent which contains drop data
+	 * @param {object} data         The data transfer extracted from the event
+	 * @returns {Promise<Item[]>}
+	 * @protected
+	 */
 	async _onDropFolder(event, data) {
 		if (!this.actor.isOwner) return [];
 		const folder = await Folder.implementation.fromDropData(data);
-		if (folder.type !== 'Item') return [];
+		if (folder.type !== "Item") return [];
 		const droppedItemData = await Promise.all(
 			folder.contents.map(async (item) => {
 				if (!(document instanceof Item)) item = await fromUuid(item.uuid);
@@ -991,35 +982,35 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/**
-   * Handle the final creation of dropped Item data on the Actor.
-   * This method is factored out to allow downstream classes the opportunity to override item creation behavior.
-   * @param {object[]|object} itemData      The item data requested for creation
-   * @param {DragEvent} event               The concluding DragEvent which provided the drop data
-   * @returns {Promise<Item[]>}
-   * @private
-   */
+	 * Handle the final creation of dropped Item data on the Actor.
+	 * This method is factored out to allow downstream classes the opportunity to override item creation behavior.
+	 * @param {object[]|object} itemData      The item data requested for creation
+	 * @param {DragEvent} event               The concluding DragEvent which provided the drop data
+	 * @returns {Promise<Item[]>}
+	 * @private
+	 */
 	async _onDropItemCreate(itemData, event) {
 		itemData = itemData instanceof Array ? itemData : [itemData];
-		
+
 		// Converter objetos Item para dados antes de criar
-		const itemDataArray = itemData.map(item => {
+		const itemDataArray = itemData.map((item) => {
 			if (item instanceof Item) return item.toObject();
 			return item;
 		});
-		
-		return this.actor.createEmbeddedDocuments('Item', itemDataArray);
+
+		return this.actor.createEmbeddedDocuments("Item", itemDataArray);
 	}
 
 	/**
-   * Handle a drop event for an existing embedded Item to sort that Item relative to its siblings
-   * @param {Event} event
-   * @param {Item} item
-   * @private
-   */
+	 * Handle a drop event for an existing embedded Item to sort that Item relative to its siblings
+	 * @param {Event} event
+	 * @param {Item} item
+	 * @private
+	 */
 	_onSortItem(event, item) {
 		// Get the drag source and drop target
 		const items = this.actor.items;
-		const dropTarget = event.target.closest('[data-item-id]');
+		const dropTarget = event.target.closest("[data-item-id]");
 		if (!dropTarget) return;
 		const target = items.get(dropTarget.dataset.itemId);
 
@@ -1030,8 +1021,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		const siblings = [];
 		for (const el of dropTarget.parentElement.children) {
 			const siblingId = el.dataset.itemId;
-			if (siblingId && siblingId !== item.id)
-				siblings.push(items.get(el.dataset.itemId));
+			if (siblingId && siblingId !== item.id) siblings.push(items.get(el.dataset.itemId));
 		}
 
 		// Perform the sort
@@ -1046,14 +1036,14 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		});
 
 		// Perform the update
-		return this.actor.updateEmbeddedDocuments('Item', updateData);
+		return this.actor.updateEmbeddedDocuments("Item", updateData);
 	}
 
 	/**
-   * Create drag-and-drop workflow handlers for this Application
-   * @returns {DragDrop[]}     An array of DragDrop handlers
-   * @private
-   */
+	 * Create drag-and-drop workflow handlers for this Application
+	 * @returns {DragDrop[]}     An array of DragDrop handlers
+	 * @private
+	 */
 	#createDragDropHandlers() {
 		return this.options.dragDrop.map((d) => {
 			d.permissions = {
@@ -1070,20 +1060,20 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/** ******************
-   *
-   * Actor Override Handling
-   *
-   ********************/
+	 *
+	 * Actor Override Handling
+	 *
+	 ********************/
 
 	/**
-   * Submit a document update based on the processed form data.
-   * @param {SubmitEvent} event                   The originating form submission event
-   * @param {HTMLFormElement} form                The form element that was submitted
-   * @param {object} submitData                   Processed and validated form data to be used for a document update
-   * @returns {Promise<void>}
-   * @protected
-   * @override
-   */
+	 * Submit a document update based on the processed form data.
+	 * @param {SubmitEvent} event                   The originating form submission event
+	 * @param {HTMLFormElement} form                The form element that was submitted
+	 * @param {object} submitData                   Processed and validated form data to be used for a document update
+	 * @returns {Promise<void>}
+	 * @protected
+	 * @override
+	 */
 	async _processSubmitData(event, form, submitData) {
 		const overrides = foundry.utils.flattenObject(this.actor.overrides);
 		for (const k of Object.keys(overrides)) delete submitData[k];
@@ -1100,5 +1090,4 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/* -------------------------------------------- */
-
 }

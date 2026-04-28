@@ -7,7 +7,13 @@
 		"commit": "git-cz",
 		"sass": "npx sass --watch scss/ordemparanormal.scss css/ordemparanormal.css",
 		"build:db": "node ./utils/packs.mjs package pack",
-		"build:json": "node ./utils/packs.mjs package unpack"
+		"build:json": "node ./utils/packs.mjs package unpack",
+		"lint": "eslint --ext .mjs,.js,.cjs .",
+		"lint:fix": "eslint --ext .mjs,.js,.cjs --fix .",
+		"prettier": "prettier --check .",
+		"prettier:fix": "prettier --write .",
+		"format": "npm run prettier:fix && npm run lint:fix",
+		"prepare": "husky"
 	},
 	"repository": {
 		"type": "git",
@@ -29,20 +35,18 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.7.1",
 		"@commitlint/config-conventional": "^17.7.0",
-		"@foundryvtt/foundryvtt-cli": "^1.0.2",
-		"commitizen": "^4.3.0",
+		"@foundryvtt/foundryvtt-cli": "^3.0.3",
+		"commitizen": "^4.2.4",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.48.0",
-		"eslint-config-airbnb-base": "^15.0.0",
 		"eslint-config-google": "^0.14.0",
 		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin": "^1.0.1",
-		"eslint-plugin-import": "^2.28.1",
+		"eslint-plugin-prettier": "^5.5.5",
 		"fancy-log": "^2.0.0",
-		"husky": "^8.0.3",
+		"husky": "^9.1.7",
 		"nedb": "^1.8.0",
 		"prettier": "3.0.3",
-		"yargs": "^17.7.2"
+		"yargs": "^18.0.0"
 	},
 	"config": {
 		"commitizen": {

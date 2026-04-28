@@ -1,8 +1,10 @@
 <form autocomplete="off" class="ordemparanormal-config">
-	<p class="notes">{{localize 'op.configTraitsDescription'}}</p>
+	<p class="notes">{{localize "op.configTraitsDescription"}}</p>
 	<div class="form-group header flexrow" style="margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #333;">
 		<label style="flex: 2;">{{localize "op.traitsLabel"}}</label>
-		<label style="flex: 0 0 40px; text-align: center;" title="{{localize "op.traitsToggle"}}"><i class="fa-solid fa-list"></i></label>
+		<label style="flex: 0 0 40px; text-align: center;" title="{{localize 'op.traitsToggle'}}"><i
+				class="fa-solid fa-list"
+			></i></label>
 	</div>
 	{{#each traits as |trait key|}}
 		<div class="form-group flexrow" style="align-items: center; margin-bottom: 3px;">
@@ -14,7 +16,8 @@
 	{{/each}}
 	<footer class="sheet-footer flexrow" style="margin-top: 10px;">
 		<button type="submit" name="submit">
-			<i class="far fa-save"></i> {{localize "op.saveChanges"}}
+			<i class="far fa-save"></i>
+			{{localize "op.saveChanges"}}
 		</button>
 	</footer>
 </form>

@@ -495,9 +495,17 @@
 				"description": "",
 				"fearRiddle": ""
 			},
-			"temporary": {"abilities": "", "senses": "", "defense": {
-					"skillResistances": "",	"damageResistances": ""
-				}, "vulnerabilities": "", "actions": "", "characteristics": ""},
+			"temporary": {
+				"abilities": "",
+				"senses": "",
+				"defense": {
+					"skillResistances": "",
+					"damageResistances": ""
+				},
+				"vulnerabilities": "",
+				"actions": "",
+				"characteristics": ""
+			},
 			"resistances": {
 				"cuttingDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"impactDamage": { "value": 0, "vulnerable": false, "immune": false },

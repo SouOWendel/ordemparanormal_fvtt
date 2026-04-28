@@ -8,32 +8,24 @@ async function rescueAllPathEffects() {
 		numb: [],
 		obj: [],
 	};
-	const templateJson = await fetchMessage(
-		'systems/ordemparanormal/template.json',
-	);
+	const templateJson = await fetchMessage("systems/ordemparanormal/template.json");
 
 	let pathTemplate = templateJson.Actor.agent;
 	for (const data in pathTemplate) {
-		if (typeof pathTemplate[data] === 'string')
-			newHyperItem.str.push('system.' + data);
-		else if (typeof pathTemplate[data] === 'number')
-			newHyperItem.numb.push('system.' + data);
-		else if (typeof pathTemplate[data] === 'object') {
+		if (typeof pathTemplate[data] === "string") newHyperItem.str.push("system." + data);
+		else if (typeof pathTemplate[data] === "number") newHyperItem.numb.push("system." + data);
+		else if (typeof pathTemplate[data] === "object") {
 			const objectKey = pathTemplate[data];
 			const query = `system.${data}.`;
 			for (const data2 in objectKey) {
-				if (typeof objectKey[data2] === 'string')
-					newHyperItem.str.push(query + data2);
-				else if (typeof objectKey[data2] === 'number')
-					newHyperItem.numb.push(query + data2);
-				else if (typeof objectKey[data2] === 'object') {
+				if (typeof objectKey[data2] === "string") newHyperItem.str.push(query + data2);
+				else if (typeof objectKey[data2] === "number") newHyperItem.numb.push(query + data2);
+				else if (typeof objectKey[data2] === "object") {
 					const objectKey2 = objectKey[data2];
-					const query2 = query + data2 + '.';
+					const query2 = query + data2 + ".";
 					for (const data3 in objectKey2) {
-						if (typeof objectKey2[data3] === 'string')
-							newHyperItem.str.push(query2 + data3);
-						else if (typeof objectKey2[data3] === 'number')
-							newHyperItem.numb.push(query2 + data3);
+						if (typeof objectKey2[data3] === "string") newHyperItem.str.push(query2 + data3);
+						else if (typeof objectKey2[data3] === "number") newHyperItem.numb.push(query2 + data3);
 					}
 				}
 			}
@@ -42,26 +34,20 @@ async function rescueAllPathEffects() {
 
 	pathTemplate = templateJson.Actor.templates.base;
 	for (const data in pathTemplate) {
-		if (typeof pathTemplate[data] === 'string')
-			newHyperItem.str.push('system.' + data);
-		else if (typeof pathTemplate[data] === 'number')
-			newHyperItem.numb.push('system.' + data);
-		else if (typeof pathTemplate[data] === 'object') {
+		if (typeof pathTemplate[data] === "string") newHyperItem.str.push("system." + data);
+		else if (typeof pathTemplate[data] === "number") newHyperItem.numb.push("system." + data);
+		else if (typeof pathTemplate[data] === "object") {
 			const objectKey = pathTemplate[data];
 			const query = `system.${data}.`;
 			for (const data2 in objectKey) {
-				if (typeof objectKey[data2] === 'string')
-					newHyperItem.str.push(query + data2);
-				else if (typeof objectKey[data2] === 'number')
-					newHyperItem.numb.push(query + data2);
-				else if (typeof objectKey[data2] === 'object') {
+				if (typeof objectKey[data2] === "string") newHyperItem.str.push(query + data2);
+				else if (typeof objectKey[data2] === "number") newHyperItem.numb.push(query + data2);
+				else if (typeof objectKey[data2] === "object") {
 					const objectKey2 = objectKey[data2];
-					const query2 = query + data2 + '.';
+					const query2 = query + data2 + ".";
 					for (const data3 in objectKey2) {
-						if (typeof objectKey2[data3] === 'string')
-							newHyperItem.str.push(query2 + data3);
-						else if (typeof objectKey2[data3] === 'number')
-							newHyperItem.numb.push(query2 + data3);
+						if (typeof objectKey2[data3] === "string") newHyperItem.str.push(query2 + data3);
+						else if (typeof objectKey2[data3] === "number") newHyperItem.numb.push(query2 + data3);
 					}
 				}
 			}
@@ -77,7 +63,7 @@ const fetchMessage = async (url) => {
 		.then((jsonc) => JSON.parse(stripJSON(jsonc)));
 };
 const stripJSON = (data) => {
-	return data.replace(/[^:]\/\/(.*)/g, '');
+	return data.replace(/[^:]\/\/(.*)/g, "");
 };
 
 export { rescueAllPathEffects };

@@ -4,25 +4,31 @@
  */
 export default class ContextMenu5e extends foundry.applications.ux.ContextMenu.implementation {
 	/** @override */
-	_setPosition(html, target, options={}) {
-		html.classList.add('ordemparanormal');
+	_setPosition(html, target, options = {}) {
+		html.classList.add("ordemparanormal");
 		return this._setFixedPosition(html, target, options);
 	}
 
 	/* -------------------------------------------- */
 
 	/**
-   * Trigger a context menu event in response to a normal click on a additional options button.
-   * @param {PointerEvent} event
-   */
+	 * Trigger a context menu event in response to a normal click on a additional options button.
+	 * @param {PointerEvent} event
+	 */
 	static triggerEvent(event) {
 		event.preventDefault();
 		event.stopPropagation();
 		const { clientX, clientY } = event;
-		const selector = '[data-id],[data-effect-id],[data-item-id],[data-message-id]';
+		const selector = "[data-id],[data-effect-id],[data-item-id],[data-message-id]";
 		const target = event.target.closest(selector) ?? event.currentTarget.closest(selector);
-		target?.dispatchEvent(new PointerEvent('contextmenu', {
-			view: window, bubbles: true, cancelable: true, clientX, clientY
-		}));
+		target?.dispatchEvent(
+			new PointerEvent("contextmenu", {
+				view: window,
+				bubbles: true,
+				cancelable: true,
+				clientX,
+				clientY,
+			})
+		);
 	}
 }
