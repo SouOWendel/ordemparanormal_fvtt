@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.4.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.3...v7.4.0) (2026-04-28)
+
+
+### Features
+
+* added transparent space between tokens and status bars ([a9ac0a3](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a9ac0a324fc2594ec3deb6e304a3768096c0bfaf))
+
+
+### Bug Fixes
+
+* added missing handlebars ternary helper ([d493efc](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d493efc0203ae2523cd9155bdce9fa1e2da428e2))
+
 ## [7.3.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.2...v7.3.3) (2026-04-26)
 
 ### Bug Fixes
