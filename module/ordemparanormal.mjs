@@ -253,6 +253,10 @@ Handlebars.registerHelper("toUpperCase", function (str) {
 	return str.toUpperCase();
 });
 
+Handlebars.registerHelper("ternary", function (condition, trueValue, falseValue) {
+	return condition ? trueValue : falseValue;
+});
+
 /**
  * Optional `name="value"` for optional data attributes (e.g. data-token-id on chat cards).
  * @returns {Handlebars.SafeString} Empty when value is null/empty.
