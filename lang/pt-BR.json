@@ -23,6 +23,7 @@
 
 	"SETTINGS.opPatchNotes": "Desativar Notas de Atualização",
 	"SETTINGS.opPatchNotesHint": "Ao iniciar um mundo com o sistema Ordem Paranormal, ou, ao atualizar o sistema, notas de atualizações com as novidades são exibidas em uma janela, marque/desmarque essa opção para desativar/ativar.",
+	"SETTINGS.opPatchNotesAllViewed": "Você viu todas as notas de atualização. Não há notas mais recentes.",
 	"SETTINGS.globalProgressRules": "Regras de Evolução",
 	"SETTINGS.globalProgressRulesHint": "As regras de evolução definem o modo de progresso das fichas de agente alterando a forma como elas funcionam. Consulte o livro de regras para mais informações sobre cada modo de progresso.",
 	"SETTINGS.nexProgressRule": "Evolução por NEX",
@@ -347,7 +348,8 @@
 		"eletricDamage": "Eletricidade (El)",
 		"coldDamage": "Frio (Fr)",
 		"chemicalDamage": "Químico (Q)",
-		"mentalDamage": "Mental (M)"
+		"mentalDamage": "Mental (M)",
+		"damageDamage": "Dano (Da)"
 	},
 
 	"op.damageTypeAbv": {

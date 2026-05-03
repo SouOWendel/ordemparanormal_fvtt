@@ -64,40 +64,46 @@ const displayPrompt = (title, content, i, messages) => {
 		},
 		position: {
 			width: 800,
-			height: 630,
+			height: 670,
 		},
-		classes: ["ordemparanormal", "no-scroll"],
+		classes: ["ordemparanormal", "ordemparanormal-patch-notes", "no-scroll"],
 		content: `
-			<section class='ordemparanormal grid grid-2col'>
-				<aside class='sidebar scroll content-dialog'>
-					<a href="https://discord.gg/G8AwJwJXa5" class="no-orange-hyperlink" target="_blank">
-						<div class="announcement flex-group-center discord" style="background: url('systems/ordemparanormal/media/assets/discord.png'); border: 1px solid #00000020">
-							<div>
-								<h1><i class="fa-brands fa-discord"></i> Forja dos Narradores</h1>
-								<p>Forge amizades, aplicativos e histórias.</p>
-							</div>
+			<div class="ordemparanormal-patch-notes-layout">
+				<div class="ordemparanormal-patch-notes-main">
+					<section class='ordemparanormal grid grid-2col'>
+						<aside class='sidebar scroll content-dialog'>
+							<a href="https://discord.gg/G8AwJwJXa5" class="no-orange-hyperlink" target="_blank">
+								<div class="announcement flex-group-center discord" style="background: url('systems/ordemparanormal/media/assets/discord.png'); border: 1px solid #00000020">
+									<div>
+										<h1><i class="fa-brands fa-discord"></i> Forja dos Narradores</h1>
+										<p>Forge amizades, aplicativos e histórias.</p>
+									</div>
+								</div>
+							</a>
+							<a href="https://linktr.ee/devilline" class="no-orange-hyperlink" target="_blank">
+								<div class="announcement flex-group-center" style="background: url('systems/ordemparanormal/media/assets/deburinebanner.png'); border: 1px solid #00000020">
+								<p></p>
+								</div>
+							</a>
+							<a href="" class="no-orange-hyperlink">
+								<div class="announcement flex-group-center" style="border: 1px solid #00000020">
+								<p></p>
+								</div>
+							</a>
+						</aside>
+						<div class="scroll content-dialog">
+							${content}
 						</div>
-					</a>
-					<a href="https://linktr.ee/devilline" class="no-orange-hyperlink" target="_blank">
-						<div class="announcement flex-group-center" style="background: url('systems/ordemparanormal/media/assets/deburinebanner.png'); border: 1px solid #00000020">
-						<p></p>
-						</div>
-					</a>
-					<a href="" class="no-orange-hyperlink">
-						<div class="announcement flex-group-center" style="border: 1px solid #00000020">
-						<p></p>
-						</div>
-					</a>
-				</aside>
-				<div class="scroll content-dialog">
-					${content}
+					</section>
 				</div>
-			</section>
-			<footer style="position:absolute; bottom: 0; width: 100%; left: 0; padding: 0px 8px; border-top: 1px #00000030 solid;"><p>Você pode desativar as notas de atualização nas configurações do sistema.</p></footer>`,
+				<footer class="ordemparanormal-patch-notes-hint">
+					<p>Você pode desativar as notas de atualização nas configurações do sistema.</p>
+				</footer>
+			</div>`,
 		buttons: [
 			{
 				action: "previous",
-				icon: '<i class="fas fa-arrow-left"></i>',
+				icon: "fas fa-arrow-left",
 				label: "Atualização Anterior",
 				callback: async () => {
 					const b = messages[i - 1] ? i - 1 : i;
@@ -106,11 +112,16 @@ const displayPrompt = (title, content, i, messages) => {
 			},
 			{
 				action: "next",
-				icon: "",
-				label: 'Próxima Atualização <i class="fas fa-arrow-right"></i>',
+				icon: "fas fa-arrow-right",
+				class: "patch-notes-footer-next",
+				label: "Próxima Atualização",
 				callback: async () => {
-					const b = messages[i + 1] ? i + 1 : i;
-					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
+					const next = messages[i + 1];
+					if (next) {
+						displayPrompt(next.title, next.content, i + 1, messages);
+					} else {
+						ui.notifications.info(game.i18n.localize("SETTINGS.opPatchNotesAllViewed"));
+					}
 				},
 			},
 		],

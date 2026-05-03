@@ -1508,6 +1508,48 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .effects .item .effect-controls {
 	border: none;
 }
+.system-ordemparanormal dialog.ordemparanormal-patch-notes.application .standard-form .form-footer {
+	flex-wrap: wrap;
+}
+.system-ordemparanormal
+	dialog.ordemparanormal-patch-notes.application
+	.standard-form
+	.form-footer
+	button.patch-notes-footer-next {
+	display: inline-flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	column-gap: 0.35em;
+}
+.system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-main .grid-2col {
+	height: 490px;
+	margin-top: 10px;
+	align-items: stretch;
+}
+.system-ordemparanormal
+	dialog.ordemparanormal-patch-notes.application
+	.ordemparanormal-patch-notes-main
+	.grid-2col
+	> .scroll.content-dialog {
+	height: 100% !important;
+	min-height: 0;
+	overflow: auto;
+}
+.system-ordemparanormal
+	dialog.ordemparanormal-patch-notes.application
+	.ordemparanormal-patch-notes-main
+	.grid-2col
+	> aside {
+	height: min-content;
+	overflow: auto;
+}
+.system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-hint {
+	padding: 8px;
+	border-top: 1px solid rgba(0, 0, 0, 0.19);
+}
+.system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-hint p {
+	margin: 0;
+}
 .system-ordemparanormal .content-dialog {
 	height: 500px;
 	padding: 0 2px;
