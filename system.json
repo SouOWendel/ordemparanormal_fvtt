@@ -24,9 +24,7 @@
 			"system": "ordemparanormal",
 			"type": "RollTable",
 			"path": "packs/others",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -36,9 +34,7 @@
 			"system": "ordemparanormal",
 			"type": "RollTable",
 			"path": "packs/creatingmissions",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -48,9 +44,7 @@
 			"system": "ordemparanormal",
 			"type": "Item",
 			"path": "packs/armaments",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -60,9 +54,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/general",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -72,9 +64,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/protections",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -84,9 +74,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/fighterPowers",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -96,9 +84,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/specialistPowers",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -108,9 +94,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/occultistPowers",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -120,9 +104,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/survivalPowers",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -132,9 +114,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/originPowers",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -144,9 +124,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/pathFighter",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -156,9 +134,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/pathSpecialist",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -168,9 +144,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/pathOccultist",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -180,9 +154,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/generalPowers",
 			"type": "Item",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -192,9 +164,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/bookrules",
 			"type": "JournalEntry",
-			"private": false,
-			"flags": {},
-			"ownership": {
+"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		}
@@ -250,7 +220,7 @@
 			{
 				"id": "barbrawl",
 				"type": "module",
-				"manifest": "https://gist.githubusercontent.com/SouOWendel/9c8ca8f3e9b700824b7a3da4924e6675/raw/894832434b81c95dcc2e60447e76a0b9a803e292/module.json",
+				"manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/3b5857f4d970d49c176395806a29df502563e364/src/module.json",
 				"compatibility": {
 					"verified": "1.9.0"
 				}
@@ -282,6 +252,20 @@
 	},
 	"primaryTokenAttribute": "PV",
 	"secondaryTokenAttribute": "SAN",
+	"documentTypes": {
+		"Actor": {
+			"agent": {},
+			"threat": {}
+		},
+		"Item": {
+			"ammunition": {},
+			"armament": {},
+			"generalEquipment": {},
+			"protection": {},
+			"ability": {},
+			"ritual": {}
+		}
+	},
 	"url": "https://github.com/SouOWendel/ordemparanormal_fvtt",
 	"manifest": "https://raw.githubusercontent.com/souowendel/ordemparanormal_fvtt/main/system.json",
 	"download": "https://github.com/SouOWendel/ordemparanormal_fvtt/releases/download/v7.3.3/ordem_fvtt-v7.3.3.zip",

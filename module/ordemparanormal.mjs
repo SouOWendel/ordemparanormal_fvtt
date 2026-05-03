@@ -20,6 +20,7 @@ import displayMessages from "./components/message-system.mjs";
 import registerSystemSettings from "./settings/settings.mjs";
 import { registerSystemKeybindings } from "./settings/settings.mjs";
 
+import * as dataModels from "./data/_module.mjs";
 import * as documents from "./documents/_partial_module.mjs";
 import * as dice from "./dice/_module.mjs";
 import * as migrations from "./migrations.mjs";
@@ -39,7 +40,6 @@ globalThis.ordemparanormal = {
 /* -------------------------------------------- */
 
 Hooks.once("init", function () {
-	CONFIG.debug.hooks = false;
 	// Add utility classes to the global game object so that they're more easily
 	// accessible in global contexts.
 	game.ordemparanormal = {
@@ -53,6 +53,18 @@ Hooks.once("init", function () {
 	// Define custom Document classes
 	CONFIG.Actor.documentClass = OrdemActor;
 	CONFIG.Item.documentClass = OrdemItem;
+	Object.assign(CONFIG.Actor.dataModels, {
+		agent: dataModels.AgentData,
+		threat: dataModels.ThreatData,
+	});
+	Object.assign(CONFIG.Item.dataModels, {
+		ammunition: dataModels.AmmunitionData,
+		armament: dataModels.ArmamentData,
+		generalEquipment: dataModels.GeneralEquipmentData,
+		protection: dataModels.ProtectionData,
+		ability: dataModels.AbilityData,
+		ritual: dataModels.RitualData,
+	});
 	CONFIG.ChatMessage.documentClass = documents.ChatMessageOP;
 	CONFIG.time.roundTime = 6; // Pg. 169 of the Book
 	CONFIG.Dice.D20Die = dice.D20Die;
@@ -68,19 +80,18 @@ Hooks.once("init", function () {
 	};
 
 	// Register sheet application classes
-	const DocumentSheetConfig = foundry.applications.apps.DocumentSheetConfig;
-	DocumentSheetConfig.unregisterSheet(Actor, "core", foundry.appv1.sheets.ActorSheet);
-	DocumentSheetConfig.registerSheet(Actor, "ordemparanormal", OrdemActorSheet, {
+	Actors.unregisterSheet("core", ActorSheet);
+	Actors.registerSheet("ordemparanormal", OrdemActorSheet, {
 		types: ["agent"],
 		makeDefault: true,
 	});
-	DocumentSheetConfig.registerSheet(Actor, "ordemparanormal", OrdemThreatSheet, {
+	Actors.registerSheet("ordemparanormal", OrdemThreatSheet, {
 		types: ["threat"],
 		makeDefault: true,
 	});
 
-	DocumentSheetConfig.unregisterSheet(Item, "core", foundry.appv1.sheets.ItemSheet);
-	DocumentSheetConfig.registerSheet(Item, "ordemparanormal", OrdemItemSheet, {
+	Items.unregisterSheet("core", ItemSheet);
+	Items.registerSheet("ordemparanormal", OrdemItemSheet, {
 		makeDefault: true,
 	});
 	// Configure Fonts
@@ -88,11 +99,14 @@ Hooks.once("init", function () {
 
 	// Register System Settings in Other File
 	registerSystemSettings();
-	registerSystemKeybindings();
 	utils.preloadHandlebarsTemplates();
 
 	// Change the logo of Foundry for Ordem Paranormal logo.
-	if (navigator.onLine) $("#logo").attr("src", "https://i.imgur.com/TTrDGM4.png");
+	if (navigator.onLine) document.querySelector("#logo")?.setAttribute("src", "https://i.imgur.com/TTrDGM4.png");
+});
+
+Hooks.once("setup", function () {
+	registerSystemKeybindings();
 });
 
 Hooks.once("ready", function () {
@@ -188,9 +202,7 @@ Handlebars.registerHelper("concat", function () {
 });
 
 Handlebars.registerHelper("concatObjAndStr", function () {
-	const option = arguments[arguments.length - 1];
 	const args = Array.prototype.slice.call(arguments, 0, arguments.length - 1);
-	console.log("OP FVTT | " + option.name + " - Argumentos: " + args);
 	let objects = {};
 	for (const arg in args) {
 		if (typeof arguments[arg] == "object" || typeof arguments[arg] == "string") {
@@ -199,7 +211,6 @@ Handlebars.registerHelper("concatObjAndStr", function () {
 			} else {
 				objects = objects[arguments[arg]];
 			}
-			console.log("OP FVTT | " + option.name + " - Tipo final: " + typeof objects);
 		}
 	}
 	return objects;
@@ -326,6 +337,14 @@ Hooks.once("ready", function () {
 
 Hooks.on("renderChatLog", (app, html, data) => OrdemItem.chatListeners(html));
 Hooks.on("renderChatPopout", (app, html, data) => OrdemItem.chatListeners(html));
+
+// Load Quench integration tests only in dev environments where Quench is active
+// Must run in "init" so the files are imported before "quenchReady" fires in "ready"
+Hooks.once("init", () => {
+	if (game.modules.get("quench")?.active) {
+		import("./tests/quench-entry.mjs");
+	}
+});
 // Hooks.on('renderChatMessage', (app, html, data) => OrdemItem.chatListeners(html));
 
 /* -------------------------------------------- */

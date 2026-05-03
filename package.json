@@ -13,6 +13,11 @@
 		"prettier": "prettier --check .",
 		"prettier:fix": "prettier --write .",
 		"format": "npm run prettier:fix && npm run lint:fix",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"dev": "docker compose -f docker-compose.dev.yml up",
+		"dev:down": "docker compose -f docker-compose.dev.yml down",
 		"prepare": "husky"
 	},
 	"repository": {
@@ -36,6 +41,7 @@
 		"@commitlint/cli": "^17.7.1",
 		"@commitlint/config-conventional": "^17.7.0",
 		"@foundryvtt/foundryvtt-cli": "^3.0.3",
+		"@vitest/coverage-v8": "^4.1.5",
 		"commitizen": "^4.2.4",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.48.0",
@@ -46,6 +52,7 @@
 		"husky": "^9.1.7",
 		"nedb": "^1.8.0",
 		"prettier": "3.0.3",
+		"vitest": "^4.1.5",
 		"yargs": "^18.0.0"
 	},
 	"config": {

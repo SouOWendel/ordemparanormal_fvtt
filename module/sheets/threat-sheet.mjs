@@ -114,8 +114,9 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			button.addEventListener("click", this._onAdjustInput.bind(this));
 		}
 
-		const html = $(this.element);
-		html.find(".compendium-skill").on("contextmenu", this._onOpenCompendiumEntry.bind(this));
+		for (const el of this.element.querySelectorAll(".compendium-skill")) {
+			el.addEventListener("contextmenu", this._onOpenCompendiumEntry.bind(this));
+		}
 	}
 
 	/** * Prepara os dados para o Handlebars
@@ -359,7 +360,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		if (docRow.dataset.documentClass === "Item") {
 			return this.actor.items.get(docRow.dataset.itemId);
 		} else if (docRow.dataset.documentClass === "ActiveEffect") {
-			return this.actor.effects.get(docRow.dataset.effectId);
+			return Array.from(this.actor.allApplicableEffects()).find((e) => e.id === docRow.dataset.effectId) ?? null;
 		}
 	}
 
@@ -435,7 +436,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		const diceFormula = attrValue > 0 ? `${attrValue}d20kh` : "2d20kl";
 		const formula = `${diceFormula} + ${skillValue}`;
 
-		const roll = new Roll(formula, this.actor.getRollData());
+		const roll = await new Roll(formula, this.actor.getRollData()).evaluate();
 		await roll.toMessage({
 			flavor: `Teste de ${label} <span style="font-size: 0.8em; color: gray">(${attrKey.toUpperCase()})</span>`,
 			speaker: ChatMessage.getSpeaker({ actor: this.document }),
@@ -458,7 +459,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		}
 
 		try {
-			const roll = new Roll(formula, this.actor.getRollData());
+			const roll = await new Roll(formula, this.actor.getRollData()).evaluate();
 			await roll.toMessage({
 				flavor: game.i18n.localize("op.disturbingPresence.mentalDamageRollFlavor"),
 				speaker: ChatMessage.getSpeaker({ actor: this.document }),
@@ -604,13 +605,13 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 	/** */
 	static async #onOpenResistanceConfig(event, target) {
 		event.preventDefault();
-		new ResistanceConfig(this.document).render(true);
+		new ResistanceConfig({ document: this.document }).render({ force: true });
 	}
 
 	/** */
 	static async #onOpenTraitsConfig(event, target) {
 		event.preventDefault();
-		new TraitsConfig(this.document).render(true);
+		new TraitsConfig({ document: this.document }).render({ force: true });
 	}
 
 	/* -------------------------------------------- */

@@ -322,6 +322,15 @@ form.ordemparanormal.actor {
 				border-bottom: none;
 			}
 
+			.item-description {
+				display: none;
+				overflow: hidden;
+
+				&.expanded {
+					display: block;
+				}
+			}
+
 			.item-name {
 				color: colors.$c-dark;
 

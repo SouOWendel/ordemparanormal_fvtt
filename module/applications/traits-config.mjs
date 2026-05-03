@@ -1,53 +1,39 @@
-/**
- * Configuração de características para atores
- */
-export class TraitsConfig extends FormApplication {
-	/**
-	 * @override
-	 */
-	static get defaultOptions() {
-		// CORREÇÃO: Usar foundry.utils.mergeObject
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ["ordemparanormal", "sheet", "traits-config"],
-			template: "systems/ordemparanormal/templates/apps/traits-config.hbs",
-			width: 420,
-			height: "auto",
-			title: "Configurar Características",
-			resizable: false,
-		});
+import ApplicationOP from "./application.mjs";
+
+export class TraitsConfig extends ApplicationOP {
+	static DEFAULT_OPTIONS = {
+		classes: ["ordemparanormal", "sheet", "traits-config"],
+		position: { width: 420 },
+		window: { title: "Configurar Características", resizable: false },
+		form: {
+			handler: TraitsConfig.#onSubmit,
+			submitOnChange: false,
+		},
+	};
+
+	static PARTS = {
+		form: { template: "systems/ordemparanormal/templates/apps/traits-config.hbs" },
+	};
+
+	get document() {
+		return this.options.document;
 	}
 
-	/** @override */
-	getData() {
-		const data = super.getData();
-
-		// Pega a lista de tipos de dano da configuração do sistema
-		data.traits = CONFIG.op.traits;
-
-		// Pega os dados atuais do ator (ou cria um objeto vazio se não existir)
-		const actorTraits = this.object.system.traits || {};
-
-		// Prepara o objeto para o template Handlebars
-		data.traits = {};
-
+	async _prepareContext(options) {
+		const context = await super._prepareContext(options);
+		const actorTraits = this.document.system.traits || {};
+		context.traits = {};
 		for (const [key, label] of Object.entries(CONFIG.op.traits)) {
-			data.traits[key] = {
-				label: label,
+			context.traits[key] = {
+				label,
 				enabled: actorTraits[key],
 			};
 		}
-
-		return data;
+		return context;
 	}
 
-	/** @override */
-	async _updateObject(event, formData) {
-		// CORREÇÃO: Usar foundry.utils.expandObject
-		const traits = foundry.utils.expandObject(formData);
-
-		// Atualiza o ator
-		return this.object.update({
-			"system.traits": traits,
-		});
+	static async #onSubmit(event, form, formData) {
+		const traits = foundry.utils.expandObject(formData.object);
+		await this.document.update({ "system.traits": traits });
 	}
 }
