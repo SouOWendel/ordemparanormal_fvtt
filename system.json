@@ -15,7 +15,10 @@
 		}
 	],
 	"esmodules": ["module/ordemparanormal.mjs"],
-	"styles": ["css/ordemparanormal.css", "media/vendor/selectize/selectize.default.min.css"],
+	"styles": [
+		"css/ordemparanormal.css",
+		"media/vendor/selectize/selectize.default.min.css"
+	],
 	"scripts": ["media/vendor/selectize/selectize.min.js"],
 	"packs": [
 		{
@@ -24,7 +27,7 @@
 			"system": "ordemparanormal",
 			"type": "RollTable",
 			"path": "packs/others",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -34,7 +37,7 @@
 			"system": "ordemparanormal",
 			"type": "RollTable",
 			"path": "packs/creatingmissions",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -44,7 +47,7 @@
 			"system": "ordemparanormal",
 			"type": "Item",
 			"path": "packs/armaments",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -54,7 +57,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/general",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -64,7 +67,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/protections",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -74,7 +77,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/fighterPowers",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -84,7 +87,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/specialistPowers",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -94,7 +97,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/occultistPowers",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -104,7 +107,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/survivalPowers",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -114,7 +117,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/originPowers",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -124,7 +127,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/pathFighter",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -134,7 +137,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/pathSpecialist",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -144,7 +147,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/pathOccultist",
 			"type": "Item",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -154,7 +157,27 @@
 			"system": "ordemparanormal",
 			"path": "packs/generalPowers",
 			"type": "Item",
-"ownership": {
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "agents",
+			"label": "Agentes Pré-Criados",
+			"system": "ordemparanormal",
+			"path": "packs/agents",
+			"type": "Actor",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "threats",
+			"label": "Ameaças Pré-Criadas",
+			"system": "ordemparanormal",
+			"path": "packs/threats",
+			"type": "Actor",
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		},
@@ -164,7 +187,7 @@
 			"system": "ordemparanormal",
 			"path": "packs/bookrules",
 			"type": "JournalEntry",
-"ownership": {
+			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
 		}
@@ -186,7 +209,12 @@
 					"name": "Poderes de Classe",
 					"sorting": "m",
 					"color": "#171717",
-					"packs": ["fighterPowers", "specialistPowers", "occultistPowers", "survivalPowers"]
+					"packs": [
+						"fighterPowers",
+						"specialistPowers",
+						"occultistPowers",
+						"survivalPowers"
+					]
 				},
 				{
 					"name": "Poderes de Trilha",
