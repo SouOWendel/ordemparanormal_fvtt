@@ -368,7 +368,8 @@
 		"eletricDamage": "Eletricidade",
 		"coldDamage": "Frio",
 		"chemicalDamage": "Químico",
-		"mentalDamage": "Mental"
+		"mentalDamage": "Mental",
+		"damageDamage": "Dano"
 	},
 
 	"op.undefined": "Indefinido",
