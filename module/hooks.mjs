@@ -26,6 +26,7 @@ export default function () {
 						style: "fraction",
 						ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
 						otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+						hideHud: true,
 					},
 					threatHPBar: {
 						id: "threatHPBar",
@@ -68,6 +69,7 @@ export default function () {
 						style: "fraction",
 						ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
 						otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+						hideHud: true,
 					},
 					pv: {
 						id: "pv",

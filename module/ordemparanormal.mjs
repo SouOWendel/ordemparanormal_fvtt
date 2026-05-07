@@ -99,6 +99,7 @@ Hooks.once("init", function () {
 
 	// Register System Settings in Other File
 	registerSystemSettings();
+	registerSystemKeybindings();
 	utils.preloadHandlebarsTemplates();
 
 	// Change the logo of Foundry for Ordem Paranormal logo.

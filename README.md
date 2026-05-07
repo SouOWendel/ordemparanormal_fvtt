@@ -60,6 +60,7 @@ npm run dev:down    # para o container
 3. Abra o painel do Quench na sidebar e clique **Run All**
 
 As suites disponíveis:
+
 - **OP | Agent Actor: prepareDerivedData** — classes, progressão, PV/PE/SAN, defesa, rituais, patentes
 - **OP | Actor: Active Effects** — resolução de `@variáveis`, stacking, item-transferred AEs
 - **OP | Item: isCritical & getRollData** — parsing de fórmulas críticas, dados de rolagem
