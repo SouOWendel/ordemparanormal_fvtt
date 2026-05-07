@@ -1,3 +1,4 @@
+import ApplicationOP from "./application.mjs";
 import { op } from "../helpers/config.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;

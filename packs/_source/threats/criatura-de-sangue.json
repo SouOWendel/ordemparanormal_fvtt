@@ -1,0 +1,131 @@
+{
+  "name": "Criatura de Sangue",
+  "type": "threat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "attributes": {
+      "hp": { "value": 40, "max": 40 },
+      "str": { "value": 4 },
+      "dex": { "value": 2 },
+      "vit": { "value": 4 },
+      "pre": { "value": 1 },
+      "int": { "value": 1 },
+      "movement": { "walk": 9, "unit": "m", "squares": 6 },
+      "vd": { "value": 3 }
+    },
+    "defense": {
+      "value": 15,
+      "skillResistances": [],
+      "damageResistances": "Sangue 10"
+    },
+    "skills": {
+      "fighting": { "value": 0, "attr": ["str"], "degree": { "label": "veteran", "value": 10 } },
+      "aim": { "value": 0, "attr": ["dex"], "degree": { "label": "untrained", "value": 0 } },
+      "resilience": { "value": 0, "attr": ["vit"], "degree": { "label": "trained", "value": 5 } },
+      "reflexes": { "value": 0, "attr": ["dex"], "degree": { "label": "trained", "value": 5 } },
+      "will": { "value": 0, "attr": ["pre"], "degree": { "label": "trained", "value": 5 } },
+      "initiative": { "value": 0, "attr": ["dex"], "degree": { "label": "trained", "value": 5 } },
+      "perception": { "value": 0, "attr": ["pre"], "degree": { "label": "trained", "value": 5 } },
+      "freeSkill": { "value": 0, "name": "", "attr": ["int"], "degree": { "label": "untrained", "value": 0 } }
+    },
+    "attacks": {
+      "atk1": {
+        "name": "Garras Sanguinárias",
+        "test": "1d20+14",
+        "damage": "2d6+4",
+        "damageType": "cuttingDamage",
+        "critical": "19",
+        "criticalMult": "2",
+        "range": "Corpo a corpo",
+        "numberOfAttacks": "2"
+      }
+    },
+    "elements": { "main": "sangue", "others": "" },
+    "size": "Médio",
+    "disturbingPresence": { "dt": 20, "mentalDamage": "2d6", "immuneNex": 30 },
+    "senses": ["Visão no escuro", "Faro"],
+    "vulnerabilities": "Energia",
+    "resistances": {
+      "cuttingDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "impactDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "piercingDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "ballisticDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "fireDamage": { "value": 0, "vulnerable": false, "immune": false },
+      "eletricDamage": { "value": 0, "vulnerable": false, "immune": false },
+      "coldDamage": { "value": 0, "vulnerable": false, "immune": false },
+      "chemicalDamage": { "value": 0, "vulnerable": false, "immune": false },
+      "mentalDamage": { "value": 0, "vulnerable": false, "immune": false },
+      "bloodDamage": { "value": 10, "vulnerable": false, "immune": false },
+      "deathDamage": { "value": 0, "vulnerable": false, "immune": false },
+      "knowledgeDamage": { "value": 0, "vulnerable": false, "immune": false },
+      "energyDamage": { "value": 0, "vulnerable": true, "immune": false }
+    },
+    "traits": {
+      "smell": true,
+      "acceleratedHealing": true,
+      "incorporeal": false,
+      "blindsight": false,
+      "lowLightVision": false,
+      "darkvision": true
+    },
+    "abilities": [
+      {
+        "name": "Sede de Sangue",
+        "description": "Ao reduzir um inimigo a 0 PV, a criatura pode fazer um ataque adicional como ação livre."
+      },
+      {
+        "name": "Regeneração Rápida",
+        "description": "Recupera 5 PV no início de cada turno se tiver pelo menos 1 PV."
+      },
+      {
+        "name": "Faro de Sangue",
+        "description": "Pode detectar criaturas feridas (abaixo de 50% PV) a até 30m de distância."
+      }
+    ],
+    "actions": [],
+    "details": {
+      "description": "<p>Uma aberração musculosa e distorcida, coberta por carne exposta e veias pulsantes. Criaturas de Sangue são predadores brutais que se alimentam da vitalidade de suas vítimas.</p><p><strong>VD 3:</strong> Uma ameaça séria para agentes NEX 5-30%, com alta capacidade ofensiva e regeneração.</p>",
+      "fearRiddle": ""
+    },
+    "temporary": {
+      "abilities": "",
+      "senses": "",
+      "defense": { "skillResistances": "", "damageResistances": "" },
+      "vulnerabilities": "",
+      "actions": "",
+      "characteristics": ""
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "prototypeToken": {
+    "name": "Criatura de Sangue",
+    "displayName": 20,
+    "actorLink": false,
+    "appendNumber": true,
+    "prependAdjective": false,
+    "texture": { "src": "icons/svg/mystery-man.svg", "scaleX": 1, "scaleY": 1 },
+    "width": 1,
+    "height": 1,
+    "disposition": -1,
+    "displayBars": 40,
+    "bar1": { "attribute": "attributes.hp" },
+    "bar2": { "attribute": null }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null
+  },
+  "_id": "threatBloodCrea1",
+  "_key": "!actors!threatBloodCrea1"
+}

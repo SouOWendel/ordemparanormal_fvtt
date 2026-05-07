@@ -50,8 +50,11 @@
 			}
 		},
 		"agent": {
-			"templates": ["base", "NEX"],
+			"templates": ["base"],
 			"class": "",
+			"ritual": {
+				"DT": 0
+			},
 			"origin": "",
 			"trilha": "",
 			"patent": {
@@ -390,6 +393,7 @@
 				},
 				"freeSkill": {
 					"value": 0,
+					"name": "",
 					"attr": ["int", 1],
 					"degree": {
 						"label": "untrained",
@@ -533,7 +537,7 @@
 		}
 	},
 	"Item": {
-		"types": ["armament", "generalEquipment", "protection", "ability", "ritual"],
+		"types": ["ammunition", "armament", "generalEquipment", "protection", "ability", "ritual"],
 		"templates": {
 			"base": {
 				"description": "A descrição do seu item aqui.",

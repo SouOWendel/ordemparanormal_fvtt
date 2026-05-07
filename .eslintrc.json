@@ -10,8 +10,18 @@
 	},
 	"rules": {
 		"valid-jsdoc": "off",
+		"require-jsdoc": "off",
 		"no-undef": "off",
 		"prefer-rest-params": "off",
 		"new-cap": "off"
-	}
+	},
+	"overrides": [
+		{
+			"files": ["tests/**/*.mjs"],
+			"env": {
+				"browser": false,
+				"node": true
+			}
+		}
+	]
 }

@@ -129,9 +129,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		// Prepara os dados do Agente e seus Items.
 		if (this.document.type == "agent") {
 			this._prepareItems(context);
-
-			// --- NOVO: Calcula os totais das perícias para exibição ---
-			this._prepareSkillTotals(context);
 		}
 
 		return context;
@@ -368,35 +365,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		context.protection = protection.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		context.generalEquip = generalEquipment.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		context.armament = armament.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-	}
-
-	/**
-	 * Calcula o valor total das perícias para exibição na ficha.
-	 * Soma: Valor do Grau de Treinamento + Bônus (Mod)
-	 * @param {Object} context O contexto de renderização da ficha
-	 */
-	_prepareSkillTotals(context) {
-		const skills = context.system.skills;
-
-		// Definição dos valores de cada grau (Ajuste conforme sua regra da casa ou sistema)
-		const degreeValues = {
-			untrained: 0, // Destreinado
-			trained: 5, // Treinado
-			veteran: 10, // Veterano
-			expert: 15, // Expert
-		};
-
-		for (const [, skill] of Object.entries(skills)) {
-			// 1. Identifica o valor do Grau
-			const degreeLabel = skill.degree?.label || "untrained";
-			const degreeBonus = degreeValues[degreeLabel] || 0;
-
-			// 2. Pega o Bônus Editável (Input manual)
-			const manualBonus = Number(skill.mod) || 0;
-
-			// 3. Calcula o Total e salva em 'value' para o HTML ler
-			skill.value = degreeBonus + manualBonus;
-		}
 	}
 
 	/**
@@ -785,11 +753,9 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		const itemId = target.closest(".item").dataset.itemId;
 		const item = this.actor.items.get(itemId);
 
-		if (!item.system.using || item.system.using.state == false) {
-			console.log(`OP FVTT | Definindo ${item.name} como ativado.`);
+		if (!item.system.using || item.system.using.state === false) {
 			return item.update({ "system.using": { state: true, class: "fas" } });
 		} else {
-			console.log(`OP FVTT | Definindo ${item.name} como desativado.`);
 			return item.update({ "system.using": { state: false, class: "far" } });
 		}
 	}
@@ -921,7 +887,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		const actor = this.actor;
 		const allowed = Hooks.call("dropActorSheetData", actor, this, data);
 		if (allowed === false) return;
-		console.log("OP FVTT | Dropping data on actor sheet...");
 
 		// Handle different data types
 		switch (data.type) {
@@ -930,7 +895,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			case "Actor":
 				return this._onDropActor(event, data);
 			case "Item":
-				console.log("OP FVTT | Dropping item on actor sheet...");
 				return this._onDropItem(event, data);
 			case "Folder":
 				return this._onDropFolder(event, data);

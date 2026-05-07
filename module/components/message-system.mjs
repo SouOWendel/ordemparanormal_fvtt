@@ -105,7 +105,7 @@ const displayPrompt = (title, content, i, messages) => {
 				action: "previous",
 				icon: "fas fa-arrow-left",
 				label: "Atualização Anterior",
-				callback: async () => {
+				callback: () => {
 					const b = messages[i - 1] ? i - 1 : i;
 					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
 				},

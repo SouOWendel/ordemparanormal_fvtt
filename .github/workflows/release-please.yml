@@ -23,7 +23,7 @@ jobs:
    # Criar uma release e um PR (pull-request) com base no manifest (comando e arquivo).
    # O comando manifest faz uma PR utilizando as configurações do release-please-config.json
    # se forem validas. Dentro deste arquivo, há a configuração do system.json.
-   - uses: googleapis/release-please-action@v3.7.13
+   - uses: googleapis/release-please-action@v4
      id: release
      with:
       command: manifest
@@ -65,7 +65,7 @@ jobs:
    - name: Use Node.js
      uses: actions/setup-node@v4
      with:
-      node-version: "18.x"
+      node-version: "24.x"
       cache: "npm"
 
    # `npm ci` is recommended:

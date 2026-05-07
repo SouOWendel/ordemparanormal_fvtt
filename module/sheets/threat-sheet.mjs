@@ -361,7 +361,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		if (docRow.dataset.documentClass === "Item") {
 			return this.actor.items.get(docRow.dataset.itemId);
 		} else if (docRow.dataset.documentClass === "ActiveEffect") {
-			return this.actor.effects.get(docRow.dataset.effectId);
+			return Array.from(this.actor.allApplicableEffects()).find((e) => e.id === docRow.dataset.effectId) ?? null;
 		}
 	}
 
@@ -438,7 +438,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		const diceFormula = attrValue > 0 ? `${attrValue}d20kh` : "2d20kl";
 		const formula = `${diceFormula} + ${skillValue}`;
 
-		const roll = new Roll(formula, this.actor.getRollData());
+		const roll = await new Roll(formula, this.actor.getRollData()).evaluate();
 		await roll.toMessage({
 			flavor: `Teste de ${label} <span style="font-size: 0.8em; color: gray">(${attrKey.toUpperCase()})</span>`,
 			speaker: ChatMessage.getSpeaker({ actor: this.document }),
@@ -461,7 +461,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		}
 
 		try {
-			const roll = new Roll(formula, this.actor.getRollData());
+			const roll = await new Roll(formula, this.actor.getRollData()).evaluate();
 			await roll.toMessage({
 				flavor: game.i18n.localize("op.disturbingPresence.mentalDamageRollFlavor"),
 				speaker: ChatMessage.getSpeaker({ actor: this.document }),

@@ -1,0 +1,145 @@
+{
+  "name": "Marcado",
+  "type": "threat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "attributes": {
+      "hp": { "value": 60, "max": 60 },
+      "str": { "value": 3 },
+      "dex": { "value": 3 },
+      "vit": { "value": 3 },
+      "pre": { "value": 4 },
+      "int": { "value": 2 },
+      "movement": { "walk": 12, "unit": "m", "squares": 8 },
+      "vd": { "value": 5 }
+    },
+    "defense": {
+      "value": 18,
+      "skillResistances": ["Vontade"],
+      "damageResistances": "Todos 5"
+    },
+    "skills": {
+      "fighting": { "value": 0, "attr": ["str"], "degree": { "label": "expert", "value": 15 } },
+      "aim": { "value": 0, "attr": ["dex"], "degree": { "label": "veteran", "value": 10 } },
+      "resilience": { "value": 0, "attr": ["vit"], "degree": { "label": "trained", "value": 5 } },
+      "reflexes": { "value": 0, "attr": ["dex"], "degree": { "label": "veteran", "value": 10 } },
+      "will": { "value": 0, "attr": ["pre"], "degree": { "label": "expert", "value": 15 } },
+      "initiative": { "value": 0, "attr": ["dex"], "degree": { "label": "veteran", "value": 10 } },
+      "perception": { "value": 0, "attr": ["pre"], "degree": { "label": "veteran", "value": 10 } },
+      "freeSkill": { "value": 0, "name": "Ocultismo", "attr": ["int"], "degree": { "label": "veteran", "value": 10 } }
+    },
+    "attacks": {
+      "atk1": {
+        "name": "Ataque Marcado",
+        "test": "1d20+18",
+        "damage": "3d8+3",
+        "damageType": "deathDamage",
+        "critical": "19",
+        "criticalMult": "3",
+        "range": "Corpo a corpo",
+        "numberOfAttacks": "2"
+      },
+      "atk2": {
+        "name": "Disparo Paranormal",
+        "test": "1d20+13",
+        "damage": "2d10",
+        "damageType": "energyDamage",
+        "critical": "20",
+        "criticalMult": "2",
+        "range": "30m",
+        "numberOfAttacks": "1"
+      }
+    },
+    "elements": { "main": "morte", "others": "energia, conhecimento" },
+    "size": "Médio",
+    "disturbingPresence": { "dt": 25, "mentalDamage": "3d8", "immuneNex": 60 },
+    "senses": ["Visão no escuro", "Sentidos paranormais 18m"],
+    "vulnerabilities": "",
+    "resistances": {
+      "cuttingDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "impactDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "piercingDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "ballisticDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "fireDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "eletricDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "coldDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "chemicalDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "mentalDamage": { "value": 10, "vulnerable": false, "immune": false },
+      "bloodDamage": { "value": 5, "vulnerable": false, "immune": false },
+      "deathDamage": { "value": 10, "vulnerable": false, "immune": false },
+      "knowledgeDamage": { "value": 10, "vulnerable": false, "immune": false },
+      "energyDamage": { "value": 10, "vulnerable": false, "immune": false }
+    },
+    "traits": {
+      "smell": false,
+      "acceleratedHealing": true,
+      "incorporeal": false,
+      "blindsight": false,
+      "lowLightVision": false,
+      "darkvision": true
+    },
+    "abilities": [
+      {
+        "name": "Presença Aterradora",
+        "description": "Criaturas que iniciam seu turno a até 9m devem fazer teste de Vontade DT 25 ou ficam abaladas por 1 rodada."
+      },
+      {
+        "name": "Marcas do Outro Lado",
+        "description": "Pode usar ação de movimento para se teletransportar até 18m. Deixa marcas paranormais visíveis no local de origem e destino."
+      },
+      {
+        "name": "Conhecimento Profano",
+        "description": "Pode conjurar rituais de 1º e 2º círculo de Morte e Conhecimento (DT 20) gastando 1 ação completa."
+      },
+      {
+        "name": "Adaptação Paranormal",
+        "description": "Após sofrer dano de um elemento paranormal, ganha resistência 10 contra aquele elemento até o fim do combate."
+      }
+    ],
+    "actions": [],
+    "details": {
+      "description": "<p>Um humano que foi completamente consumido pelo Outro Lado, transformado em uma aberração inteligente e letal. Marcados mantêm vestígios de sua humanidade, mas são completamente dominados por um elemento paranormal.</p><p>Este Marcado foi consumido por Morte, mas também manifesta traços de Energia e Conhecimento. Sua presença distorce a realidade ao redor, e ele empunha poderes rituais devastadores.</p><p><strong>VD 5:</strong> Uma ameaça mortal para agentes NEX 40-70%. Requer táticas coordenadas e conhecimento de suas fraquezas.</p>",
+      "fearRiddle": "<p><strong>Enigma do Medo:</strong> \"Eu fui como você, mas agora sou o que você teme se tornar. Minha marca é minha prisão e meu poder. O que me libertará também me destruirá.\"</p><p><strong>Resposta:</strong> Destruir as marcas paranormais em seu corpo (3 locais específicos) com dano de elemento oposto (Sangue) revela um ponto fraco que dobra o dano recebido por 1 rodada.</p>"
+    },
+    "temporary": {
+      "abilities": "",
+      "senses": "",
+      "defense": { "skillResistances": "", "damageResistances": "" },
+      "vulnerabilities": "",
+      "actions": "",
+      "characteristics": ""
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "prototypeToken": {
+    "name": "Marcado",
+    "displayName": 20,
+    "actorLink": false,
+    "appendNumber": true,
+    "prependAdjective": false,
+    "texture": { "src": "icons/svg/mystery-man.svg", "scaleX": 1, "scaleY": 1 },
+    "width": 1,
+    "height": 1,
+    "disposition": -1,
+    "displayBars": 40,
+    "bar1": { "attribute": "attributes.hp" },
+    "bar2": { "attribute": null }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null
+  },
+  "_id": "threatMarked0001",
+  "_key": "!actors!threatMarked0001"
+}

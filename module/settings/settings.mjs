@@ -63,10 +63,6 @@ export default function registerSystemSettings() {
 		config: true, // false if you dont want it to show in module config
 		type: Boolean, // Number, Boolean, String, Object
 		default: false,
-		onChange: (value) => {
-			// value is the new value of the setting
-			console.log(value);
-		},
 	});
 
 	game.settings.register("ordemparanormal", "globalProgressRules", {
@@ -76,10 +72,6 @@ export default function registerSystemSettings() {
 		config: true, // false if you dont want it to show in module config
 		type: Number, // Number, Boolean, String, Object
 		default: 1,
-		onChange: (value) => {
-			// value is the new value of the setting
-			console.log(value);
-		},
 		requiresReload: true, // true if you want to prompt the user to reload
 		choices: {
 			1: "SETTINGS.nexProgressRule",
@@ -96,9 +88,5 @@ export default function registerSystemSettings() {
 		type: Boolean, // Number, Boolean, String, Object
 		default: false,
 		requiresReload: true, // true if you want to prompt the user to reload
-		onChange: (value) => {
-			// value is the new value of the setting
-			console.log(value);
-		},
 	});
 }

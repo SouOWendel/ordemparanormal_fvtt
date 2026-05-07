@@ -1,9 +1,9 @@
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable no-unused-vars */
-import semverComp from "../../utils/semver-compare.mjs";
 import BasicRoll from "../dice/basic-roll.mjs";
 import SkillToolRollConfigurationDialog from "../applications/skill-tool-configuration-dialog.mjs";
 import AttributeRollConfigurationDialog from "../applications/attribute-configuration-dialog.mjs";
+import { calculateSpaces, calculateDefense } from "../helpers/actor-calculations.mjs";
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
@@ -15,7 +15,7 @@ export class OrdemActor extends Actor {
 	 */
 	get progressRuleIsNivel() {
 		const rule = game.settings.get("ordemparanormal", "globalProgressRules");
-		return rule == 2 ? true : false;
+		return rule === 2;
 	}
 
 	/**
@@ -30,14 +30,14 @@ export class OrdemActor extends Actor {
 	 */
 	get progressRuleIsNEX() {
 		const rule = game.settings.get("ordemparanormal", "globalProgressRules");
-		return rule == 1 ? true : false;
+		return rule === 1;
 	}
 
 	/**
 	 *
 	 */
 	get isSurvivor() {
-		return this.system.class == "survivor";
+		return this.system.class === "survivor";
 	}
 
 	/** @override */
@@ -51,313 +51,26 @@ export class OrdemActor extends Actor {
 
 	/** @override */
 	prepareBaseData() {
-		// Data modifications in this step occur before processing embedded
-		// documents or derived data.
-		const actorData = this;
-		const systemData = actorData.system;
-
-		if (actorData.type == "agent") {
-			this._prepareDataStatus(actorData, systemData);
-			this._prepareRituals(actorData);
-			this._prepareBaseSkills(systemData);
-			this._preparePatent(actorData);
-		}
-
-		// Calcular perícias para Ameaças também
-		if (actorData.type == "threat") {
-			this._prepareBaseSkillsThreat(systemData);
-		}
+		super.prepareBaseData();
 	}
 
-	/**
-	 * @override
-	 * Augment the basic actor data with additional dynamic data. Typically,
-	 * you'll want to handle most of your calculated/derived data in this step.
-	 * Data calculated in this step should generally not exist in template.json
-	 * (such as ability modifiers rather than ability scores) and should be
-	 * available both inside and outside of character sheets (such as if an actor
-	 * is queried and has a roll executed directly from it).
-	 */
+	/** @override */
 	prepareDerivedData() {
-		const actorData = this;
-		const systemData = actorData.system;
-		const flags = actorData.flags.ordemparanormal || {};
-
-		// Make separate methods for each Actor type (character, npc, etc.) to keep
-		// things organized.
-		if (actorData.type == "agent") {
-			this._prepareItemsDerivedData(actorData, systemData);
-			this._prepareDefense(systemData);
-			this._prepareActorSpaces(actorData);
+		super.prepareDerivedData();
+		if (this.type === "agent") {
+			this._prepareItemsDerivedData(this, this.system);
+			this._prepareActorSpaces(this);
+			// Defense must run after items and spaces — both mutate system.defense.value
+			const sys = this.system;
+			const result = calculateDefense(
+				sys.defense.value,
+				sys.attributes.dex.value,
+				sys.skills.reflexes.degree.value,
+				sys.skills.reflexes.mod || 0
+			);
+			sys.defense.value = result.value;
+			sys.defense.dodge = result.dodge;
 		}
-	}
-
-	/**
-	 * Method to obtain a suitable variable to calculate attributes.
-	 * @param {*} system
-	 */
-	progressCalculation(system) {
-		const rule = game.settings.get("ordemparanormal", "globalProgressRules");
-		if (this.isSurvivor) return system.stage.value;
-		if (rule == 1) return system.NEX.value < 99 ? Math.floor(system.NEX.value / 5) : 20;
-		else if (rule == 2) return system.nivel.value;
-	}
-
-	/**
-	 * Calculation for PD or PD per round.
-	 * @param {*} system
-	 */
-	perRoundCalculation(system, progress) {
-		if (this.usingWithoutSanityRule) {
-			system.PD.perRound = this.isSurvivor ? 1 : progress;
-		} else {
-			if (this.isSurvivor) system.PD.perRound = 1;
-			else system.PE.perRound = progress;
-		}
-	}
-
-	/**
-	 *
-	 * @param {*} system
-	 */
-	_prepareDataStatus(actorData, system) {
-		const VIG = system.attributes.vit.value;
-		const PRE = system.attributes.pre.value;
-
-		const progress = this.progressCalculation(system);
-		const progressAdjust = progress - 1;
-		const progressIf = progress > 1;
-
-		this.perRoundCalculation(system, progress);
-
-		switch (system.class) {
-			case "fighter":
-				system.PV.max = 20 + VIG + (progressIf && progressAdjust * (4 + VIG));
-				system.SAN.max = 12 + (progressIf && progressAdjust * 3);
-
-				if (this.usingWithoutSanityRule) system.PD.max = 6 + PRE + (progressIf && progressAdjust * (3 + PRE));
-				else system.PE.max = 2 + PRE + (progressIf && progressAdjust * (2 + PRE));
-				break;
-			case "specialist":
-				system.PV.max = 16 + VIG + (progressIf && progressAdjust * (3 + VIG));
-				system.SAN.max = 16 + (progressIf && progressAdjust * 4);
-
-				if (this.usingWithoutSanityRule) system.PD.max = 8 + PRE + (progressIf && progressAdjust * (4 + PRE));
-				else system.PE.max = 3 + PRE + (progressIf && progressAdjust * (3 + PRE));
-				break;
-			case "occultist":
-				system.PV.max = 12 + VIG + (progressIf && progressAdjust * (2 + VIG));
-				system.SAN.max = 20 + (progressIf && progressAdjust * 5);
-
-				if (this.usingWithoutSanityRule) system.PD.max = 10 + PRE + (progressIf && progressAdjust * (5 + PRE));
-				else system.PE.max = 4 + PRE + (progressIf && progressAdjust * (4 + PRE));
-				break;
-			case "survivor":
-				system.PV.max = 8 + VIG + (progressIf && progressAdjust * 2);
-				system.SAN.max = 8 + (progressIf && progressAdjust * 2);
-
-				if (this.usingWithoutSanityRule) system.PD.max = 4 + PRE + (progressIf && progressAdjust * 2);
-				else system.PE.max = 2 + PRE + (progressIf && progressAdjust * 1);
-				break;
-			default:
-				system.PV.max = system.PV.max || 0;
-				system.PE.max = system.PE.max || 0;
-				system.SAN.max = system.SAN.max || 0;
-				break;
-		}
-	}
-
-	/**
-	 *
-	 * @param {*} system
-	 */
-	_prepareDefense(system) {
-		const REFLEXES = system.skills.reflexes;
-		const AGI = system.attributes.dex.value;
-		system.defense.value += AGI;
-		system.defense.dodge = system.defense.value + system.skills.reflexes.degree.value + (system.skills.reflexes.mod || 0);
-	}
-
-	/** */
-	calculateSkillProficiency(skill) {
-		// TODO: inverter a atribuição de valores.
-		if (skill.degree.label == "trained") return 5;
-		if (skill.degree.label == "veteran") return 10;
-		if (skill.degree.label == "expert") return 15;
-		return 0;
-	}
-
-	/**
-	 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
-	 * depois disso, salva o valor nas informações.
-	 * @param {*} system
-	 */
-	async _prepareBaseSkills(system) {
-		console.time("Tempo de atualização das perícias");
-		const attributes = system.attributes;
-		const skills = system.skills;
-
-		// Mapa de backup caso o attr não exista no ator antigo
-		const defaultAttrs = {
-			fighting: "str",
-			aim: "dex",
-			resilience: "vit",
-			reflexes: "dex",
-			will: "pre",
-			initiative: "dex",
-			perception: "pre",
-			freeSkill: "int",
-
-			// Perícias de Agente
-			acrobatics: "dex",
-			animal: "pre",
-			arts: "pre",
-			athleticism: "str",
-			relevance: "int",
-			sciences: "int",
-			crime: "dex",
-			diplomacy: "pre",
-			deception: "pre",
-			stealth: "dex",
-			intimidation: "pre",
-			intuition: "pre",
-			investigation: "int",
-			medicine: "int",
-			occultism: "int",
-			driving: "dex",
-			religion: "pre",
-			survival: "int",
-			tactics: "int",
-			technology: "int",
-		};
-
-		// Loop through ability scores, and add their modifiers to our sheet output.
-		for (const [keySkill, skill] of Object.entries(skills)) {
-			// Se não tiver attr definido (ator antigo), tenta usar o padrão
-			if (!skill.attr || skill.attr.length === 0) {
-				const def = defaultAttrs[keySkill];
-				if (def) skill.attr = [def, 1];
-			}
-			if (skill && Array.isArray(skill.attr) && skill.attr.length > 0) {
-				const requiredAttrKey = skill.attr[0]; // Pega a chave do atributo
-
-				// Verifica se o atributo correspondente existe
-				if (attributes.hasOwnProperty(requiredAttrKey)) {
-					// Atualiza o valor na perícia diretamente
-					skill.attr[1] = attributes[requiredAttrKey].value;
-				} else {
-					// Opcional: Aviso se o atributo não for encontrado
-					console.warn(
-						`Atributo '${requiredAttrKey}' necessário para a perícia '${keySkill}' não foi encontrado em system.attributes.`
-					);
-				}
-
-				// Definindo constantes para acesso simplificado.
-				const overLoad = skill?.conditions?.load || false;
-				const needTraining = skill?.conditions?.trained || false;
-
-				// Garantir que degree existe
-				if (!skill.degree) skill.degree = { value: 0, label: "untrained" };
-
-				// Calculate the modifier using d20 rules.
-				skill.degree.value = this.calculateSkillProficiency(skill);
-
-				// Formando o nome com base nas condições de carga e treino da perícia.
-				// Se for a perícia livre e tiver nome, usa ele.
-				if (keySkill === "freeSkill" && skill.name) {
-					skill.label = skill.name + (overLoad ? "+" : needTraining ? "*" : "");
-				} else {
-					const labelKey = CONFIG.op.skills[keySkill] || keySkill;
-					skill.label = game.i18n.localize(labelKey) + (overLoad ? "+" : needTraining ? "*" : "") ?? keySkill;
-				}
-			}
-		}
-		console.timeEnd("Tempo de atualização das perícias");
-	}
-
-	/**
-	 * Faz um loop das perícias e depois faz algumas verificações para definir a formula de rolagem,
-	 * depois disso, salva o valor nas informações.
-	 * @param {*} system
-	 */
-	async _prepareBaseSkillsThreat(system) {
-		console.time("Tempo de atualização das perícias");
-		const attributes = system.attributes;
-		const skills = system.skills;
-
-		// Mapa de backup caso o attr não exista no ator antigo
-		const defaultAttrs = {
-			fighting: "str",
-			aim: "dex",
-			resilience: "vit",
-			reflexes: "dex",
-			will: "pre",
-			initiative: "dex",
-			perception: "pre",
-			freeSkill: "int",
-
-			// Perícias de Agente
-			acrobatics: "dex",
-			animal: "pre",
-			arts: "pre",
-			athleticism: "str",
-			relevance: "int",
-			sciences: "int",
-			crime: "dex",
-			diplomacy: "pre",
-			deception: "pre",
-			stealth: "dex",
-			intimidation: "pre",
-			intuition: "pre",
-			investigation: "int",
-			medicine: "int",
-			occultism: "int",
-			driving: "dex",
-			religion: "pre",
-			survival: "int",
-			tactics: "int",
-			technology: "int",
-		};
-
-		// Loop through ability scores, and add their modifiers to our sheet output.
-		for (const [keySkill, skill] of Object.entries(skills)) {
-			// Se não tiver attr definido (ator antigo), tenta usar o padrão
-			if (!skill.attr || skill.attr.length === 0) {
-				const def = defaultAttrs[keySkill];
-				if (def) skill.attr = [def, 1];
-			}
-			if (skill && Array.isArray(skill.attr) && skill.attr.length > 0) {
-				const requiredAttrKey = skill.attr[0]; // Pega a chave do atributo
-
-				// Verifica se o atributo correspondente existe
-				if (attributes.hasOwnProperty(requiredAttrKey)) {
-					// Atualiza o valor na perícia diretamente
-					skill.attr[1] = attributes[requiredAttrKey].value;
-				} else {
-					// Opcional: Aviso se o atributo não for encontrado
-					console.warn(
-						`Atributo '${requiredAttrKey}' necessário para a perícia '${keySkill}' não foi encontrado em system.attributes.`
-					);
-				}
-
-				// Definindo constantes para acesso simplificado.
-				const overLoad = skill?.conditions?.load || false;
-				const needTraining = skill?.conditions?.trained || false;
-
-				// Garantir que degree existe
-				if (!skill.degree) skill.degree = { value: 0, label: "untrained" };
-
-				// Formando o nome com base nas condições de carga e treino da perícia.
-				// Se for a perícia livre e tiver nome, usa ele.
-				if (keySkill === "freeSkill" && skill.name) {
-					skill.label = skill.name + (overLoad ? "+" : needTraining ? "*" : "");
-				} else {
-					const labelKey = CONFIG.op.skills[keySkill] || keySkill;
-					skill.label = game.i18n.localize(labelKey) + (overLoad ? "+" : needTraining ? "*" : "") ?? keySkill;
-				}
-			}
-		}
-		console.timeEnd("Tempo de atualização das perícias");
 	}
 
 	/**
@@ -371,102 +84,27 @@ export class OrdemActor extends Actor {
 		const system = ActorData.system;
 		const spaces = (system.spaces ??= {});
 		const FOR = system.attributes.str.value || 0;
-		spaces.over, (spaces.pctMax = 0);
 
-		// Get the total weight from items
 		const physicalItems = ["armament", "generalEquipment", "protection"];
-		const weight = ActorData.items.reduce((weight, i) => {
-			if (!physicalItems.includes(i.type)) return weight;
+		const weight = ActorData.items.reduce((w, i) => {
+			if (!physicalItems.includes(i.type)) return w;
 			const q = i.system.quantity || 0;
-			const w = i.system.using.state ? i.system.weight || 0 : 0;
-			return weight + q * w;
+			const iw = i.system.using.state ? i.system.weight || 0 : 0;
+			return w + q * iw;
 		}, 0);
 
-		// Populate the final values
-		spaces.value = weight.toNearest(0.1);
-		spaces.max = FOR !== 0 ? FOR * 5 : 2;
+		const result = calculateSpaces(weight, FOR, spaces.bonus);
+		spaces.value = result.value;
+		spaces.max = result.max;
+		spaces.pct = result.pct;
+		spaces.over = result.over;
+		spaces.pctMax = result.pctMax;
 
-		// Plus bonus
-		spaces.value += spaces.bonus.value;
-		spaces.max += spaces.bonus.max;
-
-		spaces.pct = Math.clamp((spaces.value * 100) / spaces.max, 0, 100);
-
-		// Apply the debuffs
-		if (spaces.value > spaces.max) {
-			spaces.over = spaces.value - spaces.max;
+		if (result.isOverweight) {
 			system.desloc.value += -3;
 			system.defense.value += -5;
-
-			spaces.pctMax = Math.clamp((spaces.over * 100) / spaces.max, 0, 100);
 		}
-		if (spaces.value > spaces.max * 2) ui.notifications.warn(game.i18n.localize("WARN.overWeight"));
-	}
-
-	/**
-	 * A function to calculate and apply all the patent data.
-	 * @param {*} ActorData
-	 */
-	_preparePatent(ActorData) {
-		const patent = ActorData.system.patent;
-		const PP = patent.prestigePoints;
-		if (PP >= 200) {
-			patent.name = "Agente de Elite";
-			patent.itemLimit1 = 3;
-			patent.itemLimit2 = 3;
-			patent.itemLimit3 = 3;
-			patent.itemLimit4 = 2;
-			patent.creditLimit = "Ilimitado";
-		} else if (PP >= 100) {
-			patent.name = "Oficial de Operações";
-			patent.itemLimit1 = 3;
-			patent.itemLimit2 = 3;
-			patent.itemLimit3 = 2;
-			patent.itemLimit4 = 1;
-			patent.creditLimit = "Alto";
-		} else if (PP >= 50) {
-			patent.name = "Agente Especial";
-			patent.itemLimit1 = 3;
-			patent.itemLimit2 = 2;
-			patent.itemLimit3 = 1;
-			patent.itemLimit4 = null;
-			patent.creditLimit = "Médio";
-		} else if (PP >= 20) {
-			patent.name = "Operador";
-			patent.itemLimit1 = 3;
-			patent.itemLimit2 = 1;
-			patent.itemLimit3 = null;
-			patent.itemLimit4 = null;
-			patent.creditLimit = "Médio";
-		} else if (PP >= 0) {
-			patent.name = "Recruta";
-			patent.itemLimit1 = 2;
-			patent.itemLimit2 = null;
-			patent.itemLimit3 = null;
-			patent.itemLimit4 = null;
-			patent.creditLimit = "Baixo";
-		} else {
-			patent.name = "Sem Patente";
-			patent.itemLimit1 = null;
-			patent.itemLimit2 = null;
-			patent.itemLimit3 = null;
-			patent.itemLimit4 = null;
-			patent.creditLimit = "Baixo";
-		}
-	}
-
-	/**
-	 *
-	 */
-	_prepareRituals(ActorData) {
-		const system = ActorData.system;
-		const ritual = (system.ritual ??= {});
-		const calcNEX = system.NEX.value < 99 ? Math.floor(system.NEX.value / 5) : 20;
-		if (!this.isSurvivor) {
-			ritual.DT = 10 + calcNEX + system.attributes.pre.value;
-		} else {
-			ritual.DT = 10 + system.attributes.pre.value;
-		}
+		if (result.isDoubleOverweight) ui.notifications.warn(game.i18n.localize("WARN.overWeight"));
 	}
 
 	/**
@@ -479,7 +117,7 @@ export class OrdemActor extends Actor {
 	_prepareItemsDerivedData(actorData, system) {
 		const protections = actorData.items.filter((item) => item.type === "protection");
 		for (const p of protections) {
-			if (typeof p.system.defense == "number" && p.system.using.state == true) {
+			if (typeof p.system.defense === "number" && p.system.using.state === true) {
 				system.defense.value += p.system.defense;
 			}
 		}
@@ -494,7 +132,7 @@ export class OrdemActor extends Actor {
 
 		// 2. Iterar sobre todos os efeitos aplicáveis ao ator
 		// (Isso inclui efeitos do próprio ator e efeitos transferidos de itens)
-		const effects = this.allApplicableEffects ? this.allApplicableEffects() : this.effects;
+		const effects = this.allApplicableEffects();
 
 		for (const effect of effects) {
 			if (effect.disabled) continue;
@@ -764,7 +402,7 @@ export class OrdemActor extends Actor {
 
 		// const toolConfig = CONFIG.op.tools[config.tool];
 		if (type === "skill" && !skillConfig) {
-			return this.rollAttributeCheck(config, dialog, message);
+			return this.#rollAttributeCheck(type, config, dialog, message);
 		}
 
 		const relevant = this.system.skills[config.skill];

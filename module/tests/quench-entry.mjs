@@ -1,0 +1,11 @@
+/**
+ * Quench integration test entry point.
+ * Loaded only when the Quench module is active (see ordemparanormal.mjs ready hook).
+ * Each suite file registers its own batch via Hooks.once("quenchReady", ...).
+ */
+import "./suites/actor-agent.test.mjs";
+import "./suites/actor-threat.test.mjs";
+import "./suites/item-rolls.test.mjs";
+import "./suites/active-effects.test.mjs";
+import "./suites/migrations.test.mjs";
+import "./suites/sheets.test.mjs";
