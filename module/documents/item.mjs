@@ -24,8 +24,7 @@ export class OrdemItem extends Item {
 	 * @private
 	 */
 	getRollData() {
-		// If present, return the actor's roll data.
-		if (!this.actor) return null;
+		if (!this.actor) return { ...super.getRollData() };
 		const rollData = this.actor.getRollData();
 		rollData.item = foundry.utils.deepClone(this.system);
 
@@ -117,7 +116,6 @@ export class OrdemItem extends Item {
 				await item.rollFormula({ event });
 				break;
 			case "teste":
-				console.log("teste");
 				break;
 		}
 
@@ -218,7 +216,7 @@ export class OrdemItem extends Item {
 		rollConfig.data = { ...(rollConfig.data ?? {}), ...data };
 
 		// Realiza a rolagem
-		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({ async: true });
+		const roll = await new Roll(rollConfig.formula, rollConfig.data).evaluate();
 
 		// Verificações de Crítico
 		const criticalStatus = this.isCritical({
@@ -342,7 +340,7 @@ export class OrdemItem extends Item {
 
 		// if ( Hooks.call('ordemparanormal.preRollFormula', this, rollConfig) === false ) return;
 
-		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({ async: true });
+		const roll = await new Roll(rollConfig.formula, rollConfig.data).evaluate();
 
 		if (rollConfig.chatMessage) {
 			roll.toMessage({
@@ -497,9 +495,7 @@ export class OrdemItem extends Item {
 
 		// if ( Hooks.call('ordemparanormal.preRollFormula', this, rollConfig) === false ) return;
 
-		const roll = await new Roll(rollConfig.formula, rollConfig.data).roll({
-			async: true,
-		});
+		const roll = await new Roll(rollConfig.formula, rollConfig.data).evaluate();
 
 		if (rollConfig.chatMessage) {
 			roll.toMessage({

@@ -58,16 +58,11 @@ const isCurrent = (msg) => {
 const displayPrompt = (title, content, i, messages) => {
 	content = content.replace("{name}", game.user.name);
 
-	const dialogOptions = {
-		width: 800,
-		height: 630,
-		classes: ["ordemparanormal", "no-scroll"],
-	};
-
-	const config = {
-		title: title,
+	return foundry.applications.api.DialogV2.wait({
+		window: { title, classes: ["ordemparanormal", "no-scroll"] },
+		position: { width: 800, height: 630 },
 		content: `
-			<section class='ordemparanormal grid grid-2col'>
+			<section class='ordemparanormal grid grid-2col' style="height:100%">
 				<aside class='sidebar scroll content-dialog'>
 					<a href="https://discord.gg/G8AwJwJXa5" class="no-orange-hyperlink" target="_blank">
 						<div class="announcement flex-group-center discord" style="background: url('systems/ordemparanormal/media/assets/discord.png'); border: 1px solid #00000020">
@@ -91,38 +86,28 @@ const displayPrompt = (title, content, i, messages) => {
 				<div class="scroll content-dialog">
 					${content}
 				</div>
-			</section>
-			<footer style="position:absolute; bottom: 0; width: 100%; left: 0; padding: 0px 8px; border-top: 1px #00000030 solid;"><p>Você pode desativar as notas de atualização nas configurações do sistema.</p></footer>`,
-		buttons: {
-			previous: {
-				icon: '<i class="fas fa-arrow-left"></i>',
+			</section>`,
+		buttons: [
+			{
+				action: "previous",
+				icon: "fas fa-arrow-left",
 				label: "Atualização Anterior",
-				callback: async () => {
+				callback: () => {
 					const b = messages[i - 1] ? i - 1 : i;
 					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
 				},
 			},
-			next: {
-				icon: "",
-				label: 'Próxima Atualização <i class="fas fa-arrow-right"></i>',
-				callback: async () => {
+			{
+				action: "next",
+				icon: "fas fa-arrow-right",
+				label: "Próxima Atualização",
+				callback: () => {
 					const b = messages[i + 1] ? i + 1 : i;
 					if (messages[b]) displayPrompt(messages[b].title, messages[b].content, b, messages);
 				},
 			},
-		},
-	};
-
-	const d = new Dialog(config, dialogOptions);
-	return d.render(true);
-
-	// return Dialog.prompt({
-	// 	title: title,
-	// 	content: `<section class='grid grid-2col'>${content}</section>`,
-	// 	// label: 'Understood!',
-	// 	options: { width: 400, height: 400, classes: [SYSTEM_NAME, 'dialog'] },
-	// 	// callback: () => setDisplayed(title),
-	// });
+		],
+	});
 };
 
 const sendToChat = (title, content) => {
