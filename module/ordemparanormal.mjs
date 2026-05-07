@@ -99,14 +99,14 @@ Hooks.once("init", function () {
 
 	// Register System Settings in Other File
 	registerSystemSettings();
-	registerSystemKeybindings();
 	utils.preloadHandlebarsTemplates();
 
 	// Change the logo of Foundry for Ordem Paranormal logo.
-	if (navigator.onLine) {
-		const logo = document.querySelector("#logo");
-		if (logo) logo.src = "https://i.imgur.com/TTrDGM4.png";
-	}
+	if (navigator.onLine) document.querySelector("#logo")?.setAttribute("src", "https://i.imgur.com/TTrDGM4.png");
+});
+
+Hooks.once("setup", function () {
+	registerSystemKeybindings();
 });
 
 Hooks.once("ready", function () {
