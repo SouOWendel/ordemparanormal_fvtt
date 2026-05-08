@@ -26,8 +26,7 @@
     },
     "PV": {
       "value": 10,
-      "max": 10,
-      "perRound": 1
+      "max": 10
     },
     "PE": {
       "value": 8,
@@ -41,8 +40,7 @@
     },
     "SAN": {
       "value": 12,
-      "max": 12,
-      "perRound": 1
+      "max": 12
     },
     "defense": {
       "value": 10,

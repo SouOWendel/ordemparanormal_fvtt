@@ -219,6 +219,12 @@
 					"sorting": "m",
 					"color": "#373737",
 					"packs": ["originPowers", "generalPowers"]
+				},
+				{
+					"name": "Fichas Pré-Criadas",
+					"sorting": "m",
+					"color": "#373737",
+					"packs": ["agents", "threats"]
 				}
 			]
 		}
