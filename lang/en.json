@@ -23,6 +23,7 @@
 
 	"SETTINGS.opPatchNotes": "Deactivate Patch Notes",
 	"SETTINGS.opPatchNotesHint": "When starting a world with the Ordem Paranormal system, or, updating the system, patch notes with news are shown in a window, toggle/untoggle this option to deactivate/activate.",
+	"SETTINGS.opPatchNotesAllViewed": "You have viewed every update note. There are no newer notes.",
 	"SETTINGS.globalProgressRules": "Progress Rules",
 	"SETTINGS.globalProgressRulesHint": "The progress rules define the way agent sheets progress changing how they work. Check the rule book for more information on each progress rule.",
 	"SETTINGS.nexProgressRule": "Progress by EXL",
@@ -347,7 +348,8 @@
 		"eletricDamage": "Electricity (El)",
 		"coldDamage": "Cold (Co)",
 		"chemicalDamage": "Chemical (Ch)",
-		"mentalDamage": "Mental (Me)"
+		"mentalDamage": "Mental (Me)",
+		"damageDamage": "Damage (Da)"
 	},
 
 	"op.damageTypeAbv": {
@@ -364,7 +366,8 @@
 		"eletricDamage": "Electricity",
 		"coldDamage": "Cold",
 		"chemicalDamage": "Chemical",
-		"mentalDamage": "Mental"
+		"mentalDamage": "Mental",
+		"damageDamage": "Damage"
 	},
 
 	"op.undefined": "Undefined",

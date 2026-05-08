@@ -15,10 +15,7 @@
 		}
 	],
 	"esmodules": ["module/ordemparanormal.mjs"],
-	"styles": [
-		"css/ordemparanormal.css",
-		"media/vendor/selectize/selectize.default.min.css"
-	],
+	"styles": ["css/ordemparanormal.css", "media/vendor/selectize/selectize.default.min.css"],
 	"scripts": ["media/vendor/selectize/selectize.min.js"],
 	"packs": [
 		{
@@ -209,12 +206,7 @@
 					"name": "Poderes de Classe",
 					"sorting": "m",
 					"color": "#171717",
-					"packs": [
-						"fighterPowers",
-						"specialistPowers",
-						"occultistPowers",
-						"survivalPowers"
-					]
+					"packs": ["fighterPowers", "specialistPowers", "occultistPowers", "survivalPowers"]
 				},
 				{
 					"name": "Poderes de Trilha",

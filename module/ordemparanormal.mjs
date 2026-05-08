@@ -149,7 +149,7 @@ function _configureFonts() {
 				},
 				{
 					urls: ["systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-Semibold.otf"],
-					weight: "semibold",
+					weight: "bold",
 				},
 				{
 					urls: ["systems/ordemparanormal/media/fonts/warnock-pro/WarnockPro-SemiboldItSubh.otf"],

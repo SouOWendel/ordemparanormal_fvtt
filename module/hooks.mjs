@@ -26,6 +26,7 @@ export default function () {
 						style: "fraction",
 						ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
 						otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+						hideHud: true,
 					},
 					threatHPBar: {
 						id: "threatHPBar",
@@ -68,6 +69,7 @@ export default function () {
 						style: "fraction",
 						ownerVisibility: CONST.TOKEN_DISPLAY_MODES.HOVER,
 						otherVisibility: CONST.TOKEN_DISPLAY_MODES.NONE,
+						hideHud: true,
 					},
 					pv: {
 						id: "pv",
@@ -108,10 +110,7 @@ export default function () {
 	});
 
 	Hooks.on("renderSettings", async (app, html) => {
-		// const divider = document.createElement('h4');
-		// divider.classList.add('divider');
-		// divider.textContent = 'Sistema de Jogo';
-
+		// V13 always receives plain DOM elements
 		const section = document.createElement("section");
 		section.innerHTML = '<h4 class="divider">Sistema de Jogo</h4>';
 		const credits = document.createElement("a");
@@ -153,22 +152,43 @@ export default function () {
 		<span class="system-info"><i class="fa-brands fa-twitter"></i> souowendel</span></p>
   `;
 
-		html.querySelector(".info").insertAdjacentElement("afterend", section);
-		html.querySelector(".sidebar-heading").insertAdjacentElement("beforebegin", badge);
+		// V13: Use standard DOM insertion
+		const infoElement = html.querySelector(".info");
+		if (infoElement) {
+			infoElement.insertAdjacentElement("afterend", section);
+		}
+
+		const sidebarHeading = html.querySelector(".sidebar-heading");
+		if (sidebarHeading) {
+			sidebarHeading.insertAdjacentElement("beforebegin", badge);
+		}
+
 		section.appendChild(discord);
 		section.appendChild(credits);
 		// section.appendChild(wiki);
 
 		const creditsDialog = html.querySelector(".credits");
 		creditsDialog.addEventListener("click", async function (ev) {
+			// V13: Use namespaced renderTemplate
 			const content = await foundry.applications.handlebars.renderTemplate(
 				"systems/ordemparanormal/templates/dialog/credits.html"
 			);
-			await foundry.applications.api.DialogV2.wait({
-				window: { title: "Créditos no Desenvolvimento do Sistema" },
+			// V13: Use DialogV2
+			new foundry.applications.api.DialogV2({
+				window: {
+					title: "Créditos no Desenvolvimento do Sistema",
+				},
 				content: content,
-				buttons: [{ action: "close", label: "Fechar", default: true }],
-			});
+				buttons: [
+					{
+						action: "close",
+						label: "Fechar",
+						default: true,
+					},
+				],
+				render: (event, html) => console.log("Janela (dialog) de créditos foi renderizada corretamente."),
+				close: (event, html) => console.log("Janela (dialog) foi fechada com sucesso!"),
+			}).render(true);
 		});
 	});
 }

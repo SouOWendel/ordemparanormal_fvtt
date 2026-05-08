@@ -12,7 +12,8 @@
 		"valid-jsdoc": "off",
 		"require-jsdoc": "off",
 		"no-undef": "off",
-		"prefer-rest-params": "off"
+		"prefer-rest-params": "off",
+		"new-cap": "off"
 	},
 	"overrides": [
 		{

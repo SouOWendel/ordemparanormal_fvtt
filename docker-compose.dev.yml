@@ -1,17 +1,17 @@
 services:
-  foundry:
-    image: felddy/foundryvtt:13
-    user: "501:20"
-    environment:
-      FOUNDRY_LICENSE_KEY: ${FOUNDRY_LICENSE_KEY}
-      FOUNDRY_USERNAME: ${FOUNDRY_USERNAME}
-      FOUNDRY_PASSWORD: ${FOUNDRY_PASSWORD}
-      CONTAINER_PRESERVE_CONFIG: "true"
-    volumes:
-      - foundry-dev-data:/data
-      - ./:/data/Data/systems/ordemparanormal
-    ports:
-      - "30000:30000"
+ foundry:
+  image: felddy/foundryvtt:13
+  user: "501:20"
+  environment:
+   FOUNDRY_LICENSE_KEY: ${FOUNDRY_LICENSE_KEY}
+   FOUNDRY_USERNAME: ${FOUNDRY_USERNAME}
+   FOUNDRY_PASSWORD: ${FOUNDRY_PASSWORD}
+   CONTAINER_PRESERVE_CONFIG: "true"
+  volumes:
+   - foundry-dev-data:/data
+   - ./:/data/Data/systems/ordemparanormal
+  ports:
+   - "30000:30000"
 
 volumes:
-  foundry-dev-data:
+ foundry-dev-data:

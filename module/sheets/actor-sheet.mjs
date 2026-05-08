@@ -387,18 +387,29 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			button.addEventListener("click", this._onAdjustInput.bind(this));
 		}
 
+		// V13 DOM API (no jQuery)
 		for (const toggle of this.element.querySelectorAll(".item-toggle")) {
 			toggle.addEventListener("click", (event) => {
 				event.preventDefault();
 				event.stopPropagation();
+
+				// Find parent item and description
 				const li = event.currentTarget.closest(".item");
-				const desc = li?.querySelector(".item-description");
-				if (desc) desc.classList.toggle("expanded");
+				const desc = li.querySelector(".item-description");
+
+				if (desc) {
+					// Toggle display with transition
+					if (desc.style.display === "none" || !desc.style.display) {
+						desc.style.display = "block";
+					} else {
+						desc.style.display = "none";
+					}
+				}
 			});
 		}
 
-		for (const el of this.element.querySelectorAll(".compendium-skill")) {
-			el.addEventListener("contextmenu", this._onOpenCompendiumEntry.bind(this));
+		for (const compendiumSkill of this.element.querySelectorAll(".compendium-skill")) {
+			compendiumSkill.addEventListener("contextmenu", this._onOpenCompendiumEntry.bind(this));
 		}
 	}
 
@@ -421,7 +432,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		const attr = target.dataset.edit;
 		const current = foundry.utils.getProperty(this.document, attr);
 		const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
-		const fp = new FilePicker({
+		// V13: Use namespaced FilePicker
+		const fp = new foundry.applications.apps.FilePicker({
 			current,
 			type: "image",
 			redirectToRoot: img ? [img] : [],
@@ -870,7 +882,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	 * @protected
 	 */
 	async _onDrop(event) {
-		const data = TextEditor.getDragEventData(event);
+		// V13: Use namespaced TextEditor
+		const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
 		const actor = this.actor;
 		const allowed = Hooks.call("dropActorSheetData", actor, this, data);
 		if (allowed === false) return;

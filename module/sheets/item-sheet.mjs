@@ -290,7 +290,8 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 		const attr = target.dataset.edit;
 		const current = foundry.utils.getProperty(this.document, attr);
 		const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
-		const fp = new FilePicker({
+		// V13: Use namespaced FilePicker
+		const fp = new foundry.applications.apps.FilePicker({
 			current,
 			type: "image",
 			redirectToRoot: img ? [img] : [],
@@ -453,7 +454,8 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 * @protected
 	 */
 	async _onDrop(event) {
-		const data = TextEditor.getDragEventData(event);
+		// V13: Use namespaced TextEditor
+		const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
 		const item = this.item;
 		const allowed = Hooks.call("dropItemSheetData", item, this, data);
 		if (allowed === false) return;

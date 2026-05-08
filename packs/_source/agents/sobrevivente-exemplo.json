@@ -15,29 +15,92 @@
       "itemLimit3": null,
       "itemLimit4": null
     },
-    "NEX": { "value": 5 },
-    "nivel": { "value": 1 },
-    "stage": { "value": 1 },
-    "PV": { "value": 18, "max": 18, "perRound": 1 },
-    "PE": { "value": 4, "max": 4, "perRound": 1 },
-    "PD": { "value": 4, "max": 4, "perRound": 1 },
-    "SAN": { "value": 8, "max": 8, "perRound": 1 },
-    "defense": { "value": 10, "bonus": 0, "dodge": 0 },
-    "desloc": { "value": 9, "bonus": 0 },
-    "spaces": { "bonus": { "value": 0, "max": 0 } },
-    "ritual": { "DT": 12 },
+    "NEX": {
+      "value": 5
+    },
+    "nivel": {
+      "value": 1
+    },
+    "stage": {
+      "value": 1
+    },
+    "PV": {
+      "value": 18,
+      "max": 18,
+      "perRound": 1
+    },
+    "PE": {
+      "value": 4,
+      "max": 4,
+      "perRound": 1
+    },
+    "PD": {
+      "value": 4,
+      "max": 4,
+      "perRound": 1
+    },
+    "SAN": {
+      "value": 8,
+      "max": 8,
+      "perRound": 1
+    },
+    "defense": {
+      "value": 10,
+      "bonus": 0,
+      "dodge": 0
+    },
+    "desloc": {
+      "value": 9,
+      "bonus": 0
+    },
+    "spaces": {
+      "bonus": {
+        "value": 0,
+        "max": 0
+      }
+    },
+    "ritual": {
+      "DT": 12
+    },
     "attributes": {
-      "str": { "value": 2, "bonus": 0 },
-      "dex": { "value": 2, "bonus": 0 },
-      "vit": { "value": 3, "bonus": 0 },
-      "pre": { "value": 2, "bonus": 0 },
-      "int": { "value": 1, "bonus": 0 }
+      "str": {
+        "value": 2,
+        "bonus": 0
+      },
+      "dex": {
+        "value": 2,
+        "bonus": 0
+      },
+      "vit": {
+        "value": 3,
+        "bonus": 0
+      },
+      "pre": {
+        "value": 2,
+        "bonus": 0
+      },
+      "int": {
+        "value": 1,
+        "bonus": 0
+      }
     },
     "skills": {},
     "resources": {
-      "res1": { "value": 0, "max": 0, "label": "" },
-      "res2": { "value": 0, "max": 0, "label": "" },
-      "res3": { "value": 0, "max": 0, "label": "" }
+      "res1": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      },
+      "res2": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      },
+      "res3": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      }
     },
     "biography": "<p>Um exemplo de agente Sobrevivente NEX 5%. Este personagem está pronto para ser usado em uma missão.</p>",
     "goals": ""
@@ -52,11 +115,17 @@
         "description": "<p>Uma ferramenta importante para lenhadores e bombeiros, um machado pode causar ferimentos terríveis.</p>",
         "weight": 1,
         "category": "1",
-        "using": { "state": true, "class": "fas" },
+        "using": {
+          "state": true,
+          "class": "fas"
+        },
         "quantity": 1,
         "proficiency": "tacticalWeapons",
         "types": {
-          "rangeType": { "name": "melee", "subRangeType": "" },
+          "rangeType": {
+            "name": "melee",
+            "subRangeType": ""
+          },
           "ammunitionType": "",
           "gripType": "oneHand",
           "damageType": ""
@@ -64,12 +133,30 @@
         "critical": "x3",
         "range": "",
         "formulas": {
-          "attack": { "formula": "1d4", "attr": "str", "skill": "fighting", "bonus": "" },
-          "damage": { "formula": "1d8", "attr": "str", "bonus": "", "type": "cuttingDamage", "parts": [] },
+          "attack": {
+            "formula": "1d4",
+            "attr": "str",
+            "skill": "fighting",
+            "bonus": ""
+          },
+          "damage": {
+            "formula": "1d8",
+            "attr": "str",
+            "bonus": "",
+            "type": "cuttingDamage",
+            "parts": []
+          },
           "extraFormula": "1d4"
         },
         "penalty": "",
-        "conditions": { "improvised": false, "throwable": false, "agile": false, "automatic": false, "adaptableGrip": false, "pistolBlow": false }
+        "conditions": {
+          "improvised": false,
+          "throwable": false,
+          "agile": false,
+          "automatic": false,
+          "adaptableGrip": false,
+          "pistolBlow": false
+        }
       },
       "effects": [],
       "flags": {},
@@ -84,7 +171,9 @@
         "modifiedTime": null,
         "lastModifiedBy": null
       },
-      "ownership": { "default": 0 },
+      "ownership": {
+        "default": 0
+      },
       "sort": 100000,
       "folder": null,
       "_key": "!actors.items!actorSurvExample.itmSurvivor00001"
@@ -98,7 +187,10 @@
         "description": "<p>Jaqueta de couro pesada ou um colete de kevlar. Essa proteção é tipicamente usada por seguranças e policiais.</p>",
         "weight": 1,
         "category": "1",
-        "using": { "state": true, "class": "fas" },
+        "using": {
+          "state": true,
+          "class": "fas"
+        },
         "defense": 5,
         "penalty": "",
         "quantity": 1
@@ -116,7 +208,9 @@
         "modifiedTime": null,
         "lastModifiedBy": null
       },
-      "ownership": { "default": 0 },
+      "ownership": {
+        "default": 0
+      },
       "sort": 200000,
       "folder": null,
       "_key": "!actors.items!actorSurvExample.itmSurvivor00002"
@@ -125,7 +219,9 @@
   "effects": [],
   "folder": null,
   "sort": 0,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
   "prototypeToken": {
     "name": "Sobrevivente",
@@ -151,8 +247,12 @@
     "alpha": 1,
     "disposition": 1,
     "displayBars": 0,
-    "bar1": { "attribute": "PV" },
-    "bar2": { "attribute": "SAN" },
+    "bar1": {
+      "attribute": "PV"
+    },
+    "bar2": {
+      "attribute": "SAN"
+    },
     "light": {
       "negative": false,
       "priority": 0,
@@ -167,8 +267,16 @@
       "saturation": 0,
       "contrast": 0,
       "shadows": 0,
-      "animation": { "type": null, "speed": 5, "intensity": 5, "reverse": false },
-      "darkness": { "min": 0, "max": 1 }
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
     },
     "sight": {
       "enabled": false,
@@ -182,8 +290,21 @@
       "contrast": 0
     },
     "detectionModes": [],
-    "occludable": { "radius": 0 },
-    "ring": { "enabled": false, "colors": { "ring": null, "background": null }, "effects": 1, "subject": { "scale": 1, "texture": null } }
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    }
   },
   "_stats": {
     "compendiumSource": null,

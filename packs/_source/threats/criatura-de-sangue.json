@@ -4,14 +4,33 @@
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "attributes": {
-      "hp": { "value": 40, "max": 40 },
-      "str": { "value": 4 },
-      "dex": { "value": 2 },
-      "vit": { "value": 4 },
-      "pre": { "value": 1 },
-      "int": { "value": 1 },
-      "movement": { "walk": 9, "unit": "m", "squares": 6 },
-      "vd": { "value": 3 }
+      "hp": {
+        "value": 40,
+        "max": 40
+      },
+      "str": {
+        "value": 4
+      },
+      "dex": {
+        "value": 2
+      },
+      "vit": {
+        "value": 4
+      },
+      "pre": {
+        "value": 1
+      },
+      "int": {
+        "value": 1
+      },
+      "movement": {
+        "walk": 9,
+        "unit": "m",
+        "squares": 6
+      },
+      "vd": {
+        "value": 3
+      }
     },
     "defense": {
       "value": 15,
@@ -19,14 +38,87 @@
       "damageResistances": "Sangue 10"
     },
     "skills": {
-      "fighting": { "value": 0, "attr": ["str"], "degree": { "label": "veteran", "value": 10 } },
-      "aim": { "value": 0, "attr": ["dex"], "degree": { "label": "untrained", "value": 0 } },
-      "resilience": { "value": 0, "attr": ["vit"], "degree": { "label": "trained", "value": 5 } },
-      "reflexes": { "value": 0, "attr": ["dex"], "degree": { "label": "trained", "value": 5 } },
-      "will": { "value": 0, "attr": ["pre"], "degree": { "label": "trained", "value": 5 } },
-      "initiative": { "value": 0, "attr": ["dex"], "degree": { "label": "trained", "value": 5 } },
-      "perception": { "value": 0, "attr": ["pre"], "degree": { "label": "trained", "value": 5 } },
-      "freeSkill": { "value": 0, "name": "", "attr": ["int"], "degree": { "label": "untrained", "value": 0 } }
+      "fighting": {
+        "value": 0,
+        "attr": [
+          "str"
+        ],
+        "degree": {
+          "label": "veteran",
+          "value": 10
+        }
+      },
+      "aim": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        }
+      },
+      "resilience": {
+        "value": 0,
+        "attr": [
+          "vit"
+        ],
+        "degree": {
+          "label": "trained",
+          "value": 5
+        }
+      },
+      "reflexes": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "trained",
+          "value": 5
+        }
+      },
+      "will": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "trained",
+          "value": 5
+        }
+      },
+      "initiative": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "trained",
+          "value": 5
+        }
+      },
+      "perception": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "trained",
+          "value": 5
+        }
+      },
+      "freeSkill": {
+        "value": 0,
+        "name": "",
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        }
+      }
     },
     "attacks": {
       "atk1": {
@@ -40,25 +132,87 @@
         "numberOfAttacks": "2"
       }
     },
-    "elements": { "main": "sangue", "others": "" },
+    "elements": {
+      "main": "sangue",
+      "others": ""
+    },
     "size": "Médio",
-    "disturbingPresence": { "dt": 20, "mentalDamage": "2d6", "immuneNex": 30 },
-    "senses": ["Visão no escuro", "Faro"],
+    "disturbingPresence": {
+      "dt": 20,
+      "mentalDamage": "2d6",
+      "immuneNex": 30
+    },
+    "senses": [
+      "Visão no escuro",
+      "Faro"
+    ],
     "vulnerabilities": "Energia",
     "resistances": {
-      "cuttingDamage": { "value": 5, "vulnerable": false, "immune": false },
-      "impactDamage": { "value": 5, "vulnerable": false, "immune": false },
-      "piercingDamage": { "value": 5, "vulnerable": false, "immune": false },
-      "ballisticDamage": { "value": 5, "vulnerable": false, "immune": false },
-      "fireDamage": { "value": 0, "vulnerable": false, "immune": false },
-      "eletricDamage": { "value": 0, "vulnerable": false, "immune": false },
-      "coldDamage": { "value": 0, "vulnerable": false, "immune": false },
-      "chemicalDamage": { "value": 0, "vulnerable": false, "immune": false },
-      "mentalDamage": { "value": 0, "vulnerable": false, "immune": false },
-      "bloodDamage": { "value": 10, "vulnerable": false, "immune": false },
-      "deathDamage": { "value": 0, "vulnerable": false, "immune": false },
-      "knowledgeDamage": { "value": 0, "vulnerable": false, "immune": false },
-      "energyDamage": { "value": 0, "vulnerable": true, "immune": false }
+      "cuttingDamage": {
+        "value": 5,
+        "vulnerable": false,
+        "immune": false
+      },
+      "impactDamage": {
+        "value": 5,
+        "vulnerable": false,
+        "immune": false
+      },
+      "piercingDamage": {
+        "value": 5,
+        "vulnerable": false,
+        "immune": false
+      },
+      "ballisticDamage": {
+        "value": 5,
+        "vulnerable": false,
+        "immune": false
+      },
+      "fireDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
+      "eletricDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
+      "coldDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
+      "chemicalDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
+      "mentalDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
+      "bloodDamage": {
+        "value": 10,
+        "vulnerable": false,
+        "immune": false
+      },
+      "deathDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
+      "knowledgeDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
+      "energyDamage": {
+        "value": 0,
+        "vulnerable": true,
+        "immune": false
+      }
     },
     "traits": {
       "smell": true,
@@ -90,7 +244,10 @@
     "temporary": {
       "abilities": "",
       "senses": "",
-      "defense": { "skillResistances": "", "damageResistances": "" },
+      "defense": {
+        "skillResistances": "",
+        "damageResistances": ""
+      },
       "vulnerabilities": "",
       "actions": "",
       "characteristics": ""
@@ -99,7 +256,9 @@
   "effects": [],
   "folder": null,
   "sort": 0,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
   "prototypeToken": {
     "name": "Criatura de Sangue",
@@ -107,13 +266,21 @@
     "actorLink": false,
     "appendNumber": true,
     "prependAdjective": false,
-    "texture": { "src": "icons/svg/mystery-man.svg", "scaleX": 1, "scaleY": 1 },
+    "texture": {
+      "src": "icons/svg/mystery-man.svg",
+      "scaleX": 1,
+      "scaleY": 1
+    },
     "width": 1,
     "height": 1,
     "disposition": -1,
     "displayBars": 40,
-    "bar1": { "attribute": "attributes.hp" },
-    "bar2": { "attribute": null }
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    }
   },
   "_stats": {
     "compendiumSource": null,
@@ -127,5 +294,6 @@
     "lastModifiedBy": null
   },
   "_id": "threatBloodCrea1",
+  "items": [],
   "_key": "!actors!threatBloodCrea1"
 }
