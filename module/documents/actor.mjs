@@ -230,6 +230,41 @@ export class OrdemActor extends Actor {
 	}
 
 	/**
+	 * Apply damage to this actor, respecting damage resistances.
+	 *
+	 * @param {number} amount                      Total damage amount before resistances.
+	 * @param {object} [options={}]
+	 * @param {string} [options.damageType]        Key from system.resistances (e.g. "cuttingDamage").
+	 * @param {boolean} [options.ignoreRD=false]   Bypass damage resistance (Perda de Vida rule).
+	 * @param {boolean} [options.nonLethal=false]  Apply as non-lethal damage (tracked separately).
+	 * @returns {Promise<{finalDamage: number, blocked: number, newPV: number, conditions: string[]}>}
+	 */
+	async applyDamage(amount, { damageType, ignoreRD = false, nonLethal = false } = {}) {
+		const pv = this.system.PV;
+		const resistances = this.system.resistances ?? {};
+
+		const rd = (!ignoreRD && damageType && resistances[damageType]?.value) || 0;
+		const finalDamage = Math.max(0, amount - rd);
+		const blocked = amount - finalDamage;
+
+		const conditions = [];
+
+		if (nonLethal) {
+			const newNonLethal = (pv.nonLethal ?? 0) + finalDamage;
+			await this.update({ "system.PV.nonLethal": newNonLethal });
+			return { finalDamage, blocked, newPV: pv.value, conditions };
+		}
+
+		const newPV = Math.max(0, pv.value - finalDamage);
+		await this.update({ "system.PV.value": newPV });
+
+		if (newPV <= 0) conditions.push("morrendo");
+		if (newPV <= pv.max / 2) conditions.push("machucado");
+
+		return { finalDamage, blocked, newPV, conditions };
+	}
+
+	/**
 	 * Roll an Ability Check.
 	 * @param {Partial<AbilityRollProcessConfiguration>} config  Configuration information for the roll.
 	 * @param {Partial<BasicRollDialogConfiguration>} dialog     Configuration for the roll dialog.

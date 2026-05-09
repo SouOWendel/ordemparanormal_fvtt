@@ -48,6 +48,13 @@ class MockOperatorTerm {
 	}
 }
 
+// --- KeyboardManager mock (used by utils.mjs / areKeysPressed) ---
+const MockKeyboardManager = {
+	MODIFIER_CODES: { Alt: ["Alt"], Control: ["Control", "MetaLeft", "MetaRight"], Shift: ["Shift"] },
+	MODIFIER_KEYS: { ALT: "Alt", CONTROL: "Control", SHIFT: "Shift" },
+};
+globalThis.KeyboardManager = MockKeyboardManager;
+
 // --- foundry namespace ---
 globalThis.foundry = {
 	dice: {
@@ -189,7 +196,7 @@ globalThis.foundry = {
 					enrichHTML: async (content) => content,
 				},
 			},
-			ContextMenu: class ContextMenu {},
+			ContextMenu: { implementation: class ContextMenu {} },
 		},
 	},
 };
@@ -274,6 +281,16 @@ globalThis.Roll = class Roll {
 	async evaluate() {
 		this._evaluated = true;
 		return this;
+	}
+
+	resetFormula() {
+		// no-op stub — real Foundry rebuilds the formula string from terms
+	}
+
+	applyRollMode() {}
+
+	toObject() {
+		return { formula: this.formula, data: this.data, options: this.options };
 	}
 
 	async toMessage() {

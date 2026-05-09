@@ -56,9 +56,8 @@ export default class ChatMessageOP extends ChatMessage {
 			const itemName = html.querySelector(".item-name");
 			if (flavor && itemName && flavor.textContent === itemName.textContent) flavor.remove();
 
-			// If the user is the message author or the actor owner, proceed
 			const actor = game.actors.get(this.speaker.actor);
-			const isCreator = game.user.isGM || actor?.isOwner || this.author.id === game.user.id;
+			const isCreator = resolveIsCreator(this, actor, game.user);
 			for (const button of html.querySelectorAll(".card-buttons button")) {
 				if (button.dataset.visibility === "all") continue;
 
@@ -76,15 +75,7 @@ export default class ChatMessageOP extends ChatMessage {
 	 */
 	_highlightCriticalSuccessFailure(html) {
 		if (!this.isContentVisible || !this.rolls.length) return;
-		// const originatingMessage = this.getOriginatingMessage();
-		// const displayChallenge = originatingMessage?.shouldDisplayChallenge;
-		// const displayAttackResult = game.user.isGM || (game.settings.get('ordemparanormal', 'attackRollVisibility') !== 'none');
 
-		/**
-		 * Create an icon to indicate success or failure.
-		 * @param {string} cls  The icon class.
-		 * @returns {HTMLElement}
-		 */
 		function makeIcon(type, cls) {
 			const icon = document.createElement("i");
 			icon.classList.add(type, cls);
@@ -103,7 +94,6 @@ export default class ChatMessageOP extends ChatMessage {
 			const isModifiedRoll = "success" in d.results[0] || d.options.marginSuccess || d.options.marginFailure;
 			if (isModifiedRoll) continue;
 
-			// Highlight successes and failures
 			const total = totals[index];
 			if (!total) continue;
 
@@ -115,15 +105,47 @@ export default class ChatMessageOP extends ChatMessage {
 			if (d20Roll.isCritical) total.classList.add("critical");
 			if (d20Roll.isFumble) total.classList.add("fumble");
 
+			const classification = classifyD20Roll(d20Roll);
 			const icons = document.createElement("div");
 			icons.classList.add("icons");
-			if (total.classList.contains("critical"))
+			if (classification === "critical")
 				icons.append(makeIcon("fa-regular", "fa-star-of-david"), makeIcon("fa-regular", "fa-star-of-david"));
-			else if (total.classList.contains("fumble"))
+			else if (classification === "fumble")
 				icons.append(makeIcon("fa-solid", "fa-car-burst"), makeIcon("fa-solid", "fa-car-burst"));
-			else if (total.classList.contains("success")) icons.append(makeIcon("fa-regular", "fa-thumbs-up"));
-			else if (total.classList.contains("failure")) icons.append(makeIcon("fa-solid", "fa-burst"));
+			else if (classification === "success") icons.append(makeIcon("fa-regular", "fa-thumbs-up"));
+			else if (classification === "failure") icons.append(makeIcon("fa-solid", "fa-burst"));
 			if (icons.children.length) total.append(icons);
 		}
 	}
+}
+
+/* -------------------------------------------- */
+/*  Pure helpers (exported for testing)         */
+/* -------------------------------------------- */
+
+/**
+ * Determine whether a user is considered the "creator" of a chat message
+ * (i.e. may interact with its action buttons).
+ *
+ * @param {object} message        Chat message with .author.id
+ * @param {object|null} actor     Actor retrieved from message.speaker (may be null)
+ * @param {object} user           Current game.user with .isGM and .id
+ * @returns {boolean}
+ */
+export function resolveIsCreator(message, actor, user) {
+	return user.isGM || actor?.isOwner === true || message.author?.id === user.id;
+}
+
+/**
+ * Classify a D20Roll result into a display category.
+ *
+ * @param {object} d20Roll  A D20Roll with isCritical, isFumble, isSuccess, isFailure
+ * @returns {"critical"|"fumble"|"success"|"failure"|null}
+ */
+export function classifyD20Roll(d20Roll) {
+	if (d20Roll.isCritical) return "critical";
+	if (d20Roll.isFumble) return "fumble";
+	if (d20Roll.isSuccess) return "success";
+	if (d20Roll.isFailure) return "failure";
+	return null;
 }
