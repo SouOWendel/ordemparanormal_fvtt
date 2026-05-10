@@ -89,4 +89,19 @@ export default function registerSystemSettings() {
 		default: false,
 		requiresReload: true, // true if you want to prompt the user to reload
 	});
+
+	game.settings.register("ordemparanormal", "initiativeTiebreaker", {
+		name: "SETTINGS.initiativeTiebreaker",
+		hint: "SETTINGS.initiativeTiebreakerHint",
+		scope: "world",
+		config: true,
+		type: String,
+		default: "dex",
+		choices: {
+			dex: "SETTINGS.tiebreakerDex",
+			none: "SETTINGS.tiebreakerNone",
+			reroll: "SETTINGS.tiebreakerReroll",
+		},
+		requiresReload: false,
+	});
 }

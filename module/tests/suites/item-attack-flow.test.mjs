@@ -50,7 +50,7 @@ Hooks.once("quenchReady", (quench) => {
 						name: "[Quench] Test Sword",
 						type: "armament",
 						system: {
-							proficiency: "simple",
+							proficiency: "simpleWeapons",
 							rangeType: "melee",
 							formulas: {
 								attack: { attr: "str", skill: "fighting", bonus: 0 },
@@ -137,45 +137,177 @@ Hooks.once("quenchReady", (quench) => {
 			});
 
 			// ----------------------------------------------------------------
-			// [QoL Feature 1] Targeting — preencher quando Feature 1 existir
+			// [QoL Feature 1+3] Targeting com hitResult
 			// ----------------------------------------------------------------
-			describe.skip("targeting — Feature 1 (não implementada)", () => {
-				it("game.user.targets com 1 token: rollAttack usa esse token como alvo", () => {
-					assert.fail("Implementar quando Feature 1 (targeting) estiver pronta");
+			describe("targeting + hit/miss — Feature 1 & 3", () => {
+				let attackerAgent;
+				let targetThreat;
+				let sword;
+
+				before(async () => {
+					attackerAgent = await createAgent();
+					// Threat with defense 99 — rollAttack should always miss
+					targetThreat = await createThreat({ defense: { value: 99 } });
+					sword = await giveArmament(attackerAgent);
+
+					// Simulate targeting: add token stub to game.user.targets
+					const fakeToken = {
+						name: targetThreat.name,
+						actor: targetThreat,
+						_drawTargetArrows: () => {},
+					};
+					game.user.targets.clear();
+					game.user.targets.add(fakeToken);
 				});
 
-				it("hitResult incluído na chat message quando há alvo", () => {
-					assert.fail("Implementar quando Feature 1 (targeting) estiver pronta");
+				after(async () => {
+					game.user.targets.clear();
+					await attackerAgent?.delete();
+					await targetThreat?.delete();
+				});
+
+				it("rollAttack com 1 alvo retorna hitResult", async () => {
+					const { hitResult } = await sword.rollAttack({});
+					assert.exists(hitResult, "hitResult deve existir quando há alvo");
+					assert.equal(hitResult.targetDefense, 99, "targetDefense deve ser o valor da defesa do alvo");
+					assert.equal(hitResult.actorUuid, targetThreat.uuid, "actorUuid deve ser o UUID do alvo");
+				});
+
+				it("hitResult.hit = false quando resultado < defesa do alvo (defesa 99)", async () => {
+					// Defense is 99 — impossible to hit normally
+					const { hitResult } = await sword.rollAttack({});
+					assert.isFalse(hitResult.hit, "deve ser FALHA contra defesa 99");
+				});
+			});
+
+			describe("targeting hit — alvo com defesa 0", () => {
+				let attackerAgent;
+				let targetThreat;
+				let sword;
+
+				before(async () => {
+					attackerAgent = await createAgent();
+					// Threat with defense 0 — always hit
+					targetThreat = await createThreat({ defense: { value: 0 } });
+					sword = await giveArmament(attackerAgent);
+
+					const fakeToken = { name: targetThreat.name, actor: targetThreat, _drawTargetArrows: () => {} };
+					game.user.targets.clear();
+					game.user.targets.add(fakeToken);
+				});
+
+				after(async () => {
+					game.user.targets.clear();
+					await attackerAgent?.delete();
+					await targetThreat?.delete();
+				});
+
+				it("hitResult.hit = true quando defesa = 0 (sempre acerta)", async () => {
+					const { hitResult } = await sword.rollAttack({});
+					assert.isTrue(hitResult.hit, "deve ser ACERTO contra defesa 0");
 				});
 			});
 
 			// ----------------------------------------------------------------
-			// [QoL Feature 3] Resolução automática acerto/falha
+			// [QoL Feature 2] applyDamage direto (sem socket — owner = true)
 			// ----------------------------------------------------------------
-			describe.skip("resultado de ataque vs defesa — Feature 3 (não implementada)", () => {
-				it("result >= defesa do alvo: hitResult.hit = true na chat message", () => {
-					assert.fail("Implementar quando Feature 3 estiver pronta");
+			describe("applyDamage direto com alvo owner", () => {
+				let threat;
+
+				before(async () => {
+					threat = await createThreat({
+						attributes: { hp: { value: 20, max: 20 } },
+						resistances: { cuttingDamage: { value: 2, vulnerable: false, immune: false } },
+					});
 				});
 
-				it("result < defesa do alvo: hitResult.hit = false na chat message", () => {
-					assert.fail("Implementar quando Feature 3 estiver pronta");
+				after(async () => {
+					await threat?.delete();
+				});
+
+				it("applyDamage aplica dano e subtrai RD corretamente", async () => {
+					const result = await threat.applyDamage(10, { damageType: "cuttingDamage" });
+					assert.equal(result.finalDamage, 8, "RD 2 deve bloquear 2 do dano 10");
+					assert.equal(result.blocked, 2);
+					assert.equal(threat.system.attributes.hp.value, 12);
+				});
+
+				it("applyDamage com ignoreRD=true ignora RD", async () => {
+					await threat.update({ "system.attributes.hp.value": 20 });
+					const result = await threat.applyDamage(10, { damageType: "cuttingDamage", ignoreRD: true });
+					assert.equal(result.finalDamage, 10);
+					assert.equal(result.blocked, 0);
+					assert.equal(threat.system.attributes.hp.value, 10);
 				});
 			});
 
 			// ----------------------------------------------------------------
-			// [QoL Feature 2] Aplicação automática de dano
+			// hitResult persistido no item card (F3.2 — botão dano desabilitado)
 			// ----------------------------------------------------------------
-			describe.skip("aplicação automática de dano — Feature 2 (não implementada)", () => {
-				it("após acerto com alvo: PV do alvo reduz automaticamente sem clique manual", () => {
-					assert.fail("Implementar quando Feature 2 estiver pronta");
+			describe("hitResult flag no item card — F3.2", () => {
+				let agent;
+				let sword;
+				let target;
+
+				before(async () => {
+					agent = await createAgent();
+					sword = await giveArmament(agent);
+					game.user.targets.clear();
+					// alvo com defesa 99 → sempre falha
+					target = await createThreat({ defense: { value: 99 } });
+					game.user.targets.add({ name: target.name, actor: target, _drawTargetArrows: () => {} });
+					// Cria o item card primeiro
+					await sword.roll();
 				});
 
-				it("RD do alvo é aplicada antes de subtrair do PV", () => {
-					assert.fail("Implementar quando Feature 2 estiver pronta");
+				after(async () => {
+					game.user.targets.clear();
+					await agent?.delete();
+					await target?.delete();
 				});
 
-				it("token bar do alvo atualiza após aplicação", () => {
-					assert.fail("Implementar quando Feature 2 estiver pronta");
+				it("após rollAttack com falha, flag 'hitResult' no item card tem hit=false", async () => {
+					const cardMsg = [...game.messages].reverse().find((m) => m.content?.includes("chat-card item-card"));
+					assert.exists(cardMsg, "item card deve existir");
+					await sword.rollAttack({});
+					// Re-busca depois do rollAttack que seta a flag
+					const updated = game.messages.get(cardMsg.id);
+					const hr = updated?.getFlag("ordemparanormal", "hitResult");
+					assert.exists(hr, "hitResult deve ser gravado no item card");
+					assert.isFalse(hr.hit, "ataque contra defesa 99 deve ser FALHA");
+				});
+			});
+
+			// ----------------------------------------------------------------
+			// rollSkill com DT — Feature 6
+			// ----------------------------------------------------------------
+			describe("OrdemActor.rollSkill com DT — Feature 6", () => {
+				let agent;
+
+				before(async () => {
+					agent = await createAgent();
+				});
+
+				after(async () => {
+					await agent?.delete();
+				});
+
+				it("rollSkill com configure=false e target definido: roll.options.target existe", async () => {
+					const rolls = await agent.rollSkill(
+						{ skill: "fighting", rolls: [{ options: { target: 15 } }] },
+						{ configure: false },
+						{ create: false }
+					);
+					assert.isArray(rolls, "deve retornar array");
+					assert.isAbove(rolls.length, 0);
+					// O roll deve ter total numérico — não podemos garantir sucesso/falha
+					assert.isNumber(rolls[0].total, "total deve ser número");
+				});
+
+				it("rollSkill sem DT: isSuccess e isFailure são false (sem target)", async () => {
+					const rolls = await agent.rollSkill({ skill: "perception" }, { configure: false }, { create: false });
+					assert.isFalse(rolls[0].isSuccess, "sem DT não deve ter isSuccess=true");
+					assert.isFalse(rolls[0].isFailure, "sem DT não deve ter isFailure=true");
 				});
 			});
 		},

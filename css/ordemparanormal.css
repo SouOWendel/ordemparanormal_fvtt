@@ -285,13 +285,13 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .application.theme-light {
 	background: url("../media/parchment.jpg") repeat;
-	--color-header-background: #333;
-	--color-border: #302831;
-	--color-tabs-border: #555;
-	--color-fieldset-border: #efe6d8;
+	--color-header-background: colors.$c-header-bg;
+	--color-border: colors.$c-border-forms;
+	--color-tabs-border: colors.$c-tabs-border;
+	--color-fieldset-border: colors.$c-fieldset-border;
 	--color-form-label: $text-dark;
-	--color-form-label-hover: #111;
-	--color-form-hint: #444;
+	--color-form-label-hover: colors.$c-form-label-hover;
+	--color-form-hint: colors.$c-form-hint;
 	--color-form-hint-hover: $text-dark;
 	--color-select-option-bg: $bg-parchment;
 	color: #222;
@@ -614,6 +614,15 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal form.ordemparanormal.actor .items-list .item:last-child {
 	border-bottom: none;
 }
+.system-ordemparanormal section.itemsheet .items-list .item .item-description,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-description {
+	display: none;
+	overflow: hidden;
+}
+.system-ordemparanormal section.itemsheet .items-list .item .item-description.expanded,
+.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-description.expanded {
+	display: block;
+}
 .system-ordemparanormal section.itemsheet .items-list .item .item-name,
 .system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name {
 	color: #191813;
@@ -791,7 +800,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .threat #actions,
 .system-ordemparanormal .threat #abilities {
 	padding: 5px;
-	border: 1px solid rgba(39, 39, 39, 0.25);
+	border: 1px solid rgba(0, 0, 0, 0.25);
 	margin-top: 5px;
 	border-radius: 5px;
 }
@@ -1165,7 +1174,7 @@ dialog.ordemparanormal.application {
 	margin-top: 0;
 	margin-right: 0;
 	margin-bottom: 10px;
-	border: 1px solid rgba(0, 0, 0, 0.2509803922);
+	border: 1px solid rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 	padding: 10px;
 }
@@ -1203,11 +1212,11 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .application.item .specifications h4 {
 	color: rgba(22, 22, 22, 0.4392156863);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 .system-ordemparanormal .application.item .combat h4 {
 	color: rgba(22, 22, 22, 0.4392156863);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2509803922);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 .system-ordemparanormal .application.item .combat .resource-label {
 	font-size: 13px;
@@ -1244,21 +1253,21 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .application.item .item-sheet .item-attribute {
 	flex: 1;
-	padding: 0 8px;
+	padding: 0 6px;
 }
 .system-ordemparanormal .application.item .item-sheet .item-skill {
 	flex: 1;
-	padding: 0 8px;
+	padding: 0 6px;
 }
 .system-ordemparanormal .application.item .item-sheet .item-bonus {
 	flex: 2;
-	padding: 0 8px;
+	padding: 0 6px;
 }
 .system-ordemparanormal .application.item .damage-box {
 	color: rgba(0, 0, 0, 0.4392156863);
 	padding: 6px;
 	text-align: center;
-	border-bottom: 1px dashed rgba(0, 0, 0, 0.2509803922);
+	border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
 }
 .system-ordemparanormal .application.item .damage-box a:hover {
 	color: #555;
@@ -1271,63 +1280,60 @@ dialog.ordemparanormal.application {
 	margin-right: 15px;
 }
 .system-ordemparanormal .application.item {
-	/* 1. Prepara o container principal para ser a referência de posicionamento */
+	/* Damage formula tree structure */
 }
 .system-ordemparanormal .application.item .container-formula {
-	position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
-	padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
-	font-family: sans-serif; /* Apenas para estilização de exemplo */
+	position: relative;
+	padding-left: 0px;
+	font-family: sans-serif;
 }
 .system-ordemparanormal .application.item .part-damage-section {
 	padding-left: 20px;
 	padding-top: 10px;
 }
 .system-ordemparanormal .application.item {
-	/* 2. Cria a LINHA VERTICAL principal */
+	/* Vertical main line */
 }
 .system-ordemparanormal .application.item .linhas-adicionais::before {
-	content: ""; /* Pseudo-elementos precisam disso para aparecer */
-	position: absolute; /* Posição absoluta em relação ao .container-formula */
-	/* Posição da linha */
-	left: 15px; /* Distância da borda esquerda do container */
-	top: 50px; /* Distância do topo (ajuste conforme a altura da sua linha principal) */
-	bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
-	/* Estilo da linha */
-	width: 2px; /* Espessura da linha */
-	background-color: #b0b0b0; /* Cor da linha */
+	content: "";
+	position: absolute;
+	/* Position */
+	left: 15px;
+	top: 50px;
+	bottom: 52px;
+	/* Style */
+	width: 2px;
+	background-color: #b8b8b8;
 	border-radius: 2px;
 }
 .system-ordemparanormal .application.item {
-	/* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
+	/* Prepare each secondary line */
 }
 .system-ordemparanormal .application.item .linha-secundaria {
-	position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
-	margin-left: 25px; /* Empurra o conteúdo para a direita, criando espaço para a conexão */
-	margin-bottom: 5px; /* Espaçamento entre as linhas */
+	position: relative;
+	margin-left: 25px;
+	margin-bottom: 5px;
 }
 .system-ordemparanormal .application.item {
-	/* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
+	/* Horizontal connecting lines */
 }
 .system-ordemparanormal .application.item .linha-secundaria::before {
 	content: "";
 	position: absolute;
-	/* Posição da linha */
-	top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
-	left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
-	/* Estilo da linha */
-	width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
-	height: 2px; /* Espessura da linha */
-	background-color: #b0b0b0; /* Mesma cor da linha vertical */
+	/* Position */
+	top: 50%;
+	left: -30px;
+	/* Style */
+	width: 30px;
+	height: 2px;
+	background-color: #b8b8b8;
 	border-radius: 2px;
-}
-.system-ordemparanormal .application.item {
-	/* Estilos adicionais para parecer com a imagem (opcional) */
 }
 .system-ordemparanormal .application.item .linha-principal,
 .system-ordemparanormal .application.item .linha-secundaria {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 6px;
 }
 .system-ordemparanormal .application.item .effects input,
 .system-ordemparanormal .application.item .effects select {
@@ -1495,7 +1501,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .effect-formula {
 	flex: 0 0 200px;
-	padding: 0 8px;
+	padding: 0 6px;
 }
 .system-ordemparanormal .effects .item .effect-source,
 .system-ordemparanormal .effects .item .effect-duration,
@@ -1544,7 +1550,7 @@ dialog.ordemparanormal.application {
 	overflow: auto;
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-hint {
-	padding: 8px;
+	padding: 6px;
 	border-top: 1px solid rgba(0, 0, 0, 0.19);
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-hint p {
@@ -1595,7 +1601,7 @@ dialog.ordemparanormal.application {
 	position: relative;
 	width: 100%;
 	height: 156px;
-	margin: 8px 0;
+	margin: 6px 0;
 	border-radius: 5px !important;
 	display: flex;
 	background-position: center !important;
@@ -1694,7 +1700,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal #d20dice-dialog fieldset {
 	display: flex;
 	gap: 0.1rem;
-	border-radius: 8px;
+	border-radius: 6px;
 	flex-wrap: nowrap;
 	flex-direction: column;
 }
@@ -1852,7 +1858,7 @@ dialog.ordemparanormal.application {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 8px;
+	gap: 6px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice li {
 	position: relative;
@@ -2033,10 +2039,10 @@ dialog.ordemparanormal.application {
 	min-height: 2em;
 	gap: 0.25rem;
 	padding: 0 0.5rem;
-	background: rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.05);
 	border: 1px solid #555;
 	border-radius: 4px;
-	color: #111;
+	color: #161616;
 	font-family: "Signika", "Palatino Linotype", sans-serif;
 	font-size: 0.875rem;
 	line-height: normal;
@@ -2057,9 +2063,9 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .card-footer span {
 	color: #161616;
 	font-size: 11px;
-	padding: 2px 3px;
+	padding: 2px 2px;
 	border-radius: 6px;
-	border: 1px solid rgba(0, 0, 0, 0.1882352941);
+	border: 1px solid rgba(0, 0, 0, 0.13);
 }
 .system-ordemparanormal .chat-card details {
 	padding: 4px 4px;
@@ -2204,7 +2210,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .dice-result .dice-total::before {
 	content: "";
 	width: 36px;
-	border-left: 1px solid #bbb;
+	border-left: 1px solid #b8b8b8;
 }
 .system-ordemparanormal .dice-result .dice-total::after {
 	transition: all 250ms ease;
@@ -2226,7 +2232,7 @@ dialog.ordemparanormal.application {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 6px;
 }
 .system-ordemparanormal .op.system-badge img {
 	border: 0;
@@ -2256,7 +2262,7 @@ dialog.ordemparanormal.application {
 	font-size: 12px;
 	line-height: 16px;
 	color: #4b4a44;
-	margin: 3px 0;
+	margin: 2px 0;
 	text-align: justify;
 	hyphens: auto;
 }
@@ -2271,6 +2277,83 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .additionalContent .flexe {
 	display: flex !important;
+}
+.system-ordemparanormal .target-info {
+	text-align: center;
+	font-size: 12px;
+	color: var(--color-text-secondary, #555);
+	margin: 4px 0;
+}
+.system-ordemparanormal .hit-result {
+	text-align: center;
+	font-weight: bold;
+	padding: 4px 6px;
+	border-radius: 4px;
+	margin: 4px 0;
+	font-size: 13px;
+}
+.system-ordemparanormal .hit-result.success {
+	color: #2e7d32;
+	background: rgba(46, 125, 50, 0.1);
+	border: 1px solid rgba(46, 125, 50, 0.3);
+}
+.system-ordemparanormal .hit-result.failure {
+	color: #c62828;
+	background: rgba(198, 40, 40, 0.1);
+	border: 1px solid rgba(198, 40, 40, 0.3);
+}
+.system-ordemparanormal .hit-result .vs-defense {
+	font-weight: normal;
+	font-size: 11px;
+	margin-left: 6px;
+}
+.system-ordemparanormal .dt-result {
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	padding: 2px 6px;
+	border-radius: 3px;
+	margin-top: 2px;
+}
+.system-ordemparanormal .dt-result.success {
+	color: #2e7d32;
+	background: rgba(46, 125, 50, 0.1);
+}
+.system-ordemparanormal .dt-result.failure {
+	color: #c62828;
+	background: rgba(198, 40, 40, 0.1);
+}
+.system-ordemparanormal .op-hp-display {
+	font-size: 11px;
+	opacity: 0.85;
+	margin-left: 4px;
+}
+.system-ordemparanormal .card-buttons button.hit-critical {
+	border-color: #f9a825;
+}
+.system-ordemparanormal .op-action-badge {
+	font-size: 10px;
+	font-weight: bold;
+	padding: 1px 4px;
+	border-radius: 3px;
+	background: transparent;
+	color: #fff;
+	white-space: nowrap;
+}
+.system-ordemparanormal .op-action-badge.standard {
+	background: #1565c0;
+}
+.system-ordemparanormal .op-action-badge.free {
+	background: #2e7d32;
+}
+.system-ordemparanormal .op-action-badge.movement {
+	background: #f57f17;
+}
+.system-ordemparanormal .op-action-badge.reaction {
+	background: #e65100;
+}
+.system-ordemparanormal .op-action-badge.full {
+	background: #b71c1c;
 }
 
 /*# sourceMappingURL=ordemparanormal.css.map */

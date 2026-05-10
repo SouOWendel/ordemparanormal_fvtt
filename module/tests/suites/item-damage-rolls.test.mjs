@@ -14,24 +14,26 @@ Hooks.once("quenchReady", (quench) => {
 						NEX: { value: 5 },
 					},
 				});
-				const [item] = await actor.createEmbeddedDocuments("Item", [{
-					name: "[Quench] Test Sword",
-					type: "armament",
-					system: {
-						proficiency: "simple",
-						rangeType: "melee",
-						formulas: {
-							attack: { attr: "str", skill: "fighting", bonus: 0 },
-							damage: { formula: "1d8", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
-							extraFormula: "",
+				const [item] = await actor.createEmbeddedDocuments("Item", [
+					{
+						name: "[Quench] Test Sword",
+						type: "armament",
+						system: {
+							proficiency: "simple",
+							rangeType: "melee",
+							formulas: {
+								attack: { attr: "str", skill: "fighting", bonus: 0 },
+								damage: { formula: "1d8", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
+								extraFormula: "",
+							},
+							critical: "20",
+							weight: 1,
+							quantity: 1,
+							using: { state: true },
+							...swordOverrides,
 						},
-						critical: "20",
-						weight: 1,
-						quantity: 1,
-						using: { state: true },
-						...swordOverrides,
 					},
-				}]);
+				]);
 				return { actor, item };
 			}
 
@@ -44,7 +46,9 @@ Hooks.once("quenchReady", (quench) => {
 				before(async () => {
 					({ actor, item } = await createAgentWithSword());
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollDamage não lança exceção", async () => {
 					let threw = false;
@@ -83,9 +87,13 @@ Hooks.once("quenchReady", (quench) => {
 				let item;
 				before(async () => {
 					// STR=3, arma 1d8+STR → total mínimo é 1d8+3 = 4
-					({ actor, item } = await createAgentWithSword({ formulas: { damage: { formula: "1d8", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] } } }));
+					({ actor, item } = await createAgentWithSword({
+						formulas: { damage: { formula: "1d8", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] } },
+					}));
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollDamage com STR=3 produz total >= 4 (1d8 mínimo 1 + STR 3)", async () => {
 					const roll = await item.rollDamage({ event: { altKey: false }, critical: false });
@@ -102,7 +110,9 @@ Hooks.once("quenchReady", (quench) => {
 				before(async () => {
 					({ actor, item } = await createAgentWithSword());
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("com isCritical=true e lastId=true: fórmula usa 2d8 (dobro dos dados)", async () => {
 					const criticalStatus = { isCritical: true, multiplier: 2, margin: 20 };
@@ -136,7 +146,9 @@ Hooks.once("quenchReady", (quench) => {
 						},
 					}));
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollDamage com parts=[1d4 fogo]: total >= 2 (1d6 min 1 + 1d4 min 1)", async () => {
 					const roll = await item.rollDamage({ event: { altKey: false }, critical: false });
@@ -160,7 +172,9 @@ Hooks.once("quenchReady", (quench) => {
 						},
 					}));
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollFormula não lança exceção quando extraFormula='2d6'", async () => {
 					let threw = false;
@@ -187,7 +201,9 @@ Hooks.once("quenchReady", (quench) => {
 				before(async () => {
 					item = await Item.create({ name: "[Quench] isCritical Bug Fixes", type: "armament" });
 				});
-				after(async () => { await item?.delete(); });
+				after(async () => {
+					await item?.delete();
+				});
 
 				it("fórmula vazia: não lança exceção", () => {
 					assert.doesNotThrow(() => {

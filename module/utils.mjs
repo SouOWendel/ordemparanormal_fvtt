@@ -67,6 +67,9 @@ export async function preloadHandlebarsTemplates() {
 
 		// Chat Message Partials
 		"systems/ordemparanormal/templates/chat/item-card.html",
+		"systems/ordemparanormal/templates/chat/dt-card.hbs",
+		"systems/ordemparanormal/templates/chat/oposto-request.hbs",
+		"systems/ordemparanormal/templates/chat/oposto-results.hbs",
 
 		// Dialog
 		"systems/ordemparanormal/templates/chat/item-card.html",
@@ -89,4 +92,62 @@ export async function preloadHandlebarsTemplates() {
 	}
 
 	return foundry.applications.handlebars.loadTemplates(paths);
+}
+
+/**
+ * Resolve the actor a chat command should roll for.
+ *
+ * Lookup priority (chosen so /dt and /oposto "just work" when a player has a
+ * single character):
+ *   1. Currently controlled token on the canvas. When multiple tokens are
+ *      controlled, prefer one the current user owns (deterministic) —
+ *      falling back to the first only if none is owned.
+ *   2. The user's bound character (`game.user.character`).
+ *   3. (Players only) the first agent the user has OWNER permission on —
+ *      typically their PC. Skipped for the GM, who owns every actor and
+ *      would otherwise fall into a non-deterministic pick.
+ * @returns {Actor|null}
+ */
+export function resolveChatCommandActor() {
+	const controlled = canvas?.tokens?.controlled ?? [];
+	if (controlled.length) {
+		const ownedToken = controlled.find((t) => t.actor?.testUserPermission?.(game.user, "OWNER"));
+		const tokenActor = (ownedToken ?? controlled[0])?.actor;
+		if (tokenActor) return tokenActor;
+	}
+
+	const speaker = ChatMessage.getSpeaker();
+	if (speaker?.actor) {
+		const fromSpeaker = game.actors.get(speaker.actor);
+		if (fromSpeaker) return fromSpeaker;
+	}
+
+	if (!game.user?.isGM) {
+		const ownedAgent = game.actors.contents.find((a) => a.type === "agent" && a.testUserPermission?.(game.user, "OWNER"));
+		if (ownedAgent) return ownedAgent;
+	}
+
+	return null;
+}
+
+/**
+ * Authorize a socket payload that claims to be a roll on behalf of `data.actorId`
+ * coming from `data.userId`. Only the GM client invokes this — but a malicious
+ * (or buggy) client can craft any payload, so we re-check that the claimed
+ * sender exists and either is the GM or actually owns the claimed actor.
+ *
+ * Pure: takes its dependencies via parameter so it can be unit-tested without
+ * booting Foundry. The default uses the live `game` global.
+ *
+ * @param {{userId?: string, actorId?: string}} data
+ * @param {{users: {get: (id: string) => any}, actors: {get: (id: string) => any}}} [deps]
+ * @returns {boolean}
+ */
+export function isOpostoSenderAuthorized(data, deps) {
+	const g = deps ?? globalThis.game;
+	if (!data?.userId || !data?.actorId) return false;
+	const sender = g?.users?.get?.(data.userId);
+	const actor = g?.actors?.get?.(data.actorId);
+	if (!sender || !actor) return false;
+	return Boolean(sender.isGM || actor.testUserPermission?.(sender, "OWNER"));
 }

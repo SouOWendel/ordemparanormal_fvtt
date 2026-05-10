@@ -4,8 +4,8 @@ Hooks.once("quenchReady", (quench) => {
 		(context) => {
 			const { describe, it, assert, before, after } = context;
 
-			// Helper: re-fetch actor from collection to avoid stale reference after DB writes
-			// per document-model.md §8 — always operate on the live document instance
+			// Helper: re-fetch actor from collection to avoid stale reference after DB writes —
+			// Foundry docs recommend always operating on the live document instance.
 			function refetch(actor) {
 				return game.actors.get(actor.id);
 			}

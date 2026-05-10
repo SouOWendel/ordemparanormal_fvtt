@@ -105,7 +105,7 @@ describe("BasicRoll.replaceFormulaData", () => {
 		expect(result).toBe("1d20 + 5");
 	});
 
-	it('strips $!...!$ sentinel pattern', () => {
+	it("strips $!...!$ sentinel pattern", () => {
 		// The static method calls super (Roll.replaceFormulaData) first, then strips.
 		// Since Roll.replaceFormulaData is a stub that returns the formula as-is,
 		// we can test the stripping logic directly.
@@ -135,42 +135,27 @@ describe("BasicRoll.replaceFormulaData", () => {
 
 describe("BasicRoll.fromConfig", () => {
 	it("joins parts with ' + ' to form the formula", () => {
-		const roll = BasicRoll.fromConfig(
-			{ parts: ["@degree", "@bonus"], data: {}, options: {} },
-			{ target: 15 }
-		);
+		const roll = BasicRoll.fromConfig({ parts: ["@degree", "@bonus"], data: {}, options: {} }, { target: 15 });
 		expect(roll.formula).toBe("@degree + @bonus");
 	});
 
 	it("sets options.target from process.target", () => {
-		const roll = BasicRoll.fromConfig(
-			{ parts: ["1d20"], data: {}, options: {} },
-			{ target: 20 }
-		);
+		const roll = BasicRoll.fromConfig({ parts: ["1d20"], data: {}, options: {} }, { target: 20 });
 		expect(roll.options.target).toBe(20);
 	});
 
 	it("does not override an existing options.target", () => {
-		const roll = BasicRoll.fromConfig(
-			{ parts: ["1d20"], data: {}, options: { target: 10 } },
-			{ target: 20 }
-		);
+		const roll = BasicRoll.fromConfig({ parts: ["1d20"], data: {}, options: { target: 10 } }, { target: 20 });
 		expect(roll.options.target).toBe(10);
 	});
 
 	it("returns a BasicRoll instance", () => {
-		const roll = BasicRoll.fromConfig(
-			{ parts: ["1d20"], data: {}, options: {} },
-			{}
-		);
+		const roll = BasicRoll.fromConfig({ parts: ["1d20"], data: {}, options: {} }, {});
 		expect(roll).toBeInstanceOf(BasicRoll);
 	});
 
 	it("handles empty parts array — produces empty formula", () => {
-		const roll = BasicRoll.fromConfig(
-			{ parts: [], data: {}, options: {} },
-			{}
-		);
+		const roll = BasicRoll.fromConfig({ parts: [], data: {}, options: {} }, {});
 		expect(roll.formula).toBe("");
 	});
 });

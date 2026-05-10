@@ -27,9 +27,13 @@ Hooks.once("quenchReady", (quench) => {
 				let actor;
 				before(async () => {
 					// str=2 → max = 2*5 = 10 espaços; sem itens equipados → weight=0
-					actor = await createAgent({ attributes: { str: { value: 2 }, vit: { value: 1 }, pre: { value: 1 }, dex: { value: 1 }, int: { value: 1 } } });
+					actor = await createAgent({
+						attributes: { str: { value: 2 }, vit: { value: 1 }, pre: { value: 1 }, dex: { value: 1 }, int: { value: 1 } },
+					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("spaces.max = STR(2) × 5 = 10", () => {
 					assert.equal(actor.system.spaces.max, 10);
@@ -51,9 +55,13 @@ Hooks.once("quenchReady", (quench) => {
 			describe("_prepareActorSpaces — STR=0 fallback", () => {
 				let actor;
 				before(async () => {
-					actor = await createAgent({ attributes: { str: { value: 0 }, vit: { value: 1 }, pre: { value: 1 }, dex: { value: 1 }, int: { value: 1 } } });
+					actor = await createAgent({
+						attributes: { str: { value: 0 }, vit: { value: 1 }, pre: { value: 1 }, dex: { value: 1 }, int: { value: 1 } },
+					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("spaces.max = 2 quando STR=0 (fallback)", () => {
 					assert.equal(actor.system.spaces.max, 2);
@@ -67,13 +75,17 @@ Hooks.once("quenchReady", (quench) => {
 					actor = await createAgent({
 						attributes: { str: { value: 1 }, vit: { value: 1 }, pre: { value: 1 }, dex: { value: 1 }, int: { value: 1 } },
 					});
-					await actor.createEmbeddedDocuments("Item", [{
-						name: "[Quench] Heavy Item",
-						type: "armament",
-						system: { weight: 10, quantity: 1, using: { state: true } },
-					}]);
+					await actor.createEmbeddedDocuments("Item", [
+						{
+							name: "[Quench] Heavy Item",
+							type: "armament",
+							system: { weight: 10, quantity: 1, using: { state: true } },
+						},
+					]);
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("spaces.value = 10 (peso do item)", () => {
 					assert.equal(actor.system.spaces.value, 10);
@@ -95,18 +107,24 @@ Hooks.once("quenchReady", (quench) => {
 						attributes: { str: { value: 2 }, vit: { value: 1 }, pre: { value: 1 }, dex: { value: 1 }, int: { value: 1 } },
 					});
 					// Mochila militar: +2 espaços via AE
-					await actor.createEmbeddedDocuments("Item", [{
-						name: "[Quench] Mochila Militar",
-						type: "generalEquipment",
-						system: { weight: 0, quantity: 1, using: { state: true } },
-						effects: [{
-							name: "Mochila +2 espaços",
-							changes: [{ key: "system.spaces.bonus.max", mode: 2, value: "2" }],
-							disabled: false,
-						}],
-					}]);
+					await actor.createEmbeddedDocuments("Item", [
+						{
+							name: "[Quench] Mochila Militar",
+							type: "generalEquipment",
+							system: { weight: 0, quantity: 1, using: { state: true } },
+							effects: [
+								{
+									name: "Mochila +2 espaços",
+									changes: [{ key: "system.spaces.bonus.max", mode: 2, value: "2" }],
+									disabled: false,
+								},
+							],
+						},
+					]);
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("spaces.max = 12 com bônus de +2 da mochila", () => {
 					assert.equal(actor.system.spaces.max, 12);
@@ -125,7 +143,9 @@ Hooks.once("quenchReady", (quench) => {
 						skills: { initiative: { degree: { label: "untrained", value: 0 }, value: 0, mod: 0 } },
 					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollInitiative contém '3d20kh' para AGI=3", () => {
 					const data = actor.getRollData();
@@ -144,7 +164,9 @@ Hooks.once("quenchReady", (quench) => {
 						attributes: { str: { value: 1 }, vit: { value: 1 }, pre: { value: 1 }, dex: { value: 0 }, int: { value: 1 } },
 					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollInitiative contém '2d20kl' para AGI=0", () => {
 					const data = actor.getRollData();
@@ -160,7 +182,9 @@ Hooks.once("quenchReady", (quench) => {
 						skills: { initiative: { degree: { label: "trained", value: 5 }, value: 0, mod: 2 } },
 					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollInitiative inclui bônus de grau (5) + mod (2) = '+ 7'", () => {
 					const data = actor.getRollData();
@@ -174,7 +198,9 @@ Hooks.once("quenchReady", (quench) => {
 				before(async () => {
 					actor = await createAgent();
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("getRollData contém chave NEX", () => {
 					assert.property(actor.getRollData(), "NEX");

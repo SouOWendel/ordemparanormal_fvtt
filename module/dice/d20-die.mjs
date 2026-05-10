@@ -69,7 +69,11 @@ export default class D20Die extends Die {
 	 */
 	applyModifier() {
 		this.modifiers.findSplice((m) => ["kh", "kl"].includes(m));
-		if (this.number > 0) {
+		const isDisadvantage = this.options.advantageMode === CONFIG.Dice.D20Roll.ADV_MODE.DISADVANTAGE;
+		if (isDisadvantage) {
+			this.number = Math.max(2, this.number);
+			this.modifiers.push("kl");
+		} else if (this.number > 0) {
 			this.modifiers.push("kh");
 		} else {
 			this.number = 2;

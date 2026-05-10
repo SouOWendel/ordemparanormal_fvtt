@@ -278,8 +278,17 @@ globalThis.Roll = class Roll {
 		return Number(expression) || 0;
 	}
 
+	get result() {
+		return String(this.total);
+	}
+
+	get dice() {
+		return this.terms.filter((t) => t.faces);
+	}
+
 	async evaluate() {
 		this._evaluated = true;
+		this.total = 10;
 		return this;
 	}
 
@@ -382,6 +391,7 @@ globalThis.game = {
 		format: (key, data) => key,
 		has: () => true,
 	},
+	socket: { emit: () => {}, on: () => {} },
 	keybindings: { register: () => {} },
 	system: { version: "7.3.3", flags: {}, title: "Ordem Paranormal" },
 	modules: { get: () => null },
@@ -389,7 +399,7 @@ globalThis.game = {
 	actors: { size: 0 },
 	scenes: { size: 0 },
 	items: { size: 0 },
-	users: { filter: () => [] },
+	users: { filter: () => [], some: () => true, find: () => ({ isGM: true, active: true }) },
 	world: { flags: {} },
 };
 
@@ -466,6 +476,21 @@ if (!Number.prototype.toNearest) {
 globalThis.getDocumentClass = (name) => {
 	if (name === "ChatMessage") return ChatMessage;
 	return class {};
+};
+
+globalThis.Combat = class Combat {
+	constructor(data = {}, context = {}) {
+		Object.assign(this, data);
+		this.combatants = this.combatants || [];
+	}
+
+	async rollAll(options = {}) {
+		// Stub - subclasses override
+	}
+
+	async updateEmbeddedDocuments(embeddedName, updates, options = {}) {
+		return [];
+	}
 };
 
 globalThis.fromUuid = async () => null;

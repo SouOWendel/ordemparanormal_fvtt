@@ -240,26 +240,48 @@ export class OrdemActor extends Actor {
 	 * @returns {Promise<{finalDamage: number, blocked: number, newPV: number, conditions: string[]}>}
 	 */
 	async applyDamage(amount, { damageType, ignoreRD = false, nonLethal = false } = {}) {
-		const pv = this.system.PV;
+		const isThreat = this.type === "threat";
+		const resource = isThreat ? this.system.attributes?.hp : this.system.PV;
 		const resistances = this.system.resistances ?? {};
 
 		const rd = (!ignoreRD && damageType && resistances[damageType]?.value) || 0;
 		const finalDamage = Math.max(0, amount - rd);
 		const blocked = amount - finalDamage;
 
-		const conditions = [];
-
-		if (nonLethal) {
-			const newNonLethal = (pv.nonLethal ?? 0) + finalDamage;
-			await this.update({ "system.PV.nonLethal": newNonLethal });
-			return { finalDamage, blocked, newPV: pv.value, conditions };
+		// Delegate to GM via socket when the current user doesn't own this actor
+		if (!this.isOwner) {
+			// No-GM guard (Foundry docs: GM-authoritative socket pattern) — without this,
+			// emit silently drops if no GM is connected.
+			const gmOnline = game.users.some((u) => u.isGM && u.active);
+			if (!gmOnline) {
+				ui.notifications.warn(game.i18n.localize("op.applyDamageNeedsGM"));
+				return { finalDamage: 0, blocked: 0, newPV: null, conditions: [] };
+			}
+			game.socket.emit("system.ordemparanormal", {
+				type: "applyDamage",
+				actorUuid: this.uuid,
+				amount,
+				options: { damageType, ignoreRD, nonLethal },
+				userId: game.user.id,
+			});
+			// newPV is unknown here — update happens asynchronously on the GM client
+			return { finalDamage, blocked, newPV: null, conditions: [] };
 		}
 
-		const newPV = Math.max(0, pv.value - finalDamage);
-		await this.update({ "system.PV.value": newPV });
+		const conditions = [];
+
+		if (!isThreat && nonLethal) {
+			const newNonLethal = (resource.nonLethal ?? 0) + finalDamage;
+			await this.update({ "system.PV.nonLethal": newNonLethal });
+			return { finalDamage, blocked, newPV: resource.value, conditions };
+		}
+
+		const newPV = Math.max(0, resource.value - finalDamage);
+		const hpKey = isThreat ? "system.attributes.hp.value" : "system.PV.value";
+		await this.update({ [hpKey]: newPV });
 
 		if (newPV <= 0) conditions.push("morrendo");
-		if (newPV <= pv.max / 2) conditions.push("machucado");
+		if (newPV <= resource.max / 2) conditions.push("machucado");
 
 		return { finalDamage, blocked, newPV, conditions };
 	}
@@ -482,8 +504,8 @@ export class OrdemActor extends Actor {
 			BasicRoll.mergeConfigs(
 				{
 					options: {
-						// maximum: relevant?.roll.max,
-						// minimum: relevant?.roll.min
+						advantage: rollConfig.advantage || false,
+						disadvantage: rollConfig.disadvantage || false,
 					},
 				},
 				config.rolls?.shift()

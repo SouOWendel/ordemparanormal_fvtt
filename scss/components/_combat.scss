@@ -1,0 +1,103 @@
+@use "../utils/colors";
+@use "../utils/variables";
+@use "../utils/mixins";
+
+// Combat QoL Features - Targeting, Hit Results, Action Badges
+
+// ----------------------------------------
+// Targeting & Hit Result Display
+// ----------------------------------------
+.target-info {
+	text-align: center;
+	font-size: variables.$font-md;
+	color: var(--color-text-secondary, colors.$c-gray-medium);
+	margin: variables.$spacing-sm 0;
+}
+
+.hit-result {
+	text-align: center;
+	font-weight: bold;
+	padding: variables.$spacing-sm variables.$spacing-md;
+	border-radius: variables.$radius-md;
+	margin: variables.$spacing-sm 0;
+	font-size: variables.$font-base;
+
+	&.success {
+		@include mixins.state-success;
+	}
+
+	&.failure {
+		@include mixins.state-failure;
+	}
+
+	.vs-defense {
+		font-weight: normal;
+		font-size: variables.$font-sm;
+		margin-left: variables.$spacing-md;
+	}
+}
+
+// ----------------------------------------
+// DT Result Badge (Skill Checks)
+// ----------------------------------------
+.dt-result {
+	font-size: variables.$font-md;
+	font-weight: bold;
+	text-align: center;
+	padding: variables.$spacing-xs variables.$spacing-md;
+	border-radius: variables.$radius-sm;
+	margin-top: variables.$spacing-xs;
+
+	&.success {
+		color: colors.$c-success;
+		background: colors.$c-success-bg;
+	}
+
+	&.failure {
+		color: colors.$c-error;
+		background: colors.$c-error-bg;
+	}
+}
+
+// ----------------------------------------
+// Combat Tracker HP Display
+// ----------------------------------------
+.op-hp-display {
+	font-size: variables.$font-sm;
+	opacity: 0.85;
+	margin-left: variables.$spacing-sm;
+}
+
+// ----------------------------------------
+// Critical Hit Button Highlight
+// ----------------------------------------
+.card-buttons button.hit-critical {
+	border-color: colors.$c-warning;
+}
+
+// ----------------------------------------
+// Action Type Badges (Threat Attacks)
+// ----------------------------------------
+.op-action-badge {
+	@include mixins.badge(transparent);
+
+	&.standard {
+		background: colors.$c-action-standard;
+	}
+
+	&.free {
+		background: colors.$c-action-free;
+	}
+
+	&.movement {
+		background: colors.$c-action-movement;
+	}
+
+	&.reaction {
+		background: colors.$c-action-reaction;
+	}
+
+	&.full {
+		background: colors.$c-action-full;
+	}
+}

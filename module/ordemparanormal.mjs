@@ -10,6 +10,7 @@
 // Import document classes.
 import { OrdemActor } from "./documents/actor.mjs";
 import { OrdemItem } from "./documents/item.mjs";
+import { OrdemCombat } from "./documents/combat.mjs";
 // Import sheet classes.
 import { OrdemActorSheet } from "./sheets/actor-sheet.mjs";
 import { OrdemItemSheet } from "./sheets/item-sheet.mjs";
@@ -74,6 +75,7 @@ Hooks.once("init", function () {
 	// Register Roll Extensions
 	CONFIG.Dice.rolls = [dice.BasicRoll, dice.D20Roll];
 
+	CONFIG.Combat.documentClass = OrdemCombat;
 	CONFIG.Combat.initiative = {
 		formula: "@rollInitiative",
 		decimals: 2,
@@ -112,6 +114,86 @@ Hooks.once("setup", function () {
 Hooks.once("ready", function () {
 	// Display welcome messages, reports and release notes.
 	displayMessages();
+
+	// GM-authoritative socket handler — only the first active GM processes requests
+	/**
+	 * GM-side aggregation of an opposed-test result. Idempotent: re-entering with
+	 * the same participant just replaces their previous total. Ends the test
+	 * (sets `resolved` and posts a ranked card) once every active player has
+	 * rolled (or immediately when there are zero non-GM participants and the
+	 * GM is rolling solo).
+	 *
+	 * Extracted from the socket handler so the GM client itself can call it
+	 * directly — `game.socket.emit` does not loopback to the sender, so a
+	 * GM-only world or a GM rolling alone would never aggregate results.
+	 */
+	async function handleOpostoResult(data) {
+		const msg = game.messages.get(data.messageId);
+		if (!msg) return;
+		if (msg.getFlag("ordemparanormal", "resolved")) return;
+
+		const previous = msg.getFlag("ordemparanormal", "results") ?? [];
+		const dedupeKey = data.actorId ?? data.userId ?? data.actorName;
+		const filtered = previous.filter((r) => (r.actorId ?? r.userId ?? r.actorName) !== dedupeKey);
+		filtered.push({
+			actorName: data.actorName,
+			actorId: data.actorId,
+			userId: data.userId,
+			total: data.total,
+		});
+		await msg.setFlag("ordemparanormal", "results", filtered);
+
+		// Resolve when every active non-GM player has rolled. A GM rolling solo
+		// (zero non-GM participants) resolves on the first push.
+		const activePlayers = game.users.filter((u) => !u.isGM && u.active).length;
+		if (filtered.length >= activePlayers) {
+			await msg.setFlag("ordemparanormal", "resolved", true);
+			const content = await foundry.applications.handlebars.renderTemplate(
+				"systems/ordemparanormal/templates/chat/oposto-results.hbs",
+				{
+					skillLabel: game.i18n.localize(CONFIG.op.skills[data.skillKey]),
+					results: filtered
+						.sort((a, b) => b.total - a.total)
+						.map((r, i) => ({
+							...r,
+							rank: i + 1,
+							winnerClass: i === 0 ? "winner" : "",
+							winnerIcon: i === 0 ? " 🥇" : "",
+						})),
+				}
+			);
+			await ChatMessage.create({ speaker: ChatMessage.getSpeaker(), content });
+		}
+	}
+
+	// Expose on the system module API so the click handler can aggregate
+	// locally on the GM client (`game.socket.emit` doesn't loopback to the
+	// sender). System-scoped instead of `globalThis` to keep the surface clean
+	// and survive hot reloads without leaking duplicates.
+	const systemModule = game.system;
+	if (systemModule) {
+		systemModule.api ??= {};
+		systemModule.api.handleOpostoResult = handleOpostoResult;
+	}
+
+	game.socket.on("system.ordemparanormal", async (data) => {
+		const firstGM = game.users.find((u) => u.isGM && u.active);
+		if (!firstGM || firstGM.id !== game.user.id) return;
+
+		if (data.type === "applyDamage") {
+			const sender = data.userId ? game.users.get(data.userId) : null;
+			const actor = await fromUuid(data.actorUuid);
+			if (!sender || !actor) return;
+			const senderAllowed = sender.isGM || actor.testUserPermission?.(sender, "OWNER");
+			if (!senderAllowed) return;
+			if (actor.isOwner) await actor.applyDamage(data.amount, data.options);
+		}
+
+		if (data.type === "opostoResult") {
+			if (!utils.isOpostoSenderAuthorized(data)) return;
+			await handleOpostoResult(data);
+		}
+	});
 
 	// Determine whether a system migration is required and feasible
 	if (!game.user.isGM) return;
@@ -327,6 +409,10 @@ Handlebars.registerHelper("radioBoxes", function (name, choices, options) {
 // Hook for create a macro on drop items or effects in hotbar.
 Hooks.once("ready", function () {
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
+	// SYNC HANDLER REQUIRED. Foundry dispatches `hotbarDrop` via Hooks.call;
+	// returning `=== false` cancels the default macro creation. Keep this
+	// listener synchronous — wrapping in `async` would silently break the
+	// suppression because a Promise return is truthy from Foundry's POV.
 	Hooks.on("hotbarDrop", (bar, data, slot) => {
 		if (["Item", "ActiveEffect"].includes(data.type)) {
 			documents.macro.createOPMacro(data, slot);
@@ -335,8 +421,80 @@ Hooks.once("ready", function () {
 	});
 });
 
-Hooks.on("renderChatLog", (app, html, data) => OrdemItem.chatListeners(html));
-Hooks.on("renderChatPopout", (app, html, data) => OrdemItem.chatListeners(html));
+/**
+ * Click handler for /dt and /oposto chat command cards.
+ * Attached once per chat container by `attachChatCommandListenerOnce` below.
+ * Actor resolution lives in `utils.resolveChatCommandActor` so it can be
+ * unit-tested without booting Foundry.
+ */
+async function handleChatCommandClick(event) {
+	const dtButton = event.target.closest("[data-action='rollDT']");
+	if (dtButton) {
+		const skill = dtButton.dataset.skill;
+		const target = parseInt(dtButton.dataset.target);
+		const actor = utils.resolveChatCommandActor();
+		if (!actor) return ui.notifications.warn(game.i18n.localize("op.noActorSelected"));
+		actor.rollSkill({ skill, rolls: [{ options: { target } }] });
+		return;
+	}
+
+	const opostoButton = event.target.closest("[data-action='rollOposto']");
+	if (opostoButton) {
+		const skill = opostoButton.dataset.skill;
+		const messageId = opostoButton.closest(".message")?.dataset.messageId;
+		const actor = utils.resolveChatCommandActor();
+		if (!actor) return ui.notifications.warn(game.i18n.localize("op.noActorSelected"));
+
+		const rolls = await actor.rollSkill({ skill }, { configure: false });
+		const roll = Array.isArray(rolls) ? rolls[0] : rolls;
+		if (!roll) return;
+
+		const payload = {
+			type: "opostoResult",
+			messageId,
+			actorName: actor.name,
+			actorId: actor.id,
+			skillKey: skill,
+			total: roll.total,
+			userId: game.user.id,
+		};
+		game.socket.emit("system.ordemparanormal", payload);
+		// `socket.emit` doesn't loopback — when the GM is the one clicking, also
+		// run the aggregator locally so the results card actually gets posted.
+		const aggregateLocally = game.system?.api?.handleOpostoResult;
+		if (game.user.isGM && typeof aggregateLocally === "function") {
+			await aggregateLocally(payload);
+		}
+
+		ui.notifications.info(game.i18n.format("op.opostoRolled", { actor: actor.name, total: roll.total }));
+	}
+}
+
+// Chat command card buttons (`/dt`, `/oposto`) can render in multiple
+// containers depending on Foundry v13.x's chat layout: the sidebar tab
+// `#chat`, the popup toast notifications under `#chat-notifications`, or a
+// detached chat popout. Using `document.body` as the delegation root covers
+// every layout without racing the sidebar boot sequence — bubbled clicks from
+// any container reach body unchanged.
+//
+// The marker is a property on the host element itself (not a module-scoped
+// WeakSet) so a dev hot-reload that re-evaluates this file still sees the
+// existing flag and does NOT register a second listener. Without this guard,
+// hot reload N times means N listener invocations per click.
+const CHAT_CMD_MARKER = "_ordemparanormalChatCmdListener";
+function attachChatCommandListenerOnce(host) {
+	if (!host || host[CHAT_CMD_MARKER]) return;
+	host[CHAT_CMD_MARKER] = handleChatCommandClick;
+	host.addEventListener("click", handleChatCommandClick);
+}
+
+// `OrdemItem.chatListeners` uses scoped delegation on the chat log itself, so
+// keep its hook wiring intact — only the command-card listener moves to body.
+Hooks.on("renderChatLog", (_app, html) => OrdemItem.chatListeners(html));
+Hooks.on("renderChatPopout", (_app, html) => OrdemItem.chatListeners(html));
+
+// Single global listener — body is always present and survives re-renders.
+attachChatCommandListenerOnce(document.body);
 
 // Load Quench integration tests only in dev environments where Quench is active
 // Must run in "init" so the files are imported before "quenchReady" fires in "ready"

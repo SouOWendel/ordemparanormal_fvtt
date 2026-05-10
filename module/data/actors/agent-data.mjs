@@ -38,12 +38,13 @@ const defaultAttrs = {
 	technology: "int",
 };
 
-function resourceField(valueInit, maxInit) {
+function resourceField(valueInit, maxInit, extras = {}) {
 	const fields = foundry.data.fields;
 	return new fields.SchemaField({
 		value: new fields.NumberField({ required: true, integer: true, initial: valueInit }),
 		max: new fields.NumberField({ required: true, integer: true, initial: maxInit }),
 		perRound: new fields.NumberField({ integer: true, initial: 1 }),
+		...extras,
 	});
 }
 
@@ -76,7 +77,7 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 	static defineSchema() {
 		const fields = foundry.data.fields;
 		return {
-			PV: resourceField(5, 10),
+			PV: resourceField(5, 10, { nonLethal: new foundry.data.fields.NumberField({ integer: true, initial: 0 }) }),
 			SAN: resourceField(5, 5),
 			PE: resourceField(5, 5),
 			PD: resourceField(5, 5),

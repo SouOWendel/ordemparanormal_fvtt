@@ -1,0 +1,23 @@
+<div class="chat-card oposto-results">
+	<header class="card-header">
+		<h3>{{localize "op.opostoResultsTitle"}} — {{skillLabel}}</h3>
+	</header>
+	<table class="oposto-table">
+		<thead>
+			<tr>
+				<th>{{localize "op.opostoRank"}}</th>
+				<th>{{localize "op.opostoCharacter"}}</th>
+				<th>{{localize "op.opostoTotal"}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each results}}
+				<tr class="{{winnerClass}}">
+					<td>{{rank}}{{winnerIcon}}</td>
+					<td>{{actorName}}</td>
+					<td>{{total}}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>

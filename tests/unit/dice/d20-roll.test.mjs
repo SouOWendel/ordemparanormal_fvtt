@@ -107,10 +107,14 @@ describe("D20Roll.isKeepHighest", () => {
 
 describe("D20Roll.attribute", () => {
 	it("returns data.attributes[data.attributeId] when data is populated", () => {
-		const roll = makeRoll("1d20", {
-			attributes: { str: { value: 3 } },
-			attributeId: "str",
-		}, { configured: true });
+		const roll = makeRoll(
+			"1d20",
+			{
+				attributes: { str: { value: 3 } },
+				attributeId: "str",
+			},
+			{ configured: true }
+		);
 		expect(roll.attribute).toEqual({ value: 3 });
 	});
 
@@ -139,9 +143,7 @@ describe("D20Roll.configureModifiers", () => {
 	}
 
 	it("sets d20.number from attribute.value", () => {
-		const roll = makeConfigured(
-			{ attributes: { dex: { value: 3 } }, attributeId: "dex" }
-		);
+		const roll = makeConfigured({ attributes: { dex: { value: 3 } }, attributeId: "dex" });
 		roll.configureModifiers();
 		expect(roll.d20.number).toBe(3);
 	});
@@ -188,10 +190,14 @@ describe("D20Roll.configureModifiers", () => {
 	it("constructor skips configureModifiers when options.configured is already true", () => {
 		// Build with configured=true — constructor skips configureModifiers.
 		// d20.number stays at the D20Die default (1), not overridden by attribute.
-		const roll = makeRoll("1d20", {
-			attributes: { str: { value: 4 } },
-			attributeId: "str",
-		}, { configured: true });
+		const roll = makeRoll(
+			"1d20",
+			{
+				attributes: { str: { value: 4 } },
+				attributeId: "str",
+			},
+			{ configured: true }
+		);
 		expect(roll.d20.number).toBe(1);
 	});
 });

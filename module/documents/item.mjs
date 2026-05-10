@@ -47,9 +47,11 @@ export class OrdemItem extends Item {
 
 		// Cria e armazena o listener
 		html._ordemListener = (event) => {
-			if (event.target.closest(".card-buttons button")) {
-				this._onChatCardAction(event);
-			}
+			if (!event.target.closest(".card-buttons button")) return;
+			// Skip chat command cards (/dt, /oposto) — they have their own click handlers
+			const card = event.target.closest(".chat-card");
+			if (card?.classList.contains("dt-card") || card?.classList.contains("oposto-request")) return;
+			this._onChatCardAction(event);
 		};
 
 		html.addEventListener("click", html._ordemListener);
@@ -103,18 +105,60 @@ export class OrdemItem extends Item {
 				});
 				item.lastMessageId = messageId;
 				item.critical = rollAttack.criticalStatus;
+				item.hitResult = rollAttack.hitResult ?? null;
+				if (rollAttack.hitResult !== null) {
+					game.messages.get(messageId)?.setFlag("ordemparanormal", "hitResult", rollAttack.hitResult);
+				}
 				break;
 			}
-			case "damage":
+			case "damage": {
+				// Fall back to the persisted hitResult on the card so the apply-damage flow
+				// keeps working after a chat reload (when in-memory item state is lost).
+				// When rebuilding critical from a persisted flag, recover the multiplier
+				// from the item's critical formula (e.g. "19/x3" → 3) so x3/x4 weapons
+				// don't silently degrade to x2.
+				const persistedHit = message?.getFlag("ordemparanormal", "hitResult") ?? null;
+				const hitResult = item.hitResult ?? persistedHit;
+				let critical = item.critical;
+				if (!critical && persistedHit?.isCritical) {
+					// `this` here is the OrdemItem class itself (static method context)
+					critical = { isCritical: true, multiplier: this._parseCriticalMultiplier(item.system.critical) };
+				} else if (!critical) {
+					critical = false;
+				}
 				await item.rollDamage({
 					event: event,
-					critical: item.critical,
-					lastId: item.lastMessageId == messageId,
+					critical,
+					lastId: item.lastMessageId ? item.lastMessageId === messageId : true,
+					hitResult,
 				});
 				break;
+			}
 			case "formula":
 				await item.rollFormula({ event });
 				break;
+			case "applyDamage": {
+				const applyMessage = game.messages.get(messageId);
+				const damageTarget = applyMessage?.getFlag("ordemparanormal", "damageTarget");
+				if (!damageTarget) break;
+				const targetActor = await fromUuid(damageTarget.actorUuid);
+				if (!targetActor) break;
+				const applyRoll = applyMessage.rolls?.[0];
+				if (!applyRoll) break;
+				const result = await targetActor.applyDamage(applyRoll.total, {
+					damageType: damageTarget.damageType,
+				});
+				const blockedMsg = result.blocked > 0 ? game.i18n.format("op.damageBlocked", { blocked: result.blocked }) : "";
+				ChatMessage.create({
+					content: game.i18n.format("op.applyDamageResult", {
+						amount: result.finalDamage,
+						target: targetActor.name,
+						blocked: blockedMsg,
+					}),
+					speaker: ChatMessage.getSpeaker({ actor: targetActor }),
+				});
+				break;
+			}
 			case "teste":
 				break;
 		}
@@ -187,6 +231,26 @@ export class OrdemItem extends Item {
 		if (!this.system.formulas.attack.attr || !this.system.formulas.attack.skill)
 			throw new Error("This Item does not have a formula to roll!");
 
+		// If multiple targets are selected, roll once per target
+		const targets = game.user?.targets ?? new Set();
+		if (targets.size > 1 && !options._forcedTarget) {
+			const results = [];
+			for (const token of targets) {
+				results.push(await this.rollAttack({ ...options, _forcedTarget: token }));
+			}
+			return results[0]; // return first for backward-compat (item.critical assignment)
+		}
+
+		// If item has multiple attacks (e.g. threat with numberOfAttacks=3), roll once per attack
+		const numAttacks = this.system.numberOfAttacks ?? 1;
+		if (numAttacks > 1 && !options._attackIndex) {
+			const results = [];
+			for (let i = 0; i < numAttacks; i++) {
+				results.push(await this.rollAttack({ ...options, _attackIndex: i + 1, _attackTotal: numAttacks }));
+			}
+			return results[0];
+		}
+
 		const attack = this.system.formulas.attack;
 		const skill = this.parent.system.skills[attack.skill];
 		let attribute = this.parent.system.attributes[attack.attr];
@@ -224,21 +288,43 @@ export class OrdemItem extends Item {
 			roll,
 		});
 
+		// Resolve target info (single target from targeting or _forcedTarget)
+		const targetToken = options._forcedTarget ?? (targets.size === 1 ? [...targets][0] : null);
+		const hitResult = targetToken ? this._compareWithDefense(targetToken.actor, roll.total, criticalStatus) : null;
+
 		// Envia para o chat
 		if (rollConfig.chatMessage) {
-			roll.toMessage({
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: `Atacou com ${this.name}`,
-				rollMode: game.settings.get("core", "rollMode"),
-				flags: {
-					"ordemparanormal.messageRoll": {
-						type: "attack",
-						itemId: this.id,
-						itemUuid: this.uuid,
-						isCritical: criticalStatus.isCritical,
-					},
+			const flags = {
+				"ordemparanormal.messageRoll": {
+					type: "attack",
+					itemId: this.id,
+					itemUuid: this.uuid,
+					isCritical: criticalStatus.isCritical,
 				},
+			};
+			if (hitResult) flags["ordemparanormal.hitResult"] = hitResult;
+
+			const targetName = targetToken?.name ?? null;
+			const flavorSuffix = targetName
+				? ` → ${targetName}: ${hitResult?.hit ? game.i18n.localize("op.hit") : game.i18n.localize("op.miss")}`
+				: "";
+			const attackIndexSuffix = options._attackIndex ? ` (${options._attackIndex}/${options._attackTotal})` : "";
+
+			await roll.toMessage({
+				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+				flavor: `${game.i18n.format("op.attackedWith", { name: this.name })}${attackIndexSuffix}${flavorSuffix}`,
+				rollMode: game.settings.get("core", "rollMode"),
+				flags,
 			});
+
+			// Persist hitResult onto the most-recent item card for this item so the damage button state updates
+			if (hitResult) {
+				const itemId = this.id;
+				const cardMsg = [...game.messages]
+					.reverse()
+					.find((m) => m.content?.includes(`data-item-id="${itemId}"`) && m.content?.includes("chat-card item-card"));
+				if (cardMsg) await cardMsg.setFlag("ordemparanormal", "hitResult", hitResult);
+			}
 		}
 
 		/**
@@ -250,12 +336,44 @@ export class OrdemItem extends Item {
 		 */
 		Hooks.callAll("ordemparanormal.rollFormula", this, roll);
 
-		return { roll, criticalStatus };
+		return { roll, criticalStatus, hitResult };
+	}
+
+	/**
+	 * Compare a roll result against a target actor's defense value.
+	 * @param {Actor|null} targetActor  The actor being attacked.
+	 * @param {number} rollTotal        The attack roll total.
+	 * @param {object} criticalStatus   Result of isCritical().
+	 * @returns {{hit: boolean, targetDefense: number, actorUuid: string, isCritical: boolean}|null}
+	 */
+	_compareWithDefense(targetActor, rollTotal, criticalStatus) {
+		if (!targetActor) return null;
+		const defense = targetActor.system?.defense?.value ?? 0;
+		return {
+			hit: rollTotal >= defense,
+			targetDefense: defense,
+			actorUuid: targetActor.uuid,
+			isCritical: criticalStatus?.isCritical ?? false,
+		};
 	}
 
 	/**
 	 *
 	 */
+	/**
+	 * Parse a weapon's critical formula (e.g. "19/x3", "x4", "20") into the multiplier.
+	 * Defaults to 2 when no explicit multiplier is present.
+	 * @param {string} formula
+	 * @returns {number}
+	 */
+	static _parseCriticalMultiplier(formula) {
+		const f = (formula ?? "").trim();
+		if (!f) return 2;
+		const xPart = f.includes("/") ? f.split("/").find((p) => p.includes("x")) : f.includes("x") ? f : null;
+		if (!xPart) return 2;
+		return Number(xPart.replaceAll("x", "")) || 2;
+	}
+
 	isCritical(critical = { isCritical: false }, options = {}) {
 		const formulaCritical = (critical.crtalFormula ?? "").trim();
 
@@ -287,12 +405,13 @@ export class OrdemItem extends Item {
 		// Damage Access
 		const damage = this.system.formulas.damage;
 
-		// Critical variable
-		const critical = options.critical || false;
+		// Critical variable — auto-detect from hitResult if not explicitly passed
+		const hitResult = options.hitResult ?? null;
+		const critical = options.critical || (hitResult?.isCritical ? { isCritical: true, multiplier: 2 } : false);
 
 		const split = damage.formula.split("d");
-		if ((critical.isCritical && options.lastId) || options.event.altKey) {
-			prepareFormula.push(`${split[0] * critical.multiplier}d${split[1]}`);
+		if ((critical.isCritical && options.lastId) || options.event?.altKey) {
+			prepareFormula.push(`${split[0] * (critical.multiplier ?? 2)}d${split[1]}`);
 		} else {
 			prepareFormula.push(damage.formula);
 		}
@@ -324,30 +443,27 @@ export class OrdemItem extends Item {
 			data: this.getRollData(),
 			chatMessage: true,
 		};
-		// if ( spellLevel ) rollConfig.data.item.level = spellLevel;
-
-		/**
-		 * A hook event that fires before a formula is rolled for an Item.
-		 * @function ordemparanormal.preRollFormula
-		 * @memberof hookEvents
-		 * @param {OrdemItem} item              Item for which the roll is being performed.
-		 * @param {object} config               Configuration data for the pending roll.
-		 * @param {string} config.formula       Formula that will be rolled.
-		 * @param {object} config.data          Data used when evaluating the roll.
-		 * @param {boolean} config.chatMessage  Should a chat message be created for this roll?
-		 * @returns {boolean}                   Explicitly return false to prevent the roll from being performed.
-		 */
-
-		// if ( Hooks.call('ordemparanormal.preRollFormula', this, rollConfig) === false ) return;
 
 		const roll = await new Roll(rollConfig.formula, rollConfig.data).evaluate();
 
 		if (rollConfig.chatMessage) {
-			roll.toMessage({
+			const flags = {};
+			// Only enable auto-apply when the entire roll uses a single damage type.
+			// Mixed-type rolls (e.g. 1d6 cutting + 1d6 fire) would resolve incorrectly
+			// against a single resistance — leave those for manual GM application.
+			const partTypes = (damage.parts ?? []).map((p) => p?.[1]).filter(Boolean);
+			const hasMixedTypes = partTypes.some((t) => t !== damage.type);
+			if (hitResult?.actorUuid && !hasMixedTypes) {
+				flags["ordemparanormal.damageTarget"] = {
+					actorUuid: hitResult.actorUuid,
+					damageType: damage.type,
+				};
+			}
+			await roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: game.i18n.format("op.rollDamageChat", { name: this.name, types: types }),
 				rollMode: game.settings.get("core", "rollMode"),
-				// messageData: {'flags.ordemparanormal.roll': {type: 'other', itemId: this.id, itemUuid: this.uuid}}
+				flags: Object.keys(flags).length ? flags : undefined,
 			});
 		}
 
@@ -396,6 +512,8 @@ export class OrdemItem extends Item {
 		// Render the chat card template
 		// Tenta obter o token de várias formas para garantir compatibilidade com tokens vinculados e não vinculados
 		const token = this.actor.token || this.actor.getActiveTokens()?.[0] || null;
+		const targets = game.user?.targets ?? new Set();
+		const targetToken = targets.size === 1 ? [...targets][0] : null;
 		const templateData = {
 			actor: this.actor,
 			tokenId: token?.uuid || null,
@@ -404,6 +522,7 @@ export class OrdemItem extends Item {
 			labels: this.labels,
 			i18n: {},
 			info: [],
+			targetName: targetToken?.name ?? null,
 		};
 
 		// for (const [key, value] of Object.entries(this.system) ) {
@@ -461,7 +580,6 @@ export class OrdemItem extends Item {
 			const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
 			chatMessageData.whisper = [...new Set([...gmUsers, game.user.id])].flat();
 		}
-		
 		const message = await ChatMessage.create(chatMessageData);
 
 		Hooks.callAll("ordemparanormal.itemUsed", {

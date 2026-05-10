@@ -21,4 +21,5 @@
 	@include meta.load-css("components/chat");
 	@include meta.load-css("components/sidebar");
 	@include meta.load-css("components/formApp");
+	@include meta.load-css("components/combat");
 }

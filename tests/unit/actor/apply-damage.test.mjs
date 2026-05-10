@@ -18,6 +18,7 @@ import { OrdemActor } from "../../../module/documents/actor.mjs";
 
 function makeActor({ pvValue = 30, pvMax = 30, resistances = {} } = {}) {
 	const actor = new OrdemActor({}, {});
+	actor.isOwner = true;
 	actor.system = {
 		PV: { value: pvValue, max: pvMax, nonLethal: 0 },
 		resistances: {
@@ -194,5 +195,117 @@ describe("OrdemActor.applyDamage — condição Machucado", () => {
 		const result = await actor.applyDamage(30, { damageType: "cuttingDamage" });
 		expect(result.conditions).toContain("machucado");
 		expect(result.conditions).toContain("morrendo");
+	});
+});
+
+// ─── socket delegation (isOwner = false) ─────────────────────────────────────
+
+describe("OrdemActor.applyDamage — socket delegation quando !isOwner", () => {
+	it("emite socket ao invés de chamar update quando não é owner", async () => {
+		const actor = makeActor();
+		actor.isOwner = false;
+		actor.uuid = "Actor.mock-uuid";
+		const emitSpy = vi.spyOn(game.socket, "emit");
+
+		await actor.applyDamage(10, { damageType: "cuttingDamage" });
+
+		expect(emitSpy).toHaveBeenCalledWith(
+			"system.ordemparanormal",
+			expect.objectContaining({ type: "applyDamage", actorUuid: "Actor.mock-uuid", amount: 10 })
+		);
+		expect(actor.update).not.toHaveBeenCalled();
+		emitSpy.mockRestore();
+	});
+
+	it("retorna finalDamage e blocked corretos mesmo via socket", async () => {
+		const actor = makeActor({ resistances: { cuttingDamage: { value: 3 } } });
+		actor.isOwner = false;
+		actor.uuid = "Actor.mock-uuid";
+		vi.spyOn(game.socket, "emit").mockImplementation(() => {});
+
+		const result = await actor.applyDamage(10, { damageType: "cuttingDamage" });
+		expect(result.finalDamage).toBe(7);
+		expect(result.blocked).toBe(3);
+		expect(result.newPV).toBeNull();
+		vi.restoreAllMocks();
+	});
+
+	it("PV.value permanece inalterado localmente (update é remoto)", async () => {
+		const actor = makeActor({ pvValue: 30 });
+		actor.isOwner = false;
+		actor.uuid = "Actor.mock-uuid";
+		vi.spyOn(game.socket, "emit").mockImplementation(() => {});
+
+		await actor.applyDamage(15, { damageType: "cuttingDamage" });
+		expect(actor.system.PV.value).toBe(30);
+		vi.restoreAllMocks();
+	});
+});
+
+// ─── ameaças (system.attributes.hp) ──────────────────────────────────────────
+
+function makeThreatActor({ hpValue = 30, hpMax = 30, resistances = {} } = {}) {
+	const actor = new OrdemActor({}, {});
+	actor.type = "threat";
+	actor.isOwner = true;
+	actor.system = {
+		attributes: { hp: { value: hpValue, max: hpMax } },
+		resistances: {
+			cuttingDamage: { value: 0 },
+			ballisticDamage: { value: 0 },
+			...resistances,
+		},
+	};
+	actor.update = vi.fn(async (data) => {
+		if ("system.attributes.hp.value" in data) actor.system.attributes.hp.value = data["system.attributes.hp.value"];
+	});
+	return actor;
+}
+
+describe("OrdemActor.applyDamage — ameaça (system.attributes.hp)", () => {
+	it("reduz hp da ameaça pelo dano sem RD", async () => {
+		const actor = makeThreatActor({ hpValue: 30 });
+		const result = await actor.applyDamage(10, { damageType: "cuttingDamage" });
+		expect(result.finalDamage).toBe(10);
+		expect(actor.system.attributes.hp.value).toBe(20);
+	});
+
+	it("usa system.attributes.hp.value no update (não system.PV.value)", async () => {
+		const actor = makeThreatActor({ hpValue: 30 });
+		await actor.applyDamage(5, { damageType: "cuttingDamage" });
+		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.hp.value": 25 });
+	});
+
+	it("hp não fica negativo (clamp em 0)", async () => {
+		const actor = makeThreatActor({ hpValue: 5 });
+		const result = await actor.applyDamage(100, { damageType: "cuttingDamage" });
+		expect(result.newPV).toBe(0);
+		expect(actor.system.attributes.hp.value).toBe(0);
+	});
+
+	it("condição 'morrendo' quando hp chega a 0", async () => {
+		const actor = makeThreatActor({ hpValue: 10, hpMax: 10 });
+		const result = await actor.applyDamage(10, { damageType: "cuttingDamage" });
+		expect(result.conditions).toContain("morrendo");
+	});
+
+	it("condição 'machucado' quando hp <= metade do max", async () => {
+		const actor = makeThreatActor({ hpValue: 20, hpMax: 20 });
+		const result = await actor.applyDamage(11, { damageType: "cuttingDamage" });
+		expect(result.conditions).toContain("machucado");
+	});
+
+	it("RD da ameaça é aplicada corretamente", async () => {
+		const actor = makeThreatActor({ resistances: { cuttingDamage: { value: 3 } } });
+		const result = await actor.applyDamage(10, { damageType: "cuttingDamage" });
+		expect(result.finalDamage).toBe(7);
+		expect(result.blocked).toBe(3);
+	});
+
+	it("ignoreRD=true ignora RD da ameaça", async () => {
+		const actor = makeThreatActor({ resistances: { cuttingDamage: { value: 5 } } });
+		const result = await actor.applyDamage(10, { damageType: "cuttingDamage", ignoreRD: true });
+		expect(result.finalDamage).toBe(10);
+		expect(result.blocked).toBe(0);
 	});
 });

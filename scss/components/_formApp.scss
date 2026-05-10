@@ -1,3 +1,6 @@
+@use "../utils/colors";
+@use "../utils/variables";
+
 .additionalContent {
 	.selectize-input {
 		max-width: 330px !important;
@@ -17,10 +20,10 @@
 	}
 
 	p {
-		font-size: 12px;
+		font-size: variables.$font-md;
 		line-height: 16px;
 		color: #4b4a44;
-		margin: 3px 0;
+		margin: variables.$spacing-xs 0;
 		text-align: justify;
 		hyphens: auto;
 	}
@@ -34,7 +37,7 @@
 	}
 
 	.container > div {
-		padding: 10px;
+		padding: variables.$spacing-lg;
 	}
 
 	.flexe {

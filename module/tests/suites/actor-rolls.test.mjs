@@ -24,17 +24,17 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("OrdemActor.rollSkill — fast-forward", () => {
 				let actor;
-				before(async () => { actor = await createAgent(); });
-				after(async () => { await actor?.delete(); });
+				before(async () => {
+					actor = await createAgent();
+				});
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollSkill não lança exceção", async () => {
 					let threw = false;
 					try {
-						await actor.rollSkill(
-							{ skill: "fighting" },
-							{ configure: false },
-							{ create: false }
-						);
+						await actor.rollSkill({ skill: "fighting" }, { configure: false }, { create: false });
 					} catch (e) {
 						threw = true;
 					}
@@ -42,31 +42,19 @@ Hooks.once("quenchReady", (quench) => {
 				});
 
 				it("rollSkill retorna array de rolls", async () => {
-					const rolls = await actor.rollSkill(
-						{ skill: "fighting" },
-						{ configure: false },
-						{ create: false }
-					);
+					const rolls = await actor.rollSkill({ skill: "fighting" }, { configure: false }, { create: false });
 					assert.isArray(rolls, "rollSkill deve retornar array");
 					assert.isAbove(rolls.length, 0, "deve haver pelo menos um roll");
 				});
 
 				it("rollSkill para perícia 'aim' retorna roll avaliado", async () => {
-					const rolls = await actor.rollSkill(
-						{ skill: "aim" },
-						{ configure: false },
-						{ create: false }
-					);
+					const rolls = await actor.rollSkill({ skill: "aim" }, { configure: false }, { create: false });
 					assert.isTrue(rolls[0]._evaluated, "roll deve estar avaliado");
 				});
 
 				it("rollSkill produz chat message quando create=true", async () => {
 					const countBefore = game.messages.size;
-					await actor.rollSkill(
-						{ skill: "perception" },
-						{ configure: false },
-						{}
-					);
+					await actor.rollSkill({ skill: "perception" }, { configure: false }, {});
 					assert.isAbove(game.messages.size, countBefore, "deve criar mensagem no chat");
 				});
 			});
@@ -76,8 +64,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("OrdemActor.rollSkill — modos de vantagem", () => {
 				let actor;
-				before(async () => { actor = await createAgent(); });
-				after(async () => { await actor?.delete(); });
+				before(async () => {
+					actor = await createAgent();
+				});
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("com advantage=true: roll contém kh (keep highest)", async () => {
 					const rolls = await actor.rollSkill(
@@ -110,14 +102,12 @@ Hooks.once("quenchReady", (quench) => {
 						skills: { fighting: { degree: { label: "trained", value: 5 }, value: 0 } },
 					});
 				});
-				after(async () => { await actorTrained?.delete(); });
+				after(async () => {
+					await actorTrained?.delete();
+				});
 
 				it("roll de perícia treinada inclui bônus de grau +5 na fórmula", async () => {
-					const rolls = await actorTrained.rollSkill(
-						{ skill: "fighting" },
-						{ configure: false },
-						{ create: false }
-					);
+					const rolls = await actorTrained.rollSkill({ skill: "fighting" }, { configure: false }, { create: false });
 					// O total deve incluir degree.value=5; verificamos via formula ou total > puro d20
 					assert.isNumber(rolls[0].total, "total deve ser número");
 				});
@@ -128,17 +118,17 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("OrdemActor.rollAttribute — fast-forward", () => {
 				let actor;
-				before(async () => { actor = await createAgent(); });
-				after(async () => { await actor?.delete(); });
+				before(async () => {
+					actor = await createAgent();
+				});
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("rollAttribute não lança exceção", async () => {
 					let threw = false;
 					try {
-						await actor.rollAttribute(
-							{ attribute: "str" },
-							{ configure: false },
-							{ create: false }
-						);
+						await actor.rollAttribute({ attribute: "str" }, { configure: false }, { create: false });
 					} catch (e) {
 						threw = true;
 					}
@@ -146,21 +136,13 @@ Hooks.once("quenchReady", (quench) => {
 				});
 
 				it("rollAttribute retorna array de rolls", async () => {
-					const rolls = await actor.rollAttribute(
-						{ attribute: "dex" },
-						{ configure: false },
-						{ create: false }
-					);
+					const rolls = await actor.rollAttribute({ attribute: "dex" }, { configure: false }, { create: false });
 					assert.isArray(rolls, "deve retornar array");
 					assert.isAbove(rolls.length, 0);
 				});
 
 				it("rollAttribute para STR=3 usa 3 dados (3d20kh)", async () => {
-					const rolls = await actor.rollAttribute(
-						{ attribute: "str" },
-						{ configure: false },
-						{ create: false }
-					);
+					const rolls = await actor.rollAttribute({ attribute: "str" }, { configure: false }, { create: false });
 					assert.include(rolls[0].formula, "3d20kh", "STR=3 deve usar 3d20kh");
 				});
 			});
@@ -227,7 +209,9 @@ Hooks.once("quenchReady", (quench) => {
 						},
 					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("freeSkill.label usa skill.name quando definido", () => {
 					assert.include(actor.system.skills.freeSkill.label, "Culinária");

@@ -18,23 +18,23 @@ Hooks.once("quenchReady", (quench) => {
 							vit: { value: 2 },
 						},
 						skills: {
-							fighting:   { degree: { label: "trained",  value: 5  }, value: 2, attr: ["str"] },
-							aim:        { degree: { label: "veteran",  value: 10 }, value: 0, attr: ["dex"] },
-							resilience: { degree: { label: "expert",   value: 15 }, value: 0, attr: ["vit"] },
-							reflexes:   { degree: { label: "trained",  value: 5  }, value: 1, attr: ["dex"] },
-							will:       { degree: { label: "untrained",value: 0  }, value: 0, attr: ["pre"] },
-							initiative: { degree: { label: "trained",  value: 5  }, value: 0, attr: ["dex"] },
-							perception: { degree: { label: "veteran",  value: 10 }, value: 3, attr: ["pre"] },
-							freeSkill:  { name: "Intimidação", degree: { label: "expert", value: 15 }, value: 0, attr: ["pre"] },
+							fighting: { degree: { label: "trained", value: 5 }, value: 2, attr: ["str"] },
+							aim: { degree: { label: "veteran", value: 10 }, value: 0, attr: ["dex"] },
+							resilience: { degree: { label: "expert", value: 15 }, value: 0, attr: ["vit"] },
+							reflexes: { degree: { label: "trained", value: 5 }, value: 1, attr: ["dex"] },
+							will: { degree: { label: "untrained", value: 0 }, value: 0, attr: ["pre"] },
+							initiative: { degree: { label: "trained", value: 5 }, value: 0, attr: ["dex"] },
+							perception: { degree: { label: "veteran", value: 10 }, value: 3, attr: ["pre"] },
+							freeSkill: { name: "Intimidação", degree: { label: "expert", value: 15 }, value: 0, attr: ["pre"] },
 						},
 						elements: { main: "blood", others: "" },
 						disturbingPresence: { dt: 14, mentalDamage: "1d6", immuneNex: 25 },
 						defense: { value: 14, skillResistances: [], damageResistances: "" },
 						resistances: {
-							cuttingDamage:    { value: 3, vulnerable: false, immune: false },
-							ballisticDamage:  { value: 0, vulnerable: false, immune: false },
-							fireDamage:       { value: 0, vulnerable: true,  immune: false },
-							deathDamage:      { value: 0, vulnerable: false, immune: true  },
+							cuttingDamage: { value: 3, vulnerable: false, immune: false },
+							ballisticDamage: { value: 0, vulnerable: false, immune: false },
+							fireDamage: { value: 0, vulnerable: true, immune: false },
+							deathDamage: { value: 0, vulnerable: false, immune: true },
 						},
 						...systemOverrides,
 					},
@@ -46,8 +46,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("ThreatData._prepareBaseSkills — todas as perícias", () => {
 				let threat;
-				before(async () => { threat = await createThreat(); });
-				after(async () => { await threat?.delete(); });
+				before(async () => {
+					threat = await createThreat();
+				});
+				after(async () => {
+					await threat?.delete();
+				});
 
 				it("resilience degree 'expert' → degree.value = 15", () => {
 					assert.equal(threat.system.skills.resilience.degree.value, 15);
@@ -75,18 +79,20 @@ Hooks.once("quenchReady", (quench) => {
 					// Cria skill sem attr definido para forçar o defaultAttrs
 					threat = await createThreat({
 						skills: {
-							fighting:   { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
-							aim:        { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
+							fighting: { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
+							aim: { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
 							resilience: { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
-							reflexes:   { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
-							will:       { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
+							reflexes: { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
+							will: { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
 							initiative: { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
 							perception: { degree: { label: "trained", value: 5 }, value: 0, attr: [] },
-							freeSkill:  { name: "Teste", degree: { label: "untrained", value: 0 }, value: 0, attr: [] },
+							freeSkill: { name: "Teste", degree: { label: "untrained", value: 0 }, value: 0, attr: [] },
 						},
 					});
 				});
-				after(async () => { await threat?.delete(); });
+				after(async () => {
+					await threat?.delete();
+				});
 
 				it("fighting sem attr recebe attr=['str'] do defaultAttrs", () => {
 					assert.include(threat.system.skills.fighting.attr, "str");
@@ -116,8 +122,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("ThreatData._prepareBaseSkills — freeSkill.label", () => {
 				let threat;
-				before(async () => { threat = await createThreat(); });
-				after(async () => { await threat?.delete(); });
+				before(async () => {
+					threat = await createThreat();
+				});
+				after(async () => {
+					await threat?.delete();
+				});
 
 				it("freeSkill.label = skill.name quando nome está definido", () => {
 					assert.equal(threat.system.skills.freeSkill.label, "Intimidação");
@@ -129,8 +139,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("ThreatData — elements.main e elements.others", () => {
 				let threat;
-				before(async () => { threat = await createThreat(); });
-				after(async () => { await threat?.delete(); });
+				before(async () => {
+					threat = await createThreat();
+				});
+				after(async () => {
+					await threat?.delete();
+				});
 
 				it("elements.main persiste como 'blood'", () => {
 					assert.equal(threat.system.elements.main, "blood");
@@ -150,8 +164,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("ThreatData — disturbingPresence", () => {
 				let threat;
-				before(async () => { threat = await createThreat(); });
-				after(async () => { await threat?.delete(); });
+				before(async () => {
+					threat = await createThreat();
+				});
+				after(async () => {
+					await threat?.delete();
+				});
 
 				it("disturbingPresence.dt persiste como 14", () => {
 					assert.equal(threat.system.disturbingPresence.dt, 14);
@@ -169,8 +187,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("ThreatData — resistances vulnerable e immune", () => {
 				let threat;
-				before(async () => { threat = await createThreat(); });
-				after(async () => { await threat?.delete(); });
+				before(async () => {
+					threat = await createThreat();
+				});
+				after(async () => {
+					await threat?.delete();
+				});
 
 				it("fireDamage.vulnerable persiste como true", () => {
 					assert.isTrue(threat.system.resistances.fireDamage.vulnerable);
@@ -188,8 +210,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("OrdemActor.applyDamage — ameaça (usa attributes.hp)", () => {
 				let threat;
-				before(async () => { threat = await createThreat(); });
-				after(async () => { await threat?.delete(); });
+				before(async () => {
+					threat = await createThreat();
+				});
+				after(async () => {
+					await threat?.delete();
+				});
 
 				it("applyDamage reduz hp da ameaça", async () => {
 					const hpBefore = threat.system.attributes.hp.value;

@@ -7,9 +7,9 @@ export default class ChatMessageOP extends ChatMessage {
 
 	/**
 	 * Handle rendering of a chat message to the log
-	 * @param {ChatLog} app     The ChatLog instance
-	 * @param {jQuery} html     Rendered chat message HTML
-	 * @param {object} data     Data passed to the render context
+	 * @param {ChatLog} app         The ChatLog instance
+	 * @param {HTMLElement} html    Rendered chat message HTML (v13 — native DOM, no jQuery)
+	 * @param {object} data         Data passed to the render context
 	 */
 	async getHTML(options = {}) {
 		const html = await super.renderHTML(options);
@@ -24,12 +24,12 @@ export default class ChatMessageOP extends ChatMessage {
 
 		/**
 		 * A hook event that fires after op-specific chat message modifications have completed.
-		 * @function op.renderChatMessage
+		 * @function ordemparanormal.renderChatMessage
 		 * @memberof hookEvents
 		 * @param {ChatMessageOP} message  Chat message being rendered.
 		 * @param {HTMLElement} html       HTML contents of the message.
 		 */
-		Hooks.callAll("op.renderChatMessage", this, html);
+		Hooks.callAll("ordemparanormal.renderChatMessage", this, html);
 
 		return html;
 	}
@@ -64,6 +64,92 @@ export default class ChatMessageOP extends ChatMessage {
 				// GM buttons should only be visible to GMs, otherwise button should only be visible to message's creator
 				if ((button.dataset.visibility === "gm" && !game.user.isGM) || !isCreator) button.hidden = true;
 			}
+
+			// Live-update .target-info from current targeting selection on every render
+			const targetInfo = chatCard.querySelector(".target-info");
+			if (targetInfo) {
+				const currentTarget = game.user?.targets?.size === 1 ? [...game.user.targets][0] : null;
+				if (currentTarget) {
+					targetInfo.replaceChildren();
+					const icon = document.createElement("i");
+					icon.className = "fa-solid fa-crosshairs";
+					targetInfo.append(icon, ` ${currentTarget.name}`);
+					targetInfo.style.display = "";
+				} else {
+					targetInfo.style.display = "none";
+				}
+			}
+
+			// Disable the damage button when the last attack missed
+			const cardHitResult = this.getFlag("ordemparanormal", "hitResult");
+			if (cardHitResult) {
+				const damageButton = html.querySelector('[data-action="damage"]');
+				if (damageButton) {
+					if (cardHitResult.hit === false) {
+						damageButton.disabled = true;
+						damageButton.classList.add("hit-miss");
+						damageButton.title = game.i18n.localize("op.rollDmgDisabled");
+					}
+					if (cardHitResult.isCritical === true) {
+						damageButton.classList.add("hit-critical");
+					}
+				}
+			}
+		}
+
+		// Inject "Aplicar ao Alvo" button on damage roll messages that have a damageTarget flag
+		const damageTarget = this.getFlag("ordemparanormal", "damageTarget");
+		if (damageTarget && game.user.isGM) {
+			const rollContent = html.querySelector(".dice-roll");
+			if (rollContent) {
+				const applyBtn = document.createElement("button");
+				applyBtn.innerHTML = `<i class="fa-solid fa-heart-crack"></i> ${game.i18n.localize("op.applyDamage")}`;
+				const messageRef = this;
+				applyBtn.addEventListener("click", async (event) => {
+					event.preventDefault();
+					applyBtn.disabled = true;
+					try {
+						const targetActor = await fromUuid(damageTarget.actorUuid);
+						if (!targetActor) return;
+						const applyRoll = messageRef.rolls?.[0];
+						if (!applyRoll) return;
+						const result = await targetActor.applyDamage(applyRoll.total, {
+							damageType: damageTarget.damageType,
+						});
+						const blockedMsg =
+							result.blocked > 0 ? ` (${game.i18n.format("op.damageBlocked", { blocked: result.blocked })})` : "";
+						ChatMessage.create({
+							content: game.i18n.format("op.applyDamageResult", {
+								amount: result.finalDamage,
+								target: targetActor.name,
+								blocked: blockedMsg,
+							}),
+						});
+					} finally {
+						applyBtn.disabled = false;
+					}
+				});
+				rollContent.after(applyBtn);
+			}
+		}
+
+		// Inject hit/miss result block on attack roll messages that have a hitResult flag
+		const hitResult = this.getFlag("ordemparanormal", "hitResult");
+		if (hitResult) {
+			const rollContent = html.querySelector(".dice-roll");
+			if (rollContent) {
+				const resultBlock = document.createElement("div");
+				resultBlock.classList.add("hit-result", hitResult.hit ? "success" : "failure");
+				const label = hitResult.hit
+					? hitResult.isCritical
+						? game.i18n.localize("op.criticalHit")
+						: game.i18n.localize("op.hit")
+					: game.i18n.localize("op.miss");
+				resultBlock.innerHTML = `<strong>${label}</strong> <span class="vs-defense">${game.i18n.format("op.vsDefense", {
+					defense: hitResult.targetDefense,
+				})}</span>`;
+				rollContent.after(resultBlock);
+			}
 		}
 	}
 
@@ -97,9 +183,15 @@ export default class ChatMessageOP extends ChatMessage {
 			const total = totals[index];
 			if (!total) continue;
 
-			if (d.options.target) {
+			if (d.options.target && Number.isNumeric(d.options.target)) {
 				if (d20Roll.isSuccess) total.classList.add("success");
 				else total.classList.add("failure");
+				const dtBadge = document.createElement("div");
+				dtBadge.classList.add("dt-result", d20Roll.isSuccess ? "success" : "failure");
+				dtBadge.textContent = d20Roll.isSuccess
+					? game.i18n.format("op.rollSuccess", { dt: d.options.target })
+					: game.i18n.format("op.rollFailure", { dt: d.options.target });
+				total.after(dtBadge);
 			}
 
 			if (d20Roll.isCritical) total.classList.add("critical");

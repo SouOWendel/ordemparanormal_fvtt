@@ -885,6 +885,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		// V13: Use namespaced TextEditor
 		const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
 		const actor = this.actor;
+		// CANCELABLE HOOK — `dropActorSheetData` listeners MUST be synchronous;
+		// async listeners return a Promise (truthy) and cannot block the drop.
 		const allowed = Hooks.call("dropActorSheetData", actor, this, data);
 		if (allowed === false) return;
 

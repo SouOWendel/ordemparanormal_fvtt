@@ -1,0 +1,26 @@
+{
+	"_id": "macroRolarPericA",
+	"name": "Rolar Perícia",
+	"type": "script",
+	"author": "FabricioSouza001",
+	"img": "icons/svg/book.svg",
+	"scope": "actor",
+	"command": "const speaker = ChatMessage.getSpeaker();\nconst actor =\n\tcanvas.tokens?.controlled?.find((t) => t.actor?.testUserPermission?.(game.user, \"OWNER\"))?.actor ??\n\tcanvas.tokens?.controlled?.[0]?.actor ??\n\t(speaker.actor ? game.actors.get(speaker.actor) : null) ??\n\t(!game.user.isGM ? game.actors.contents.find((a) => a.type === \"agent\" && a.testUserPermission?.(game.user, \"OWNER\")) : null);\nif (!actor) return ui.notifications.warn(game.i18n.localize(\"op.noActorSelected\"));\n\nconst skillOptions = Object.entries(CONFIG.op.skills)\n\t.map(([key, label]) => `<option value=\"${key}\">${game.i18n.localize(label)}</option>`)\n\t.join(\"\");\nconst content = `\n\t<div class=\"form-group\"><label>${game.i18n.localize(\"op.macroSkillLabel\")}</label><select name=\"skill\">${skillOptions}</select></div>\n\t<div class=\"form-group\"><label>${game.i18n.localize(\"op.macroDtOptional\")}</label><input type=\"number\" name=\"target\" placeholder=\"${game.i18n.localize(\"op.macroDtPlaceholder\")}\" min=\"0\" /></div>\n`;\n\nconst input = await foundry.applications.api.DialogV2.prompt({\n\twindow: { title: game.i18n.localize(\"op.macroRollSkillTitle\") },\n\tcontent,\n\tok: {\n\t\tlabel: game.i18n.localize(\"op.macroRollButton\"),\n\t\tcallback: (_event, button) => new FormDataExtended(button.form).object,\n\t},\n});\nif (!input || !input.skill) return;\n\nconst rollOptions = {};\nif (input.target !== \"\" && input.target !== null && input.target !== undefined) {\n\trollOptions.rolls = [{ options: { target: Number(input.target) } }];\n}\nactor.rollSkill({ skill: input.skill, ...rollOptions });",
+	"flags": {},
+	"folder": null,
+	"sort": 400000,
+	"ownership": {
+		"default": 0
+	},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"coreVersion": "13.351",
+		"systemId": "ordemparanormal",
+		"systemVersion": "7.3.3",
+		"createdTime": null,
+		"modifiedTime": null,
+		"lastModifiedBy": null
+	},
+	"_key": "!macros!macroRolarPericA"
+}

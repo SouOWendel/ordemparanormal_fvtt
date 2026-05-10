@@ -48,6 +48,8 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 
 			// Gestão de Itens e Efeitos
 			createDoc: this.prototype._onCreateDoc,
+			createThreatAttack: OrdemThreatSheet.#onCreateThreatAttack,
+			editThreatAttack: OrdemThreatSheet.#onEditThreatAttack,
 			viewDoc: this.prototype._onViewDoc,
 			deleteDoc: this.prototype._onDeleteDoc,
 			toggleDescription: this.prototype._onToggleDescription,
@@ -237,6 +239,17 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 				const dmgTypeKey = i.system.formulas?.damage?.type;
 				const dmgTypeLabel = dmgTypeKey ? game.i18n.localize(`op.damageTypeAbv.${dmgTypeKey}`) : "";
 				i.damageLabel = `${dmgFormula} ${dmgTypeLabel}`;
+
+				// Enrich threat-specific attack metadata
+				const actionType = i.system.actionType ?? "standard";
+				i.actionTypeBadge = {
+					label: game.i18n.localize(`op.actionType.${actionType}`),
+					cls: actionType,
+				};
+				i.numberOfAttacks = i.system.numberOfAttacks ?? 1;
+				i.rangeCategoryLabel = i.system.rangeCategory
+					? game.i18n.localize(`op.rangeCategory.${i.system.rangeCategory}`)
+					: "";
 
 				attacks.push(i);
 			} else if (i.type === "ability") {
@@ -602,6 +615,152 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 				input.disabled = true;
 			}
 		}
+	}
+
+	/** Build the HTML content for the threat attack dialog. */
+	static #buildAttackDialogContent(existing = null) {
+		const damageTypes = CONFIG.op?.dropdownDamageType ?? {};
+		const attributes = CONFIG.op?.attributes ?? {};
+		// Limit to skills actually present on ThreatData.skills — using one outside the
+		// schema would crash rollAttack later when reading skill.degree.
+		const threatSkillKeys = [
+			"fighting",
+			"aim",
+			"resilience",
+			"reflexes",
+			"will",
+			"initiative",
+			"perception",
+			"freeSkill",
+		];
+		const allAttackSkills = CONFIG.op?.attackSkills ?? {};
+		const attackSkills = Object.fromEntries(Object.entries(allAttackSkills).filter(([k]) => threatSkillKeys.includes(k)));
+
+		const selectOpts = (obj, selected = "") =>
+			Object.entries(obj)
+				.map(([k, v]) => `<option value="${k}" ${k === selected ? "selected" : ""}>${game.i18n.localize(v)}</option>`)
+				.join("");
+
+		const actionTypeOpts = ["standard", "free", "movement", "reaction", "full"]
+			.map(
+				(k) =>
+					`<option value="${k}" ${(existing?.actionType ?? "standard") === k ? "selected" : ""}>${game.i18n.localize(
+						`op.actionType.${k}`
+					)}</option>`
+			)
+			.join("");
+
+		const rangeCatOpts = ["", "short", "medium", "long", "extreme"]
+			.map(
+				(k) =>
+					`<option value="${k}" ${(existing?.rangeCategory ?? "") === k ? "selected" : ""}>${
+						k ? game.i18n.localize(`op.rangeCategory.${k}`) : "—"
+					}</option>`
+			)
+			.join("");
+
+		const isRanged = existing ? existing.types?.rangeType?.name === "ranged" : false;
+
+		return `
+<div class="threat-attack-dialog" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px;">
+  <label>${game.i18n.localize("op.name")}<input name="name" type="text" value="${
+			existing?.name ?? ""
+		}" style="width:100%;margin-top:2px;" /></label>
+  <label>${game.i18n.localize(
+			"op.actionType.label"
+		)}<select name="actionType" style="width:100%;margin-top:2px;">${actionTypeOpts}</select></label>
+  <label>${game.i18n.localize(
+			"op.numberOfAttacks"
+		)}<input name="numberOfAttacks" type="number" min="1" max="8" value="${
+			existing?.numberOfAttacks ?? 1
+		}" style="width:100%;margin-top:2px;" /></label>
+  <label>${game.i18n.localize("op.RollAttribute")}<select name="attr" style="width:100%;margin-top:2px;">${selectOpts(
+			attributes,
+			existing?.formulas?.attack?.attr ?? "str"
+		)}</select></label>
+  <label>${game.i18n.localize("op.skill.label")}<select name="skill" style="width:100%;margin-top:2px;">${selectOpts(
+			attackSkills,
+			existing?.formulas?.attack?.skill ?? "fighting"
+		)}</select></label>
+  <label>${game.i18n.localize("op.bonus")}<input name="atkBonus" type="number" value="${
+			existing?.formulas?.attack?.bonus ?? 0
+		}" style="width:100%;margin-top:2px;" /></label>
+  <label>${game.i18n.localize("op.rangeType.label")}<select name="rangeType" style="width:100%;margin-top:2px;">
+    <option value="melee" ${!isRanged ? "selected" : ""}>${game.i18n.localize("op.rangeType.melee")}</option>
+    <option value="ranged" ${isRanged ? "selected" : ""}>${game.i18n.localize("op.rangeType.ranged")}</option>
+  </select></label>
+  <label>${game.i18n.localize(
+			"op.rangeCategory.label"
+		)}<select name="rangeCategory" style="width:100%;margin-top:2px;">${rangeCatOpts}</select></label>
+  <label>${game.i18n.localize("op.formulaDamage")}<input name="dmgFormula" type="text" value="${
+			existing?.formulas?.damage?.formula ?? "1d6"
+		}" style="width:100%;margin-top:2px;" /></label>
+  <label>${game.i18n.localize("op.damage")}<select name="dmgType" style="width:100%;margin-top:2px;">${selectOpts(
+			damageTypes,
+			existing?.formulas?.damage?.type ?? "impactDamage"
+		)}</select></label>
+  <label>${game.i18n.localize("op.critical")}<input name="critical" type="text" value="${
+			existing?.critical ?? "20"
+		}" style="width:100%;margin-top:2px;" /></label>
+</div>`;
+	}
+
+	/** Open dialog to create a new threat attack (embedded armament item). */
+	static async #onCreateThreatAttack(event, _target) {
+		event.preventDefault();
+		const result = await foundry.applications.api.DialogV2.prompt({
+			window: { title: game.i18n.localize("op.atkDialogTitle") },
+			content: OrdemThreatSheet.#buildAttackDialogContent(),
+			ok: {
+				label: game.i18n.localize("op.addThreatAttack"),
+				callback: (_event, button) => new FormDataExtended(button.form).object,
+			},
+		});
+		if (!result || !result.name) return;
+		await this.actor.createEmbeddedDocuments("Item", [OrdemThreatSheet.#attackFormDataToItem(result)]);
+	}
+
+	/** Open dialog to edit an existing threat attack item. */
+	static async #onEditThreatAttack(event, target) {
+		event.preventDefault();
+		const li = target.closest("[data-item-id]");
+		const item = this.actor.items.get(li?.dataset.itemId);
+		if (!item) return;
+		const result = await foundry.applications.api.DialogV2.prompt({
+			window: { title: game.i18n.localize("op.editThreatAttack") },
+			content: OrdemThreatSheet.#buildAttackDialogContent({ ...item.system, name: item.name }),
+			ok: {
+				label: game.i18n.localize("op.saveChanges"),
+				callback: (_event, button) => new FormDataExtended(button.form).object,
+			},
+		});
+		if (!result) return;
+		const update = OrdemThreatSheet.#attackFormDataToItem(result);
+		await item.update({ name: update.name, system: update.system });
+	}
+
+	/** Convert form data from the attack dialog into an Item creation object. */
+	static #attackFormDataToItem(data) {
+		return {
+			name: data.name || game.i18n.localize("op.attack"),
+			type: "armament",
+			system: {
+				formulas: {
+					attack: { attr: data.attr, skill: data.skill, bonus: Number(data.atkBonus) || 0 },
+					damage: { formula: data.dmgFormula || "1d6", attr: "", type: data.dmgType, bonus: 0, parts: [] },
+					extraFormula: "",
+				},
+				critical: data.critical || "20",
+				proficiency: "simpleWeapons",
+				types: { rangeType: { name: data.rangeType === "ranged" ? "ranged" : "melee" } },
+				actionType: data.actionType ?? "standard",
+				numberOfAttacks: Number(data.numberOfAttacks) || 1,
+				rangeCategory: data.rangeCategory ?? "",
+				using: { state: true },
+				quantity: 1,
+				weight: 0,
+			},
+		};
 	}
 
 	/** */

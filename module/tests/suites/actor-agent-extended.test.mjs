@@ -24,12 +24,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("patent — creditLimit por patente", () => {
 				const cases = [
-					{ pp: -1,  name: "Sem Patente",           creditLimit: "Baixo"      },
-					{ pp: 0,   name: "Recruta",               creditLimit: "Baixo"      },
-					{ pp: 30,  name: "Operador",              creditLimit: "Médio"      },
-					{ pp: 60,  name: "Agente Especial",       creditLimit: "Médio"      },
-					{ pp: 110, name: "Oficial de Operações",  creditLimit: "Alto"       },
-					{ pp: 210, name: "Agente de Elite",       creditLimit: "Ilimitado"  },
+					{ pp: -1, name: "Sem Patente", creditLimit: "Baixo" },
+					{ pp: 0, name: "Recruta", creditLimit: "Baixo" },
+					{ pp: 30, name: "Operador", creditLimit: "Médio" },
+					{ pp: 60, name: "Agente Especial", creditLimit: "Médio" },
+					{ pp: 110, name: "Oficial de Operações", creditLimit: "Alto" },
+					{ pp: 210, name: "Agente de Elite", creditLimit: "Ilimitado" },
 				];
 
 				for (const { pp, name, creditLimit } of cases) {
@@ -53,7 +53,7 @@ Hooks.once("quenchReady", (quench) => {
 				before(async () => {
 					actor = await createAgent({
 						skills: {
-							athletics: {
+							athleticism: {
 								degree: { label: "trained", value: 5 },
 								value: 0,
 								attr: ["str"],
@@ -62,10 +62,12 @@ Hooks.once("quenchReady", (quench) => {
 						},
 					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
-				it("athletics com load=true tem '+' no label", () => {
-					assert.include(actor.system.skills.athletics.label, "+");
+				it("athleticism com load=true tem '+' no label", () => {
+					assert.include(actor.system.skills.athleticism.label, "+");
 				});
 			});
 
@@ -83,7 +85,9 @@ Hooks.once("quenchReady", (quench) => {
 						},
 					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("medicine com trained=true tem '*' no label", () => {
 					assert.include(actor.system.skills.medicine.label, "*");
@@ -105,7 +109,9 @@ Hooks.once("quenchReady", (quench) => {
 						},
 					});
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("freeSkill.label = skill.name ('Xadrez')", () => {
 					assert.include(actor.system.skills.freeSkill.label, "Xadrez");
@@ -123,7 +129,9 @@ Hooks.once("quenchReady", (quench) => {
 				before(async () => {
 					actor = await createAgent();
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("fighting padrão não tem sufixo no label", () => {
 					const label = actor.system.skills.fighting.label;
@@ -142,13 +150,17 @@ Hooks.once("quenchReady", (quench) => {
 					actor = await createAgent({
 						attributes: { str: { value: 2 }, vit: { value: 1 }, pre: { value: 1 }, dex: { value: 1 }, int: { value: 1 } },
 					});
-					await actor.createEmbeddedDocuments("ActiveEffect", [{
-						name: "Bônus Espaço +2",
-						changes: [{ key: "system.spaces.bonus.max", mode: 2, value: "2" }],
-						disabled: false,
-					}]);
+					await actor.createEmbeddedDocuments("ActiveEffect", [
+						{
+							name: "Bônus Espaço +2",
+							changes: [{ key: "system.spaces.bonus.max", mode: 2, value: "2" }],
+							disabled: false,
+						},
+					]);
 				});
-				after(async () => { await actor?.delete(); });
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("spaces.max = 12 com AE +2 em bonus.max", () => {
 					assert.equal(actor.system.spaces.max, 12);
@@ -160,8 +172,12 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("OrdemActor.applyDamage — nonLethal no agente", () => {
 				let actor;
-				before(async () => { actor = await createAgent(); });
-				after(async () => { await actor?.delete(); });
+				before(async () => {
+					actor = await createAgent();
+				});
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("nonLethal=true: system.PV.nonLethal aumenta, PV.value inalterado", async () => {
 					const pvBefore = actor.system.PV.value;
@@ -173,8 +189,12 @@ Hooks.once("quenchReady", (quench) => {
 
 			describe("OrdemActor.applyDamage — condições retornadas", () => {
 				let actor;
-				before(async () => { actor = await createAgent(); });
-				after(async () => { await actor?.delete(); });
+				before(async () => {
+					actor = await createAgent();
+				});
+				after(async () => {
+					await actor?.delete();
+				});
 
 				it("condição 'morrendo' retornada quando PV vai a 0", async () => {
 					const maxPV = actor.system.PV.max;
@@ -185,10 +205,7 @@ Hooks.once("quenchReady", (quench) => {
 				it("condição 'machucado' retornada quando PV cai abaixo da metade", async () => {
 					// Restaurar PV primeiro
 					await actor.update({ "system.PV.value": actor.system.PV.max });
-					const result = await actor.applyDamage(
-						Math.ceil(actor.system.PV.max / 2) + 1,
-						{ damageType: "cuttingDamage" }
-					);
+					const result = await actor.applyDamage(Math.ceil(actor.system.PV.max / 2) + 1, { damageType: "cuttingDamage" });
 					assert.include(result.conditions, "machucado");
 				});
 			});
