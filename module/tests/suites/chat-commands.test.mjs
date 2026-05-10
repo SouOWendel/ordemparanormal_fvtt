@@ -19,7 +19,8 @@ Hooks.once("quenchReady", (quench) => {
 			async function fireChatMessage(content) {
 				// Replica o que o Foundry faz internamente: chama todos os handlers
 				// registrados em "chatMessage" e respeita short-circuit (return false).
-				const handlers = Hooks._hooks?.chatMessage ?? [];
+				// v13 expõe os handlers via `Hooks.events` (em v12 era `Hooks._hooks`).
+				const handlers = Hooks.events?.chatMessage ?? Hooks._hooks?.chatMessage ?? [];
 				for (const entry of handlers) {
 					const fn = typeof entry === "function" ? entry : entry.fn ?? entry;
 					const result = await fn(null, content, {});
@@ -56,6 +57,10 @@ Hooks.once("quenchReady", (quench) => {
 					const skillLabel = game.i18n.localize(CONFIG.op.skills[skillKey]);
 					const result = await fireChatMessage(`/dt 15 ${skillLabel}`);
 					assert.isFalse(result, "Hook deve suprimir comando original retornando false");
+
+					// The hook returns false synchronously and runs ChatMessage.create
+					// fire-and-forget — wait for that to settle before asserting state.
+					await new Promise((r) => setTimeout(r, 200));
 
 					const created = [...game.messages].find((m) => m.getFlag("ordemparanormal", "dtCommand"));
 					assert.exists(created, "Card de DT deve ser criado");
@@ -100,6 +105,9 @@ Hooks.once("quenchReady", (quench) => {
 					const skillLabel = game.i18n.localize(CONFIG.op.skills[skillKey]);
 					const result = await fireChatMessage(`/oposto ${skillLabel}`);
 					assert.isFalse(result, "Hook deve suprimir comando original");
+
+					// Same fire-and-forget pattern as /dt — wait for the create to land.
+					await new Promise((r) => setTimeout(r, 200));
 
 					const created = [...game.messages].find((m) => m.getFlag("ordemparanormal", "oppostoCommand"));
 					assert.exists(created, "Card de oposto deve ser criado");
@@ -151,8 +159,22 @@ Hooks.once("quenchReady", (quench) => {
 				let agent;
 				let savedCharacterId;
 
+				let controlledDescriptor;
+
 				before(async () => {
 					await deleteCommandMessages();
+					// resolveChatCommandActor() prioritises controlled tokens over
+					// game.user.character. Foundry can re-select tokens automatically
+					// (e.g. when game.user is updated with a character that has no
+					// token), so a one-shot release is unreliable. Hard-stub
+					// `canvas.tokens.controlled` to [] for the duration of these tests.
+					if (canvas?.tokens) {
+						controlledDescriptor =
+							Object.getOwnPropertyDescriptor(Object.getPrototypeOf(canvas.tokens), "controlled") ??
+							Object.getOwnPropertyDescriptor(canvas.tokens, "controlled");
+						Object.defineProperty(canvas.tokens, "controlled", { value: [], configurable: true });
+					}
+
 					agent = await Actor.create({
 						name: "[Quench] Agent for command click",
 						type: "agent",
@@ -173,6 +195,13 @@ Hooks.once("quenchReady", (quench) => {
 					await game.user.update({ character: savedCharacterId });
 					await agent?.delete();
 					await deleteCommandMessages();
+					// Restore the original `controlled` descriptor so other tests / the
+					// user's session see the real selection again.
+					if (canvas?.tokens && controlledDescriptor) {
+						Object.defineProperty(canvas.tokens, "controlled", controlledDescriptor);
+					} else if (canvas?.tokens) {
+						delete canvas.tokens.controlled;
+					}
 				});
 
 				it("click em [data-action='rollDT'] dispara actor.rollSkill com target", async () => {

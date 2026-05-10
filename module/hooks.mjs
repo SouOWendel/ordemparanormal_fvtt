@@ -239,6 +239,66 @@ export default function () {
 		});
 	});
 
+	// Clear "reaction used this round" flags from agents when a combat ends so the
+	// trackers don't leak across encounters. During an active combat we compare
+	// `flag === game.combat.round` directly, so stale flags from prior rounds are
+	// already inert — no per-round cleanup needed. Guard with the first-active-GM
+	// check so multiple connected GMs don't race on the same unset.
+	Hooks.on("deleteCombat", async (combat) => {
+		const firstGM = game.users.find((u) => u.isGM && u.active);
+		if (!firstGM || firstGM.id !== game.user.id) return;
+		const promises = [];
+		for (const combatant of combat.combatants ?? []) {
+			const actor = combatant.actor;
+			if (actor?.type !== "agent") continue;
+			if (actor.getFlag("ordemparanormal", "reactionUsedRound") == null) continue;
+			promises.push(actor.unsetFlag("ordemparanormal", "reactionUsedRound"));
+		}
+		if (promises.length) await Promise.all(promises);
+	});
+
+	// Defense-in-depth: also clear the flag at combatStart. Without this, a stale
+	// flag from a previous combat that wasn't deleted (e.g. GM ended but kept it
+	// for log purposes) could collide with the new combat's round number — same
+	// agent, same numeric round = falsely "already used" reaction in the new fight.
+	Hooks.on("combatStart", async (combat) => {
+		const firstGM = game.users.find((u) => u.isGM && u.active);
+		if (!firstGM || firstGM.id !== game.user.id) return;
+		const promises = [];
+		for (const combatant of combat.combatants ?? []) {
+			const actor = combatant.actor;
+			if (actor?.type !== "agent") continue;
+			if (actor.getFlag("ordemparanormal", "reactionUsedRound") == null) continue;
+			promises.push(actor.unsetFlag("ordemparanormal", "reactionUsedRound"));
+		}
+		if (promises.length) await Promise.all(promises);
+	});
+
+	// When an agent's reactionUsedRound flag changes (set or unset), re-render
+	// any chat messages with a pending reaction targeting that defender. Without
+	// this, a second pending attack card against the same PC would keep showing
+	// dodge/block buttons as enabled until something else triggered a render —
+	// the GM would reject the click via _autoResolveStale, but the local UI
+	// looks misleading. Foundry uses both `setFlag` (writes path) and
+	// `unsetFlag` (writes `-=key` deletion marker), so we check both shapes.
+	Hooks.on("updateActor", (actor, changes) => {
+		// Fast filter — the flag we care about only lives on agents, and most
+		// actor updates have nothing to do with reactions. Bail before the more
+		// expensive flag/messages scan when we can.
+		if (actor?.type !== "agent") return;
+		const op = changes?.flags?.ordemparanormal;
+		const setChanged = op?.reactionUsedRound !== undefined;
+		const unsetChanged = op?.["-=reactionUsedRound"] !== undefined;
+		const wholeNamespaceUnset = changes?.flags?.["-=ordemparanormal"] !== undefined;
+		if (!setChanged && !unsetChanged && !wholeNamespaceUnset) return;
+		const actorUuid = actor.uuid;
+		for (const msg of game.messages ?? []) {
+			const pending = msg.getFlag?.("ordemparanormal", "reactionPending");
+			if (!pending || pending.defenderUuid !== actorUuid) continue;
+			ui.chat?.updateMessage?.(msg);
+		}
+	});
+
 	// Re-render the most recent item card when targeting changes so target-info stays current
 	Hooks.on("targetToken", (user, _token, _targeted) => {
 		if (user.id !== game.user?.id) return;

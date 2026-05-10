@@ -237,15 +237,17 @@ export class OrdemActor extends Actor {
 	 * @param {string} [options.damageType]        Key from system.resistances (e.g. "cuttingDamage").
 	 * @param {boolean} [options.ignoreRD=false]   Bypass damage resistance (Perda de Vida rule).
 	 * @param {boolean} [options.nonLethal=false]  Apply as non-lethal damage (tracked separately).
+	 * @param {number} [options.extraRD=0]         Extra DR (e.g. from a Bloqueio reaction) added to base RD.
 	 * @returns {Promise<{finalDamage: number, blocked: number, newPV: number, conditions: string[]}>}
 	 */
-	async applyDamage(amount, { damageType, ignoreRD = false, nonLethal = false } = {}) {
+	async applyDamage(amount, { damageType, ignoreRD = false, nonLethal = false, extraRD = 0 } = {}) {
 		const isThreat = this.type === "threat";
 		const resource = isThreat ? this.system.attributes?.hp : this.system.PV;
 		const resistances = this.system.resistances ?? {};
 
-		const rd = (!ignoreRD && damageType && resistances[damageType]?.value) || 0;
-		const finalDamage = Math.max(0, amount - rd);
+		const baseRd = (!ignoreRD && damageType && resistances[damageType]?.value) || 0;
+		const totalRd = baseRd + Math.max(0, extraRD || 0);
+		const finalDamage = Math.max(0, amount - totalRd);
 		const blocked = amount - finalDamage;
 
 		// Delegate to GM via socket when the current user doesn't own this actor
@@ -261,7 +263,7 @@ export class OrdemActor extends Actor {
 				type: "applyDamage",
 				actorUuid: this.uuid,
 				amount,
-				options: { damageType, ignoreRD, nonLethal },
+				options: { damageType, ignoreRD, nonLethal, extraRD },
 				userId: game.user.id,
 			});
 			// newPV is unknown here — update happens asynchronously on the GM client

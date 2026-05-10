@@ -76,6 +76,75 @@
 }
 
 // ----------------------------------------
+// Defender Reaction Panel
+// ----------------------------------------
+.reaction-panel {
+	border: 1px solid var(--color-border-light, colors.$c-gray-light);
+	border-radius: variables.$radius-md;
+	padding: variables.$spacing-sm variables.$spacing-md;
+	margin: variables.$spacing-sm 0;
+	background: var(--color-bg-secondary, rgba(0, 0, 0, 0.04));
+
+	.reaction-panel-title {
+		font-weight: bold;
+		font-size: variables.$font-sm;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		opacity: 0.75;
+		margin-bottom: variables.$spacing-xs;
+	}
+
+	.reaction-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: variables.$spacing-xs;
+	}
+
+	.reaction-button {
+		flex: 1 1 auto;
+		min-width: 80px;
+		padding: variables.$spacing-xs variables.$spacing-sm;
+		font-size: variables.$font-sm;
+		cursor: pointer;
+
+		&:disabled {
+			opacity: 0.45;
+			cursor: not-allowed;
+		}
+
+		&.reaction-dodge {
+			border-color: colors.$c-action-reaction;
+		}
+
+		&.reaction-block {
+			border-color: colors.$c-action-standard;
+		}
+
+		&.reaction-counterAttack {
+			border-color: colors.$c-warning;
+		}
+
+		&.reaction-skip {
+			opacity: 0.7;
+		}
+	}
+
+	.reaction-status {
+		font-style: italic;
+		font-size: variables.$font-sm;
+		opacity: 0.8;
+	}
+
+	&.reaction-applied {
+		opacity: 0.85;
+	}
+}
+
+.hit-result.dodged {
+	box-shadow: inset 0 0 0 2px colors.$c-action-reaction;
+}
+
+// ----------------------------------------
 // Action Type Badges (Threat Attacks)
 // ----------------------------------------
 .op-action-badge {

@@ -28,6 +28,7 @@ import * as migrations from "./migrations.mjs";
 import * as hooks from "./hooks.mjs";
 
 import * as utils from "./utils.mjs";
+import { handleReaction } from "./helpers/reactions.mjs";
 
 // import { rescueAllPathEffects } from '../utils/__test__/effects.mjs';
 
@@ -192,6 +193,12 @@ Hooks.once("ready", function () {
 		if (data.type === "opostoResult") {
 			if (!utils.isOpostoSenderAuthorized(data)) return;
 			await handleOpostoResult(data);
+		}
+
+		if (data.type === "reaction") {
+			const sender = data.userId ? game.users.get(data.userId) : null;
+			if (!sender) return;
+			await handleReaction({ sender, payload: data.payload });
 		}
 	});
 

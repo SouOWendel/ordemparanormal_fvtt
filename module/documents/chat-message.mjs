@@ -1,3 +1,6 @@
+import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
+import { dispatchReaction, pickCounterAttackWeapon } from "../helpers/reactions.mjs";
+
 /** */
 export default class ChatMessageOP extends ChatMessage {
 	/** @inheritDoc */
@@ -80,12 +83,16 @@ export default class ChatMessageOP extends ChatMessage {
 				}
 			}
 
-			// Disable the damage button when the last attack missed
+			// Disable the damage button when the last attack missed — and also while a
+			// defender reaction is still pending (revealed === false). Otherwise the
+			// attacker/GM could roll and apply damage before the defender's Dodge
+			// flips the attack into a miss, leaving stolen PV behind.
 			const cardHitResult = this.getFlag("ordemparanormal", "hitResult");
 			if (cardHitResult) {
 				const damageButton = html.querySelector('[data-action="damage"]');
 				if (damageButton) {
-					if (cardHitResult.hit === false) {
+					const reactionPendingUnresolved = cardHitResult.revealed === false;
+					if (cardHitResult.hit === false || reactionPendingUnresolved) {
 						damageButton.disabled = true;
 						damageButton.classList.add("hit-miss");
 						damageButton.title = game.i18n.localize("op.rollDmgDisabled");
@@ -113,8 +120,11 @@ export default class ChatMessageOP extends ChatMessage {
 						if (!targetActor) return;
 						const applyRoll = messageRef.rolls?.[0];
 						if (!applyRoll) return;
+						const attackMsg = damageTarget.attackMessageId ? game.messages.get(damageTarget.attackMessageId) : null;
+						const extraRD = attackMsg?.getFlag("ordemparanormal", "damageBlock")?.amount ?? 0;
 						const result = await targetActor.applyDamage(applyRoll.total, {
 							damageType: damageTarget.damageType,
+							extraRD,
 						});
 						const blockedMsg =
 							result.blocked > 0 ? ` (${game.i18n.format("op.damageBlocked", { blocked: result.blocked })})` : "";
@@ -135,11 +145,23 @@ export default class ChatMessageOP extends ChatMessage {
 
 		// Inject hit/miss result block on attack roll messages that have a hitResult flag
 		const hitResult = this.getFlag("ordemparanormal", "hitResult");
-		if (hitResult) {
+		const reactionPending = this.getFlag("ordemparanormal", "reactionPending");
+		const reactionApplied = this.getFlag("ordemparanormal", "reactionApplied");
+
+		// Determine whether the current viewer should see the hit/miss reveal yet.
+		// When a reaction is still pending, the defender's owner is kept blind to the
+		// outcome until they choose. The attacker, the GM, and other observers see it
+		// immediately so the table can keep flowing.
+		const isDefenderViewer =
+			!!reactionPending && this._isOwnerOfUuidSync(reactionPending.defenderUuid) && !game.user.isGM;
+		const shouldRevealHit = !reactionPending || hitResult?.revealed === true || !isDefenderViewer;
+
+		if (hitResult && shouldRevealHit) {
 			const rollContent = html.querySelector(".dice-roll");
 			if (rollContent) {
 				const resultBlock = document.createElement("div");
 				resultBlock.classList.add("hit-result", hitResult.hit ? "success" : "failure");
+				if (hitResult.dodged) resultBlock.classList.add("dodged");
 				const label = hitResult.hit
 					? hitResult.isCritical
 						? game.i18n.localize("op.criticalHit")
@@ -150,7 +172,224 @@ export default class ChatMessageOP extends ChatMessage {
 				})}</span>`;
 				rollContent.after(resultBlock);
 			}
+		} else if (hitResult && isDefenderViewer && !shouldRevealHit) {
+			// Hide the dice total area's standard "success/failure" highlight too, otherwise
+			// the defender could infer the result from the d20 highlight applied earlier.
+			html.querySelectorAll(".dice-total").forEach((el) => el.classList.remove("success", "failure"));
 		}
+
+		// Reaction panel — visible to the GM and to the defender's owner while pending.
+		// Idempotency: skip if a panel is already in this html tree (defends against
+		// any race where multiple renders could otherwise stack panels).
+		if (reactionPending && !html.querySelector(".reaction-panel")) {
+			this._renderReactionPanel(html, { reactionPending, hitResult, reactionApplied });
+		}
+	}
+
+	/**
+	 * Synchronous resolution of an Actor (or Token's actor) from a UUID. Uses
+	 * `fromUuidSync` first, then falls back to extracting the actor id when the
+	 * UUID points to a Token in a non-loaded scene (fromUuidSync needs the scene
+	 * loaded to resolve Token UUIDs). Returns null if nothing matches.
+	 *
+	 * @param {string} uuid
+	 * @returns {object|null}
+	 */
+	_resolveActorSync(uuid) {
+		if (!uuid) return null;
+		try {
+			const doc = fromUuidSync(uuid);
+			if (doc) return doc.actor ?? doc;
+		} catch (_err) {
+			/* fall through to id extraction */
+		}
+		// Token UUIDs in inactive scenes: parse out the actor id and look it up
+		// in the world collection. Format: Scene.X.Token.Y.Actor.Z (linked) or
+		// Actor.Z (world actor).
+		const parts = uuid.split(".");
+		const actorIdx = parts.lastIndexOf("Actor");
+		if (actorIdx >= 0 && actorIdx + 1 < parts.length) {
+			return game.actors?.get(parts[actorIdx + 1]) ?? null;
+		}
+		return null;
+	}
+
+	/**
+	 * Synchronous ownership check using _resolveActorSync. Used by render paths
+	 * which cannot await.
+	 *
+	 * @param {string} uuid
+	 * @returns {boolean}
+	 */
+	_isOwnerOfUuidSync(uuid) {
+		const actor = this._resolveActorSync(uuid);
+		return Boolean(actor?.isOwner);
+	}
+
+	/**
+	 * Render the defender reaction panel onto the attack chat message.
+	 *
+	 * Synchronous on purpose: the chat-message render pipeline does not await us,
+	 * so any `await` here would race with the parent returning `html` and could
+	 * stack panels on rapid re-renders. `fromUuidSync` works for world-scoped
+	 * documents (Actor, Item, Token in loaded scenes) which is what we need.
+	 *
+	 * @param {HTMLElement} html
+	 * @param {{reactionPending: object, hitResult: object|null, reactionApplied: object|null}} ctx
+	 */
+	_renderReactionPanel(html, { reactionPending, hitResult, reactionApplied }) {
+		const isOwnerOfDefender = this._isOwnerOfUuidSync(reactionPending.defenderUuid);
+		if (!game.user.isGM && !isOwnerOfDefender) return;
+
+		const defender = this._resolveActorSync(reactionPending.defenderUuid);
+		// Wrap fromUuidSync in try/catch — a stale chat card can outlive its
+		// referenced item/scene, and Foundry sometimes throws on lookup of
+		// orphaned UUIDs. We must never let the chat renderer crash on render.
+		let attackerItem = null;
+		if (reactionPending.itemUuid) {
+			try {
+				attackerItem = fromUuidSync(reactionPending.itemUuid);
+			} catch (_err) {
+				attackerItem = null;
+			}
+		}
+		if (!defender) return;
+
+		const currentRound = game.combat?.round ?? 0;
+		const reactionUsedRound = defender.getFlag("ordemparanormal", "reactionUsedRound") ?? null;
+		const eligibility = getReactionEligibility(defender, attackerItem, currentRound, reactionUsedRound);
+
+		const panel = document.createElement("div");
+		panel.classList.add("reaction-panel");
+		if (reactionApplied) panel.classList.add("reaction-applied");
+
+		const title = document.createElement("div");
+		title.classList.add("reaction-panel-title");
+		title.textContent = game.i18n.localize("op.reaction.panelTitle");
+		panel.append(title);
+
+		if (reactionApplied) {
+			const status = document.createElement("div");
+			status.classList.add("reaction-status");
+			const typeKey =
+				reactionApplied.type === "dodge"
+					? "op.reaction.dodge"
+					: reactionApplied.type === "block"
+					? "op.reaction.block"
+					: reactionApplied.type === "counterAttack"
+					? "op.reaction.counterAttack"
+					: "op.reaction.skip";
+			const reactionLabel = game.i18n.localize(typeKey);
+			status.textContent = `${defender.name} → ${reactionLabel}`;
+			panel.append(status);
+		} else {
+			const buttons = document.createElement("div");
+			buttons.classList.add("reaction-buttons");
+
+			// Two-stage panel:
+			// • Pre-reveal: defender hasn't seen the result yet — show Dodge/Block (the
+			//   pre-roll reactions) plus Skip ("reveal and decide later").
+			// • Post-reveal: dodge/block windows are over; show Counter-attack only when
+			//   the attack actually missed and the defender is still eligible,
+			//   plus Skip to lock the panel for good.
+			const isRevealed = hitResult?.revealed === true;
+			const attackerMissed = isRevealed && hitResult?.hit === false;
+
+			if (!isRevealed) {
+				buttons.append(
+					this._buildReactionButton({
+						type: "dodge",
+						labelKey: "op.reaction.dodgeWithBonus",
+						tooltipKey: "op.reaction.dodgeTooltip",
+						eligibility: eligibility.dodge,
+						reactionPending,
+						defender,
+					}),
+					this._buildReactionButton({
+						type: "block",
+						labelKey: "op.reaction.blockWithBonus",
+						tooltipKey: "op.reaction.blockTooltip",
+						eligibility: eligibility.block,
+						reactionPending,
+						defender,
+					})
+				);
+			} else if (attackerMissed && eligibility.counterAttack.eligible) {
+				buttons.append(
+					this._buildReactionButton({
+						type: "counterAttack",
+						labelKey: "op.reaction.counterAttack",
+						tooltipKey: "op.reaction.counterAttackTooltip",
+						eligibility: eligibility.counterAttack,
+						reactionPending,
+						defender,
+					})
+				);
+			}
+
+			buttons.append(
+				this._buildReactionButton({
+					type: "skip",
+					labelKey: "op.reaction.skip",
+					eligibility: { eligible: true },
+					reactionPending,
+					defender,
+				})
+			);
+
+			panel.append(buttons);
+		}
+
+		const anchor = html.querySelector(".dice-roll") ?? html.querySelector(".message-content");
+		anchor?.after(panel);
+	}
+
+	_buildReactionButton({ type, labelKey, tooltipKey, eligibility, reactionPending, defender }) {
+		const btn = document.createElement("button");
+		btn.classList.add("reaction-button", `reaction-${type}`);
+		btn.dataset.reaction = type;
+
+		const bonus = eligibility.bonus ?? 0;
+		btn.innerHTML = bonus ? game.i18n.format(labelKey, { bonus }) : game.i18n.localize(labelKey);
+
+		if (!eligibility.eligible) {
+			btn.disabled = true;
+			if (eligibility.reason) {
+				btn.title = game.i18n.localize(`op.reaction.${eligibility.reason}`);
+			}
+		} else if (tooltipKey) {
+			btn.title = game.i18n.format(tooltipKey, { bonus });
+		}
+
+		btn.addEventListener("click", async (event) => {
+			event.preventDefault();
+			btn.disabled = true;
+			const buttonsContainer = btn.parentElement;
+			buttonsContainer?.querySelectorAll("button").forEach((b) => (b.disabled = true));
+			try {
+				let weaponUuid = null;
+				if (type === "counterAttack") {
+					const weapon = await pickCounterAttackWeapon(defender);
+					if (!weapon) {
+						buttonsContainer?.querySelectorAll("button").forEach((b) => (b.disabled = false));
+						return;
+					}
+					weaponUuid = weapon.uuid;
+				}
+				dispatchReaction({
+					type,
+					messageId: this.id,
+					defenderUuid: reactionPending.defenderUuid,
+					attackerUuid: reactionPending.attackerUuid,
+					itemUuid: reactionPending.itemUuid,
+					weaponUuid,
+				});
+			} catch (err) {
+				console.error("ordemparanormal | reaction click failed", err);
+				buttonsContainer?.querySelectorAll("button").forEach((b) => (b.disabled = false));
+			}
+		});
+		return btn;
 	}
 
 	/**

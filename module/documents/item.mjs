@@ -5,6 +5,8 @@
  * https://github.com/foundryvtt/dnd5e/blob/a7f1404c7c38afa6d7dcc4f36a5fefd274034691/module/documents/item.mjs#L1639
  */
 
+import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -145,8 +147,11 @@ export class OrdemItem extends Item {
 				if (!targetActor) break;
 				const applyRoll = applyMessage.rolls?.[0];
 				if (!applyRoll) break;
+				const attackMsg = damageTarget.attackMessageId ? game.messages.get(damageTarget.attackMessageId) : null;
+				const extraRD = attackMsg?.getFlag("ordemparanormal", "damageBlock")?.amount ?? 0;
 				const result = await targetActor.applyDamage(applyRoll.total, {
 					damageType: damageTarget.damageType,
+					extraRD,
 				});
 				const blockedMsg = result.blocked > 0 ? game.i18n.format("op.damageBlocked", { blocked: result.blocked }) : "";
 				ChatMessage.create({
@@ -292,6 +297,50 @@ export class OrdemItem extends Item {
 		const targetToken = options._forcedTarget ?? (targets.size === 1 ? [...targets][0] : null);
 		const hitResult = targetToken ? this._compareWithDefense(targetToken.actor, roll.total, criticalStatus) : null;
 
+		// Build the pending-reaction descriptor when the defender is an Agent (PCs only — Threats don't react).
+		// Skip when the attacker IS the defender (counter-attacks), the attacker has no actor,
+		// the defender has already spent their reaction this round, OR the defender has no
+		// trained reaction that could legally apply to this attack — otherwise we'd hide the
+		// result behind a panel that can never resolve to anything but Skip, needlessly
+		// blocking damage application for untrained defenders.
+		const defender = targetToken?.actor ?? null;
+		const isAgentDefender = defender?.type === "agent";
+		const currentRound = game.combat?.round ?? 0;
+		const defenderReactionUsed = defender?.getFlag?.("ordemparanormal", "reactionUsedRound") ?? null;
+		const defenderHasReaction = currentRound === 0 || defenderReactionUsed !== currentRound;
+		const eligibility =
+			isAgentDefender && defenderHasReaction
+				? getReactionEligibility(defender, this, currentRound, defenderReactionUsed)
+				: null;
+		// Pre-roll reactions (Dodge/Block) only matter when the attack would hit; the
+		// post-roll Counter-attack only matters when it missed. Pending the panel for
+		// a counter-attack-only defender on a hit just blocks damage with no possible
+		// resolution beyond Skip — so we gate on the actual outcome.
+		const dodgeOrBlockEligible = Boolean(eligibility?.dodge.eligible || eligibility?.block.eligible);
+		const counterMatters = hitResult?.hit === false && Boolean(eligibility?.counterAttack.eligible);
+		const hasAnyEligibleReaction = dodgeOrBlockEligible || counterMatters;
+		// Capture the attacker's token at attack time so counter-attacks always target the
+		// exact token that swung — for linked actors with multiple tokens on a scene
+		// `getActiveTokens()[0]` would otherwise pick an arbitrary one.
+		const attackerTokenUuid = this.actor?.token?.uuid ?? this.actor?.getActiveTokens?.()[0]?.document?.uuid ?? null;
+		const reactionPending =
+			isAgentDefender && defender.uuid !== this.actor?.uuid && defenderHasReaction && hasAnyEligibleReaction
+				? {
+						defenderUuid: defender.uuid,
+						attackerUuid: this.actor?.uuid ?? null,
+						attackerTokenUuid,
+						itemUuid: this.uuid,
+						isMelee: this.system.types?.rangeType?.name !== "ranged",
+						round: currentRound,
+				  }
+				: null;
+
+		// When a reaction is pending, the hit/miss block stays hidden for the defender until they respond.
+		if (hitResult) {
+			hitResult.baseDefense = hitResult.targetDefense;
+			hitResult.revealed = !reactionPending;
+		}
+
 		// Envia para o chat
 		if (rollConfig.chatMessage) {
 			const flags = {
@@ -303,19 +352,41 @@ export class OrdemItem extends Item {
 				},
 			};
 			if (hitResult) flags["ordemparanormal.hitResult"] = hitResult;
+			if (reactionPending) flags["ordemparanormal.reactionPending"] = reactionPending;
 
 			const targetName = targetToken?.name ?? null;
-			const flavorSuffix = targetName
-				? ` → ${targetName}: ${hitResult?.hit ? game.i18n.localize("op.hit") : game.i18n.localize("op.miss")}`
-				: "";
+			// When a reaction is pending we must not leak hit/miss to the defender via the
+			// flavor text — they're supposed to choose blind. Show only the target name
+			// in that case. Once the reaction resolves the hit/miss block is revealed
+			// in the chat card, which is the canonical place to read it.
+			let flavorSuffix = "";
+			if (targetName) {
+				if (reactionPending) flavorSuffix = ` → ${targetName}`;
+				else
+					flavorSuffix = ` → ${targetName}: ${
+						hitResult?.hit ? game.i18n.localize("op.hit") : game.i18n.localize("op.miss")
+					}`;
+			}
 			const attackIndexSuffix = options._attackIndex ? ` (${options._attackIndex}/${options._attackTotal})` : "";
 
-			await roll.toMessage({
+			const attackMsg = await roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: `${game.i18n.format("op.attackedWith", { name: this.name })}${attackIndexSuffix}${flavorSuffix}`,
 				rollMode: game.settings.get("core", "rollMode"),
 				flags,
 			});
+
+			// Track the most recent attack message id on the item instance so a subsequent
+			// rollDamage can correlate to the originating attack (used by the Bloqueio reaction).
+			this.lastAttackMessageId = attackMsg?.id ?? null;
+			if (hitResult) {
+				hitResult.attackMessageId = this.lastAttackMessageId;
+				// Also write the id onto the attack message's own flag — without this,
+				// later mutations that rebroadcast hitResult (e.g. the reaction reveal
+				// path syncing back to the item card) would overwrite the id with the
+				// pre-toMessage value (null).
+				if (attackMsg) await attackMsg.setFlag("ordemparanormal", "hitResult", hitResult);
+			}
 
 			// Persist hitResult onto the most-recent item card for this item so the damage button state updates
 			if (hitResult) {
@@ -457,6 +528,7 @@ export class OrdemItem extends Item {
 				flags["ordemparanormal.damageTarget"] = {
 					actorUuid: hitResult.actorUuid,
 					damageType: damage.type,
+					attackMessageId: options.attackMessageId ?? hitResult.attackMessageId ?? this.lastAttackMessageId ?? null,
 				};
 			}
 			await roll.toMessage({
