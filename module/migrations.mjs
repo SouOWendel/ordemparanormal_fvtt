@@ -22,7 +22,7 @@ export async function migrateWorld({ bypassVersionCheck = false } = {}) {
 			const flags = { bypassVersionCheck, persistSourceMigration: false };
 			const source = valid ? actor.toObject() : game.data.actors.find((a) => a._id === actor.id);
 			const version = actor._stats.systemVersion; // Version in which the sheet is created.
-			const updateData = migrateActorData(actor, source, flags, { actorUuid: actor.uuid });
+			const updateData = migrateActorData(actor, source, flags);
 			if (!foundry.utils.isEmpty(updateData)) {
 				console.log(`Migrando os seus dados para a versão ${gameVersion}.`);
 				ui.notifications.info(`Migrando documento de Ator ${actor.name} (${version})`);
@@ -55,8 +55,8 @@ export async function migrateWorld({ bypassVersionCheck = false } = {}) {
 			if (!tokenActor || tokenActor.isLinked) continue;
 			try {
 				const source = tokenActor.toObject();
-				const flags = { bypassVersionCheck: false, persistSourceMigration: false };
-				const updateData = migrateActorData(tokenActor, source, flags, { actorUuid: tokenActor.uuid });
+				const flags = { bypassVersionCheck, persistSourceMigration: false };
+				const updateData = migrateActorData(tokenActor, source, flags);
 				if (!foundry.utils.isEmpty(updateData)) {
 					console.log(`Migrando token ${token.name} na cena ${scene.name}.`);
 					await tokenActor.update(updateData, { enforceTypes: false, diff: true, render: false });
@@ -77,12 +77,12 @@ export async function migrateWorld({ bypassVersionCheck = false } = {}) {
  *
  * @param {*} actor
  * @param {*} actorData
- * @param {*} migrationData
+ * @param {*} migrationDataOrFlags
  * @param {*} flags
- * @param {*} param4
  * @returns
  */
-export async function migrateActorData(actor, actorData, migrationData, flags = {}, { actorUuid } = {}) {
+export async function migrateActorData(actor, actorData, migrationDataOrFlags = {}, flags = {}) {
+	flags = _resolveMigrationFlags(migrationDataOrFlags, flags);
 	const updateData = {};
 	// isNewerVersion return whether a target version is more advanced than some other reference version.
 	if (foundry.utils.isNewerVersion("6.3.1", actorData._stats?.systemVersion) || flags.bypassVersionCheck) {
@@ -102,87 +102,12 @@ export async function migrateActorData(actor, actorData, migrationData, flags = 
 
 	// Migração de imagens renomeadas - versão 7.3.0
 	if (foundry.utils.isNewerVersion("7.3.0", actorData._stats?.systemVersion) || flags.bypassVersionCheck) {
-		// Função para remover acentos e caracteres especiais
-		const removeAccents = (str) => {
-			return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-		};
-
-		// Função para buscar arquivo em subpastas de equipments
-		const findInEquipments = async (normalizedFileName) => {
-			const subfolders = ["accessories", "ammunition", "explosives", "operational", "paranormal"];
-			const basePath = "systems/ordemparanormal/media/icons/equipments";
-
-			for (const folder of subfolders) {
-				const testPath = `${basePath}/${folder}/${normalizedFileName}`;
-				try {
-					// Verifica se o arquivo existe usando FilePicker
-					const response = await fetch(testPath, { method: "HEAD" });
-					if (response.ok) {
-						return testPath;
-					}
-				} catch (err) {
-					console.error(`Erro ao verificar o arquivo ${testPath}:`, err);
-				}
-			}
-			return null;
-		};
-
 		for (const item of actor.items) {
 			const itemUpdate = {};
-			const itemImg = item.img;
-
-			// Verifica se a imagem está no caminho media/icons/
-			if (itemImg && itemImg.includes("media/icons/")) {
-				let needsUpdate = false;
-				let newImg = itemImg;
-				let isEquipmentItem = false;
-
-				// Corrige pasta "general equipments" ou "general%20equipments"
-				if (newImg.includes("general%20equipments") || newImg.includes("general equipments")) {
-					// Para itens do tipo protection, move para pasta protections
-					if (item.type === "protection") {
-						newImg = newImg.replace("general%20equipments", "protections");
-						newImg = newImg.replace("general equipments", "protections");
-					} else {
-						// Para outros itens, marca como equipment para busca
-						isEquipmentItem = true;
-					}
-					needsUpdate = true;
-				}
-
-				// Extrai o nome do arquivo e converte para minúsculas com hífens
-				const parts = newImg.split("/");
-				const fileName = parts[parts.length - 1];
-
-				// Decodifica URL encoding (ex: %20 → espaço, %C3%A3 → ã)
-				const decodedFileName = decodeURIComponent(fileName);
-
-				// Remove acentos, converte para minúsculas e substitui espaços por hífens
-				const normalizedFileName = removeAccents(decodedFileName).toLowerCase().replace(/\s+/g, "-");
-
-				// Se é um item de equipment, busca nas subpastas
-				if (isEquipmentItem) {
-					const foundPath = await findInEquipments(normalizedFileName);
-					if (foundPath) {
-						newImg = foundPath;
-						needsUpdate = true;
-					} else {
-						// Se não encontrou, usa o caminho base com nome normalizado
-						newImg = `systems/ordemparanormal/media/icons/equipments/${normalizedFileName}`;
-						needsUpdate = true;
-					}
-				} else if (decodedFileName !== normalizedFileName) {
-					// Para outros tipos, apenas atualiza o nome do arquivo
-					parts[parts.length - 1] = normalizedFileName;
-					newImg = parts.join("/");
-					needsUpdate = true;
-				}
-
-				// Aplica a atualização se necessário
-				if (needsUpdate && newImg !== itemImg) {
-					itemUpdate.img = newImg;
-					console.log(`Atualizando imagem do item ${item.name}: ${itemImg} → ${newImg}`);
-				}
+			const newImg = await _getMigratedItemImagePath(item);
+			if (newImg && newImg !== item.img) {
+				itemUpdate.img = newImg;
+				console.log(`Atualizando imagem do item ${item.name}: ${item.img} → ${newImg}`);
 			}
 
 			if (!foundry.utils.isEmpty(itemUpdate)) {
@@ -202,10 +127,21 @@ export async function migrateActorData(actor, actorData, migrationData, flags = 
  * @param {object} updateData  Mutated in place with any needed updates.
  */
 async function _migrateItemImage(item, updateData) {
-	const itemImg = item.img;
-	if (!itemImg || !itemImg.includes("media/icons/")) return;
+	const newImg = await _getMigratedItemImagePath(item);
+	if (newImg && newImg !== item.img) updateData.img = newImg;
+}
 
-	const removeAccents = (str) => str.normalize("NFD").replace(/[̀-ͯ]/g, "");
+function _resolveMigrationFlags(migrationDataOrFlags, flags) {
+	if (Object.keys(flags ?? {}).length > 0) return flags;
+	if (migrationDataOrFlags?.bypassVersionCheck !== undefined) return migrationDataOrFlags;
+	return {};
+}
+
+async function _getMigratedItemImagePath(item) {
+	const itemImg = item.img;
+	if (!itemImg || !itemImg.includes("media/icons/")) return null;
+
+	const removeAccents = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 	const findInEquipments = async (normalizedFileName) => {
 		const subfolders = ["accessories", "ammunition", "explosives", "operational", "paranormal"];
 		const basePath = "systems/ordemparanormal/media/icons/equipments";
@@ -249,5 +185,6 @@ async function _migrateItemImage(item, updateData) {
 		needsUpdate = true;
 	}
 
-	if (needsUpdate && newImg !== itemImg) updateData.img = newImg;
+	if (needsUpdate && newImg !== itemImg) return newImg;
+	return null;
 }
