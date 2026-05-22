@@ -1,8 +1,12 @@
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.actor.rolls",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
+
 
 			async function createAgent(systemOverrides = {}) {
 				return Actor.create({
@@ -63,32 +67,53 @@ Hooks.once("quenchReady", (quench) => {
 			// rollSkill — vantagem e desvantagem
 			// ----------------------------------------------------------------
 			describe("OrdemActor.rollSkill — modos de vantagem", () => {
-				let actor;
+				let highDexActor;
+				let lowDexActor;
 				before(async () => {
-					actor = await createAgent();
+					// `fighting` no agent default usa DEX (ver agentSkillField em
+					// module/data/actors/agent-data.mjs:63). Usamos DEX como dimensão de
+					// número-de-dados para exercitar `applyAdvantage` + `applyModifier`
+					// na pilha real de rolagem da skill.
+					highDexActor = await createAgent({
+						attributes: { vit: { value: 2 }, pre: { value: 2 }, dex: { value: 3 }, str: { value: 3 }, int: { value: 1 } },
+					});
+					lowDexActor = await createAgent({
+						attributes: { vit: { value: 2 }, pre: { value: 2 }, dex: { value: 1 }, str: { value: 3 }, int: { value: 1 } },
+					});
 				});
 				after(async () => {
-					await actor?.delete();
+					await highDexActor?.delete();
+					await lowDexActor?.delete();
 				});
 
 				it("com advantage=true: roll contém kh (keep highest)", async () => {
-					const rolls = await actor.rollSkill(
+					const rolls = await highDexActor.rollSkill(
 						{ skill: "fighting", advantage: true },
 						{ configure: false },
 						{ create: false }
 					);
-					const formula = rolls[0].formula;
-					assert.include(formula, "kh", "advantage deve usar kh");
+					assert.include(rolls[0].formula, "kh", "advantage deve usar kh");
 				});
 
-				it("com disadvantage=true: roll contém kl (keep lowest)", async () => {
-					const rolls = await actor.rollSkill(
+				it("disadvantage diminui dados, mantém kh enquanto atributo >= 1 (DEX 3 → 2d20kh)", async () => {
+					const rolls = await highDexActor.rollSkill(
 						{ skill: "fighting", disadvantage: true },
 						{ configure: false },
 						{ create: false }
 					);
 					const formula = rolls[0].formula;
-					assert.include(formula, "kl", "disadvantage deve usar kl");
+					assert.include(formula, "2d20kh", `DEX 3 com 1 desvantagem deve virar 2d20kh (fórmula: ${formula})`);
+					assert.notInclude(formula, "kl", "disadvantage não deve usar kl enquanto atributo >= 1");
+				});
+
+				it("disadvantage com atributo final < 1 usa 2d20kl (DEX 1 - 1 desvantagem → 2d20kl)", async () => {
+					const rolls = await lowDexActor.rollSkill(
+						{ skill: "fighting", disadvantage: true },
+						{ configure: false },
+						{ create: false }
+					);
+					const formula = rolls[0].formula;
+					assert.include(formula, "2d20kl", `DEX 1 com desvantagem deve virar 2d20kl (fórmula: ${formula})`);
 				});
 			});
 
@@ -97,19 +122,32 @@ Hooks.once("quenchReady", (quench) => {
 			// ----------------------------------------------------------------
 			describe("OrdemActor.rollSkill — grau de treinamento", () => {
 				let actorTrained;
+				let actorUntrained;
 				before(async () => {
 					actorTrained = await createAgent({
 						skills: { fighting: { degree: { label: "trained", value: 5 }, value: 0 } },
 					});
+					actorUntrained = await createAgent({
+						skills: { fighting: { degree: { label: "untrained", value: 0 }, value: 0 } },
+					});
 				});
 				after(async () => {
 					await actorTrained?.delete();
+					await actorUntrained?.delete();
 				});
 
 				it("roll de perícia treinada inclui bônus de grau +5 na fórmula", async () => {
 					const rolls = await actorTrained.rollSkill({ skill: "fighting" }, { configure: false }, { create: false });
-					// O total deve incluir degree.value=5; verificamos via formula ou total > puro d20
 					assert.isNumber(rolls[0].total, "total deve ser número");
+					// O termo numérico 5 (grau treinado) precisa aparecer na fórmula somado ao d20.
+					const formula = rolls[0].formula.replaceAll(/\s+/g, "");
+					assert.match(formula, /(\+5|^5\+|\+5\+)/, `fórmula deve somar o +5 do grau treinado (${rolls[0].formula})`);
+				});
+
+				it("roll de perícia destreinada NÃO inclui +5 do grau na fórmula", async () => {
+					const rolls = await actorUntrained.rollSkill({ skill: "fighting" }, { configure: false }, { create: false });
+					const formula = rolls[0].formula.replaceAll(/\s+/g, "");
+					assert.notMatch(formula, /(\+5|^5\+|\+5\+)/, `destreinado não deve somar +5 (${rolls[0].formula})`);
 				});
 			});
 

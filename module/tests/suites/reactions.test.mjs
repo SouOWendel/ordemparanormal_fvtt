@@ -5,11 +5,15 @@
  * These exercise the full Foundry pipeline (Actor.create, Item.rollAttack, flag
  * mutations, socket dispatch) — things the Node-only unit tests can't cover.
  */
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.reactions",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
+
 
 			// ------------------------------------------------------------
 			// Helpers
@@ -97,8 +101,50 @@ Hooks.once("quenchReady", (quench) => {
 
 			function targetTokenFor(actor) {
 				// Quench runs without a scene by default — fabricate a minimal token-like
-				// object that the rollAttack code can read .actor from.
-				return { name: actor.name, actor };
+				// object que rollAttack consegue ler `.actor` de. `_drawTargetArrows` é
+				// stubado porque Foundry chama isso quando o token entra em
+				// `user.targets` via `.add()`; sem o stub, a inserção lança e os tests
+				// que usam `setTargets()` ficam falhos.
+				return { name: actor.name, actor, _drawTargetArrows: () => {} };
+			}
+
+			/**
+			 * Mutar `game.user.targets` em vez de substituí-lo. Foundry expõe um
+			 * `UserTargets` (subclasse de Set) e a reatribuição direta às vezes não
+			 * substitui o objeto na referência interna — gerando flakiness em testes
+			 * que dependem da seleção de alvo logo após o set. Limpar e re-adicionar
+			 * o token é determinístico.
+			 *
+			 * @param {Actor[]} actors
+			 * @returns {Set} snapshot dos alvos anteriores, para restaurar no finally
+			 */
+			function setTargets(actors) {
+				const snapshot = new Set(game.user.targets);
+				game.user.targets.clear();
+				for (const a of actors) game.user.targets.add(targetTokenFor(a));
+				return snapshot;
+			}
+			function restoreTargets(snapshot) {
+				game.user.targets.clear();
+				for (const t of snapshot) game.user.targets.add(t);
+			}
+
+			/**
+			 * Limpa o estado compartilhado entre tests do mesmo describe:
+			 *  - mensagens com `reactionPending` (de tests anteriores)
+			 *  - flag `reactionUsedRound` no defender (combats anteriores podem ter
+			 *    deixado para trás; o hook `deleteCombat` é assíncrono e
+			 *    `Hooks.callAll` não aguarda).
+			 *  - active combat (caso um test anterior tenha falhado antes de fazer
+			 *    cleanup no finally).
+			 *
+			 * @param {object[]} defenders
+			 */
+			async function resetReactionState(defenders = []) {
+				const toDelete = [...game.messages].filter((m) => m.getFlag("ordemparanormal", "reactionPending"));
+				for (const m of toDelete) await m.delete();
+				for (const d of defenders) await d?.unsetFlag?.("ordemparanormal", "reactionUsedRound");
+				if (game.combat) await game.combat.delete();
 			}
 
 			/**
@@ -185,6 +231,13 @@ Hooks.once("quenchReady", (quench) => {
 					sword = await giveMelee(attacker, "[Quench] Threat Sword");
 				});
 
+				// O reset acontece ANTES de cada it para evitar leakage entre tests
+				// (e.g. flag `reactionUsedRound` deixada por um test que usa combat
+				// — o hook `deleteCombat` é async e o `combat.delete()` não aguarda).
+				beforeEach(async () => {
+					await resetReactionState([agentDefender, threatDefender]);
+				});
+
 				after(async () => {
 					await deleteAttackMessages();
 					await attacker?.delete();
@@ -193,12 +246,11 @@ Hooks.once("quenchReady", (quench) => {
 				});
 
 				it("cria reactionPending quando alvo é Agente treinado", async () => {
-					const original = game.user.targets;
-					game.user.targets = new Set([targetTokenFor(agentDefender)]);
+					const snapshot = setTargets([agentDefender]);
 					try {
 						await sword.rollAttack({});
 					} finally {
-						game.user.targets = original;
+						restoreTargets(snapshot);
 					}
 					const msg = [...game.messages].reverse().find((m) => m.getFlag("ordemparanormal", "reactionPending"));
 					assert.exists(msg, "Attack message com reactionPending deve existir");
@@ -215,27 +267,23 @@ Hooks.once("quenchReady", (quench) => {
 				});
 
 				it("NÃO cria reactionPending quando alvo é Threat", async () => {
-					await deleteAttackMessages();
-					const original = game.user.targets;
-					game.user.targets = new Set([targetTokenFor(threatDefender)]);
+					const snapshot = setTargets([threatDefender]);
 					try {
 						await sword.rollAttack({});
 					} finally {
-						game.user.targets = original;
+						restoreTargets(snapshot);
 					}
 					const msg = [...game.messages].reverse().find((m) => m.getFlag("ordemparanormal", "reactionPending"));
 					assert.notExists(msg, "Threat alvo: nenhum reactionPending");
 				});
 
 				it("NÃO cria reactionPending quando defender é o próprio atacante (auto-target)", async () => {
-					await deleteAttackMessages();
 					const agentSword = await giveMelee(agentDefender, "[Quench] Self Sword");
-					const original = game.user.targets;
-					game.user.targets = new Set([targetTokenFor(agentDefender)]);
+					const snapshot = setTargets([agentDefender]);
 					try {
 						await agentSword.rollAttack({});
 					} finally {
-						game.user.targets = original;
+						restoreTargets(snapshot);
 					}
 					const msg = [...game.messages].reverse().find((m) => m.getFlag("ordemparanormal", "reactionPending"));
 					assert.notExists(msg, "Auto-target: nenhum reactionPending");
@@ -247,14 +295,12 @@ Hooks.once("quenchReady", (quench) => {
 					// so the reactionUsedRound flag actually matches a real round number.
 					const combat = await startCombatWith([attacker, agentDefender]);
 					try {
-						await deleteAttackMessages();
 						await agentDefender.setFlag("ordemparanormal", "reactionUsedRound", game.combat.round);
-						const original = game.user.targets;
-						game.user.targets = new Set([targetTokenFor(agentDefender)]);
+						const snapshot = setTargets([agentDefender]);
 						try {
 							await sword.rollAttack({});
 						} finally {
-							game.user.targets = original;
+							restoreTargets(snapshot);
 						}
 						const msg = [...game.messages].reverse().find((m) => m.getFlag("ordemparanormal", "reactionPending"));
 						assert.notExists(msg, "Reação já usada: nenhum reactionPending");

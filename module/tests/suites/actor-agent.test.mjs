@@ -1,8 +1,12 @@
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.actor.agent",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
+
 
 			// ----------------------------------------------------------------
 			// Helpers

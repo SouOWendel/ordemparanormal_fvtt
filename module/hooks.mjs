@@ -1,48 +1,90 @@
 import chatCommands from "./chat/chat-commands.mjs";
+import { shouldShowCombatantHP } from "./helpers/visibility.mjs";
 
 /** */
 export default function () {
 	// Register chat commands (/dt, /oposto)
 	chatCommands();
 
-	// Expire temporary active effects when their duration runs out
-	Hooks.on("combatTurn", async (combat, _updateData, _updateOptions) => {
+	// Expire temporary active effects when their duration runs out.
+	//
+	// Antes a verificação só rodava no `combatant` do turno atual — então um efeito
+	// no Agente A só era revisitado quando o turno voltava a ele, mesmo se a rodada
+	// onde ele expiraria já tivesse passado. O usuário relatou que efeitos só
+	// "atualizavam" quando voltava-se uma rodada, sintoma direto desse atraso.
+	//
+	// IMPORTANTE (Foundry v13): `combatTurn` e `combatRound` disparam ANTES do
+	// commit do update — `combat.round` / `combat.turn` ainda refletem o estado
+	// anterior. O round/turn _alvo_ vem em `updateData`. Calcular `roundsLeft` a
+	// partir de `combat.round` "atrasa" um turno inteiro e o efeito sobrevive até
+	// que algum outro update force uma re-checagem (era exatamente o sintoma de
+	// "só expira ao voltar uma rodada"). Aqui usamos `updateData.round ?? combat.round`.
+	const _expireTemporaryEffects = async (combat, updateData = {}) => {
 		if (!game.user.isGM) return;
-		const combatant = combat.combatant;
-		const actor = combatant?.actor;
-		if (!actor) return;
+		const firstGM = game.users.find((u) => u.isGM && u.active);
+		if (!firstGM || firstGM.id !== game.user.id) return;
 
-		// Per Foundry v13 docs, use combat.turns.length (sorted, post-defeated-filter)
-		// for the absolute turn count when computing per-turn duration.
+		const nextRound = updateData?.round ?? combat.round;
+		const nextTurn = updateData?.turn ?? combat.turn;
 		const turnsPerRound = Math.max(1, combat.turns?.length ?? 1);
-		const toExpire = [];
-		for (const effect of actor.allApplicableEffects()) {
-			if (effect.disabled || !effect.isTemporary) continue;
-			const dur = effect.duration;
-			if (!dur) continue;
+		// Agrupar deletes por parent para uma única chamada por documento — mais
+		// barato e evita disparar múltiplas re-renders no mesmo Actor/Item.
+		const byParent = new Map();
+		const namesByActor = new Map();
 
-			const roundsLeft =
-				dur.startRound != null && dur.rounds != null ? dur.rounds - (combat.round - dur.startRound) : Infinity;
-			const roundsElapsed = dur.startRound != null ? combat.round - dur.startRound : 0;
-			const turnsElapsed = dur.startTurn != null ? combat.turn - dur.startTurn : 0;
-			const totalTurns = roundsElapsed * turnsPerRound + turnsElapsed;
-			const turnsLeft = dur.turns != null ? dur.turns - totalTurns : Infinity;
+		for (const combatant of combat.combatants ?? []) {
+			const actor = combatant.actor;
+			if (!actor) continue;
 
-			if (roundsLeft <= 0 || turnsLeft <= 0) toExpire.push({ id: effect.id, name: effect.name });
+			for (const effect of actor.allApplicableEffects()) {
+				if (effect.disabled || !effect.isTemporary) continue;
+				const dur = effect.duration;
+				if (!dur) continue;
+
+				const roundsLeft =
+					dur.startRound != null && dur.rounds != null ? dur.rounds - (nextRound - dur.startRound) : Infinity;
+				let roundsElapsed = dur.startRound != null ? nextRound - dur.startRound : 0;
+				let turnsElapsed = dur.startTurn != null ? nextTurn - dur.startTurn : 0;
+				// Wrap-around: quando a rodada avança, `nextTurn` cai para 0 e pode
+				// ficar menor que `dur.startTurn`. Sem ajuste, `turnsElapsed` vira
+				// negativo e cancela parte do `roundsElapsed * turnsPerRound`,
+				// fazendo o efeito sobreviver 1 turno a mais do que deveria.
+				if (turnsElapsed < 0 && roundsElapsed > 0) {
+					turnsElapsed += turnsPerRound;
+					roundsElapsed -= 1;
+				}
+				const totalTurns = roundsElapsed * turnsPerRound + turnsElapsed;
+				const turnsLeft = dur.turns != null ? dur.turns - totalTurns : Infinity;
+				if (roundsLeft > 0 && turnsLeft > 0) continue;
+
+				const parent = effect.parent;
+				if (!parent) continue;
+				const key = parent.uuid ?? parent.id;
+				if (!byParent.has(key)) byParent.set(key, { parent, ids: [] });
+				byParent.get(key).ids.push(effect.id);
+
+				if (!namesByActor.has(actor.uuid)) namesByActor.set(actor.uuid, { actor, names: [] });
+				namesByActor.get(actor.uuid).names.push(effect.name);
+			}
 		}
 
-		if (toExpire.length) {
-			await actor.deleteEmbeddedDocuments(
-				"ActiveEffect",
-				toExpire.map((e) => e.id)
-			);
-			for (const { name } of toExpire) {
+		for (const { parent, ids } of byParent.values()) {
+			try {
+				await parent.deleteEmbeddedDocuments("ActiveEffect", ids);
+			} catch (err) {
+				console.warn("ordemparanormal | falha ao expirar efeitos", err);
+			}
+		}
+		for (const { actor, names } of namesByActor.values()) {
+			for (const name of names) {
 				ChatMessage.create({
 					content: game.i18n.format("op.effectExpired", { effect: name, actor: actor.name }),
 				});
 			}
 		}
-	});
+	};
+	Hooks.on("combatTurn", (combat, updateData) => _expireTemporaryEffects(combat, updateData));
+	Hooks.on("combatRound", (combat, updateData) => _expireTemporaryEffects(combat, updateData));
 	/**
 	 * Criando o Hook preCreateActor para o módulo Bar Brawl adicionar
 	 * uma terceira barra nos tokens criados, essa barra ira representar
@@ -328,6 +370,9 @@ export default function () {
 			if (li.querySelector(".op-hp-display")) continue; // idempotent re-render
 			const actor = combatant.actor;
 			if (!actor) continue;
+			// Threats' HP é informação reservada ao MJ. Decisão pura em
+			// helpers/visibility.mjs#shouldShowCombatantHP (unit-testada).
+			if (!shouldShowCombatantHP(actor, game.user.isGM)) continue;
 			let hp = null;
 			if (actor.type === "agent") {
 				const pv = actor.system.PV;

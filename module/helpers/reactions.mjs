@@ -351,17 +351,64 @@ async function applyCounterAttack({ msg, defender, payload, round }) {
 		speaker: ChatMessage.getSpeaker({ actor: defender }),
 	});
 
-	await weapon.rollAttack({ _forcedTarget: attackerToken });
+	// Forçar rollMode público: o contra-ataque roda no cliente GM via socket, e sem
+	// override o `core.rollMode` do MJ (e.g. "gmroll" / "blindroll") "vazaria" para
+	// a rolagem do jogador, escondendo o resultado do próprio dono da reação.
+	await weapon.rollAttack({ _forcedTarget: attackerToken, rollMode: "publicroll" });
 }
 
 async function syncItemCardHitResult(attackMsg, newHitResult) {
 	const itemUuid = attackMsg.getFlag("ordemparanormal", "messageRoll")?.itemUuid;
 	const itemId = itemUuid?.split(".").pop();
-	if (!itemId) return;
+	if (!itemId) {
+		// Mensagens de ataque legacy (anteriores ao tracking de messageRoll) caem
+		// aqui. Sem o item id não dá para localizar o item card, e o botão de dano
+		// pode continuar habilitado mesmo depois de um dodge flipar o resultado.
+		// Logamos pra que o sintoma "dodge não desabilitou o dano" seja debugável.
+		console.warn(
+			"ordemparanormal | syncItemCardHitResult: attack message sem flag `messageRoll.itemUuid` — item card não será atualizado",
+			{ attackMsgId: attackMsg?.id }
+		);
+		return;
+	}
 	const cardMsg = [...game.messages]
 		.reverse()
 		.find((m) => m.content?.includes(`data-item-id="${itemId}"`) && m.content?.includes("chat-card item-card"));
-	if (cardMsg) await cardMsg.setFlag("ordemparanormal", "hitResult", newHitResult);
+	if (!cardMsg) return;
+
+	const current = cardMsg.getFlag("ordemparanormal", "hitResult");
+	// Volley em multi-ataque: o item card guarda `attackResults` (uma entrada por
+	// ataque). Substituir tudo aqui (como no fluxo antigo) descartaria os hits
+	// das outras flechadas dessa volley e travaria o botão de dano. Em vez disso,
+	// achamos a entrada do ataque que mudou (pelo messageId) e reescrevemos só ela,
+	// recomputando os campos agregados ao fim.
+	if (current?.attackResults?.length) {
+		const updated = current.attackResults.map((a) =>
+			a.attackMessageId === attackMsg.id
+				? {
+						...a,
+						hit: newHitResult.hit,
+						revealed: newHitResult.revealed,
+						isCritical: newHitResult.isCritical,
+						targetDefense: newHitResult.targetDefense ?? a.targetDefense,
+				  }
+				: a
+		);
+		const anyHitOrPending = updated.some((a) => a.hit === true || a.revealed === false);
+		const allRevealed = updated.every((a) => a.revealed !== false);
+		const anyCritical = updated.some((a) => a.isCritical === true && a.revealed !== false);
+		await cardMsg.setFlag("ordemparanormal", "hitResult", {
+			...current,
+			...newHitResult,
+			attackResults: updated,
+			hit: anyHitOrPending,
+			revealed: allRevealed,
+			isCritical: anyCritical,
+		});
+		return;
+	}
+
+	await cardMsg.setFlag("ordemparanormal", "hitResult", newHitResult);
 }
 
 function resolveAttackerToken(attackerActor) {
@@ -400,24 +447,43 @@ export async function pickCounterAttackWeapon(defender) {
 	}
 	if (weapons.length === 1) return weapons[0];
 
-	// Escape user-controlled fields before interpolating into HTML. Items are
-	// world documents but names/images are still user-editable, so we treat them
-	// as untrusted to avoid HTML injection in the dialog.
-	const buttons = weapons.map((weapon) => ({
-		action: weapon.id,
-		label: `<img src="${foundry.utils.escapeHTML(
-			weapon.img ?? ""
-		)}" width="20" height="20" style="vertical-align:middle;border:0;margin-right:6px;" alt=""/>${foundry.utils.escapeHTML(
-			weapon.name ?? ""
-		)}`,
-		callback: () => weapon.id,
-	}));
-	buttons.push({ action: "__cancel", label: game.i18n.localize("op.reaction.cancel"), callback: () => null });
+	// DialogV2 trata `label` dos botões como texto puro — interpolar HTML lá faz
+	// o usuário ver as tags cruas. A solução é renderizar a lista no `content` com
+	// botões reais (radios + imagens) e ler o valor escolhido via FormData no
+	// callback do botão OK.
+	const optionsHtml = weapons
+		.map((weapon, i) => {
+			const img = foundry.utils.escapeHTML(weapon.img ?? "icons/svg/sword.svg");
+			const name = foundry.utils.escapeHTML(weapon.name ?? "");
+			const checked = i === 0 ? "checked" : "";
+			return `
+				<label class="op-weapon-option" style="display:flex;align-items:center;gap:8px;padding:6px;border:1px solid var(--color-border-light, #ccc);border-radius:4px;margin-bottom:4px;cursor:pointer;">
+					<input type="radio" name="weapon" value="${weapon.id}" ${checked} style="margin:0;" />
+					<img src="${img}" width="28" height="28" style="border:0;flex:0 0 auto;" alt="" />
+					<span style="flex:1;">${name}</span>
+				</label>`;
+		})
+		.join("");
+
+	const hint = foundry.utils.escapeHTML(game.i18n.localize("op.reaction.pickWeaponHint"));
+	const content = `<form><p style="margin-top:0;">${hint}</p>${optionsHtml}</form>`;
 
 	const choice = await foundry.applications.api.DialogV2.wait({
 		window: { title: game.i18n.localize("op.reaction.pickWeaponTitle") },
-		content: `<p>${foundry.utils.escapeHTML(game.i18n.localize("op.reaction.pickWeaponHint"))}</p>`,
-		buttons,
+		content,
+		buttons: [
+			{
+				action: "ok",
+				label: game.i18n.localize("op.reaction.confirm"),
+				default: true,
+				callback: (_event, button) => {
+					const form = button.form ?? button.closest("form") ?? button.ownerDocument?.querySelector("form");
+					const value = form ? new FormData(form).get("weapon") : null;
+					return value ?? null;
+				},
+			},
+			{ action: "__cancel", label: game.i18n.localize("op.reaction.cancel"), callback: () => null },
+		],
 		rejectClose: false,
 	}).catch(() => null);
 

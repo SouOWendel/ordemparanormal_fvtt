@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import D20Die from "../../../module/dice/d20-die.mjs";
 
 describe("D20Die.applyModifier", () => {
-	it('when number > 0: removes one existing kh/kl and adds "kh"', () => {
+	it('when number > 1: removes one existing kh/kl and adds "kh"', () => {
 		const die = new D20Die({ number: 3 });
 		die.modifiers.push("kh");
 		die.applyModifier();
@@ -11,7 +11,7 @@ describe("D20Die.applyModifier", () => {
 		expect(die.number).toBe(3);
 	});
 
-	it('when number <= 0: sets number=2 and adds "kl"', () => {
+	it('when number < 1 (atributo zerado por desvantagem): sets number=2 and adds "kl"', () => {
 		const die = new D20Die({ number: 0 });
 		die.applyModifier();
 		expect(die.number).toBe(2);
@@ -19,10 +19,19 @@ describe("D20Die.applyModifier", () => {
 		expect(die.modifiers).not.toContain("kh");
 	});
 
-	it('when number = 1: adds "kh"', () => {
+	it("when number = 1 (atributo 1 sem desvantagem): rola 1d20 puro, sem kh/kl", () => {
 		const die = new D20Die({ number: 1 });
 		die.applyModifier();
-		expect(die.modifiers).toContain("kh");
+		expect(die.modifiers).not.toContain("kh");
+		expect(die.modifiers).not.toContain("kl");
+		expect(die.number).toBe(1);
+	});
+
+	it("remove kh/kl prévio quando atributo cai para 1 (mantém 1d20 puro)", () => {
+		const die = new D20Die({ number: 1, modifiers: ["kl"] });
+		die.applyModifier();
+		expect(die.modifiers).not.toContain("kh");
+		expect(die.modifiers).not.toContain("kl");
 		expect(die.number).toBe(1);
 	});
 });

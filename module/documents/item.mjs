@@ -6,6 +6,15 @@
  */
 
 import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
+import { damageRecipients } from "../helpers/visibility.mjs";
+
+/**
+ * Wrapper sobre `damageRecipients` que injeta `game.users` atual. O helper puro
+ * vive em helpers/visibility.mjs e é coberto por unit test.
+ */
+function _damageRecipients(targetActor) {
+	return damageRecipients(targetActor, game.users ?? []);
+}
 
 /**
  * Extend the basic Item with some very simple modifications.
@@ -143,6 +152,10 @@ export class OrdemItem extends Item {
 				const applyMessage = game.messages.get(messageId);
 				const damageTarget = applyMessage?.getFlag("ordemparanormal", "damageTarget");
 				if (!damageTarget) break;
+				// Guarda de idempotência: se já foi aplicado antes (re-render reabriu o
+				// botão ou o GM clicou rápido o suficiente pra burlar o disable local),
+				// não duplica. A flag é a source-of-truth persistida.
+				if (applyMessage.getFlag("ordemparanormal", "damageApplied")) break;
 				const targetActor = await fromUuid(damageTarget.actorUuid);
 				if (!targetActor) break;
 				const applyRoll = applyMessage.rolls?.[0];
@@ -161,6 +174,13 @@ export class OrdemItem extends Item {
 						blocked: blockedMsg,
 					}),
 					speaker: ChatMessage.getSpeaker({ actor: targetActor }),
+					whisper: _damageRecipients(targetActor),
+				});
+				await applyMessage.setFlag("ordemparanormal", "damageApplied", {
+					at: Date.now(),
+					by: game.user.id,
+					amount: result.finalDamage,
+					targetUuid: damageTarget.actorUuid,
 				});
 				break;
 			}
@@ -236,24 +256,46 @@ export class OrdemItem extends Item {
 		if (!this.system.formulas.attack.attr || !this.system.formulas.attack.skill)
 			throw new Error("This Item does not have a formula to roll!");
 
-		// If multiple targets are selected, roll once per target
-		const targets = game.user?.targets ?? new Set();
-		if (targets.size > 1 && !options._forcedTarget) {
-			const results = [];
-			for (const token of targets) {
-				results.push(await this.rollAttack({ ...options, _forcedTarget: token }));
+		// Multi-target + multi-attack scheduling unificado.
+		//
+		// Antes existiam dois loops separados (um para multi-alvo, outro para
+		// numberOfAttacks > 1) e eles se combinavam multiplicativamente: criatura
+		// com 2 ataques mirando 2 alvos disparava 4 rolagens, todas concentradas em
+		// cada alvo. Pelas regras de Ordem Paranormal, a criatura pode DISTRIBUIR
+		// seus ataques entre os alvos disponíveis. A solução é fazer round-robin:
+		// `totalRolls = max(numAttacks, alvos)`, e cada ataque `i` vai para
+		// `alvos[i % alvos.length]`.
+		//
+		// `_volleyId` identifica esta sequência de ataques inteira; é usado pelo
+		// agregador de hitResult no item card para distinguir uma volley nova de
+		// uma anterior, evitando que um miss em N+1 sobrescreva um hit em N.
+		const isInnerRecursion = options._forcedTarget !== undefined || options._attackIndex !== undefined;
+		if (!isInnerRecursion) {
+			const numAttacks = this.system.numberOfAttacks ?? 1;
+			const targetList = [...(game.user?.targets ?? new Set())];
+			// Regra: numAttacks limita o ato físico; alvos selecionados orientam a
+			// distribuição. Para o caso 1-ataque + N-alvos, mantemos o comportamento
+			// histórico (N rolagens — uma por alvo).
+			const totalRolls = numAttacks > 1 ? numAttacks : Math.max(targetList.length, 1);
+			if (totalRolls > 1) {
+				const volleyId = `${this.id}-${foundry.utils.randomID(8)}`;
+				const showAttackIndex = numAttacks > 1;
+				const results = [];
+				for (let i = 0; i < totalRolls; i++) {
+					const token = targetList.length > 0 ? targetList[i % targetList.length] : null;
+					results.push(
+						await this.rollAttack({
+							...options,
+							_forcedTarget: token,
+							_attackIndex: showAttackIndex ? i + 1 : undefined,
+							_attackTotal: showAttackIndex ? totalRolls : undefined,
+							_volleyId: volleyId,
+							_volleyFirst: i === 0,
+						})
+					);
+				}
+				return results[0];
 			}
-			return results[0]; // return first for backward-compat (item.critical assignment)
-		}
-
-		// If item has multiple attacks (e.g. threat with numberOfAttacks=3), roll once per attack
-		const numAttacks = this.system.numberOfAttacks ?? 1;
-		if (numAttacks > 1 && !options._attackIndex) {
-			const results = [];
-			for (let i = 0; i < numAttacks; i++) {
-				results.push(await this.rollAttack({ ...options, _attackIndex: i + 1, _attackTotal: numAttacks }));
-			}
-			return results[0];
 		}
 
 		const attack = this.system.formulas.attack;
@@ -261,7 +303,7 @@ export class OrdemItem extends Item {
 		let attribute = this.parent.system.attributes[attack.attr];
 		let rollMode = "kh";
 
-		if (attribute.value == 0) {
+		if (attribute.value < 1) {
 			attribute = 2;
 			rollMode = "kl";
 		} else attribute = attribute.value;
@@ -293,8 +335,17 @@ export class OrdemItem extends Item {
 			roll,
 		});
 
-		// Resolve target info (single target from targeting or _forcedTarget)
-		const targetToken = options._forcedTarget ?? (targets.size === 1 ? [...targets][0] : null);
+		// Resolve target info. Quando _forcedTarget veio do scheduler (mesmo `null`),
+		// respeitamos a escolha — usar `??` aqui faria um null explícito cair de volta
+		// na seleção atual do usuário e quebrar a distribuição round-robin (atribuir
+		// alvo errado a um ataque que deveria ficar sem alvo).
+		let targetToken;
+		if ("_forcedTarget" in options) {
+			targetToken = options._forcedTarget;
+		} else {
+			const _targets = game.user?.targets ?? new Set();
+			targetToken = _targets.size === 1 ? [..._targets][0] : null;
+		}
 		const hitResult = targetToken ? this._compareWithDefense(targetToken.actor, roll.total, criticalStatus) : null;
 
 		// Build the pending-reaction descriptor when the defender is an Agent (PCs only — Threats don't react).
@@ -369,12 +420,18 @@ export class OrdemItem extends Item {
 			}
 			const attackIndexSuffix = options._attackIndex ? ` (${options._attackIndex}/${options._attackTotal})` : "";
 
-			const attackMsg = await roll.toMessage({
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: `${game.i18n.format("op.attackedWith", { name: this.name })}${attackIndexSuffix}${flavorSuffix}`,
-				rollMode: game.settings.get("core", "rollMode"),
-				flags,
-			});
+			// Foundry assina `Roll.toMessage(messageData, { create, rollMode })`. Passar
+			// `rollMode` DENTRO de `messageData` é silenciosamente ignorado — `applyRollMode`
+			// nunca dispara e a mensagem herda o whisper do MJ atual. Isso era exatamente
+			// a causa do bug #10 (contra-ataque do jogador vazando para gmroll do MJ).
+			const attackMsg = await roll.toMessage(
+				{
+					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+					flavor: `${game.i18n.format("op.attackedWith", { name: this.name })}${attackIndexSuffix}${flavorSuffix}`,
+					flags,
+				},
+				{ rollMode: options.rollMode ?? game.settings.get("core", "rollMode") }
+			);
 
 			// Track the most recent attack message id on the item instance so a subsequent
 			// rollDamage can correlate to the originating attack (used by the Bloqueio reaction).
@@ -388,13 +445,45 @@ export class OrdemItem extends Item {
 				if (attackMsg) await attackMsg.setFlag("ordemparanormal", "hitResult", hitResult);
 			}
 
-			// Persist hitResult onto the most-recent item card for this item so the damage button state updates
+			// Persist hitResult onto the most-recent item card for this item so the
+			// damage button state updates. Em volleys de multi-ataque, AGREGAMOS por
+			// `_volleyId`: cada ataque empurra sua entrada para `attackResults` e os
+			// campos top-level (hit, revealed, isCritical) refletem o "qualquer
+			// acerto ainda em pé / qualquer reação ainda pendente". Sem isso, um miss
+			// posterior na mesma volley sobrescrevia um hit anterior e travava o
+			// botão de dano, exatamente o sintoma que o reviewer reportou.
 			if (hitResult) {
 				const itemId = this.id;
 				const cardMsg = [...game.messages]
 					.reverse()
 					.find((m) => m.content?.includes(`data-item-id="${itemId}"`) && m.content?.includes("chat-card item-card"));
-				if (cardMsg) await cardMsg.setFlag("ordemparanormal", "hitResult", hitResult);
+				if (cardMsg) {
+					const previous = cardMsg.getFlag("ordemparanormal", "hitResult") ?? null;
+					const volleyId = options._volleyId ?? null;
+					const sameVolley = volleyId && previous?.volleyId === volleyId && !options._volleyFirst;
+					const entry = {
+						attackMessageId: hitResult.attackMessageId ?? null,
+						attackIndex: options._attackIndex ?? null,
+						hit: hitResult.hit,
+						revealed: hitResult.revealed,
+						isCritical: hitResult.isCritical,
+						targetDefense: hitResult.targetDefense,
+						actorUuid: hitResult.actorUuid,
+					};
+					const attackResults = sameVolley ? [...(previous.attackResults ?? []), entry] : [entry];
+					const anyHitOrPending = attackResults.some((a) => a.hit === true || a.revealed === false);
+					const allRevealed = attackResults.every((a) => a.revealed !== false);
+					const anyCritical = attackResults.some((a) => a.isCritical === true && a.revealed !== false);
+					const toWrite = {
+						...hitResult,
+						volleyId,
+						attackResults,
+						hit: anyHitOrPending,
+						revealed: allRevealed,
+						isCritical: anyCritical,
+					};
+					await cardMsg.setFlag("ordemparanormal", "hitResult", toWrite);
+				}
 			}
 		}
 
@@ -476,9 +565,17 @@ export class OrdemItem extends Item {
 		// Damage Access
 		const damage = this.system.formulas.damage;
 
-		// Critical variable — auto-detect from hitResult if not explicitly passed
+		// Critical variable — auto-detect from hitResult if not explicitly passed.
+		// O multiplier vem da fórmula da arma (e.g. "19/x3" → 3, "x4" → 4); usar `2`
+		// hardcoded silenciava o `x3`/`x4` quando o caller passava só `hitResult`
+		// (ex.: macros, callers diretos fora do `_onChatCardAction "damage"` que
+		// já recupera via `_parseCriticalMultiplier`).
 		const hitResult = options.hitResult ?? null;
-		const critical = options.critical || (hitResult?.isCritical ? { isCritical: true, multiplier: 2 } : false);
+		const critical =
+			options.critical ||
+			(hitResult?.isCritical
+				? { isCritical: true, multiplier: this.constructor._parseCriticalMultiplier(this.system.critical) }
+				: false);
 
 		const split = damage.formula.split("d");
 		if ((critical.isCritical && options.lastId) || options.event?.altKey) {
@@ -531,12 +628,15 @@ export class OrdemItem extends Item {
 					attackMessageId: options.attackMessageId ?? hitResult.attackMessageId ?? this.lastAttackMessageId ?? null,
 				};
 			}
-			await roll.toMessage({
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: game.i18n.format("op.rollDamageChat", { name: this.name, types: types }),
-				rollMode: game.settings.get("core", "rollMode"),
-				flags: Object.keys(flags).length ? flags : undefined,
-			});
+			// Mesma correção do attack roll: `rollMode` precisa ir no segundo argumento.
+			await roll.toMessage(
+				{
+					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+					flavor: game.i18n.format("op.rollDamageChat", { name: this.name, types: types }),
+					flags: Object.keys(flags).length ? flags : undefined,
+				},
+				{ rollMode: game.settings.get("core", "rollMode") }
+			);
 		}
 
 		/**
@@ -584,8 +684,14 @@ export class OrdemItem extends Item {
 		// Render the chat card template
 		// Tenta obter o token de várias formas para garantir compatibilidade com tokens vinculados e não vinculados
 		const token = this.actor.token || this.actor.getActiveTokens()?.[0] || null;
-		const targets = game.user?.targets ?? new Set();
-		const targetToken = targets.size === 1 ? [...targets][0] : null;
+		const targets = [...(game.user?.targets ?? new Set())];
+		const targetNames = targets.map((t) => t?.name).filter(Boolean);
+		const targetText =
+			targetNames.length === 0
+				? null
+				: targetNames.length === 1
+				? targetNames[0]
+				: `${targetNames.length} ${game.i18n.localize("op.targetsLabel")}: ${targetNames.join(", ")}`;
 		const templateData = {
 			actor: this.actor,
 			tokenId: token?.uuid || null,
@@ -594,7 +700,7 @@ export class OrdemItem extends Item {
 			labels: this.labels,
 			i18n: {},
 			info: [],
-			targetName: targetToken?.name ?? null,
+			targetName: targetText,
 		};
 
 		// for (const [key, value] of Object.entries(this.system) ) {
@@ -697,12 +803,13 @@ export class OrdemItem extends Item {
 		const roll = await new Roll(rollConfig.formula, rollConfig.data).evaluate();
 
 		if (rollConfig.chatMessage) {
-			roll.toMessage({
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: `${this.name}`,
-				rollMode: game.settings.get("core", "rollMode"),
-				// messageData: {'flags.ordemparanormal.roll': {type: 'other', itemId: this.id, itemUuid: this.uuid}}
-			});
+			roll.toMessage(
+				{
+					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+					flavor: `${this.name}`,
+				},
+				{ rollMode: game.settings.get("core", "rollMode") }
+			);
 		}
 
 		/**

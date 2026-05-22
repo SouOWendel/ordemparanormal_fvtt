@@ -270,6 +270,7 @@
 	"op.preRequisite": "Pré-requisito",
 	"op.range": "Alcance",
 	"op.target": "Alvo",
+	"op.targetsLabel": "alvos",
 	"op.areaEffect": "Efeito de Área",
 	"op.resistance": "Resistência",
 	"op.studentForm": "Forma Discente",
@@ -534,6 +535,7 @@
 	"op.applyDamage": "Aplicar ao Alvo",
 	"op.applyDamageResult": "{amount} de dano aplicado a {target}{blocked}",
 	"op.applyDamageNeedsGM": "Nenhum mestre conectado — dano não pode ser aplicado.",
+	"op.damageAlreadyApplied": "Dano já aplicado a este alvo",
 	"op.dtCommandFailed": "Comando /dt falhou — verifique o console.",
 	"op.opostoCommandFailed": "Comando /oposto falhou — verifique o console.",
 	"op.damageBlocked": "bloqueou {blocked} de RD",
@@ -561,6 +563,7 @@
 	"op.reaction.pickWeaponTitle": "Escolha a arma do contra-ataque",
 	"op.reaction.pickWeaponHint": "Selecione qual arma corpo a corpo usar para responder ao ataque.",
 	"op.reaction.cancel": "Cancelar",
+	"op.reaction.confirm": "Confirmar",
 	"op.reaction.needsGM": "Nenhum mestre conectado — reação não pode ser aplicada.",
 	"op.reaction.attackerGone": "O atacante não está mais na cena — contra-ataque cancelado.",
 

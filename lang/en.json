@@ -268,6 +268,7 @@
 	"op.preRequisite": "Pre-requisite",
 	"op.range": "Range",
 	"op.target": "Target",
+	"op.targetsLabel": "targets",
 	"op.areaEffect": "Area Effect",
 	"op.resistance": "Resistance",
 	"op.studentForm": "Scholarly Form",
@@ -531,6 +532,7 @@
 	"op.applyDamage": "Apply to Target",
 	"op.applyDamageResult": "{amount} damage applied to {target}{blocked}",
 	"op.applyDamageNeedsGM": "No GM is connected — damage cannot be applied.",
+	"op.damageAlreadyApplied": "Damage already applied to this target",
 	"op.dtCommandFailed": "/dt command failed — check the console.",
 	"op.opostoCommandFailed": "/oposto command failed — check the console.",
 	"op.damageBlocked": "blocked {blocked} DR",
@@ -558,6 +560,7 @@
 	"op.reaction.pickWeaponTitle": "Choose the counter-attack weapon",
 	"op.reaction.pickWeaponHint": "Select which melee weapon to use to respond.",
 	"op.reaction.cancel": "Cancel",
+	"op.reaction.confirm": "Confirm",
 	"op.reaction.needsGM": "No GM is connected — reaction cannot be applied.",
 	"op.reaction.attackerGone": "The attacker is no longer on the scene — counter-attack cancelled.",
 

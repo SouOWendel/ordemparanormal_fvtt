@@ -1,10 +1,14 @@
 // Use CONFIG.Item.documentClass instead of a direct import so the test
 // always targets the registered document class, resilient to class renames.
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.item.rolls",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
+
 
 			describe("OrdemItem.isCritical() — formula parsing", () => {
 				let item;

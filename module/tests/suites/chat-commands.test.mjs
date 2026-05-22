@@ -7,11 +7,15 @@
  *   - ChatMessage.create persiste flags
  *   - Helpers que dependem de game.messages/game.user
  */
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.chat.commands",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
+
 
 			// ----------------------------------------------------------------
 			// Helpers
@@ -230,7 +234,13 @@ Hooks.once("quenchReady", (quench) => {
 					}
 				});
 
-				it("click em [data-action='rollOposto'] emite socket system.ordemparanormal", async () => {
+				it("click em [data-action='rollOposto'] emite socket system.ordemparanormal", async function () {
+					// Default 2s estoura sob carga (full-suite com muitas mensagens prévias
+					// na coleção game.messages → re-render do chat fica progressivamente
+					// lento; um run completo do batch suite acumula >1000 messages). O teste
+					// em si só espera 200ms+500ms; subimos o budget pra 15s — em run isolado
+					// passa em ~1.8s, e o cap só protege contra a degradação acumulada.
+					this.timeout(15000);
 					const skillKey = Object.keys(CONFIG.op.skills)[0];
 					const skillLabel = game.i18n.localize(CONFIG.op.skills[skillKey]);
 					await fireChatMessage(`/oposto ${skillLabel}`);

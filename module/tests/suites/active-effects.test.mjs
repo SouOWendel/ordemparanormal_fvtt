@@ -1,8 +1,12 @@
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.actor.activeEffects",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
+
 
 			// Helper: re-fetch actor from collection to avoid stale reference after DB writes —
 			// Foundry docs recommend always operating on the live document instance.

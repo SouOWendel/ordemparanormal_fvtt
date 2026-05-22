@@ -86,6 +86,12 @@ globalThis.foundry = {
 			if (Array.isArray(v)) return "Array";
 			return typeof v === "object" ? "Object" : typeof v;
 		},
+		randomID: (length = 16) => {
+			const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			let out = "";
+			for (let i = 0; i < length; i++) out += chars[Math.floor(Math.random() * chars.length)];
+			return out;
+		},
 		mergeObject: (original, other = {}, options = {}) => {
 			if (!other) return original;
 			for (const [k, v] of Object.entries(other)) {

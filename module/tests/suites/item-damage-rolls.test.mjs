@@ -1,8 +1,12 @@
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.item.damageRolls",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
+
 
 			async function createAgentWithSword(swordOverrides = {}) {
 				const actor = await Actor.create({
@@ -122,7 +126,7 @@ Hooks.once("quenchReady", (quench) => {
 						lastId: true,
 					});
 					// 2d8 mínimo é 2; STR=3 → total >= 5
-					assert.isAtLeast(roll.total, 2, "crítico deve dobrar os dados (2d8 mínimo=2)");
+					assert.isAtLeast(roll.total, 5, "crítico deve dobrar os dados (2d8 mínimo=2) + STR 3 = 5");
 					assert.include(roll.formula, "2d8", "fórmula deve conter 2d8 para crítico x2");
 				});
 			});
@@ -150,10 +154,10 @@ Hooks.once("quenchReady", (quench) => {
 					await actor?.delete();
 				});
 
-				it("rollDamage com parts=[1d4 fogo]: total >= 2 (1d6 min 1 + 1d4 min 1)", async () => {
+				it("rollDamage com parts=[1d4 fogo]: total >= 5 (1d6 min 1 + STR 3 + 1d4 min 1)", async () => {
 					const roll = await item.rollDamage({ event: { altKey: false }, critical: false });
 					// 1d6 mínimo 1 + STR 3 + 1d4 mínimo 1 = 5
-					assert.isAtLeast(roll.total, 2);
+					assert.isAtLeast(roll.total, 5);
 				});
 			});
 

@@ -5,11 +5,15 @@
  * Tests marked with [QoL Feature N] are filled in when the corresponding
  * feature from PRD-QoL-Combat.md is implemented.
  */
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.item.attackFlow",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
+
 
 			// ----------------------------------------------------------------
 			// Helpers

@@ -1,5 +1,13 @@
 import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
 import { dispatchReaction, pickCounterAttackWeapon } from "../helpers/reactions.mjs";
+import { damageRecipients, shouldShowDefenseValue } from "../helpers/visibility.mjs";
+
+/**
+ * Wrapper sobre `damageRecipients` que injeta `game.users` atual.
+ */
+function _damageRecipients(targetActor) {
+	return damageRecipients(targetActor, game.users ?? []);
+}
 
 /** */
 export default class ChatMessageOP extends ChatMessage {
@@ -68,15 +76,24 @@ export default class ChatMessageOP extends ChatMessage {
 				if ((button.dataset.visibility === "gm" && !game.user.isGM) || !isCreator) button.hidden = true;
 			}
 
-			// Live-update .target-info from current targeting selection on every render
+			// Live-update .target-info from current targeting selection on every render.
+			// Multi-target precisa aparecer como "N alvos: A, B, C" — antes só renderizava
+			// quando exatamente 1 alvo estava selecionado, deixando o card mudo no
+			// fluxo multi-alvo (ataques de criaturas com numberOfAttacks > 1, sweeps, etc.).
 			const targetInfo = chatCard.querySelector(".target-info");
 			if (targetInfo) {
-				const currentTarget = game.user?.targets?.size === 1 ? [...game.user.targets][0] : null;
-				if (currentTarget) {
+				const currentTargets = [...(game.user?.targets ?? new Set())];
+				if (currentTargets.length > 0) {
 					targetInfo.replaceChildren();
 					const icon = document.createElement("i");
 					icon.className = "fa-solid fa-crosshairs";
-					targetInfo.append(icon, ` ${currentTarget.name}`);
+					const text =
+						currentTargets.length === 1
+							? ` ${currentTargets[0].name}`
+							: ` ${currentTargets.length} ${game.i18n.localize("op.targetsLabel")}: ${currentTargets
+									.map((t) => t.name)
+									.join(", ")}`;
+					targetInfo.append(icon, text);
 					targetInfo.style.display = "";
 				} else {
 					targetInfo.style.display = "none";
@@ -87,33 +104,64 @@ export default class ChatMessageOP extends ChatMessage {
 			// defender reaction is still pending (revealed === false). Otherwise the
 			// attacker/GM could roll and apply damage before the defender's Dodge
 			// flips the attack into a miss, leaving stolen PV behind.
+			//
+			// Multi-attack volleys gravam `attackResults` (entrada por ataque). Aqui
+			// agregamos a decisão: o botão libera assim que houver ao menos um hit
+			// já revelado E nenhum ataque ainda pendente de reação. Sem essa
+			// agregação, um único miss subsequente bloqueava o dano de um hit
+			// anterior na mesma volley.
 			const cardHitResult = this.getFlag("ordemparanormal", "hitResult");
 			if (cardHitResult) {
 				const damageButton = html.querySelector('[data-action="damage"]');
 				if (damageButton) {
-					const reactionPendingUnresolved = cardHitResult.revealed === false;
-					if (cardHitResult.hit === false || reactionPendingUnresolved) {
+					let disableForMiss = false;
+					let pending = false;
+					let hasCritical = false;
+					if (cardHitResult.attackResults?.length) {
+						pending = cardHitResult.attackResults.some((a) => a.revealed === false);
+						const anyRevealedHit = cardHitResult.attackResults.some((a) => a.hit === true && a.revealed !== false);
+						disableForMiss = !anyRevealedHit && !pending;
+						hasCritical = cardHitResult.attackResults.some((a) => a.isCritical === true && a.revealed !== false);
+					} else {
+						pending = cardHitResult.revealed === false;
+						disableForMiss = cardHitResult.hit === false;
+						hasCritical = cardHitResult.isCritical === true;
+					}
+					if (disableForMiss || pending) {
 						damageButton.disabled = true;
 						damageButton.classList.add("hit-miss");
 						damageButton.title = game.i18n.localize("op.rollDmgDisabled");
 					}
-					if (cardHitResult.isCritical === true) {
+					if (hasCritical) {
 						damageButton.classList.add("hit-critical");
 					}
 				}
 			}
 		}
 
-		// Inject "Aplicar ao Alvo" button on damage roll messages that have a damageTarget flag
+		// Inject "Aplicar ao Alvo" button on damage roll messages that have a damageTarget flag.
+		//
+		// Idempotência: a flag `damageApplied` na própria mensagem é a source-of-truth
+		// para "este dano já foi aplicado". Sem ela, qualquer re-render
+		// (`ui.chat.updateMessage` é chamado em targeting/actor updates) recriava o
+		// botão habilitado e um segundo clique aplicava o dano de novo. O `disabled`
+		// local é só feedback visual durante o async — não sobrevive ao re-render.
 		const damageTarget = this.getFlag("ordemparanormal", "damageTarget");
+		const damageApplied = this.getFlag("ordemparanormal", "damageApplied");
 		if (damageTarget && game.user.isGM) {
 			const rollContent = html.querySelector(".dice-roll");
 			if (rollContent) {
 				const applyBtn = document.createElement("button");
 				applyBtn.innerHTML = `<i class="fa-solid fa-heart-crack"></i> ${game.i18n.localize("op.applyDamage")}`;
+				if (damageApplied) {
+					applyBtn.disabled = true;
+					applyBtn.classList.add("damage-applied");
+					applyBtn.title = game.i18n.localize("op.damageAlreadyApplied");
+				}
 				const messageRef = this;
 				applyBtn.addEventListener("click", async (event) => {
 					event.preventDefault();
+					if (messageRef.getFlag("ordemparanormal", "damageApplied")) return; // double-click race
 					applyBtn.disabled = true;
 					try {
 						const targetActor = await fromUuid(damageTarget.actorUuid);
@@ -134,9 +182,23 @@ export default class ChatMessageOP extends ChatMessage {
 								target: targetActor.name,
 								blocked: blockedMsg,
 							}),
+							whisper: _damageRecipients(targetActor),
 						});
+						// Marcar como aplicado para que re-renders mantenham o botão desabilitado
+						// (idempotência persistente, sobrevive a reload/reabertura do chat).
+						await messageRef.setFlag("ordemparanormal", "damageApplied", {
+							at: Date.now(),
+							by: game.user.id,
+							amount: result.finalDamage,
+							targetUuid: damageTarget.actorUuid,
+						});
+						applyBtn.classList.add("damage-applied");
+						applyBtn.title = game.i18n.localize("op.damageAlreadyApplied");
 					} finally {
-						applyBtn.disabled = false;
+						// Não re-habilita se já foi aplicado.
+						if (!messageRef.getFlag("ordemparanormal", "damageApplied")) {
+							applyBtn.disabled = false;
+						}
 					}
 				});
 				rollContent.after(applyBtn);
@@ -167,9 +229,16 @@ export default class ChatMessageOP extends ChatMessage {
 						? game.i18n.localize("op.criticalHit")
 						: game.i18n.localize("op.hit")
 					: game.i18n.localize("op.miss");
-				resultBlock.innerHTML = `<strong>${label}</strong> <span class="vs-defense">${game.i18n.format("op.vsDefense", {
-					defense: hitResult.targetDefense,
-				})}</span>`;
+				// O número da Defesa é dado privado: o atacante e os colegas de mesa só
+				// devem ver HIT/MISS, mas o MJ e o dono do alvo (que já conhece a
+				// própria Defesa) podem ver o valor exato. Decisão pura em
+				// helpers/visibility.mjs#shouldShowDefenseValue (unit-testada).
+				const isOwnerOfTarget = hitResult.actorUuid ? this._isOwnerOfUuidSync(hitResult.actorUuid) : false;
+				const showDefense = shouldShowDefenseValue({ viewerIsGM: game.user.isGM, viewerOwnsTarget: isOwnerOfTarget });
+				const defenseHtml = showDefense
+					? ` <span class="vs-defense">${game.i18n.format("op.vsDefense", { defense: hitResult.targetDefense })}</span>`
+					: "";
+				resultBlock.innerHTML = `<strong>${label}</strong>${defenseHtml}`;
 				rollContent.after(resultBlock);
 			}
 		} else if (hitResult && isDefenderViewer && !shouldRevealHit) {
