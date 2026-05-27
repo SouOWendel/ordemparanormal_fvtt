@@ -56,11 +56,11 @@ function attrField() {
 	});
 }
 
-function agentSkillField() {
+function agentSkillField(defaultAttr = "dex") {
 	const fields = foundry.data.fields;
 	return new fields.SchemaField({
 		value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
-		attr: new fields.ArrayField(new fields.StringField(), { initial: ["dex"] }),
+		attr: new fields.ArrayField(new fields.StringField(), { initial: [defaultAttr] }),
 		degree: new fields.SchemaField({
 			label: new fields.StringField({ initial: "untrained" }),
 			value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
@@ -125,33 +125,33 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 				str: attrField(),
 			}),
 			skills: new fields.SchemaField({
-				acrobatics: agentSkillField(),
-				animal: agentSkillField(),
-				arts: agentSkillField(),
-				athleticism: agentSkillField(),
-				relevance: agentSkillField(),
-				sciences: agentSkillField(),
-				crime: agentSkillField(),
-				diplomacy: agentSkillField(),
-				deception: agentSkillField(),
-				resilience: agentSkillField(),
-				stealth: agentSkillField(),
-				initiative: agentSkillField(),
-				intimidation: agentSkillField(),
-				intuition: agentSkillField(),
-				investigation: agentSkillField(),
-				fighting: agentSkillField(),
-				medicine: agentSkillField(),
-				occultism: agentSkillField(),
-				perception: agentSkillField(),
-				driving: agentSkillField(),
-				aim: agentSkillField(),
-				reflexes: agentSkillField(),
-				religion: agentSkillField(),
-				survival: agentSkillField(),
-				tactics: agentSkillField(),
-				technology: agentSkillField(),
-				will: agentSkillField(),
+				acrobatics: agentSkillField(defaultAttrs.acrobatics),
+				animal: agentSkillField(defaultAttrs.animal),
+				arts: agentSkillField(defaultAttrs.arts),
+				athleticism: agentSkillField(defaultAttrs.athleticism),
+				relevance: agentSkillField(defaultAttrs.relevance),
+				sciences: agentSkillField(defaultAttrs.sciences),
+				crime: agentSkillField(defaultAttrs.crime),
+				diplomacy: agentSkillField(defaultAttrs.diplomacy),
+				deception: agentSkillField(defaultAttrs.deception),
+				resilience: agentSkillField(defaultAttrs.resilience),
+				stealth: agentSkillField(defaultAttrs.stealth),
+				initiative: agentSkillField(defaultAttrs.initiative),
+				intimidation: agentSkillField(defaultAttrs.intimidation),
+				intuition: agentSkillField(defaultAttrs.intuition),
+				investigation: agentSkillField(defaultAttrs.investigation),
+				fighting: agentSkillField(defaultAttrs.fighting),
+				medicine: agentSkillField(defaultAttrs.medicine),
+				occultism: agentSkillField(defaultAttrs.occultism),
+				perception: agentSkillField(defaultAttrs.perception),
+				driving: agentSkillField(defaultAttrs.driving),
+				aim: agentSkillField(defaultAttrs.aim),
+				reflexes: agentSkillField(defaultAttrs.reflexes),
+				religion: agentSkillField(defaultAttrs.religion),
+				survival: agentSkillField(defaultAttrs.survival),
+				tactics: agentSkillField(defaultAttrs.tactics),
+				technology: agentSkillField(defaultAttrs.technology),
+				will: agentSkillField(defaultAttrs.will),
 				freeSkill: new fields.SchemaField({
 					value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
 					attr: new fields.ArrayField(new fields.StringField(), { initial: ["int"] }),
@@ -272,6 +272,21 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 	}
 
 	static migrateData(data) {
+		// Heal actors created before the per-skill default attribute was wired
+		// up. Old schema initialized every skill with attr: ["dex"], so skills
+		// like Investigação, Medicina, Religião all showed up as Destreza.
+		// Rewrite only when the stored value is exactly the legacy default and
+		// the canonical attribute differs. Skills whose canonical attribute is
+		// already dex (acrobatics, aim, crime, etc.) stay untouched.
+		if (data?.skills && typeof data.skills === "object") {
+			for (const [key, skill] of Object.entries(data.skills)) {
+				const canonical = defaultAttrs[key];
+				if (!canonical || canonical === "dex") continue;
+				if (Array.isArray(skill?.attr) && skill.attr.length === 1 && skill.attr[0] === "dex") {
+					skill.attr = [canonical];
+				}
+			}
+		}
 		return super.migrateData(data);
 	}
 }

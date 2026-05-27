@@ -69,10 +69,10 @@ Hooks.once("quenchReady", (quench) => {
 				let highDexActor;
 				let lowDexActor;
 				before(async () => {
-					// `fighting` no agent default usa DEX (ver agentSkillField em
-					// module/data/actors/agent-data.mjs:63). Usamos DEX como dimensão de
-					// número-de-dados para exercitar `applyAdvantage` + `applyModifier`
-					// na pilha real de rolagem da skill.
+					// `aim` é canonicamente DEX (ver defaultAttrs em
+					// module/data/actors/agent-data.mjs). Usamos uma perícia DEX para
+					// exercitar `applyAdvantage` + `applyModifier` variando DEX entre
+					// os dois actors sem que outros atributos influenciem.
 					highDexActor = await createAgent({
 						attributes: { vit: { value: 2 }, pre: { value: 2 }, dex: { value: 3 }, str: { value: 3 }, int: { value: 1 } },
 					});
@@ -87,7 +87,7 @@ Hooks.once("quenchReady", (quench) => {
 
 				it("com advantage=true: roll contém kh (keep highest)", async () => {
 					const rolls = await highDexActor.rollSkill(
-						{ skill: "fighting", advantage: true },
+						{ skill: "aim", advantage: true },
 						{ configure: false },
 						{ create: false }
 					);
@@ -96,7 +96,7 @@ Hooks.once("quenchReady", (quench) => {
 
 				it("disadvantage diminui dados, mantém kh enquanto atributo >= 1 (DEX 3 → 2d20kh)", async () => {
 					const rolls = await highDexActor.rollSkill(
-						{ skill: "fighting", disadvantage: true },
+						{ skill: "aim", disadvantage: true },
 						{ configure: false },
 						{ create: false }
 					);
@@ -107,7 +107,7 @@ Hooks.once("quenchReady", (quench) => {
 
 				it("disadvantage com atributo final < 1 usa 2d20kl (DEX 1 - 1 desvantagem → 2d20kl)", async () => {
 					const rolls = await lowDexActor.rollSkill(
-						{ skill: "fighting", disadvantage: true },
+						{ skill: "aim", disadvantage: true },
 						{ configure: false },
 						{ create: false }
 					);
