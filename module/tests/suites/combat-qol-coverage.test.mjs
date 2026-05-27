@@ -314,14 +314,12 @@ Hooks.once("quenchReady", (quench) => {
 			describe("#11 — pickCounterAttackWeapon renders the dialog correctly", () => {
 				let mod;
 				let defender;
-				let sword1;
-				let sword2;
 
 				before(async () => {
 					mod = await import("/systems/ordemparanormal/module/helpers/reactions.mjs");
 					defender = await createAgent();
-					sword1 = await giveMeleeItem(defender, "[combat-qol] Espada A");
-					sword2 = await giveMeleeItem(defender, "[combat-qol] Espada B");
+					await giveMeleeItem(defender, "[combat-qol] Espada A");
+					await giveMeleeItem(defender, "[combat-qol] Espada B");
 				});
 
 				after(async () => {
@@ -582,7 +580,6 @@ Hooks.once("quenchReady", (quench) => {
 
 				it("GM sees the .op-hp-display element in the tracker for the threat", () => {
 					assert.isTrue(game.user.isGM, "this test assumes a GM session");
-					const li = document.querySelector(`#combat-tracker [data-combatant-id], #combat [data-combatant-id]`);
 					// O tracker pode estar fechado ou em outro container — fallback amplo
 					const allHpEls = document.querySelectorAll(".op-hp-display");
 					assert.isAtLeast(allHpEls.length, 1, "must have at least one .op-hp-display visible to the GM");
@@ -600,7 +597,6 @@ Hooks.once("quenchReady", (quench) => {
 			describe("#5 — Damage chat is whispered (not public) for threat targets", () => {
 				let attacker;
 				let threatTarget;
-				let weapon;
 				let originalRollMode;
 
 				before(async () => {
@@ -609,7 +605,7 @@ Hooks.once("quenchReady", (quench) => {
 						attributes: { hp: { value: 20, max: 20 } },
 						resistances: { cuttingDamage: { value: 0, vulnerable: false, immune: false } },
 					});
-					weapon = await giveMeleeItem(attacker, "[combat-qol] Damage Sword");
+					await giveMeleeItem(attacker, "[combat-qol] Damage Sword");
 					originalRollMode = game.settings.get("core", "rollMode");
 					await game.settings.set("core", "rollMode", "publicroll");
 				});
@@ -734,8 +730,6 @@ Hooks.once("quenchReady", (quench) => {
 
 					const hpBefore = target.system.attributes.hp.value;
 
-					// Primeira aplicação (caminho direto via _onChatCardAction action="applyDamage")
-					const event1 = { target: { closest: () => null, dataset: {} }, preventDefault: () => {} };
 					// Não temos um card real, então simulamos chamando a lógica via flag check.
 					// Usar `OrdemItem._onChatCardAction` requer DOM. Em vez disso, vamos
 					// chamar a lógica de apply via socket-equivalent (game.user é GM aqui).

@@ -7,6 +7,7 @@ import "./suites/actor-agent.test.mjs";
 import "./suites/actor-agent-extended.test.mjs";
 import "./suites/actor-threat.test.mjs";
 import "./suites/actor-threat-extended.test.mjs";
+import "./suites/threat-persistence.test.mjs";
 import "./suites/actor-rolls.test.mjs";
 import "./suites/actor-spaces-rolldata.test.mjs";
 import "./suites/item-rolls.test.mjs";

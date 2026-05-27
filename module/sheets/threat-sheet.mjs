@@ -112,10 +112,6 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			input.addEventListener("change", this._onChangeInputOP.bind(this));
 		}
 
-		for (const button of this.element.querySelectorAll(".adjustment-button")) {
-			button.addEventListener("click", this._onAdjustInput.bind(this));
-		}
-
 		// V13 DOM API (no jQuery)
 		for (const compendiumSkill of this.element.querySelectorAll(".compendium-skill")) {
 			compendiumSkill.addEventListener("contextmenu", this._onOpenCompendiumEntry.bind(this));
@@ -137,6 +133,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			effects: prepareActiveEffectCategories(this.actor.allApplicableEffects()),
 			// Listas para Dropdowns
 			optionDegree: CONFIG.op.dropdownDegree || {},
+			optionDegreeThreat: CONFIG.op.dropdownDegreeThreat || {},
 			elements: CONFIG.op.dropdownElement || {},
 			threatTypes: CONFIG.op.dropdownThreatType,
 			threatSizes: CONFIG.op.dropdownThreatSize,
@@ -536,24 +533,6 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 				if (item) return item.roll();
 			}
 		}
-	}
-
-	/**
-	 *
-	 * @param {*} event
-	 * @returns
-	 */
-	async _onAdjustInput(event) {
-		const button = event.currentTarget;
-		const { action } = button.dataset;
-		const input = button.parentElement.querySelector("input");
-		const min = input.min ? Number(input.min) : -Infinity;
-		const max = input.max ? Number(input.max) : Infinity;
-		let value = Number(input.value);
-		if (isNaN(value)) return;
-		value += action === "increase" ? 5 : -5;
-		input.value = Math.clamp(value, min, max);
-		input.dispatchEvent(new Event("change"));
 	}
 
 	/**

@@ -7,7 +7,6 @@ Hooks.once("quenchReady", (quench) => {
 			const { describe, it, assert, before, after } = context;
 			installBatchGuards(context, { prefix: "[Quench]" });
 
-
 			describe("ThreatData._prepareBaseSkills() — degree value", () => {
 				let actor;
 

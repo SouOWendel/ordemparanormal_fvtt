@@ -101,6 +101,7 @@ export class ThreatData extends foundry.abstract.TypeDataModel {
 			details: new fields.SchemaField({
 				description: new fields.HTMLField({ initial: "" }),
 				fearRiddle: new fields.HTMLField({ initial: "" }),
+				creatureType: new fields.StringField({ initial: "" }),
 			}),
 			temporary: new fields.SchemaField({
 				abilities: new fields.StringField({ initial: "" }),
@@ -175,6 +176,15 @@ export class ThreatData extends foundry.abstract.TypeDataModel {
 	}
 
 	static migrateData(data) {
+		// Legacy threats wrote "Tamanho" to system.details.size (ghost path), but
+		// the schema only exposes size at top level. Lift the value back and drop
+		// the orphan key so cleanData stops discarding it on every save.
+		if (data?.details?.size && !data.size) {
+			data.size = data.details.size;
+		}
+		if (data?.details && data.details.size !== undefined) {
+			delete data.details.size;
+		}
 		return super.migrateData(data);
 	}
 }

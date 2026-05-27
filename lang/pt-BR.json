@@ -146,7 +146,11 @@
 		"dest": "Destreinado",
 		"trei": "Treinado",
 		"vet": "Veterano",
-		"expe": "Expert"
+		"expe": "Expert",
+		"mast": "Mestre",
+		"alfa": "Alfa",
+		"gama": "Gama",
+		"delta": "Delta"
 	},
 
 	"op.className": "Classe",
@@ -350,8 +354,7 @@
 		"eletricDamage": "Eletricidade (El)",
 		"coldDamage": "Frio (Fr)",
 		"chemicalDamage": "Químico (Q)",
-		"mentalDamage": "Mental (M)",
-		"damageDamage": "Dano (Da)"
+		"mentalDamage": "Mental (M)"
 	},
 
 	"op.damageTypeAbv": {
@@ -370,8 +373,7 @@
 		"eletricDamage": "Eletricidade",
 		"coldDamage": "Frio",
 		"chemicalDamage": "Químico",
-		"mentalDamage": "Mental",
-		"damageDamage": "Dano"
+		"mentalDamage": "Mental"
 	},
 
 	"op.undefined": "Indefinido",

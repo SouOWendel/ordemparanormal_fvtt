@@ -7,7 +7,6 @@ Hooks.once("quenchReady", (quench) => {
 			const { describe, it, assert, before, after } = context;
 			installBatchGuards(context, { prefix: "[Quench]" });
 
-
 			// Helper: re-fetch actor from collection to avoid stale reference after DB writes —
 			// Foundry docs recommend always operating on the live document instance.
 			function refetch(actor) {

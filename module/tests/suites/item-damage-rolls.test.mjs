@@ -7,7 +7,6 @@ Hooks.once("quenchReady", (quench) => {
 			const { describe, it, assert, before, after } = context;
 			installBatchGuards(context, { prefix: "[Quench]" });
 
-
 			async function createAgentWithSword(swordOverrides = {}) {
 				const actor = await Actor.create({
 					name: "[Quench] Damage Roll Agent",
