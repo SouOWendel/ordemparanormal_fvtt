@@ -50,8 +50,14 @@ export class OrdemActor extends Actor {
 		super.prepareData();
 	}
 
+	/**
+	 *  Prepare data related to this DataModel itself, before any derived data (including Active Effects)
+	 *  is computed. This is especially useful for initializing numbers, arrays, and sets you expect to
+	 *  be modified by active effects
+	 */
 	/** @override */
 	prepareBaseData() {
+		super.prepareBaseData();
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
 		const actorData = this;
@@ -444,7 +450,7 @@ export class OrdemActor extends Actor {
 	}
 
 	/** @inheritDoc */
-	applyActiveEffects() {
+	applyActiveEffects(phase) {
 		// 1. Preparar dados para rolagem (para resolver variáveis como @NEX.value)
 		// Atenção: Aqui só estarão disponíveis os dados base (prepareBaseData),
 		// pois os dados derivados ainda não foram calculados.
@@ -481,10 +487,13 @@ export class OrdemActor extends Actor {
 		}
 
 		// 3. Executa a lógica padrão do sistema (hook prepareEmbeddedData)
-		if (this.system?.prepareEmbeddedData instanceof Function) this.system.prepareEmbeddedData();
+		if ( game.release.generation < 14 ) phase ??= 'initial';
+		if ( (this.system?.prepareEmbeddedData instanceof Function) && (phase === 'initial') ) {
+			this.system.prepareEmbeddedData();
+		}
 		
 		// 4. Chama o método original para aplicar os valores já calculados
-		return super.applyActiveEffects();
+		return super.applyActiveEffects(phase);
 	}
 
 	/**
