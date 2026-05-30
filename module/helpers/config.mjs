@@ -135,6 +135,7 @@ op.dropdownTrilha = {
 		{name: 'laminaParanormal', label: 'op.trilhas.laminaParanormal'},
 		{name: 'parapsicologo', label: 'op.trilhas.parapsicologo'},
 		{name: 'possuido', label: 'op.trilhas.possuido'},
+		{name: 'maledictologo', label: 'op.trilhas.maledictologo'},
 	],
 	survivor: [
 		{name: 'durao', label: 'op.trilhas.durao'},
