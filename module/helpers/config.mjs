@@ -127,7 +127,6 @@ op.dropdownTrilha = {
 		{ name: "tecnico", label: "op.trilhas.tecnico" },
 	],
 	occultist: [
-<<<<<<< HEAD
 		{name: 'conduite', label: 'op.trilhas.conduite'},
 		{name: 'exorcista', label: 'op.trilhas.exorcista'},
 		{name: 'flagelador', label: 'op.trilhas.flagelador'},
@@ -137,16 +136,6 @@ op.dropdownTrilha = {
 		{name: 'parapsicologo', label: 'op.trilhas.parapsicologo'},
 		{name: 'possuido', label: 'op.trilhas.possuido'},
 		{name: 'maledictologo', label: 'op.trilhas.maledictologo'},
-=======
-		{ name: "conduite", label: "op.trilhas.conduite" },
-		{ name: "exorcista", label: "op.trilhas.exorcista" },
-		{ name: "flagelador", label: "op.trilhas.flagelador" },
-		{ name: "graduado", label: "op.trilhas.graduado" },
-		{ name: "intuitivo", label: "op.trilhas.intuitivo" },
-		{ name: "laminaParanormal", label: "op.trilhas.laminaParanormal" },
-		{ name: "parapsicologo", label: "op.trilhas.parapsicologo" },
-		{ name: "possuido", label: "op.trilhas.possuido" },
->>>>>>> 210f02967f98c8398aad0516a56fb445230df503
 	],
 	survivor: [
 		{ name: "durao", label: "op.trilhas.durao" },
