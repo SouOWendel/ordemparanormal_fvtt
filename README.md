@@ -11,7 +11,7 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Conventional Changelog](https://img.shields.io/badge/changelog-conventional-brightgreen.svg)](http://conventional-changelog.github.io)
 ![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/SouOWendel/ordemparanormal_fvtt/latest/total)
-
+![CI](https://github.com/SouOWendel/ordemparanormal_fvtt/actions/workflows/ci.yml/badge.svg)
 
 </div>
 
@@ -19,7 +19,7 @@
 
 # Sobre o Ordem Paranormal.
 
-Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado por Rafael Lange, mais conhecido pelo seu pseudônimo Cellbit. Com base nisso, este é um **sistema não-oficial** adaptado para o FoundryVTT, que utiliza dos conteúdos considerados <i>Open Game License¹</i>, conforme a licença incluída juntamente ao livro de regras. 
+Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado por Rafael Lange, mais conhecido pelo seu pseudônimo Cellbit. Com base nisso, este é um **sistema não-oficial** adaptado para o FoundryVTT, que utiliza dos conteúdos considerados <i>Open Game License¹</i>, conforme a licença incluída juntamente ao livro de regras.
 
 > No universo de Ordem Paranormal, o paranormal existe, mas está separado da nossa realidade por uma membrana. Essa membrana pode ser enfraquecida pelo medo, e alguns grupos de ocultistas estão dispostos a fazer isso para invocar entidades do Outro Lado.
 > Para combater essa ameaça, foi criada a Ordo Realitas, uma organização de detetives paranormais que vivem vidas duplas. Os agentes da Ordem secretamente investigam e combatem o paranormal, protegendo a Realidade e lutando contra aqueles que querem mergulhar o mundo em caos.
@@ -27,28 +27,71 @@ Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado
 ## Começando o Desenvolvimento.
 
 1. Clone o repositório com `git clone https://github.com/SouOWendel/ordemparanormal_fvtt.git ordemparanormal`
-2. Instale as dependências de desenvolvimento com `git install`
+2. Instale as dependências de desenvolvimento com `npm install`
+3. Compile os compêndios com `npm run build:db` (converte os JSONs de `packs/_source/` para LevelDB)
+4. Crie um `.env` baseado no `.env.example` com suas credenciais do Foundry
+5. Suba o ambiente de desenvolvimento com `npm run dev` (Docker na porta 30000)
+
+## Testes
+
+### Tier 1 — Testes Unitários (Vitest)
+
+Rodam fora do Foundry, via Node.js. Cobrem schemas de TypeDataModel, cálculos derivados, migrações e lógica de itens.
+
+```bash
+npm test            # roda os testes uma vez
+npm run test:watch  # modo watch (reexecuta ao salvar)
+npm run test:coverage  # gera relatório de cobertura
+```
+
+Os testes rodam automaticamente no GitHub Actions a cada push e pull request.
+
+### Tier 2 — Testes de Integração (Quench)
+
+Rodam dentro do Foundry com o módulo [Quench](https://github.com/Ethaks/FVTT-Quench). Cobrem Active Effects, criação de actores/itens, sheets e configurações do sistema.
+
+```bash
+npm run dev         # sobe o Foundry via Docker na porta 30000
+npm run dev:down    # para o container
+```
+
+1. Acesse `http://localhost:30000`, crie um mundo com o sistema Ordem Paranormal
+2. Ative os módulos **Quench** e **Bar Brawl** no mundo
+3. Abra o painel do Quench na sidebar e clique **Run All**
+
+As suites disponíveis:
+
+- **OP | Agent Actor: prepareDerivedData** — classes, progressão, PV/PE/SAN, defesa, rituais, patentes
+- **OP | Actor: Active Effects** — resolução de `@variáveis`, stacking, item-transferred AEs
+- **OP | Item: isCritical & getRollData** — parsing de fórmulas críticas, dados de rolagem
+- **OP | Sheets: registration & dataModels** — registro de sheets e TypeDataModels no CONFIG
 
 ## Modulos Obrigatórios.
 
--   **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
+- **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
 
 ## Contribuidores
+
 - Agradecimento ao <a href="https://twitter.com/ciconiaborns">@jojo</a> pelas traduções do sistema para o Inglês.
 
+## Demonstração do Sistema
+
+https://github.com/user-attachments/assets/ae649c77-42df-4e1d-ae8f-e8989f570f05
+
 ## Licenças e Observações.
+
 <sub>
 Este repositório utiliza <a href="https://semver.org/lang/pt-BR/">Versionamento Semântico 2.0</a>, <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> e o guia de estilo para <a href="https://google.github.io/styleguide/jsguide.html">ESLint do Google</a>, além disso, desenvolvido com muita dedicação e código. Se precisar, contate-me através do e-mail ou redes sociais: <a href="https://mail.google.com/mail/u/0/?fs=1&to=souowendel@gmail.com&su=Enquiry&tf=cm">souowendel@gmail.com</a>, discord: souowendel, twitter: <a href="https://twitter.com/EuSouOWendel">eusouowendel</a><br><br>
 </sub>
 <sub>
-This work is permitted under the <a href="https://github.com/SouOWendel/ordemparanormal_fvtt/blob/main/media/OGLlicense.txt">Open Gaming License</a>, the software component of this module/system is distributed under the <a href="https://github.com/SouOWendel/ordemparanormal_fvtt/blob/main/LICENSE.txt">CC BY-NC-SA 4.0 license</a>. Sistema Ordem Paranormal para FoundryVTT © 2023 by Wendel Henrique is licensed under <a href="https://github.com/SouOWendel/ordemparanormal_fvtt/blob/main/LICENSE.txt">CC BY-NC-SA 4.0</a><br><br>
+This work is permitted under the <a href="https://github.com/SouOWendel/ordemparanormal_fvtt/blob/main/media/OGLlicense.txt">Open Gaming License</a>, the software component of this module/system is distributed under the <a href="https://github.com/SouOWendel/ordemparanormal_fvtt/blob/main/LICENSE.txt">CC BY-NC-SA 4.0 license</a>. Sistema Ordem Paranormal para FoundryVTT © 2026 by Wendel Henrique is licensed under <a href="https://github.com/SouOWendel/ordemparanormal_fvtt/blob/main/LICENSE.txt">CC BY-NC-SA 4.0</a><br><br>
 </sub>
 <sub>
 ¹: LANGE, R. Ordem Paranormal RPG. 1a EDIÇÃO ed. Rua Coronel Genuíno, 209 • Porto Alegre, rs: Jambô Editora, 2022. v. 1p. 2, 318. "O material a seguir é Identidade do Produto: os capítulos 5, 7 e 8, todos os termos referentes ao cenário de Ordem Paranormal, incluindo a Membrana, o Outro Lado, nomes e descrições de personagens, criaturas, entidades, lugares e organizações, todas as ilustrações e todas as regras de rituais, poderes paranormais, Sanidade e dano mental. O material a seguir é Conteúdo Open Game: todo o texto de regras do livro, exceto por material previamente declarado Identidade do Produto."<br><br>
 </sub>
 <sub>
 Observação: A marca Ordem Paranormal não é de minha autoria, todos os direitos são reservados aos seus respectivos donos.
-</sub> 
+</sub>
 
 <!-- Links Uteis -->
 <!-- https://foundryvtt.wiki/en/development/guides/SD-tutorial -->

@@ -1,24 +1,24 @@
 @use "sass:meta";
 // Import utilities.
-@use 'utils/typography';
-@use 'utils/colors';
-@use 'utils/mixins';
-@use 'utils/variables';
+@use "utils/typography";
+@use "utils/colors";
+@use "utils/mixins";
+@use "utils/variables";
 
 /* Global styles */
-@use 'global/window';
-@use 'global/grid';
-@use 'global/flex';
+@use "global/window";
+@use "global/grid";
+@use "global/flex";
 
 /* Styles limited to ordemparanormal sheets */
 .system-ordemparanormal {
-	@include meta.load-css('components/forms');
-	@include meta.load-css('components/resource');
-	@include meta.load-css('components/items');
-	@include meta.load-css('components/effects');
-	@include meta.load-css('components/dialog');
-	@include meta.load-css('components/cards');
-	@include meta.load-css('components/chat');
-	@include meta.load-css('components/sidebar');
-	@include meta.load-css('components/formApp');
+	@include meta.load-css("components/forms");
+	@include meta.load-css("components/resource");
+	@include meta.load-css("components/items");
+	@include meta.load-css("components/effects");
+	@include meta.load-css("components/dialog");
+	@include meta.load-css("components/cards");
+	@include meta.load-css("components/chat");
+	@include meta.load-css("components/sidebar");
+	@include meta.load-css("components/formApp");
 }

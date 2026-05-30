@@ -1,4 +1,4 @@
-import D20RollConfigurationDialog from './d20-configuration-dialog.mjs';
+import D20RollConfigurationDialog from "./d20-configuration-dialog.mjs";
 
 /**
  * @typedef {BasicRollConfigurationDialogOptions} SkillToolRollConfigurationDialogOptions
@@ -11,7 +11,7 @@ import D20RollConfigurationDialog from './d20-configuration-dialog.mjs';
 export default class AttributeRollConfigurationDialog extends D20RollConfigurationDialog {
 	/** @override */
 	static DEFAULT_OPTIONS = {
-		chooseAbility: false
+		chooseAbility: false,
 	};
 
 	/* -------------------------------------------- */

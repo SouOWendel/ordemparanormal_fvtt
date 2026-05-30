@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import ApplicationV2Mixin from './application-v2-mixin.mjs';
+import ApplicationV2Mixin from "./application-v2-mixin.mjs";
 
 const { ApplicationV2 } = foundry.applications.api;
 

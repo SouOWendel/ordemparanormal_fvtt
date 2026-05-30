@@ -1,49 +1,57 @@
 <section class="{{actor.type}} header flexcol" id="agent" autocomplete="off">
-	{{!-- Sheet Header --}}
+	{{! Sheet Header }}
 	<header class="sheet-header-op">
 		<div class="header-identify align-center flex">
-			<img class="profile-img" src="{{actor.img}}" data-edit="img" data-action="onEditImage" title="{{actor.name}}" height="64" width="64" />
+			<img
+				class="profile-img"
+				src="{{actor.img}}"
+				data-edit="img"
+				data-action="onEditImage"
+				title="{{actor.name}}"
+				height="64"
+				width="64"
+			/>
 			<h1 class="charname">
 				<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
 			</h1>
-				{{#if isSurvivor}}
+			{{#if isSurvivor}}
 				<div class="resource flex-group-center progress">
-					<label for="system.stage.value" class="resource-label"> {{localize 'op.stage'}} </label>
+					<label for="system.stage.value" class="resource-label"> {{localize "op.stage"}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
 						{{numberInputFVTT system.stage.value name="system.stage.value" step=1 min=0 max=5}}
 					</div>
 				</div>
-				{{else}}
-					{{#if progressRuleIsNEX}}
+			{{else}}
+				{{#if progressRuleIsNEX}}
 					<div class="resource flex-group-center progress">
-						<label for="system.NEX.value" class="resource-label"> {{localize 'op.NEX'}} </label>
+						<label for="system.NEX.value" class="resource-label"> {{localize "op.NEX"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
 						</div>
 					</div>
-					{{/if}}
-					{{#if progressRuleIsNivel}}
+				{{/if}}
+				{{#if progressRuleIsNivel}}
 					<div class="resource flex-group-center progress">
-						<label for="system.nivel.value" class="resource-label"> {{localize 'op.nivel'}} </label>
+						<label for="system.nivel.value" class="resource-label"> {{localize "op.nivel"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							{{numberInputFVTT system.nivel.value name="system.nivel.value" step=1 min=0 max=20}}
 						</div>
 					</div>
 					<div class="resource flex-group-center progress">
-						<label for="system.NEX.value" class="resource-label"> {{localize 'op.NEX'}} </label>
+						<label for="system.NEX.value" class="resource-label"> {{localize "op.NEX"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							{{numberInputFVTT system.NEX.value name="system.NEX.value" step=1 min=0 max=99}}
 						</div>
 					</div>
-					{{/if}}
 				{{/if}}
+			{{/if}}
 		</div>
 		<div class="header-fields">
-			{{!-- The grid classes are defined in scss/global/_grid.scss. To use, use both the "grid" and "grid-Ncol" class where
-			"N" can be any number from 1 to 12 and will create that number of columns. --}}
+			{{! The grid classes are defined in scss/global/_grid.scss. To use, use both the "grid" and "grid-Ncol" class where
+			"N" can be any number from 1 to 12 and will create that number of columns. }}
 			<div class="resources flexrow">
 				<div class="resource flex-group-center">
-					<label for="system.PV.value" class="resource-label"> {{localize 'op.PV'}} </label>
+					<label for="system.PV.value" class="resource-label"> {{localize "op.PV"}} </label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.PV.value" value="{{system.PV.value}}" data-dtype="Number" />
 						<span> / </span>
@@ -53,7 +61,7 @@
 
 				{{#if usingWithoutSanityRule}}
 					<div class="resource flex-group-center">
-						<label for="system.PD.value" class="resource-label">{{localize 'op.PD'}} </label>
+						<label for="system.PD.value" class="resource-label">{{localize "op.PD"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.PD.value" value="{{system.PD.value}}" data-dtype="Number" />
 							<span> / </span>
@@ -61,14 +69,14 @@
 						</div>
 					</div>
 					<div class="resource flex-group-center">
-						<label for="system.PD.value" class="resource-label">{{localize 'op.pdPerRound'}} </label>
+						<label for="system.PD.value" class="resource-label">{{localize "op.pdPerRound"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="number" name="system.PD.perRound" value="{{system.PD.perRound}}" data-dtype="Number" disabled />
 						</div>
 					</div>
 				{{else}}
 					<div class="resource flex-group-center">
-						<label for="system.SAN.value" class="resource-label">{{localize 'op.San'}} </label>
+						<label for="system.SAN.value" class="resource-label">{{localize "op.San"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.SAN.value" value="{{system.SAN.value}}" data-dtype="Number" />
 							<span> / </span>
@@ -76,7 +84,7 @@
 						</div>
 					</div>
 					<div class="resource flex-group-center">
-						<label for="system.PE.value" class="resource-label">{{localize 'op.PE'}} </label>
+						<label for="system.PE.value" class="resource-label">{{localize "op.PE"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.PE.value" value="{{system.PE.value}}" data-dtype="Number" />
 							<span> / </span>
@@ -84,7 +92,7 @@
 						</div>
 					</div>
 					<div class="resource flex-group-center">
-						<label for="system.PE.value" class="resource-label">{{localize 'op.pePerRound'}} </label>
+						<label for="system.PE.value" class="resource-label">{{localize "op.pePerRound"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="number" name="system.PE.perRound" value="{{system.PE.perRound}}" data-dtype="Number" disabled />
 						</div>
@@ -94,105 +102,166 @@
 			<div class="resources flexrow">
 				<div class="resource flex-group-center">
 					<label for="{{localize 'op.className'}}" class="resource-label">
-						{{localize 'op.className'}}
+						{{localize "op.className"}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<select name="system.class" data-dtype="String">
-							{{ selectOptions optionClass selected=system.class localize=true blank="—" }}
+							{{selectOptions optionClass selected=system.class localize=true blank="—"}}
 						</select>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
 					<label for="{{localize 'op.originName'}}" class="resource-label">
-						{{localize 'op.originName'}}
+						{{localize "op.originName"}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<select name="system.origin" data-dtype="String">
-							{{ selectOptions optionOrigins selected=system.origin localize=true blank="—" }}
+							{{selectOptions optionOrigins selected=system.origin localize=true blank="—"}}
 						</select>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
 					<label for="{{localize 'op.trilhasName'}}" class="resource-label">
-						{{localize 'op.trilhasName'}}
+						{{localize "op.trilhasName"}}
 					</label>
 					<div class="resource-content flexrow flex-center flex-between">
-						{{#if system.class }}
-						<select name="system.trilha" data-dtype="String">
-							{{ selectOptions (concatObjAndStr optionTrilhas system.class) selected=system.trilha valueAttr="name"
-							labelAttr="label" blank="—" localize=true }}
-						</select>
+						{{#if system.class}}
+							<select name="system.trilha" data-dtype="String">
+								{{selectOptions
+									(concatObjAndStr optionTrilhas system.class)
+									selected=system.trilha
+									valueAttr="name"
+									labelAttr="label"
+									blank="—"
+									localize=true
+								}}
+							</select>
 						{{else}}
-						<select disabled>
-							<option>Selecione uma classe</option>
-						</select>
+							<select disabled>
+								<option>Selecione uma classe</option>
+							</select>
 						{{/if}}
 					</div>
 				</div>
 			</div>
 			<div class="resources flexrow">
-				{{!-- "flex-group-center" is also defined in the _grid.scss file and it will add a small amount of padding, a
-				border, and will center all of its child elements content and text. --}}
+				{{! "flex-group-center" is also defined in the _grid.scss file and it will add a small amount of padding, a
+				border, and will center all of its child elements content and text. }}
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.dex.value" class="resource-label rollable" data-action="onRollAttributeTest" data-rollType="attribute"
-			 		data-label="{{localize 'op.attDex'}}" data-key="dex">{{localize 'op.attDex'}}</label>
+					<label
+						for="system.attributes.dex.value"
+						class="resource-label rollable"
+						data-action="onRollAttributeTest"
+						data-rollType="attribute"
+						data-label="{{localize 'op.attDex'}}"
+						data-key="dex"
+					>{{localize "op.attDex"}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input type="text" name="system.attributes.dex.value" value="{{system.attributes.dex.value}}" data-dtype="Number" />
+						<input
+							type="text"
+							name="system.attributes.dex.value"
+							value="{{system.attributes.dex.value}}"
+							data-dtype="Number"
+						/>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.int.value" class="resource-label rollable" data-action="onRollAttributeTest" data-rollType="attribute"
-			 		data-label="{{localize 'op.attInt'}}" data-key="int">{{localize 'op.attInt'}}</label>
+					<label
+						for="system.attributes.int.value"
+						class="resource-label rollable"
+						data-action="onRollAttributeTest"
+						data-rollType="attribute"
+						data-label="{{localize 'op.attInt'}}"
+						data-key="int"
+					>{{localize "op.attInt"}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input type="text" name="system.attributes.int.value" value="{{system.attributes.int.value}}" data-dtype="Number" />
+						<input
+							type="text"
+							name="system.attributes.int.value"
+							value="{{system.attributes.int.value}}"
+							data-dtype="Number"
+						/>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.vit.value" class="resource-label rollable" data-action="onRollAttributeTest" data-rollType="attribute"
-			 		data-label="{{localize 'op.attVit'}}" data-key="vit">{{localize 'op.attVit'}}</label>
+					<label
+						for="system.attributes.vit.value"
+						class="resource-label rollable"
+						data-action="onRollAttributeTest"
+						data-rollType="attribute"
+						data-label="{{localize 'op.attVit'}}"
+						data-key="vit"
+					>{{localize "op.attVit"}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input type="text" name="system.attributes.vit.value" value="{{system.attributes.vit.value}}" data-dtype="Number" />
+						<input
+							type="text"
+							name="system.attributes.vit.value"
+							value="{{system.attributes.vit.value}}"
+							data-dtype="Number"
+						/>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.pre.value" class="resource-label rollable" data-action="onRollAttributeTest" data-rollType="attribute"
-			 		data-label="{{localize 'op.attPre'}}" data-key="pre">{{localize 'op.attPre'}}</label>
+					<label
+						for="system.attributes.pre.value"
+						class="resource-label rollable"
+						data-action="onRollAttributeTest"
+						data-rollType="attribute"
+						data-label="{{localize 'op.attPre'}}"
+						data-key="pre"
+					>{{localize "op.attPre"}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input type="text" name="system.attributes.pre.value" value="{{system.attributes.pre.value}}" data-dtype="Number" />
+						<input
+							type="text"
+							name="system.attributes.pre.value"
+							value="{{system.attributes.pre.value}}"
+							data-dtype="Number"
+						/>
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="system.attributes.str.value" class="resource-label rollable" data-action="onRollAttributeTest" data-rollType="attribute"
-			 		data-label="{{localize 'op.attStr'}}" data-key="str">{{localize 'op.attStr'}}</label>
+					<label
+						for="system.attributes.str.value"
+						class="resource-label rollable"
+						data-action="onRollAttributeTest"
+						data-rollType="attribute"
+						data-label="{{localize 'op.attStr'}}"
+						data-key="str"
+					>{{localize "op.attStr"}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
-						<input type="text" name="system.attributes.str.value" value="{{system.attributes.str.value}}" data-dtype="Number" />
+						<input
+							type="text"
+							name="system.attributes.str.value"
+							value="{{system.attributes.str.value}}"
+							data-dtype="Number"
+						/>
 					</div>
 				</div>
 			</div>
 			<div class="resources flexrow">
 				<div class="resource flex-group-center">
-					<label for="{{localize 'op.defense'}}" class="resource-label">{{localize 'op.defense'}}</label>
+					<label for="{{localize 'op.defense'}}" class="resource-label">{{localize "op.defense"}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.defense.value" value="{{system.defense.value}}" data-dtype="Number" disabled />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="{{localize 'op.dodge'}}" class="resource-label">{{localize 'op.dodge'}}</label>
+					<label for="{{localize 'op.dodge'}}" class="resource-label">{{localize "op.dodge"}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.defense.dodge" value="{{system.defense.dodge}}" data-dtype="Number" disabled />
 					</div>
 				</div>
 
 				<div class="resource flex-group-center">
-					<label for="{{localize 'op.deslocamento'}}" class="resource-label">{{localize 'op.deslocamento'}}</label>
+					<label for="{{localize 'op.deslocamento'}}" class="resource-label">{{localize "op.deslocamento"}}</label>
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.desloc.value" value="{{system.desloc.value}}" data-dtype="Number" disabled />
 					</div>

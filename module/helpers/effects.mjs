@@ -7,18 +7,18 @@ export function prepareActiveEffectCategories(effects) {
 	// Define effect header categories
 	const categories = {
 		temporary: {
-			type: 'temporary',
-			label: game.i18n.localize('op.temporaryEffects'),
+			type: "temporary",
+			label: game.i18n.localize("op.temporaryEffects"),
 			effects: [],
 		},
 		passive: {
-			type: 'passive',
-			label: game.i18n.localize('op.passiveEffects'),
+			type: "passive",
+			label: game.i18n.localize("op.passiveEffects"),
 			effects: [],
 		},
 		inactive: {
-			type: 'inactive',
-			label: game.i18n.localize('op.inactiveEffects'),
+			type: "inactive",
+			label: game.i18n.localize("op.inactiveEffects"),
 			effects: [],
 		},
 	};

@@ -1,54 +1,73 @@
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
- * Configuração de características para atores
+ * Configuração de características para atores (V2)
  */
-export class TraitsConfig extends FormApplication {
-	/**
-	 * @override
-	 */
-	static get defaultOptions() {
-		// CORREÇÃO: Usar foundry.utils.mergeObject
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ['ordemparanormal', 'sheet', 'traits-config'],
-			template: 'systems/ordemparanormal/templates/apps/traits-config.hbs',
+export class TraitsConfig extends HandlebarsApplicationMixin(ApplicationV2) {
+	/** @inheritDoc */
+	static DEFAULT_OPTIONS = {
+		classes: ["ordemparanormal", "sheet", "traits-config"],
+		tag: "form",
+		position: {
 			width: 420,
-			height: 'auto',
-			title: 'Configurar Características',
+			height: "auto",
+		},
+		window: {
+			title: "Configurar Características",
 			resizable: false,
-		});
+		},
+		form: {
+			handler: TraitsConfig.#onSubmitForm,
+			closeOnSubmit: true,
+			submitOnChange: false,
+		},
+	};
+
+	/** @inheritDoc */
+	static PARTS = {
+		form: {
+			template: "systems/ordemparanormal/templates/apps/traits-config.hbs",
+		},
+	};
+
+	/** @inheritDoc */
+	get document() {
+		return this.options.document;
 	}
 
 	/** @override */
-	getData() {
-		const data = super.getData();
-		
-		// Pega a lista de tipos de dano da configuração do sistema
-		data.traits = CONFIG.op.traits;
-		
+	async _prepareContext(options) {
+		const context = await super._prepareContext(options);
+
+		// Pega a lista de características da configuração do sistema
+		const allTraits = CONFIG.op.traits;
+
 		// Pega os dados atuais do ator (ou cria um objeto vazio se não existir)
-		const actorTraits = this.object.system.traits || {};
+		const actorTraits = this.document.system.traits || {};
 
 		// Prepara o objeto para o template Handlebars
-		data.traits = {};
+		context.traits = {};
 
-		for (const [key, label] of Object.entries(CONFIG.op.traits)) {
-			data.traits[key] = {
+		for (const [key, label] of Object.entries(allTraits)) {
+			context.traits[key] = {
 				label: label,
-				enabled: actorTraits[key]
+				enabled: actorTraits[key],
 			};
 		}
-		
-		return data;
+
+		return context;
 	}
 
-	/** @override */
-	async _updateObject(event, formData) {
-		// CORREÇÃO: Usar foundry.utils.expandObject
-		const traits = foundry.utils.expandObject(formData);
-		
-		// Atualiza o ator
-		return this.object.update({
-			'system.traits': traits
-		});
+	/**
+	 * Handle form submission
+	 * @this {TraitsConfig}
+	 * @param {SubmitEvent} event
+	 * @param {HTMLFormElement} form
+	 * @param {FormDataExtended} formData
+	 */
+	static async #onSubmitForm(event, form, formData) {
+		event.preventDefault();
+		const traits = foundry.utils.expandObject(formData.object);
+		await this.document.update({ "system.traits": traits });
 	}
 }

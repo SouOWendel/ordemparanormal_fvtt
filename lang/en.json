@@ -23,6 +23,7 @@
 
 	"SETTINGS.opPatchNotes": "Deactivate Patch Notes",
 	"SETTINGS.opPatchNotesHint": "When starting a world with the Ordem Paranormal system, or, updating the system, patch notes with news are shown in a window, toggle/untoggle this option to deactivate/activate.",
+	"SETTINGS.opPatchNotesAllViewed": "You have viewed every update note. There are no newer notes.",
 	"SETTINGS.globalProgressRules": "Progress Rules",
 	"SETTINGS.globalProgressRulesHint": "The progress rules define the way agent sheets progress changing how they work. Check the rule book for more information on each progress rule.",
 	"SETTINGS.nexProgressRule": "Progress by EXL",
@@ -37,11 +38,11 @@
 	"MACRO.opMultipleTargetsWarn": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen.",
 	"WARN.overWeight": "What you carry can't surpass double your maximum weight!",
 	"CHAT.RollBlind": "Blind GM Roll",
-  "CHAT.RollDefault": "Default Roll",
-  "CHAT.RollPublic": "Public Roll",
-  "CHAT.RollPrivate": "Private GM Roll",
-  "CHAT.RollSelf": "Personal Roll",
-  "CHAT.RollTables": "Roll Tables",
+	"CHAT.RollDefault": "Default Roll",
+	"CHAT.RollPublic": "Public Roll",
+	"CHAT.RollPrivate": "Private GM Roll",
+	"CHAT.RollSelf": "Personal Roll",
+	"CHAT.RollTables": "Roll Tables",
 
 	"WORLD.GameSystem": "System Game",
 	"op.sidebar.updateNotes": "An unofficial system in version",
@@ -284,6 +285,7 @@
 	"op.subtypeWeapon": "Weapon Subtype",
 	"op.powerType": "Ability Type",
 	"op.execution": "Execution",
+	"op.cost": "Cost",
 	"op.element": "Element",
 
 	"op.executionChoices": {
@@ -342,12 +344,13 @@
 		"knowledgeDamage": "Knowledge (Kn)",
 		"energyDamage": "Energy (En)",
 		"fearDamage": "Fear (Fe)",
-		
+
 		"fireDamage": "Fire (Fi)",
 		"eletricDamage": "Electricity (El)",
 		"coldDamage": "Cold (Co)",
 		"chemicalDamage": "Chemical (Ch)",
-		"mentalDamage": "Mental (Me)"
+		"mentalDamage": "Mental (Me)",
+		"damageDamage": "Damage (Da)"
 	},
 
 	"op.damageTypeAbv": {
@@ -364,7 +367,8 @@
 		"eletricDamage": "Electricity",
 		"coldDamage": "Cold",
 		"chemicalDamage": "Chemical",
-		"mentalDamage": "Mental"
+		"mentalDamage": "Mental",
+		"damageDamage": "Damage"
 	},
 
 	"op.undefined": "Undefined",
@@ -477,13 +481,18 @@
 	"op.immune": "Immune",
 	"op.vulnerable": "Vulnerable",
 	"op.noAbilities": "No abilities added.",
+	"op.noAbility": "No Ability",
 	"op.attack": "Attack",
 	"op.armament": "Armament",
 	"op.test": "Test",
+	"op.add": "Add",
 	"op.addAttackArmament": "Add Attack",
 	"op.noAttacks": "No attacks configured.",
 	"op.enigma": "Fear Enigma",
 	"op.addAbility": "Add Ability",
+	"op.trait": "Trait",
+	"op.addTrait": "Add Trait",
+	"op.noTraits": "No traits added.",
 	"op.edit": "Edit",
 	"op.delete": "Delete",
 	"op.configTraitsDescription": "Configure the threat traits that will be available for selection in threat sheets.",

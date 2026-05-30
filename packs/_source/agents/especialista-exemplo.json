@@ -1,0 +1,319 @@
+{
+  "name": "Especialista Exemplo",
+  "type": "agent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "class": "specialist",
+    "origin": "investigador",
+    "trilha": "infiltrador",
+    "patent": {
+      "name": "",
+      "prestigePoints": 30,
+      "creditLimit": "",
+      "itemLimit1": null,
+      "itemLimit2": null,
+      "itemLimit3": null,
+      "itemLimit4": null
+    },
+    "NEX": {
+      "value": 5
+    },
+    "nivel": {
+      "value": 1
+    },
+    "stage": {
+      "value": 1
+    },
+    "PV": {
+      "value": 14,
+      "max": 14
+    },
+    "PE": {
+      "value": 6,
+      "max": 6,
+      "perRound": 1
+    },
+    "PD": {
+      "value": 6,
+      "max": 6,
+      "perRound": 1
+    },
+    "SAN": {
+      "value": 10,
+      "max": 10
+    },
+    "defense": {
+      "value": 10,
+      "bonus": 0,
+      "dodge": 0
+    },
+    "desloc": {
+      "value": 9,
+      "bonus": 0
+    },
+    "spaces": {
+      "bonus": {
+        "value": 0,
+        "max": 0
+      }
+    },
+    "ritual": {
+      "DT": 0
+    },
+    "attributes": {
+      "str": {
+        "value": 1,
+        "bonus": 0
+      },
+      "dex": {
+        "value": 3,
+        "bonus": 0
+      },
+      "vit": {
+        "value": 2,
+        "bonus": 0
+      },
+      "pre": {
+        "value": 2,
+        "bonus": 0
+      },
+      "int": {
+        "value": 3,
+        "bonus": 0
+      }
+    },
+    "skills": {},
+    "resources": {
+      "res1": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      },
+      "res2": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      },
+      "res3": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      }
+    },
+    "biography": "<p>Um exemplo de agente Especialista NEX 5%. Este personagem está pronto para ser usado em uma missão.</p>",
+    "goals": ""
+  },
+  "items": [
+    {
+      "_id": "itmSpecialist001",
+      "name": "Pistola Pesada",
+      "type": "armament",
+      "img": "systems/ordemparanormal/media/icons/armament/pistola-pesada.svg",
+      "system": {
+        "description": "<p>Uma versão de calibre superior da tradicional pistola. Sua potência e recuo impõem uma penalidade de –1d20 em testes de ataque; empunhá-la com as duas mãos anula essa penalidade.</p>",
+        "weight": 1,
+        "category": "1",
+        "using": {
+          "state": true,
+          "class": "fas"
+        },
+        "quantity": 1,
+        "proficiency": "tacticalWeapons",
+        "types": {
+          "rangeType": {
+            "name": "ranged",
+            "subRangeType": "fire"
+          },
+          "ammunitionType": "shortBullets",
+          "gripType": "oneHand"
+        },
+        "critical": "18",
+        "range": "Curto",
+        "formulas": {
+          "attack": {
+            "formula": "1d20",
+            "attr": "dex",
+            "skill": "aim",
+            "bonus": ""
+          },
+          "damage": {
+            "formula": "2d8",
+            "attr": "",
+            "bonus": 0,
+            "type": "ballisticDamage",
+            "parts": []
+          },
+          "extraFormula": "1d4"
+        },
+        "penalty": "",
+        "conditions": {
+          "improvised": false,
+          "throwable": false,
+          "agile": false,
+          "automatic": false,
+          "adaptableGrip": false,
+          "pistolBlow": true
+        }
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.ordemparanormal.armaments.Item.DBGq8yDVeeTM2KNr",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.3.3",
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": 0
+      },
+      "sort": 100000,
+      "folder": null,
+      "_key": "!actors.items!actorSpecExample.itmSpecialist001"
+    },
+    {
+      "_id": "itmSpecialist002",
+      "name": "Proteção Leve",
+      "type": "protection",
+      "img": "systems/ordemparanormal/media/icons/protections/protecao-leve.svg",
+      "system": {
+        "description": "<p>Jaqueta de couro pesada ou um colete de kevlar. Essa proteção é tipicamente usada por seguranças e policiais.</p>",
+        "weight": 1,
+        "category": "1",
+        "using": {
+          "state": true,
+          "class": "fas"
+        },
+        "defense": 5,
+        "penalty": "",
+        "quantity": 1
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.ordemparanormal.protections.Item.rKXFgARbu2Z5luyt",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "ordemparanormal",
+        "systemVersion": "7.3.3",
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": 0
+      },
+      "sort": 200000,
+      "folder": null,
+      "_key": "!actors.items!actorSpecExample.itmSpecialist002"
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "prototypeToken": {
+    "name": "Especialista",
+    "displayName": 30,
+    "actorLink": false,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "texture": {
+      "src": "systems/ordemparanormal/media/icons/agent.svg",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "anchorX": 0.5,
+      "anchorY": 0.5
+    },
+    "width": 1,
+    "height": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "PV"
+    },
+    "bar2": {
+      "attribute": "SAN"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null
+  },
+  "_id": "actorSpecExample",
+  "_key": "!actors!actorSpecExample"
+}

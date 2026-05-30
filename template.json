@@ -50,8 +50,11 @@
 			}
 		},
 		"agent": {
-			"templates": ["base", "NEX"],
+			"templates": ["base"],
 			"class": "",
+			"ritual": {
+				"DT": 0
+			},
 			"origin": "",
 			"trilha": "",
 			"patent": {
@@ -390,6 +393,7 @@
 				},
 				"freeSkill": {
 					"value": 0,
+					"name": "",
 					"attr": ["int", 1],
 					"degree": {
 						"label": "untrained",
@@ -495,9 +499,17 @@
 				"description": "",
 				"fearRiddle": ""
 			},
-			"temporary": {"abilities": "", "senses": "", "defense": {
-					"skillResistances": "",	"damageResistances": ""
-				}, "vulnerabilities": "", "actions": "", "characteristics": ""},
+			"temporary": {
+				"abilities": "",
+				"senses": "",
+				"defense": {
+					"skillResistances": "",
+					"damageResistances": ""
+				},
+				"vulnerabilities": "",
+				"actions": "",
+				"characteristics": ""
+			},
 			"resistances": {
 				"cuttingDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"impactDamage": { "value": 0, "vulnerable": false, "immune": false },
@@ -508,6 +520,7 @@
 				"coldDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"chemicalDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"mentalDamage": { "value": 0, "vulnerable": false, "immune": false },
+				"damageDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"bloodDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"deathDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"knowledgeDamage": { "value": 0, "vulnerable": false, "immune": false },
@@ -524,7 +537,7 @@
 		}
 	},
 	"Item": {
-		"types": ["armament", "generalEquipment", "protection", "ability", "ritual"],
+		"types": ["ammunition", "armament", "generalEquipment", "protection", "ability", "ritual"],
 		"templates": {
 			"base": {
 				"description": "A descrição do seu item aqui.",

@@ -1,58 +1,78 @@
-import { op } from '../helpers/config.mjs';
+import { op } from "../helpers/config.mjs";
+
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
- * Configuração de resistências a danos para atores
+ * Configuração de resistências a danos para atores (V2)
  */
-export class ResistanceConfig extends FormApplication {
-	/**
-	 * @override
-	 */
-	static get defaultOptions() {
-		// CORREÇÃO: Usar foundry.utils.mergeObject
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ['ordemparanormal', 'sheet', 'resistance-config'],
-			template: 'systems/ordemparanormal/templates/apps/resistance-config.hbs',
+export class ResistanceConfig extends HandlebarsApplicationMixin(ApplicationV2) {
+	/** @inheritDoc */
+	static DEFAULT_OPTIONS = {
+		classes: ["ordemparanormal", "sheet", "resistance-config"],
+		tag: "form",
+		position: {
 			width: 420,
-			height: 'auto',
-			title: 'Configurar Resistências',
+			height: "auto",
+		},
+		window: {
+			title: "Configurar Resistências",
 			resizable: false,
-		});
+		},
+		form: {
+			handler: ResistanceConfig.#onSubmitForm,
+			closeOnSubmit: true,
+			submitOnChange: false,
+		},
+	};
+
+	/** @inheritDoc */
+	static PARTS = {
+		form: {
+			template: "systems/ordemparanormal/templates/apps/resistance-config.hbs",
+		},
+	};
+
+	/** @inheritDoc */
+	get document() {
+		return this.options.document;
 	}
 
 	/** @override */
-	getData() {
-		const data = super.getData();
-		
+	async _prepareContext(options) {
+		const context = await super._prepareContext(options);
+
 		// Pega a lista de tipos de dano da configuração do sistema
-		data.damageTypes = op.dropdownDamageType; 
-		
+		context.damageTypes = op.dropdownDamageType;
+
 		// Pega os dados atuais do ator (ou cria um objeto vazio se não existir)
-		const actorResistances = this.object.system.resistances || {};
+		const actorResistances = this.document.system.resistances || {};
 
 		// Prepara o objeto para o template Handlebars
-		data.resistances = {};
+		context.resistances = {};
 
-		for (const [key, label] of Object.entries(data.damageTypes)) {
-			data.resistances[key] = {
+		for (const [key, label] of Object.entries(context.damageTypes)) {
+			context.resistances[key] = {
 				label: label,
 				// Se o ator já tem dados salvos, usa. Se não, usa padrão (0/false)
 				value: actorResistances[key]?.value || 0,
 				vulnerable: actorResistances[key]?.vulnerable || false,
-				immune: actorResistances[key]?.immune || false
+				immune: actorResistances[key]?.immune || false,
 			};
 		}
 
-		return data;
+		return context;
 	}
 
-	/** @override */
-	async _updateObject(event, formData) {
-		// CORREÇÃO: Usar foundry.utils.expandObject
-		const resistances = foundry.utils.expandObject(formData);
-		
-		// Atualiza o ator
-		return this.object.update({
-			'system.resistances': resistances
-		});
+	/**
+	 * Handle form submission
+	 * @this {ResistanceConfig}
+	 * @param {SubmitEvent} event
+	 * @param {HTMLFormElement} form
+	 * @param {FormDataExtended} formData
+	 */
+	static async #onSubmitForm(event, form, formData) {
+		event.preventDefault();
+		const resistances = foundry.utils.expandObject(formData.object);
+		await this.document.update({ "system.resistances": resistances });
 	}
 }
