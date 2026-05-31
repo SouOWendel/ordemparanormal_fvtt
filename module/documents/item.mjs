@@ -363,13 +363,21 @@ export class OrdemItem extends Item {
 			isAgentDefender && defenderHasReaction
 				? getReactionEligibility(defender, this, currentRound, defenderReactionUsed)
 				: null;
-		// Pre-roll reactions (Dodge/Block) only matter when the attack would hit; the
-		// post-roll Counter-attack only matters when it missed. Pending the panel for
-		// a counter-attack-only defender on a hit just blocks damage with no possible
-		// resolution beyond Skip — so we gate on the actual outcome.
+		// Reaction panel gating:
+		//   • Dodge/Block — pre-roll reactions; always relevant when the defender is
+		//     trained and has a reaction available.
+		//   • Counter-attack — post-roll, only triggers on a melee miss. Per the
+		//     rules, the defender has ONE reaction per round and must commit blind
+		//     (no peeking at hit/miss before choosing whether to spend it). So we
+		//     surface the panel whenever counter-attack is eligible at the eligibility
+		//     layer (already accounts for melee + trained + available); the panel's
+		//     two-stage flow in chat-message.mjs handles "Skip → reveal → counter-attack
+		//     if miss" on its own.
+		//   • Ranged attacks against fighting-trained PCs get filtered out by the
+		//     `!melee` guard inside getReactionEligibility, so no panel leaks there.
 		const dodgeOrBlockEligible = Boolean(eligibility?.dodge.eligible || eligibility?.block.eligible);
-		const counterMatters = hitResult?.hit === false && Boolean(eligibility?.counterAttack.eligible);
-		const hasAnyEligibleReaction = dodgeOrBlockEligible || counterMatters;
+		const fightingMatters = Boolean(eligibility?.counterAttack.eligible);
+		const hasAnyEligibleReaction = dodgeOrBlockEligible || fightingMatters;
 		// Capture the attacker's token at attack time so counter-attacks always target the
 		// exact token that swung — for linked actors with multiple tokens on a scene
 		// `getActiveTokens()[0]` would otherwise pick an arbitrary one.
@@ -404,20 +412,21 @@ export class OrdemItem extends Item {
 			};
 			if (hitResult) flags["ordemparanormal.hitResult"] = hitResult;
 			if (reactionPending) flags["ordemparanormal.reactionPending"] = reactionPending;
+			// Stamp the attacker user id so the chat renderer can decide who's a
+			// participant and thus allowed to see the hit/miss outcome. Without
+			// this, the only "attacker" signal is `message.speaker.actor`, which
+			// doesn't map 1:1 to a user (GM controlling NPC, shared actors, etc).
+			flags["ordemparanormal.attackerUserId"] = game.userId;
 
 			const targetName = targetToken?.name ?? null;
-			// When a reaction is pending we must not leak hit/miss to the defender via the
-			// flavor text — they're supposed to choose blind. Show only the target name
-			// in that case. Once the reaction resolves the hit/miss block is revealed
-			// in the chat card, which is the canonical place to read it.
-			let flavorSuffix = "";
-			if (targetName) {
-				if (reactionPending) flavorSuffix = ` → ${targetName}`;
-				else
-					flavorSuffix = ` → ${targetName}: ${
-						hitResult?.hit ? game.i18n.localize("op.hit") : game.i18n.localize("op.miss")
-					}`;
-			}
+			// Hit/miss is intentionally absent from the flavor — it would leak to
+			// every viewer in chat (including third-party agents not in the fight).
+			// The result lives in the perspective-gated `.hit-result` DOM block
+			// (chat-message.mjs#_renderHitResult) which is restricted to
+			// participants (attacker, target owner, GM) via `isAttackParticipant`.
+			// We keep the `→ TargetName` arrow as a neutral hint that this attack
+			// landed on a specific token.
+			const flavorSuffix = targetName ? ` → ${targetName}` : "";
 			const attackIndexSuffix = options._attackIndex ? ` (${options._attackIndex}/${options._attackTotal})` : "";
 
 			// Foundry assina `Roll.toMessage(messageData, { create, rollMode })`. Passar

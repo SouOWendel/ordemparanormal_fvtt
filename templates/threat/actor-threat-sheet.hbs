@@ -270,11 +270,15 @@
 								{{selectOptions @root.optionDegreeThreat selected=skill.degree.label localize=true}}
 							</select>
 							<input
-								type="text"
-								value="{{numberFormat skill.degree.value decimals=0 sign=true}}"
-								readonly
-								title="Total"
-								style="width: 36px; text-align: center; border: none; font-weight: bold; background: rgba(0,0,0,0.05);"
+								type="number"
+								name="system.skills.{{key}}.degree.override"
+								data-dtype="Number"
+								value="{{skill.degree.override}}"
+								placeholder="{{numberFormat skill.degree.value decimals=0 sign=true}}"
+								title="{{localize 'op.skillDegreeOverrideTitle'}}"
+								style="width: 42px; text-align: center; font-weight: bold;"
+								inputmode="numeric"
+								pattern="-?[0-9]*"
 							/>
 						</div>
 					</div>

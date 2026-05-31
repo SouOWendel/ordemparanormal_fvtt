@@ -138,6 +138,45 @@ Hooks.once("quenchReady", (quench) => {
 				});
 			});
 
+			describe("ThreatData — skill.degree.override (homebrew flexibility, review round 2)", () => {
+				it("override = 17 overrides the label-derived value", async () => {
+					await withActor({ name: "[Quench] override-int", type: "threat" }, async (actor) => {
+						await actor.update({
+							"system.skills.fighting.degree.label": "trained",
+							"system.skills.fighting.degree.override": 17,
+						});
+						const fresh = game.actors.get(actor.id);
+						assert.equal(fresh.system.skills.fighting.degree.override, 17);
+						assert.equal(fresh.system.skills.fighting.degree.value, 17, "override wins over derived");
+					});
+				});
+
+				it("override = null restores the derived value", async () => {
+					await withActor({ name: "[Quench] override-clear", type: "threat" }, async (actor) => {
+						await actor.update({
+							"system.skills.aim.degree.label": "veteran",
+							"system.skills.aim.degree.override": 99,
+						});
+						assert.equal(game.actors.get(actor.id).system.skills.aim.degree.value, 99);
+						await actor.update({ "system.skills.aim.degree.override": null });
+						const fresh = game.actors.get(actor.id);
+						assert.equal(fresh.system.skills.aim.degree.override, null);
+						assert.equal(fresh.system.skills.aim.degree.value, 10, "veteran derived (override cleared)");
+					});
+				});
+
+				it("override = 0 is honored (explicit zero is NOT the same as null)", async () => {
+					await withActor({ name: "[Quench] override-zero", type: "threat" }, async (actor) => {
+						await actor.update({
+							"system.skills.resilience.degree.label": "master",
+							"system.skills.resilience.degree.override": 0,
+						});
+						const fresh = game.actors.get(actor.id);
+						assert.equal(fresh.system.skills.resilience.degree.value, 0, "0 is a valid override value");
+					});
+				});
+			});
+
 			describe("ThreatData.migrateData — legacy details.size lift (regression)", () => {
 				it("synthetic legacy data with details.size is lifted to top-level size", () => {
 					// Calls migrateData directly — Actor.create cannot accept non-schema paths

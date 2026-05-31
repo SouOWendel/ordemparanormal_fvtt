@@ -30,15 +30,24 @@ export function damageRecipients(targetActor, users) {
 
 /**
  * Should the combat tracker render the HP block for this combatant to the
- * current viewer? Threats são informação privada do MJ.
+ * current viewer?
+ *
+ *   - Threats: GM-only. Players never see threat HP.
+ *   - Agents: GM sees all; players see only agents they own. This mirrors the
+ *     token-bar policy (Bar Brawl `ownerVisibility=HOVER`, `otherVisibility=NONE`)
+ *     applied at `hooks.mjs:162-174` — the tracker shouldn't be a side-channel
+ *     that leaks PV the canvas already hides.
  *
  * @param {object} actor             Actor com `.type` em {"agent","threat"}
  * @param {boolean} viewerIsGM
+ * @param {boolean} viewerOwnsActor  Resultado de `actor.isOwner` resolvido pelo chamador
  * @returns {boolean}
  */
-export function shouldShowCombatantHP(actor, viewerIsGM) {
+export function shouldShowCombatantHP(actor, viewerIsGM, viewerOwnsActor = false) {
 	if (!actor) return false;
-	if (actor.type === "threat" && !viewerIsGM) return false;
+	if (viewerIsGM) return true;
+	if (actor.type === "threat") return false;
+	if (actor.type === "agent") return Boolean(viewerOwnsActor);
 	return true;
 }
 
@@ -54,4 +63,34 @@ export function shouldShowCombatantHP(actor, viewerIsGM) {
  */
 export function shouldShowDefenseValue({ viewerIsGM, viewerOwnsTarget }) {
 	return Boolean(viewerIsGM || viewerOwnsTarget);
+}
+
+/**
+ * Is the current viewer a "participant" in the attack — i.e. allowed to see
+ * the hit/miss outcome? Third-party agents not involved in the exchange must
+ * NOT see the HIT/MISS card; otherwise the table loses tactical fog (a player
+ * watching another player's swing learns the target's Defense indirectly).
+ *
+ * Participation:
+ *   • GM — always (run the table, sees everything).
+ *   • Attacker — the user who triggered the roll (recorded via
+ *     `flags.ordemparanormal.attackerUserId` at toMessage time).
+ *   • Target owner — owner of the actor under attack (per the
+ *     `hitResult.actorUuid` flag).
+ *
+ * Pure function: takes pre-resolved booleans/strings so it's unit-testable
+ * without Foundry globals. The caller resolves `viewerOwnsTarget` via the
+ * sync UUID helper in chat-message.mjs.
+ *
+ * @param {object} ctx
+ * @param {boolean} ctx.viewerIsGM
+ * @param {string|null} ctx.viewerId          `game.userId` of the current viewer
+ * @param {string|null|undefined} ctx.attackerUserId  id stored in the attack message flag
+ * @param {boolean} ctx.viewerOwnsTarget      Resultado de `actor.isOwner` para o alvo
+ * @returns {boolean}
+ */
+export function isAttackParticipant({ viewerIsGM, viewerId, attackerUserId, viewerOwnsTarget }) {
+	if (viewerIsGM) return true;
+	if (attackerUserId && viewerId && attackerUserId === viewerId) return true;
+	return Boolean(viewerOwnsTarget);
 }

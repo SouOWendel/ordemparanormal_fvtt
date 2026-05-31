@@ -437,11 +437,11 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 
 		const skillData = this.document.system.skills[skillKey] || {};
 
-		// Valores de bônus
-		const degreeValues = { untrained: 0, trained: 5, veteran: 10, expert: 15, master: 20 };
-
-		const currentDegreeLabel = skillData.degree?.label || "untrained";
-		const skillValue = degreeValues[currentDegreeLabel] || 0;
+		// `skill.degree.value` is the canonical resolved bonus — either derived
+		// from `degree.label` (the dropdown) or overridden manually via
+		// `degree.override` (the input). Read it as the single source of truth
+		// so homebrew threats with off-grid values roll with the correct bonus.
+		const skillValue = skillData.degree?.value ?? 0;
 		const attrValue = this.document.system.attributes[attrKey]?.value || 0;
 
 		// 0 Atributo rola 2d20kl1, senão rola Xd20kh1
@@ -848,9 +848,24 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 	 * @override
 	 */
 	async _processSubmitData(event, form, submitData) {
+		// Normalize cleared `degree.override` inputs to null. Foundry's default
+		// form parser turns an empty `<input type="number">` into NaN, which the
+		// nullable NumberField then rejects, leaving the threat in a stuck
+		// "phantom override" state where the dropdown can't take back control.
+		// IMPORTANT: keep everything in flat-key form so the active-effect
+		// override deletion below still matches. Expanding to nested objects
+		// here would silently strand override deletions and let synthetic effect
+		// values be persisted onto the actor on the next save (PR #87 R2 had
+		// this bug — see codex review note).
+		const flat = foundry.utils.flattenObject(submitData);
+		for (const [key, value] of Object.entries(flat)) {
+			if (key.endsWith(".degree.override") && (value === "" || value == null || Number.isNaN(value))) {
+				flat[key] = null;
+			}
+		}
 		const overrides = foundry.utils.flattenObject(this.actor.overrides);
-		for (const k of Object.keys(overrides)) delete submitData[k];
-		await this.document.update(submitData);
+		for (const k of Object.keys(overrides)) delete flat[k];
+		await this.document.update(flat);
 	}
 
 	/* -------------------------------------------- */

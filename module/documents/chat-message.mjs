@@ -1,6 +1,6 @@
 import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
 import { dispatchReaction, pickCounterAttackWeapon } from "../helpers/reactions.mjs";
-import { damageRecipients, shouldShowDefenseValue } from "../helpers/visibility.mjs";
+import { damageRecipients, isAttackParticipant, shouldShowDefenseValue } from "../helpers/visibility.mjs";
 
 /**
  * Wrapper sobre `damageRecipients` que injeta `game.users` atual.
@@ -209,20 +209,39 @@ export default class ChatMessageOP extends ChatMessage {
 		const hitResult = this.getFlag("ordemparanormal", "hitResult");
 		const reactionPending = this.getFlag("ordemparanormal", "reactionPending");
 		const reactionApplied = this.getFlag("ordemparanormal", "reactionApplied");
+		const attackerUserId = this.getFlag("ordemparanormal", "attackerUserId") ?? null;
 
 		// Determine whether the current viewer should see the hit/miss reveal yet.
-		// When a reaction is still pending, the defender's owner is kept blind to the
-		// outcome until they choose. The attacker, the GM, and other observers see it
-		// immediately so the table can keep flowing.
+		// Two independent gates:
+		//   1. Participant gate (privacy) — only attacker, target owner and GM
+		//      ever see the outcome. Third-party agents stay in the dark, which
+		//      preserves tactical fog requested by the reviewer.
+		//   2. Defender-during-pending gate — the target owner specifically is
+		//      kept blind WHILE a reaction is pending so they choose without
+		//      peeking. Once revealed (or the panel resolves) they see it.
+		const viewerOwnsTarget = hitResult?.actorUuid ? this._isOwnerOfUuidSync(hitResult.actorUuid) : false;
+		const isParticipant = isAttackParticipant({
+			viewerIsGM: game.user.isGM,
+			viewerId: game.userId,
+			attackerUserId,
+			viewerOwnsTarget,
+		});
 		const isDefenderViewer =
 			!!reactionPending && this._isOwnerOfUuidSync(reactionPending.defenderUuid) && !game.user.isGM;
-		const shouldRevealHit = !reactionPending || hitResult?.revealed === true || !isDefenderViewer;
+		const shouldRevealHit = isParticipant && (!reactionPending || hitResult?.revealed === true || !isDefenderViewer);
 
 		if (hitResult && shouldRevealHit) {
 			const rollContent = html.querySelector(".dice-roll");
 			if (rollContent) {
 				const resultBlock = document.createElement("div");
-				resultBlock.classList.add("hit-result", hitResult.hit ? "success" : "failure");
+				// Perspective-aware color: from the defender's POV the attacker
+				// hitting is BAD (red), and missing is GOOD (green). Attacker, GM
+				// and other observers keep the standard hit=green / miss=red
+				// reading. GM is treated as neutral narrator (not a defender)
+				// even if they own the target.
+				const isDefenderPOV = viewerOwnsTarget && !game.user.isGM;
+				const goodForViewer = isDefenderPOV ? !hitResult.hit : hitResult.hit;
+				resultBlock.classList.add("hit-result", goodForViewer ? "success" : "failure");
 				if (hitResult.dodged) resultBlock.classList.add("dodged");
 				const label = hitResult.hit
 					? hitResult.isCritical
@@ -233,17 +252,18 @@ export default class ChatMessageOP extends ChatMessage {
 				// devem ver HIT/MISS, mas o MJ e o dono do alvo (que já conhece a
 				// própria Defesa) podem ver o valor exato. Decisão pura em
 				// helpers/visibility.mjs#shouldShowDefenseValue (unit-testada).
-				const isOwnerOfTarget = hitResult.actorUuid ? this._isOwnerOfUuidSync(hitResult.actorUuid) : false;
-				const showDefense = shouldShowDefenseValue({ viewerIsGM: game.user.isGM, viewerOwnsTarget: isOwnerOfTarget });
+				const showDefense = shouldShowDefenseValue({ viewerIsGM: game.user.isGM, viewerOwnsTarget });
 				const defenseHtml = showDefense
 					? ` <span class="vs-defense">${game.i18n.format("op.vsDefense", { defense: hitResult.targetDefense })}</span>`
 					: "";
 				resultBlock.innerHTML = `<strong>${label}</strong>${defenseHtml}`;
 				rollContent.after(resultBlock);
 			}
-		} else if (hitResult && isDefenderViewer && !shouldRevealHit) {
-			// Hide the dice total area's standard "success/failure" highlight too, otherwise
-			// the defender could infer the result from the d20 highlight applied earlier.
+		} else if (hitResult && !shouldRevealHit) {
+			// Hide the dice total area's standard "success/failure" highlight too,
+			// otherwise either the defender during a pending reaction OR a non-
+			// participant (third-party agent) could infer hit/miss from the d20's
+			// green/red glow. Stripping it keeps tactical fog intact.
 			html.querySelectorAll(".dice-total").forEach((el) => el.classList.remove("success", "failure"));
 		}
 

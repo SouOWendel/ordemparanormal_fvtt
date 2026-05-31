@@ -265,6 +265,51 @@ Hooks.once("quenchReady", (quench) => {
 					assert.equal(hit.baseDefense, hit.targetDefense, "baseDefense = targetDefense pré-reação");
 				});
 
+				it("cria reactionPending quando defender só tem LUTA treinada (mesmo em hit)", async () => {
+					// Per rules: PC has 1 reaction/round and must commit blind. If only
+					// fighting is trained, counter-attack is the sole reaction available —
+					// and it triggers on miss. But the PC must still see the panel on a
+					// hit so they can choose whether to "save" the reaction for a later
+					// attack this round. Without this, the panel was gated on miss and
+					// the PC lost the choice entirely on hits.
+					const fightingOnly = await createAgent({ trained: { fighting: true } });
+					try {
+						const snapshot = setTargets([fightingOnly]);
+						try {
+							await sword.rollAttack({});
+						} finally {
+							restoreTargets(snapshot);
+						}
+						const msg = [...game.messages]
+							.reverse()
+							.find((m) => m.getFlag("ordemparanormal", "reactionPending")?.defenderUuid === fightingOnly.uuid);
+						assert.exists(msg, "Painel deve aparecer mesmo se o ataque acerta (defensor com luta treinada)");
+					} finally {
+						await fightingOnly.delete();
+					}
+				});
+
+				it("NÃO cria reactionPending quando defender NÃO tem nenhuma reação treinada", async () => {
+					// Regression guard for the fix above: dropping the hit/miss gate
+					// must NOT make untrained defenders spawn a panel they can never
+					// resolve beyond Skip.
+					const untrained = await createAgent({ trained: {} });
+					try {
+						const snapshot = setTargets([untrained]);
+						try {
+							await sword.rollAttack({});
+						} finally {
+							restoreTargets(snapshot);
+						}
+						const msg = [...game.messages]
+							.reverse()
+							.find((m) => m.getFlag("ordemparanormal", "reactionPending")?.defenderUuid === untrained.uuid);
+						assert.notExists(msg, "Defensor sem reações treinadas: nenhum painel");
+					} finally {
+						await untrained.delete();
+					}
+				});
+
 				it("NÃO cria reactionPending quando alvo é Threat", async () => {
 					const snapshot = setTargets([threatDefender]);
 					try {

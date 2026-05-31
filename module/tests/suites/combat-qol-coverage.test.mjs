@@ -29,6 +29,20 @@ Hooks.once("quenchReady", (quench) => {
 			// the global snapshot is defense in depth against a helper bug).
 			installBatchGuards(context, { prefix: ["[combat-qol]", "[viz"] });
 
+			// Deterministic barrier for the async effect-expiration hook. Foundry's
+			// `Hooks.callAll("combatTurn", ...)` does NOT await async listeners, so
+			// `await combat.nextTurn()` returns before `_expireTemporaryEffects`
+			// commits its `deleteEmbeddedDocuments` call. We chain every expiration
+			// onto a module-level Promise and await its tail here — replacing the
+			// old `setTimeout(800)` heuristic that flaked under CI / full-suite load.
+			let _getPendingExpirations = null;
+			async function awaitExpire() {
+				if (!_getPendingExpirations) {
+					_getPendingExpirations = (await import("/systems/ordemparanormal/module/hooks.mjs")).getPendingExpirations;
+				}
+				await _getPendingExpirations();
+			}
+
 			const _BATCH_STATE = { coreRollMode: null };
 			before(async () => {
 				_BATCH_STATE.coreRollMode = game.settings.get("core", "rollMode");
@@ -490,13 +504,13 @@ Hooks.once("quenchReady", (quench) => {
 					]);
 					assert.isTrue(agentB.effects.has(effect.id), "effect exists before the advance");
 
-					// Avançar até round 2 (2 nextTurns para wrap). Waits maiores: o hook async
-					// `combatTurn` faz delete via Hooks.callAll (não-aguardado), então damos
-					// tempo de respiro entre os advances pra evitar flakiness sob carga.
+					// Avançar até round 2 (2 nextTurns para wrap). `awaitExpire()` aguarda
+					// determinísticamente o delete async do hook combatTurn — substitui
+					// o antigo `setTimeout(800)` que flakeava sob carga.
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 300));
+					await awaitExpire();
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 800));
+					await awaitExpire();
 
 					assert.equal(combat.round, 2, "combat must be in round 2");
 					assert.isFalse(agentB.effects.has(effect.id), "effect rounds=1 must be deleted by the time we reach round 2");
@@ -521,21 +535,19 @@ Hooks.once("quenchReady", (quench) => {
 							duration: { rounds: 2, startRound: combat.round, startTurn: combat.turn },
 						},
 					]);
-					// Avança 2 turnos → round 2. Wait maior é necessário porque o hook
-					// `combatTurn` é async e Hooks.callAll não aguarda, então o deleteEffect
-					// may still be pending when the next nextTurn() fires
-					// (com 50ms isso já provocou flakiness na CI/Quench rodando rápido).
+					// Avança 2 turnos → round 2. `awaitExpire()` aguarda o delete async
+					// do hook combatTurn de forma determinística.
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 300));
+					await awaitExpire();
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 600));
+					await awaitExpire();
 					assert.equal(combat.round, 2);
 					assert.isTrue(agentB.effects.has(effect.id), "still exists at round 2");
 					// Avança mais 2 → round 3
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 300));
+					await awaitExpire();
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 800));
+					await awaitExpire();
 					assert.equal(combat.round, 3);
 					assert.isFalse(agentB.effects.has(effect.id), "expires upon reaching round 3");
 					await combat.delete();
@@ -846,7 +858,7 @@ Hooks.once("quenchReady", (quench) => {
 					await combat.startCombat();
 					// Advance to turn 1 (agentB) before creating the effect
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 300));
+					await awaitExpire();
 					assert.equal(combat.turn, 1, "we are at turn 1 of round 1");
 					const [effect] = await agentB.createEmbeddedDocuments("ActiveEffect", [
 						{
@@ -859,13 +871,13 @@ Hooks.once("quenchReady", (quench) => {
 					assert.isTrue(agentB.effects.has(effect.id), "created");
 					// Advance turn → wrap to round 2 turn 0 (1 turn elapsed)
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 500));
+					await awaitExpire();
 					assert.equal(combat.round, 2);
 					assert.equal(combat.turn, 0);
 					assert.isTrue(agentB.effects.has(effect.id), "1 turn elapsed, still exists (turns=2)");
 					// One more turn → 2 turns complete
 					await combat.nextTurn();
-					await new Promise((r) => setTimeout(r, 700));
+					await awaitExpire();
 					assert.isFalse(
 						agentB.effects.has(effect.id),
 						`2 turns complete → must expire (without the fix, it survives due to the negative wrap)`

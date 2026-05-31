@@ -542,6 +542,7 @@
 	"op.opostoCommandFailed": "Comando /oposto falhou — verifique o console.",
 	"op.damageBlocked": "bloqueou {blocked} de RD",
 	"op.effectExpired": "O efeito <strong>{effect}</strong> de <strong>{actor}</strong> expirou.",
+	"op.skillDegreeOverrideTitle": "Valor manual — deixe vazio para usar o derivado do grau de treinamento",
 
 	"op.reaction.panelTitle": "Reação de defesa",
 	"op.reaction.dodge": "Esquiva",

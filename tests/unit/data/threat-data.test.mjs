@@ -239,4 +239,75 @@ describe("ThreatData._prepareBaseSkills()", () => {
 		td._prepareBaseSkills();
 		expect(td.skills.fighting.attr[0]).toBe("str");
 	});
+
+	// Review round 2 — degree.override (homebrew / non-standard stat blocks)
+	it("degree.override (positive int) wins over label-derived value", () => {
+		const threat = makeThreat({
+			skills: {
+				fighting: { value: 0, attr: ["str"], degree: { label: "trained", value: 0, override: 17 } },
+				aim: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				resilience: { value: 0, attr: ["vit"], degree: { label: "untrained", value: 0, override: null } },
+				reflexes: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				will: { value: 0, attr: ["pre"], degree: { label: "untrained", value: 0, override: null } },
+				initiative: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				perception: { value: 0, attr: ["pre"], degree: { label: "untrained", value: 0, override: null } },
+				freeSkill: {
+					value: 0,
+					name: "X",
+					attr: ["int"],
+					degree: { label: "untrained", value: 0, override: null },
+				},
+			},
+		});
+		const td = new ThreatData(threat);
+		td._prepareBaseSkills();
+		expect(td.skills.fighting.degree.value).toBe(17); // override
+		expect(td.skills.aim.degree.value).toBe(0); // derived (override is null)
+	});
+
+	it("degree.override = 0 (explicit) wins over a 'trained' label that would derive 5", () => {
+		const threat = makeThreat({
+			skills: {
+				fighting: { value: 0, attr: ["str"], degree: { label: "trained", value: 0, override: 0 } },
+				aim: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				resilience: { value: 0, attr: ["vit"], degree: { label: "untrained", value: 0, override: null } },
+				reflexes: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				will: { value: 0, attr: ["pre"], degree: { label: "untrained", value: 0, override: null } },
+				initiative: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				perception: { value: 0, attr: ["pre"], degree: { label: "untrained", value: 0, override: null } },
+				freeSkill: {
+					value: 0,
+					name: "X",
+					attr: ["int"],
+					degree: { label: "untrained", value: 0, override: null },
+				},
+			},
+		});
+		const td = new ThreatData(threat);
+		td._prepareBaseSkills();
+		expect(td.skills.fighting.degree.value).toBe(0); // 0 ≠ null → override wins
+	});
+
+	it("degree.override = NaN falls back to label-derived (defensive)", () => {
+		const threat = makeThreat({
+			skills: {
+				fighting: { value: 0, attr: ["str"], degree: { label: "veteran", value: 0, override: Number.NaN } },
+				aim: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				resilience: { value: 0, attr: ["vit"], degree: { label: "untrained", value: 0, override: null } },
+				reflexes: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				will: { value: 0, attr: ["pre"], degree: { label: "untrained", value: 0, override: null } },
+				initiative: { value: 0, attr: ["dex"], degree: { label: "untrained", value: 0, override: null } },
+				perception: { value: 0, attr: ["pre"], degree: { label: "untrained", value: 0, override: null } },
+				freeSkill: {
+					value: 0,
+					name: "X",
+					attr: ["int"],
+					degree: { label: "untrained", value: 0, override: null },
+				},
+			},
+		});
+		const td = new ThreatData(threat);
+		td._prepareBaseSkills();
+		expect(td.skills.fighting.degree.value).toBe(10); // veteran derived (NaN guard)
+	});
 });

@@ -18,7 +18,18 @@ function skillField() {
 		attr: new fields.ArrayField(new fields.StringField(), { initial: ["dex"] }),
 		degree: new fields.SchemaField({
 			label: new fields.StringField({ initial: "untrained" }),
+			// `value` is *derived* from `label` by default (calculateSkillProficiency),
+			// or from `override` when the GM wants an arbitrary number (homebrew /
+			// non-standard stat blocks). Both fields are stored; the override wins
+			// in prepareDerivedData. Setting override to null restores the derived
+			// behaviour.
 			value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
+			override: new fields.NumberField({
+				required: false,
+				nullable: true,
+				integer: true,
+				initial: null,
+			}),
 		}),
 	});
 }
@@ -32,6 +43,12 @@ function freeSkillField() {
 		degree: new fields.SchemaField({
 			label: new fields.StringField({ initial: "untrained" }),
 			value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
+			override: new fields.NumberField({
+				required: false,
+				nullable: true,
+				integer: true,
+				initial: null,
+			}),
 		}),
 	});
 }
@@ -161,9 +178,18 @@ export class ThreatData extends foundry.abstract.TypeDataModel {
 					);
 				}
 
-				if (!skill.degree) skill.degree = { value: 0, label: "untrained" };
+				if (!skill.degree) skill.degree = { value: 0, label: "untrained", override: null };
 
-				skill.degree.value = calculateSkillProficiency(skill.degree.label);
+				// Override wins when set (any integer, including 0). Otherwise we
+				// derive the proficiency bonus from the training label as before.
+				// Homebrew threats / sourcebook stat blocks with non-standard
+				// numbers use the override; the dropdown stays usable for the
+				// common case.
+				if (skill.degree.override != null && Number.isFinite(skill.degree.override)) {
+					skill.degree.value = skill.degree.override;
+				} else {
+					skill.degree.value = calculateSkillProficiency(skill.degree.label);
+				}
 
 				if (keySkill === "freeSkill" && skill.name) {
 					skill.label = skill.name;

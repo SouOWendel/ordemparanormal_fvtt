@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
 	damageRecipients,
+	isAttackParticipant,
 	shouldShowCombatantHP,
 	shouldShowDefenseValue,
 } from "../../../module/helpers/visibility.mjs";
@@ -74,27 +75,39 @@ describe("damageRecipients", () => {
 
 describe("shouldShowCombatantHP", () => {
 	it("MJ vê HP de threat", () => {
-		expect(shouldShowCombatantHP({ type: "threat" }, true)).toBe(true);
+		expect(shouldShowCombatantHP({ type: "threat" }, true, false)).toBe(true);
 	});
 
-	it("MJ vê HP de agent", () => {
-		expect(shouldShowCombatantHP({ type: "agent" }, true)).toBe(true);
+	it("MJ vê HP de agent (mesmo sem ownership)", () => {
+		expect(shouldShowCombatantHP({ type: "agent" }, true, false)).toBe(true);
 	});
 
 	it("Player NÃO vê HP de threat", () => {
-		expect(shouldShowCombatantHP({ type: "threat" }, false)).toBe(false);
+		expect(shouldShowCombatantHP({ type: "threat" }, false, false)).toBe(false);
 	});
 
-	it("Player vê HP de agent", () => {
-		expect(shouldShowCombatantHP({ type: "agent" }, false)).toBe(true);
+	it("Player dono vê PV do próprio agente", () => {
+		expect(shouldShowCombatantHP({ type: "agent" }, false, true)).toBe(true);
+	});
+
+	it("Player NÃO-dono NÃO vê PV de outro agente (regressão do review)", () => {
+		expect(shouldShowCombatantHP({ type: "agent" }, false, false)).toBe(false);
+	});
+
+	it("Player não-dono NÃO vê threat mesmo que diga que é dono (defensivo)", () => {
+		expect(shouldShowCombatantHP({ type: "threat" }, false, true)).toBe(false);
 	});
 
 	it("Actor null → false (defensivo)", () => {
-		expect(shouldShowCombatantHP(null, true)).toBe(false);
+		expect(shouldShowCombatantHP(null, true, true)).toBe(false);
 	});
 
 	it("Tipo desconhecido → true (não bloqueia por default)", () => {
-		expect(shouldShowCombatantHP({ type: "vehicle" }, false)).toBe(true);
+		expect(shouldShowCombatantHP({ type: "vehicle" }, false, false)).toBe(true);
+	});
+
+	it("viewerOwnsActor omitido → trata como false", () => {
+		expect(shouldShowCombatantHP({ type: "agent" }, false)).toBe(false);
 	});
 });
 
@@ -118,6 +131,86 @@ describe("shouldShowDefenseValue", () => {
 
 	it("Sempre retorna boolean (nunca undefined/null)", () => {
 		const out = shouldShowDefenseValue({ viewerIsGM: false, viewerOwnsTarget: 0 });
+		expect(typeof out).toBe("boolean");
+		expect(out).toBe(false);
+	});
+});
+
+// ---------------------------------------------------------------------------
+// isAttackParticipant (review round 2: hide hit/miss from third parties)
+// ---------------------------------------------------------------------------
+
+describe("isAttackParticipant", () => {
+	it("GM sempre é participante (vê tudo)", () => {
+		expect(
+			isAttackParticipant({
+				viewerIsGM: true,
+				viewerId: "gm1",
+				attackerUserId: "someoneElse",
+				viewerOwnsTarget: false,
+			})
+		).toBe(true);
+	});
+
+	it("Atacante é participante (id bate com attackerUserId)", () => {
+		expect(
+			isAttackParticipant({
+				viewerIsGM: false,
+				viewerId: "pA",
+				attackerUserId: "pA",
+				viewerOwnsTarget: false,
+			})
+		).toBe(true);
+	});
+
+	it("Dono do alvo é participante (sem ser atacante)", () => {
+		expect(
+			isAttackParticipant({
+				viewerIsGM: false,
+				viewerId: "pB",
+				attackerUserId: "pA",
+				viewerOwnsTarget: true,
+			})
+		).toBe(true);
+	});
+
+	it("Terceiro (nem GM, nem atacante, nem dono) NÃO é participante", () => {
+		expect(
+			isAttackParticipant({
+				viewerIsGM: false,
+				viewerId: "pC",
+				attackerUserId: "pA",
+				viewerOwnsTarget: false,
+			})
+		).toBe(false);
+	});
+
+	it("attackerUserId nulo NÃO falsa-positiva (id viewer vazio também ignorado)", () => {
+		expect(
+			isAttackParticipant({
+				viewerIsGM: false,
+				viewerId: "pA",
+				attackerUserId: null,
+				viewerOwnsTarget: false,
+			})
+		).toBe(false);
+		expect(
+			isAttackParticipant({
+				viewerIsGM: false,
+				viewerId: null,
+				attackerUserId: "pA",
+				viewerOwnsTarget: false,
+			})
+		).toBe(false);
+	});
+
+	it("Sempre retorna boolean", () => {
+		const out = isAttackParticipant({
+			viewerIsGM: 0,
+			viewerId: "x",
+			attackerUserId: "y",
+			viewerOwnsTarget: 0,
+		});
 		expect(typeof out).toBe("boolean");
 		expect(out).toBe(false);
 	});
