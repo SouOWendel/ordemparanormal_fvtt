@@ -16,6 +16,9 @@
 	"op.ritual.plural": "Rituais",
 
 	"TYPES.Item.ability": "Habilidade",
+	"TYPES.Item.origin": "Origem",
+	"TYPES.Item.path": "Trilha",
+	"TYPES.Item.class": "Classe",
 	"op.ability.plural": "Habilidades",
 	"op.ability.diverse": "Habilidades Diversas",
 

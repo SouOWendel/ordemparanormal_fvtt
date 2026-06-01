@@ -64,6 +64,9 @@ Hooks.once("init", function () {
 		protection: dataModels.ProtectionData,
 		ability: dataModels.AbilityData,
 		ritual: dataModels.RitualData,
+		origin: dataModels.OriginData,
+		path: dataModels.PathData,
+		class: dataModels.ClassData,
 	});
 	CONFIG.ChatMessage.documentClass = documents.ChatMessageOP;
 	CONFIG.time.roundTime = 6; // Pg. 169 of the Book

@@ -1,0 +1,11 @@
+<section class="tab class {{tab.cssClass}} scrollable" data-group="primary" data-tab="classAttr">
+	<div class="grid">
+		<label class="resource-label">{{localize "op.className"}}</label>
+		<select name="system.classType" data-dtype="String">
+			{{selectOptions optionClassChoices selected=system.classType localize=true blank="—"}}
+		</select>
+
+		<label class="resource-label">{{localize "op.preRequisite"}}</label>
+		<input type="text" name="system.preRequisite" value="{{system.preRequisite}}" />
+	</div>
+</section>

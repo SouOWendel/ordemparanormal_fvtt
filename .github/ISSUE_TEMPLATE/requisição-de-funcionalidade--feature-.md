@@ -4,7 +4,6 @@ about: Uma sugestão de ideia ou funcionalidade para o projeto.
 title: "[Feature] Uma sugestão de funcionalidade bem maneira. \U0001F919"
 labels: Funcionalidade
 assignees: SouOWendel
-
 ---
 
 **Sua requisição de funcionalidade tem relação com algum problema? Por favor, descreva.**

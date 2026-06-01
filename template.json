@@ -537,7 +537,7 @@
 		}
 	},
 	"Item": {
-		"types": ["ammunition", "armament", "generalEquipment", "protection", "ability", "ritual"],
+		"types": ["ammunition", "armament", "generalEquipment", "protection", "ability", "ritual", "origin", "path", "class"],
 		"templates": {
 			"base": {
 				"description": "A descrição do seu item aqui.",
@@ -629,6 +629,27 @@
 			"preRequisite": "",
 			"description": "Your text here.",
 			"activation": ""
+		},
+		"origin": {
+			"templates": ["base"],
+			"id": 0,
+			"originType": "",
+			"preRequisite": "",
+			"description": "Your text here."
+		},
+		"path": {
+			"templates": ["base"],
+			"id": 0,
+			"pathType": "",
+			"preRequisite": "",
+			"description": "Your text here."
+		},
+		"class": {
+			"templates": ["base"],
+			"id": 0,
+			"classType": "",
+			"preRequisite": "",
+			"description": "Your text here."
 		}
 	}
 }

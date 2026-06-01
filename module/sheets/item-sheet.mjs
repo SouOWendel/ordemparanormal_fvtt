@@ -1,4 +1,4 @@
-/* eslint-disable new-cap */
+﻿/* eslint-disable new-cap */
 import { prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 const { api, sheets } = foundry.applications;
@@ -74,6 +74,18 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			template: "systems/ordemparanormal/templates/item/parts/item-ritual-attributes.hbs",
 			scrollable: [".scrollable"],
 		},
+		originAttr: {
+			template: "systems/ordemparanormal/templates/item/parts/item-origin-attributes.hbs",
+			scrollable: [".scrollable"],
+		},
+		pathAttr: {
+			template: "systems/ordemparanormal/templates/item/parts/item-path-attributes.hbs",
+			scrollable: [".scrollable"],
+		},
+		classAttr: {
+			template: "systems/ordemparanormal/templates/item/parts/item-class-attributes.hbs",
+			scrollable: [".scrollable"],
+		},
 		effects: { template: "systems/ordemparanormal/templates/shared/effects.hbs", scrollable: [".scrollable"] },
 	};
 
@@ -100,6 +112,15 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 				break;
 			case "ritual":
 				options.parts.push("description", "ritualAttr", "effects");
+				break;
+			case "origin":
+				options.parts.push("description", "originAttr", "effects");
+				break;
+			case "path":
+				options.parts.push("description", "pathAttr", "effects");
+				break;
+			case "class":
+				options.parts.push("description", "classAttr", "effects");
 				break;
 		}
 	}
@@ -143,6 +164,9 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			attackSkills: CONFIG.op.attackSkills,
 			// Ritual's Dropdowns
 			optionExecution: CONFIG.op.dropdownExecution,
+			optionOrigins: CONFIG.op.dropdownOrigins,
+			optionPaths: CONFIG.op.dropdownPath,
+			optionClassChoices: CONFIG.op.dropdownClass,
 			// Item's Radiobox
 			categories: CONFIG.op.categories,
 			degree: CONFIG.op.ritualDegree,
@@ -181,6 +205,9 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			case "generalAttr":
 			case "protectionAttr":
 			case "ritualAttr":
+			case "originAttr":
+			case "pathAttr":
+			case "classAttr":
 				context.tab = context.tabs[partId];
 				break;
 			case "effects":
@@ -244,6 +271,18 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 					break;
 				case "ritualAttr":
 					tab.id = "ritualAttr";
+					tab.label += "attributes";
+					break;
+				case "originAttr":
+					tab.id = "originAttr";
+					tab.label += "attributes";
+					break;
+				case "pathAttr":
+					tab.id = "pathAttr";
+					tab.label += "attributes";
+					break;
+				case "classAttr":
+					tab.id = "classAttr";
 					tab.label += "attributes";
 					break;
 				case "effects":
