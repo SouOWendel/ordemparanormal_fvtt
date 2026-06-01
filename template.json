@@ -633,23 +633,31 @@
 		"origin": {
 			"templates": ["base"],
 			"id": 0,
-			"originType": "",
-			"preRequisite": "",
-			"description": "Your text here."
+			"description": "Your text here.",
+			"grantedSkills": "",
+			"ability": "Your text here."
 		},
 		"path": {
 			"templates": ["base"],
 			"id": 0,
-			"pathType": "",
 			"preRequisite": "",
-			"description": "Your text here."
+			"description": "Your text here.",
+			"abilities": "Your text here."
 		},
 		"class": {
 			"templates": ["base"],
 			"id": 0,
-			"classType": "",
-			"preRequisite": "",
-			"description": "Your text here."
+			"description": "Your text here.",
+			"hpInitial": 0,
+			"hpPerLevel": 0,
+			"peInitial": 0,
+			"pePerLevel": 0,
+			"sanInitial": 0,
+			"sanPerLevel": 0,
+			"skillCount": 0,
+			"grantedSkills": "",
+			"proficiencies": "",
+			"abilities": "Your text here."
 		}
 	}
 }

@@ -1,11 +1,33 @@
 <section class="tab class {{tab.cssClass}} scrollable" data-group="primary" data-tab="classAttr">
 	<div class="grid">
-		<label class="resource-label">{{localize "op.className"}}</label>
-		<select name="system.classType" data-dtype="String">
-			{{selectOptions optionClassChoices selected=system.classType localize=true blank="—"}}
-		</select>
+		<label class="resource-label">{{localize "op.hpInitial"}}</label>
+		<input type="number" name="system.hpInitial" value="{{system.hpInitial}}" />
 
-		<label class="resource-label">{{localize "op.preRequisite"}}</label>
-		<input type="text" name="system.preRequisite" value="{{system.preRequisite}}" />
+		<label class="resource-label">{{localize "op.hpPerLevel"}}</label>
+		<input type="number" name="system.hpPerLevel" value="{{system.hpPerLevel}}" />
+
+		<label class="resource-label">{{localize "op.peInitial"}}</label>
+		<input type="number" name="system.peInitial" value="{{system.peInitial}}" />
+
+		<label class="resource-label">{{localize "op.pePerLevel"}}</label>
+		<input type="number" name="system.pePerLevel" value="{{system.pePerLevel}}" />
+
+		<label class="resource-label">{{localize "op.sanInitial"}}</label>
+		<input type="number" name="system.sanInitial" value="{{system.sanInitial}}" />
+
+		<label class="resource-label">{{localize "op.sanPerLevel"}}</label>
+		<input type="number" name="system.sanPerLevel" value="{{system.sanPerLevel}}" />
+
+		<label class="resource-label">{{localize "op.skillCount"}}</label>
+		<input type="number" name="system.skillCount" value="{{system.skillCount}}" />
+
+		<label class="resource-label">{{localize "op.grantedSkills"}}</label>
+		<textarea name="system.grantedSkills">{{system.grantedSkills}}</textarea>
+
+		<label class="resource-label">{{localize "op.proficiencies"}}</label>
+		<textarea name="system.proficiencies">{{system.proficiencies}}</textarea>
+
+		<label class="resource-label">{{localize "op.classAbilities"}}</label>
+		<textarea name="system.abilities">{{system.abilities}}</textarea>
 	</div>
 </section>

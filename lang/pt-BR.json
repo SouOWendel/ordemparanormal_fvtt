@@ -153,6 +153,16 @@
 	},
 
 	"op.className": "Classe",
+	"op.hpInitial": "PV Inicial",
+	"op.hpPerLevel": "PV por Nível",
+	"op.peInitial": "PE Inicial",
+	"op.pePerLevel": "PE por Nível",
+	"op.sanInitial": "Sanidade Inicial",
+	"op.sanPerLevel": "Sanidade por Nível",
+	"op.skillCount": "Quantidade de Perícias",
+	"op.grantedSkills": "Perícias Concedidas",
+	"op.proficiencies": "Proficiências",
+	"op.classAbilities": "Habilidades da Classe",
 	"op.classChoices": {
 		"fighter": "Combatente",
 		"specialist": "Especialista",
@@ -161,6 +171,8 @@
 	},
 
 	"op.originName": "Origem",
+	"op.originSkills": "Perícias Concedidas pela Origem",
+	"op.originAbility": "Habilidade de Origem",
 	"op.originsChoices": {
 		"academico": "Acadêmico",
 		"agenteDeSaude": "Agente de Saúde",
@@ -222,6 +234,7 @@
 	},
 
 	"op.trilhasName": "Trilhas",
+	"op.pathAbilities": "Habilidades de Trilha",
 	"op.trilhas": {
 		"agenteSecreto": "Agente Secreto",
 		"aniquilador": "Aniquilador",

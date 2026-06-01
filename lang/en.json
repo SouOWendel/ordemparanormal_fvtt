@@ -153,6 +153,16 @@
 	},
 
 	"op.className": "Class",
+	"op.hpInitial": "Initial HP",
+	"op.hpPerLevel": "HP per Level",
+	"op.peInitial": "Initial EP",
+	"op.pePerLevel": "EP per Level",
+	"op.sanInitial": "Initial Sanity",
+	"op.sanPerLevel": "Sanity per Level",
+	"op.skillCount": "Skill Count",
+	"op.grantedSkills": "Granted Skills",
+	"op.proficiencies": "Proficiencies",
+	"op.classAbilities": "Class Abilities",
 	"op.classChoices": {
 		"fighter": "Combatant",
 		"specialist": "Specialist",
@@ -161,6 +171,8 @@
 	},
 
 	"op.originName": "Origin",
+	"op.originSkills": "Granted Origin Skills",
+	"op.originAbility": "Origin Ability",
 	"op.originsChoices": {
 		"academico": "Scholar",
 		"agenteDeSaude": "Health Agent",
@@ -222,6 +234,7 @@
 	},
 
 	"op.trilhasName": "Paths",
+	"op.pathAbilities": "Path Abilities",
 	"op.trilhas": {
 		"agenteSecreto": "Secret Agent",
 		"aniquilador": "Annihilator",
