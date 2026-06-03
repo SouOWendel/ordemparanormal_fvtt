@@ -45,6 +45,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			onRollSkillCheck: this.#onRollSkillCheck,
 			onRollAttributeTest: this.#onRollAttributeTest,
 			toggleResources: this._onToggleResources,
+			findItem: this.#findItem,
 		},
 		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
 	};
@@ -282,6 +283,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	 * @return {undefined}
 	 */
 	_prepareItems(context) {
+		const details = { origin: null, class: null, path: null };
 		const protection = [];
 		const generalEquipment = [];
 		const armament = [];
@@ -349,6 +351,12 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 				else if (type === "general") abilities.valid[5].push(i);
 				else if (type === "ability" || type === "complication") abilities.valid[6].push(i);
 				else if (!type) abilities.invalid.push(i);
+			} else if (i.type === "origin") {
+				details.origin = i;
+			} else if (i.type === "class") {
+				details.class = i;
+			} else if (i.type === "path") {
+				details.path = i;
 			}
 		}
 
@@ -360,6 +368,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			s.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		}
 
+		context.details = details;
 		context.rituals = rituals;
 		context.abilities = abilities;
 		context.protection = protection.sort((a, b) => (a.sort || 0) - (b.sort || 0));
@@ -813,7 +822,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	 * @returns {Item | ActiveEffect} The embedded Item or ActiveEffect
 	 */
 	_getEmbeddedDocument(target) {
-		const docRow = target.closest("li[data-document-class]");
+		const docRow = target.closest("[data-document-class]");
+		if (!docRow) return console.warn("Element with data-document-class not found in the DOM hierarchy.");
 		if (docRow.dataset.documentClass === "Item") {
 			return this.actor.items.get(docRow.dataset.itemId);
 		} else if (docRow.dataset.documentClass === "ActiveEffect") {
@@ -1029,6 +1039,35 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			};
 			return new foundry.applications.ux.DragDrop.implementation(d);
 		});
+	}
+
+	/**
+	 * Handle finding an available item of a given type.
+	 * @this {CharacterActorSheet}
+	 * @param {Event} event         Triggering click event.
+	 * @param {HTMLElement} target  Button that was clicked.
+	 */
+	static async #findItem(event, target) {
+		const { itemType: type } = target.dataset;
+		console.log(`Finding item of type ${type}`);
+		// if (!this.isEditable) return;
+		// const { classIdentifier, facilityType, itemType: type } = target.dataset;
+		// const filters = { locked: { types: new Set([type]) } };
+		// if (classIdentifier) filters.locked.additional = { class: { [classIdentifier]: 1 } };
+		// if (type === "class") {
+		// 	const existingIdentifiers = new Set(Object.keys(this.actor.classes));
+		// 	filters.initial = { additional: { properties: { sidekick: -1 } } };
+		// 	filters.locked.arbitrary = [{ o: "NOT", v: { k: "system.identifier", o: "in", v: existingIdentifiers } }];
+		// }
+		// if (type === "facility") {
+		// 	const otherType = facilityType === "basic" ? "special" : "basic";
+		// 	filters.locked.additional = {
+		// 		type: { [facilityType]: 1, [otherType]: -1 },
+		// 		level: { max: this.actor.system.details.level },
+		// 	};
+		// }
+		// const result = await CompendiumBrowser.selectOne({ filters }, this._detachOptions());
+		// if (result) this._onDropCreateItems(event, [game.items.fromCompendium(await fromUuid(result), { keepId: true })]);
 	}
 
 	/** ******************

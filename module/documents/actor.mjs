@@ -57,22 +57,6 @@ export class OrdemActor extends Actor {
 	/** @override */
 	prepareBaseData() {
 		super.prepareBaseData();
-		// Data modifications in this step occur before processing embedded
-		// documents or derived data.
-		const actorData = this;
-		const systemData = actorData.system;
-
-		if (actorData.type == "agent") {
-			this._prepareDataStatus(actorData, systemData);
-			this._prepareRituals(actorData);
-			this._prepareBaseSkills(systemData);
-			this._preparePatent(actorData);
-		}
-
-		// Calcular perícias para Ameaças também
-		if (actorData.type == "threat") {
-			this._prepareBaseSkillsThreat(systemData);
-		}
 	}
 
 	/** @override */

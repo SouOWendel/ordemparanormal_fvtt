@@ -47,8 +47,6 @@
 			{{/if}}
 		</div>
 		<div class="header-fields">
-			{{! The grid classes are defined in scss/global/_grid.scss. To use, use both the "grid" and "grid-Ncol" class where
-			"N" can be any number from 1 to 12 and will create that number of columns. }}
 			<div class="resources flexrow">
 				<div class="resource flex-group-center">
 					<label for="system.PV.value" class="resource-label"> {{localize "op.PV"}} </label>
@@ -99,52 +97,69 @@
 					</div>
 				{{/if}}
 			</div>
-			<div class="resources flexrow">
-				<div class="resource flex-group-center">
-					<label for="{{localize 'op.className'}}" class="resource-label">
-						{{localize "op.className"}}
-					</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<select name="system.class" data-dtype="String">
-							{{selectOptions optionClass selected=system.class localize=true blank="—"}}
-						</select>
+			<div class="agent-details resources flexrow">
+				{{! Item: Classe }}
+				{{#if details.class}}
+					<div
+						class="item-pills flexrow"
+						data-item-type="class"
+						data-item-id="{{details.class.id}}"
+						data-uuid="{{details.class.uuid}}"
+						data-action="viewDoc"
+						data-document-class="Item"
+					>
+						<img src="{{details.class.img}}" class="item-image" alt="{{details.class.name}}" />
+						<span class="item-name">{{details.class.name}}</span>
 					</div>
-				</div>
+				{{else}}
+					<div class="item flexrow">
+						<div class="pill-lg empty roboto-upper" data-action="findItem" data-item-type="class">
+							Adicionar Classe
+						</div>
+					</div>
+				{{/if}}
 
-				<div class="resource flex-group-center">
-					<label for="{{localize 'op.originName'}}" class="resource-label">
-						{{localize "op.originName"}}
-					</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<select name="system.origin" data-dtype="String">
-							{{selectOptions optionOrigins selected=system.origin localize=true blank="—"}}
-						</select>
+				{{! Item: Origem }}
+				{{#if details.origin}}
+					<div
+						class="item-pills flexrow"
+						data-item-type="origin"
+						data-item-id="{{details.origin.id}}"
+						data-uuid="{{details.origin.uuid}}"
+						data-action="viewDoc"
+						data-document-class="Item"
+					>
+						<img src="{{details.origin.img}}" class="item-image" alt="{{details.origin.name}}" />
+						<span class="item-name">{{details.origin.name}}</span>
 					</div>
-				</div>
+				{{else}}
+					<div class="item flexrow">
+						<div class="pill-lg empty roboto-upper" data-action="findItem" data-item-type="origin">
+							Adicionar Origem
+						</div>
+					</div>
+				{{/if}}
 
-				<div class="resource flex-group-center">
-					<label for="{{localize 'op.trilhasName'}}" class="resource-label">
-						{{localize "op.trilhasName"}}
-					</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						{{#if system.class}}
-							<select name="system.trilha" data-dtype="String">
-								{{selectOptions
-									(concatObjAndStr optionTrilhas system.class)
-									selected=system.trilha
-									valueAttr="name"
-									labelAttr="label"
-									blank="—"
-									localize=true
-								}}
-							</select>
-						{{else}}
-							<select disabled>
-								<option>Selecione uma classe</option>
-							</select>
-						{{/if}}
+				{{! Item: Trilha }}
+				{{#if details.path}}
+					<div
+						class="item-pills flexrow"
+						data-item-type="path"
+						data-item-id="{{details.path.id}}"
+						data-uuid="{{details.path.uuid}}"
+						data-action="viewDoc"
+						data-document-class="Item"
+					>
+						<img src="{{details.path.img}}" class="item-image" alt="{{details.path.name}}" />
+						<span class="item-name">{{details.path.name}}</span>
 					</div>
-				</div>
+				{{else}}
+					<div class="item flexrow">
+						<div class="pill-lg empty roboto-upper" data-action="findItem" data-item-type="path">
+							Adicionar Trilha
+						</div>
+					</div>
+				{{/if}}
 			</div>
 			<div class="resources flexrow">
 				{{! "flex-group-center" is also defined in the _grid.scss file and it will add a small amount of padding, a
