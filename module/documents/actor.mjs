@@ -95,16 +95,21 @@ export class OrdemActor extends Actor {
 		const classItem = this.itemTypes.class[0];
 		const classStats = classItem ? classItem.system : null;
 
-		const calculoAtivo = classStats ? !classStats.disableCalculations : false;
+		const isCalcActive = classStats ? !classStats.disableCalculations : false;
 
-		this.system.calculosDerivadosAtivos = calculoAtivo;
+		this.system.isDerivatedCalcsActive = isCalcActive;
 
-		if (calculoAtivo) {
+		if (isCalcActive) {
 			const maxStatus = calculateStatusMaxima(vig, pre, progress, withoutSanity, classStats);
-			this.system.PV.max = maxStatus.PV_max;
-			this.system.PE.max = maxStatus.PE_max;
-			this.system.PD.max = maxStatus.PD_max;
-			this.system.SAN.max = maxStatus.SAN_max;
+			const pvBonus = Number(this.system.PV.bonus) || 0;
+			const peBonus = Number(this.system.PE.bonus) || 0;
+			const pdBonus = Number(this.system.PD.bonus) || 0;
+			const sanBonus = Number(this.system.SAN.bonus) || 0;
+
+			this.system.PV.max = maxStatus.PV_max + pvBonus;
+			this.system.PE.max = maxStatus.PE_max + peBonus;
+			this.system.PD.max = maxStatus.PD_max + pdBonus;
+			this.system.SAN.max = maxStatus.SAN_max + sanBonus;
 		}
 	}
 
