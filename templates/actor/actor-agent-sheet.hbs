@@ -53,7 +53,13 @@
 					<div class="resource-content flexrow flex-center flex-between">
 						<input type="text" name="system.PV.value" value="{{system.PV.value}}" data-dtype="Number" />
 						<span> / </span>
-						<input type="text" name="system.PV.max" value="{{system.PV.max}}" data-dtype="Number" />
+						<input
+							type="text"
+							name="system.PV.max"
+							value="{{system.PV.max}}"
+							data-dtype="Number"
+							{{disabled system.calculosDerivadosAtivos}}
+						/>
 					</div>
 				</div>
 
@@ -63,7 +69,13 @@
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.PD.value" value="{{system.PD.value}}" data-dtype="Number" />
 							<span> / </span>
-							<input type="text" name="system.PD.max" value="{{system.PD.max}}" data-dtype="Number" />
+							<input
+								type="text"
+								name="system.PD.max"
+								value="{{system.PD.max}}"
+								data-dtype="Number"
+								{{disabled system.calculosDerivadosAtivos}}
+							/>
 						</div>
 					</div>
 					<div class="resource flex-group-center">
@@ -78,7 +90,13 @@
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.SAN.value" value="{{system.SAN.value}}" data-dtype="Number" />
 							<span> / </span>
-							<input type="text" name="system.SAN.max" value="{{system.SAN.max}}" data-dtype="Number" />
+							<input
+								type="text"
+								name="system.SAN.max"
+								value="{{system.SAN.max}}"
+								data-dtype="Number"
+								{{disabled system.calculosDerivadosAtivos}}
+							/>
 						</div>
 					</div>
 					<div class="resource flex-group-center">
@@ -86,13 +104,25 @@
 						<div class="resource-content flexrow flex-center flex-between">
 							<input type="text" name="system.PE.value" value="{{system.PE.value}}" data-dtype="Number" />
 							<span> / </span>
-							<input type="text" name="system.PE.max" value="{{system.PE.max}}" data-dtype="Number" />
+							<input
+								type="text"
+								name="system.PE.max"
+								value="{{system.PE.max}}"
+								data-dtype="Number"
+								{{disabled system.calculosDerivadosAtivos}}
+							/>
 						</div>
 					</div>
 					<div class="resource flex-group-center">
 						<label for="system.PE.value" class="resource-label">{{localize "op.pePerRound"}} </label>
 						<div class="resource-content flexrow flex-center flex-between">
-							<input type="number" name="system.PE.perRound" value="{{system.PE.perRound}}" data-dtype="Number" disabled />
+							<input
+								type="number"
+								name="system.PE.perRound"
+								value="{{system.PE.perRound}}"
+								data-dtype="Number"
+								{{disabled system.calculosDerivadosAtivos}}
+							/>
 						</div>
 					</div>
 				{{/if}}
@@ -105,11 +135,15 @@
 						data-item-type="class"
 						data-item-id="{{details.class.id}}"
 						data-uuid="{{details.class.uuid}}"
-						data-action="viewDoc"
 						data-document-class="Item"
 					>
-						<img src="{{details.class.img}}" class="item-image" alt="{{details.class.name}}" />
-						<span class="item-name">{{details.class.name}}</span>
+						<div class="item-name flexrow" data-action="viewDoc" style="cursor: pointer; align-items: center; flex: 1;">
+							<img src="{{details.class.img}}" class="item-image" alt="{{details.class.name}}" />
+							<span class="item-name" style="padding-left: 5px;">{{details.class.name}}</span>
+						</div>
+						<div class="item-controls" style="flex: 0 0 auto; display: flex; align-items: center; padding-right: 5px;">
+							<a class="item-control" data-action="deleteDoc" title="Deletar Item"><i class="fas fa-trash"></i></a>
+						</div>
 					</div>
 				{{else}}
 					<div class="item flexrow">
@@ -126,11 +160,15 @@
 						data-item-type="origin"
 						data-item-id="{{details.origin.id}}"
 						data-uuid="{{details.origin.uuid}}"
-						data-action="viewDoc"
 						data-document-class="Item"
 					>
-						<img src="{{details.origin.img}}" class="item-image" alt="{{details.origin.name}}" />
-						<span class="item-name">{{details.origin.name}}</span>
+						<div class="item-name flexrow" data-action="viewDoc" style="cursor: pointer; align-items: center; flex: 1;">
+							<img src="{{details.origin.img}}" class="item-image" alt="{{details.origin.name}}" />
+							<span class="item-name" style="padding-left: 5px;">{{details.origin.name}}</span>
+						</div>
+						<div class="item-controls" style="flex: 0 0 auto; display: flex; align-items: center; padding-right: 5px;">
+							<a class="item-control" data-action="deleteDoc" title="Deletar Item"><i class="fas fa-trash"></i></a>
+						</div>
 					</div>
 				{{else}}
 					<div class="item flexrow">
@@ -147,11 +185,15 @@
 						data-item-type="path"
 						data-item-id="{{details.path.id}}"
 						data-uuid="{{details.path.uuid}}"
-						data-action="viewDoc"
 						data-document-class="Item"
 					>
-						<img src="{{details.path.img}}" class="item-image" alt="{{details.path.name}}" />
-						<span class="item-name">{{details.path.name}}</span>
+						<div class="item-name flexrow" data-action="viewDoc" style="cursor: pointer; align-items: center; flex: 1;">
+							<img src="{{details.path.img}}" class="item-image" alt="{{details.path.name}}" />
+							<span class="item-name" style="padding-left: 5px;">{{details.path.name}}</span>
+						</div>
+						<div class="item-controls" style="flex: 0 0 auto; display: flex; align-items: center; padding-right: 5px;">
+							<a class="item-control" data-action="deleteDoc" title="Deletar Item"><i class="fas fa-trash"></i></a>
+						</div>
 					</div>
 				{{else}}
 					<div class="item flexrow">

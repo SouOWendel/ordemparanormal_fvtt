@@ -648,6 +648,7 @@
 			"templates": ["base"],
 			"id": 0,
 			"description": "Your text here.",
+			"disableCalculations": false,
 			"hpInitial": 0,
 			"hpPerLevel": 0,
 			"peInitial": 0,

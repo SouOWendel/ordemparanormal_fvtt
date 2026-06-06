@@ -31,49 +31,51 @@ export function calculateProgress(isSurvivor, rule, nexValue, nivelValue, stageV
 }
 
 /**
- * @param {string} actorClass   'fighter'|'specialist'|'occultist'|'survivor'
- * @param {number} VIG          vitality attribute value
- * @param {number} PRE          presence attribute value
- * @param {number} progress     result of calculateProgress()
- * @param {boolean} withoutSanity  playing without sanity rule
+ * Calcula o status máximo da ficha baseado nos atributos, nível atual e dados do Item de Classe.
+ * * @param {number} VIG          Valor do atributo de Vitalidade
+ * @param {number} PRE          Valor do atributo de Presença
+ * @param {number} progress     Nível atual da ficha (resultado de calculateProgress / _progress)
+ * @param {boolean} withoutSanity Se o jogo está utilizando a regra de Sanidade ou não
+ * @param {object} classStats   Dados extraídos do Item de Classe (hpInitial, hpPerLevel, etc.)
  * @returns {{ PV_max: number, PE_max: number, PD_max: number, SAN_max: number }}
  */
-export function calculateStatusMaxima(actorClass, VIG, PRE, progress, withoutSanity) {
-	const progressAdjust = progress - 1;
-	const progressIf = progress > 1;
+export function calculateStatusMaxima(VIG, PRE, progress, withoutSanity, classStats) {
+	// O progressAdjust representa os níveis ALÉM do 1º nível.
+	const progressAdjust = Math.max(0, progress - 1);
 
 	let PV_max = 0;
 	let PE_max = 0;
 	let PD_max = 0;
 	let SAN_max = 0;
 
-	switch (actorClass) {
-		case "fighter":
-			PV_max = 20 + VIG + (progressIf && progressAdjust * (4 + VIG));
-			SAN_max = 12 + (progressIf && progressAdjust * 3);
-			if (withoutSanity) PD_max = 6 + PRE + (progressIf && progressAdjust * (3 + PRE));
-			else PE_max = 2 + PRE + (progressIf && progressAdjust * (2 + PRE));
-			break;
-		case "specialist":
-			PV_max = 16 + VIG + (progressIf && progressAdjust * (3 + VIG));
-			SAN_max = 16 + (progressIf && progressAdjust * 4);
-			if (withoutSanity) PD_max = 8 + PRE + (progressIf && progressAdjust * (4 + PRE));
-			else PE_max = 3 + PRE + (progressIf && progressAdjust * (3 + PRE));
-			break;
-		case "occultist":
-			PV_max = 12 + VIG + (progressIf && progressAdjust * (2 + VIG));
-			SAN_max = 20 + (progressIf && progressAdjust * 5);
-			if (withoutSanity) PD_max = 10 + PRE + (progressIf && progressAdjust * (5 + PRE));
-			else PE_max = 4 + PRE + (progressIf && progressAdjust * (4 + PRE));
-			break;
-		case "survivor":
-			PV_max = 8 + VIG + (progressIf && progressAdjust * 2);
-			SAN_max = 8 + (progressIf && progressAdjust * 2);
-			if (withoutSanity) PD_max = 4 + PRE + (progressIf && progressAdjust * 2);
-			else PE_max = 2 + PRE + (progressIf && progressAdjust * 1);
-			break;
-		default:
-			break;
+	// Se o Ator ainda não possuir uma Classe equipada, retorna tudo zerado (ou pode retornar apenas VIG/PRE se preferir)
+	if (!classStats) {
+		return { PV_max, PE_max, PD_max, SAN_max };
+	}
+
+	// Extrai os dados do Item de Classe (forçando conversão para Número para evitar erros)
+	const hpInitial = Number(classStats.hpInitial) || 0;
+	const hpPerLevel = Number(classStats.hpPerLevel) || 0;
+
+	const peInitial = Number(classStats.peInitial) || 0;
+	const pePerLevel = Number(classStats.pePerLevel) || 0;
+
+	const sanInitial = Number(classStats.sanInitial) || 0;
+	const sanPerLevel = Number(classStats.sanPerLevel) || 0;
+
+	// Vida = (HP Inicial + Vitalidade) + (Níveis Seguintes * (HP por Nível + Vitalidade))
+	PV_max = hpInitial + VIG + progressAdjust * (hpPerLevel + VIG);
+
+	// Sanidade = Sanidade Inicial + (Níveis Seguintes * Sanidade por Nível)
+	SAN_max = sanInitial + progressAdjust * sanPerLevel;
+
+	if (withoutSanity) {
+		const pdInitial = Number(classStats.pdInitial) || peInitial;
+		const pdPerLevel = Number(classStats.pdPerLevel) || pePerLevel;
+		PD_max = pdInitial + PRE + progressAdjust * (pdPerLevel + PRE);
+	} else {
+		// Esforço = (PE Inicial + Presença) + (Níveis Seguintes * (PE por Nível + Presença))
+		PE_max = peInitial + PRE + progressAdjust * (pePerLevel + PRE);
 	}
 
 	return { PV_max, PE_max, PD_max, SAN_max };

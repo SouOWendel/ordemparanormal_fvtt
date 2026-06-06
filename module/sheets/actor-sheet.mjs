@@ -925,7 +925,38 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	async _onDropItem(event, data) {
 		if (!this.actor.isOwner) return false;
 
+		const actor = this.actor;
 		const item = await Item.implementation.fromDropData(data);
+		const details = ["class", "origin", "path"];
+
+		if (details.includes(item.type)) {
+			const dataModel = CONFIG.Item.dataModels[item.type];
+			const singleton = dataModel?.metadata?.singleton ?? false;
+			const existingItems = actor.itemTypes[item.type];
+
+			if (singleton && actor.itemTypes[item.type].length) {
+				const existingItem = existingItems[0]; // Pega o item atual da ficha
+
+				// Pausa o código e abre a janela de confirmação do Foundry
+				const confirmar = await Dialog.confirm({
+					title: `Substituir ${item.type.toUpperCase()}?`,
+					content: `
+            <p>Seu personagem já possui <strong>${existingItem.name}</strong>.</p>
+            <p>Deseja substituí-lo por <strong>${item.name}</strong>?</p>
+          `,
+					yes: () => true,
+					no: () => false,
+					defaultYes: false,
+				});
+
+				if (confirmar) {
+					await actor.deleteEmbeddedDocuments("Item", [existingItem.id]);
+					ui.notifications.info(`${existingItem.name} foi removido.`);
+				} else {
+					return false;
+				}
+			}
+		}
 
 		// Handle item sorting within the same Actor
 		if (this.actor.uuid === item.parent?.uuid) {
@@ -934,7 +965,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 
 		// Create the owned item
 		try {
-			return await this._onDropItemCreate(item, event);
+			return await this._onDropItemCreate(item.toObject(), event);
 		} catch (error) {
 			console.error("Erro ao criar item no ator:", error);
 			ui.notifications.error(`Erro ao adicionar item: ${error.message}`);

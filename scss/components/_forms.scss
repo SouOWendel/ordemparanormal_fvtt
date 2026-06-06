@@ -417,7 +417,11 @@ form.ordemparanormal.actor {
 		&.abilities,
 		&.rituals,
 		&.biography,
-		&.effects {
+		&.effects,
+		&.enigma,
+		&.class,
+		&.origin,
+		&.path {
 			overflow-y: auto;
 		}
 
@@ -939,4 +943,34 @@ form.ordemparanormal.actor {
 			transform: translate(0, 0);
 		}
 	}
+}
+
+.agent-details .item-pills .item-controls {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.agent-details .item-pills:hover .item-controls {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* 1. Transforma o contêiner da descrição em uma coluna flexível */
+.application.item .content-item {
+	display: flex;
+	flex-direction: column;
+}
+
+/* 2. Faz o editor (prose-mirror) expandir para preencher o espaço restante */
+.application.item .content-item prose-mirror {
+	flex: 1;
+	overflow-y: hidden;
+	margin-top: 5px; /* Um respiro entre o título e o editor */
+}
+
+/* 3. Garante que a área de digitação interna do editor acompanhe o tamanho e tenha rolagem */
+.application.item .content-item prose-mirror .prosemirror {
+	flex: 1;
+	overflow-y: auto;
 }

@@ -1,33 +1,65 @@
 <section class="tab class {{tab.cssClass}} scrollable" data-group="primary" data-tab="classAttr">
-	<div class="grid">
-		<label class="resource-label">{{localize "op.hpInitial"}}</label>
-		<input type="number" name="system.hpInitial" value="{{system.hpInitial}}" />
 
-		<label class="resource-label">{{localize "op.hpPerLevel"}}</label>
-		<input type="number" name="system.hpPerLevel" value="{{system.hpPerLevel}}" />
+	<div class="content-item" style="display: block; padding: 10px 5px 10px 0; height: 100%; overflow-y: auto;">
 
-		<label class="resource-label">{{localize "op.peInitial"}}</label>
-		<input type="number" name="system.peInitial" value="{{system.peInitial}}" />
+		<div
+			class="flexrow"
+			style="align-items: center; margin-bottom: 10px; padding: 5px; background: rgba(0,0,0,0.05); border-radius: 4px;"
+		>
+			<input
+				type="checkbox"
+				name="system.disableCalculations"
+				{{checked system.disableCalculations}}
+				style="margin-right: 10px;"
+			/>
+			<label class="resource-label">Desativar cálculos derivados (Permite preenchimento manual na ficha)</label>
+		</div>
 
-		<label class="resource-label">{{localize "op.pePerLevel"}}</label>
-		<input type="number" name="system.pePerLevel" value="{{system.pePerLevel}}" />
+		<div class="grid grid-2col" style="align-items: center; row-gap: 5px; margin-bottom: 15px;">
+			<label class="resource-label align-left">{{localize "op.hpInitial"}}</label>
+			<input type="number" name="system.hpInitial" value="{{system.hpInitial}}" data-dtype="Number" />
 
-		<label class="resource-label">{{localize "op.sanInitial"}}</label>
-		<input type="number" name="system.sanInitial" value="{{system.sanInitial}}" />
+			<label class="resource-label align-left">{{localize "op.hpPerLevel"}}</label>
+			<input type="number" name="system.hpPerLevel" value="{{system.hpPerLevel}}" data-dtype="Number" />
 
-		<label class="resource-label">{{localize "op.sanPerLevel"}}</label>
-		<input type="number" name="system.sanPerLevel" value="{{system.sanPerLevel}}" />
+			<label class="resource-label align-left">{{localize "op.peInitial"}}</label>
+			<input type="number" name="system.peInitial" value="{{system.peInitial}}" data-dtype="Number" />
 
-		<label class="resource-label">{{localize "op.skillCount"}}</label>
-		<input type="number" name="system.skillCount" value="{{system.skillCount}}" />
+			<label class="resource-label align-left">{{localize "op.pePerLevel"}}</label>
+			<input type="number" name="system.pePerLevel" value="{{system.pePerLevel}}" data-dtype="Number" />
 
-		<label class="resource-label">{{localize "op.grantedSkills"}}</label>
-		<textarea name="system.grantedSkills">{{system.grantedSkills}}</textarea>
+			<label class="resource-label align-left">{{localize "op.sanInitial"}}</label>
+			<input type="number" name="system.sanInitial" value="{{system.sanInitial}}" data-dtype="Number" />
 
-		<label class="resource-label">{{localize "op.proficiencies"}}</label>
-		<textarea name="system.proficiencies">{{system.proficiencies}}</textarea>
+			<label class="resource-label align-left">{{localize "op.sanPerLevel"}}</label>
+			<input type="number" name="system.sanPerLevel" value="{{system.sanPerLevel}}" data-dtype="Number" />
 
-		<label class="resource-label">{{localize "op.classAbilities"}}</label>
-		<textarea name="system.abilities">{{system.abilities}}</textarea>
+			<label class="resource-label align-left">{{localize "op.skillCount"}}</label>
+			<input type="number" name="system.skillCount" value="{{system.skillCount}}" data-dtype="Number" />
+		</div>
+
+		<hr style="margin: 15px 0; border-color: rgba(0,0,0,0.1);" />
+
+		<div class="flexrow" style="align-items: flex-start; gap: 10px; margin-bottom: 10px;">
+			<label class="resource-label align-left" style="flex: 0 0 150px; padding-top: 5px;">
+				{{localize "op.grantedSkills"}}
+			</label>
+			<textarea name="system.grantedSkills" rows="3" style="resize: none; flex: 1;">{{system.grantedSkills}}</textarea>
+		</div>
+
+		<div class="flexrow" style="align-items: flex-start; gap: 10px; margin-bottom: 10px;">
+			<label class="resource-label align-left" style="flex: 0 0 150px; padding-top: 5px;">
+				{{localize "op.proficiencies"}}
+			</label>
+			<textarea name="system.proficiencies" rows="3" style="resize: none; flex: 1;">{{system.proficiencies}}</textarea>
+		</div>
+
+		<div class="flexrow" style="align-items: flex-start; gap: 10px; margin-bottom: 10px;">
+			<label class="resource-label align-left" style="flex: 0 0 150px; padding-top: 5px;">
+				{{localize "op.classAbilities"}}
+			</label>
+			<textarea name="system.abilities" rows="4" style="resize: none; flex: 1;">{{system.abilities}}</textarea>
+		</div>
+
 	</div>
 </section>
