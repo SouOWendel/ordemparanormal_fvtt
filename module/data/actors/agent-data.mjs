@@ -207,6 +207,7 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 		if (perRound.PE_perRound !== undefined) this.PE.perRound = perRound.PE_perRound;
 
 		// Ritual DT
+		const PRE = this.attributes.pre.value;
 		this.ritual.DT = calculateRitualDT(isSurvivor, this.NEX.value, PRE);
 	}
 
