@@ -294,6 +294,121 @@ export class OrdemItem extends Item {
 						})
 					);
 				}
+				// Replace `results[0].hitResult` / `.criticalStatus` with the
+				// AGGREGATED state the inner aggregator wrote to the item card.
+				// `results[0]` alone reflects only attack #1; if any later attack
+				// rolled a critical (or any later attack landed a hit) the
+				// `_onChatCardAction "damage"` handler would otherwise miss it
+				// and skip the damage multiplier. The aggregator already encodes
+				// `anyCritical` correctly in `attackResults`; we just need to
+				// surface it back to the volley caller. Three correctness gates:
+				//   1. The card flag MUST belong to THIS volley (`volleyId` match).
+				//      Otherwise a no-target re-roll would reuse the previous
+				//      volley's hitResult — the damage button would target the
+				//      prior actor.
+				//   2. When the aggregate is NOT critical, force the returned
+				//      `criticalStatus.isCritical=false` too. Attack #1 might be
+				//      a stand-alone critical that later attacks didn't share,
+				//      and if we leave the per-attack-#1 flag truthy the damage
+				//      path would multiply dice for a non-critical volley.
+				//   3. For multi-target volleys: the aggregate top-level
+				//      `actorUuid` / `attackMessageId` are copied from the LAST
+				//      inner hitResult (spread `...hitResult` in the aggregator).
+				//      If the last attack missed, those fields point at the
+				//      MISSED target — damage would apply to the wrong actor.
+				//      Pick the FIRST entry in `attackResults` whose `hit===true`
+				//      to override `actorUuid` / `attackMessageId`. If no hits,
+				//      leave them — `_onChatCardAction "damage"` already gates
+				//      on `hitResult.hit`.
+				// Guarded against a missing `game.messages` collection (Vitest
+				// mocks may not provide one).
+				try {
+					const itemId = this.id;
+					const messages = game.messages ? [...game.messages] : [];
+					const cardMsg = messages
+						.reverse()
+						.find((m) => m.content?.includes(`data-item-id="${itemId}"`) && m.content?.includes("chat-card item-card"));
+					const aggregated = cardMsg?.getFlag("ordemparanormal", "hitResult") ?? null;
+					const sameVolley = aggregated?.volleyId && aggregated.volleyId === volleyId;
+					if (sameVolley && results[0]) {
+						// Pick a representative HIT entry to drive damage targeting.
+						// When the aggregate is critical, prefer a CRIT hit entry
+						// so the damage is applied to the actor that was actually
+						// critically hit (not to an earlier normal-hit target).
+						const entries = aggregated.attackResults ?? [];
+						const firstCritHit = aggregated.isCritical
+							? entries.find((a) => a?.hit === true && a?.isCritical === true && a?.revealed !== false)
+							: null;
+						const firstHitEntry = firstCritHit ?? entries.find((a) => a?.hit === true && a?.revealed !== false);
+						// `safeAggregate.isCritical` must reflect the HIT-AND-CRIT
+						// truth, not the aggregator's `anyCritical` (which also
+						// counts critical misses). Without this, downstream callers
+						// that read `hitResult.isCritical` directly (e.g. macros,
+						// `rollDamage(..., hitResult)` without `options.critical`)
+						// would silently apply critical damage on a normal hit.
+						const safeAggregate = firstHitEntry
+							? {
+									...aggregated,
+									actorUuid: firstHitEntry.actorUuid ?? aggregated.actorUuid,
+									attackMessageId: firstHitEntry.attackMessageId ?? aggregated.attackMessageId,
+									targetDefense: firstHitEntry.targetDefense ?? aggregated.targetDefense,
+									isCritical: Boolean(firstCritHit),
+							  }
+							: { ...aggregated, isCritical: false };
+						results[0].hitResult = safeAggregate;
+						// Persist the sanitized aggregate back to the card flag
+						// too. The aggregator wrote the raw `anyCritical` truth;
+						// if a chat reload drops the in-memory `item.hitResult`,
+						// `_onChatCardAction("damage")` would fall back to the
+						// persisted flag and re-apply the original miscount
+						// (e.g. promote a normal hit to critical because another
+						// attack in the volley was a critical miss). Best-effort
+						// — the card may not exist when called from non-Foundry
+						// contexts; failure here doesn't affect the returned
+						// `results[0]` correctness.
+						try {
+							await cardMsg.setFlag("ordemparanormal", "hitResult", safeAggregate);
+						} catch (_err) {
+							/* card may have been deleted mid-volley — best-effort */
+						}
+						// Only promote the volley to critical when there is a
+						// hit entry that was ALSO critical. The aggregator's
+						// `anyCritical` flag includes critical MISSES (rolled on
+						// the crit margin but the defense was too high to land),
+						// which must not multiply damage applied to a separate
+						// normal hit in the same volley.
+						if (firstCritHit) {
+							const multiplier = this.constructor._parseCriticalMultiplier(this.system.critical);
+							results[0].criticalStatus = {
+								...(results[0].criticalStatus ?? {}),
+								isCritical: true,
+								multiplier,
+							};
+						} else {
+							// Clear stale critical from results[0] when the volley
+							// has no critical hit — prevents the chat damage path
+							// from reusing attack #1's truthy criticalStatus or
+							// promoting a critical miss.
+							results[0].criticalStatus = {
+								...(results[0].criticalStatus ?? {}),
+								isCritical: false,
+							};
+						}
+					} else if (aggregated && cardMsg) {
+						// Stale flag from a previous volley — clear it. Without this,
+						// a no-target re-roll leaves the card pointing at the
+						// previous actor; clicking Damage falls back to that flag
+						// via `_onChatCardAction "damage"` and routes damage to
+						// the prior target.
+						try {
+							await cardMsg.unsetFlag("ordemparanormal", "hitResult");
+						} catch (_err) {
+							/* best-effort cleanup */
+						}
+					}
+				} catch (_e) {
+					/* tolerate a non-iterable messages collection in non-Foundry contexts */
+				}
 				return results[0];
 			}
 		}

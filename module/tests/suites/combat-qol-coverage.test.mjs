@@ -885,6 +885,277 @@ Hooks.once("quenchReady", (quench) => {
 					await combat.delete();
 				});
 			});
+
+			// ==================================================================
+			// Post-review (round 3): multi-attack volley aggregates isCritical
+			// and the damage button multiplies dice when ANY attack was a crit.
+			// Before the fix, rollAttack() returned only results[0] (attack #1),
+			// so a critical on attack #2 was lost on the way to rollDamage and
+			// the dice were never multiplied.
+			// ==================================================================
+			describe("Post-review — multi-attack critical aggregation multiplies damage dice", () => {
+				let attacker;
+				let target;
+				let weaponAlwaysCrit;
+				let weaponNeverCrit;
+
+				before(async () => {
+					attacker = await createThreat({ attributes: { hp: { value: 30, max: 30 }, str: { value: 4 } } });
+					target = await createAgent({ defense: { value: 1 } }); // always hit
+					weaponAlwaysCrit = await giveMeleeItem(attacker, "[combat-qol] Crit Sword", {
+						critical: "1", // margin=1 → any d20 is a critical
+						numberOfAttacks: 2,
+						formulas: {
+							attack: { attr: "str", skill: "fighting", bonus: 0 },
+							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
+						},
+					});
+					weaponNeverCrit = await giveMeleeItem(attacker, "[combat-qol] NoCrit Sword", {
+						critical: "99", // unreachable margin → never a critical
+						numberOfAttacks: 2,
+						formulas: {
+							attack: { attr: "str", skill: "fighting", bonus: 0 },
+							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
+						},
+					});
+				});
+
+				beforeEach(async () => {
+					await purgeMessages(
+						(m) =>
+							m.getFlag("ordemparanormal", "messageRoll")?.itemId === weaponAlwaysCrit.id ||
+							m.getFlag("ordemparanormal", "messageRoll")?.itemId === weaponNeverCrit.id ||
+							m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) ||
+							m.content?.includes(`data-item-id="${weaponNeverCrit.id}"`)
+					);
+				});
+
+				after(async () => {
+					await purgeMessages(
+						(m) =>
+							m.getFlag("ordemparanormal", "messageRoll")?.itemId === weaponAlwaysCrit.id ||
+							m.getFlag("ordemparanormal", "messageRoll")?.itemId === weaponNeverCrit.id ||
+							m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) ||
+							m.content?.includes(`data-item-id="${weaponNeverCrit.id}"`)
+					);
+					await weaponAlwaysCrit?.delete();
+					await weaponNeverCrit?.delete();
+					await target?.delete();
+					await attacker?.delete();
+				});
+
+				it("volley com crit em qualquer ataque marca isCritical=true no card flag agregado", async () => {
+					await weaponAlwaysCrit.roll(); // creates the item card
+					const snap = setTargets([target]);
+					try {
+						await weaponAlwaysCrit.rollAttack({});
+					} finally {
+						restoreTargets(snap);
+					}
+					const cardMsg = [...game.messages]
+						.reverse()
+						.find(
+							(m) => m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) && m.content?.includes("chat-card item-card")
+						);
+					assert.exists(cardMsg, "item card deve existir");
+					const hr = cardMsg.getFlag("ordemparanormal", "hitResult");
+					assert.exists(hr, "hitResult agregado deve existir");
+					assert.equal(hr.attackResults?.length, 2, "2 ataques na volley");
+					assert.isTrue(hr.isCritical, "isCritical agregado deve ser true (todos os ataques rolaram crit)");
+				});
+
+				it("rollAttack retorna results[0] com hitResult.isCritical=true (refletindo o agregado, não só attack #1)", async () => {
+					await weaponAlwaysCrit.roll();
+					const snap = setTargets([target]);
+					let result;
+					try {
+						result = await weaponAlwaysCrit.rollAttack({});
+					} finally {
+						restoreTargets(snap);
+					}
+					assert.exists(result?.hitResult, "result.hitResult deve existir");
+					assert.isTrue(result.hitResult.isCritical, "result.hitResult.isCritical deve refletir o agregado (true)");
+					assert.isTrue(result.criticalStatus?.isCritical, "result.criticalStatus.isCritical deve refletir o agregado");
+					assert.equal(result.criticalStatus?.multiplier, 2, "multiplier deve vir da formula (x2 default)");
+				});
+
+				it("rollDamage com hitResult agregado isCritical=true multiplica os dados (1d6 → 2d6)", async () => {
+					await weaponAlwaysCrit.roll();
+					const snap = setTargets([target]);
+					try {
+						await weaponAlwaysCrit.rollAttack({});
+					} finally {
+						restoreTargets(snap);
+					}
+					const cardMsg = [...game.messages]
+						.reverse()
+						.find(
+							(m) => m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) && m.content?.includes("chat-card item-card")
+						);
+					const hr = cardMsg.getFlag("ordemparanormal", "hitResult");
+					const damageRoll = await weaponAlwaysCrit.rollDamage({
+						event: { altKey: false },
+						hitResult: hr,
+						lastId: true,
+					});
+					assert.include(
+						damageRoll.formula,
+						"2d6",
+						`formula deve conter 2d6 (1d6 multiplicado por x2), got: ${damageRoll.formula}`
+					);
+				});
+
+				it("volley SEM critical: damage formula NÃO é multiplicada (regression guard)", async () => {
+					await weaponNeverCrit.roll();
+					const snap = setTargets([target]);
+					try {
+						await weaponNeverCrit.rollAttack({});
+					} finally {
+						restoreTargets(snap);
+					}
+					const cardMsg = [...game.messages]
+						.reverse()
+						.find(
+							(m) => m.content?.includes(`data-item-id="${weaponNeverCrit.id}"`) && m.content?.includes("chat-card item-card")
+						);
+					const hr = cardMsg.getFlag("ordemparanormal", "hitResult");
+					assert.isFalse(hr.isCritical, "isCritical agregado deve ser false (nenhum ataque crit)");
+					const damageRoll = await weaponNeverCrit.rollDamage({
+						event: { altKey: false },
+						hitResult: hr,
+						lastId: true,
+					});
+					assert.notInclude(
+						damageRoll.formula,
+						"2d6",
+						`formula NÃO deve ter 2d6 quando não há critical, got: ${damageRoll.formula}`
+					);
+					assert.include(damageRoll.formula, "1d6", `formula deve ter 1d6 original, got: ${damageRoll.formula}`);
+				});
+
+				it("single-attack com critical continua multiplicando os dados (regression para a path single)", async () => {
+					const singleAttackCrit = await giveMeleeItem(attacker, "[combat-qol] Single Crit Sword", {
+						critical: "1",
+						numberOfAttacks: 1,
+						formulas: {
+							attack: { attr: "str", skill: "fighting", bonus: 0 },
+							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
+						},
+					});
+					try {
+						await singleAttackCrit.roll();
+						const snap = setTargets([target]);
+						let result;
+						try {
+							result = await singleAttackCrit.rollAttack({});
+						} finally {
+							restoreTargets(snap);
+						}
+						assert.isTrue(result.hitResult?.isCritical, "single-attack: hitResult.isCritical deve ser true");
+						const damageRoll = await singleAttackCrit.rollDamage({
+							event: { altKey: false },
+							hitResult: result.hitResult,
+							lastId: true,
+						});
+						assert.include(damageRoll.formula, "2d6", `single-attack: formula deve conter 2d6, got: ${damageRoll.formula}`);
+					} finally {
+						await purgeMessages(
+							(m) =>
+								m.getFlag("ordemparanormal", "messageRoll")?.itemId === singleAttackCrit.id ||
+								m.content?.includes(`data-item-id="${singleAttackCrit.id}"`)
+						);
+						await singleAttackCrit.delete();
+					}
+				});
+
+				it("nova volley sem alvo NÃO reusa o hitResult agregado da volley anterior (volleyId guard)", async () => {
+					// Volley 1: com alvo → grava aggregated flag no card com volleyId=A
+					await weaponAlwaysCrit.roll();
+					const snap = setTargets([target]);
+					try {
+						await weaponAlwaysCrit.rollAttack({});
+					} finally {
+						restoreTargets(snap);
+					}
+					const cardMsg = [...game.messages]
+						.reverse()
+						.find(
+							(m) => m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) && m.content?.includes("chat-card item-card")
+						);
+					const stale = cardMsg.getFlag("ordemparanormal", "hitResult");
+					assert.exists(stale?.volleyId, "primeira volley deve ter gravado volleyId no card flag");
+
+					// Volley 2: SEM alvo → inner attacks têm hitResult=null. Sem o guard,
+					// `results[0].hitResult` herdava o stale (com actorUuid da volley 1)
+					// e o damage button apontava pro alvo errado. Além disso, o
+					// card flag stale tem que ser LIMPO pra que o fallback
+					// persistedHit em _onChatCardAction("damage") não use o
+					// actorUuid da volley anterior.
+					game.user.targets.clear();
+					const result2 = await weaponAlwaysCrit.rollAttack({});
+					const inheritedSameVolley = result2?.hitResult?.volleyId && result2.hitResult.volleyId === stale.volleyId;
+					assert.isFalse(
+						Boolean(inheritedSameVolley),
+						`volley 2 não deve herdar volleyId=${stale.volleyId} da volley 1 (got: ${result2?.hitResult?.volleyId})`
+					);
+					// Card flag também deve estar limpo (não pode persistir o stale
+					// hitResult — fallback no damage path apontaria pro alvo errado).
+					const refreshed = cardMsg.getFlag("ordemparanormal", "hitResult");
+					assert.notExists(
+						refreshed,
+						`card flag stale deve ser limpo após no-target reroll (got: ${JSON.stringify(refreshed)})`
+					);
+				});
+
+				it("volley multi-target hit+miss: returned hitResult.actorUuid aponta para o ALVO ACERTADO, não o errado", async () => {
+					// Cenário: weapon multi-attack, 2 alvos. Round-robin: attack #1 → A (hit),
+					// attack #2 → B (miss). Sem o fix P1, o aggregate top-level
+					// `actorUuid` vem do ÚLTIMO ataque (B/miss) — damage button
+					// apontava pra B. Com o fix, escolhemos a primeira entry hit.
+					const targetHit = await createAgent({ defense: { value: 1 } });
+					const targetMiss = await createAgent({ defense: { value: 99 } });
+					const weapon = await giveMeleeItem(attacker, "[combat-qol] HitMiss Sword", {
+						critical: "99", // não polui isCritical
+						numberOfAttacks: 2,
+						formulas: {
+							attack: { attr: "str", skill: "fighting", bonus: 0 },
+							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
+						},
+					});
+					try {
+						await weapon.roll();
+						const snap = setTargets([targetHit, targetMiss]); // attack#1→hit, attack#2→miss
+						let result;
+						try {
+							result = await weapon.rollAttack({});
+						} finally {
+							restoreTargets(snap);
+						}
+						assert.exists(result?.hitResult, "result.hitResult deve existir");
+						// O hitResult retornado deve apontar pro alvo que foi ACERTADO,
+						// não pro último ataque (que errou).
+						assert.equal(
+							result.hitResult.actorUuid,
+							targetHit.uuid,
+							`actorUuid deve ser do alvo acertado (${targetHit.uuid}), got: ${result.hitResult.actorUuid}`
+						);
+						assert.notEqual(
+							result.hitResult.actorUuid,
+							targetMiss.uuid,
+							`actorUuid NÃO deve ser do alvo errado (${targetMiss.uuid})`
+						);
+					} finally {
+						await purgeMessages(
+							(m) =>
+								m.getFlag("ordemparanormal", "messageRoll")?.itemId === weapon.id ||
+								m.content?.includes(`data-item-id="${weapon.id}"`)
+						);
+						await weapon.delete();
+						await targetHit.delete();
+						await targetMiss.delete();
+					}
+				});
+			});
 		},
 		{ displayName: "OP | Combat QoL: Cobertura QoL combat" }
 	);
