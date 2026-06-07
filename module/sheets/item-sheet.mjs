@@ -305,9 +305,22 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 */
 	_onRender(context, options) {
 		this.#dragDrop.forEach((d) => d.bind(this.element));
-		// You may want to add other special handling here
-		// Foundry comes with a large number of utility classes, e.g. SearchFilter
-		// That you may want to implement yourself.
+
+		const attributesContainer = this.element.querySelector(".class-attributes-section");
+		const disableCheckbox = this.element.querySelector('input[name="system.disableCalculations"]');
+
+		if (disableCheckbox && attributesContainer) {
+			const toggleCombatInputs = () => {
+				const inputs = attributesContainer.querySelectorAll("input");
+
+				inputs.forEach((input) => {
+					input.disabled = disableCheckbox.checked;
+				});
+			};
+
+			disableCheckbox.addEventListener("change", toggleCombatInputs);
+			toggleCombatInputs();
+		}
 	}
 
 	/** ************

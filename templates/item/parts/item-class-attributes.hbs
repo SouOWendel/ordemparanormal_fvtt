@@ -1,64 +1,51 @@
 <section class="tab class {{tab.cssClass}} scrollable" data-group="primary" data-tab="classAttr">
-
-	<div class="content-item" style="display: block; padding: 10px 5px 10px 0; height: 100%; overflow-y: auto;">
+	<div class="content-item" style="padding: 10px;">
 
 		<div
-			class="flexrow"
-			style="align-items: center; margin-bottom: 10px; padding: 5px; background: rgba(0,0,0,0.05); border-radius: 4px;"
+			class="form-group-row"
+			style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; margin-bottom: 15px;"
 		>
-			<input
-				type="checkbox"
-				name="system.disableCalculations"
-				{{checked system.disableCalculations}}
-				style="margin-right: 10px;"
-			/>
-			<label class="resource-label">Desativar cálculos derivados (Permite preenchimento manual na ficha)</label>
+			<input type="checkbox" name="system.disableCalculations" {{checked system.disableCalculations}} />
+			<div>
+				<label class="resource-label">Desativar cálculos derivados</label>
+				<p>Desativa os cálculos automáticos de PV, PE ou PD, e SAN. Com isso, você terá que gerenciar manualmente esses
+					valores na ficha de agente.</p>
+			</div>
 		</div>
 
-		<div class="grid grid-2col" style="align-items: center; row-gap: 5px; margin-bottom: 15px;">
-			<label class="resource-label align-left">{{localize "op.hpInitial"}}</label>
-			<input type="number" name="system.hpInitial" value="{{system.hpInitial}}" data-dtype="Number" />
+		<div class="class-attributes-section">
+			<div class="section-title">Atributos de Combate</div>
+			<div class="grid grid-2col class-attributes-section" style="gap: 10px;">
+				<label class="resource-label">{{localize "op.hpInitial"}}</label>
+				<input type="number" name="system.hpInitial" value="{{system.hpInitial}}" data-dtype="Number" />
+				<label class="resource-label">{{localize "op.hpPerLevel"}}</label>
+				<input type="number" name="system.hpPerLevel" value="{{system.hpPerLevel}}" data-dtype="Number" />
 
-			<label class="resource-label align-left">{{localize "op.hpPerLevel"}}</label>
-			<input type="number" name="system.hpPerLevel" value="{{system.hpPerLevel}}" data-dtype="Number" />
+				<label class="resource-label">{{localize "op.peInitial"}}</label>
+				<input type="number" name="system.peInitial" value="{{system.peInitial}}" data-dtype="Number" />
+				<label class="resource-label">{{localize "op.pePerLevel"}}</label>
+				<input type="number" name="system.pePerLevel" value="{{system.pePerLevel}}" data-dtype="Number" />
 
-			<label class="resource-label align-left">{{localize "op.peInitial"}}</label>
-			<input type="number" name="system.peInitial" value="{{system.peInitial}}" data-dtype="Number" />
+				<label class="resource-label">{{localize "op.sanInitial"}}</label>
+				<input type="number" name="system.sanInitial" value="{{system.sanInitial}}" data-dtype="Number" />
+				<label class="resource-label">{{localize "op.sanPerLevel"}}</label>
+				<input type="number" name="system.sanPerLevel" value="{{system.sanPerLevel}}" data-dtype="Number" />
 
-			<label class="resource-label align-left">{{localize "op.pePerLevel"}}</label>
-			<input type="number" name="system.pePerLevel" value="{{system.pePerLevel}}" data-dtype="Number" />
-
-			<label class="resource-label align-left">{{localize "op.sanInitial"}}</label>
-			<input type="number" name="system.sanInitial" value="{{system.sanInitial}}" data-dtype="Number" />
-
-			<label class="resource-label align-left">{{localize "op.sanPerLevel"}}</label>
-			<input type="number" name="system.sanPerLevel" value="{{system.sanPerLevel}}" data-dtype="Number" />
-
-			<label class="resource-label align-left">{{localize "op.skillCount"}}</label>
-			<input type="number" name="system.skillCount" value="{{system.skillCount}}" data-dtype="Number" />
+				<label class="resource-label">{{localize "op.skillCount"}}</label>
+				<input type="number" name="system.skillCount" value="{{system.skillCount}}" data-dtype="Number" />
+			</div>
 		</div>
 
-		<hr style="margin: 15px 0; border-color: rgba(0,0,0,0.1);" />
-
-		<div class="flexrow" style="align-items: flex-start; gap: 10px; margin-bottom: 10px;">
-			<label class="resource-label align-left" style="flex: 0 0 150px; padding-top: 5px;">
-				{{localize "op.grantedSkills"}}
-			</label>
-			<textarea name="system.grantedSkills" rows="3" style="resize: none; flex: 1;">{{system.grantedSkills}}</textarea>
-		</div>
-
-		<div class="flexrow" style="align-items: flex-start; gap: 10px; margin-bottom: 10px;">
-			<label class="resource-label align-left" style="flex: 0 0 150px; padding-top: 5px;">
-				{{localize "op.proficiencies"}}
-			</label>
-			<textarea name="system.proficiencies" rows="3" style="resize: none; flex: 1;">{{system.proficiencies}}</textarea>
-		</div>
-
-		<div class="flexrow" style="align-items: flex-start; gap: 10px; margin-bottom: 10px;">
-			<label class="resource-label align-left" style="flex: 0 0 150px; padding-top: 5px;">
-				{{localize "op.classAbilities"}}
-			</label>
-			<textarea name="system.abilities" rows="4" style="resize: none; flex: 1;">{{system.abilities}}</textarea>
+		<div class="class-attributes-section">
+			<div class="section-title">Habilidades e Proficiências</div>
+			<div class="form-group-textarea">
+				<label>{{localize "op.grantedSkills"}}</label>
+				<textarea name="system.grantedSkills">{{system.grantedSkills}}</textarea>
+			</div>
+			<div class="form-group-textarea">
+				<label>{{localize "op.proficiencies"}}</label>
+				<textarea name="system.proficiencies">{{system.proficiencies}}</textarea>
+			</div>
 		</div>
 
 	</div>
