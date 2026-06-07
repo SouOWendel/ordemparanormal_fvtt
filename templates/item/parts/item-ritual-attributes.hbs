@@ -1,87 +1,72 @@
 <section class="tab ritual {{tab.cssClass}}" data-group="primary" data-tab="ritualAttr">
-	<div class="content-item scrollable">
-		<div class="resource grid align-items-center">
-			<label class="resource-label">{{localize "op.circle"}}</label>
-			<div class="categoryCheck">{{radioBoxes "system.circle" degree checked=system.circle}}</div>
-			<label class="resource-label">{{localize "op.element"}}</label>
-			<select name="system.element" data-dtype="String">
-				{{selectOptions optionElement selected=system.element localize=true blank="—"}}
-			</select>
-			<label class="resource-label">{{localize "op.execution"}}</label>
-			<select name="system.execution" data-dtype="String">
-				{{selectOptions optionExecution selected=system.execution localize=true blank="—"}}
-			</select>
-			<label class="resource-label">{{localize "op.range"}}</label>
-			<select name="system.range" data-dtype="String">
-				{{selectOptions optionRange selected=system.range localize=true blank="—"}}
-			</select>
-			<label class="resource-label">{{localize "op.target"}}</label>
-			<div>
-				{{#ifEquals system.target "people"}}
-					<input
-						type="text"
-						name="system.targetQtd"
-						value="{{system.targetQtd}}"
-						data-dtype="String"
-						placeholder="Quantidade"
-						style="width: 90px;"
-					/>
-				{{/ifEquals}}
-				{{#ifEquals system.target "creatures"}}
-					<input
-						type="text"
-						name="system.targetQtd"
-						value="{{system.targetQtd}}"
-						data-dtype="String"
-						placeholder="Quantidade"
-						style="width: 90px;"
-					/>
-				{{/ifEquals}}
-				<select name="system.target" data-dtype="String">
-					{{selectOptions optionTarget selected=system.target localize=true blank="—"}}
-				</select>
-			</div>
+	<div class="content-item scrollable" style="padding: 10px;">
 
-			{{#ifEquals system.target "area"}}
-				<label class="resource-label">{{localize "op.areaEffect"}}</label>
-				<div>
-					<select name="system.area.name" data-dtype="String">
-						{{selectOptions optionArea selected=system.area.name localize=true blank="—"}}
-					</select>
-					<input
-						type="text"
-						name="system.area.size"
-						value="{{system.area.size}}"
-						data-dtype="String"
-						placeholder="Tamanho"
-						style="width: 90px"
-					/>
-					<select name="system.area.type" data-dtype="String" style="width: 50px">
-						{{selectOptions optionAreaType selected=system.area.type localize=true blank="—"}}
-					</select>
+		<div class="class-attributes-section">
+			<div class="section-title">Atributos de Ritual</div>
+
+			<div class="grid" style="display: grid; grid-template-columns: 120px 1fr; gap: 10px; align-items: center;">
+
+				<label class="resource-label">{{localize "op.circle"}}</label>
+				<div class="categoryCheck">
+					{{radioBoxes "system.circle" degree checked=system.circle}}
 				</div>
-			{{/ifEquals}}
-			<label class="resource-label">{{localize "op.duration"}}</label>
-			<select name="system.duration" data-dtype="String">
-				{{selectOptions optionDuration selected=system.duration localize=true blank="—"}}
-			</select>
-			<label class="resource-label">{{localize "op.resistance"}}</label>
-			<div>
-				<select name="system.skillResis" data-dtype="String">
-					{{selectOptions optionSkillResis selected=system.skillResis localize=true blank="—"}}
-				</select>
-				{{#if system.skillResis}}
-					<select name="system.resistance" data-dtype="String">
-						{{selectOptions optionResistance selected=system.resistance localize=true blank="—"}}
-					</select>
-				{{/if}}
+
+				<label class="resource-label">{{localize "op.element"}}</label>
+				<select name="system.element">{{selectOptions
+						optionElement
+						selected=system.element
+						localize=true
+						blank="—"
+					}}</select>
+
+				<label class="resource-label">{{localize "op.execution"}}</label>
+				<select name="system.execution">{{selectOptions
+						optionExecution
+						selected=system.execution
+						localize=true
+						blank="—"
+					}}</select>
+
+				<label class="resource-label">{{localize "op.range"}}</label>
+				<select name="system.range">{{selectOptions optionRange selected=system.range localize=true blank="—"}}</select>
+
+				<label class="resource-label">{{localize "op.target"}}</label>
+				<div style="display: flex; gap: 5px;">
+					<select name="system.target">{{selectOptions optionTarget selected=system.target localize=true blank="—"}}</select>
+					{{#ifEquals system.target "people"}}<input
+							type="text"
+							name="system.targetQtd"
+							value="{{system.targetQtd}}"
+							placeholder="Qtd"
+						/>{{/ifEquals}}
+				</div>
+
+				<label class="resource-label">{{localize "op.duration"}}</label>
+				<select name="system.duration">{{selectOptions
+						optionDuration
+						selected=system.duration
+						localize=true
+						blank="—"
+					}}</select>
+
+				<label class="resource-label">Formas</label>
+				<div style="display: flex; gap: 20px; padding-left: 5px;">
+					<label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+						<input
+							type="checkbox"
+							name="system.studentForm"
+							{{checked system.studentForm}}
+							style="width: 16px; height: 16px;"
+						/>
+						{{localize "op.studentForm"}}
+					</label>
+					<label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+						<input type="checkbox" name="system.trueForm" {{checked system.trueForm}} style="width: 16px; height: 16px;" />
+						{{localize "op.trueForm"}}
+					</label>
+				</div>
 			</div>
 		</div>
-		<div class="resource grid grid-2col align-items-center">
-			<label class="resource-label">{{localize "op.studentForm"}}</label>
-			<input type="checkbox" name="system.studentForm" {{checked system.studentForm}} />
-			<label class="resource-label">{{localize "op.trueForm"}}</label>
-			<input type="checkbox" name="system.trueForm" {{checked system.trueForm}} />
-		</div>
+
 	</div>
 </section>

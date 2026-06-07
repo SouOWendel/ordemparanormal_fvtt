@@ -1,9 +1,23 @@
 <section class="tab path {{tab.cssClass}} scrollable" data-group="primary" data-tab="pathAttr">
-	<div class="grid">
-		<label class="resource-label">{{localize "op.preRequisite"}}</label>
-		<input type="text" name="system.preRequisite" value="{{system.preRequisite}}" />
+	<div class="content-item" style="padding: 10px;">
 
-		<label class="resource-label">{{localize "op.pathAbilities"}}</label>
-		<textarea name="system.abilities">{{system.abilities}}</textarea>
+		<div class="class-attributes-section">
+			<div class="section-title">Atributos de Trilha</div>
+
+			<div class="grid" style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+
+				<div class="form-group">
+					<label class="resource-label">{{localize "op.preRequisite"}}</label>
+					<input type="text" name="system.preRequisite" value="{{system.preRequisite}}" />
+				</div>
+
+				<div class="form-group">
+					<label class="resource-label">{{localize "op.pathAbilities"}}</label>
+					<textarea name="system.abilities" rows="5" style="width: 100%; resize: vertical;">{{system.abilities}}</textarea>
+				</div>
+
+			</div>
+		</div>
+
 	</div>
 </section>

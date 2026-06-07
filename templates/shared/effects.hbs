@@ -1,23 +1,19 @@
-{{! Effects Tab }}
 <section class="tab effects {{tab.cssClass}}" data-group="primary" data-tab="effects">
-	<div class="content-item scrollable">
-		<ol class="effects-list">
-			{{#each effects as |section sid|}}
-				<li class="effects-header flexrow" data-effect-type="{{section.type}}" data-drag="true">
-					<div class="effect-name flexrow">
-						{{localize section.label}}
-					</div>
-					<div class="effect-source">
-						{{localize "op.sourceEffect"}}
-					</div>
-					<div class="effect-source">{{localize "EFFECT.TabDuration"}}</div>
-					<div class="effect-controls flexrow">
+	<div class="content-item scrollable effects-management" style="padding: 10px;">
+
+		{{#each effects as |section sid|}}
+			<div class="effects-section">
+
+				<div class="effects-header flexrow" data-effect-type="{{section.type}}">
+					<div class="effect-name">{{localize section.label}}</div>
+					<div class="effect-source">{{localize "op.sourceEffect"}}</div>
+					<div class="effect-duration">{{localize "EFFECT.TabDuration"}}</div>
+					<div class="effect-controls">
 						<a
 							class="effect-control"
 							data-action="createDoc"
 							data-document-class="ActiveEffect"
 							data-origin="{{@root.actor.uuid}}"
-							data-img="icons/svg/aura.svg"
 							{{opActiveEffectCreateAttrs section}}
 							title="{{localize 'op.effectCreate'}}"
 						>
@@ -25,33 +21,38 @@
 							{{localize "op.effectCreate"}}
 						</a>
 					</div>
-				</li>
+				</div>
 
 				<ol class="effect-list">
-
 					{{#each section.effects as |effect|}}
 						<li
-							class="effect effect flexrow"
+							class="effect effect-item flexrow"
 							data-effect-id="{{effect.id}}"
 							data-parent-id="{{effect.parent.id}}"
 							data-document-class="ActiveEffect"
 							data-drag="true"
 						>
+
 							<div class="effect-name flexrow">
-								<img class="effect-image" src="{{effect.img}}" height="24" width="24" />
-								<div>{{effect.name}}</div>
+								<img class="effect-image" src="{{effect.img}}" />
+								<span>{{effect.name}}</span>
 							</div>
+
 							<div class="effect-source">{{effect.parent.name}}</div>
+
 							<div class="effect-duration">{{effect.duration.label}}</div>
+
 							<div class="effect-controls flexrow">
 								{{#if @root.editable}}
 									<a class="effect-control" data-action="toggleEffect" title="{{localize 'BOILERPLATE.Effect.Toggle'}}">
 										<i class="fas {{ternary effect.disabled 'fa-check' 'fa-times'}}"></i>
 									</a>
 								{{/if}}
+
 								<a class="effect-control" data-action="viewDoc" title="{{localize 'DOCUMENT.Update' type="Effect"}}">
 									<i class="fas fa-edit"></i>
 								</a>
+
 								{{#if @root.editable}}
 									<a class="effect-control" data-action="deleteDoc" title="{{localize 'DOCUMENT.Delete' type="Effect"}}">
 										<i class="fas fa-trash"></i>
@@ -61,7 +62,8 @@
 						</li>
 					{{/each}}
 				</ol>
-			{{/each}}
-		</ol>
+			</div>
+		{{/each}}
+
 	</div>
 </section>

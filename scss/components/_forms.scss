@@ -945,32 +945,269 @@ form.ordemparanormal.actor {
 	}
 }
 
-.agent-details .item-pills .item-controls {
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.2s ease-in-out;
-}
+/* =================================================== */
+/* ESTILOS DO NOVO CABEÇALHO DO AGENTE (HEADER)        */
+/* =================================================== */
+form.ordemparanormal.actor {
+	header.sheet-header-op {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10px;
 
-.agent-details .item-pills:hover .item-controls {
-	opacity: 1;
-	visibility: visible;
-}
+		.truncate-text {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: block;
+		}
 
-/* 1. Transforma o contêiner da descrição em uma coluna flexível */
-.application.item .content-item {
-	display: flex;
-	flex-direction: column;
-}
+		.header-top {
+			display: flex;
+			gap: 12px;
+			margin-bottom: 8px;
+			align-items: stretch;
 
-/* 2. Faz o editor (prose-mirror) expandir para preencher o espaço restante */
-.application.item .content-item prose-mirror {
-	flex: 1;
-	overflow-y: hidden;
-	margin-top: 5px; /* Um respiro entre o título e o editor */
-}
+			.header-image-container {
+				flex: 0 0 auto;
+				display: flex;
+				align-items: stretch;
 
-/* 3. Garante que a área de digitação interna do editor acompanhe o tamanho e tenha rolagem */
-.application.item .content-item prose-mirror .prosemirror {
-	flex: 1;
-	overflow-y: auto;
+				.profile-img {
+					width: 140px;
+					min-width: 120px;
+					max-width: 150px;
+					height: calc(100% - 4px);
+					max-height: 160px;
+					margin-top: 4px;
+					object-fit: cover;
+					object-position: top center;
+					border-radius: 5px;
+					border: 2px solid #302831;
+					box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+					margin-right: 0;
+				}
+			}
+
+			.header-fields {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+				justify-content: space-between;
+
+				/* Identidade e Progresso */
+				.header-identify {
+					display: flex;
+					gap: 10px;
+					border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+					padding-bottom: 4px;
+					align-items: flex-end;
+
+					h1.charname {
+						flex: 1;
+						margin: 0;
+						padding: 0;
+						height: 36px;
+
+						input {
+							font-size: 28px;
+							font-family: "Signika", sans-serif;
+							font-weight: bold;
+							width: 100%;
+							border: none;
+							background: transparent;
+							padding: 0;
+							height: 100%;
+							line-height: 36px;
+							min-width: unset;
+						}
+					}
+
+					.progress-group {
+						display: flex;
+						flex: 0 0 auto;
+						gap: 6px;
+						align-items: flex-end;
+
+						.resource {
+							padding-left: 0;
+							margin: 0;
+
+							.resource-label {
+								font-size: 11px;
+								margin-bottom: 2px;
+							}
+						}
+					}
+				}
+
+				/* Classe, Origem, Trilha (Pills) */
+				.agent-details.resources {
+					margin: 0;
+					gap: 8px;
+					overflow: visible;
+
+					.item-pills {
+						flex: 1 1 0;
+						min-width: 0;
+						display: flex;
+						align-items: center;
+						padding: 4px 6px;
+						height: 32px;
+						border-radius: 4px;
+						overflow: hidden;
+
+						.item-name {
+							flex: 1;
+							min-width: 0;
+							cursor: pointer;
+							display: flex;
+							align-items: center;
+
+							.item-image {
+								width: 22px;
+								height: 22px;
+								flex: 0 0 22px;
+								border-radius: 2px;
+								margin-right: 0;
+							}
+
+							.item-name-text {
+								padding-left: 6px;
+								font-size: 13px;
+								flex: 1;
+								min-width: 0;
+							}
+						}
+
+						.item-controls {
+							flex: 0 0 auto;
+							display: flex;
+							align-items: center;
+						}
+					}
+
+					.interactive-pill {
+						border: 1px solid rgba(0, 0, 0, 0.15);
+						background: rgba(0, 0, 0, 0.04);
+						transition: all 0.2s ease-in-out;
+
+						&:hover {
+							background: rgba(0, 0, 0, 0.08);
+							border-color: rgba(0, 0, 0, 0.3);
+						}
+						&:active {
+							background: rgba(0, 0, 0, 0.15);
+							transform: scale(0.98);
+						}
+
+						/* Efeito da Lixeira Dinâmica */
+						.dynamic-trash {
+							max-width: 0;
+							overflow: hidden;
+							opacity: 0;
+							visibility: visible !important; /* Força sobreposição */
+							transition:
+								max-width 0.25s ease-in-out,
+								opacity 0.2s ease;
+						}
+
+						&:hover .dynamic-trash {
+							max-width: 30px;
+							opacity: 1;
+						}
+					}
+
+					.empty-slot {
+						border: 1px dashed rgba(0, 0, 0, 0.3);
+						background: rgba(0, 0, 0, 0.02);
+						transition: all 0.2s ease-in-out;
+						cursor: pointer;
+						justify-content: center;
+						color: rgba(0, 0, 0, 0.5);
+
+						&:hover {
+							background: rgba(0, 0, 0, 0.06);
+							border-style: solid;
+							border-color: rgba(0, 0, 0, 0.4);
+						}
+						&:active {
+							transform: scale(0.98);
+						}
+
+						i {
+							margin-right: 4px;
+							font-size: 11px;
+							flex: 0 0 auto;
+						}
+
+						span {
+							font-size: 12px;
+							font-weight: bold;
+							text-transform: uppercase;
+						}
+					}
+				}
+
+				/* Barras de Status (PV, PE, SAN) */
+				.resources-main {
+					margin: 0;
+					gap: 8px;
+
+					.resource {
+						border: 1px solid rgba(0, 0, 0, 0.2);
+						border-radius: 4px;
+						background: rgba(0, 0, 0, 0.02);
+
+						.resource-label {
+							background: rgba(0, 0, 0, 0.06);
+							color: #222;
+							border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+							border-radius: 2px 2px 0 0;
+							font-size: 11px;
+							padding: 3px;
+							display: block;
+						}
+
+						.resource-content {
+							padding: 2px 4px;
+
+							input {
+								background: transparent;
+								border: none;
+							}
+							span {
+								font-size: 12px;
+								color: #555;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/* Caixa Inferior (Atributos e Defesas) */
+		.header-bottom {
+			display: flex;
+			flex-direction: column;
+			background: rgba(0, 0, 0, 0.03);
+			padding: 6px 10px;
+			border-radius: 4px;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			gap: 6px;
+
+			.resources {
+				margin: 0;
+				gap: 8px;
+
+				.resource-label {
+					font-size: 12px;
+				}
+
+				.resource-content {
+					padding: 1px;
+				}
+			}
+		}
+	}
 }

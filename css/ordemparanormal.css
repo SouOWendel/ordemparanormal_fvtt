@@ -1177,36 +1177,431 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .slide:hover > a {
 	transform: translate(0, 0);
 }
-.system-ordemparanormal .agent-details .item-pills .item-controls {
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.2s ease-in-out;
-}
-.system-ordemparanormal .agent-details .item-pills:hover .item-controls {
-	opacity: 1;
-	visibility: visible;
-}
 .system-ordemparanormal {
-	/* 1. Transforma o contêiner da descrição em uma coluna flexível */
+	/* =================================================== */
+	/* ESTILOS DO NOVO CABEÇALHO DO AGENTE (HEADER)        */
+	/* =================================================== */
 }
-.system-ordemparanormal .application.item .content-item {
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 10px;
 }
-.system-ordemparanormal {
-	/* 2. Faz o editor (prose-mirror) expandir para preencher o espaço restante */
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .truncate-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
 }
-.system-ordemparanormal .application.item .content-item prose-mirror {
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 8px;
+	align-items: stretch;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-image-container {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: stretch;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-image-container
+	.profile-img {
+	width: 140px;
+	min-width: 120px;
+	max-width: 150px;
+	height: calc(100% - 4px);
+	max-height: 160px;
+	margin-top: 4px;
+	object-fit: cover;
+	object-position: top center;
+	border-radius: 5px;
+	border: 2px solid #302831;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	margin-right: 0;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
 	flex: 1;
-	overflow-y: hidden;
-	margin-top: 5px; /* Um respiro entre o título e o editor */
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	justify-content: space-between;
+	/* Identidade e Progresso */
 }
-.system-ordemparanormal {
-	/* 3. Garante que a área de digitação interna do editor acompanhe o tamanho e tenha rolagem */
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .header-identify {
+	display: flex;
+	gap: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	padding-bottom: 4px;
+	align-items: flex-end;
 }
-.system-ordemparanormal .application.item .content-item prose-mirror .prosemirror {
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	h1.charname {
 	flex: 1;
-	overflow-y: auto;
+	margin: 0;
+	padding: 0;
+	height: 36px;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	h1.charname
+	input {
+	font-size: 28px;
+	font-family: "Signika", sans-serif;
+	font-weight: bold;
+	width: 100%;
+	border: none;
+	background: transparent;
+	padding: 0;
+	height: 100%;
+	line-height: 36px;
+	min-width: unset;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	.progress-group {
+	display: flex;
+	flex: 0 0 auto;
+	gap: 6px;
+	align-items: flex-end;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	.progress-group
+	.resource {
+	padding-left: 0;
+	margin: 0;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	.progress-group
+	.resource
+	.resource-label {
+	font-size: 11px;
+	margin-bottom: 2px;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
+	/* Classe, Origem, Trilha (Pills) */
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources {
+	margin: 0;
+	gap: 8px;
+	overflow: visible;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills {
+	flex: 1 1 0;
+	min-width: 0;
+	display: flex;
+	align-items: center;
+	padding: 4px 6px;
+	height: 32px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills
+	.item-name {
+	flex: 1;
+	min-width: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills
+	.item-name
+	.item-image {
+	width: 22px;
+	height: 22px;
+	flex: 0 0 22px;
+	border-radius: 2px;
+	margin-right: 0;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills
+	.item-name
+	.item-name-text {
+	padding-left: 6px;
+	font-size: 13px;
+	flex: 1;
+	min-width: 0;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills
+	.item-controls {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: rgba(0, 0, 0, 0.04);
+	transition: all 0.2s ease-in-out;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill:hover {
+	background: rgba(0, 0, 0, 0.08);
+	border-color: rgba(0, 0, 0, 0.3);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill:active {
+	background: rgba(0, 0, 0, 0.15);
+	transform: scale(0.98);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill {
+	/* Efeito da Lixeira Dinâmica */
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill
+	.dynamic-trash {
+	max-width: 0;
+	overflow: hidden;
+	opacity: 0;
+	visibility: visible !important; /* Força sobreposição da regra antiga do scss */
+	transition:
+		max-width 0.25s ease-in-out,
+		opacity 0.2s ease;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill:hover
+	.dynamic-trash {
+	max-width: 30px;
+	opacity: 1;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot {
+	border: 1px dashed rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.02);
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	justify-content: center;
+	color: rgba(0, 0, 0, 0.5);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot:hover {
+	background: rgba(0, 0, 0, 0.06);
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.4);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot:active {
+	transform: scale(0.98);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot
+	i {
+	margin-right: 4px;
+	font-size: 11px;
+	flex: 0 0 auto;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot
+	span {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
+	/* Barras de Status (PV, PE, SAN) */
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .resources-main {
+	margin: 0;
+	gap: 8px;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.02);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource
+	.resource-label {
+	background: rgba(0, 0, 0, 0.06);
+	color: #222;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 2px 2px 0 0;
+	font-size: 11px;
+	padding: 3px;
+	display: block;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource
+	.resource-content {
+	padding: 2px 4px;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource
+	.resource-content
+	input {
+	background: transparent;
+	border: none;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource
+	.resource-content
+	span {
+	font-size: 12px;
+	color: #555;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op {
+	/* Caixa Inferior (Atributos e Defesas) */
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom {
+	display: flex;
+	flex-direction: column;
+	background: rgba(0, 0, 0, 0.03);
+	padding: 6px 10px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	gap: 6px;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources {
+	margin: 0;
+	gap: 8px;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources .resource-label {
+	font-size: 12px;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources .resource-content {
+	padding: 1px;
 }
 .system-ordemparanormal .resource-label {
 	font-weight: bold;
@@ -1405,6 +1800,551 @@ dialog.ordemparanormal.application {
 	display: flex;
 	align-items: center;
 	gap: 8px;
+}
+.system-ordemparanormal .application.item input:not([type="radio"]):not([type="checkbox"]),
+.system-ordemparanormal .application.item select {
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	height: 26px;
+	padding: 0 6px;
+	background: rgba(0, 0, 0, 0.02);
+	font-family: sans-serif;
+	transition: all 0.2s;
+}
+.system-ordemparanormal .application.item input:not([type="radio"]):not([type="checkbox"]):hover,
+.system-ordemparanormal .application.item input:not([type="radio"]):not([type="checkbox"]):focus,
+.system-ordemparanormal .application.item select:hover,
+.system-ordemparanormal .application.item select:focus {
+	border-color: #b1161a;
+	outline: none;
+	background: rgba(255, 255, 255, 0.4);
+}
+.system-ordemparanormal {
+	/* Ajuste específico para o seletor de Categoria do Ordem Paranormal */
+}
+.system-ordemparanormal .system-ordemparanormal .categoryCheck {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	align-items: center;
+}
+.system-ordemparanormal .system-ordemparanormal .categoryCheck label.radio {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 12px;
+	cursor: pointer;
+	/* Diminui o tamanho do círculo do rádio */
+}
+.system-ordemparanormal .system-ordemparanormal .categoryCheck label.radio input[type="radio"] {
+	width: 14px !important;
+	height: 14px !important;
+	margin: 0;
+}
+.system-ordemparanormal {
+	/* --- ITEM HEADER OPTIMIZED --- */
+}
+.system-ordemparanormal .item-header-optimized {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	background: transparent;
+}
+.system-ordemparanormal .item-header-optimized .profile-img {
+	width: 64px;
+	height: 64px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	object-fit: cover;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.system-ordemparanormal .item-header-optimized .header-fields {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.system-ordemparanormal .item-header-optimized .header-fields .document-name input {
+	width: 100%;
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 6px 10px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.04);
+	color: #222;
+}
+.system-ordemparanormal .item-header-optimized .header-fields .header-stats {
+	display: flex;
+	gap: 20px;
+}
+.system-ordemparanormal .item-header-optimized .header-fields .header-stats .stat-box {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: bold;
+	color: #555;
+	font-size: 0.9rem;
+}
+.system-ordemparanormal .item-header-optimized .header-fields .header-stats .stat-box i {
+	color: #888;
+}
+.system-ordemparanormal .item-header-optimized .header-fields .header-stats .stat-box input {
+	width: 50px;
+	height: 26px;
+	text-align: center;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.04);
+}
+.system-ordemparanormal {
+	/* --- ARMAMENT ITEM STYLES --- */
+}
+.system-ordemparanormal .armament-fieldset {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 6px;
+	padding: 10px 12px;
+	margin-bottom: 12px;
+	background: rgba(0, 0, 0, 0.03);
+}
+.system-ordemparanormal .armament-fieldset legend {
+	font-weight: bold;
+	padding: 0 8px;
+	color: #191813;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-family: "Signika", sans-serif;
+	border-bottom: none;
+	width: auto;
+}
+.system-ordemparanormal .armament-grid-2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12px;
+}
+.system-ordemparanormal .armament-field {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.system-ordemparanormal .armament-field label {
+	font-size: 11px;
+	font-weight: bold;
+	color: #444;
+	text-transform: uppercase;
+	margin-left: 2px;
+}
+.system-ordemparanormal .armament-field select,
+.system-ordemparanormal .armament-field input {
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	height: 26px;
+	padding: 0 6px;
+	background: rgba(0, 0, 0, 0.02);
+	font-family: "Roboto", sans-serif;
+}
+.system-ordemparanormal .armament-field select:hover,
+.system-ordemparanormal .armament-field input:focus {
+	border-color: #b1161a;
+	outline: none;
+	background: rgba(255, 255, 255, 0.4);
+}
+.system-ordemparanormal .formula-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: rgba(0, 0, 0, 0.04);
+	padding: 6px 8px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	margin-bottom: 6px;
+}
+.system-ordemparanormal .formula-row i {
+	color: #555;
+	font-size: 12px;
+}
+.system-ordemparanormal .formula-row .flex-grow {
+	flex: 1;
+}
+.system-ordemparanormal .formula-row .flex-large {
+	flex: 1.5;
+}
+.system-ordemparanormal .add-damage-btn {
+	display: block;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.04);
+	padding: 6px;
+	border-radius: 4px;
+	color: #444;
+	border: 1px dashed rgba(0, 0, 0, 0.3);
+	transition: 0.2s;
+	cursor: pointer;
+	margin-top: 8px;
+	font-weight: bold;
+}
+.system-ordemparanormal .add-damage-btn:hover {
+	background: rgba(0, 0, 0, 0.08);
+	color: #111;
+	border-style: solid;
+}
+.system-ordemparanormal .delete-damage {
+	color: #a33;
+	transition: 0.2s;
+	padding: 0 4px;
+	cursor: pointer;
+}
+.system-ordemparanormal .delete-damage:hover {
+	color: #ff0000;
+}
+.system-ordemparanormal .checkbox-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+	margin-top: 4px;
+}
+.system-ordemparanormal .checkbox-pill {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	background: rgba(0, 0, 0, 0.04);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	padding: 4px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.system-ordemparanormal .checkbox-pill:hover {
+	background: rgba(0, 0, 0, 0.08);
+	border-color: #888;
+}
+.system-ordemparanormal .checkbox-pill span {
+	font-size: 12px;
+	font-weight: bold;
+	color: #222;
+}
+.system-ordemparanormal {
+	/* --- ABA DE DESCRIÇÃO --- */
+}
+.system-ordemparanormal .description-container {
+	padding: 10px;
+	height: 100%;
+}
+.system-ordemparanormal .description-container .description-box {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.03);
+	transition: all 0.3s ease;
+	overflow: visible;
+	margin-bottom: 15px;
+}
+.system-ordemparanormal .description-container .description-box summary {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 13px;
+	color: #555;
+	padding: 12px;
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: rgba(0, 0, 0, 0.02);
+}
+.system-ordemparanormal .description-container .description-box summary::-webkit-details-marker {
+	display: none;
+}
+.system-ordemparanormal .description-container .description-box summary::after {
+	content: "\f107";
+	font-family: "Font Awesome 7 Pro";
+	font-weight: 900;
+	display: inline-block;
+	transition: transform 0.3s ease;
+}
+.system-ordemparanormal .description-container .description-box[open] {
+	background: rgba(0, 0, 0, 0.05);
+}
+.system-ordemparanormal .description-container .description-box[open] summary::after {
+	transform: rotate(180deg);
+}
+.system-ordemparanormal .description-container .description-box .description-content-inner {
+	padding: 0 0px 0px 15px;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.system-ordemparanormal .description-container .description-box {
+	/* --- BLOCO DE DESCRIÇÃO DINÂMICO --- */
+}
+.system-ordemparanormal .description-container .description-box prose-mirror {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background: transparent;
+	border: none;
+	min-height: 250px;
+	max-height: 500px;
+}
+.system-ordemparanormal .description-container .description-box prose-mirror .prosemirror {
+	flex: 1;
+	overflow-y: auto;
+	padding: 10px 0;
+	min-height: 100px;
+}
+.system-ordemparanormal .description-container .description-box prose-mirror .icon.toggle {
+	height: 24px;
+	width: 24px;
+	line-height: 24px;
+	text-align: center;
+	padding: 0;
+	margin: 15px 15px 0 0;
+	background: rgb(207, 207, 207);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	color: #555;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.system-ordemparanormal .description-container .description-box prose-mirror .icon.toggle i {
+	vertical-align: middle;
+	display: inline-block;
+}
+.system-ordemparanormal .description-container .description-box prose-mirror .icon.toggle:hover {
+	background: rgba(0, 0, 0, 0.15);
+	color: #000;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+.system-ordemparanormal .description-container .description-box .description-content {
+	padding: 10px 0;
+	min-height: 150px;
+	max-height: 500px;
+	overflow-y: auto;
+}
+.system-ordemparanormal .description-container .description-box .editor-menu {
+	display: flex;
+	gap: 8px;
+	padding: 6px 10px;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.02);
+	margin-right: 15px;
+}
+.system-ordemparanormal .description-container .description-box .editor-menu button {
+	background: transparent;
+	border: none;
+	color: #555;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 4px 8px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+}
+.system-ordemparanormal .description-container .description-box .editor-menu button:hover {
+	background: rgba(0, 0, 0, 0.04);
+	color: #000;
+}
+.system-ordemparanormal {
+	/* --- Layout da Aba de Atributos --- */
+}
+.system-ordemparanormal .class-attributes-section {
+	background: rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+.system-ordemparanormal .class-attributes-section .section-title {
+	font-weight: bold;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #444;
+}
+.system-ordemparanormal .class-attributes-section {
+	/* Estilo para campos desabilitados */
+}
+.system-ordemparanormal .class-attributes-section input:disabled {
+	background-color: rgba(0, 0, 0, 0.08) !important;
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+.system-ordemparanormal .form-group-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+.system-ordemparanormal .form-group-textarea {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	margin-bottom: 15px;
+}
+.system-ordemparanormal .form-group-textarea label {
+	font-weight: bold;
+}
+.system-ordemparanormal .form-group-textarea textarea {
+	height: 80px;
+	resize: vertical;
+}
+.system-ordemparanormal {
+	/* --- ABA DE EFEITOS APRIMORADA --- */
+}
+.system-ordemparanormal .effects-management .effects-section {
+	margin-bottom: 5px;
+}
+.system-ordemparanormal .effects-management .effects-header,
+.system-ordemparanormal .effects-management .effect-item {
+	display: flex;
+	align-items: center;
+	padding: 6px 10px;
+}
+.system-ordemparanormal .effects-management {
+	/* Ajuste de Proporções: 
+     - effect-name: menor (1.5)
+     - effect-controls: maior (90px) para caber o botão
+  */
+}
+.system-ordemparanormal .effects-management .effect-name {
+	flex: 1.5;
+	justify-content: center; /* Centraliza o bloco (imagem + texto) */
+	text-align: start; /* Garante o texto centralizado */
+}
+.system-ordemparanormal .effects-management .effect-source {
+	flex: 1;
+	text-align: center;
+}
+.system-ordemparanormal .effects-management .effect-duration {
+	flex: 1;
+	text-align: center;
+}
+.system-ordemparanormal .effects-management .effect-controls {
+	flex: 0 0 90px; /* Aumentado para comportar o botão */
+	justify-content: flex-end;
+}
+.system-ordemparanormal .effects-management .effects-header {
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 4px 4px 0 0;
+	font-weight: bold;
+	font-size: 11px;
+	text-transform: uppercase;
+	color: #444;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.system-ordemparanormal .effects-management .effect-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	background: rgba(0, 0, 0, 0.02);
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item {
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+	font-size: 13px;
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item {
+	/* Imagem mantida em 20px */
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item .effect-image {
+	width: 20px;
+	height: 20px;
+	flex: 0 0 20px;
+	object-fit: contain;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	margin-right: 8px;
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item {
+	/* Ícones reduzidos */
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls {
+	gap: 8px;
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls a {
+	color: #666;
+	font-size: 11px;
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls a:hover {
+	color: #000;
+}
+.system-ordemparanormal {
+	/* --- ABA DE ATRIBUTOS GERAIS --- */
+}
+.system-ordemparanormal .general-attributes-section {
+	background: rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+.system-ordemparanormal .general-attributes-section .section-title {
+	font-weight: bold;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #444;
+}
+.system-ordemparanormal .general-attributes-section .grid {
+	display: grid;
+	/* Coluna da esquerda (label) com 120px, direita ocupa o resto */
+	grid-template-columns: 120px 1fr;
+	gap: 10px;
+	align-items: center;
+}
+.system-ordemparanormal .general-attributes-section input,
+.system-ordemparanormal .general-attributes-section select {
+	height: 26px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.5);
+}
+.system-ordemparanormal {
+	/* --- CORREÇÃO DE ALINHAMENTO DO RITUAL (Preservando nativo) --- */
+}
+.system-ordemparanormal .categoryCheck {
+	display: flex !important;
+	flex-wrap: wrap;
+	gap: 15px;
+	align-items: center;
+	padding: 5px 0;
+	/* Alvo cirúrgico no label da estrutura Ordem Paranormal */
+}
+.system-ordemparanormal .categoryCheck .radio-label {
+	display: flex !important; /* Força o alinhamento horizontal */
+	align-items: center !important; /* Centraliza o input e o texto na mesma linha */
+	gap: 6px !important; /* Espaço entre a bolinha e o número */
+	/* Limpeza de margens que o tema pode estar forçando */
+	margin: 0 !important;
+	padding: 0 !important;
+	/* Mantemos background/border nativos, mas garantimos que 
+     eles não criem 'caixas' extras no label */
+	box-shadow: none !important;
+	/* Estilização do Número (Span) */
+}
+.system-ordemparanormal .categoryCheck .radio-label span {
+	display: flex;
+	align-items: center;
+	font-size: 13px;
+}
+.system-ordemparanormal .categoryCheck .radio-label {
+	/* Input Nativo */
+}
+.system-ordemparanormal .categoryCheck .radio-label input[type="radio"] {
+	margin: 0 !important;
+	/* Se o tema usa 'absolute' para posicionar o :before, 
+     isso pode causar sobreposição. Resetamos apenas o layout: */
+	position: relative !important;
+	flex-shrink: 0;
 }
 .system-ordemparanormal .application.item .effects input,
 .system-ordemparanormal .application.item .effects select {
