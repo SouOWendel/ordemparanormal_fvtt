@@ -2,6 +2,12 @@
 @use "../utils/colors";
 
 .application.item {
+	min-height: 250px;
+	min-width: 530px;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+
 	ul,
 	ol,
 	h1,
@@ -10,6 +16,22 @@
 	h4 {
 		margin: 0;
 		padding: 0;
+	}
+
+	.tab.active {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.content-item.scrollable {
+		/* Controladores dinâmicos de altura */
+		height: auto !important;
+		min-height: 100px;
+		max-height: 100vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+		scrollbar-gutter: unset;
+		transition: scrollbar-gutter 0.3s ease;
 	}
 
 	.prosemirror menu,
@@ -227,13 +249,12 @@
 }
 
 /* --- ITEM HEADER --- */
-.item-header-optimized {
+.item-header {
 	display: flex;
-	gap: 15px;
 	align-items: center;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	flex: 0 0 auto;
+	gap: 15px;
 	padding-bottom: 15px;
-	margin-bottom: 15px;
 	background: transparent;
 
 	.profile-img {
@@ -431,7 +452,8 @@
 /* --- ABA DE DESCRIÇÃO --- */
 .description-container {
 	padding: 10px;
-	height: 100%;
+	height: auto; /* ALTERADO: De 100% para auto, permitindo crescer */
+	overflow: visible; /* ALTERADO: Permite que o conteúdo expanda livremente */
 
 	.description-box {
 		border: 1px solid rgba(0, 0, 0, 0.15);
@@ -460,7 +482,7 @@
 
 			&::after {
 				content: "\f107";
-				font-family: "Font Awesome 7 Pro";
+				font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
 				font-weight: 900;
 				display: inline-block;
 				transition: transform 0.3s ease;
@@ -469,6 +491,7 @@
 
 		&[open] {
 			background: rgba(0, 0, 0, 0.05);
+			height: auto; /* NOVO: Garante que o details expanda a altura toda */
 
 			summary::after {
 				transform: rotate(180deg);
@@ -478,6 +501,11 @@
 		.description-content-inner {
 			padding: 0 0px 0px 15px;
 			border-top: 1px solid rgba(0, 0, 0, 0.1);
+			height: auto; /* NOVO: Garante fluxo livre */
+
+			.content-wrapper {
+				height: auto; /* NOVO: Garante fluxo livre */
+			}
 		}
 
 		/* --- BLOCO DE DESCRIÇÃO DINÂMICO --- */
@@ -487,12 +515,12 @@
 			width: 100%;
 			background: transparent;
 			border: none;
-			min-height: 250px;
-			max-height: 500px;
+			height: auto; /* ALTERADO: Remove a limitação de altura */
+			min-height: 200px;
 
 			.prosemirror {
-				flex: 1;
-				overflow-y: auto;
+				height: auto; /* ALTERADO: Esse é o segredo. Faz o editor crescer com o texto */
+				overflow: visible; /* ALTERADO: Impede a criação da barra de rolagem interna */
 				padding: 10px 0;
 				min-height: 100px;
 			}
@@ -525,9 +553,9 @@
 
 		.description-content {
 			padding: 10px 0;
-			min-height: 150px;
-			max-height: 500px;
-			overflow-y: auto;
+			min-height: 200px;
+			height: auto; /* ALTERADO: Para o modo de leitura (não editável) crescer também */
+			overflow: visible; /* ALTERADO */
 		}
 
 		.editor-menu {
@@ -553,6 +581,18 @@
 					color: #000;
 				}
 			}
+		}
+	}
+
+	.description-summary {
+		display: flex;
+
+		.notes {
+			font-size: 12px;
+			font-weight: normal;
+			text-transform: none;
+			color: #666;
+			font-style: italic;
 		}
 	}
 }

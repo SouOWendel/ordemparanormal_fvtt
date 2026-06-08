@@ -162,6 +162,7 @@ export class OrdemItem extends Item {
 	async getChatData(htmlOptions = {}) {
 		const data = this.toObject().system;
 
+		if (data.chatDescription) data.description = data.chatDescription;
 		// Rich text description
 		data.description = await foundry.applications.ux.TextEditor.implementation.enrichHTML(data.description, {
 			relativeTo: this,

@@ -21,7 +21,7 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 		classes: ["ordemparanormal", "sheet", "item", "themed", "theme-light"],
 		position: {
 			width: 540,
-			height: 440,
+			height: "auto",
 		},
 		actions: {
 			onEditImage: this.#onEditImage,
@@ -198,6 +198,13 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 						rollData: this.item.getRollData(),
 					}
 				);
+				context.enrichedChatDescription = this.item.system.chatDescription
+					? await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.chatDescription, {
+							secrets: this.document.isOwner,
+							relativeTo: this.item,
+							rollData: this.item.getRollData(),
+					  })
+					: null;
 				break;
 			case "abilityAttr":
 			case "armamentCombat":

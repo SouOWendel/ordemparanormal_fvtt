@@ -403,7 +403,21 @@ form.ordemparanormal.actor {
 }
 
 .sheet-body {
+	flex: 1;
 	overflow: hidden;
+	display: flex;
+
+	.tab {
+		flex: 1;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding-right: 5px;
+	}
+
+	.tab.active {
+		display: block;
+	}
 
 	.tab {
 		overflow-y: hidden;
@@ -439,7 +453,9 @@ form.ordemparanormal.actor {
 	font-family: typography.$font-primary;
 }
 .sheet-tabs {
-	flex: 0;
+	flex: 0 0 auto;
+	display: flex;
+	gap: 10px;
 }
 
 .tox {
@@ -625,23 +641,6 @@ form.ordemparanormal.actor {
 	}
 
 	/* --- LAYOUT GERAL --- */
-	.sheet-body {
-		height: 100%;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		container-type: inline-size;
-	}
-
-	.sheet-body .tab {
-		display: none;
-		height: 100%;
-		overflow-y: auto;
-		padding-right: 5px;
-	}
-	.sheet-body .tab.active {
-		display: block;
-	}
 
 	.sheet-tabs .item.active {
 		text-decoration: underline;

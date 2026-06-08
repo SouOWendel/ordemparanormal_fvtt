@@ -698,7 +698,19 @@ dialog.ordemparanormal.application {
 	font-family: "Signika";
 }
 .system-ordemparanormal .sheet-body {
+	flex: 1;
 	overflow: hidden;
+	display: flex;
+}
+.system-ordemparanormal .sheet-body .tab {
+	flex: 1;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 5px;
+}
+.system-ordemparanormal .sheet-body .tab.active {
+	display: block;
 }
 .system-ordemparanormal .sheet-body .tab {
 	overflow-y: hidden;
@@ -730,7 +742,9 @@ dialog.ordemparanormal.application {
 	font-family: "Roboto", sans-serif;
 }
 .system-ordemparanormal .sheet-tabs {
-	flex: 0;
+	flex: 0 0 auto;
+	display: flex;
+	gap: 10px;
 }
 .system-ordemparanormal .tox .tox-editor-container {
 	background: #fff;
@@ -891,22 +905,6 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .threat {
 	/* --- LAYOUT GERAL --- */
-}
-.system-ordemparanormal .threat .sheet-body {
-	height: 100%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	container-type: inline-size;
-}
-.system-ordemparanormal .threat .sheet-body .tab {
-	display: none;
-	height: 100%;
-	overflow-y: auto;
-	padding-right: 5px;
-}
-.system-ordemparanormal .threat .sheet-body .tab.active {
-	display: block;
 }
 .system-ordemparanormal .threat .sheet-tabs .item.active {
 	text-decoration: underline;
@@ -1439,7 +1437,7 @@ dialog.ordemparanormal.application {
 	max-width: 0;
 	overflow: hidden;
 	opacity: 0;
-	visibility: visible !important; /* Força sobreposição da regra antiga do scss */
+	visibility: visible !important; /* Força sobreposição */
 	transition:
 		max-width 0.25s ease-in-out,
 		opacity 0.2s ease;
@@ -1606,6 +1604,13 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .resource-label {
 	font-weight: bold;
 }
+.system-ordemparanormal .application.item {
+	min-height: 250px;
+	min-width: 530px;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+}
 .system-ordemparanormal .application.item ul,
 .system-ordemparanormal .application.item ol,
 .system-ordemparanormal .application.item h1,
@@ -1614,6 +1619,20 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .application.item h4 {
 	margin: 0;
 	padding: 0;
+}
+.system-ordemparanormal .application.item .tab.active {
+	display: flex;
+	flex-direction: column;
+}
+.system-ordemparanormal .application.item .content-item.scrollable {
+	/* Controladores dinâmicos de altura */
+	height: auto !important;
+	min-height: 100px;
+	max-height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-gutter: unset;
+	transition: scrollbar-gutter 0.3s ease;
 }
 .system-ordemparanormal .application.item .prosemirror menu,
 .system-ordemparanormal .application.item prosemirror menu {
@@ -1742,64 +1761,14 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .application.item .promote-part {
 	margin-right: 15px;
 }
-.system-ordemparanormal .application.item {
-	/* 1. Prepara o container principal para ser a referência de posicionamento */
-}
 .system-ordemparanormal .application.item .container-formula {
-	position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
-	padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
-	font-family: sans-serif; /* Apenas para estilização de exemplo */
+	position: relative;
+	padding-left: 0px;
+	font-family: sans-serif;
 }
 .system-ordemparanormal .application.item .part-damage-section {
 	padding-left: 20px;
 	padding-top: 10px;
-}
-.system-ordemparanormal .application.item {
-	/* 2. Cria a LINHA VERTICAL principal */
-}
-.system-ordemparanormal .application.item .linhas-adicionais::before {
-	content: ""; /* Pseudo-elementos precisam disso para aparecer */
-	position: absolute; /* Posição absoluta em relação ao .container-formula */
-	/* Posição da linha */
-	left: 15px; /* Distância da borda esquerda do container */
-	top: 50px; /* Distância do topo (ajuste conforme a altura da sua linha principal) */
-	bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
-	/* Estilo da linha */
-	width: 2px; /* Espessura da linha */
-	background-color: #b0b0b0; /* Cor da linha */
-	border-radius: 2px;
-}
-.system-ordemparanormal .application.item {
-	/* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
-}
-.system-ordemparanormal .application.item .linha-secundaria {
-	position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
-	margin-left: 25px; /* Empurra o conteúdo para a direita, criando espaço para a conexão */
-	margin-bottom: 5px; /* Espaçamento entre as linhas */
-}
-.system-ordemparanormal .application.item {
-	/* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
-}
-.system-ordemparanormal .application.item .linha-secundaria::before {
-	content: "";
-	position: absolute;
-	/* Posição da linha */
-	top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
-	left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
-	/* Estilo da linha */
-	width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
-	height: 2px; /* Espessura da linha */
-	background-color: #b0b0b0; /* Mesma cor da linha vertical */
-	border-radius: 2px;
-}
-.system-ordemparanormal .application.item {
-	/* Estilos adicionais para parecer com a imagem (opcional) */
-}
-.system-ordemparanormal .application.item .linha-principal,
-.system-ordemparanormal .application.item .linha-secundaria {
-	display: flex;
-	align-items: center;
-	gap: 8px;
 }
 .system-ordemparanormal .application.item input:not([type="radio"]):not([type="checkbox"]),
 .system-ordemparanormal .application.item select {
@@ -1843,18 +1812,17 @@ dialog.ordemparanormal.application {
 	margin: 0;
 }
 .system-ordemparanormal {
-	/* --- ITEM HEADER OPTIMIZED --- */
+	/* --- ITEM HEADER --- */
 }
-.system-ordemparanormal .item-header-optimized {
+.system-ordemparanormal .item-header {
 	display: flex;
-	gap: 15px;
 	align-items: center;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	flex: 0 0 auto;
+	gap: 15px;
 	padding-bottom: 15px;
-	margin-bottom: 15px;
 	background: transparent;
 }
-.system-ordemparanormal .item-header-optimized .profile-img {
+.system-ordemparanormal .item-header .profile-img {
 	width: 64px;
 	height: 64px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
@@ -1862,13 +1830,13 @@ dialog.ordemparanormal.application {
 	object-fit: cover;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.system-ordemparanormal .item-header-optimized .header-fields {
+.system-ordemparanormal .item-header .header-fields {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 }
-.system-ordemparanormal .item-header-optimized .header-fields .document-name input {
+.system-ordemparanormal .item-header .header-fields .document-name input {
 	width: 100%;
 	font-size: 1.5rem;
 	font-weight: bold;
@@ -1878,11 +1846,11 @@ dialog.ordemparanormal.application {
 	background: rgba(0, 0, 0, 0.04);
 	color: #222;
 }
-.system-ordemparanormal .item-header-optimized .header-fields .header-stats {
+.system-ordemparanormal .item-header .header-fields .header-stats {
 	display: flex;
 	gap: 20px;
 }
-.system-ordemparanormal .item-header-optimized .header-fields .header-stats .stat-box {
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-box {
 	display: flex;
 	align-items: center;
 	gap: 8px;
@@ -1890,10 +1858,10 @@ dialog.ordemparanormal.application {
 	color: #555;
 	font-size: 0.9rem;
 }
-.system-ordemparanormal .item-header-optimized .header-fields .header-stats .stat-box i {
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-box i {
 	color: #888;
 }
-.system-ordemparanormal .item-header-optimized .header-fields .header-stats .stat-box input {
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-box input {
 	width: 50px;
 	height: 26px;
 	text-align: center;
@@ -2032,7 +2000,8 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .description-container {
 	padding: 10px;
-	height: 100%;
+	height: auto; /* ALTERADO: De 100% para auto, permitindo crescer */
+	overflow: visible; /* ALTERADO: Permite que o conteúdo expanda livremente */
 }
 .system-ordemparanormal .description-container .description-box {
 	border: 1px solid rgba(0, 0, 0, 0.15);
@@ -2060,13 +2029,14 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .description-container .description-box summary::after {
 	content: "\f107";
-	font-family: "Font Awesome 7 Pro";
+	font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
 	font-weight: 900;
 	display: inline-block;
 	transition: transform 0.3s ease;
 }
 .system-ordemparanormal .description-container .description-box[open] {
 	background: rgba(0, 0, 0, 0.05);
+	height: auto; /* NOVO: Garante que o details expanda a altura toda */
 }
 .system-ordemparanormal .description-container .description-box[open] summary::after {
 	transform: rotate(180deg);
@@ -2074,6 +2044,10 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .description-container .description-box .description-content-inner {
 	padding: 0 0px 0px 15px;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	height: auto; /* NOVO: Garante fluxo livre */
+}
+.system-ordemparanormal .description-container .description-box .description-content-inner .content-wrapper {
+	height: auto; /* NOVO: Garante fluxo livre */
 }
 .system-ordemparanormal .description-container .description-box {
 	/* --- BLOCO DE DESCRIÇÃO DINÂMICO --- */
@@ -2084,12 +2058,12 @@ dialog.ordemparanormal.application {
 	width: 100%;
 	background: transparent;
 	border: none;
-	min-height: 250px;
-	max-height: 500px;
+	height: auto; /* ALTERADO: Remove a limitação de altura */
+	min-height: 200px;
 }
 .system-ordemparanormal .description-container .description-box prose-mirror .prosemirror {
-	flex: 1;
-	overflow-y: auto;
+	height: auto; /* ALTERADO: Esse é o segredo. Faz o editor crescer com o texto */
+	overflow: visible; /* ALTERADO: Impede a criação da barra de rolagem interna */
 	padding: 10px 0;
 	min-height: 100px;
 }
@@ -2118,9 +2092,9 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .description-container .description-box .description-content {
 	padding: 10px 0;
-	min-height: 150px;
-	max-height: 500px;
-	overflow-y: auto;
+	min-height: 200px;
+	height: auto; /* ALTERADO: Para o modo de leitura (não editável) crescer também */
+	overflow: visible; /* ALTERADO */
 }
 .system-ordemparanormal .description-container .description-box .editor-menu {
 	display: flex;
@@ -2143,6 +2117,16 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .description-container .description-box .editor-menu button:hover {
 	background: rgba(0, 0, 0, 0.04);
 	color: #000;
+}
+.system-ordemparanormal .description-container .description-summary {
+	display: flex;
+}
+.system-ordemparanormal .description-container .description-summary .notes {
+	font-size: 12px;
+	font-weight: normal;
+	text-transform: none;
+	color: #666;
+	font-style: italic;
 }
 .system-ordemparanormal {
 	/* --- Layout da Aba de Atributos --- */
@@ -2203,15 +2187,12 @@ dialog.ordemparanormal.application {
 	padding: 6px 10px;
 }
 .system-ordemparanormal .effects-management {
-	/* Ajuste de Proporções: 
-     - effect-name: menor (1.5)
-     - effect-controls: maior (90px) para caber o botão
-  */
+	/* Ajuste de Proporções */
 }
 .system-ordemparanormal .effects-management .effect-name {
 	flex: 1.5;
-	justify-content: center; /* Centraliza o bloco (imagem + texto) */
-	text-align: start; /* Garante o texto centralizado */
+	justify-content: center;
+	text-align: start;
 }
 .system-ordemparanormal .effects-management .effect-source {
 	flex: 1;
@@ -2222,7 +2203,7 @@ dialog.ordemparanormal.application {
 	text-align: center;
 }
 .system-ordemparanormal .effects-management .effect-controls {
-	flex: 0 0 90px; /* Aumentado para comportar o botão */
+	flex: 0 0 90px;
 	justify-content: flex-end;
 }
 .system-ordemparanormal .effects-management .effects-header {
@@ -2263,7 +2244,7 @@ dialog.ordemparanormal.application {
 	margin-right: 8px;
 }
 .system-ordemparanormal .effects-management .effect-list .effect-item {
-	/* Ícones reduzidos */
+	/* Ícones */
 }
 .system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls {
 	gap: 8px;
@@ -2308,26 +2289,19 @@ dialog.ordemparanormal.application {
 	border-radius: 4px;
 	background: rgba(255, 255, 255, 0.5);
 }
-.system-ordemparanormal {
-	/* --- CORREÇÃO DE ALINHAMENTO DO RITUAL (Preservando nativo) --- */
-}
 .system-ordemparanormal .categoryCheck {
 	display: flex !important;
 	flex-wrap: wrap;
 	gap: 15px;
 	align-items: center;
 	padding: 5px 0;
-	/* Alvo cirúrgico no label da estrutura Ordem Paranormal */
 }
 .system-ordemparanormal .categoryCheck .radio-label {
-	display: flex !important; /* Força o alinhamento horizontal */
-	align-items: center !important; /* Centraliza o input e o texto na mesma linha */
-	gap: 6px !important; /* Espaço entre a bolinha e o número */
-	/* Limpeza de margens que o tema pode estar forçando */
+	display: flex !important;
+	align-items: center !important;
+	gap: 6px !important;
 	margin: 0 !important;
 	padding: 0 !important;
-	/* Mantemos background/border nativos, mas garantimos que 
-     eles não criem 'caixas' extras no label */
 	box-shadow: none !important;
 	/* Estilização do Número (Span) */
 }
@@ -2341,8 +2315,6 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .categoryCheck .radio-label input[type="radio"] {
 	margin: 0 !important;
-	/* Se o tema usa 'absolute' para posicionar o :before, 
-     isso pode causar sobreposição. Resetamos apenas o layout: */
 	position: relative !important;
 	flex-shrink: 0;
 }

@@ -1,21 +1,52 @@
 <section class="tab description {{tab.cssClass}}" data-group="primary" data-tab="description">
-	<div class="content-item scrollable flexcol">
-		<span class="item-title-header">Descrição do Item</span>
-
-		{{#if editable}}
-			<prose-mirror
-				name="system.description"
-				data-document-u-u-i-d="{{item.uuid}}"
-				value="{{system.description}}"
-				collaborate="true"
-				toggled="true"
-			>
-				{{{enrichedDescription}}}
-			</prose-mirror>
-		{{else}}
-			<div class="description-content">
-				{{{enrichedDescription}}}
+	<div class="content-item scrollable description-container">
+		<details class="description-box">
+			<summary>
+				<span><i class="fas fa-info-circle"></i> Descrição do Item</span>
+			</summary>
+			<div class="description-content-inner">
+				<div class="content-wrapper">
+					{{#if editable}}
+						<prose-mirror
+							name="system.description"
+							data-document-u-u-i-d="{{item.uuid}}"
+							value="{{system.description}}"
+							collaborate="true"
+							toggled="true"
+						>
+							{{{enrichedDescription}}}
+						</prose-mirror>
+					{{else}}
+						<div class="description-content">{{{enrichedDescription}}}</div>
+					{{/if}}
+				</div>
 			</div>
-		{{/if}}
+		</details>
+		<details class="description-box">
+			<summary class="description-summary flex-column gap-1">
+				<div class="flex-row gap-1 align-items-center">
+					<i class="fas fa-comment-dots"></i>
+					<span>Descrição para Chat</span>
+					<p class="notes">Se preenchida, esta descrição será usada para exibição no chat.</p>
+				</div>
+			</summary>
+			<div class="description-content-inner">
+				<div class="content-wrapper">
+					{{#if editable}}
+						<prose-mirror
+							name="system.chatDescription"
+							data-document-u-u-i-d="{{item.uuid}}"
+							value="{{system.chatDescription}}"
+							collaborate="true"
+							toggled="true"
+						>
+							{{{enrichedChatDescription}}}
+						</prose-mirror>
+					{{else}}
+						<div class="description-content">{{{enrichedChatDescription}}}</div>
+					{{/if}}
+				</div>
+			</div>
+		</details>
 	</div>
 </section>
