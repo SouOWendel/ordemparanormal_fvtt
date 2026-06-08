@@ -54,30 +54,6 @@
 			{{! Classe, Origem, Trilha }}
 			<div class="agent-details resources flexrow">
 
-				{{! Item: Classe }}
-				{{#if details.class}}
-					<div
-						class="item-pills interactive-pill flexrow"
-						data-item-type="class"
-						data-item-id="{{details.class.id}}"
-						data-uuid="{{details.class.uuid}}"
-						data-document-class="Item"
-					>
-						<div class="item-name flexrow" data-action="viewDoc">
-							<img src="{{details.class.img}}" class="item-image" alt="{{details.class.name}}" />
-							<span class="item-name-text truncate-text">{{details.class.name}}</span>
-						</div>
-						<div class="item-controls dynamic-trash">
-							<a class="item-control" data-action="deleteDoc" title="Remover"><i class="fas fa-trash"></i></a>
-						</div>
-					</div>
-				{{else}}
-					<div class="item-pills empty-slot flexrow" data-action="findItem" data-item-type="class">
-						<i class="fas fa-plus"></i>
-						<span class="truncate-text">Classe</span>
-					</div>
-				{{/if}}
-
 				{{! Item: Origem }}
 				{{#if details.origin}}
 					<div
@@ -96,9 +72,43 @@
 						</div>
 					</div>
 				{{else}}
-					<div class="item-pills empty-slot flexrow" data-action="findItem" data-item-type="origin">
+					<div
+						class="item-pills empty-slot flexrow compendium-event-click"
+						data-action="findItem"
+						data-item-type="origin"
+						data-key="origin"
+					>
 						<i class="fas fa-plus"></i>
 						<span class="truncate-text">Origem</span>
+					</div>
+				{{/if}}
+
+				{{! Item: Classe }}
+				{{#if details.class}}
+					<div
+						class="item-pills interactive-pill flexrow"
+						data-item-type="class"
+						data-item-id="{{details.class.id}}"
+						data-uuid="{{details.class.uuid}}"
+						data-document-class="Item"
+					>
+						<div class="item-name flexrow" data-action="viewDoc">
+							<img src="{{details.class.img}}" class="item-image" alt="{{details.class.name}}" />
+							<span class="item-name-text truncate-text">{{details.class.name}}</span>
+						</div>
+						<div class="item-controls dynamic-trash">
+							<a class="item-control" data-action="deleteDoc" title="Remover"><i class="fas fa-trash"></i></a>
+						</div>
+					</div>
+				{{else}}
+					<div
+						class="item-pills empty-slot flexrow compendium-event-click"
+						data-action="findItem"
+						data-item-type="class"
+						data-key="class"
+					>
+						<i class="fas fa-plus"></i>
+						<span class="truncate-text">Classe</span>
 					</div>
 				{{/if}}
 
@@ -120,7 +130,12 @@
 						</div>
 					</div>
 				{{else}}
-					<div class="item-pills empty-slot flexrow" data-action="findItem" data-item-type="path">
+					<div
+						class="item-pills empty-slot flexrow compendium-event-click"
+						data-action="findItem"
+						data-item-type="path"
+						data-key="path"
+					>
 						<i class="fas fa-plus"></i>
 						<span class="truncate-text">Trilha</span>
 					</div>

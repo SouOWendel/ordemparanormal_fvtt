@@ -115,7 +115,7 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		}
 
 		// V13 DOM API (no jQuery)
-		for (const compendiumSkill of this.element.querySelectorAll(".compendium-skill")) {
+		for (const compendiumSkill of this.element.querySelectorAll(".compendium-event-contextmenu")) {
 			compendiumSkill.addEventListener("contextmenu", this._onOpenCompendiumEntry.bind(this));
 		}
 	}

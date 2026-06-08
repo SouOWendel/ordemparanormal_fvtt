@@ -417,8 +417,12 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			});
 		}
 
-		for (const compendiumSkill of this.element.querySelectorAll(".compendium-skill")) {
-			compendiumSkill.addEventListener("contextmenu", this._onOpenCompendiumEntry.bind(this));
+		for (const compendium of this.element.querySelectorAll(".compendium-event-contextmenu")) {
+			compendium.addEventListener("contextmenu", this._onOpenCompendiumEntry.bind(this));
+		}
+
+		for (const compendium of this.element.querySelectorAll(".compendium-event-click")) {
+			compendium.addEventListener("click", this._onOpenCompendiumEntry.bind(this));
 		}
 	}
 
@@ -505,9 +509,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		for (const [dataKey, value] of Object.entries(target.dataset)) {
 			// These data attributes are reserved for the action handling
 			if (["action", "documentClass"].includes(dataKey)) continue;
-			// Nested properties require dot notation in the HTML, e.g. anything with `system`
-			// An example exists in spells.hbs, with `data-system.spell-level`
-			// which turns into the dataKey 'system.spellLevel'
 			foundry.utils.setProperty(docData, dataKey, value);
 		}
 
@@ -587,9 +588,10 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	 */
 	async _onOpenCompendiumEntry(event) {
 		const parent = event.currentTarget.closest("li") ?? event.currentTarget;
-		const skill = parent.dataset.key ?? null;
-		if (!skill || !CONFIG.op.skillCompendiumEntries[skill]) return;
-		const entryKey = CONFIG.op.skillCompendiumEntries[skill];
+		const key = parent.dataset.key ?? null;
+		console.log(parent, key);
+		if (!key || !CONFIG.op.CompendiumEntries[key]) return;
+		const entryKey = CONFIG.op.CompendiumEntries[key];
 		await foundry.documents.collections.Journal._showEntry(entryKey, true);
 	}
 
