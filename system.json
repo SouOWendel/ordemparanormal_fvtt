@@ -187,6 +187,36 @@
 			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
+		},
+		{
+			"name": "origins",
+			"label": "Origens",
+			"system": "ordemparanormal",
+			"path": "packs/origins",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "classes",
+			"label": "Classes",
+			"system": "ordemparanormal",
+			"path": "packs/classes",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
+		},
+		{
+			"name": "paths",
+			"label": "Trilhas",
+			"system": "ordemparanormal",
+			"path": "packs/paths",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
 		}
 	],
 	"packFolders": [
@@ -197,33 +227,39 @@
 			"packs": ["bookrules", "others", "creatingmissions"],
 			"folders": [
 				{
+					"name": "Criação de Personagens",
+					"sorting": "m",
+					"color": "#141414",
+					"packs": ["paths", "classes", "origins"]
+				},
+				{
 					"name": "Equipamentos do Livro",
 					"sorting": "m",
-					"color": "#1f0300",
+					"color": "#212121",
 					"packs": ["armaments", "general", "protections"]
 				},
 				{
 					"name": "Poderes de Classe",
 					"sorting": "m",
-					"color": "#171717",
+					"color": "#2E2E2E",
 					"packs": ["fighterPowers", "specialistPowers", "occultistPowers", "survivalPowers"]
 				},
 				{
 					"name": "Poderes de Trilha",
 					"sorting": "m",
-					"color": "#272727",
+					"color": "#3B3B3B",
 					"packs": ["pathFighter", "pathSpecialist", "pathOccultist"]
 				},
 				{
 					"name": "Outros Poderes",
 					"sorting": "m",
-					"color": "#373737",
+					"color": "#484848",
 					"packs": ["originPowers", "generalPowers"]
 				},
 				{
 					"name": "Fichas Pré-Criadas",
 					"sorting": "m",
-					"color": "#373737",
+					"color": "#555555",
 					"packs": ["agents", "threats"]
 				}
 			]
