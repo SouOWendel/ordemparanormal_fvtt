@@ -325,6 +325,7 @@ op.ritualDegree = { 5: "Outro", 1: "1", 2: "2", 3: "3", 4: "4" };
  */
 op.dropdownExecution = {
 	free: "op.executionChoices.free",
+	movement: "op.executionChoices.movement",
 	default: "op.executionChoices.default",
 	complete: "op.executionChoices.complete",
 	reaction: "op.executionChoices.reaction",
@@ -447,7 +448,7 @@ op.traits = {
 	darkvision: "op.traits.darkvision",
 };
 
-op.skillCompendiumEntries = {
+op.CompendiumEntries = {
 	acrobatics: "Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.LMCpSuAqNeZZFBfA",
 	animal: "Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.o7Tqot1J7TYquL3L",
 	arts: "Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.ixNbkqVWEPLcoiYi",
@@ -476,4 +477,7 @@ op.skillCompendiumEntries = {
 	technology: "Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.DSLIxmTFfyoNtO5s",
 	will: "Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.xt8G3szvcjfUn55D",
 	freeSkill: "Compendium.ordemparanormal.bookrules.JournalEntry.wlBeWbK9TfrlufWA.JournalEntryPage.qTwpNeH48xyzrz1w",
+	origin: "Compendium.ordemparanormal.origins",
+	class: "Compendium.ordemparanormal.classes",
+	path: "Compendium.ordemparanormal.paths",
 };

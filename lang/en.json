@@ -306,6 +306,7 @@
 
 	"op.executionChoices": {
 		"free": "Free",
+		"movement": "Movement",
 		"default": "Standard",
 		"complete": "Full",
 		"reaction": "Reaction"
