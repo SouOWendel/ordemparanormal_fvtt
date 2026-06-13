@@ -320,12 +320,14 @@
 			"threat": {}
 		},
 		"Item": {
-			"ammunition": {},
 			"armament": {},
 			"generalEquipment": {},
 			"protection": {},
 			"ability": {},
-			"ritual": {}
+			"ritual": {},
+			"path": {},
+			"class": {},
+			"origin": {}
 		}
 	},
 	"url": "https://github.com/SouOWendel/ordemparanormal_fvtt",

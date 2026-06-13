@@ -58,7 +58,7 @@ Hooks.once("init", function () {
 		threat: dataModels.ThreatData,
 	});
 	Object.assign(CONFIG.Item.dataModels, {
-		ammunition: dataModels.AmmunitionData,
+		// ammunition: dataModels.AmmunitionData,
 		armament: dataModels.ArmamentData,
 		generalEquipment: dataModels.GeneralEquipmentData,
 		protection: dataModels.ProtectionData,
