@@ -473,11 +473,32 @@
 			list-style: none;
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
+			/* Removido o space-between para não quebrar o layout com 3 elementos */
 			background: rgba(0, 0, 0, 0.02);
 
 			&::-webkit-details-marker {
 				display: none;
+			}
+
+			/* Estilo do título aglomerado */
+			.summary-title {
+				display: flex;
+				align-items: center;
+			}
+
+			/* Estilo do novo botão de edição */
+			.editor-edit {
+				margin-left: auto; /* Empurra o botão e a setinha para a extremidade direita */
+				margin-right: 15px; /* Dá um espacinho entre o botão e a setinha */
+				padding: 4px 6px;
+				border-radius: 4px;
+				color: #666;
+				transition: all 0.2s ease;
+
+				&:hover {
+					color: #000;
+					background: rgba(0, 0, 0, 0.08);
+				}
 			}
 
 			&::after {
@@ -501,10 +522,11 @@
 		.description-content-inner {
 			padding: 0 0px 0px 15px;
 			border-top: 1px solid rgba(0, 0, 0, 0.1);
-			height: auto; /* NOVO: Garante fluxo livre */
+			height: auto;
 
 			.content-wrapper {
 				height: auto; /* NOVO: Garante fluxo livre */
+				padding-top: 0px;
 			}
 		}
 

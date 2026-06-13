@@ -1,18 +1,27 @@
 <section class="tab description {{tab.cssClass}}" data-group="primary" data-tab="description">
 	<div class="content-item scrollable description-container">
-		<details class="description-box">
+
+		<details class="description-box" {{ternary editingDescription "open" "closed"}}>
 			<summary>
-				<span><i class="fas fa-info-circle"></i> Descrição do Item</span>
+				<div class="summary-title flex-row gap-1 align-items-center">
+					<i class="fas fa-info-circle"></i>
+					<span>Descrição do Item</span>
+				</div>
+
+				{{#if editable}}
+					<a class="editor-edit" data-action="editDescription" title="Alternar Modo de Edição">
+						<i class="fas fa-edit"></i>
+					</a>
+				{{/if}}
 			</summary>
 			<div class="description-content-inner">
 				<div class="content-wrapper">
-					{{#if editable}}
+					{{#if editingDescription}}
 						<prose-mirror
 							name="system.description"
 							data-document-u-u-i-d="{{item.uuid}}"
 							value="{{system.description}}"
 							collaborate="true"
-							toggled="true"
 						>
 							{{{enrichedDescription}}}
 						</prose-mirror>
@@ -22,17 +31,28 @@
 				</div>
 			</div>
 		</details>
-		<details class="description-box">
+
+		<details class="description-box" {{ternary editingChatDescription "open" "closed"}}>
 			<summary class="description-summary flex-column gap-1">
-				<div class="flex-row gap-1 align-items-center">
-					<i class="fas fa-comment-dots"></i>
-					<span>Descrição para Chat</span>
-					<p class="notes">Se preenchida, esta descrição será usada para exibição no chat.</p>
+
+				<div class="flex-row align-items-center" style="width: 100%; display: flex;">
+					<div class="summary-title flex-row gap-1 align-items-center">
+						<i class="fas fa-comment-dots"></i>
+						<span>Descrição para Chat</span>
+					</div>
+
+					{{#if editable}}
+						<a class="editor-edit" data-action="editChatDescription" title="Alternar Modo de Edição">
+							<i class="fas fa-edit"></i>
+						</a>
+					{{/if}}
 				</div>
+
+				<p class="notes" style="margin: 0;">Se preenchida, esta descrição será usada para exibição no chat.</p>
 			</summary>
 			<div class="description-content-inner">
 				<div class="content-wrapper">
-					{{#if editable}}
+					{{#if editingChatDescription}}
 						<prose-mirror
 							name="system.chatDescription"
 							data-document-u-u-i-d="{{item.uuid}}"
@@ -48,5 +68,6 @@
 				</div>
 			</div>
 		</details>
+
 	</div>
 </section>

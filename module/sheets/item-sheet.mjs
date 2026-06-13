@@ -14,6 +14,8 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	constructor(options = {}) {
 		super(options);
 		this.#dragDrop = this.#createDragDropHandlers();
+		this._isEditingDescription = false;
+		this._isEditingChatDescription = false;
 	}
 
 	/** @inheritDoc */
@@ -30,6 +32,7 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			deleteDoc: this.#deleteEffect,
 			toggleEffect: this.#toggleEffect,
 			onDamageControl: this.#onDamageControl,
+			editDescription: this.#toggleDescriptionEdit,
 		},
 		form: {
 			submitOnChange: true,
@@ -171,6 +174,9 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			categories: CONFIG.op.categories,
 			degree: CONFIG.op.ritualDegree,
 		});
+
+		context.editingDescription = this._isEditingDescription;
+		context.editingChatDescription = this._isEditingChatDescription;
 
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#updateDocuments
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#deleteDocuments
@@ -335,6 +341,17 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 *   ACTIONS
 	 *
 	 **************/
+
+	static #toggleDescriptionEdit(event, target) {
+		event.stopPropagation(); // O Vanilla JS reinando absoluto aqui
+		console.log("Toggling description edit mode");
+
+		// O 'this' dentro desta função estática aponta para a instância da ficha!
+		this._isEditingDescription = !this._isEditingDescription;
+
+		// Chama o novo ciclo de renderização do V2
+		this.render();
+	}
 
 	/**
 	 * Handle changing a Document's image.
@@ -696,6 +713,15 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	/* -------------------------------------------- */
 	/*  Form Submission                             */
 	/* -------------------------------------------- */
+
+	_prepareSubmitData(event, form, formData) {
+		// Desliga os editores assim que o usuário clica no "Checkmark" de salvar do ProseMirror
+		this._isEditingDescription = false;
+		this._isEditingChatDescription = false;
+
+		// Retorna os dados para que o Foundry faça o salvamento no banco de dados
+		return super._prepareSubmitData(event, form, formData);
+	}
 
 	/** @inheritDoc */
 	_processSubmitData(event, form, submitData) {

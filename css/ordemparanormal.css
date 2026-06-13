@@ -2021,11 +2021,33 @@ dialog.ordemparanormal.application {
 	list-style: none;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	/* Removido o space-between para não quebrar o layout com 3 elementos */
 	background: rgba(0, 0, 0, 0.02);
 }
 .system-ordemparanormal .description-container .description-box summary::-webkit-details-marker {
 	display: none;
+}
+.system-ordemparanormal .description-container .description-box summary {
+	/* Estilo do título aglomerado */
+}
+.system-ordemparanormal .description-container .description-box summary .summary-title {
+	display: flex;
+	align-items: center;
+}
+.system-ordemparanormal .description-container .description-box summary {
+	/* Estilo do novo botão de edição */
+}
+.system-ordemparanormal .description-container .description-box summary .editor-edit {
+	margin-left: auto; /* Empurra o botão e a setinha para a extremidade direita */
+	margin-right: 15px; /* Dá um espacinho entre o botão e a setinha */
+	padding: 4px 6px;
+	border-radius: 4px;
+	color: #666;
+	transition: all 0.2s ease;
+}
+.system-ordemparanormal .description-container .description-box summary .editor-edit:hover {
+	color: #000;
+	background: rgba(0, 0, 0, 0.08);
 }
 .system-ordemparanormal .description-container .description-box summary::after {
 	content: "\f107";
@@ -2044,10 +2066,11 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .description-container .description-box .description-content-inner {
 	padding: 0 0px 0px 15px;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	height: auto; /* NOVO: Garante fluxo livre */
+	height: auto;
 }
 .system-ordemparanormal .description-container .description-box .description-content-inner .content-wrapper {
 	height: auto; /* NOVO: Garante fluxo livre */
+	padding-top: 0px;
 }
 .system-ordemparanormal .description-container .description-box {
 	/* --- BLOCO DE DESCRIÇÃO DINÂMICO --- */
