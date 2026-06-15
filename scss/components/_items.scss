@@ -18,6 +18,22 @@
 		padding: 0;
 	}
 
+	.window-content {
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	.tab {
+		flex-direction: column;
+		flex: 1 1 auto;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
 	.tab.active {
 		display: flex;
 		flex-direction: column;
@@ -25,13 +41,11 @@
 
 	.content-item.scrollable {
 		/* Controladores dinâmicos de altura */
-		height: auto !important;
+		height: auto;
 		min-height: 100px;
 		max-height: 100vh;
 		overflow-y: auto;
 		overflow-x: hidden;
-		scrollbar-gutter: unset;
-		transition: scrollbar-gutter 0.3s ease;
 	}
 
 	.prosemirror menu,
@@ -43,7 +57,6 @@
 	.scrollable {
 		box-sizing: border-box;
 		width: 100%;
-		padding: 0;
 	}
 
 	span.item-title-header {
@@ -253,59 +266,163 @@
 	display: flex;
 	align-items: center;
 	flex: 0 0 auto;
-	gap: 15px;
-	padding-bottom: 15px;
-	background: transparent;
+	gap: 20px;
+	padding: 15px 20px;
+	background: rgba(0, 0, 0, 0.01);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-	.profile-img {
-		width: 64px;
-		height: 64px;
-		border: 1px solid rgba(0, 0, 0, 0.2);
+	/* Container com efeito de moldura fotográfica de arquivo secreto */
+	.profile-img-wrapper {
+		position: relative;
+		width: 68px;
+		height: 68px;
+		border: 2px solid #161616;
 		border-radius: 4px;
-		object-fit: cover;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		background: #111;
+		cursor: pointer;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease;
+
+		.profile-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: opacity 0.2s ease;
+		}
+
+		/* Feedback visual ao passar o mouse para alterar imagem */
+		.profile-img-hover {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: rgba(177, 22, 26, 0.85); /* Carmesim translúcido */
+			color: #fff;
+			font-size: 14px;
+			opacity: 0;
+			transition: opacity 0.2s ease;
+		}
+
+		&:hover {
+			transform: scale(1.03);
+			border-color: #b1161a;
+
+			.profile-img-hover {
+				opacity: 1;
+			}
+			.profile-img {
+				opacity: 0.3;
+			}
+		}
 	}
 
 	.header-fields {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
+		gap: 10px;
 
-		.document-name input {
-			width: 100%;
-			font-size: 1.5rem;
-			font-weight: bold;
-			padding: 6px 10px;
-			border: 1px solid rgba(0, 0, 0, 0.15);
-			border-radius: 4px;
-			background: rgba(0, 0, 0, 0.04);
-			color: #222;
-		}
+		/* O Campo de Texto de Nome do Item */
+		.document-name {
+			input {
+				width: 100%;
+				font-family: "Signika", "Roboto", sans-serif;
+				font-size: 1.45rem;
+				font-weight: 800;
+				letter-spacing: -0.5px;
+				padding: 4px 0;
 
-		.header-stats {
-			display: flex;
-			gap: 20px;
+				color: #1a1a1a;
+				background: transparent;
+				border: none;
+				border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+				border-radius: 0;
+				height: auto;
+				transition: all 0.2s ease;
 
-			.stat-box {
-				display: flex;
-				align-items: center;
-				gap: 8px;
-				font-weight: bold;
-				color: #555;
-				font-size: 0.9rem;
-
-				i {
-					color: #888;
+				&:hover {
+					border-bottom-color: rgba(0, 0, 0, 0.3);
+					background: transparent;
 				}
 
+				&:focus {
+					border-bottom-color: #b1161a; /* Linha Carmesim ativa */
+					background: transparent;
+					box-shadow: none;
+				}
+			}
+		}
+
+		/* Caixa de Atributos Físicos (Quantidade e Espaço) Estilo Emblema */
+		.header-stats {
+			display: flex;
+			gap: 12px;
+
+			.stat-badge {
+				display: flex;
+				align-items: center;
+				background: rgba(0, 0, 0, 0.04);
+				border: 1px solid rgba(0, 0, 0, 0.12);
+				border-radius: 4px;
+				overflow: hidden;
+				height: 26px;
+
+				.stat-label {
+					display: flex;
+					align-items: center;
+					gap: 6px;
+					padding: 0 8px;
+					font-family: "Signika", sans-serif;
+					font-size: 11px;
+					font-weight: bold;
+					text-transform: uppercase;
+					color: #555;
+					background: rgba(0, 0, 0, 0.03);
+					border-right: 1px solid rgba(0, 0, 0, 0.12);
+					height: 100%;
+
+					i {
+						font-size: 11px;
+						color: #666;
+					}
+				}
+
+				/* O Campo numérico interno */
 				input {
-					width: 50px;
-					height: 26px;
+					width: 44px;
+					height: 100%;
 					text-align: center;
-					border: 1px solid rgba(0, 0, 0, 0.15);
-					border-radius: 4px;
-					background: rgba(0, 0, 0, 0.04);
+					font-family: "Roboto", sans-serif;
+					font-size: 12px;
+					font-weight: bold;
+					color: #000;
+					border: none;
+					border-radius: 0;
+					background: transparent;
+					padding: 0;
+
+					&:hover,
+					&:focus {
+						background: rgba(255, 255, 255, 0.6);
+						outline: none;
+					}
+				}
+
+				/* Pequeno realce no badge focado */
+				&:focus-within {
+					border-color: #b1161a;
+
+					.stat-label {
+						color: #b1161a;
+						border-right-color: #b1161a;
+						i {
+							color: #b1161a;
+						}
+					}
 				}
 			}
 		}
@@ -451,9 +568,35 @@
 
 /* --- ABA DE DESCRIÇÃO --- */
 .description-container {
-	padding: 10px;
-	height: auto; /* ALTERADO: De 100% para auto, permitindo crescer */
-	overflow: visible; /* ALTERADO: Permite que o conteúdo expanda livremente */
+	flex: 1 1 auto;
+	height: 100%;
+
+	/* Libera a rolagem apenas aqui dentro */
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	/* O espaçamento visual real do texto e dos blocos fica aqui */
+	padding: 15px 6px 15px 15px;
+	margin: 0;
+
+	/* 4. Estética Minimalista da Barra (Estilo D&D 5e) */
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+	&::-webkit-scrollbar-track {
+		background: transparent;
+		margin: 4px 0;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: rgba(0, 0, 0, 0.25);
+		border-radius: 3px;
+	}
+	&::-webkit-scrollbar-thumb:hover {
+		background: rgba(0, 0, 0, 0.45);
+	}
 
 	.description-box {
 		border: 1px solid rgba(0, 0, 0, 0.15);
@@ -464,32 +607,34 @@
 		margin-bottom: 15px;
 
 		summary {
+			position: relative; /* Serve de âncora para a setinha ::after */
+			display: flex;
+			flex-wrap: wrap; /* Permite que o parágrafo de aviso pule para a linha debaixo */
+			align-items: center;
+			padding: 12px;
+			padding-right: 40px; /* Abre um espaço reservado na direita para a setinha não esmagar o botão */
+
 			font-weight: bold;
 			text-transform: uppercase;
 			font-size: 13px;
 			color: #555;
-			padding: 12px;
 			cursor: pointer;
 			list-style: none;
-			display: flex;
-			align-items: center;
-			/* Removido o space-between para não quebrar o layout com 3 elementos */
 			background: rgba(0, 0, 0, 0.02);
 
 			&::-webkit-details-marker {
 				display: none;
 			}
 
-			/* Estilo do título aglomerado */
 			.summary-title {
 				display: flex;
 				align-items: center;
+				gap: 4px;
 			}
 
-			/* Estilo do novo botão de edição */
 			.editor-edit {
-				margin-left: auto; /* Empurra o botão e a setinha para a extremidade direita */
-				margin-right: 15px; /* Dá um espacinho entre o botão e a setinha */
+				margin-left: auto; /* Empurra o botão tudo para a direita */
+				margin-right: 5px;
 				padding: 4px 6px;
 				border-radius: 4px;
 				color: #666;
@@ -501,10 +646,28 @@
 				}
 			}
 
+			/* Estilização do Aviso abaixo do Título */
+			.notes {
+				flex-basis: 100%; /* Força o parágrafo a ocupar uma linha inteira, descendo para baixo */
+				margin: 6px 0 0 0;
+				font-size: 11.5px;
+				font-weight: normal;
+				text-transform: none;
+				color: #666;
+				font-style: italic;
+			}
+
+			/* A Setinha Suspensa */
 			&::after {
 				content: "\f107";
 				font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
 				font-weight: 900;
+
+				/* Tira a seta do fluxo flex e prende-a na mesma linha superior */
+				position: absolute;
+				right: 15px;
+				top: 14px;
+
 				display: inline-block;
 				transition: transform 0.3s ease;
 			}
@@ -512,7 +675,7 @@
 
 		&[open] {
 			background: rgba(0, 0, 0, 0.05);
-			height: auto; /* NOVO: Garante que o details expanda a altura toda */
+			height: auto;
 
 			summary::after {
 				transform: rotate(180deg);
@@ -530,46 +693,30 @@
 			}
 		}
 
-		/* --- BLOCO DE DESCRIÇÃO DINÂMICO --- */
 		prose-mirror {
-			display: flex;
+			display: flex !important;
 			flex-direction: column;
-			width: 100%;
-			background: transparent;
-			border: none;
-			height: auto; /* ALTERADO: Remove a limitação de altura */
-			min-height: 200px;
+			flex: 1;
+			height: 100%;
+			min-height: 300px;
 
-			.prosemirror {
-				height: auto; /* ALTERADO: Esse é o segredo. Faz o editor crescer com o texto */
-				overflow: visible; /* ALTERADO: Impede a criação da barra de rolagem interna */
-				padding: 10px 0;
-				min-height: 100px;
+			/* 1. O contêiner gerado pelo Foundry precisa ser flexível também */
+			> div,
+			.editor-container {
+				display: flex !important;
+				flex-direction: column;
+				flex: 1;
+				height: 100%;
+				min-height: 0; /* Impede o vazamento de conteúdo */
 			}
 
-			.icon.toggle {
-				height: 24px;
-				width: 24px;
-				line-height: 24px;
-				text-align: center;
-				padding: 0;
-				margin: 15px 15px 0 0;
-				background: rgba(207, 207, 207, 1);
-				border: 1px solid rgba(0, 0, 0, 0.1);
-				border-radius: 4px;
-				color: #555;
-				cursor: pointer;
-				transition: all 0.2s ease;
-
-				i {
-					vertical-align: middle;
-					display: inline-block;
-				}
-				&:hover {
-					background: rgba(0, 0, 0, 0.15);
-					color: #000;
-					border-color: rgba(0, 0, 0, 0.2);
-				}
+			/* 2. Onde o texto é efetivamente digitado */
+			.editor-content,
+			.ProseMirror {
+				flex: 1;
+				height: 100% !important;
+				overflow-y: auto !important; /* Barra de rolagem apenas aqui */
+				padding: 15px 20px;
 			}
 		}
 
@@ -615,6 +762,96 @@
 			text-transform: none;
 			color: #666;
 			font-style: italic;
+		}
+	}
+
+	/* --- EFEITO FULLSCREEN DO EDITOR --- */
+	.description-box.fullscreen-editor {
+		display: flex !important;
+		flex-direction: column !important;
+		flex: 1 !important;
+		height: 100% !important;
+		min-height: 0 !important; /* CRUCIAL */
+		background: #eeede0;
+		margin: 0;
+		border: none;
+		border-radius: 0;
+
+		summary {
+			display: none !important;
+		}
+
+		.fullscreen-editor-header {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			padding: 15px 20px;
+			background: rgba(0, 0, 0, 0.05);
+			border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+			box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+			flex-shrink: 0; /* Impede o cabeçalho de amassar */
+
+			img {
+				width: 48px;
+				height: 48px;
+				border: 1px solid rgba(0, 0, 0, 0.2);
+				border-radius: 4px;
+				object-fit: cover;
+			}
+
+			h2 {
+				margin: 0;
+				font-family: "Signika", sans-serif;
+				font-size: 24px;
+				color: #222;
+				border-bottom: none;
+
+				span {
+					font-size: 16px;
+					color: #666;
+					font-weight: normal;
+				}
+			}
+		}
+
+		/* As divs intermediárias repassando o tamanho */
+		.description-content-inner,
+		.content-wrapper {
+			display: flex !important;
+			flex-direction: column !important;
+			flex: 1 !important;
+			height: 100% !important;
+			min-height: 0 !important;
+			padding: 0 !important;
+		}
+
+		/* O ProseMirror finalmente abraçando a tela */
+		prose-mirror {
+			display: flex !important;
+			flex-direction: column !important;
+			flex: 1 !important;
+			height: 100% !important;
+			min-height: 0 !important;
+
+			/* O contêiner gerado pelo Foundry V12+ */
+			> div,
+			.editor-container {
+				display: flex !important;
+				flex-direction: column !important;
+				flex: 1 !important;
+				height: 100% !important;
+				min-height: 0 !important;
+			}
+
+			/* Onde o texto é efetivamente digitado */
+			.editor-content,
+			.ProseMirror {
+				flex: 1 !important;
+				height: 100% !important;
+				min-height: 0 !important;
+				overflow-y: auto !important; /* Barra de rolagem aparece AQUI DENTRO */
+				padding: 15px 20px !important;
+			}
 		}
 	}
 }
@@ -814,6 +1051,86 @@
 			margin: 0 !important;
 			position: relative !important;
 			flex-shrink: 0;
+		}
+	}
+}
+
+.op-fullscreen-active {
+	/* 1. Elementos nativos do Foundry (MANTÉM !important para vencer o core) */
+	.item-header,
+	nav.tabs,
+	.sheet-navigation,
+	.description-box:not(.fullscreen-editor) {
+		display: none !important;
+	}
+
+	/* 2. Raiz e Window (MANTÉM !important para vencer o estilo inline injetado pelo JS) */
+	&.application.item,
+	.window-content,
+	.tab.description,
+	.content-item.scrollable {
+		display: flex !important;
+		flex-direction: column !important;
+		height: auto !important;
+		max-height: 85vh !important;
+		overflow: hidden !important;
+	}
+
+	/* 3. Nossos contêineres customizados (LIMPO! O Foundry não mexe aqui, então não precisa de !important) */
+	.description-box.fullscreen-editor {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		background: #eeede0;
+		margin: 0;
+		border: none;
+		border-radius: 0;
+
+		summary {
+			display: none;
+		}
+
+		.fullscreen-editor-header {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			padding: 15px 20px;
+			background: rgba(0, 0, 0, 0.05);
+			border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+			flex: 0 0 auto;
+		}
+
+		.description-content-inner,
+		.content-wrapper {
+			display: flex;
+			flex-direction: column;
+			flex: 1 1 auto;
+			padding: 0;
+			margin: 0;
+			min-height: 0;
+		}
+
+		/* 4. O Web Component do Foundry (MANTÉM !important nas camadas internas para vencer as classes do ProseMirror) */
+		prose-mirror {
+			display: flex !important;
+			flex-direction: column !important;
+			flex: 1 1 auto !important;
+			min-height: 0 !important;
+
+			.editor-container {
+				display: flex !important;
+				flex-direction: column !important;
+				flex: 1 1 auto !important;
+				min-height: 300px !important;
+
+				.editor-content,
+				.ProseMirror {
+					flex: 1 1 auto !important;
+					height: 100% !important;
+					overflow-y: auto !important;
+					padding: 15px 20px !important;
+				}
+			}
 		}
 	}
 }

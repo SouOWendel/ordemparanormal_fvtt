@@ -334,6 +334,25 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			disableCheckbox.addEventListener("change", toggleCombatInputs);
 			toggleCombatInputs();
 		}
+
+		// Controle do Fullscreen
+		const isEditing = this._isEditingDescription || this._isEditingChatDescription;
+		this.element.classList.toggle("op-fullscreen-active", isEditing);
+
+		// --- A SOLUÇÃO: Conectar o evento do ProseMirror ao nosso Layout ---
+		const proseMirrors = this.element.querySelectorAll("prose-mirror");
+		for (const pm of proseMirrors) {
+			// Ouve o clique no botão nativo de "Salvar" do editor
+			pm.addEventListener("save", () => {
+				// Desliga as nossas variáveis de controle
+				this._isEditingDescription = false;
+				this._isEditingChatDescription = false;
+
+				// Retorna a janela ao tamanho normal e re-renderiza
+				this._toggleWindowSize(false);
+				this.render();
+			});
+		}
 	}
 
 	/** ************
@@ -342,14 +361,22 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 *
 	 **************/
 
-	static #toggleDescriptionEdit(event, target) {
-		event.stopPropagation(); // O Vanilla JS reinando absoluto aqui
-		console.log("Toggling description edit mode");
+	// --- Controle de tamanho fixo ---
+	_toggleWindowSize(isEnteringFullscreen) {
+		if (isEnteringFullscreen) {
+			// Usamos "auto" para que o CSS assuma o controle do tamanho e do limite máximo
+			this.setPosition({ width: 540, height: 540 });
+		} else {
+			// Retorna para as configurações base
+			this.setPosition({ width: this.options.position.width, height: this.options.position.height });
+		}
+	}
 
-		// O 'this' dentro desta função estática aponta para a instância da ficha!
+	static #toggleDescriptionEdit(event, target) {
+		event.stopPropagation();
 		this._isEditingDescription = !this._isEditingDescription;
 
-		// Chama o novo ciclo de renderização do V2
+		this._toggleWindowSize(this._isEditingDescription);
 		this.render();
 	}
 
@@ -363,7 +390,9 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 * @protected
 	 */
 	static async #onEditImage(event, target) {
-		const attr = target.dataset.edit;
+		const attrElement = target.closest(".profile-img-wrapper")?.querySelector("[data-edit]");
+		const attr = attrElement ? attrElement.dataset.edit : "img";
+
 		const current = foundry.utils.getProperty(this.document, attr);
 		const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
 		// V13: Use namespaced FilePicker
@@ -715,9 +744,11 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	/* -------------------------------------------- */
 
 	_prepareSubmitData(event, form, formData) {
-		// Desliga os editores assim que o usuário clica no "Checkmark" de salvar do ProseMirror
-		this._isEditingDescription = false;
-		this._isEditingChatDescription = false;
+		if (this._isEditingDescription || this._isEditingChatDescription) {
+			this._toggleWindowSize(false);
+			this._isEditingDescription = false;
+			this._isEditingChatDescription = false;
+		}
 
 		// Retorna os dados para que o Foundry faça o salvamento no banco de dados
 		return super._prepareSubmitData(event, form, formData);
@@ -747,4 +778,27 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	}
 
 	/* -------------------------------------------- */
+
+	/**
+	 * Sobrescreve o fechamento da janela ("X") para garantir o salvamento
+	 * de qualquer texto no ProseMirror antes de destruir a ficha do item.
+	 * @override
+	 */
+	async close(options = {}) {
+		if (this.isEditable) {
+			// 1. Pede para os editores atualizarem o formulário com o texto atual
+			const proseMirrors = this.element?.querySelectorAll("prose-mirror");
+			if (proseMirrors) {
+				for (const pm of proseMirrors) {
+					if (typeof pm.save === "function") pm.save();
+				}
+			}
+
+			// 2. Força o envio dos dados pro banco antes da janela sumir
+			await this.submit();
+		}
+
+		// 3. Destrói a janela normalmente (o que já desativa a edição para a próxima abertura)
+		return super.close(options);
+	}
 }

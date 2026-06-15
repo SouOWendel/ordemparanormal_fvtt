@@ -283,6 +283,115 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .capitalize {
 	text-transform: capitalize;
 }
+.system-ordemparanormal {
+	/* --- LARGURAS DAS COLUNAS (INVENTÁRIO E HABILIDADES) --- */
+}
+.system-ordemparanormal .col-name {
+	flex: 1;
+	text-align: left;
+}
+.system-ordemparanormal .col-category {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-space {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-quantity {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal {
+	/* Novas Colunas Específicas de Habilidades */
+}
+.system-ordemparanormal .col-type {
+	width: 100px;
+	text-align: center;
+}
+.system-ordemparanormal .col-cost {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-exec {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal .col-controls {
+	width: 100px;
+	text-align: right;
+	justify-content: flex-end;
+}
+.system-ordemparanormal {
+	/* Realce visual para o custo (Ex: 2 PE) */
+}
+.system-ordemparanormal .badge-cat.highlight {
+	font-weight: 900;
+	color: #b1161a;
+	background: rgba(177, 22, 26, 0.08);
+	border-color: rgba(177, 22, 26, 0.15);
+}
+.system-ordemparanormal {
+	/* --- LARGURAS DAS COLUNAS (INVENTÁRIO, HABILIDADES E RITUAIS) --- */
+}
+.system-ordemparanormal .col-name {
+	flex: 1;
+	text-align: left;
+}
+.system-ordemparanormal .col-category {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-space {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-quantity {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal {
+	/* Novas Colunas Específicas de Habilidades */
+}
+.system-ordemparanormal .col-type {
+	width: 100px;
+	text-align: center;
+}
+.system-ordemparanormal .col-cost {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-exec {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal {
+	/* Novas Colunas Específicas de Rituais */
+}
+.system-ordemparanormal .col-range {
+	width: 75px;
+	text-align: center;
+}
+.system-ordemparanormal .col-target {
+	width: 100px;
+	text-align: center;
+}
+.system-ordemparanormal .col-duration {
+	width: 85px;
+	text-align: center;
+}
+.system-ordemparanormal .col-resist {
+	width: 120px;
+	text-align: center;
+}
+.system-ordemparanormal {
+	/* Ligeiramente maior para comportar "Fortitude Metade" */
+}
+.system-ordemparanormal .col-controls {
+	width: 100px;
+	text-align: right;
+	justify-content: flex-end;
+}
 .system-ordemparanormal .application.theme-light {
 	background: url("../media/parchment.jpg") repeat;
 	--color-header-background: #333;
@@ -323,6 +432,7 @@ dialog.ordemparanormal.application {
 	display: flex;
 	background: #eeede0;
 	height: 100%;
+	padding: 0;
 }
 .system-ordemparanormal section.itemsheet section.window-content input,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content input {
@@ -330,7 +440,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal section.itemsheet section.window-content .tab,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab {
-	padding-top: 10px;
+	padding: 0.75rem 0.75rem;
 	height: 100%;
 	overflow: auto;
 }
@@ -346,7 +456,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal section.itemsheet section.window-content .tab[data-tab="inventory"] .inventory-body,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab="inventory"] .inventory-body {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	overflow: auto;
 	height: 100%;
 }
@@ -354,7 +464,6 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 10px;
 }
 .system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress {
@@ -492,6 +601,7 @@ dialog.ordemparanormal.application {
 	border-radius: 3px;
 	width: 100%;
 	height: 13px;
+	top: -6px;
 }
 .system-ordemparanormal section.itemsheet section.window-content section.space .space-body .spacelabel,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .spacelabel {
@@ -613,15 +723,6 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal section.itemsheet .items-list .item:last-child,
 .system-ordemparanormal form.ordemparanormal.actor .items-list .item:last-child {
 	border-bottom: none;
-}
-.system-ordemparanormal section.itemsheet .items-list .item .item-description,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-description {
-	display: none;
-	overflow: hidden;
-}
-.system-ordemparanormal section.itemsheet .items-list .item .item-description.expanded,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-description.expanded {
-	display: block;
 }
 .system-ordemparanormal section.itemsheet .items-list .item .item-name,
 .system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name {
@@ -1183,7 +1284,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 10px;
+	padding: 0.5rem 1rem;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .truncate-text {
 	white-space: nowrap;
@@ -1601,6 +1702,956 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources .resource-content {
 	padding: 1px;
 }
+.system-ordemparanormal {
+	/* --- NAVEGAÇÃO DE TABS (ESTILO MINIMALISTA) --- */
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: stretch;
+	gap: 4px;
+	background: rgba(0, 0, 0, 0.02);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	padding: 0 10px;
+	height: 36px;
+	flex: 0 0 auto;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 0 16px;
+	height: 100%;
+	font-family: "Signika", "Roboto", sans-serif;
+	font-size: 12.5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #666;
+	text-decoration: none;
+	position: relative;
+	transition: all 0.2s ease;
+	cursor: pointer;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a i,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a i {
+	font-size: 13px;
+	color: #777;
+	transition: color 0.2s ease;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a {
+	/* Efeito Hover */
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a:hover,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a:hover {
+	color: #000;
+	background: rgba(0, 0, 0, 0.03);
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a:hover i,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a:hover i {
+	color: #b1161a;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a {
+	/* Estado Ativo */
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active {
+	color: #b1161a;
+	font-weight: 800;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active i,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active i {
+	color: #b1161a;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active {
+	/* Linha inferior indicadora */
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active::after,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 3px;
+	background: #b1161a;
+	border-radius: 3px 3px 0 0;
+	box-shadow: 0 -2px 6px rgba(177, 22, 26, 0.3);
+}
+.system-ordemparanormal {
+	/* ========================================================= */
+	/* --- DESIGN DO INVENTÁRIO (DOSSIÊ TÁTICO / ORDEM) ------ */
+	/* ========================================================= */
+	/* Reforço de especificidade para vencer o "display: block" antigo do _forms.scss */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	flex-direction: column !important;
+	height: 100% !important;
+	padding: 0 !important; /* Anula o padding-bottom de 24px do antigo .inventory */
+	margin: 0 !important;
+	background: transparent;
+	overflow: hidden !important; /* Vital: Trava a aba e força o scroll a acontecer APENAS na lista interna */
+	/* --- 1. CABEÇALHO DE PRESTÍGIO E PATENTES --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	padding: 8px 15px; /* Reduzido para compactar */
+	background: rgba(0, 0, 0, 0.02);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	flex: 0 0 auto !important;
+	/* Pontos de Prestígio: Título e Input agora na mesma linha */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label {
+	font-family: "Signika", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label i,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label i {
+	color: #b1161a;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box input {
+	width: 60px; /* Reduzido, ocupava 140px antes */
+	height: 24px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 13px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header {
+	/* Limites por Categoria: Título e os 4 emblemas na mesma linha */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 12px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.section-title,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .section-title {
+	font-family: "Signika", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid {
+	display: flex;
+	gap: 4px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	height: 24px; /* Diminuído para alinhar com o Prestígio */
+	overflow: hidden;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	label,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge label {
+	padding: 0 6px;
+	font-family: "Signika", sans-serif;
+	font-weight: 900;
+	font-size: 11px;
+	color: #444;
+	background: rgba(0, 0, 0, 0.03);
+	border-right: 1px solid rgba(0, 0, 0, 0.15);
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge input {
+	width: 26px !important; /* Estreitado para caber tudo na linha */
+	height: 100%;
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	color: #000;
+	padding: 0;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input:disabled,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input:disabled {
+	opacity: 0.8;
+	cursor: not-allowed;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- 2. CONTAINER DE ROLAGEM E TÍTULOS --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory,
+.system-ordemparanormal .tab.inventory-tab .scrollable-inventory {
+	flex: 1 1 auto !important; /* Ocupa todo o espaço restante dinamicamente */
+	overflow-y: scroll !important; /* Scrollbar perfeitamente fixada */
+	overflow-x: hidden !important;
+	padding: 15px;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory::-webkit-scrollbar,
+.system-ordemparanormal .tab.inventory-tab .scrollable-inventory::-webkit-scrollbar {
+	width: 6px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory::-webkit-scrollbar-track,
+.system-ordemparanormal .tab.inventory-tab .scrollable-inventory::-webkit-scrollbar-track {
+	background: transparent;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory::-webkit-scrollbar-thumb,
+.system-ordemparanormal .tab.inventory-tab .scrollable-inventory::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory::-webkit-scrollbar-thumb:hover,
+.system-ordemparanormal .tab.inventory-tab .scrollable-inventory::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.45);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-row-main,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header,
+.system-ordemparanormal .tab.inventory-tab .item-row-main {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .col-name,
+.system-ordemparanormal .tab.inventory-tab .col-name {
+	flex: 1;
+	text-align: left;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .col-category,
+.system-ordemparanormal .tab.inventory-tab .col-category {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .col-space,
+.system-ordemparanormal .tab.inventory-tab .col-space {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .col-quantity,
+.system-ordemparanormal .tab.inventory-tab .col-quantity {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .col-controls,
+.system-ordemparanormal .tab.inventory-tab .col-controls {
+	width: 130px;
+	text-align: right;
+	justify-content: flex-end;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header {
+	background: #161616 !important;
+	color: #fff !important;
+	border: none !important;
+	font-family: "Signika", sans-serif;
+	font-size: 10.5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 4px 10px;
+	border-radius: 3px;
+	margin-bottom: 4px;
+	letter-spacing: 0.5px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header i,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header i {
+	color: #b1161a;
+	margin-right: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* Espaçamento entre os blocos de categoria */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-category,
+.system-ordemparanormal .tab.inventory-tab .inventory-category {
+	margin-bottom: 5px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* Colunas menores para encaixar as Proficiências e Críticos */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .col-prop,
+.system-ordemparanormal .tab.inventory-tab .col-prop {
+	width: 50px;
+	text-align: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* Estrutura para a imagem rolável antiga funcionar perfeitamente com a nova box */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-image.slide,
+.system-ordemparanormal .tab.inventory-tab .item-image.slide {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* Inputs Inline (Edição Rápida de Peso, Categoria e Qtd.) */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input,
+.system-ordemparanormal .tab.inventory-tab .inline-input {
+	width: 100%;
+	height: 24px;
+	background: transparent;
+	border: 1px solid transparent;
+	text-align: center;
+	font-family: "Roboto", sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000;
+	border-radius: 4px;
+	transition: all 0.2s;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:focus,
+.system-ordemparanormal .tab.inventory-tab .inline-input:hover,
+.system-ordemparanormal .tab.inventory-tab .inline-input:focus {
+	border-color: rgba(0, 0, 0, 0.2);
+	background: rgba(255, 255, 255, 0.5);
+	outline: none;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input,
+.system-ordemparanormal .tab.inventory-tab .inline-input {
+	/* Sobrescrita especial para input dentro da badge */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input.badge-cat-input,
+.system-ordemparanormal .tab.inventory-tab .inline-input.badge-cat-input {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: rgba(0, 0, 0, 0.05);
+	color: #444;
+	font-size: 11.5px;
+	width: 40px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* Substitui o antigo span por input dentro dos botões de + e - */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value {
+	width: 32px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font-size: 11.5px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:focus,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:hover,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:focus {
+	border: none;
+	background: rgba(255, 255, 255, 0.3);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- 3. LINHAS DOS ITENS DA LISTA --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description {
+	display: none; /* 1. Garante que a gaveta nasce sempre fechada (colapsada) */
+	background: rgba(0, 0, 0, 0.01);
+	color: #444;
+	border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
+	padding: 10px 15px 10px 50px !important;
+	line-height: 1.4;
+	width: 100%;
+	padding: 5px 10px;
+	margin-top: 5px;
+	font-size: 0.9em;
+	text-align: left;
+	/* 2. O gatilho que o seu actor-sheet.mjs ativa ao clicar no nome do item */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description.expanded,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description.expanded {
+	display: block;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row {
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	transition: all 0.2s ease;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row:hover {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: rgba(0, 0, 0, 0.18);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row.is-active,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row.is-active {
+	border-left: 3px solid #b1161a;
+	background: rgba(177, 22, 26, 0.02);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-row-main,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-row-main {
+	padding: 6px 12px;
+	height: 40px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-identity
+	.item-image,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-image {
+	width: 28px;
+	height: 28px;
+	object-fit: cover;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	background: #111;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity .item-name,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name {
+	font-family: "Signika", sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #222;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-identity
+	.item-name:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name:hover {
+	color: #b1161a;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12.5px;
+	font-weight: bold;
+	color: #444;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-meta-col
+	.font-muted,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .font-muted {
+	color: #888;
+	font-size: 11px;
+	margin-right: 2px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat {
+	font-size: 10.5px;
+	background: rgba(0, 0, 0, 0.06);
+	padding: 2px 6px;
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	color: #555;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .quantity-controller,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.04);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	height: 24px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .adjustment-button {
+	padding: 0 6px;
+	font-size: 9px;
+	color: #666;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	transition: background 0.2s;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button:hover,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button:hover {
+	background: rgba(0, 0, 0, 0.08);
+	color: #000;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.qty-value,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .qty-value {
+	width: 30px;
+	text-align: center;
+	font-size: 11.5px;
+	font-weight: bold;
+	color: #000;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn {
+	color: #777;
+	padding: 4px 6px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn:hover {
+	color: #000;
+	background: rgba(0, 0, 0, 0.06);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active {
+	color: #d1a100;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-btn.btn-star.active:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active:hover {
+	color: #f3ca30;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-btn.btn-delete:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-delete:hover {
+	color: #fff;
+	background: #b1161a;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-expanded-description,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-expanded-description {
+	border-top: 1px dashed rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.01);
+	padding: 10px 15px 10px 50px;
+	font-size: 12px;
+	color: #444;
+	text-align: left;
+	line-height: 1.4;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-expanded-description
+	.description-body-content
+	p,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-expanded-description
+	.description-body-content
+	p {
+	margin: 0 0 8px 0;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-expanded-description
+	.description-body-content
+	p:last-child,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-expanded-description
+	.description-body-content
+	p:last-child {
+	margin: 0;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- 4. RODAPÉ VISUAL DE COMPENSAÇÃO DE CARGA --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space {
+	background: rgba(0, 0, 0, 0.03);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 6px 15px; /* Reduzido drasticamente de 12px 20px */
+	display: flex;
+	flex-direction: column;
+	gap: 4px; /* Distância menor entre o texto e a barra */
+	flex: 0 0 auto !important;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-label,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-label {
+	font-family: "Signika", sans-serif;
+	font-size: 10px; /* Texto ligeiramente menor */
+	font-weight: bold;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-counter,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter {
+	font-family: "Signika", sans-serif;
+	font-weight: 800;
+	font-size: 12px; /* Reduzido de 14px */
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.current,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .current {
+	color: #000;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.divider,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .divider {
+	color: #aaa;
+	font-weight: normal;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.max,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .max {
+	color: #666;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .progress-bar-container,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container {
+	width: 100%;
+	height: 4px; /* Barra mais fina e tática (reduzido de 6px) */
+	background: rgba(0, 0, 0, 0.08);
+	border-radius: 2px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.progress-bar-container
+	.progress-fill,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container .progress-fill {
+	height: 100%;
+	background: #161616;
+	border-radius: 2px;
+	transition:
+		width 0.4s ease,
+		background-color 0.4s ease;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space.is-overburdened,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened {
+	background: rgba(177, 22, 26, 0.04);
+	border-top-color: rgba(177, 22, 26, 0.2);
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-label,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened .space-status-bar .space-label {
+	color: #b1161a;
+	animation: op-pulse 2s infinite ease-in-out;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-counter
+	.current,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-counter
+	.current {
+	color: #b1161a;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.progress-bar-container
+	.progress-fill,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.progress-bar-container
+	.progress-fill {
+	background: #b1161a;
+}
+@keyframes op-pulse {
+	0% {
+		opacity: 0.8;
+	}
+	50% {
+		opacity: 1;
+		color: #ff2a30;
+	}
+	100% {
+		opacity: 0.8;
+	}
+}
+.system-ordemparanormal {
+	/* --- GERENCIADOR DE RECURSOS (ABA HABILIDADES) --- */
+}
+.system-ordemparanormal .tactical-control-bar {
+	display: flex;
+	justify-content: flex-end;
+	padding: 4px 15px;
+	background: rgba(0, 0, 0, 0.02);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.system-ordemparanormal .tactical-control-bar .toggle-btn {
+	font-family: "Signika", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #666;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	transition: all 0.2s;
+}
+.system-ordemparanormal .tactical-control-bar .toggle-btn:hover {
+	color: #000;
+}
+.system-ordemparanormal .tactical-control-bar .toggle-btn.is-active {
+	color: #b1161a;
+}
+.system-ordemparanormal .resource-manager-box {
+	margin-bottom: 15px;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge {
+	height: 30px !important;
+	padding-right: 6px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label {
+	padding: 0;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input {
+	width: 80px !important;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #444;
+	background: transparent;
+	border: none;
+	text-align: center;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input:hover,
+.system-ordemparanormal .resource-manager-box .resource-badge label input:focus {
+	background: rgba(255, 255, 255, 0.5);
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	gap: 2px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input {
+	width: 30px !important;
+	height: 100%;
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-weight: bold;
+	font-size: 13px;
+	color: #000;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input:hover,
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input:focus {
+	background: rgba(255, 255, 255, 0.5);
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs .divider {
+	color: #888;
+	font-weight: normal;
+	font-size: 12px;
+}
+.system-ordemparanormal {
+	/* --- 5. DESIGN DA BIOGRAFIA (DOSSIÊ TÁTICO) --- */
+}
+.system-ordemparanormal .dossier-section {
+	margin-bottom: 0 !important; /* Retira a margem padrão para usar o gap do flex */
+	display: flex;
+	flex-direction: column;
+}
+.system-ordemparanormal .dossier-section .inventory-list-header {
+	margin-bottom: 0 !important;
+	border-radius: 4px 4px 0 0 !important; /* Arredonda apenas o topo */
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container {
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	min-height: 250px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	/* Força o ProseMirror a preencher a caixa inteira */
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 250px;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .editor-content,
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .ProseMirror {
+	padding: 15px;
+	color: #222;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content {
+	padding: 15px;
+	color: #222;
+	line-height: 1.5;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p {
+	margin: 0 0 10px 0;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p:last-child {
+	margin: 0;
+}
 .system-ordemparanormal .resource-label {
 	font-weight: bold;
 }
@@ -1620,19 +2671,31 @@ dialog.ordemparanormal.application {
 	margin: 0;
 	padding: 0;
 }
+.system-ordemparanormal .application.item .window-content {
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.system-ordemparanormal .application.item .tab {
+	flex-direction: column;
+	flex: 1 1 auto;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
 .system-ordemparanormal .application.item .tab.active {
 	display: flex;
 	flex-direction: column;
 }
 .system-ordemparanormal .application.item .content-item.scrollable {
 	/* Controladores dinâmicos de altura */
-	height: auto !important;
+	height: auto;
 	min-height: 100px;
 	max-height: 100vh;
 	overflow-y: auto;
 	overflow-x: hidden;
-	scrollbar-gutter: unset;
-	transition: scrollbar-gutter 0.3s ease;
 }
 .system-ordemparanormal .application.item .prosemirror menu,
 .system-ordemparanormal .application.item prosemirror menu {
@@ -1642,7 +2705,6 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .application.item .scrollable {
 	box-sizing: border-box;
 	width: 100%;
-	padding: 0;
 }
 .system-ordemparanormal .application.item span.item-title-header {
 	display: flex;
@@ -1818,56 +2880,155 @@ dialog.ordemparanormal.application {
 	display: flex;
 	align-items: center;
 	flex: 0 0 auto;
-	gap: 15px;
-	padding-bottom: 15px;
-	background: transparent;
+	gap: 20px;
+	padding: 15px 20px;
+	background: rgba(0, 0, 0, 0.01);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	/* Container com efeito de moldura fotográfica de arquivo secreto */
 }
-.system-ordemparanormal .item-header .profile-img {
-	width: 64px;
-	height: 64px;
-	border: 1px solid rgba(0, 0, 0, 0.2);
+.system-ordemparanormal .item-header .profile-img-wrapper {
+	position: relative;
+	width: 68px;
+	height: 68px;
+	border: 2px solid #161616;
 	border-radius: 4px;
+	overflow: hidden;
+	background: #111;
+	cursor: pointer;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+	transition:
+		transform 0.2s ease,
+		border-color 0.2s ease;
+}
+.system-ordemparanormal .item-header .profile-img-wrapper .profile-img {
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: opacity 0.2s ease;
+}
+.system-ordemparanormal .item-header .profile-img-wrapper {
+	/* Feedback visual ao passar o mouse para alterar imagem */
+}
+.system-ordemparanormal .item-header .profile-img-wrapper .profile-img-hover {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(177, 22, 26, 0.85); /* Carmesim translúcido */
+	color: #fff;
+	font-size: 14px;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+.system-ordemparanormal .item-header .profile-img-wrapper:hover {
+	transform: scale(1.03);
+	border-color: #b1161a;
+}
+.system-ordemparanormal .item-header .profile-img-wrapper:hover .profile-img-hover {
+	opacity: 1;
+}
+.system-ordemparanormal .item-header .profile-img-wrapper:hover .profile-img {
+	opacity: 0.3;
 }
 .system-ordemparanormal .item-header .header-fields {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 10px;
+	/* O Campo de Texto de Nome do Item */
 }
 .system-ordemparanormal .item-header .header-fields .document-name input {
 	width: 100%;
-	font-size: 1.5rem;
-	font-weight: bold;
-	padding: 6px 10px;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.04);
-	color: #222;
+	font-family: "Signika", "Roboto", sans-serif;
+	font-size: 1.45rem;
+	font-weight: 800;
+	letter-spacing: -0.5px;
+	padding: 4px 0;
+	color: #1a1a1a;
+	background: transparent;
+	border: none;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+	border-radius: 0;
+	height: auto;
+	transition: all 0.2s ease;
+}
+.system-ordemparanormal .item-header .header-fields .document-name input:hover {
+	border-bottom-color: rgba(0, 0, 0, 0.3);
+	background: transparent;
+}
+.system-ordemparanormal .item-header .header-fields .document-name input:focus {
+	border-bottom-color: #b1161a; /* Linha Carmesim ativa */
+	background: transparent;
+	box-shadow: none;
+}
+.system-ordemparanormal .item-header .header-fields {
+	/* Caixa de Atributos Físicos (Quantidade e Espaço) Estilo Emblema */
 }
 .system-ordemparanormal .item-header .header-fields .header-stats {
 	display: flex;
-	gap: 20px;
+	gap: 12px;
 }
-.system-ordemparanormal .item-header .header-fields .header-stats .stat-box {
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	font-weight: bold;
-	color: #555;
-	font-size: 0.9rem;
-}
-.system-ordemparanormal .item-header .header-fields .header-stats .stat-box i {
-	color: #888;
-}
-.system-ordemparanormal .item-header .header-fields .header-stats .stat-box input {
-	width: 50px;
-	height: 26px;
-	text-align: center;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
 	background: rgba(0, 0, 0, 0.04);
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: 4px;
+	overflow: hidden;
+	height: 26px;
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge .stat-label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 0 8px;
+	font-family: "Signika", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	background: rgba(0, 0, 0, 0.03);
+	border-right: 1px solid rgba(0, 0, 0, 0.12);
+	height: 100%;
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge .stat-label i {
+	font-size: 11px;
+	color: #666;
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge {
+	/* O Campo numérico interno */
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge input {
+	width: 44px;
+	height: 100%;
+	text-align: center;
+	font-family: "Roboto", sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+	padding: 0;
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge input:hover,
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge input:focus {
+	background: rgba(255, 255, 255, 0.6);
+	outline: none;
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge {
+	/* Pequeno realce no badge focado */
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge:focus-within {
+	border-color: #b1161a;
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge:focus-within .stat-label {
+	color: #b1161a;
+	border-right-color: #b1161a;
+}
+.system-ordemparanormal .item-header .header-fields .header-stats .stat-badge:focus-within .stat-label i {
+	color: #b1161a;
 }
 .system-ordemparanormal {
 	/* --- ARMAMENT ITEM STYLES --- */
@@ -1999,9 +3160,31 @@ dialog.ordemparanormal.application {
 	/* --- ABA DE DESCRIÇÃO --- */
 }
 .system-ordemparanormal .description-container {
-	padding: 10px;
-	height: auto; /* ALTERADO: De 100% para auto, permitindo crescer */
-	overflow: visible; /* ALTERADO: Permite que o conteúdo expanda livremente */
+	flex: 1 1 auto;
+	height: 100%;
+	/* Libera a rolagem apenas aqui dentro */
+	overflow-y: scroll;
+	overflow-x: hidden;
+	/* O espaçamento visual real do texto e dos blocos fica aqui */
+	padding: 15px 6px 15px 15px;
+	margin: 0;
+	/* 4. Estética Minimalista da Barra (Estilo D&D 5e) */
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+.system-ordemparanormal .description-container::-webkit-scrollbar {
+	width: 6px;
+}
+.system-ordemparanormal .description-container::-webkit-scrollbar-track {
+	background: transparent;
+	margin: 4px 0;
+}
+.system-ordemparanormal .description-container::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
+}
+.system-ordemparanormal .description-container::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.45);
 }
 .system-ordemparanormal .description-container .description-box {
 	border: 1px solid rgba(0, 0, 0, 0.15);
@@ -2012,34 +3195,31 @@ dialog.ordemparanormal.application {
 	margin-bottom: 15px;
 }
 .system-ordemparanormal .description-container .description-box summary {
+	position: relative; /* Serve de âncora para a setinha ::after */
+	display: flex;
+	flex-wrap: wrap; /* Permite que o parágrafo de aviso pule para a linha debaixo */
+	align-items: center;
+	padding: 12px;
+	padding-right: 40px; /* Abre um espaço reservado na direita para a setinha não esmagar o botão */
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 13px;
 	color: #555;
-	padding: 12px;
 	cursor: pointer;
 	list-style: none;
-	display: flex;
-	align-items: center;
-	/* Removido o space-between para não quebrar o layout com 3 elementos */
 	background: rgba(0, 0, 0, 0.02);
 }
 .system-ordemparanormal .description-container .description-box summary::-webkit-details-marker {
 	display: none;
 }
-.system-ordemparanormal .description-container .description-box summary {
-	/* Estilo do título aglomerado */
-}
 .system-ordemparanormal .description-container .description-box summary .summary-title {
 	display: flex;
 	align-items: center;
-}
-.system-ordemparanormal .description-container .description-box summary {
-	/* Estilo do novo botão de edição */
+	gap: 4px;
 }
 .system-ordemparanormal .description-container .description-box summary .editor-edit {
-	margin-left: auto; /* Empurra o botão e a setinha para a extremidade direita */
-	margin-right: 15px; /* Dá um espacinho entre o botão e a setinha */
+	margin-left: auto; /* Empurra o botão tudo para a direita */
+	margin-right: 5px;
 	padding: 4px 6px;
 	border-radius: 4px;
 	color: #666;
@@ -2049,16 +3229,35 @@ dialog.ordemparanormal.application {
 	color: #000;
 	background: rgba(0, 0, 0, 0.08);
 }
+.system-ordemparanormal .description-container .description-box summary {
+	/* Estilização do Aviso abaixo do Título */
+}
+.system-ordemparanormal .description-container .description-box summary .notes {
+	flex-basis: 100%; /* Força o parágrafo a ocupar uma linha inteira, descendo para baixo */
+	margin: 6px 0 0 0;
+	font-size: 11.5px;
+	font-weight: normal;
+	text-transform: none;
+	color: #666;
+	font-style: italic;
+}
+.system-ordemparanormal .description-container .description-box summary {
+	/* A Setinha Suspensa */
+}
 .system-ordemparanormal .description-container .description-box summary::after {
 	content: "\f107";
 	font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
 	font-weight: 900;
+	/* Tira a seta do fluxo flex e prende-a na mesma linha superior */
+	position: absolute;
+	right: 15px;
+	top: 14px;
 	display: inline-block;
 	transition: transform 0.3s ease;
 }
 .system-ordemparanormal .description-container .description-box[open] {
 	background: rgba(0, 0, 0, 0.05);
-	height: auto; /* NOVO: Garante que o details expanda a altura toda */
+	height: auto;
 }
 .system-ordemparanormal .description-container .description-box[open] summary::after {
 	transform: rotate(180deg);
@@ -2072,46 +3271,31 @@ dialog.ordemparanormal.application {
 	height: auto; /* NOVO: Garante fluxo livre */
 	padding-top: 0px;
 }
-.system-ordemparanormal .description-container .description-box {
-	/* --- BLOCO DE DESCRIÇÃO DINÂMICO --- */
+.system-ordemparanormal .description-container .description-box prose-mirror {
+	display: flex !important;
+	flex-direction: column;
+	flex: 1;
+	height: 100%;
+	min-height: 300px;
+	/* 1. O contêiner gerado pelo Foundry precisa ser flexível também */
+}
+.system-ordemparanormal .description-container .description-box prose-mirror > div,
+.system-ordemparanormal .description-container .description-box prose-mirror .editor-container {
+	display: flex !important;
+	flex-direction: column;
+	flex: 1;
+	height: 100%;
+	min-height: 0; /* Impede o vazamento de conteúdo */
 }
 .system-ordemparanormal .description-container .description-box prose-mirror {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	background: transparent;
-	border: none;
-	height: auto; /* ALTERADO: Remove a limitação de altura */
-	min-height: 200px;
+	/* 2. Onde o texto é efetivamente digitado */
 }
-.system-ordemparanormal .description-container .description-box prose-mirror .prosemirror {
-	height: auto; /* ALTERADO: Esse é o segredo. Faz o editor crescer com o texto */
-	overflow: visible; /* ALTERADO: Impede a criação da barra de rolagem interna */
-	padding: 10px 0;
-	min-height: 100px;
-}
-.system-ordemparanormal .description-container .description-box prose-mirror .icon.toggle {
-	height: 24px;
-	width: 24px;
-	line-height: 24px;
-	text-align: center;
-	padding: 0;
-	margin: 15px 15px 0 0;
-	background: rgb(207, 207, 207);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	color: #555;
-	cursor: pointer;
-	transition: all 0.2s ease;
-}
-.system-ordemparanormal .description-container .description-box prose-mirror .icon.toggle i {
-	vertical-align: middle;
-	display: inline-block;
-}
-.system-ordemparanormal .description-container .description-box prose-mirror .icon.toggle:hover {
-	background: rgba(0, 0, 0, 0.15);
-	color: #000;
-	border-color: rgba(0, 0, 0, 0.2);
+.system-ordemparanormal .description-container .description-box prose-mirror .editor-content,
+.system-ordemparanormal .description-container .description-box prose-mirror .ProseMirror {
+	flex: 1;
+	height: 100% !important;
+	overflow-y: auto !important; /* Barra de rolagem apenas aqui */
+	padding: 15px 20px;
 }
 .system-ordemparanormal .description-container .description-box .description-content {
 	padding: 10px 0;
@@ -2150,6 +3334,94 @@ dialog.ordemparanormal.application {
 	text-transform: none;
 	color: #666;
 	font-style: italic;
+}
+.system-ordemparanormal .description-container {
+	/* --- EFEITO FULLSCREEN DO EDITOR --- */
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 !important;
+	height: 100% !important;
+	min-height: 0 !important; /* CRUCIAL */
+	background: #eeede0;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor summary {
+	display: none !important;
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor .fullscreen-editor-header {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 15px 20px;
+	background: rgba(0, 0, 0, 0.05);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+	flex-shrink: 0; /* Impede o cabeçalho de amassar */
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor .fullscreen-editor-header img {
+	width: 48px;
+	height: 48px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	object-fit: cover;
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor .fullscreen-editor-header h2 {
+	margin: 0;
+	font-family: "Signika", sans-serif;
+	font-size: 24px;
+	color: #222;
+	border-bottom: none;
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor .fullscreen-editor-header h2 span {
+	font-size: 16px;
+	color: #666;
+	font-weight: normal;
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor {
+	/* As divs intermediárias repassando o tamanho */
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor .description-content-inner,
+.system-ordemparanormal .description-container .description-box.fullscreen-editor .content-wrapper {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 !important;
+	height: 100% !important;
+	min-height: 0 !important;
+	padding: 0 !important;
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor {
+	/* O ProseMirror finalmente abraçando a tela */
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor prose-mirror {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 !important;
+	height: 100% !important;
+	min-height: 0 !important;
+	/* O contêiner gerado pelo Foundry V12+ */
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor prose-mirror > div,
+.system-ordemparanormal .description-container .description-box.fullscreen-editor prose-mirror .editor-container {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 !important;
+	height: 100% !important;
+	min-height: 0 !important;
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor prose-mirror {
+	/* Onde o texto é efetivamente digitado */
+}
+.system-ordemparanormal .description-container .description-box.fullscreen-editor prose-mirror .editor-content,
+.system-ordemparanormal .description-container .description-box.fullscreen-editor prose-mirror .ProseMirror {
+	flex: 1 !important;
+	height: 100% !important;
+	min-height: 0 !important;
+	overflow-y: auto !important; /* Barra de rolagem aparece AQUI DENTRO */
+	padding: 15px 20px !important;
 }
 .system-ordemparanormal {
 	/* --- Layout da Aba de Atributos --- */
@@ -2340,6 +3612,93 @@ dialog.ordemparanormal.application {
 	margin: 0 !important;
 	position: relative !important;
 	flex-shrink: 0;
+}
+.system-ordemparanormal .op-fullscreen-active {
+	/* 1. Elementos nativos do Foundry (MANTÉM !important para vencer o core) */
+}
+.system-ordemparanormal .op-fullscreen-active .item-header,
+.system-ordemparanormal .op-fullscreen-active nav.tabs,
+.system-ordemparanormal .op-fullscreen-active .sheet-navigation,
+.system-ordemparanormal .op-fullscreen-active .description-box:not(.fullscreen-editor) {
+	display: none !important;
+}
+.system-ordemparanormal .op-fullscreen-active {
+	/* 2. Raiz e Window (MANTÉM !important para vencer o estilo inline injetado pelo JS) */
+}
+.system-ordemparanormal .op-fullscreen-active.application.item,
+.system-ordemparanormal .op-fullscreen-active .window-content,
+.system-ordemparanormal .op-fullscreen-active .tab.description,
+.system-ordemparanormal .op-fullscreen-active .content-item.scrollable {
+	display: flex !important;
+	flex-direction: column !important;
+	height: auto !important;
+	max-height: 85vh !important;
+	overflow: hidden !important;
+}
+.system-ordemparanormal .op-fullscreen-active {
+	/* 3. Nossos contêineres customizados (LIMPO! O Foundry não mexe aqui, então não precisa de !important) */
+}
+.system-ordemparanormal .op-fullscreen-active .description-box.fullscreen-editor {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	background: #eeede0;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+}
+.system-ordemparanormal .op-fullscreen-active .description-box.fullscreen-editor summary {
+	display: none;
+}
+.system-ordemparanormal .op-fullscreen-active .description-box.fullscreen-editor .fullscreen-editor-header {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 15px 20px;
+	background: rgba(0, 0, 0, 0.05);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	flex: 0 0 auto;
+}
+.system-ordemparanormal .op-fullscreen-active .description-box.fullscreen-editor .description-content-inner,
+.system-ordemparanormal .op-fullscreen-active .description-box.fullscreen-editor .content-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	padding: 0;
+	margin: 0;
+	min-height: 0;
+}
+.system-ordemparanormal .op-fullscreen-active .description-box.fullscreen-editor {
+	/* 4. O Web Component do Foundry (MANTÉM !important nas camadas internas para vencer as classes do ProseMirror) */
+}
+.system-ordemparanormal .op-fullscreen-active .description-box.fullscreen-editor prose-mirror {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 1 auto !important;
+	min-height: 0 !important;
+}
+.system-ordemparanormal .op-fullscreen-active .description-box.fullscreen-editor prose-mirror .editor-container {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 1 auto !important;
+	min-height: 300px !important;
+}
+.system-ordemparanormal
+	.op-fullscreen-active
+	.description-box.fullscreen-editor
+	prose-mirror
+	.editor-container
+	.editor-content,
+.system-ordemparanormal
+	.op-fullscreen-active
+	.description-box.fullscreen-editor
+	prose-mirror
+	.editor-container
+	.ProseMirror {
+	flex: 1 1 auto !important;
+	height: 100% !important;
+	overflow-y: auto !important;
+	padding: 15px 20px !important;
 }
 .system-ordemparanormal .application.item .effects input,
 .system-ordemparanormal .application.item .effects select {
