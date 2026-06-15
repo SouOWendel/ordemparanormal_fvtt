@@ -405,10 +405,11 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 				// Find parent item and description
 				const li = event.currentTarget.closest(".item");
 				const desc = li.querySelector(".item-description");
+				console.log(li, desc.style.display);
 
 				if (desc) {
-					// Toggle display with transition
-					if (desc.style.display === "none" || !desc.style.display) {
+					const computedDisplay = window.getComputedStyle(desc).display;
+					if (computedDisplay === "none") {
 						desc.style.display = "block";
 					} else {
 						desc.style.display = "none";
