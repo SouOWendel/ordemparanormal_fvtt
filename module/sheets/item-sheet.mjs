@@ -20,7 +20,7 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 
 	/** @inheritDoc */
 	static DEFAULT_OPTIONS = {
-		classes: ["ordemparanormal", "sheet", "item", "themed", "theme-light"],
+		classes: ["ordemparanormal", "op-item-sheet", "sheet", "item", "themed", "theme-light"],
 		position: {
 			width: 540,
 			height: "auto",

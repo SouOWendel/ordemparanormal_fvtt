@@ -1,22 +1,18 @@
 @use "../utils/variables";
 @use "../utils/colors";
 
-.application.item {
+/* ==========================================================================
+   ESCOPO BLINDADO: Apenas elementos dentro da janela de Item serão afetados
+   ========================================================================== */
+.op-item-sheet {
+	/* ==========================================================================
+	   1. BASE & ESTRUTURA
+	   ========================================================================== */
 	min-height: 250px;
 	min-width: 530px;
 	display: flex;
 	flex-direction: column;
 	height: auto;
-
-	ul,
-	ol,
-	h1,
-	h2,
-	h3,
-	h4 {
-		margin: 0;
-		padding: 0;
-	}
 
 	.window-content {
 		padding: 0;
@@ -32,15 +28,15 @@
 		padding: 0;
 		margin: 0;
 		overflow: hidden;
+
+		&.active {
+			display: flex;
+		}
 	}
 
-	.tab.active {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.content-item.scrollable {
-		/* Controladores dinâmicos de altura */
+	.scrollable {
+		box-sizing: border-box;
+		width: 100%;
 		height: auto;
 		min-height: 100px;
 		max-height: 100vh;
@@ -48,316 +44,144 @@
 		overflow-x: hidden;
 	}
 
-	.prosemirror menu,
-	prosemirror menu {
-		gap: 0;
-		background: #eeede0;
-	}
-
-	.scrollable {
-		box-sizing: border-box;
-		width: 100%;
-	}
-
-	span.item-title-header {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: rgba(0, 0, 0, 0.05);
-		border: 2px groove #eeede0;
-		padding: 4px;
-	}
-
-	.resource-type {
-		margin-top: 0;
-		margin-right: 0;
-		margin-bottom: 10px;
-		border: 1px solid colors.$transparent-c-black;
-		border-radius: 4px;
-		padding: 10px;
-	}
-
 	.content-item {
 		height: 100%;
 		overflow-y: auto;
-		padding-top: 10px;
+		padding: 10px;
 	}
 
-	.section-attack {
-		margin-bottom: 20px;
-	}
-
-	.attack-formula {
-		display: flex;
-		justify-content: space-between;
-		flex-direction: row;
-		align-items: center;
-	}
-
-	.main-damage-formula {
-		display: flex;
-		justify-content: space-between;
-		flex-direction: row;
-		align-items: center;
-		gap: 4px;
-	}
-
-	.damage-formula {
-		display: flex;
-		flex-direction: row;
-		gap: 40px;
-
-		a {
-			width: 10px;
-		}
-	}
-
-	/* ITEM SHEET */
-
-	.specifications {
-		h4 {
-			color: #16161670;
-			border-bottom: 1px solid colors.$transparent-c-black;
-		}
-	}
-
-	.combat {
-		h4 {
-			color: #16161670;
-			border-bottom: 1px solid colors.$transparent-c-black;
-		}
-
-		.resource-label {
-			font-size: 13px;
-		}
-	}
-
-	.item-sheet-form {
-		display: flex;
-		flex: 1 10px;
-		margin: 2px 0px;
-		align-items: center;
-		flex-direction: row;
-
-		input,
-		select {
-			width: 100%;
-		}
-
-		i {
-			margin-left: 6px;
-		}
-	}
-
-	.item-damage-bonus {
-		flex: 2;
-	}
-
-	.minor-size {
-		flex: 0 60px;
-	}
-
-	.item-sheet-controls {
-		display: flex;
-		flex: 0 0 20px;
-		justify-content: flex-end;
-		a {
-			font-size: 12px;
-			text-align: center;
-			margin: 0 6px;
-		}
-	}
-
-	.item-sheet {
-		.item-attribute {
-			flex: 1;
-			padding: 0 8px;
-		}
-		.item-skill {
-			flex: 1;
-			padding: 0 8px;
-		}
-		.item-bonus {
-			flex: 2;
-			padding: 0 8px;
-		}
-	}
-
-	.damage-box {
-		color: #00000070;
-		padding: 6px;
-		text-align: center;
-		border-bottom: 1px dashed #00000040;
-
-		a:hover {
-			color: #555;
-		}
-	}
-
-	.damage-control {
-		.fa-trash {
-			font-size: 12px;
-		}
-	}
-
-	.delete-damage,
-	.promote-part {
-		margin-right: 15px;
-	}
-
-	.container-formula {
-		position: relative;
-		padding-left: 0px;
-		font-family: sans-serif;
-	}
-
-	.part-damage-section {
-		padding-left: 20px;
-		padding-top: 10px;
-	}
-
+	/* ==========================================================================
+	   2. ELEMENTOS DE FORMULÁRIO GLOBAIS
+	   ========================================================================== */
 	input:not([type="radio"]):not([type="checkbox"]),
-	select {
+	select,
+	textarea {
 		width: 100%;
 		border: 1px solid rgba(0, 0, 0, 0.2);
 		border-radius: 4px;
-		height: 26px;
-		padding: 0 6px;
 		background: rgba(0, 0, 0, 0.02);
 		font-family: sans-serif;
-		transition: all 0.2s;
+		transition: all 0.2s ease;
+		padding: 0 6px;
 
 		&:hover,
 		&:focus {
 			border-color: #b1161a;
 			outline: none;
-			background: rgba(255, 255, 255, 0.4);
+			background: rgba(255, 255, 255, 0.6);
+		}
+
+		&:disabled {
+			background-color: rgba(0, 0, 0, 0.08);
+			cursor: not-allowed;
+			opacity: 0.6;
 		}
 	}
-}
 
-/* Ajuste específico para o seletor de Categoria do Ordem Paranormal */
-.system-ordemparanormal {
-	.categoryCheck {
+	input:not([type="radio"]):not([type="checkbox"]),
+	select {
+		height: 26px;
+	}
+
+	textarea {
+		padding: 6px;
+		resize: vertical;
+	}
+
+	.resource-label {
+		font-size: 13px;
+		font-weight: bold;
+		color: #444;
+	}
+
+	/* ==========================================================================
+	   3. CABEÇALHO DO ITEM (Item Header)
+	   ========================================================================== */
+	.item-header {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 5px;
 		align-items: center;
+		flex: 0 0 auto;
+		gap: 20px;
+		padding: 15px 20px;
+		background: rgba(0, 0, 0, 0.01);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-		label.radio {
-			display: flex;
-			align-items: center;
-			gap: 4px;
-			font-size: 12px;
+		.profile-img-wrapper {
+			position: relative;
+			width: 68px;
+			height: 68px;
+			border: 2px solid #161616;
+			border-radius: 4px;
+			overflow: hidden;
+			background: #111;
 			cursor: pointer;
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+			transition:
+				transform 0.2s ease,
+				border-color 0.2s ease;
 
-			/* Diminui o tamanho do círculo do rádio */
-			input[type="radio"] {
-				width: 14px !important;
-				height: 14px !important;
-				margin: 0;
+			.profile-img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: opacity 0.2s ease;
 			}
-		}
-	}
-}
-
-/* --- ITEM HEADER --- */
-.item-header {
-	display: flex;
-	align-items: center;
-	flex: 0 0 auto;
-	gap: 20px;
-	padding: 15px 20px;
-	background: rgba(0, 0, 0, 0.01);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-
-	/* Container com efeito de moldura fotográfica de arquivo secreto */
-	.profile-img-wrapper {
-		position: relative;
-		width: 68px;
-		height: 68px;
-		border: 2px solid #161616;
-		border-radius: 4px;
-		overflow: hidden;
-		background: #111;
-		cursor: pointer;
-		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-		transition:
-			transform 0.2s ease,
-			border-color 0.2s ease;
-
-		.profile-img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			transition: opacity 0.2s ease;
-		}
-
-		/* Feedback visual ao passar o mouse para alterar imagem */
-		.profile-img-hover {
-			position: absolute;
-			inset: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: rgba(177, 22, 26, 0.85); /* Carmesim translúcido */
-			color: #fff;
-			font-size: 14px;
-			opacity: 0;
-			transition: opacity 0.2s ease;
-		}
-
-		&:hover {
-			transform: scale(1.03);
-			border-color: #b1161a;
 
 			.profile-img-hover {
-				opacity: 1;
+				position: absolute;
+				inset: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(177, 22, 26, 0.85);
+				color: #fff;
+				font-size: 14px;
+				opacity: 0;
+				transition: opacity 0.2s ease;
 			}
-			.profile-img {
-				opacity: 0.3;
-			}
-		}
-	}
 
-	.header-fields {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
+			&:hover {
+				transform: scale(1.03);
+				border-color: #b1161a;
 
-		/* O Campo de Texto de Nome do Item */
-		.document-name {
-			input {
-				width: 100%;
-				font-family: "Signika", "Roboto", sans-serif;
-				font-size: 1.45rem;
-				font-weight: 800;
-				letter-spacing: -0.5px;
-				padding: 4px 0;
-
-				color: #1a1a1a;
-				background: transparent;
-				border: none;
-				border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-				border-radius: 0;
-				height: auto;
-				transition: all 0.2s ease;
-
-				&:hover {
-					border-bottom-color: rgba(0, 0, 0, 0.3);
-					background: transparent;
+				.profile-img-hover {
+					opacity: 1;
 				}
-
-				&:focus {
-					border-bottom-color: #b1161a; /* Linha Carmesim ativa */
-					background: transparent;
-					box-shadow: none;
+				.profile-img {
+					opacity: 0.3;
 				}
 			}
 		}
 
-		/* Caixa de Atributos Físicos (Quantidade e Espaço) Estilo Emblema */
+		.header-fields {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.document-name input {
+			font-family: "Signika", "Roboto", sans-serif;
+			font-size: 1.45rem;
+			font-weight: 800;
+			letter-spacing: -0.5px;
+			padding: 4px 0;
+			color: #1a1a1a;
+			background: transparent;
+			border: none;
+			border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+			border-radius: 0;
+			height: auto;
+
+			&:hover {
+				border-bottom-color: rgba(0, 0, 0, 0.3);
+			}
+			&:focus {
+				border-bottom-color: #b1161a;
+				box-shadow: none;
+			}
+		}
+
 		.header-stats {
 			display: flex;
 			gap: 12px;
@@ -384,753 +208,416 @@
 					background: rgba(0, 0, 0, 0.03);
 					border-right: 1px solid rgba(0, 0, 0, 0.12);
 					height: 100%;
-
-					i {
-						font-size: 11px;
-						color: #666;
-					}
 				}
 
-				/* O Campo numérico interno */
 				input {
 					width: 44px;
 					height: 100%;
 					text-align: center;
-					font-family: "Roboto", sans-serif;
-					font-size: 12px;
 					font-weight: bold;
-					color: #000;
 					border: none;
-					border-radius: 0;
 					background: transparent;
-					padding: 0;
-
-					&:hover,
-					&:focus {
-						background: rgba(255, 255, 255, 0.6);
-						outline: none;
-					}
 				}
 
-				/* Pequeno realce no badge focado */
 				&:focus-within {
 					border-color: #b1161a;
-
 					.stat-label {
 						color: #b1161a;
 						border-right-color: #b1161a;
-						i {
-							color: #b1161a;
+					}
+				}
+			}
+		}
+	}
+
+	/* ==========================================================================
+	   4. BLOCOS DE ATRIBUTOS E LAYOUTS COMUNS
+	   ========================================================================== */
+	.class-attributes-section,
+	.general-attributes-section {
+		background: rgba(0, 0, 0, 0.03);
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		padding: 10px 15px;
+		margin-bottom: 15px;
+
+		.section-title {
+			font-weight: bold;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			margin-bottom: 10px;
+			padding-bottom: 5px;
+			text-transform: uppercase;
+			font-size: 12px;
+			color: #444;
+		}
+	}
+
+	.form-group-row {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 10px;
+	}
+
+	.form-group-textarea {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		margin-bottom: 15px;
+	}
+
+	.grid-2col {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+	}
+
+	.categoryCheck {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+		align-items: center;
+		padding: 5px 0;
+
+		.radio-label,
+		label.radio {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			font-size: 13px;
+			cursor: pointer;
+			margin: 0;
+
+			input[type="radio"] {
+				width: 14px !important;
+				height: 14px !important;
+				margin: 0;
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	/* ==========================================================================
+	   5. ABA DE ARMAMENTOS E COMBATE
+	   ========================================================================== */
+	.armament-fieldset {
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 6px;
+		padding: 10px 12px;
+		margin-bottom: 12px;
+		background: rgba(0, 0, 0, 0.03);
+
+		legend {
+			font-weight: bold;
+			padding: 0 8px;
+			color: #191813;
+			font-size: 13px;
+			text-transform: uppercase;
+			font-family: "Signika", sans-serif;
+		}
+	}
+
+	.armament-grid-2 {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
+	}
+
+	.armament-field {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+
+		label {
+			font-size: 11px;
+			font-weight: bold;
+			color: #444;
+			text-transform: uppercase;
+			margin-left: 2px;
+		}
+	}
+
+	.formula-row {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		background: rgba(0, 0, 0, 0.04);
+		padding: 6px 8px;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 4px;
+		margin-bottom: 6px;
+
+		i {
+			color: #555;
+			font-size: 12px;
+		}
+		.flex-grow {
+			flex: 1;
+		}
+		.flex-large {
+			flex: 1.5;
+		}
+	}
+
+	.add-damage-btn {
+		display: block;
+		text-align: center;
+		background: rgba(0, 0, 0, 0.04);
+		padding: 6px;
+		border-radius: 4px;
+		color: #444;
+		border: 1px dashed rgba(0, 0, 0, 0.3);
+		transition: 0.2s;
+		cursor: pointer;
+		margin-top: 8px;
+		font-weight: bold;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.08);
+			color: #111;
+			border-style: solid;
+		}
+	}
+
+	.delete-damage {
+		color: #a33;
+		padding: 0 4px;
+		cursor: pointer;
+		&:hover {
+			color: #ff0000;
+		}
+	}
+
+	.checkbox-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+		margin-top: 4px;
+	}
+
+	.checkbox-pill {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		background: rgba(0, 0, 0, 0.04);
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		padding: 4px 8px;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.08);
+			border-color: #888;
+		}
+		span {
+			font-size: 12px;
+			font-weight: bold;
+			color: #222;
+		}
+	}
+
+	/* ==========================================================================
+	   6. EDITOR PROSEMIRROR & DESCRIÇÃO
+	   ========================================================================== */
+	.description-container {
+		flex: 1 1 auto;
+		height: 100%;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 15px 6px 15px 15px;
+		scrollbar-width: thin;
+		scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+
+		&::-webkit-scrollbar {
+			width: 6px;
+		}
+		&::-webkit-scrollbar-track {
+			background: transparent;
+			margin: 4px 0;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: rgba(0, 0, 0, 0.25);
+			border-radius: 3px;
+		}
+		&::-webkit-scrollbar-thumb:hover {
+			background: rgba(0, 0, 0, 0.45);
+		}
+
+		.description-box {
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 6px;
+			background: rgba(0, 0, 0, 0.03);
+			margin-bottom: 15px;
+			transition: all 0.3s ease;
+
+			summary {
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				padding: 12px 40px 12px 12px;
+				font-weight: bold;
+				text-transform: uppercase;
+				font-size: 13px;
+				color: #555;
+				cursor: pointer;
+				list-style: none;
+				background: rgba(0, 0, 0, 0.02);
+				border-radius: 5px;
+
+				&::-webkit-details-marker {
+					display: none;
+				}
+
+				.summary-title {
+					display: flex;
+					align-items: center;
+					gap: 8px;
+				}
+
+				.editor-edit {
+					margin-left: auto;
+					padding: 4px 6px;
+					border-radius: 4px;
+					color: #666;
+					transition: 0.2s;
+					&:hover {
+						background: rgba(0, 0, 0, 0.08);
+						color: #000;
+					}
+				}
+
+				.notes {
+					flex-basis: 100%;
+					margin: 6px 0 0 0;
+					font-size: 11.5px;
+					font-weight: normal;
+					text-transform: none;
+					color: #666;
+					font-style: italic;
+				}
+
+				&::after {
+					content: "\f107";
+					font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
+					font-weight: 900;
+					position: absolute;
+					right: 15px;
+					top: 14px;
+					transition: transform 0.3s ease;
+				}
+			}
+
+			&[open] summary {
+				background: transparent;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-radius: 5px 5px 0 0;
+				&::after {
+					transform: rotate(180deg);
+				}
+			}
+
+			.description-content-inner {
+				padding: 15px;
+			}
+
+			&.fullscreen-editor {
+				display: flex;
+				flex-direction: column;
+				flex: 1 1 auto;
+				min-height: 400px;
+				background: #eeede0;
+				margin: 0;
+				border: none;
+				border-radius: 0;
+
+				summary {
+					display: none;
+				}
+
+				.description-content-inner,
+				.content-wrapper {
+					display: flex;
+					flex-direction: column;
+					flex: 1;
+					padding: 0;
+				}
+
+				.fullscreen-editor-header {
+					display: flex;
+					align-items: center;
+					gap: 15px;
+					padding: 15px 20px;
+					background: rgba(0, 0, 0, 0.05);
+					border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+					img {
+						width: 48px;
+						height: 48px;
+						border: 1px solid rgba(0, 0, 0, 0.2);
+						border-radius: 4px;
+						object-fit: cover;
+					}
+
+					h2 {
+						margin: 0;
+						font-family: "Signika", sans-serif;
+						font-size: 24px;
+						color: #222;
+						border-bottom: none;
+
+						span {
+							font-size: 16px;
+							color: #666;
+							font-weight: normal;
+						}
+					}
+				}
+
+				prose-mirror {
+					display: flex !important;
+					flex-direction: column !important;
+					flex: 1 1 auto !important;
+
+					.editor-container {
+						display: flex !important;
+						flex-direction: column !important;
+						flex: 1 1 auto !important;
+
+						.editor-content,
+						.ProseMirror {
+							flex: 1 1 auto !important;
+							height: 100% !important;
+							overflow-y: auto !important;
+							padding: 15px 20px !important;
 						}
 					}
 				}
 			}
 		}
 	}
-}
 
-/* --- ARMAMENT ITEM STYLES --- */
-.armament-fieldset {
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 6px;
-	padding: 10px 12px;
-	margin-bottom: 12px;
-	background: rgba(0, 0, 0, 0.03);
-
-	legend {
-		font-weight: bold;
-		padding: 0 8px;
-		color: #191813;
-		font-size: 13px;
-		text-transform: uppercase;
-		font-family: "Signika", sans-serif;
-		border-bottom: none;
-		width: auto;
-	}
-}
-
-.armament-grid-2 {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 12px;
-}
-
-.armament-field {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-
-	label {
-		font-size: 11px;
-		font-weight: bold;
-		color: #444;
-		text-transform: uppercase;
-		margin-left: 2px;
-	}
-
-	select,
-	input {
-		width: 100%;
-		border: 1px solid rgba(0, 0, 0, 0.2);
-		border-radius: 4px;
-		height: 26px;
-		padding: 0 6px;
-		background: rgba(0, 0, 0, 0.02);
-		font-family: "Roboto", sans-serif;
-	}
-
-	select:hover,
-	input:focus {
-		border-color: #b1161a;
-		outline: none;
-		background: rgba(255, 255, 255, 0.4);
-	}
-}
-
-.formula-row {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	background: rgba(0, 0, 0, 0.04);
-	padding: 6px 8px;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	margin-bottom: 6px;
-
-	i {
-		color: #555;
-		font-size: 12px;
-	}
-	.flex-grow {
-		flex: 1;
-	}
-	.flex-large {
-		flex: 1.5;
-	}
-}
-
-.add-damage-btn {
-	display: block;
-	text-align: center;
-	background: rgba(0, 0, 0, 0.04);
-	padding: 6px;
-	border-radius: 4px;
-	color: #444;
-	border: 1px dashed rgba(0, 0, 0, 0.3);
-	transition: 0.2s;
-	cursor: pointer;
-	margin-top: 8px;
-	font-weight: bold;
-	&:hover {
-		background: rgba(0, 0, 0, 0.08);
-		color: #111;
-		border-style: solid;
-	}
-}
-
-.delete-damage {
-	color: #a33;
-	transition: 0.2s;
-	padding: 0 4px;
-	cursor: pointer;
-	&:hover {
-		color: #ff0000;
-	}
-}
-
-.checkbox-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 8px;
-	margin-top: 4px;
-}
-
-.checkbox-pill {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	background: rgba(0, 0, 0, 0.04);
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	padding: 4px 8px;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: all 0.2s;
-	&:hover {
-		background: rgba(0, 0, 0, 0.08);
-		border-color: #888;
-	}
-	span {
-		font-size: 12px;
-		font-weight: bold;
-		color: #222;
-	}
-}
-
-/* --- ABA DE DESCRIÇÃO --- */
-.description-container {
-	flex: 1 1 auto;
-	height: 100%;
-
-	/* Libera a rolagem apenas aqui dentro */
-	overflow-y: scroll;
-	overflow-x: hidden;
-
-	/* O espaçamento visual real do texto e dos blocos fica aqui */
-	padding: 15px 6px 15px 15px;
-	margin: 0;
-
-	/* 4. Estética Minimalista da Barra (Estilo D&D 5e) */
-	scrollbar-width: thin;
-	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
-
-	&::-webkit-scrollbar {
-		width: 6px;
-	}
-	&::-webkit-scrollbar-track {
-		background: transparent;
-		margin: 4px 0;
-	}
-	&::-webkit-scrollbar-thumb {
-		background: rgba(0, 0, 0, 0.25);
-		border-radius: 3px;
-	}
-	&::-webkit-scrollbar-thumb:hover {
-		background: rgba(0, 0, 0, 0.45);
-	}
-
-	.description-box {
-		border: 1px solid rgba(0, 0, 0, 0.15);
-		border-radius: 6px;
-		background: rgba(0, 0, 0, 0.03);
-		transition: all 0.3s ease;
-		overflow: visible;
-		margin-bottom: 15px;
-
-		summary {
-			position: relative; /* Serve de âncora para a setinha ::after */
-			display: flex;
-			flex-wrap: wrap; /* Permite que o parágrafo de aviso pule para a linha debaixo */
-			align-items: center;
-			padding: 12px;
-			padding-right: 40px; /* Abre um espaço reservado na direita para a setinha não esmagar o botão */
-
-			font-weight: bold;
-			text-transform: uppercase;
-			font-size: 13px;
-			color: #555;
-			cursor: pointer;
-			list-style: none;
-			background: rgba(0, 0, 0, 0.02);
-
-			&::-webkit-details-marker {
-				display: none;
-			}
-
-			.summary-title {
-				display: flex;
-				align-items: center;
-				gap: 4px;
-			}
-
-			.editor-edit {
-				margin-left: auto; /* Empurra o botão tudo para a direita */
-				margin-right: 5px;
-				padding: 4px 6px;
-				border-radius: 4px;
-				color: #666;
-				transition: all 0.2s ease;
-
-				&:hover {
-					color: #000;
-					background: rgba(0, 0, 0, 0.08);
-				}
-			}
-
-			/* Estilização do Aviso abaixo do Título */
-			.notes {
-				flex-basis: 100%; /* Força o parágrafo a ocupar uma linha inteira, descendo para baixo */
-				margin: 6px 0 0 0;
-				font-size: 11.5px;
-				font-weight: normal;
-				text-transform: none;
-				color: #666;
-				font-style: italic;
-			}
-
-			/* A Setinha Suspensa */
-			&::after {
-				content: "\f107";
-				font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
-				font-weight: 900;
-
-				/* Tira a seta do fluxo flex e prende-a na mesma linha superior */
-				position: absolute;
-				right: 15px;
-				top: 14px;
-
-				display: inline-block;
-				transition: transform 0.3s ease;
-			}
-		}
-
-		&[open] {
-			background: rgba(0, 0, 0, 0.05);
-			height: auto;
-
-			summary::after {
-				transform: rotate(180deg);
-			}
-		}
-
-		.description-content-inner {
-			padding: 0 0px 0px 15px;
-			border-top: 1px solid rgba(0, 0, 0, 0.1);
-			height: auto;
-
-			.content-wrapper {
-				height: auto; /* NOVO: Garante fluxo livre */
-				padding-top: 0px;
-			}
-		}
-
-		prose-mirror {
-			display: flex !important;
-			flex-direction: column;
-			flex: 1;
-			height: 100%;
-			min-height: 300px;
-
-			/* 1. O contêiner gerado pelo Foundry precisa ser flexível também */
-			> div,
-			.editor-container {
-				display: flex !important;
-				flex-direction: column;
-				flex: 1;
-				height: 100%;
-				min-height: 0; /* Impede o vazamento de conteúdo */
-			}
-
-			/* 2. Onde o texto é efetivamente digitado */
-			.editor-content,
-			.ProseMirror {
-				flex: 1;
-				height: 100% !important;
-				overflow-y: auto !important; /* Barra de rolagem apenas aqui */
-				padding: 15px 20px;
-			}
-		}
-
-		.description-content {
-			padding: 10px 0;
-			min-height: 200px;
-			height: auto; /* ALTERADO: Para o modo de leitura (não editável) crescer também */
-			overflow: visible; /* ALTERADO */
-		}
-
-		.editor-menu {
-			display: flex;
-			gap: 8px;
-			padding: 6px 10px;
-			border-top: 1px solid rgba(0, 0, 0, 0.1);
-			background: rgba(0, 0, 0, 0.02);
-			margin-right: 15px;
-
-			button {
-				background: transparent;
-				border: none;
-				color: #555;
-				cursor: pointer;
-				font-size: 14px;
-				padding: 4px 8px;
-				border-radius: 4px;
-				transition: all 0.2s ease;
-
-				&:hover {
-					background: rgba(0, 0, 0, 0.04);
-					color: #000;
-				}
-			}
-		}
-	}
-
-	.description-summary {
-		display: flex;
-
-		.notes {
-			font-size: 12px;
-			font-weight: normal;
-			text-transform: none;
-			color: #666;
-			font-style: italic;
-		}
-	}
-
-	/* --- EFEITO FULLSCREEN DO EDITOR --- */
-	.description-box.fullscreen-editor {
-		display: flex !important;
-		flex-direction: column !important;
-		flex: 1 !important;
-		height: 100% !important;
-		min-height: 0 !important; /* CRUCIAL */
-		background: #eeede0;
-		margin: 0;
-		border: none;
-		border-radius: 0;
-
-		summary {
+	/* ==========================================================================
+	   7. COMPORTAMENTO GLOBAL DO FULLSCREEN (Application V2)
+	   ========================================================================== */
+	&.op-fullscreen-active {
+		.item-header,
+		nav.tabs,
+		.sheet-navigation,
+		.description-box:not(.fullscreen-editor) {
 			display: none !important;
 		}
 
-		.fullscreen-editor-header {
-			display: flex;
-			align-items: center;
-			gap: 15px;
-			padding: 15px 20px;
-			background: rgba(0, 0, 0, 0.05);
-			border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-			box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-			flex-shrink: 0; /* Impede o cabeçalho de amassar */
-
-			img {
-				width: 48px;
-				height: 48px;
-				border: 1px solid rgba(0, 0, 0, 0.2);
-				border-radius: 4px;
-				object-fit: cover;
-			}
-
-			h2 {
-				margin: 0;
-				font-family: "Signika", sans-serif;
-				font-size: 24px;
-				color: #222;
-				border-bottom: none;
-
-				span {
-					font-size: 16px;
-					color: #666;
-					font-weight: normal;
-				}
-			}
-		}
-
-		/* As divs intermediárias repassando o tamanho */
-		.description-content-inner,
-		.content-wrapper {
+		.window-content,
+		.tab.description,
+		.description-container {
 			display: flex !important;
 			flex-direction: column !important;
-			flex: 1 !important;
 			height: 100% !important;
-			min-height: 0 !important;
+			max-height: none !important;
+			overflow: hidden !important;
 			padding: 0 !important;
-		}
-
-		/* O ProseMirror finalmente abraçando a tela */
-		prose-mirror {
-			display: flex !important;
-			flex-direction: column !important;
-			flex: 1 !important;
-			height: 100% !important;
-			min-height: 0 !important;
-
-			/* O contêiner gerado pelo Foundry V12+ */
-			> div,
-			.editor-container {
-				display: flex !important;
-				flex-direction: column !important;
-				flex: 1 !important;
-				height: 100% !important;
-				min-height: 0 !important;
-			}
-
-			/* Onde o texto é efetivamente digitado */
-			.editor-content,
-			.ProseMirror {
-				flex: 1 !important;
-				height: 100% !important;
-				min-height: 0 !important;
-				overflow-y: auto !important; /* Barra de rolagem aparece AQUI DENTRO */
-				padding: 15px 20px !important;
-			}
-		}
-	}
-}
-
-/* --- Layout da Aba de Atributos --- */
-.class-attributes-section {
-	background: rgba(0, 0, 0, 0.03);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	padding: 10px;
-	margin-bottom: 15px;
-
-	.section-title {
-		font-weight: bold;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-		margin-bottom: 10px;
-		padding-bottom: 5px;
-		text-transform: uppercase;
-		font-size: 12px;
-		color: #444;
-	}
-
-	/* Estilo para campos desabilitados */
-	input:disabled {
-		background-color: rgba(0, 0, 0, 0.08) !important;
-		cursor: not-allowed;
-		opacity: 0.6;
-	}
-}
-
-.form-group-row {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	margin-bottom: 10px;
-}
-
-.form-group-textarea {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	margin-bottom: 15px;
-
-	label {
-		font-weight: bold;
-	}
-	textarea {
-		height: 80px;
-		resize: vertical;
-	}
-}
-
-/* --- ABA DE EFEITOS APRIMORADA --- */
-.effects-management {
-	.effects-section {
-		margin-bottom: 5px;
-	}
-
-	.effects-header,
-	.effect-item {
-		display: flex;
-		align-items: center;
-		padding: 6px 10px;
-	}
-
-	/* Ajuste de Proporções */
-	.effect-name {
-		flex: 1.5;
-		justify-content: center;
-		text-align: start;
-	}
-	.effect-source {
-		flex: 1;
-		text-align: center;
-	}
-	.effect-duration {
-		flex: 1;
-		text-align: center;
-	}
-	.effect-controls {
-		flex: 0 0 90px;
-		justify-content: flex-end;
-	}
-
-	.effects-header {
-		background: rgba(0, 0, 0, 0.1);
-		border-radius: 4px 4px 0 0;
-		font-weight: bold;
-		font-size: 11px;
-		text-transform: uppercase;
-		color: #444;
-		border: 1px solid rgba(0, 0, 0, 0.1);
-	}
-
-	.effect-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		border: 1px solid rgba(0, 0, 0, 0.1);
-		border-top: none;
-		border-radius: 0 0 4px 4px;
-		background: rgba(0, 0, 0, 0.02);
-
-		.effect-item {
-			border-top: 1px solid rgba(0, 0, 0, 0.05);
-			font-size: 13px;
-
-			&:hover {
-				background: rgba(0, 0, 0, 0.05);
-			}
-
-			/* Imagem mantida em 20px */
-			.effect-image {
-				width: 20px;
-				height: 20px;
-				flex: 0 0 20px;
-				object-fit: contain;
-				border-radius: 4px;
-				border: 1px solid rgba(0, 0, 0, 0.2);
-				margin-right: 8px;
-			}
-
-			/* Ícones */
-			.effect-controls {
-				gap: 8px;
-				a {
-					color: #666;
-					font-size: 11px;
-					&:hover {
-						color: #000;
-					}
-				}
-			}
-		}
-	}
-}
-
-/* --- ABA DE ATRIBUTOS GERAIS --- */
-.general-attributes-section {
-	background: rgba(0, 0, 0, 0.03);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	padding: 15px;
-	margin-bottom: 15px;
-
-	.section-title {
-		font-weight: bold;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-		margin-bottom: 15px;
-		padding-bottom: 5px;
-		text-transform: uppercase;
-		font-size: 12px;
-		color: #444;
-	}
-
-	.grid {
-		display: grid;
-		/* Coluna da esquerda (label) com 120px, direita ocupa o resto */
-		grid-template-columns: 120px 1fr;
-		gap: 10px;
-		align-items: center;
-	}
-
-	input,
-	select {
-		height: 26px;
-		border: 1px solid rgba(0, 0, 0, 0.2);
-		border-radius: 4px;
-		background: rgba(255, 255, 255, 0.5);
-	}
-}
-
-.categoryCheck {
-	display: flex !important;
-	flex-wrap: wrap;
-	gap: 15px;
-	align-items: center;
-	padding: 5px 0;
-
-	.radio-label {
-		display: flex !important;
-		align-items: center !important;
-		gap: 6px !important;
-		margin: 0 !important;
-		padding: 0 !important;
-		box-shadow: none !important;
-
-		/* Estilização do Número (Span) */
-		span {
-			display: flex;
-			align-items: center;
-			font-size: 13px;
-		}
-
-		/* Input Nativo */
-		input[type="radio"] {
-			margin: 0 !important;
-			position: relative !important;
-			flex-shrink: 0;
-		}
-	}
-}
-
-.op-fullscreen-active {
-	/* 1. Elementos nativos do Foundry (MANTÉM !important para vencer o core) */
-	.item-header,
-	nav.tabs,
-	.sheet-navigation,
-	.description-box:not(.fullscreen-editor) {
-		display: none !important;
-	}
-
-	/* 2. Raiz e Window (MANTÉM !important para vencer o estilo inline injetado pelo JS) */
-	&.application.item,
-	.window-content,
-	.tab.description,
-	.content-item.scrollable {
-		display: flex !important;
-		flex-direction: column !important;
-		height: auto !important;
-		max-height: 85vh !important;
-		overflow: hidden !important;
-	}
-
-	/* 3. Nossos contêineres customizados (LIMPO! O Foundry não mexe aqui, então não precisa de !important) */
-	.description-box.fullscreen-editor {
-		display: flex;
-		flex-direction: column;
-		flex: 1 1 auto;
-		background: #eeede0;
-		margin: 0;
-		border: none;
-		border-radius: 0;
-
-		summary {
-			display: none;
-		}
-
-		.fullscreen-editor-header {
-			display: flex;
-			align-items: center;
-			gap: 15px;
-			padding: 15px 20px;
-			background: rgba(0, 0, 0, 0.05);
-			border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-			flex: 0 0 auto;
-		}
-
-		.description-content-inner,
-		.content-wrapper {
-			display: flex;
-			flex-direction: column;
-			flex: 1 1 auto;
-			padding: 0;
-			margin: 0;
-			min-height: 0;
-		}
-
-		/* 4. O Web Component do Foundry (MANTÉM !important nas camadas internas para vencer as classes do ProseMirror) */
-		prose-mirror {
-			display: flex !important;
-			flex-direction: column !important;
-			flex: 1 1 auto !important;
-			min-height: 0 !important;
-
-			.editor-container {
-				display: flex !important;
-				flex-direction: column !important;
-				flex: 1 1 auto !important;
-				min-height: 300px !important;
-
-				.editor-content,
-				.ProseMirror {
-					flex: 1 1 auto !important;
-					height: 100% !important;
-					overflow-y: auto !important;
-					padding: 15px 20px !important;
-				}
-			}
 		}
 	}
 }

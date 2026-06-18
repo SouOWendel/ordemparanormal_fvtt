@@ -30,100 +30,63 @@ $border-transparent-medium: rgba(39, 39, 39, 0.25);
 	font-weight: bold;
 }
 
-/* --- LARGURAS DAS COLUNAS (INVENTÁRIO E HABILIDADES) --- */
+/* ========================================================= */
+/* --- LARGURAS DAS COLUNAS UNIFICADAS --- */
+/* ========================================================= */
 .col-name {
 	flex: 1;
 	text-align: left;
 }
+
 .col-category {
 	width: 70px;
 	text-align: center;
 }
+
 .col-space {
 	width: 70px;
 	text-align: center;
 }
+
 .col-quantity {
 	width: 90px;
 	text-align: center;
 }
 
-/* Novas Colunas Específicas de Habilidades */
 .col-type {
 	width: 100px;
 	text-align: center;
 }
+
 .col-cost {
 	width: 70px;
 	text-align: center;
 }
-.col-exec {
-	width: 90px;
-	text-align: center;
-}
-.col-controls {
-	width: 100px;
-	text-align: right;
-	justify-content: flex-end;
-}
 
-/* Realce visual para o custo (Ex: 2 PE) */
-.badge-cat.highlight {
-	font-weight: 900;
-	color: #b1161a;
-	background: rgba(177, 22, 26, 0.08);
-	border-color: rgba(177, 22, 26, 0.15);
-}
-
-/* --- LARGURAS DAS COLUNAS (INVENTÁRIO, HABILIDADES E RITUAIS) --- */
-.col-name {
-	flex: 1;
-	text-align: left;
-}
-.col-category {
-	width: 70px;
-	text-align: center;
-}
-.col-space {
-	width: 70px;
-	text-align: center;
-}
-.col-quantity {
-	width: 90px;
-	text-align: center;
-}
-
-/* Novas Colunas Específicas de Habilidades */
-.col-type {
-	width: 100px;
-	text-align: center;
-}
-.col-cost {
-	width: 70px;
-	text-align: center;
-}
 .col-exec {
 	width: 90px;
 	text-align: center;
 }
 
-/* Novas Colunas Específicas de Rituais */
 .col-range {
 	width: 75px;
 	text-align: center;
 }
+
 .col-target {
 	width: 100px;
 	text-align: center;
 }
+
 .col-duration {
 	width: 85px;
 	text-align: center;
 }
+
 .col-resist {
 	width: 120px;
 	text-align: center;
-} /* Ligeiramente maior para comportar "Fortitude Metade" */
+}
 
 .col-controls {
 	width: 100px;
@@ -131,17 +94,35 @@ $border-transparent-medium: rgba(39, 39, 39, 0.25);
 	justify-content: flex-end;
 }
 
+.col-prop {
+	width: 50px;
+	text-align: center;
+}
+
+/* Realce visual para o custo (Ex: 2 PE) */
+.badge-cat {
+	&.highlight {
+		font-weight: 900;
+		color: #b1161a;
+		background: rgba(177, 22, 26, 0.08);
+		border-color: rgba(177, 22, 26, 0.15);
+	}
+}
+
+/* ========================================================= */
+/* --- TEMA E ESTRUTURA GLOBAL LEGADA --- */
+/* ========================================================= */
 .application.theme-light {
 	background: url("../media/parchment.jpg") repeat;
 	--color-header-background: #333;
 	--color-border: #302831;
 	--color-tabs-border: #555;
 	--color-fieldset-border: #efe6d8;
-	--color-form-label: $text-dark;
+	--color-form-label: #{$text-dark};
 	--color-form-label-hover: #111;
 	--color-form-hint: #444;
-	--color-form-hint-hover: $text-dark;
-	--color-select-option-bg: $bg-parchment;
+	--color-form-hint-hover: #{$text-dark};
+	--color-select-option-bg: #{$bg-parchment};
 	color: $text-dark;
 
 	input,
@@ -190,64 +171,11 @@ form.ordemparanormal.actor {
 			&[data-tab="inventory"] {
 				overflow: hidden;
 				padding-bottom: 20px;
+
 				.inventory-body {
 					margin-bottom: 10px;
 					overflow: auto;
 					height: 100%;
-				}
-			}
-		}
-
-		header.sheet-header-op {
-			display: flex;
-			flex-direction: column;
-
-			.progress {
-				padding-left: 10px;
-
-				input {
-					width: 40px;
-				}
-			}
-
-			.profile-img {
-				flex: 0 0 48px;
-				height: 48px;
-				margin-right: 10px;
-			}
-
-			h1.charname {
-				height: 45px;
-				padding: 0px;
-				margin: 5px 0;
-				border-bottom: 0;
-				input {
-					min-width: 235px;
-					width: 100%;
-					height: 100%;
-					margin: 0;
-				}
-			}
-
-			.header-identify {
-				@include flex-center;
-
-				h1,
-				h2,
-				h3,
-				h4 {
-					border: 0;
-				}
-
-				h1.charname {
-					@include flex-center;
-					width: 100%;
-					margin: 0;
-
-					input {
-						font-size: 0.6em;
-						font-family: "Signika";
-					}
 				}
 			}
 		}
@@ -403,11 +331,11 @@ form.ordemparanormal.actor {
 			}
 		}
 
-		// Control Buttons
 		.item-controls {
 			display: flex;
 			flex: 0 0 100px;
 			justify-content: flex-end;
+
 			a {
 				font-size: 12px;
 				text-align: center;
@@ -542,9 +470,11 @@ form.ordemparanormal.actor {
 .window-content {
 	overflow: hidden;
 }
+
 .item-form {
 	font-family: typography.$font-primary;
 }
+
 .sheet-tabs {
 	flex: 0 0 auto;
 	display: flex;
@@ -596,10 +526,12 @@ form.ordemparanormal.actor {
 .resource .categoryCheck {
 	display: flex;
 }
+
 .resources {
 	gap: 10px;
 	margin: 5px 0;
 }
+
 .invalid {
 	position: relative;
 }
@@ -620,6 +552,7 @@ form.ordemparanormal.actor {
 	i {
 		padding: 4px;
 	}
+
 	input {
 		background: none;
 		border: none;
@@ -645,6 +578,7 @@ form.ordemparanormal.actor {
 	.bio-desc .editor {
 		min-height: 230px;
 	}
+
 	.bio-goals .editor {
 		min-height: 100px;
 	}
@@ -702,6 +636,7 @@ form.ordemparanormal.actor {
 		.int,
 		.dex {
 			text-align: center;
+
 			input {
 				height: 32px;
 			}
@@ -716,6 +651,7 @@ form.ordemparanormal.actor {
 		a {
 			color: $border-dark;
 		}
+
 		.link-alert {
 			padding: 0 10px;
 		}
@@ -723,6 +659,7 @@ form.ordemparanormal.actor {
 
 	#descriptions div {
 		margin: 8px 0;
+
 		textarea {
 			height: 200px;
 		}
@@ -734,18 +671,19 @@ form.ordemparanormal.actor {
 	}
 
 	/* --- LAYOUT GERAL --- */
-
 	.sheet-tabs .item.active {
 		text-decoration: underline;
 		font-weight: bold;
 		text-shadow: 0 0 5px var(--color-shadow-primary);
 	}
+
 	.sheet-tabs .item {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 5px;
 	}
+
 	.sheet-tabs .item img {
 		border: none;
 		margin: 0;
@@ -841,11 +779,10 @@ form.ordemparanormal.actor {
 		color: #191813;
 	}
 
-	/* --- PERÍCIAS (FIXADO EM 4 COLUNAS) --- */
+	/* --- PERÍCIAS --- */
 	.threat-skills-container {
 		margin-top: 5px;
 		display: grid;
-		/* Força exatamente 4 colunas de tamanho igual */
 		grid-template-columns: repeat(4, 1fr);
 		gap: 5px;
 		justify-content: space-between;
@@ -939,14 +876,12 @@ form.ordemparanormal.actor {
 	.resource-content select {
 		max-width: 100%;
 	}
+
 	.items-list .item {
 		flex-wrap: wrap;
 	}
 }
 
-// .item-form {
-//   font-family: typography.$font-primary;
-// }
 .item {
 	.sheet-header {
 		flex: 0 auto;
@@ -1022,15 +957,18 @@ form.ordemparanormal.actor {
 		transition: 0.3s all ease-in-out;
 		position: absolute;
 	}
+
 	& > a {
 		margin-left: 4px;
 		font-size: 20px;
 		transform: translate(50px, 0);
 	}
+
 	&:hover {
 		& > img {
 			transform: translate(-(200px), 0);
 		}
+
 		& > a {
 			transform: translate(0, 0);
 		}
@@ -1188,6 +1126,7 @@ form.ordemparanormal.actor {
 							background: rgba(0, 0, 0, 0.08);
 							border-color: rgba(0, 0, 0, 0.3);
 						}
+
 						&:active {
 							background: rgba(0, 0, 0, 0.15);
 							transform: scale(0.98);
@@ -1198,7 +1137,7 @@ form.ordemparanormal.actor {
 							max-width: 0;
 							overflow: hidden;
 							opacity: 0;
-							visibility: visible !important; /* Força sobreposição */
+							visibility: visible !important;
 							transition:
 								max-width 0.25s ease-in-out,
 								opacity 0.2s ease;
@@ -1223,6 +1162,7 @@ form.ordemparanormal.actor {
 							border-style: solid;
 							border-color: rgba(0, 0, 0, 0.4);
 						}
+
 						&:active {
 							transform: scale(0.98);
 						}
@@ -1268,6 +1208,7 @@ form.ordemparanormal.actor {
 								background: transparent;
 								border: none;
 							}
+
 							span {
 								font-size: 12px;
 								color: #555;
@@ -1343,7 +1284,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 			transition: color 0.2s ease;
 		}
 
-		/* Efeito Hover */
 		&:hover {
 			color: #000;
 			background: rgba(0, 0, 0, 0.03);
@@ -1353,7 +1293,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 			}
 		}
 
-		/* Estado Ativo */
 		&.active {
 			color: #b1161a;
 			font-weight: 800;
@@ -1362,7 +1301,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 				color: #b1161a;
 			}
 
-			/* Linha inferior indicadora */
 			&::after {
 				content: "";
 				position: absolute;
@@ -1381,16 +1319,14 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 /* ========================================================= */
 /* --- DESIGN DO INVENTÁRIO (DOSSIÊ TÁTICO / ORDEM) ------ */
 /* ========================================================= */
-
-/* Reforço de especificidade para vencer o "display: block" antigo do _forms.scss */
 .sheet-body .tab.active.inventory-tab,
 .tab.inventory-tab {
 	flex-direction: column !important;
 	height: 100% !important;
-	padding: 0 !important; /* Anula o padding-bottom de 24px do antigo .inventory */
+	padding: 0 !important;
 	margin: 0 !important;
 	background: transparent;
-	overflow: hidden !important; /* Vital: Trava a aba e força o scroll a acontecer APENAS na lista interna */
+	overflow: hidden !important;
 
 	/* --- 1. CABEÇALHO DE PRESTÍGIO E PATENTES --- */
 	.inventory-prestige-header {
@@ -1398,12 +1334,11 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		align-items: center;
 		justify-content: space-between;
 		gap: 15px;
-		padding: 8px 15px; /* Reduzido para compactar */
+		padding: 8px 15px;
 		background: rgba(0, 0, 0, 0.02);
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		flex: 0 0 auto !important;
 
-		/* Pontos de Prestígio: Título e Input agora na mesma linha */
 		.prestige-box {
 			display: flex;
 			flex-direction: row;
@@ -1426,7 +1361,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 			}
 
 			input {
-				width: 60px; /* Reduzido, ocupava 140px antes */
+				width: 60px;
 				height: 24px;
 				font-weight: bold;
 				text-align: center;
@@ -1434,7 +1369,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 			}
 		}
 
-		/* Limites por Categoria: Título e os 4 emblemas na mesma linha */
 		.category-limits {
 			display: flex;
 			flex-direction: row;
@@ -1462,7 +1396,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 					background: rgba(0, 0, 0, 0.05);
 					border: 1px solid rgba(0, 0, 0, 0.15);
 					border-radius: 4px;
-					height: 24px; /* Diminuído para alinhar com o Prestígio */
+					height: 24px;
 					overflow: hidden;
 
 					label {
@@ -1479,7 +1413,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 					}
 
 					input {
-						width: 26px !important; /* Estreitado para caber tudo na linha */
+						width: 26px !important;
 						height: 100%;
 						border: none;
 						background: transparent;
@@ -1501,8 +1435,8 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 
 	/* --- 2. CONTAINER DE ROLAGEM E TÍTULOS --- */
 	.scrollable-inventory {
-		flex: 1 1 auto !important; /* Ocupa todo o espaço restante dinamicamente */
-		overflow-y: scroll !important; /* Scrollbar perfeitamente fixada */
+		flex: 1 1 auto !important;
+		overflow-y: scroll !important;
 		overflow-x: hidden !important;
 		padding: 15px;
 
@@ -1512,12 +1446,15 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		&::-webkit-scrollbar {
 			width: 6px;
 		}
+
 		&::-webkit-scrollbar-track {
 			background: transparent;
 		}
+
 		&::-webkit-scrollbar-thumb {
 			background: rgba(0, 0, 0, 0.25);
 			border-radius: 3px;
+
 			&:hover {
 				background: rgba(0, 0, 0, 0.45);
 			}
@@ -1529,28 +1466,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		display: flex;
 		align-items: center;
 		gap: 10px;
-	}
-
-	.col-name {
-		flex: 1;
-		text-align: left;
-	}
-	.col-category {
-		width: 70px;
-		text-align: center;
-	}
-	.col-space {
-		width: 70px;
-		text-align: center;
-	}
-	.col-quantity {
-		width: 90px;
-		text-align: center;
-	}
-	.col-controls {
-		width: 130px;
-		text-align: right;
-		justify-content: flex-end;
 	}
 
 	.inventory-list-header {
@@ -1573,18 +1488,10 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		}
 	}
 
-	/* Espaçamento entre os blocos de categoria */
 	.inventory-category {
 		margin-bottom: 5px;
 	}
 
-	/* Colunas menores para encaixar as Proficiências e Críticos */
-	.col-prop {
-		width: 50px;
-		text-align: center;
-	}
-
-	/* Estrutura para a imagem rolável antiga funcionar perfeitamente com a nova box */
 	.item-image.slide {
 		position: relative;
 		overflow: hidden;
@@ -1593,7 +1500,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		justify-content: center;
 	}
 
-	/* Inputs Inline (Edição Rápida de Peso, Categoria e Qtd.) */
 	.inline-input {
 		width: 100%;
 		height: 24px;
@@ -1614,7 +1520,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 			outline: none;
 		}
 
-		/* Sobrescrita especial para input dentro da badge */
 		&.badge-cat-input {
 			background: rgba(0, 0, 0, 0.04);
 			border-color: rgba(0, 0, 0, 0.05);
@@ -1624,7 +1529,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		}
 	}
 
-	/* Substitui o antigo span por input dentro dos botões de + e - */
 	.quantity-controller input.qty-value {
 		width: 32px;
 		margin: 0;
@@ -1650,19 +1554,17 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		gap: 4px;
 
 		.item-description {
-			display: none; /* 1. Garante que a gaveta nasce sempre fechada (colapsada) */
+			display: none;
 			background: rgba(0, 0, 0, 0.01);
 			color: #444;
 			border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
 			padding: 10px 15px 10px 50px !important;
 			line-height: 1.4;
 			width: 100%;
-			padding: 5px 10px;
 			margin-top: 5px;
 			font-size: 0.9em;
 			text-align: left;
 
-			/* 2. O gatilho que o seu actor-sheet.mjs ativa ao clicar no nome do item */
 			&.expanded {
 				display: block;
 			}
@@ -1789,6 +1691,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 
 				&.btn-star.active {
 					color: #d1a100;
+
 					&:hover {
 						color: #f3ca30;
 					}
@@ -1809,12 +1712,11 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 				text-align: left;
 				line-height: 1.4;
 
-				.description-body-content {
-					p {
-						margin: 0 0 8px 0;
-						&:last-child {
-							margin: 0;
-						}
+				.description-body-content p {
+					margin: 0 0 8px 0;
+
+					&:last-child {
+						margin: 0;
 					}
 				}
 			}
@@ -1825,10 +1727,10 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 	.inventory-footer-space {
 		background: rgba(0, 0, 0, 0.03);
 		border-top: 1px solid rgba(0, 0, 0, 0.1);
-		padding: 6px 15px; /* Reduzido drasticamente de 12px 20px */
+		padding: 6px 15px;
 		display: flex;
 		flex-direction: column;
-		gap: 4px; /* Distância menor entre o texto e a barra */
+		gap: 4px;
 		flex: 0 0 auto !important;
 
 		.space-status-bar {
@@ -1838,7 +1740,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 
 			.space-label {
 				font-family: "Signika", sans-serif;
-				font-size: 10px; /* Texto ligeiramente menor */
+				font-size: 10px;
 				font-weight: bold;
 				color: #555;
 				display: flex;
@@ -1849,17 +1751,20 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 			.space-counter {
 				font-family: "Signika", sans-serif;
 				font-weight: 800;
-				font-size: 12px; /* Reduzido de 14px */
+				font-size: 12px;
 				display: flex;
 				align-items: center;
 				gap: 2px;
+
 				.current {
 					color: #000;
 				}
+
 				.divider {
 					color: #aaa;
 					font-weight: normal;
 				}
+
 				.max {
 					color: #666;
 				}
@@ -1868,7 +1773,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 
 		.progress-bar-container {
 			width: 100%;
-			height: 4px; /* Barra mais fina e tática (reduzido de 6px) */
+			height: 4px;
 			background: rgba(0, 0, 0, 0.08);
 			border-radius: 2px;
 			overflow: hidden;
@@ -1886,13 +1791,16 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		&.is-overburdened {
 			background: rgba(177, 22, 26, 0.04);
 			border-top-color: rgba(177, 22, 26, 0.2);
+
 			.space-status-bar .space-label {
 				color: #b1161a;
 				animation: op-pulse 2s infinite ease-in-out;
 			}
+
 			.space-status-bar .space-counter .current {
 				color: #b1161a;
 			}
+
 			.progress-bar-container .progress-fill {
 				background: #b1161a;
 			}
@@ -1913,7 +1821,9 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 	}
 }
 
+/* ========================================================= */
 /* --- GERENCIADOR DE RECURSOS (ABA HABILIDADES) --- */
+/* ========================================================= */
 .tactical-control-bar {
 	display: flex;
 	justify-content: flex-end;
@@ -1936,6 +1846,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		&:hover {
 			color: #000;
 		}
+
 		&.is-active {
 			color: #b1161a;
 		}
@@ -1952,6 +1863,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 
 		label {
 			padding: 0;
+
 			input {
 				width: 80px !important;
 				text-transform: uppercase;
@@ -1960,6 +1872,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 				background: transparent;
 				border: none;
 				text-align: center;
+
 				&:hover,
 				&:focus {
 					background: rgba(255, 255, 255, 0.5);
@@ -1982,11 +1895,13 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 				font-weight: bold;
 				font-size: 13px;
 				color: #000;
+
 				&:hover,
 				&:focus {
 					background: rgba(255, 255, 255, 0.5);
 				}
 			}
+
 			.divider {
 				color: #888;
 				font-weight: normal;
@@ -1996,15 +1911,17 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 	}
 }
 
+/* ========================================================= */
 /* --- 5. DESIGN DA BIOGRAFIA (DOSSIÊ TÁTICO) --- */
+/* ========================================================= */
 .dossier-section {
-	margin-bottom: 0 !important; /* Retira a margem padrão para usar o gap do flex */
+	margin-bottom: 0 !important;
 	display: flex;
 	flex-direction: column;
 
 	.inventory-list-header {
 		margin-bottom: 0 !important;
-		border-radius: 4px 4px 0 0 !important; /* Arredonda apenas o topo */
+		border-radius: 4px 4px 0 0 !important;
 	}
 
 	.dossier-editor-container {
@@ -2017,7 +1934,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		flex-direction: column;
 		flex: 1;
 
-		/* Força o ProseMirror a preencher a caixa inteira */
 		prose-mirror {
 			display: flex;
 			flex-direction: column;
@@ -2039,6 +1955,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 			p {
 				margin: 0 0 10px 0;
 			}
+
 			p:last-child {
 				margin: 0;
 			}
