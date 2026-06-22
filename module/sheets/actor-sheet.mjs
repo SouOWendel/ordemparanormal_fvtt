@@ -517,7 +517,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		// Get the type of item to create.
 		const type = header.dataset.type;
 		// Grab any data associated with this control.
-		const data = foundry.utils.duplicate(header.dataset);
+		const data = foundry.utils.deepClone(header.dataset);
 		// Initialize a default name.
 		const name = game.i18n.localize("op.newItem") + " " + game.i18n.localize("TYPES.Item." + type);
 		// Prepare the item object.

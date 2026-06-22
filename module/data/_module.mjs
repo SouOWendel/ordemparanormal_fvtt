@@ -1,8 +1,8 @@
-export { AgentData } from "./actors/agent-data.mjs";
-export { ThreatData } from "./actors/threat-data.mjs";
-export { AmmunitionData } from "./items/ammunition-data.mjs";
-export { ArmamentData } from "./items/armament-data.mjs";
-export { GeneralEquipmentData } from "./items/general-equipment-data.mjs";
-export { ProtectionData } from "./items/protection-data.mjs";
-export { AbilityData } from "./items/ability-data.mjs";
-export { RitualData } from "./items/ritual-data.mjs";
+export { AgentData } from "./models/actors/agent.mjs";
+export { ThreatData } from "./models/actors/threat.mjs";
+export { AmmunitionData } from "./models/items/ammunition.mjs";
+export { ArmamentData } from "./models/items/armament.mjs";
+export { GeneralEquipmentData } from "./models/items/general-equipment.mjs";
+export { ProtectionData } from "./models/items/protection.mjs";
+export { AbilityData } from "./models/items/ability.mjs";
+export { RitualData } from "./models/items/ritual.mjs";
