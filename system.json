@@ -242,10 +242,11 @@
 		}
 	],
 	"relationships": {
-		"recommends": [
+		"requires": [
 			{
 				"id": "barbrawl",
-				"type": "module"
+				"type": "module",
+				"manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/master/src/module.json"
 			}
 		]
 	},
