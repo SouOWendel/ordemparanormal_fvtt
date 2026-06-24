@@ -1155,6 +1155,124 @@ Hooks.once("quenchReady", (quench) => {
 						await targetMiss.delete();
 					}
 				});
+
+				// ----------------------------------------------------------------
+				// Round 4 (confirmed live on Foundry v13). The volley critical
+				// decision must come from the in-memory per-attack rolls, NOT the
+				// aggregated card flag: the flag is absent when no target is selected
+				// and reveal-gated while a defender's reaction is pending, so the
+				// previous flag-derived logic dropped the crit and never multiplied
+				// the dice — exactly the reviewer's report (fails for one crit AND for
+				// several). The earlier "rollDamage com hitResult agregado" test fed
+				// the flag straight into rollDamage, so it never exercised the
+				// volley→damage hand-off where the bug lived. These two fail on the
+				// pre-fix code and pass after it.
+				// ----------------------------------------------------------------
+				it("no-target: crítico num ataque posterior (não o #1) multiplica o dano (sem alvo → sem card flag)", async () => {
+					const weapon = await giveMeleeItem(attacker, "[combat-qol] NoTarget Crit", {
+						numberOfAttacks: 2,
+						critical: "20",
+						formulas: {
+							attack: { attr: "str", skill: "fighting", bonus: 0 },
+							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
+						},
+					});
+					// Force ONLY the 2nd attack to roll a critical; attack #1 stays
+					// non-critical. With no target the inner aggregator never writes a
+					// card flag, so the volley must surface the crit from memory.
+					const proto = Object.getPrototypeOf(weapon);
+					const origIsCritical = proto.isCritical;
+					let calls = 0;
+					proto.isCritical = function (critical = { isCritical: false }, options = {}) {
+						const r = origIsCritical.call(this, critical, options);
+						calls += 1;
+						r.isCritical = calls === 2;
+						return r;
+					};
+					try {
+						await weapon.roll();
+						calls = 0;
+						// NB: no setTargets — no target selected.
+						const result = await weapon.rollAttack({});
+						assert.isTrue(
+							result.criticalStatus?.isCritical,
+							"sem alvo, o crit do ataque #2 deve chegar ao criticalStatus do volley"
+						);
+						assert.equal(result.criticalStatus?.multiplier, 2, "multiplier deve vir da fórmula (x2)");
+						const dmg = await weapon.rollDamage({
+							event: { altKey: false },
+							critical: result.criticalStatus,
+							lastId: true,
+							hitResult: result.hitResult,
+						});
+						assert.include(dmg.formula, "2d6", `dano deve multiplicar mesmo sem alvo, got: ${dmg.formula}`);
+					} finally {
+						proto.isCritical = origIsCritical;
+						await purgeMessages(
+							(m) =>
+								m.getFlag("ordemparanormal", "messageRoll")?.itemId === weapon.id ||
+								m.content?.includes(`data-item-id="${weapon.id}"`)
+						);
+						await weapon.delete();
+					}
+				});
+
+				it("reacting defender: crítico conta para o multiplicador mesmo com a reação pendente (revealed=false)", async () => {
+					// Defensor agente treinado em reflexos/luta → reactionPending, então
+					// todo ataque sai revealed=false. O agregador exclui entradas não
+					// reveladas do anyCritical, então o código antigo nunca multiplicava
+					// (criatura multi-ataque vs PC que pode reagir — o cenário do
+					// reviewer). O multiplicador vem do dado rolado, não da revelação.
+					const defender = await createAgent({ defense: { value: 1, bonus: 0, dodge: 1 } });
+					await defender.update({
+						"system.skills.reflexes.degree.value": 5,
+						"system.skills.reflexes.degree.label": "trained",
+						"system.skills.fighting.degree.value": 5,
+						"system.skills.fighting.degree.label": "trained",
+					});
+					const weapon = await giveMeleeItem(attacker, "[combat-qol] React Crit", {
+						numberOfAttacks: 2,
+						critical: "1", // qualquer d20 é crítico → determinístico
+						formulas: {
+							attack: { attr: "str", skill: "fighting", bonus: 0 },
+							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
+						},
+					});
+					try {
+						await weapon.roll();
+						const snap = setTargets([defender]);
+						let result;
+						try {
+							result = await weapon.rollAttack({});
+						} finally {
+							restoreTargets(snap);
+						}
+						const ar = result.hitResult?.attackResults ?? [];
+						assert.isTrue(
+							ar.length > 0 && ar.every((a) => a.revealed === false),
+							`reação pendente: todos os ataques devem ficar revealed=false, got: ${JSON.stringify(ar)}`
+						);
+						assert.isTrue(
+							result.criticalStatus?.isCritical,
+							"crit deve contar para o multiplicador mesmo com a reação pendente"
+						);
+						const dmg = await weapon.rollDamage({
+							event: { altKey: false },
+							critical: result.criticalStatus,
+							lastId: true,
+							hitResult: result.hitResult,
+						});
+						assert.include(dmg.formula, "2d6", `dano deve multiplicar com defensor reagindo, got: ${dmg.formula}`);
+					} finally {
+						await purgeMessages(
+							(m) =>
+								m.getFlag("ordemparanormal", "messageRoll")?.itemId === weapon.id ||
+								m.content?.includes(`data-item-id="${weapon.id}"`)
+						);
+						await weapon.delete();
+						await defender.delete();
+					}
+				});
 			});
 		},
 		{ displayName: "OP | Combat QoL: Cobertura QoL combat" }
