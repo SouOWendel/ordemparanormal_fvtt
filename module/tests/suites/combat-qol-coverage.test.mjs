@@ -893,257 +893,50 @@ Hooks.once("quenchReady", (quench) => {
 			// so a critical on attack #2 was lost on the way to rollDamage and
 			// the dice were never multiplied.
 			// ==================================================================
-			describe("Post-review — multi-attack critical aggregation multiplies damage dice", () => {
+			describe("Post-review (round 5) — multi-attack rola dano POR ATAQUE", () => {
 				let attacker;
 				let target;
-				let weaponAlwaysCrit;
-				let weaponNeverCrit;
 
 				before(async () => {
 					attacker = await createThreat({ attributes: { hp: { value: 30, max: 30 }, str: { value: 4 } } });
-					target = await createAgent({ defense: { value: 1 } }); // always hit
-					weaponAlwaysCrit = await giveMeleeItem(attacker, "[combat-qol] Crit Sword", {
-						critical: "1", // margin=1 → any d20 is a critical
-						numberOfAttacks: 2,
-						formulas: {
-							attack: { attr: "str", skill: "fighting", bonus: 0 },
-							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
-						},
-					});
-					weaponNeverCrit = await giveMeleeItem(attacker, "[combat-qol] NoCrit Sword", {
-						critical: "99", // unreachable margin → never a critical
-						numberOfAttacks: 2,
-						formulas: {
-							attack: { attr: "str", skill: "fighting", bonus: 0 },
-							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
-						},
-					});
-				});
-
-				beforeEach(async () => {
-					await purgeMessages(
-						(m) =>
-							m.getFlag("ordemparanormal", "messageRoll")?.itemId === weaponAlwaysCrit.id ||
-							m.getFlag("ordemparanormal", "messageRoll")?.itemId === weaponNeverCrit.id ||
-							m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) ||
-							m.content?.includes(`data-item-id="${weaponNeverCrit.id}"`)
-					);
+					target = await createAgent({ defense: { value: 1, bonus: 0, dodge: 1 } });
 				});
 
 				after(async () => {
-					await purgeMessages(
-						(m) =>
-							m.getFlag("ordemparanormal", "messageRoll")?.itemId === weaponAlwaysCrit.id ||
-							m.getFlag("ordemparanormal", "messageRoll")?.itemId === weaponNeverCrit.id ||
-							m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) ||
-							m.content?.includes(`data-item-id="${weaponNeverCrit.id}"`)
-					);
-					await weaponAlwaysCrit?.delete();
-					await weaponNeverCrit?.delete();
+					await purgeMessages((m) => m.content?.includes(`data-actor-id="${attacker?.id}"`));
 					await target?.delete();
 					await attacker?.delete();
 				});
 
-				it("volley com crit em qualquer ataque marca isCritical=true no card flag agregado", async () => {
-					await weaponAlwaysCrit.roll(); // creates the item card
-					const snap = setTargets([target]);
-					try {
-						await weaponAlwaysCrit.rollAttack({});
-					} finally {
-						restoreTargets(snap);
-					}
-					const cardMsg = [...game.messages]
-						.reverse()
-						.find(
-							(m) => m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) && m.content?.includes("chat-card item-card")
-						);
-					assert.exists(cardMsg, "item card deve existir");
-					const hr = cardMsg.getFlag("ordemparanormal", "hitResult");
-					assert.exists(hr, "hitResult agregado deve existir");
-					assert.equal(hr.attackResults?.length, 2, "2 ataques na volley");
-					assert.isTrue(hr.isCritical, "isCritical agregado deve ser true (todos os ataques rolaram crit)");
-				});
-
-				it("rollAttack retorna results[0] com hitResult.isCritical=true (refletindo o agregado, não só attack #1)", async () => {
-					await weaponAlwaysCrit.roll();
-					const snap = setTargets([target]);
-					let result;
-					try {
-						result = await weaponAlwaysCrit.rollAttack({});
-					} finally {
-						restoreTargets(snap);
-					}
-					assert.exists(result?.hitResult, "result.hitResult deve existir");
-					assert.isTrue(result.hitResult.isCritical, "result.hitResult.isCritical deve refletir o agregado (true)");
-					assert.isTrue(result.criticalStatus?.isCritical, "result.criticalStatus.isCritical deve refletir o agregado");
-					assert.equal(result.criticalStatus?.multiplier, 2, "multiplier deve vir da formula (x2 default)");
-				});
-
-				it("rollDamage com hitResult agregado isCritical=true multiplica os dados (1d6 → 2d6)", async () => {
-					await weaponAlwaysCrit.roll();
-					const snap = setTargets([target]);
-					try {
-						await weaponAlwaysCrit.rollAttack({});
-					} finally {
-						restoreTargets(snap);
-					}
-					const cardMsg = [...game.messages]
-						.reverse()
-						.find(
-							(m) => m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) && m.content?.includes("chat-card item-card")
-						);
-					const hr = cardMsg.getFlag("ordemparanormal", "hitResult");
-					const damageRoll = await weaponAlwaysCrit.rollDamage({
-						event: { altKey: false },
-						hitResult: hr,
-						lastId: true,
-					});
-					assert.include(
-						damageRoll.formula,
-						"2d6",
-						`formula deve conter 2d6 (1d6 multiplicado por x2), got: ${damageRoll.formula}`
-					);
-				});
-
-				it("volley SEM critical: damage formula NÃO é multiplicada (regression guard)", async () => {
-					await weaponNeverCrit.roll();
-					const snap = setTargets([target]);
-					try {
-						await weaponNeverCrit.rollAttack({});
-					} finally {
-						restoreTargets(snap);
-					}
-					const cardMsg = [...game.messages]
-						.reverse()
-						.find(
-							(m) => m.content?.includes(`data-item-id="${weaponNeverCrit.id}"`) && m.content?.includes("chat-card item-card")
-						);
-					const hr = cardMsg.getFlag("ordemparanormal", "hitResult");
-					assert.isFalse(hr.isCritical, "isCritical agregado deve ser false (nenhum ataque crit)");
-					const damageRoll = await weaponNeverCrit.rollDamage({
-						event: { altKey: false },
-						hitResult: hr,
-						lastId: true,
-					});
-					assert.notInclude(
-						damageRoll.formula,
-						"2d6",
-						`formula NÃO deve ter 2d6 quando não há critical, got: ${damageRoll.formula}`
-					);
-					assert.include(damageRoll.formula, "1d6", `formula deve ter 1d6 original, got: ${damageRoll.formula}`);
-				});
-
-				it("single-attack com critical continua multiplicando os dados (regression para a path single)", async () => {
-					const singleAttackCrit = await giveMeleeItem(attacker, "[combat-qol] Single Crit Sword", {
-						critical: "1",
-						numberOfAttacks: 1,
+				function porAtaqueWeapon(name, overrides = {}) {
+					return giveMeleeItem(attacker, name, {
+						numberOfAttacks: 4,
+						critical: "20",
 						formulas: {
 							attack: { attr: "str", skill: "fighting", bonus: 0 },
 							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
 						},
+						...overrides,
 					});
+				}
+
+				it("rollVolleyDamage: 1 critico + 3 normais -> uma rolagem 2d6 e o resto 1d6 (real)", async () => {
+					const weapon = await porAtaqueWeapon("[combat-qol] PorAtaque1Crit");
+					const uuid = target.uuid;
 					try {
-						await singleAttackCrit.roll();
-						const snap = setTargets([target]);
-						let result;
-						try {
-							result = await singleAttackCrit.rollAttack({});
-						} finally {
-							restoreTargets(snap);
+						const attackResults = [
+							{ hit: true, isCritical: true, revealed: true, actorUuid: uuid, attackIndex: 1 },
+							{ hit: true, isCritical: false, revealed: true, actorUuid: uuid, attackIndex: 2 },
+							{ hit: true, isCritical: false, revealed: true, actorUuid: uuid, attackIndex: 3 },
+							{ hit: true, isCritical: false, revealed: true, actorUuid: uuid, attackIndex: 4 },
+						];
+						const rolls = await weapon.rollVolleyDamage(attackResults, { event: { altKey: false } });
+						assert.equal(rolls.length, 4, "4 acertos -> 4 rolagens de dano");
+						assert.include(rolls[0].formula, "2d6", `ataque critico deve ser 2d6, got: ${rolls[0].formula}`);
+						for (let i = 1; i < 4; i += 1) {
+							assert.include(rolls[i].formula, "1d6", `ataque normal deve ser 1d6, got: ${rolls[i].formula}`);
+							assert.notInclude(rolls[i].formula, "2d6", "ataque normal NAO deve dobrar");
 						}
-						assert.isTrue(result.hitResult?.isCritical, "single-attack: hitResult.isCritical deve ser true");
-						const damageRoll = await singleAttackCrit.rollDamage({
-							event: { altKey: false },
-							hitResult: result.hitResult,
-							lastId: true,
-						});
-						assert.include(damageRoll.formula, "2d6", `single-attack: formula deve conter 2d6, got: ${damageRoll.formula}`);
-					} finally {
-						await purgeMessages(
-							(m) =>
-								m.getFlag("ordemparanormal", "messageRoll")?.itemId === singleAttackCrit.id ||
-								m.content?.includes(`data-item-id="${singleAttackCrit.id}"`)
-						);
-						await singleAttackCrit.delete();
-					}
-				});
-
-				it("nova volley sem alvo NÃO reusa o hitResult agregado da volley anterior (volleyId guard)", async () => {
-					// Volley 1: com alvo → grava aggregated flag no card com volleyId=A
-					await weaponAlwaysCrit.roll();
-					const snap = setTargets([target]);
-					try {
-						await weaponAlwaysCrit.rollAttack({});
-					} finally {
-						restoreTargets(snap);
-					}
-					const cardMsg = [...game.messages]
-						.reverse()
-						.find(
-							(m) => m.content?.includes(`data-item-id="${weaponAlwaysCrit.id}"`) && m.content?.includes("chat-card item-card")
-						);
-					const stale = cardMsg.getFlag("ordemparanormal", "hitResult");
-					assert.exists(stale?.volleyId, "primeira volley deve ter gravado volleyId no card flag");
-
-					// Volley 2: SEM alvo → inner attacks têm hitResult=null. Sem o guard,
-					// `results[0].hitResult` herdava o stale (com actorUuid da volley 1)
-					// e o damage button apontava pro alvo errado. Além disso, o
-					// card flag stale tem que ser LIMPO pra que o fallback
-					// persistedHit em _onChatCardAction("damage") não use o
-					// actorUuid da volley anterior.
-					game.user.targets.clear();
-					const result2 = await weaponAlwaysCrit.rollAttack({});
-					const inheritedSameVolley = result2?.hitResult?.volleyId && result2.hitResult.volleyId === stale.volleyId;
-					assert.isFalse(
-						Boolean(inheritedSameVolley),
-						`volley 2 não deve herdar volleyId=${stale.volleyId} da volley 1 (got: ${result2?.hitResult?.volleyId})`
-					);
-					// Card flag também deve estar limpo (não pode persistir o stale
-					// hitResult — fallback no damage path apontaria pro alvo errado).
-					const refreshed = cardMsg.getFlag("ordemparanormal", "hitResult");
-					assert.notExists(
-						refreshed,
-						`card flag stale deve ser limpo após no-target reroll (got: ${JSON.stringify(refreshed)})`
-					);
-				});
-
-				it("volley multi-target hit+miss: returned hitResult.actorUuid aponta para o ALVO ACERTADO, não o errado", async () => {
-					// Cenário: weapon multi-attack, 2 alvos. Round-robin: attack #1 → A (hit),
-					// attack #2 → B (miss). Sem o fix P1, o aggregate top-level
-					// `actorUuid` vem do ÚLTIMO ataque (B/miss) — damage button
-					// apontava pra B. Com o fix, escolhemos a primeira entry hit.
-					const targetHit = await createAgent({ defense: { value: 1 } });
-					const targetMiss = await createAgent({ defense: { value: 99 } });
-					const weapon = await giveMeleeItem(attacker, "[combat-qol] HitMiss Sword", {
-						critical: "99", // não polui isCritical
-						numberOfAttacks: 2,
-						formulas: {
-							attack: { attr: "str", skill: "fighting", bonus: 0 },
-							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
-						},
-					});
-					try {
-						await weapon.roll();
-						const snap = setTargets([targetHit, targetMiss]); // attack#1→hit, attack#2→miss
-						let result;
-						try {
-							result = await weapon.rollAttack({});
-						} finally {
-							restoreTargets(snap);
-						}
-						assert.exists(result?.hitResult, "result.hitResult deve existir");
-						// O hitResult retornado deve apontar pro alvo que foi ACERTADO,
-						// não pro último ataque (que errou).
-						assert.equal(
-							result.hitResult.actorUuid,
-							targetHit.uuid,
-							`actorUuid deve ser do alvo acertado (${targetHit.uuid}), got: ${result.hitResult.actorUuid}`
-						);
-						assert.notEqual(
-							result.hitResult.actorUuid,
-							targetMiss.uuid,
-							`actorUuid NÃO deve ser do alvo errado (${targetMiss.uuid})`
-						);
 					} finally {
 						await purgeMessages(
 							(m) =>
@@ -1151,61 +944,110 @@ Hooks.once("quenchReady", (quench) => {
 								m.content?.includes(`data-item-id="${weapon.id}"`)
 						);
 						await weapon.delete();
-						await targetHit.delete();
-						await targetMiss.delete();
 					}
 				});
 
-				// ----------------------------------------------------------------
-				// Round 4 (confirmed live on Foundry v13). The volley critical
-				// decision must come from the in-memory per-attack rolls, NOT the
-				// aggregated card flag: the flag is absent when no target is selected
-				// and reveal-gated while a defender's reaction is pending, so the
-				// previous flag-derived logic dropped the crit and never multiplied
-				// the dice — exactly the reviewer's report (fails for one crit AND for
-				// several). The earlier "rollDamage com hitResult agregado" test fed
-				// the flag straight into rollDamage, so it never exercised the
-				// volley→damage hand-off where the bug lived. These two fail on the
-				// pre-fix code and pass after it.
-				// ----------------------------------------------------------------
-				it("no-target: crítico num ataque posterior (não o #1) multiplica o dano (sem alvo → sem card flag)", async () => {
-					const weapon = await giveMeleeItem(attacker, "[combat-qol] NoTarget Crit", {
-						numberOfAttacks: 2,
-						critical: "20",
-						formulas: {
-							attack: { attr: "str", skill: "fighting", bonus: 0 },
-							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
-						},
-					});
-					// Force ONLY the 2nd attack to roll a critical; attack #1 stays
-					// non-critical. With no target the inner aggregator never writes a
-					// card flag, so the volley must surface the crit from memory.
+				it("cada rolagem por-ataque roteia o dano (damageTarget) pro alvo que acertou", async () => {
+					const weapon = await porAtaqueWeapon("[combat-qol] PorAtaqueTarget");
+					const uuid = target.uuid;
+					try {
+						const rolls = await weapon.rollVolleyDamage(
+							[
+								{ hit: true, isCritical: true, revealed: true, actorUuid: uuid, attackIndex: 1 },
+								{ hit: true, isCritical: false, revealed: true, actorUuid: uuid, attackIndex: 2 },
+							],
+							{ event: {} }
+						);
+						assert.equal(rolls.length, 2);
+						const dmgMsgs = [...game.messages].filter((m) => m.getFlag("ordemparanormal", "damageTarget")).slice(-2);
+						assert.equal(dmgMsgs.length, 2, "ambas as rolagens devem ter damageTarget (botao aplicar)");
+						for (const m of dmgMsgs) {
+							assert.equal(m.getFlag("ordemparanormal", "damageTarget").actorUuid, uuid);
+						}
+					} finally {
+						await purgeMessages(
+							(m) =>
+								m.getFlag("ordemparanormal", "messageRoll")?.itemId === weapon.id ||
+								m.getFlag("ordemparanormal", "damageTarget") ||
+								m.content?.includes(`data-item-id="${weapon.id}"`)
+						);
+						await weapon.delete();
+					}
+				});
+
+				it("dodge-the-crit: o ataque critado vira miss (hit=false) e NAO rola dano", async () => {
+					const weapon = await porAtaqueWeapon("[combat-qol] PorAtaqueDodge");
+					const uuid = target.uuid;
+					try {
+						// attack #1 normal HIT, attack #2 critou mas foi esquivado para miss
+						const rolls = await weapon.rollVolleyDamage(
+							[
+								{ hit: true, isCritical: false, revealed: true, actorUuid: uuid, attackIndex: 1 },
+								{ hit: false, isCritical: true, revealed: true, actorUuid: uuid, attackIndex: 2 },
+							],
+							{ event: {} }
+						);
+						assert.equal(rolls.length, 1, "so o ataque que acertou rola dano");
+						assert.include(rolls[0].formula, "1d6");
+						assert.notInclude(rolls[0].formula, "2d6", "crit esquivado NAO multiplica");
+					} finally {
+						await purgeMessages(
+							(m) =>
+								m.getFlag("ordemparanormal", "messageRoll")?.itemId === weapon.id ||
+								m.content?.includes(`data-item-id="${weapon.id}"`)
+						);
+						await weapon.delete();
+					}
+				});
+
+				it("ataques com reacao pendente (revealed=false) nao rolam dano ate revelar", async () => {
+					const weapon = await porAtaqueWeapon("[combat-qol] PorAtaquePending");
+					const uuid = target.uuid;
+					try {
+						const rolls = await weapon.rollVolleyDamage(
+							[
+								{ hit: true, isCritical: true, revealed: false, actorUuid: uuid, attackIndex: 1 },
+								{ hit: true, isCritical: false, revealed: false, actorUuid: uuid, attackIndex: 2 },
+							],
+							{ event: {} }
+						);
+						assert.equal(rolls.length, 0, "nada rola enquanto a reacao esta pendente");
+					} finally {
+						await weapon.delete();
+					}
+				});
+
+				it("pipeline real: rollAttack (1 crit em x3) -> card flag -> rollVolleyDamage = 2d6 + 1d6 + 1d6", async () => {
+					const weapon = await porAtaqueWeapon("[combat-qol] PorAtaquePipeline", { numberOfAttacks: 3 });
 					const proto = Object.getPrototypeOf(weapon);
 					const origIsCritical = proto.isCritical;
 					let calls = 0;
 					proto.isCritical = function (critical = { isCritical: false }, options = {}) {
 						const r = origIsCritical.call(this, critical, options);
 						calls += 1;
-						r.isCritical = calls === 2;
+						r.isCritical = calls === 1; // so o primeiro ataque crita
 						return r;
 					};
 					try {
 						await weapon.roll();
-						calls = 0;
-						// NB: no setTargets — no target selected.
-						const result = await weapon.rollAttack({});
-						assert.isTrue(
-							result.criticalStatus?.isCritical,
-							"sem alvo, o crit do ataque #2 deve chegar ao criticalStatus do volley"
-						);
-						assert.equal(result.criticalStatus?.multiplier, 2, "multiplier deve vir da fórmula (x2)");
-						const dmg = await weapon.rollDamage({
-							event: { altKey: false },
-							critical: result.criticalStatus,
-							lastId: true,
-							hitResult: result.hitResult,
-						});
-						assert.include(dmg.formula, "2d6", `dano deve multiplicar mesmo sem alvo, got: ${dmg.formula}`);
+						const snap = setTargets([target]);
+						let res;
+						try {
+							calls = 0;
+							res = await weapon.rollAttack({});
+						} finally {
+							restoreTargets(snap);
+						}
+						const ar = res.hitResult?.attackResults ?? [];
+						assert.equal(ar.length, 3, "3 ataques no attackResults");
+						assert.isTrue(ar[0].isCritical && ar[0].hit === true, "ataque #1 crit e acertou");
+						assert.isFalse(ar[1].isCritical, "ataque #2 normal");
+						assert.equal(ar[0].actorUuid, target.uuid, "ataque #1 roteado pro alvo");
+						const rolls = await weapon.rollVolleyDamage(ar, { event: {} });
+						assert.equal(rolls.length, 3);
+						assert.include(rolls[0].formula, "2d6", `#1 critico = 2d6, got: ${rolls[0].formula}`);
+						assert.include(rolls[1].formula, "1d6");
+						assert.notInclude(rolls[1].formula, "2d6");
 					} finally {
 						proto.isCritical = origIsCritical;
 						await purgeMessages(
@@ -1217,52 +1059,31 @@ Hooks.once("quenchReady", (quench) => {
 					}
 				});
 
-				it("reacting defender: crítico conta para o multiplicador mesmo com a reação pendente (revealed=false)", async () => {
-					// Defensor agente treinado em reflexos/luta → reactionPending, então
-					// todo ataque sai revealed=false. O agregador exclui entradas não
-					// reveladas do anyCritical, então o código antigo nunca multiplicava
-					// (criatura multi-ataque vs PC que pode reagir — o cenário do
-					// reviewer). O multiplicador vem do dado rolado, não da revelação.
-					const defender = await createAgent({ defense: { value: 1, bonus: 0, dodge: 1 } });
-					await defender.update({
-						"system.skills.reflexes.degree.value": 5,
-						"system.skills.reflexes.degree.label": "trained",
-						"system.skills.fighting.degree.value": 5,
-						"system.skills.fighting.degree.label": "trained",
-					});
-					const weapon = await giveMeleeItem(attacker, "[combat-qol] React Crit", {
-						numberOfAttacks: 2,
-						critical: "1", // qualquer d20 é crítico → determinístico
+				it("single-attack critico continua dobrando numa rolagem so", async () => {
+					const weapon = await giveMeleeItem(attacker, "[combat-qol] PorAtaqueSingle", {
+						numberOfAttacks: 1,
+						critical: "1",
 						formulas: {
 							attack: { attr: "str", skill: "fighting", bonus: 0 },
 							damage: { formula: "1d6", attr: "str", type: "cuttingDamage", bonus: 0, parts: [] },
 						},
 					});
 					try {
-						await weapon.roll();
-						const snap = setTargets([defender]);
-						let result;
+						const snap = setTargets([target]);
+						let res;
 						try {
-							result = await weapon.rollAttack({});
+							res = await weapon.rollAttack({});
 						} finally {
 							restoreTargets(snap);
 						}
-						const ar = result.hitResult?.attackResults ?? [];
-						assert.isTrue(
-							ar.length > 0 && ar.every((a) => a.revealed === false),
-							`reação pendente: todos os ataques devem ficar revealed=false, got: ${JSON.stringify(ar)}`
-						);
-						assert.isTrue(
-							result.criticalStatus?.isCritical,
-							"crit deve contar para o multiplicador mesmo com a reação pendente"
-						);
+						assert.notExists(res.hitResult?.attackResults, "ataque unico nao gera attackResults");
 						const dmg = await weapon.rollDamage({
 							event: { altKey: false },
-							critical: result.criticalStatus,
+							critical: res.criticalStatus,
 							lastId: true,
-							hitResult: result.hitResult,
+							hitResult: res.hitResult,
 						});
-						assert.include(dmg.formula, "2d6", `dano deve multiplicar com defensor reagindo, got: ${dmg.formula}`);
+						assert.include(dmg.formula, "2d6", `single crit deve dobrar, got: ${dmg.formula}`);
 					} finally {
 						await purgeMessages(
 							(m) =>
@@ -1270,7 +1091,6 @@ Hooks.once("quenchReady", (quench) => {
 								m.content?.includes(`data-item-id="${weapon.id}"`)
 						);
 						await weapon.delete();
-						await defender.delete();
 					}
 				});
 			});

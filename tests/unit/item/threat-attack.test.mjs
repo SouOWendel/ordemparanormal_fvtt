@@ -105,3 +105,96 @@ describe("OrdemItem.rollAttack — numberOfAttacks > 1", () => {
 		expect(result).toHaveProperty("criticalStatus");
 	});
 });
+
+describe("OrdemItem.rollVolleyDamage — dano por-ataque (multi-ataque)", () => {
+	it("rola uma vez por ataque que ACERTOU; dobra só os que critaram; pula miss e pendente", async () => {
+		const item = makeArmamentItem({ numberOfAttacks: 4 });
+		item.system.critical = "20"; // x2
+		const calls = [];
+		item.rollDamage = vi.fn(async (opts) => {
+			calls.push(opts);
+			return { formula: `mock${calls.length}` };
+		});
+		const attackResults = [
+			{ hit: true, isCritical: true, revealed: true, actorUuid: "uuidA", attackMessageId: "m1", attackIndex: 1 },
+			{ hit: true, isCritical: false, revealed: true, actorUuid: "uuidA", attackMessageId: "m2", attackIndex: 2 },
+			{ hit: false, isCritical: true, revealed: true, actorUuid: "uuidA", attackMessageId: "m3", attackIndex: 3 }, // miss → pula
+			{ hit: true, isCritical: false, revealed: false, actorUuid: "uuidA", attackMessageId: "m4", attackIndex: 4 }, // pendente → pula
+		];
+		const rolls = await item.rollVolleyDamage(attackResults, { event: {} });
+		expect(rolls).toHaveLength(2); // só os 2 hits revelados
+		expect(calls).toHaveLength(2);
+		// ataque #1: crítico → multiplier vem da fórmula
+		expect(calls[0].critical).toEqual({ isCritical: true, multiplier: 2 });
+		expect(calls[0].hitResult.actorUuid).toBe("uuidA");
+		expect(calls[0].hitResult.attackMessageId).toBe("m1");
+		expect(calls[0].lastId).toBe(true);
+		// ataque #2: normal → sem multiplicação
+		expect(calls[1].critical).toBe(false);
+		expect(calls[1].hitResult.actorUuid).toBe("uuidA");
+	});
+
+	it("um crítico em x4 dobra SÓ aquele ataque (1 crit + 3 normais)", async () => {
+		const item = makeArmamentItem({ numberOfAttacks: 4 });
+		item.system.critical = "20";
+		const crits = [];
+		item.rollDamage = vi.fn(async (opts) => {
+			crits.push(opts.critical?.isCritical === true);
+			return {};
+		});
+		const attackResults = [
+			{ hit: true, isCritical: true, revealed: true, actorUuid: "a" },
+			{ hit: true, isCritical: false, revealed: true, actorUuid: "a" },
+			{ hit: true, isCritical: false, revealed: true, actorUuid: "a" },
+			{ hit: true, isCritical: false, revealed: true, actorUuid: "a" },
+		];
+		await item.rollVolleyDamage(attackResults, { event: {} });
+		expect(crits).toEqual([true, false, false, false]);
+	});
+
+	it("recupera multiplicador x3/x4 da fórmula de crítico", async () => {
+		const item = makeArmamentItem({ numberOfAttacks: 2 });
+		item.system.critical = "19/x3";
+		const calls = [];
+		item.rollDamage = vi.fn(async (opts) => {
+			calls.push(opts);
+			return {};
+		});
+		await item.rollVolleyDamage([{ hit: true, isCritical: true, revealed: true, actorUuid: "a" }], { event: {} });
+		expect(calls[0].critical).toEqual({ isCritical: true, multiplier: 3 });
+	});
+
+	it("nenhum acerto → nenhuma rolagem", async () => {
+		const item = makeArmamentItem({ numberOfAttacks: 2 });
+		item.rollDamage = vi.fn(async () => ({}));
+		const rolls = await item.rollVolleyDamage([{ hit: false, isCritical: true, revealed: true }], { event: {} });
+		expect(rolls).toHaveLength(0);
+		expect(item.rollDamage).not.toHaveBeenCalled();
+	});
+
+	it("attackResults vazio/undefined → sem rolagem e sem crash", async () => {
+		const item = makeArmamentItem();
+		item.rollDamage = vi.fn(async () => ({}));
+		expect(await item.rollVolleyDamage(undefined, {})).toEqual([]);
+		expect(await item.rollVolleyDamage([], {})).toEqual([]);
+		expect(item.rollDamage).not.toHaveBeenCalled();
+	});
+
+	it("roteia cada ataque para o alvo que ele acertou (multi-alvo)", async () => {
+		const item = makeArmamentItem({ numberOfAttacks: 2 });
+		item.system.critical = "20";
+		const targets = [];
+		item.rollDamage = vi.fn(async (opts) => {
+			targets.push(opts.hitResult.actorUuid);
+			return {};
+		});
+		await item.rollVolleyDamage(
+			[
+				{ hit: true, isCritical: false, revealed: true, actorUuid: "alvoA" },
+				{ hit: true, isCritical: false, revealed: true, actorUuid: "alvoB" },
+			],
+			{ event: {} }
+		);
+		expect(targets).toEqual(["alvoA", "alvoB"]);
+	});
+});

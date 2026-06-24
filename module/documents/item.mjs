@@ -123,50 +123,36 @@ export class OrdemItem extends Item {
 				break;
 			}
 			case "damage": {
-				// Fall back to the persisted hitResult on the card so the apply-damage flow
-				// keeps working after a chat reload (when in-memory item state is lost).
-				// When rebuilding critical from a persisted flag, recover the multiplier
-				// from the item's critical formula (e.g. "19/x3" → 3) so x3/x4 weapons
-				// don't silently degrade to x2.
 				const persistedHit = message?.getFlag("ordemparanormal", "hitResult") ?? null;
-				const hitResult = item.hitResult ?? persistedHit;
-				// `this` here is the OrdemItem class itself (static method context).
-				const critFromFormula = () => ({
-					isCritical: true,
-					multiplier: this._parseCriticalMultiplier(item.system.critical),
-				});
-				let critical;
 				const volleyEntries = persistedHit?.attackResults;
 				if (volleyEntries?.length) {
-					// Multi-attack volley: the card flag's per-attack array is the
-					// reaction-synced source of truth (syncItemCardHitResult rewrites it
-					// after a Dodge/Block resolves). Multiply only when a revealed
-					// critical attack actually LANDED — this gates out the rare case
-					// where the defender dodges the one crit to a miss while a separate
-					// non-critical attack hits (in-memory `item.critical`, captured at
-					// attack time, would otherwise still multiply).
-					const critHitStands = volleyEntries.some(
-						(a) => a?.hit === true && a?.isCritical === true && a?.revealed !== false
-					);
-					critical = critHitStands ? critFromFormula() : false;
-				} else if (item.critical) {
-					// Single attack, or a no-target volley (no card flag was written):
-					// the in-memory criticalStatus is authoritative.
-					critical = item.critical;
-				} else if (persistedHit?.isCritical) {
-					// Chat reload dropped the in-memory state — rebuild from the flag,
-					// recovering the multiplier from the item's critical formula
-					// (e.g. "19/x3" → 3) so x3/x4 weapons don't degrade to x2.
-					critical = critFromFormula();
+					// Multi-attack volley -> one damage roll PER hitting attack. Each
+					// roll's dice are doubled only if THAT attack rolled a critical
+					// (per OP rules: a x4 creature that crits on one swing doubles only
+					// that swing), and each is routed to the actor it struck. A dodged
+					// attack has hit=false (synced by syncItemCardHitResult) so it
+					// simply contributes no damage.
+					await item.rollVolleyDamage(volleyEntries, { event });
 				} else {
-					critical = false;
+					// Single attack (or a chat reload that dropped in-memory state):
+					// fall back to the persisted hitResult so apply-damage keeps working,
+					// recovering the crit multiplier from the item's critical formula
+					// (e.g. "19/x3" => 3) so x3/x4 weapons do not degrade to x2.
+					const hitResult = item.hitResult ?? persistedHit;
+					let critical = item.critical;
+					if (!critical && persistedHit?.isCritical) {
+						// `this` is the OrdemItem class itself (static method context).
+						critical = { isCritical: true, multiplier: this._parseCriticalMultiplier(item.system.critical) };
+					} else if (!critical) {
+						critical = false;
+					}
+					await item.rollDamage({
+						event: event,
+						critical,
+						lastId: item.lastMessageId ? item.lastMessageId === messageId : true,
+						hitResult,
+					});
 				}
-				await item.rollDamage({
-					event: event,
-					critical,
-					lastId: item.lastMessageId ? item.lastMessageId === messageId : true,
-					hitResult,
-				});
 				break;
 			}
 			case "formula":
@@ -318,91 +304,41 @@ export class OrdemItem extends Item {
 						})
 					);
 				}
-				// Surface the volley's aggregate onto `results[0]` — the object the
-				// chat handlers consume (`_onChatCardAction` reads `item.critical` /
-				// `item.hitResult` from it). Two INDEPENDENT decisions:
-				//
-				// 1. CRITICAL (drives the damage multiplier). Derived from the
-				//    in-memory per-attack `results`, NOT the card flag. Each
-				//    `results[i].criticalStatus.isCritical` is the ground truth for
-				//    "this attack's die rolled a critical" — it exists with or
-				//    without a target and is NOT gated by reveal/reaction state.
-				//    The previous flag-derived logic dropped the crit in two real
-				//    cases the reviewer hit: (a) NO TARGET — the inner aggregator
-				//    only writes the card flag when a hitResult exists, so there was
-				//    nothing to read back; (b) a REACTING DEFENDER — every attack is
-				//    `revealed:false` until the reaction resolves, so the
-				//    aggregator's `anyCritical` (which excludes unrevealed entries)
-				//    stayed false and the dice were never multiplied, for one crit
-				//    OR several. A crit only counts when its attack could land: no
-				//    target means no defense to miss (any rolled crit qualifies);
-				//    with a target the attack must have hit (a crit that missed the
-				//    defense does not multiply).
-				// 2. TARGETING (which actor receives applied damage). Read from the
-				//    aggregated card flag, which carries the per-attack `attackResults`
-				//    array and the post-reaction sync. Only meaningful when a target
-				//    produced a hitResult. Guarded against a missing `game.messages`
-				//    collection (Vitest mocks may not provide one).
-				const volleyHasCrit = results.some(
-					(r) => r?.criticalStatus?.isCritical && (r.hitResult == null || r.hitResult.hit === true)
-				);
-				if (results[0]) {
-					const multiplier = this.constructor._parseCriticalMultiplier(this.system.critical);
-					results[0].criticalStatus = {
-						...(results[0].criticalStatus ?? {}),
-						isCritical: volleyHasCrit,
-						multiplier,
+				// Build the volley's per-attack record from the in-memory `results`
+				// (the authoritative source for each attack's hit / crit / target) and
+				// surface it on `results[0].hitResult`. `_onChatCardAction("attack")`
+				// persists it to the card flag; `_onChatCardAction("damage")` then
+				// reads `attackResults` to roll damage ONCE PER HITTING ATTACK, each
+				// doubled only if THAT attack rolled a critical and each routed to the
+				// actor it struck (per OP multi-attack rules). Building from `results`
+				// (not a chat-message lookup) makes it correct with or without a
+				// target and independent of reveal/reaction state; a no-target attack
+				// counts as "landed" (no defense to miss) so its damage still rolls.
+				const attackResults = results.map((r, i) => {
+					const hr = r?.hitResult ?? null;
+					return {
+						attackIndex: showAttackIndex ? i + 1 : null,
+						attackMessageId: hr?.attackMessageId ?? null,
+						hit: hr ? hr.hit === true : true,
+						revealed: hr ? hr.revealed !== false : true,
+						isCritical: Boolean(r?.criticalStatus?.isCritical),
+						targetDefense: hr?.targetDefense ?? null,
+						actorUuid: hr?.actorUuid ?? null,
 					};
-				}
-				try {
-					const itemId = this.id;
-					const messages = game.messages ? [...game.messages] : [];
-					const cardMsg = messages
-						.reverse()
-						.find((m) => m.content?.includes(`data-item-id="${itemId}"`) && m.content?.includes("chat-card item-card"));
-					const aggregated = cardMsg?.getFlag("ordemparanormal", "hitResult") ?? null;
-					const sameVolley = aggregated?.volleyId && aggregated.volleyId === volleyId;
-					if (sameVolley && results[0]) {
-						// Pick a representative HIT entry to drive damage targeting:
-						// prefer a revealed critical hit (apply damage to the actor
-						// actually critically struck), else the first revealed hit.
-						const entries = aggregated.attackResults ?? [];
-						const firstCritHit = entries.find((a) => a?.hit === true && a?.isCritical === true && a?.revealed !== false);
-						const firstHitEntry = firstCritHit ?? entries.find((a) => a?.hit === true && a?.revealed !== false);
-						// Preserve `attackResults` (spread `...aggregated`) so the
-						// damage-button gating in chat-message.mjs keeps treating this
-						// as a volley. `isCritical` mirrors the in-memory decision so
-						// the persisted flag — the chat-reload fallback in
-						// `_onChatCardAction "damage"` — agrees with the returned value.
-						const safeAggregate = firstHitEntry
-							? {
-									...aggregated,
-									actorUuid: firstHitEntry.actorUuid ?? aggregated.actorUuid,
-									attackMessageId: firstHitEntry.attackMessageId ?? aggregated.attackMessageId,
-									targetDefense: firstHitEntry.targetDefense ?? aggregated.targetDefense,
-									isCritical: results[0].criticalStatus.isCritical,
-							  }
-							: { ...aggregated, isCritical: results[0].criticalStatus.isCritical };
-						results[0].hitResult = safeAggregate;
-						try {
-							await cardMsg.setFlag("ordemparanormal", "hitResult", safeAggregate);
-						} catch (_err) {
-							/* card may have been deleted mid-volley — best-effort */
-						}
-					} else if (aggregated && cardMsg) {
-						// Stale flag from a previous volley — clear it. Without this,
-						// a no-target re-roll leaves the card pointing at the
-						// previous actor; clicking Damage falls back to that flag
-						// via `_onChatCardAction "damage"` and routes damage to
-						// the prior target.
-						try {
-							await cardMsg.unsetFlag("ordemparanormal", "hitResult");
-						} catch (_err) {
-							/* best-effort cleanup */
-						}
-					}
-				} catch (_e) {
-					/* tolerate a non-iterable messages collection in non-Foundry contexts */
+				});
+				if (results[0]) {
+					const firstHit = attackResults.find((a) => a.hit === true && a.revealed !== false) ?? attackResults[0] ?? null;
+					results[0].hitResult = {
+						...(results[0].hitResult ?? {}),
+						volleyId,
+						attackResults,
+						hit: attackResults.some((a) => a.hit === true || a.revealed === false),
+						revealed: attackResults.every((a) => a.revealed !== false),
+						isCritical: attackResults.some((a) => a.isCritical === true && a.hit === true && a.revealed !== false),
+						actorUuid: firstHit?.actorUuid ?? results[0].hitResult?.actorUuid ?? null,
+						attackMessageId: firstHit?.attackMessageId ?? results[0].hitResult?.attackMessageId ?? null,
+						targetDefense: firstHit?.targetDefense ?? results[0].hitResult?.targetDefense ?? null,
+					};
 				}
 				return results[0];
 			}
@@ -751,7 +687,9 @@ export class OrdemItem extends Item {
 			await roll.toMessage(
 				{
 					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-					flavor: game.i18n.format("op.rollDamageChat", { name: this.name, types: types }),
+					flavor:
+						game.i18n.format("op.rollDamageChat", { name: this.name, types: types }) +
+						(options._attackIndex ? ` (${options._attackIndex}/${options._attackTotal})` : ""),
 					flags: Object.keys(flags).length ? flags : undefined,
 				},
 				{ rollMode: game.settings.get("core", "rollMode") }
@@ -768,6 +706,45 @@ export class OrdemItem extends Item {
 		Hooks.callAll("ordemparanormal.rollFormula", this, roll);
 
 		return roll;
+	}
+
+	/**
+	 * Roll damage once per hitting attack in a multi-attack volley. Each attack
+	 * that landed (and is revealed) rolls its own damage; the dice are doubled
+	 * only for the attacks that rolled a critical, matching OP per-attack rules
+	 * (a x4 creature that crits on one swing doubles only that swing). Each roll
+	 * is routed to the actor that attack struck via its `actorUuid`, so
+	 * multi-target volleys apply to the right token.
+	 * @param {Array<object>} attackResults  Per-attack records from the card flag.
+	 * @param {object} [options]
+	 * @param {Event}  [options.event]       Originating click (altKey forces crit).
+	 * @returns {Promise<Roll[]>}            One Roll per hitting attack.
+	 */
+	async rollVolleyDamage(attackResults, { event } = {}) {
+		const entries = attackResults ?? [];
+		const hits = entries.filter((a) => a?.hit === true && a?.revealed !== false);
+		const rolls = [];
+		for (const atk of hits) {
+			const critical = atk.isCritical
+				? { isCritical: true, multiplier: this.constructor._parseCriticalMultiplier(this.system.critical) }
+				: false;
+			rolls.push(
+				await this.rollDamage({
+					event,
+					critical,
+					lastId: true,
+					hitResult: {
+						actorUuid: atk.actorUuid ?? null,
+						attackMessageId: atk.attackMessageId ?? null,
+						isCritical: Boolean(atk.isCritical),
+						hit: true,
+					},
+					_attackIndex: atk.attackIndex ?? null,
+					_attackTotal: entries.length,
+				})
+			);
+		}
+		return rolls;
 	}
 
 	/**
