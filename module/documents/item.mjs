@@ -130,11 +130,35 @@ export class OrdemItem extends Item {
 				// don't silently degrade to x2.
 				const persistedHit = message?.getFlag("ordemparanormal", "hitResult") ?? null;
 				const hitResult = item.hitResult ?? persistedHit;
-				let critical = item.critical;
-				if (!critical && persistedHit?.isCritical) {
-					// `this` here is the OrdemItem class itself (static method context)
-					critical = { isCritical: true, multiplier: this._parseCriticalMultiplier(item.system.critical) };
-				} else if (!critical) {
+				// `this` here is the OrdemItem class itself (static method context).
+				const critFromFormula = () => ({
+					isCritical: true,
+					multiplier: this._parseCriticalMultiplier(item.system.critical),
+				});
+				let critical;
+				const volleyEntries = persistedHit?.attackResults;
+				if (volleyEntries?.length) {
+					// Multi-attack volley: the card flag's per-attack array is the
+					// reaction-synced source of truth (syncItemCardHitResult rewrites it
+					// after a Dodge/Block resolves). Multiply only when a revealed
+					// critical attack actually LANDED — this gates out the rare case
+					// where the defender dodges the one crit to a miss while a separate
+					// non-critical attack hits (in-memory `item.critical`, captured at
+					// attack time, would otherwise still multiply).
+					const critHitStands = volleyEntries.some(
+						(a) => a?.hit === true && a?.isCritical === true && a?.revealed !== false
+					);
+					critical = critHitStands ? critFromFormula() : false;
+				} else if (item.critical) {
+					// Single attack, or a no-target volley (no card flag was written):
+					// the in-memory criticalStatus is authoritative.
+					critical = item.critical;
+				} else if (persistedHit?.isCritical) {
+					// Chat reload dropped the in-memory state — rebuild from the flag,
+					// recovering the multiplier from the item's critical formula
+					// (e.g. "19/x3" → 3) so x3/x4 weapons don't degrade to x2.
+					critical = critFromFormula();
+				} else {
 					critical = false;
 				}
 				await item.rollDamage({
