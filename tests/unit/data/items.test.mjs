@@ -47,6 +47,12 @@ describe("ArmamentData.defineSchema()", () => {
 		const data = { description: "test" };
 		expect(ArmamentData.migrateData(data)).toBe(data);
 	});
+
+	it("stores proficiency as a string enum", () => {
+		const schema = ArmamentData.defineSchema();
+
+		expect(schema.proficiency.constructor.name).toBe("StringField");
+	});
 });
 
 describe("GeneralEquipmentData.defineSchema()", () => {
