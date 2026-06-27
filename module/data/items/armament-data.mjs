@@ -10,7 +10,7 @@ export class ArmamentData extends foundry.abstract.TypeDataModel {
 				class: new fields.StringField({ initial: "fas" }),
 			}),
 			quantity: new fields.NumberField({ required: true, integer: true, initial: 1 }),
-			proficiency: new fields.NumberField({ required: true, integer: true, initial: 0 }),
+			proficiency: new fields.StringField({ initial: "" }),
 			types: new fields.SchemaField({
 				rangeType: new fields.SchemaField({
 					name: new fields.StringField({ initial: "" }),
