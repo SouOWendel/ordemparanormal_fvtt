@@ -19,7 +19,9 @@
 
 # Sobre o Ordem Paranormal.
 
-Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado por Rafael Lange, mais conhecido pelo seu pseudônimo Cellbit. Com base nisso, este é um **sistema não-oficial** adaptado para o FoundryVTT, que utiliza dos conteúdos considerados <i>Open Game License¹</i>, conforme a licença incluída juntamente ao livro de regras.
+Ordem Paranormal é um sistema e/ou universo de investigação paranormal criado por Rafael Lange, mais conhecido pelo seu pseudônimo Cellbit. Com base nisso, este é um **sistema não-oficial** adaptado para o FoundryVTT (atualmente em suporte nativo para o v14), que utiliza dos conteúdos considerados <i>Open Game License¹</i>, conforme a licença incluída juntamente ao livro de regras.
+
+Este repositório é um **fork privado** do repositório original (SouOWendel/ordemparanormal_fvtt) com atualizações ativas para suportar as arquiteturas mais modernas do Foundry VTT v14+ (como AppV2, TypeDataModels) e features exclusivas (ex: Assistente de Criação de Personagem). Os créditos de autoria original do sistema base pertencem aos autores e contribuidores referenciados abaixo.
 
 > No universo de Ordem Paranormal, o paranormal existe, mas está separado da nossa realidade por uma membrana. Essa membrana pode ser enfraquecida pelo medo, e alguns grupos de ocultistas estão dispostos a fazer isso para invocar entidades do Outro Lado.
 > Para combater essa ameaça, foi criada a Ordo Realitas, uma organização de detetives paranormais que vivem vidas duplas. Os agentes da Ordem secretamente investigam e combatem o paranormal, protegendo a Realidade e lutando contra aqueles que querem mergulhar o mundo em caos.
@@ -66,9 +68,9 @@ As suites disponíveis:
 - **OP | Item: isCritical & getRollData** — parsing de fórmulas críticas, dados de rolagem
 - **OP | Sheets: registration & dataModels** — registro de sheets e TypeDataModels no CONFIG
 
-## Modulos Obrigatórios.
+## Módulos Recomendados / Obrigatórios.
 
-- **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
+- **Brawl Bar** (v14 compatibility): módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
 
 ## Contribuidores
 
