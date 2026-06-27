@@ -461,7 +461,16 @@ export class OrdemItem extends Item {
 			const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
 			chatMessageData.whisper = [...new Set([...gmUsers, game.user.id])].flat();
 		}
-		ChatMessage.create(chatMessageData);
+		
+		const message = await ChatMessage.create(chatMessageData);
+
+		Hooks.callAll("ordemparanormal.itemUsed", {
+			item: this,
+			actor: this.actor,
+			token,
+			message,
+			chatMessageData,
+		});
 	}
 
 	/**
