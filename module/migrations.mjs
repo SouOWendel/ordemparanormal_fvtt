@@ -84,6 +84,31 @@ export async function migrateWorld({ bypassVersionCheck = false } = {}) {
  */
 export async function migrateActorData(actor, actorData, migrationData, flags = {}, { actorUuid } = {}) {
 	const updateData = {};
+
+	// Foundry v14 - TypeDataModel mapping check
+	// If it has _source.data, it's an old world actor from v13. We must merge data into system.
+	if (actorData._source && actorData._source.data) {
+		// Native TypeDataModel fallback handles this for active runtime, but we should write it into DB.
+		updateData["system"] = foundry.utils.mergeObject(actorData.system || {}, actorData._source.data, { inplace: false });
+		// Delete old data property if possible, though Foundry usually handles it.
+		updateData["-=data"] = null;
+	}
+
+	// Support for Legacy Skills (if they were simple numbers)
+	if (actorData.system?.skills) {
+		for (const [keySkill, skillVal] of Object.entries(actorData.system.skills)) {
+			if (typeof skillVal === "number") {
+				updateData[`system.skills.${keySkill}.value`] = skillVal;
+				updateData[`system.skills.${keySkill}.degree`] = { label: "untrained", value: 0 };
+			}
+		}
+	}
+
+	// Support for Legacy NEX (if it was under data.nex instead of system.nex.value)
+	if (actorData.data?.nex !== undefined && typeof actorData.data.nex === "number") {
+		updateData[`system.NEX.value`] = actorData.data.nex;
+	}
+
 	// isNewerVersion return whether a target version is more advanced than some other reference version.
 	if (foundry.utils.isNewerVersion("6.3.1", actorData._stats?.systemVersion) || flags.bypassVersionCheck) {
 		if (actorData.system?.class == "Combatente") updateData["system.class"] = "fighter";
@@ -93,7 +118,7 @@ export async function migrateActorData(actor, actorData, migrationData, flags = 
 
 	// The degree path changed in 6.9.2 version.
 	if (foundry.utils.isNewerVersion("6.9.2", actorData._stats?.systemVersion) || flags.bypassVersionCheck) {
-		for (const [keySkill] of Object.entries(actorData.system.skills)) {
+		for (const [keySkill] of Object.entries(actorData.system?.skills || {})) {
 			if (typeof actorData.system?.skills[keySkill]?.degree == "string") {
 				updateData[`system.skills.${keySkill}.degree.label`] = actorData.system?.skills[keySkill]?.degree;
 			}

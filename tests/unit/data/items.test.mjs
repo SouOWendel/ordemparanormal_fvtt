@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { AmmunitionData } from "../../../module/data/items/ammunition-data.mjs";
-import { ArmamentData } from "../../../module/data/items/armament-data.mjs";
-import { GeneralEquipmentData } from "../../../module/data/items/general-equipment-data.mjs";
-import { ProtectionData } from "../../../module/data/items/protection-data.mjs";
-import { AbilityData } from "../../../module/data/items/ability-data.mjs";
-import { RitualData } from "../../../module/data/items/ritual-data.mjs";
+import { AmmunitionData } from "../../../module/data/models/items/ammunition.mjs";
+import { ArmamentData } from "../../../module/data/models/items/armament.mjs";
+import { GeneralEquipmentData } from "../../../module/data/models/items/general-equipment.mjs";
+import { ProtectionData } from "../../../module/data/models/items/protection.mjs";
+import { AbilityData } from "../../../module/data/models/items/ability.mjs";
+import { RitualData } from "../../../module/data/models/items/ritual.mjs";
 
 describe("ArmamentData.defineSchema()", () => {
 	it("returns all top-level keys", () => {
