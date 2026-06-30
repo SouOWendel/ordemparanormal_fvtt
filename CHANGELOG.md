@@ -1,5 +1,46 @@
 # Changelog
 
+## [7.4.0](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.3...v7.4.0) (2026-06-30)
+
+
+### Features
+
+* add agents and threats compendium packs ([067712b](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/067712b997c3b567c3cc0354b2e9289b554f392a))
+* added transparent space between tokens and status bars ([a9ac0a3](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a9ac0a324fc2594ec3deb6e304a3768096c0bfaf))
+* adiciona hook ao usar item ([bee861e](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bee861ee22e6b1658b9893e6bbed97c71f2fda75))
+* adiciona hook ao usar item ([36a35c6](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/36a35c6efc7716cf873253892349e1322f48f95f))
+* **combat:** add defender reaction system (Esquiva/Bloqueio/Contra-ataque) ([a993103](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a993103f049fc97755e0c8113457305941624467))
+* **combat:** introduce Combat Quality-of-Life feature set ([242ae3a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/242ae3aa8f2621fecbdf10cb7436174114468072))
+* **combat:** introduce Combat Quality-of-Life feature set ([d698c3f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d698c3f6ba6989eedaf91d33fb7cf5fc954706dd))
+* complete v13 migration with TypeDataModel, Tier 1 and 2 tests, and CI/CD ([6976fd1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6976fd15c9059c3d9919aa75d5a9d25bc50d1808))
+* complete v13 migration with TypeDataModel, Tier 2 tests, and CI/CD ([a51fe6a](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/a51fe6add7ae13ee5bd8836f6bc02db8a6cbfba0))
+* implement OrdemActor.applyDamage() ([dda66b5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dda66b57eef06dbf62606ef7525f72bfdc9c2dad))
+* **lang:** added 'maledictologist'  with translation to English and Portuguese ([37b9dba](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/37b9dbab1e88d2ea663e6cc6b9a69aa994c48569))
+
+
+### Bug Fixes
+
+* **actor:** on v14 core version, active effects are calculated on prepareBaseData ([bd122b2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/bd122b2555280b30913494fc359febcaefd745c2))
+* **actor:** resolve merge conflicts and clean up prepareBaseData and applyActiveEffects methods ([c8e9d38](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/c8e9d38c80f101763eeaba84fa10b43471a1a5d2))
+* added damageTypeAbv for "damage" ([0122166](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/0122166b875b9eb4fb01e541a6c9b3fc253ee555))
+* added generalPowers pack to "Outros Poderes" folder ([abdf4e2](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/abdf4e2d6fcface1a510e038ca93e052a0a8a5f1))
+* added missing handlebars ternary helper ([d493efc](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/d493efc0203ae2523cd9155bdce9fa1e2da428e2))
+* **combat:** address PR [#87](https://github.com/SouOWendel/ordemparanormal_fvtt/issues/87) review feedback ([6408e2d](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/6408e2d4fd0a5b3bb5f9344ee51d433df0099186))
+* **combat:** address PR [#87](https://github.com/SouOWendel/ordemparanormal_fvtt/issues/87) review round 2 ([b5f55ec](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/b5f55ec4d8f867a5d100384de3491d195814ee76))
+* **combat:** dodged crit in a volley no longer over-multiplies damage ([8c380f8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/8c380f84853a22571c1e9f594066733e2948a856))
+* **combat:** multi-attack crit now multiplies damage in all cases ([f6907e8](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/f6907e81342163cf4d2486cb76049c2f95eec176))
+* **combat:** multi-attack rolls damage per attack (crit doubles only that attack) ([55cb739](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/55cb7391e2e485e40c456711b87c3a0099215a87))
+* **combat:** multi-attack volley surfaces aggregated isCritical for damage ([afca87f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/afca87f6071a87ec2d983b2addea5c233966b88c))
+* **data:** default agent skills to their canonical attribute ([1c11ed4](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/1c11ed45d95908cc2160fd34c36a7f8b9de2c9d3))
+* **data:** persist ghost fields on threat/ritual/ability sheets ([fbb3ac5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/fbb3ac55f5e39bf3b44c4de327d877b97bab8f68))
+* fixes dice rolling ([7542b33](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/7542b33eee99ea89778b39e79e6c5120e8c6be18))
+* isCritical empty formula no longer produces false-positive critical ([dda66b5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dda66b57eef06dbf62606ef7525f72bfdc9c2dad))
+* isCritical guard null crtalFormula (.trim() TypeError) ([dda66b5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dda66b57eef06dbf62606ef7525f72bfdc9c2dad))
+* registerSystemKeybindings call ([083a546](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/083a54630376b9fb695f47b49a46178645b35056))
+* **test-infra:** add KeyboardManager mock, resetFormula stub, ([dda66b5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dda66b57eef06dbf62606ef7525f72bfdc9c2dad))
+* threat sheet element field binding (details.element → elements.main) ([dda66b5](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/dda66b57eef06dbf62606ef7525f72bfdc9c2dad))
+* update agent JSON files (removed PV and SAN perRound) ([9dedbe1](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/9dedbe1077bc0884dbb746019bfe3b7a595f33f2))
+
 ## [7.3.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v7.3.2...v7.3.3) (2026-04-26)
 
 ### Bug Fixes
