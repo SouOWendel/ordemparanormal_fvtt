@@ -57,22 +57,6 @@ export class OrdemActor extends Actor {
 	/** @override */
 	prepareBaseData() {
 		super.prepareBaseData();
-		// Data modifications in this step occur before processing embedded
-		// documents or derived data.
-		const actorData = this;
-		const systemData = actorData.system;
-
-		if (actorData.type == 'agent') {
-			this._prepareDataStatus(actorData, systemData);
-			this._prepareRituals(actorData);
-			this._prepareBaseSkills(systemData);
-			this._preparePatent(actorData);
-		}
-
-		// Calcular perícias para Ameaças também
-		if (actorData.type == 'threat') {
-			this._prepareBaseSkillsThreat(systemData);
-		}
 	}
 
 	/** @override */
@@ -182,11 +166,11 @@ export class OrdemActor extends Actor {
 		}
 
 		// 3. Executa a lógica padrão do sistema (hook prepareEmbeddedData)
-		if ( game.release.generation < 14 ) phase ??= 'initial';
-		if ( (this.system?.prepareEmbeddedData instanceof Function) && (phase === 'initial') ) {
+		if (game.release.generation < 14) phase ??= "initial";
+		if (this.system?.prepareEmbeddedData instanceof Function && phase === "initial") {
 			this.system.prepareEmbeddedData();
 		}
-		
+
 		// 4. Chama o método original para aplicar os valores já calculados
 		return super.applyActiveEffects(phase);
 	}
