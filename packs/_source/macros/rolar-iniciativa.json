@@ -1,0 +1,26 @@
+{
+	"_id": "macroRolarInicia",
+	"name": "Rolar Iniciativa",
+	"type": "script",
+	"author": "FabricioSouza001",
+	"img": "icons/svg/dice-target.svg",
+	"scope": "global",
+	"command": "const combat = game.combat;\nif (!combat) return ui.notifications.warn(game.i18n.localize(\"op.macroNoCombatActive\"));\nawait combat.rollAll();",
+	"flags": {},
+	"folder": null,
+	"sort": 100000,
+	"ownership": {
+		"default": 0
+	},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"coreVersion": "13.351",
+		"systemId": "ordemparanormal",
+		"systemVersion": "7.3.3",
+		"createdTime": null,
+		"modifiedTime": null,
+		"lastModifiedBy": null
+	},
+	"_key": "!macros!macroRolarInicia"
+}

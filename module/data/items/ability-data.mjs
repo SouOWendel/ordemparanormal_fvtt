@@ -7,6 +7,8 @@ export class AbilityData extends foundry.abstract.TypeDataModel {
 			preRequisite: new fields.StringField({ initial: "" }),
 			description: new fields.HTMLField({ initial: "Your text here." }),
 			activation: new fields.StringField({ initial: "" }),
+			cost: new fields.StringField({ initial: "" }),
+			costType: new fields.StringField({ initial: "PE" }),
 		};
 	}
 

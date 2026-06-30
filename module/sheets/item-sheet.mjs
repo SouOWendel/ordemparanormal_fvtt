@@ -457,6 +457,8 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 		// V13: Use namespaced TextEditor
 		const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
 		const item = this.item;
+		// CANCELABLE HOOK — `dropItemSheetData` listeners MUST be synchronous;
+		// async listeners return a Promise (truthy) and cannot block the drop.
 		const allowed = Hooks.call("dropItemSheetData", item, this, data);
 		if (allowed === false) return;
 

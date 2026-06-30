@@ -497,7 +497,8 @@
 			"actions": [],
 			"details": {
 				"description": "",
-				"fearRiddle": ""
+				"fearRiddle": "",
+				"creatureType": ""
 			},
 			"temporary": {
 				"abilities": "",
@@ -520,7 +521,6 @@
 				"coldDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"chemicalDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"mentalDamage": { "value": 0, "vulnerable": false, "immune": false },
-				"damageDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"bloodDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"deathDamage": { "value": 0, "vulnerable": false, "immune": false },
 				"knowledgeDamage": { "value": 0, "vulnerable": false, "immune": false },
@@ -620,6 +620,8 @@
 			},
 			"duration": "",
 			"resistance": "",
+			"skillResis": "",
+			"targetQtd": "",
 			"studentForm": false,
 			"trueForm": false
 		},

@@ -99,6 +99,10 @@ export default class BasicRoll extends Roll {
 		 * @param {BasicRollMessageConfiguration} message  Configuration data for the roll's message.
 		 * @returns {boolean}                              Explicitly return `false` to prevent the roll.
 		 */
+		// CANCELABLE HOOK — listeners MUST be synchronous. Foundry's Hooks.call
+		// only short-circuits on a literal `=== false` return; an async listener
+		// returns a Promise (truthy) so it cannot abort the roll. Document this
+		// contract in any external docs that publish these hook names.
 		for (const hookName of config.hookNames) {
 			if (Hooks.call(`op.preRoll${hookName.capitalize()}V2`, config, dialog, message) === false) return [];
 		}
@@ -134,6 +138,8 @@ export default class BasicRoll extends Roll {
 		 * @param {BasicRollMessageConfiguration} message  Configuration for the roll message.
 		 * @returns {boolean}                              Explicitly return `false` to prevent rolls.
 		 */
+		// CANCELABLE HOOK — listeners MUST be synchronous (see comment at the
+		// preRoll loop above for the underlying Foundry contract).
 		for (const hookName of config.hookNames) {
 			const name = `op.post${hookName.capitalize()}RollConfiguration`;
 			if (Hooks.call(name, rolls, config, dialog, message) === false) return [];

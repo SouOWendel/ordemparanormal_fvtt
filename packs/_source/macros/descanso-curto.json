@@ -1,0 +1,26 @@
+{
+	"_id": "macroDescansoCur",
+	"name": "Descanso Curto",
+	"type": "script",
+	"author": "FabricioSouza001",
+	"img": "icons/svg/heal.svg",
+	"scope": "actor",
+	"command": "const speaker = ChatMessage.getSpeaker();\nconst actor = canvas.tokens.controlled[0]?.actor ?? game.actors.get(speaker.actor);\nif (!actor || actor.type !== \"agent\") return ui.notifications.warn(game.i18n.localize(\"op.macroSelectAgent\"));\n\nconst pe = actor.system.PE;\nconst pd = actor.system.PD;\nconst peGain = Math.min(pe.perRound ?? 1, pe.max - pe.value);\nconst pdGain = Math.min(pd.perRound ?? 1, pd.max - pd.value);\n\nawait actor.update({\n\t\"system.PE.value\": pe.value + peGain,\n\t\"system.PD.value\": pd.value + pdGain,\n});\n\nChatMessage.create({\n\tspeaker: ChatMessage.getSpeaker({ actor }),\n\tcontent: game.i18n.format(\"op.macroShortRestRecovered\", { actor: actor.name, pe: peGain, pd: pdGain }),\n});",
+	"flags": {},
+	"folder": null,
+	"sort": 200000,
+	"ownership": {
+		"default": 0
+	},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"coreVersion": "13.351",
+		"systemId": "ordemparanormal",
+		"systemVersion": "7.3.3",
+		"createdTime": null,
+		"modifiedTime": null,
+		"lastModifiedBy": null
+	},
+	"_key": "!macros!macroDescansoCur"
+}

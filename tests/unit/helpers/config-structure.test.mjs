@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import { op } from "../../../module/helpers/config.mjs";
 
 describe("op config structure", () => {
@@ -18,8 +18,24 @@ describe("op config structure", () => {
 		expect(Object.keys(op.dropdownDegree)).toEqual(["untrained", "trained", "veteran", "expert"]);
 	});
 
+	it("op.dropdownDegreeThreat extends dropdownDegree with master/alfa/gama/delta", () => {
+		const keys = Object.keys(op.dropdownDegreeThreat);
+		expect(keys).toContain("untrained");
+		expect(keys).toContain("trained");
+		expect(keys).toContain("veteran");
+		expect(keys).toContain("expert");
+		expect(keys).toContain("master");
+		expect(keys).toContain("alfa");
+		expect(keys).toContain("gama");
+		expect(keys).toContain("delta");
+	});
+
 	it("op.dropdownDamageType has at least 10 entries", () => {
 		expect(Object.keys(op.dropdownDamageType).length).toBeGreaterThanOrEqual(10);
+	});
+
+	it("op.dropdownDamageType does NOT contain damageDamage legacy entry", () => {
+		expect(Object.keys(op.dropdownDamageType)).not.toContain("damageDamage");
 	});
 
 	it('all values in op.skills are strings starting with "op.skill."', () => {

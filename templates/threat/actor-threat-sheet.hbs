@@ -119,16 +119,16 @@
 				<div class="resource flex-group-center" style="flex: 1 0 30%;">
 					<label class="resource-label">{{localize "op.element"}}</label>
 					<div class="resource-content">
-						<select name="system.details.element" style="width: 100%; text-align: center;">
-							{{selectOptions elements selected=system.details.element localize=true}}
+						<select name="system.elements.main" style="width: 100%; text-align: center;">
+							{{selectOptions elements selected=system.elements.main localize=true}}
 						</select>
 					</div>
 				</div>
 				<div class="resource flex-group-center" style="flex: 1 0 30%;">
 					<label class="resource-label">{{localize "op.size"}}</label>
 					<div class="resource-content">
-						<select name="system.details.size" style="width: 100%; text-align: center;">
-							{{selectOptions threatSizes selected=system.details.size localize=true}}
+						<select name="system.size" style="width: 100%; text-align: center;">
+							{{selectOptions threatSizes selected=system.size localize=true}}
 						</select>
 					</div>
 				</div>
@@ -261,27 +261,25 @@
 							</label>
 						{{/if}}
 
-						<div class="item-space item-prop flexrow" style="align-items: center; gap: 5px;">
-							{{#if @root.owner}}
-								<a class="adjustment-button" data-action="decrease" data-property="system.skills.{{key}}.degree.value">
-									<i class="fas fa-minus"></i>
-								</a>
-							{{/if}}
+						<div class="item-space item-prop flexrow" style="align-items: center; gap: 5px; justify-content: center;">
+							<select
+								name="system.skills.{{key}}.degree.label"
+								data-dtype="String"
+								style="flex: 1; font-size: 11px; min-width: 70px; max-width: 110px;"
+							>
+								{{selectOptions @root.optionDegreeThreat selected=skill.degree.label localize=true}}
+							</select>
 							<input
 								type="number"
-								value="{{skill.degree.value}}"
-								placeholder="0"
+								name="system.skills.{{key}}.degree.override"
 								data-dtype="Number"
-								data-name="system.skills.{{key}}.degree.value"
+								value="{{skill.degree.override}}"
+								placeholder="{{numberFormat skill.degree.value decimals=0 sign=true}}"
+								title="{{localize 'op.skillDegreeOverrideTitle'}}"
+								style="width: 42px; text-align: center; font-weight: bold;"
 								inputmode="numeric"
-								pattern="[0-9+=\-]*"
-								min="0"
+								pattern="-?[0-9]*"
 							/>
-							{{#if @root.owner}}
-								<a class="adjustment-button" data-action="increase" data-property="system.skills.{{key}}.degree.value">
-									<i class="fas fa-plus"></i>
-								</a>
-							{{/if}}
 						</div>
 					</div>
 				{{/each}}

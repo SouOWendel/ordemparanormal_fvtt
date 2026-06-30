@@ -22,6 +22,15 @@
 				"browser": false,
 				"node": true
 			}
+		},
+		{
+			"files": ["module/tests/**/*.mjs"],
+			"env": {
+				"mocha": true
+			},
+			"rules": {
+				"no-invalid-this": "off"
+			}
 		}
 	]
 }

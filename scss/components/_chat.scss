@@ -1,3 +1,6 @@
+@use "../utils/colors";
+@use "../utils/variables";
+
 .dice-roll .dice-total {
 	&.success {
 		color: inherit;
@@ -10,14 +13,14 @@
 		border: 1px solid #6e0000;
 	}
 	&.critical {
-		color: green;
+		color: colors.$c-critical;
 
 		small {
-			font-size: 15px;
+			font-size: variables.$font-xl;
 		}
 	}
 	&.fumble {
-		color: red;
+		color: colors.$c-fumble;
 	}
 }
 
@@ -35,7 +38,7 @@
 
 	.dice-formula,
 	.dice-total {
-		border-radius: 3px;
+		border-radius: variables.$radius-sm;
 		padding: 0.25rem;
 		line-height: normal;
 		flex: auto;
@@ -44,53 +47,30 @@
 
 	.wrapper,
 	.dice-tooltip {
-		padding-top: 5px;
+		padding-top: variables.$padding-sm;
 	}
 
 	.dice-total {
 		font-weight: bold;
-		// font-size: var(--font-size-28);
 		padding: 0.125rem;
 		margin-top: 0.25rem;
-		// font-family: var(--font-primary);
 		position: relative;
 
 		&::before,
 		&::after {
 			position: absolute;
-			inset: 6px 0 6px auto;
+			inset: variables.$spacing-md 0 variables.$spacing-md auto;
 		}
 
 		&::before {
 			content: "";
 			width: 36px;
-			border-left: 1px solid #bbb;
+			border-left: 1px solid colors.$c-gray-light;
 		}
 
 		&::after {
-			// content: "\f054";
-			// font-family: var(--font-awesome);
-			// display: grid;
-			// place-content: center;
-			// padding: 0 .8125rem;
-			// color: var(--color-text-secondary);
-			// font-size: var(--font-size-16);
 			transition: all 250ms ease;
 		}
-
-		// &.success:not(.fumble), &.critical {
-		//   background: var(--dnd5e-color-success-background);
-		//   border-color: var(--dnd5e-color-success);
-		//   color: var(--dnd5e-color-success-critical);
-		//   &::after { color: var(--dnd5e-color-success); }
-		// }
-
-		// &.failure:not(.critical), &.fumble {
-		//   background: var(--dnd5e-color-failure-background);
-		//   border-color: var(--dnd5e-color-failure);
-		//   color: var(--dnd5e-color-failure-critical);
-		//   &::after { color: var(--dnd5e-color-failure); }
-		// }
 
 		&.critical,
 		&.fumble {
@@ -100,9 +80,9 @@
 
 		> .icons {
 			position: absolute;
-			inset: 0 auto 0 12px;
+			inset: 0 auto 0 variables.$spacing-xl;
 			display: flex;
-			gap: 2px;
+			gap: variables.$spacing-xs;
 			align-items: center;
 			opacity: 0.35;
 		}
