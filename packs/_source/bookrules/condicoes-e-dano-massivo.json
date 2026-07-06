@@ -1,0 +1,120 @@
+{
+	"name": "Condições e Dano Massivo (Automação)",
+	"_id": "condMassiveGuide",
+	"folder": null,
+	"sort": 0,
+	"flags": {},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"coreVersion": "13.351",
+		"systemId": "ordemparanormal",
+		"systemVersion": "7.3.3",
+		"createdTime": null,
+		"modifiedTime": null,
+		"lastModifiedBy": null
+	},
+	"ownership": {
+		"default": 0
+	},
+	"pages": [
+		{
+			"sort": 100000,
+			"name": "Visão Geral",
+			"type": "text",
+			"_id": "condMassivePageOverview",
+			"system": {},
+			"title": {
+				"show": true,
+				"level": 1
+			},
+			"image": {},
+			"text": {
+				"format": 1,
+				"content": "<p>Este capítulo documenta a <strong>automação de Condições</strong> e do <strong>Dano Massivo</strong> (livro, p. 312 e p. 87) implementada no sistema. Nada muda nas regras do livro — o que muda é que o sistema agora aplica, escala e remove essas condições automaticamente, sem precisar anotar manualmente.</p><h2>Resumo Rápido</h2><table style=\"width:100%;border-collapse:collapse\"><thead><tr><th style=\"text-align:left;padding:6px;border-bottom:2px solid #b92a4c\">Recurso</th><th style=\"text-align:left;padding:6px;border-bottom:2px solid #b92a4c\">O que faz</th><th style=\"text-align:left;padding:6px;border-bottom:2px solid #b92a4c\">Quando dispara</th></tr></thead><tbody><tr><td style=\"padding:6px\">Penalidade de dado por condição</td><td style=\"padding:6px\">–1d/–2d aplicado direto na rolagem</td><td style=\"padding:6px\">Toda rolagem de perícia/atributo/ataque</td></tr><tr><td style=\"padding:6px\">Penalidade de Defesa por condição</td><td style=\"padding:6px\">–5/–10/–2 na Defesa do alvo</td><td style=\"padding:6px\">Resolução de ataque contra o alvo</td></tr><tr><td style=\"padding:6px\">Escalonamento de condições</td><td style=\"padding:6px\">Ex.: abalado → apavorado, fraco → debilitado → inconsciente</td><td style=\"padding:6px\">Ao aplicar a mesma condição de novo</td></tr><tr><td style=\"padding:6px\">Morrendo / Machucado automático</td><td style=\"padding:6px\">Liga/desliga sozinho conforme PV</td><td style=\"padding:6px\">Qualquer alteração de PV</td></tr><tr><td style=\"padding:6px\">Dano Massivo</td><td style=\"padding:6px\">Card de chat + teste de Fortitude com um clique</td><td style=\"padding:6px\">Dano ≥ metade do PV máximo numa única aplicação</td></tr></tbody></table><p style=\"margin-top:1em\"><em>As próximas páginas detalham cada recurso com exemplos práticos.</em></p>"
+			},
+			"video": { "controls": true, "volume": 0.5 },
+			"src": null,
+			"category": null,
+			"ownership": { "default": 0 },
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "13.351",
+				"systemId": "ordemparanormal",
+				"systemVersion": "7.3.3",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"_key": "!journal.pages!condMassiveGuide.condMassivePageOverview"
+		},
+		{
+			"sort": 200000,
+			"name": "Sistema de Condições",
+			"type": "text",
+			"_id": "condMassivePageConditions",
+			"system": {},
+			"title": {
+				"show": true,
+				"level": 1
+			},
+			"image": {},
+			"text": {
+				"format": 1,
+				"content": "<p>Todas as 38 condições do livro (mais <strong>morto</strong>) estão cadastradas no sistema com ícone, nome e efeito mecânico. Aplicar uma condição a um token funciona do mesmo jeito que qualquer efeito ativo do Foundry — clique no ícone na ficha ou arraste pro token.</p><h2>Penalidade de dado</h2><p>Condições como <strong>agarrado</strong>, <strong>caído</strong>, <strong>enredado</strong> e <strong>ofuscado</strong> aplicam –1d ou –2d automaticamente na rolagem afetada (perícia, atributo ou ataque), sem alterar os valores da ficha — a penalidade é calculada no momento da rolagem. Se o dado do pool cair abaixo de 1, a rolagem vira <code>2d20kl</code> (pega o menor), como manda o livro.</p><h2>Penalidade de Defesa</h2><p>Condições como <strong>desprevenido</strong> e <strong>indefeso</strong> reduzem a Defesa do alvo na hora de resolver um ataque contra ele — não na ficha (a Defesa exibida não muda), só no cálculo de acerto/erro daquele ataque específico. Se o alvo tiver mais de uma condição com penalidade de Defesa, <strong>só a mais severa conta</strong> (não acumula, conforme p. 312).</p><h2>Escalonamento</h2><p>Algumas condições evoluem para uma versão mais grave se forem aplicadas de novo enquanto já ativas:</p><ul><li><strong>Abalado</strong> → <strong>Apavorado</strong></li><li><strong>Fraco</strong> → <strong>Debilitado</strong> → <strong>Inconsciente</strong></li></ul><p>O sistema faz essa troca sozinho — não precisa remover a condição antiga manualmente antes de aplicar a próxima.</p><h2>Morrendo e Machucado automáticos</h2><p>Essas duas condições são acionadas junto com o PV, sem precisar de clique:</p><ul><li><strong>Morrendo</strong> liga quando o PV chega a 0 e desliga se o PV sair de 0.</li><li><strong>Machucado</strong> liga quando o PV cai pra metade do máximo ou menos, e desliga se o PV subir de novo acima da metade.</li></ul><p><em>Nota:</em> esse auto-toggle só vale para <strong>Agentes</strong> (personagens dos jogadores). Ameaças controladas pelo Mestre não recebem essas condições automaticamente — o Mestre decide manualmente quando uma ameaça está \"morrendo\".</p>"
+			},
+			"video": { "controls": true, "volume": 0.5 },
+			"src": null,
+			"category": null,
+			"ownership": { "default": 0 },
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "13.351",
+				"systemId": "ordemparanormal",
+				"systemVersion": "7.3.3",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"_key": "!journal.pages!condMassiveGuide.condMassivePageConditions"
+		},
+		{
+			"sort": 300000,
+			"name": "Dano Massivo",
+			"type": "text",
+			"_id": "condMassivePageMassiveDamage",
+			"system": {},
+			"title": {
+				"show": true,
+				"level": 1
+			},
+			"image": {},
+			"text": {
+				"format": 1,
+				"content": "<p>Quando um Agente recebe, numa única aplicação, dano igual ou maior que <strong>metade do seu PV máximo</strong> (e esse dano não zera o PV — nesse caso é só \"morrendo\" normal), o sistema posta automaticamente um card de <strong>Dano Massivo</strong> no chat.</p><h2>Como funciona</h2><ol><li>O card mostra a <strong>DT do teste de Fortitude</strong>: base 15, +2 para cada 10 pontos de dano além do limiar (livro, p. 87).</li><li>Um botão <strong>Testar Fortitude</strong> aparece no card, visível para o dono do personagem e para o Mestre.</li><li>Ao clicar, o sistema rola o teste de Resiliência (Fortitude) do Agente contra aquela DT.</li><li><strong>Sucesso:</strong> nada acontece além do dano já aplicado — o personagem resistiu ao Dano Massivo.</li><li><strong>Falha:</strong> o PV do Agente vai para 0 e a condição <strong>Morrendo</strong> (e <strong>Machucado</strong>, se aplicável) é aplicada automaticamente, exatamente como prevê o livro.</li></ol><h2>Segurança contra clique duplo</h2><p>O botão só pode ser usado uma vez por card — cliques repetidos (ou dois jogadores/Mestre clicando ao mesmo tempo) não aplicam a consequência da falha mais de uma vez. Isso vale mesmo depois de recarregar a página: o estado \"já resolvido\" fica salvo na própria mensagem do chat.</p><h2>Quando NÃO dispara</h2><ul><li>Dano abaixo da metade do PV máximo.</li><li>Dano que já zera o PV na própria aplicação (nesse caso é \"morrendo\" direto, sem teste de Fortitude).</li><li>Ameaças controladas pelo Mestre (mecânica é só para Agentes).</li></ul>"
+			},
+			"video": { "controls": true, "volume": 0.5 },
+			"src": null,
+			"category": null,
+			"ownership": { "default": 0 },
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "13.351",
+				"systemId": "ordemparanormal",
+				"systemVersion": "7.3.3",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"_key": "!journal.pages!condMassiveGuide.condMassivePageMassiveDamage"
+		}
+	],
+	"categories": [],
+	"_key": "!journal!condMassiveGuide"
+}
