@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "path",
     "preRequisite": "Trilha: Muambeiro",
-    "description": "<p>Sua habilidade em reparar e fabricar itens permite que você lide com a complexidade de dispositivos paranormais. Você recebe treinamento em uma <strong>Profissão</strong> à sua escolha entre armeiro, engenheiro ou químico ou, se já for treinado em uma dessas perícias, recebe <strong>+5</strong> nela. Além disso, você pode usar fabricação em campo para fabricar e consertar itens paranormais (fabricar um item paranormal exige <strong>três ações de interlúdio</strong> que não precisam ser consecutivas, veja p. 94).</p>",
+    "description": "<p>Sua habilidade em reparar e fabricar itens permite que você lide com a complexidade de dispositivos paranormais. Você recebe treinamento em uma <strong>Profissão</strong> à sua escolha entre armeiro, engenheiro ou químico ou, se já for treinado em uma dessas perícias, recebe <strong>+5</strong> nela. Além disso, você pode usar fabricação em campo para fabricar e consertar itens paranormais (fabricar um item paranormal exige <strong>três ações de interlúdio</strong> que não precisam ser consecutivas).</p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

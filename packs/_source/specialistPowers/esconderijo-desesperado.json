@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "class",
     "preRequisite": "",
-    "description": "<p>Você já esteve diante de coisas que não podem ser derrotadas e aprendeu da forma mais trágica que às vezes se esconder é a única chance de vitória. Você não sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de Furtividade por se mover ao seu deslocamento normal. Além disso, em cenas de furtividade (veja p. 92), sempre que passa em um teste para esconder-se, sua visibilidade diminui em –2 (em vez de apenas –1).</p>",
+    "description": "<p>Você já esteve diante de coisas que não podem ser derrotadas e aprendeu da forma mais trágica que às vezes se esconder é a única chance de vitória. Você não sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de Furtividade por se mover ao seu deslocamento normal. Além disso, em cenas de furtividade, sempre que passa em um teste para esconder-se, sua visibilidade diminui em –2 (em vez de apenas –1).</p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

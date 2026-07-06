@@ -3,7 +3,7 @@
   "type": "generalEquipment",
   "img": "systems/ordemparanormal/media/icons/equipments/paranormal/potencializador-sangue.svg",
   "system": {
-    "description": "<blockquote><p><strong>Catalisadores Ritualísticos.</strong> Componentes ritualísticos que já foram alterados através de exposição paranormal e por isso são mais eficientes. Ao contrário de componentes comuns, um catalisador é consumido ao ser usado. Existem diversos tipos de catalisadores, uma para cada elemento. Você precisa estar empunhando um catalisador para usá-lo e só pode usar um catalisador por ritual. Por sua natureza, catalisadores não podem ser improvisados, como pela habilidade Improvisar Componentes, mas ainda podem ser fabricados em campo (veja p. 94).</p></blockquote><p>O dano do ritual aumenta em um dado do mesmo tipo.</p>",
+    "description": "<blockquote><p><strong>Catalisadores Ritualísticos.</strong> Componentes ritualísticos que já foram alterados através de exposição paranormal e por isso são mais eficientes. Ao contrário de componentes comuns, um catalisador é consumido ao ser usado. Existem diversos tipos de catalisadores, uma para cada elemento. Você precisa estar empunhando um catalisador para usá-lo e só pode usar um catalisador por ritual. Por sua natureza, catalisadores não podem ser improvisados, como pela habilidade Improvisar Componentes, mas ainda podem ser fabricados em campo.</p></blockquote><p>O dano do ritual aumenta em um dado do mesmo tipo.</p>",
     "weight": 0.5,
     "category": "1",
     "using": {

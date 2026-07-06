@@ -6,7 +6,7 @@
     "id": "rJ8kLm4nO6pQ2rS3",
     "abilityType": "class",
     "preRequisite": "Trilha: Parapsicólogo",
-    "description": "<p>Combinando psicologia e estudos do Outro Lado, você desenvolveu técnicas e sabe o que dizer para restaurar a sanidade de seus pacientes. Quando passa em um teste de perícia para acalmar (veja OPRPG, p. 44), você pode gastar uma quantidade de pontos de esforço até seu limite de PE. Para cada <strong>1 PE</strong> gasto desta forma, a pessoa que está sendo tratada recupera <strong>1 ponto de Sanidade</strong> (ou 1 PD, se estiver usando a regra “Jogando sem Sanidade” da p. 104).</p>",
+    "description": "<p>Combinando psicologia e estudos do Outro Lado, você desenvolveu técnicas e sabe o que dizer para restaurar a sanidade de seus pacientes. Quando passa em um teste de perícia para acalmar, você pode gastar uma quantidade de pontos de esforço até seu limite de PE. Para cada <strong>1 PE</strong> gasto desta forma, a pessoa que está sendo tratada recupera <strong>1 ponto de Sanidade</strong> (ou 1 PD, se estiver usando a regra “Jogando sem Sanidade”).</p>",
     "cost": "2",
     "costType": "PE",
     "activation": ""

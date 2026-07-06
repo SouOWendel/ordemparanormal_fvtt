@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "class",
     "preRequisite": "Agilidade 3",
-    "description": "<p>Você já esteve diante de coisas que não podem ser derrotadas e aprendeu da forma mais trágica que às vezes fugir é a única chance de vitória. Você recebe +3m em seu deslocamento e @DisplayDice[qtd:1|sign:plus|dc:d20] em testes de perícia para fugir em uma perseguição (veja p. 90).</p>",
+    "description": "<p>Você já esteve diante de coisas que não podem ser derrotadas e aprendeu da forma mais trágica que às vezes fugir é a única chance de vitória. Você recebe +3m em seu deslocamento e @DisplayDice[qtd:1|sign:plus|dc:d20] em testes de perícia para fugir em uma perseguição.</p>",
     "cost": "2",
     "costType": "PE",
     "activation": ""
