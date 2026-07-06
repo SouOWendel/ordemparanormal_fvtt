@@ -7,6 +7,8 @@
 
 import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
 import { damageRecipients } from "../helpers/visibility.mjs";
+import { getDicePenalty, getConditionDefensePenalty } from "../helpers/conditions.mjs";
+import { formatRitualArea } from "../helpers/ritual-area.mjs";
 
 /**
  * Wrapper sobre `damageRecipients` que injeta `game.users` atual. O helper puro
@@ -349,10 +351,19 @@ export class OrdemItem extends Item {
 		let attribute = this.parent.system.attributes[attack.attr];
 		let rollMode = "kh";
 
-		if (attribute.value < 1) {
+		// Condition dice penalty on attacks (agarrado/caído/enredado/ofuscado...),
+		// computed from the attacker's active conditions. Pool < 1 -> 2d20kl.
+		const attackDicePenalty = getDicePenalty(this.parent?._activeConditionIds?.() ?? this.parent?.statuses, {
+			kind: "attack",
+			attribute: attack.attr,
+			melee: this.system.types?.rangeType?.name === "melee",
+		});
+		const effectiveAttr = attribute.value - attackDicePenalty;
+
+		if (effectiveAttr < 1) {
 			attribute = 2;
 			rollMode = "kl";
-		} else attribute = attribute.value;
+		} else attribute = effectiveAttr;
 
 		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
 			degree: skill.degree.value || null,
@@ -563,7 +574,13 @@ export class OrdemItem extends Item {
 	 */
 	_compareWithDefense(targetActor, rollTotal, criticalStatus) {
 		if (!targetActor) return null;
-		const defense = targetActor.system?.defense?.value ?? 0;
+		const baseDefense = targetActor.system?.defense?.value ?? 0;
+		// Condition penalties to Defense are applied here (at attack resolution) rather
+		// than in prepareDerivedData: they lower the target's effective Defense against
+		// this attack. Book p. 312: same-effect penalties don't stack — the most severe
+		// applies (MAX, in getConditionDefensePenalty). e.g. desprevenido/indefeso.
+		const condPenalty = getConditionDefensePenalty(targetActor._activeConditionIds?.() ?? targetActor.statuses);
+		const defense = baseDefense - condPenalty;
 		return {
 			hit: rollTotal >= defense,
 			targetDefense: defense,
@@ -807,8 +824,8 @@ export class OrdemItem extends Item {
 				templateData.info.push(game.i18n.localize("op.weaponGripTypeChoices." + this.system.types.gripType));
 			if (this.system.types?.rangeType?.name)
 				templateData.info.push(game.i18n.localize("op.weaponTypeChoices." + this.system.types.rangeType.name));
-			if (this.system.types?.damageType)
-				templateData.info.push(game.i18n.localize("op.damageTypeChoices." + this.system.types.damageType));
+			if (this.system.formulas?.damage?.type)
+				templateData.info.push(game.i18n.localize("op.damageTypeChoices." + this.system.formulas.damage.type));
 			if (this.system.conditions?.improvised) templateData.info.push(game.i18n.localize("op.improvised"));
 			if (this.system.conditions?.throwable) templateData.info.push(game.i18n.localize("op.throwable"));
 			if (this.system.conditions?.agile) templateData.info.push(game.i18n.localize("op.agile"));
@@ -818,18 +835,8 @@ export class OrdemItem extends Item {
 		}
 
 		if (item.type == "ritual") {
-			if (this.system?.area.name && this.system.target == "area") {
-				const area = {
-					name: game.i18n.localize("op.areaChoices." + this.system.area.name),
-					type: game.i18n.localize("op.areaTypeChoices." + this.system.area.type),
-					size: this.system.area.size,
-				};
-				if (this.system?.area.name == "cone" || this.system?.area.name == "sphere") {
-					templateData.i18n.areaLabel = game.i18n.format("op.areaLabelSphereCone", area);
-				} else {
-					templateData.i18n.areaLabel = game.i18n.format("op.areaLabelCubeLine", area);
-				}
-			}
+			const areaLabel = formatRitualArea(this.system);
+			if (areaLabel) templateData.i18n.areaLabel = areaLabel;
 		}
 
 		const html = await foundry.applications.handlebars.renderTemplate(
