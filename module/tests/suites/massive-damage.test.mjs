@@ -1,4 +1,5 @@
 import { installBatchGuards } from "../helpers/fixtures.mjs";
+import { isConditionActive } from "../../helpers/conditions.mjs";
 
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
@@ -89,7 +90,7 @@ Hooks.once("quenchReady", (quench) => {
 					await actor.reconcileHealthConditions();
 					actor = refetch(actor);
 					assert.equal(actor.system.PV.value, 0);
-					assert.isTrue(actor.statuses.has("morrendo"));
+					assert.isTrue(isConditionActive(actor, "morrendo"));
 				});
 			});
 		},

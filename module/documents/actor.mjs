@@ -323,8 +323,12 @@ export class OrdemActor extends Actor {
 		const hpKey = isThreat ? "system.attributes.hp.value" : "system.PV.value";
 		await this.update({ [hpKey]: newPV });
 
-		if (newPV <= 0) conditions.push("morrendo");
-		if (newPV <= resource.max / 2) conditions.push("machucado");
+		// Threats don't get morrendo/machucado auto-toggled (reconcileHealthConditions
+		// no-ops for them), so don't report conditions that will never actually apply.
+		if (!isThreat) {
+			if (newPV <= 0) conditions.push("morrendo");
+			if (newPV <= resource.max / 2) conditions.push("machucado");
+		}
 
 		// Dano Massivo (book p. 87) — agent-only, mirroring the P1 precedent that
 		// automatic condition toggling doesn't apply to GM-tracked threats.

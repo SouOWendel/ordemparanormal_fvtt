@@ -7,7 +7,7 @@
 
 import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
 import { damageRecipients } from "../helpers/visibility.mjs";
-import { getDicePenalty, getConditionDefensePenalty } from "../helpers/conditions.mjs";
+import { getDicePenalty, getConditionDefensePenalty, activeConditionsOf } from "../helpers/conditions.mjs";
 import { formatRitualArea } from "../helpers/ritual-area.mjs";
 
 /**
@@ -353,7 +353,7 @@ export class OrdemItem extends Item {
 
 		// Condition dice penalty on attacks (agarrado/caído/enredado/ofuscado...),
 		// computed from the attacker's active conditions. Pool < 1 -> 2d20kl.
-		const attackDicePenalty = getDicePenalty(this.parent?._activeConditionIds?.() ?? this.parent?.statuses, {
+		const attackDicePenalty = getDicePenalty(activeConditionsOf(this.parent), {
 			kind: "attack",
 			attribute: attack.attr,
 			melee: this.system.types?.rangeType?.name === "melee",
@@ -579,7 +579,7 @@ export class OrdemItem extends Item {
 		// than in prepareDerivedData: they lower the target's effective Defense against
 		// this attack. Book p. 312: same-effect penalties don't stack — the most severe
 		// applies (MAX, in getConditionDefensePenalty). e.g. desprevenido/indefeso.
-		const condPenalty = getConditionDefensePenalty(targetActor._activeConditionIds?.() ?? targetActor.statuses);
+		const condPenalty = getConditionDefensePenalty(activeConditionsOf(targetActor));
 		const defense = baseDefense - condPenalty;
 		return {
 			hit: rollTotal >= defense,
