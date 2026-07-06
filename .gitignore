@@ -12,3 +12,6 @@ packs/*
 skills-lock.json
 *.rar
 *.txt
+
+# OS
+.DS_Store
