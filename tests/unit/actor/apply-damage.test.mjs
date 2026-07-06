@@ -283,16 +283,16 @@ describe("OrdemActor.applyDamage — ameaça (system.attributes.hp)", () => {
 		expect(actor.system.attributes.hp.value).toBe(0);
 	});
 
-	it("condição 'morrendo' quando hp chega a 0", async () => {
+	it("não reporta 'morrendo' para ameaças (reconcileHealthConditions não se aplica a threats)", async () => {
 		const actor = makeThreatActor({ hpValue: 10, hpMax: 10 });
 		const result = await actor.applyDamage(10, { damageType: "cuttingDamage" });
-		expect(result.conditions).toContain("morrendo");
+		expect(result.conditions).not.toContain("morrendo");
 	});
 
-	it("condição 'machucado' quando hp <= metade do max", async () => {
+	it("não reporta 'machucado' para ameaças (reconcileHealthConditions não se aplica a threats)", async () => {
 		const actor = makeThreatActor({ hpValue: 20, hpMax: 20 });
 		const result = await actor.applyDamage(11, { damageType: "cuttingDamage" });
-		expect(result.conditions).toContain("machucado");
+		expect(result.conditions).not.toContain("machucado");
 	});
 
 	it("RD da ameaça é aplicada corretamente", async () => {

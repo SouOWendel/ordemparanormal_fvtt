@@ -15,7 +15,9 @@
  *  - Flat Defense penalties must follow the book's stacking rule (p. 312):
  *    "conditions with the same effect don't stack; apply only the most severe"
  *    (e.g. desprevenido -5 + vulneravel -2 = -5, not -7). So the Defense penalty
- *    is the MAX across active conditions, computed in prepareDerivedData.
+ *    is the MAX across active conditions, applied at attack resolution
+ *    (OrdemItem._compareWithDefense) rather than in prepareDerivedData — see
+ *    that method for why.
  *
  * Attribute keys: dex=Agilidade, str=Força, vit=Vigor, int=Intelecto, pre=Presença.
  *
@@ -233,10 +235,8 @@ export function buildStatusEffects() {
  * @returns {number} number of dice to remove from the pool (>= 0)
  */
 export function getDicePenalty(statuses, ctx = {}) {
-	if (!statuses) return 0;
-	const ids = statuses instanceof Set ? [...statuses] : Array.isArray(statuses) ? statuses : [];
 	let penalty = 0;
-	for (const id of ids) {
+	for (const id of _iterableStatuses(statuses)) {
 		const def = CONDITIONS[id];
 		if (!def?.dice) continue;
 		for (const d of def.dice) {
@@ -273,14 +273,38 @@ function diceApplies(d, ctx) {
  * @returns {number} positive number to subtract from Defense (0 if none)
  */
 export function getConditionDefensePenalty(statuses) {
-	if (!statuses) return 0;
-	const ids = statuses instanceof Set ? [...statuses] : Array.isArray(statuses) ? statuses : [];
 	let max = 0;
-	for (const id of ids) {
+	for (const id of _iterableStatuses(statuses)) {
 		const def = CONDITIONS[id];
 		if (def?.defense && def.defense > max) max = def.defense;
 	}
 	return max;
+}
+
+/**
+ * Normalize a statuses argument (Set, Array, or null/undefined) to something
+ * iterable with `for...of`. Sets and Arrays are both natively iterable, so no
+ * copy is made — this only exists to make garbage input a silent no-op
+ * instead of throwing.
+ * @param {Set<string>|string[]|null|undefined} statuses
+ * @returns {Iterable<string>}
+ */
+function _iterableStatuses(statuses) {
+	if (statuses instanceof Set || Array.isArray(statuses)) return statuses;
+	return [];
+}
+
+/**
+ * The active-condition source for an actor, preferring `_activeConditionIds()`
+ * (OrdemActor's own derivation, re-verified against the live effect list) and
+ * falling back to `actor.statuses` for an actor that doesn't expose it (e.g. a
+ * bare/mock Actor in a test). Extracted so callers don't repeat the `?.() ??`
+ * fallback chain at every call site.
+ * @param {Actor} actor
+ * @returns {Set<string>|undefined}
+ */
+export function activeConditionsOf(actor) {
+	return actor?._activeConditionIds?.() ?? actor?.statuses;
 }
 
 /**
@@ -330,17 +354,15 @@ export async function applyCondition(actor, id, { active = true } = {}) {
 }
 
 /**
- * Whether a condition is currently active on an actor. Derived from applied
- * effects (not `actor.statuses`, which Foundry v13 doesn't keep populated in
- * this system's prep flow), with a fallback to `actor.statuses`.
+ * Whether a condition is currently active on an actor. Delegates to
+ * `actor._activeConditionIds()` (OrdemActor) so there's one walk of
+ * `allApplicableEffects()`, not two — falls back to `actor.statuses` only
+ * when `_activeConditionIds` isn't available (e.g. a bare/mock Actor).
  * @param {Actor} actor
  * @param {string} id
  * @returns {boolean}
  */
 export function isConditionActive(actor, id) {
-	for (const effect of actor.allApplicableEffects?.() ?? []) {
-		if (effect.disabled || effect.active === false) continue;
-		if (effect.statuses?.has?.(id)) return true;
-	}
-	return actor.statuses?.has?.(id) ?? false;
+	if (typeof actor?._activeConditionIds === "function") return actor._activeConditionIds().has(id);
+	return actor?.statuses?.has?.(id) ?? false;
 }

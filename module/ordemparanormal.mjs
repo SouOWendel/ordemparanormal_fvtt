@@ -562,7 +562,12 @@ async function handleChatCommandClick(event) {
 		const message = game.messages.get(massiveDamageButton.closest(".message")?.dataset.messageId);
 		// Idempotency: the flag (not just DOM disabling, which resets on reload)
 		// prevents re-rolling/re-applying the failure consequence after the fact.
+		// Set BEFORE the roll (not after) — a double-click or a second authorized
+		// client (owner + GM both viewing the card) racing the read-then-write
+		// would otherwise both pass this guard while the first roll is still
+		// in flight and both apply the failure consequence.
 		if (message?.getFlag("ordemparanormal", "massiveDamageResolved")) return;
+		await message?.setFlag("ordemparanormal", "massiveDamageResolved", true);
 
 		const actorUuid = massiveDamageButton.dataset.actorUuid;
 		const dt = parseInt(massiveDamageButton.dataset.target, 10);
@@ -579,11 +584,13 @@ async function handleChatCommandClick(event) {
 		const roll = Array.isArray(rolls) ? rolls[0] : rolls;
 		if (!roll) return;
 
-		await message?.setFlag("ordemparanormal", "massiveDamageResolved", true);
-
 		if (roll.isFailure) {
+			// reconcileHealthConditions() is NOT called here — actor.update() below
+			// fires the updateActor hook (hooks.mjs), which already reconciles
+			// morrendo/machucado for any PV change. Calling it again here raced
+			// the hook's own (also un-awaited) call, toggling the same condition
+			// twice concurrently.
 			await actor.update({ "system.PV.value": 0 });
-			await actor.reconcileHealthConditions();
 			await ChatMessage.create({
 				speaker: ChatMessage.getSpeaker({ actor }),
 				content: game.i18n.format("op.massiveDamageFailed", { name: actor.name }),
