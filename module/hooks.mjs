@@ -382,6 +382,17 @@ export default function () {
 		}
 	});
 
+	// Sync the automatic health conditions (morrendo <= PV 0, machucado <= PV half)
+	// when an agent's PV changes — covers both damage and healing. GM-authoritative
+	// (only the responsible GM writes) so a status isn't toggled once per client.
+	Hooks.on("updateActor", (actor, changes) => {
+		if (actor?.type !== "agent") return;
+		if (changes?.system?.PV?.value === undefined && changes?.system?.PV?.max === undefined) return;
+		const firstGM = game.users.find((u) => u.isGM && u.active);
+		if (game.user !== firstGM) return;
+		actor.reconcileHealthConditions();
+	});
+
 	// Re-render the most recent item card when targeting changes so target-info stays current
 	Hooks.on("targetToken", (user, _token, _targeted) => {
 		if (user.id !== game.user?.id) return;

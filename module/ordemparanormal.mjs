@@ -30,6 +30,8 @@ import * as hooks from "./hooks.mjs";
 
 import * as utils from "./utils.mjs";
 import { handleReaction } from "./helpers/reactions.mjs";
+import { buildStatusEffects } from "./helpers/conditions.mjs";
+import { formatRitualArea } from "./helpers/ritual-area.mjs";
 
 // import { rescueAllPathEffects } from '../utils/__test__/effects.mjs';
 
@@ -88,6 +90,10 @@ Hooks.once("init", function () {
 		formula: "@rollInitiative",
 		decimals: 2,
 	};
+
+	// Register the book's conditions on the Token HUD (P1 — Sistema de Condições).
+	CONFIG.statusEffects = buildStatusEffects();
+	CONFIG.specialStatusEffects.DEFEATED = "morto";
 
 	// Register sheet application classes
 	collections.Actors.unregisterSheet("core", sheets.ActorSheet);
@@ -400,6 +406,10 @@ Handlebars.registerHelper("toLowerCase", function (str) {
 	return str.toLowerCase();
 });
 
+Handlebars.registerHelper("ritualAreaLabel", function (system) {
+	return formatRitualArea(system);
+});
+
 Handlebars.registerHelper("toUpperCase", function (str) {
 	return str.toUpperCase();
 });
@@ -544,6 +554,46 @@ async function handleChatCommandClick(event) {
 		}
 
 		ui.notifications.info(game.i18n.format("op.opostoRolled", { actor: actor.name, total: roll.total }));
+		return;
+	}
+
+	const massiveDamageButton = event.target.closest("[data-action='rollMassiveDamage']");
+	if (massiveDamageButton) {
+		const message = game.messages.get(massiveDamageButton.closest(".message")?.dataset.messageId);
+		// Idempotency: the flag (not just DOM disabling, which resets on reload)
+		// prevents re-rolling/re-applying the failure consequence after the fact.
+		if (message?.getFlag("ordemparanormal", "massiveDamageResolved")) return;
+
+		const actorUuid = massiveDamageButton.dataset.actorUuid;
+		const dt = parseInt(massiveDamageButton.dataset.target, 10);
+		const actor = await fromUuid(actorUuid);
+		if (!actor) return;
+		if (!actor.isOwner && !game.user.isGM) {
+			return ui.notifications.warn(game.i18n.localize("op.massiveDamageNotOwner"));
+		}
+
+		const rolls = await actor.rollSkill(
+			{ skill: "resilience", rolls: [{ options: { target: dt } }] },
+			{ configure: false }
+		);
+		const roll = Array.isArray(rolls) ? rolls[0] : rolls;
+		if (!roll) return;
+
+		await message?.setFlag("ordemparanormal", "massiveDamageResolved", true);
+
+		if (roll.isFailure) {
+			await actor.update({ "system.PV.value": 0 });
+			await actor.reconcileHealthConditions();
+			await ChatMessage.create({
+				speaker: ChatMessage.getSpeaker({ actor }),
+				content: game.i18n.format("op.massiveDamageFailed", { name: actor.name }),
+			});
+		} else {
+			await ChatMessage.create({
+				speaker: ChatMessage.getSpeaker({ actor }),
+				content: game.i18n.format("op.massiveDamagePassed", { name: actor.name }),
+			});
+		}
 	}
 }
 
