@@ -127,8 +127,9 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		});
 
 		// Prepara os dados do Agente e seus Items.
-		if (this.document.type == "agent") {
+		if (this.document.type === "agent") {
 			this._prepareItems(context);
+			context.skillTotals = this._prepareSkillTotals(context.system.skills);
 		}
 
 		return context;
@@ -365,6 +366,23 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		context.protection = protection.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		context.generalEquip = generalEquipment.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		context.armament = armament.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+	}
+
+	/**
+	 * Calculates skill totals for sheet display only.
+	 *
+	 * @param {Record<string, object>} skills Actor skills.
+	 * @returns {Record<string, number>} Skill totals indexed by skill key.
+	 */
+	_prepareSkillTotals(skills = {}) {
+		return Object.fromEntries(
+			Object.entries(skills).map(([key, skill]) => {
+				const degree = Number(skill.degree?.value ?? 0);
+				const modifier = Number(skill.mod ?? 0);
+
+				return [key, degree + modifier];
+			})
+		);
 	}
 
 	/**

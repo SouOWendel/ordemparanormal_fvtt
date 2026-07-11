@@ -46,7 +46,7 @@
 					<div class="flex0" style="margin: 0 5px; display: flex; justify-content: center;">
 						<input
 							type="text"
-							value="{{numberFormat skill.value decimals=0 sign=true}}"
+							value="{{numberFormat (lookup @root.skillTotals key) decimals=0 sign=true}}"
 							readonly
 							style="width: 40px; text-align: center; border: none; font-weight: bold; background: rgba(0,0,0,0.05);"
 							title="Total (Treino + Bônus)"
