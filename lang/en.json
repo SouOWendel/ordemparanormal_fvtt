@@ -116,10 +116,10 @@
 	},
 
 	"op.attDex": "Agility",
-	"op.attInt": "Intellect",
-	"op.attVit": "Vigor",
-	"op.attPre": "Presence",
 	"op.attStr": "Strength",
+	"op.attInt": "Intellect",
+	"op.attPre": "Presence",
+	"op.attVit": "Vigor",
 
 	"op.dexAbv": "Agi",
 	"op.intAbv": "Int",

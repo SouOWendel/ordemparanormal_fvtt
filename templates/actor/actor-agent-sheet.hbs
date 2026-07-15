@@ -249,6 +249,24 @@
 			</div>
 			<div class="resource flex-group-center">
 				<label
+					for="system.attributes.str.value"
+					class="resource-label rollable"
+					data-action="onRollAttributeTest"
+					data-rollType="attribute"
+					data-label="{{localize 'op.attStr'}}"
+					data-key="str"
+				>{{localize "op.attStr"}}</label>
+				<div class="resource-content flexrow flex-center flex-between">
+					<input
+						type="text"
+						name="system.attributes.str.value"
+						value="{{system.attributes.str.value}}"
+						data-dtype="Number"
+					/>
+				</div>
+			</div>
+			<div class="resource flex-group-center">
+				<label
 					for="system.attributes.int.value"
 					class="resource-label rollable"
 					data-action="onRollAttributeTest"
@@ -261,24 +279,6 @@
 						type="text"
 						name="system.attributes.int.value"
 						value="{{system.attributes.int.value}}"
-						data-dtype="Number"
-					/>
-				</div>
-			</div>
-			<div class="resource flex-group-center">
-				<label
-					for="system.attributes.vit.value"
-					class="resource-label rollable"
-					data-action="onRollAttributeTest"
-					data-rollType="attribute"
-					data-label="{{localize 'op.attVit'}}"
-					data-key="vit"
-				>{{localize "op.attVit"}}</label>
-				<div class="resource-content flexrow flex-center flex-between">
-					<input
-						type="text"
-						name="system.attributes.vit.value"
-						value="{{system.attributes.vit.value}}"
 						data-dtype="Number"
 					/>
 				</div>
@@ -303,18 +303,18 @@
 			</div>
 			<div class="resource flex-group-center">
 				<label
-					for="system.attributes.str.value"
+					for="system.attributes.vit.value"
 					class="resource-label rollable"
 					data-action="onRollAttributeTest"
 					data-rollType="attribute"
-					data-label="{{localize 'op.attStr'}}"
-					data-key="str"
-				>{{localize "op.attStr"}}</label>
+					data-label="{{localize 'op.attVit'}}"
+					data-key="vit"
+				>{{localize "op.attVit"}}</label>
 				<div class="resource-content flexrow flex-center flex-between">
 					<input
 						type="text"
-						name="system.attributes.str.value"
-						value="{{system.attributes.str.value}}"
+						name="system.attributes.vit.value"
+						value="{{system.attributes.vit.value}}"
 						data-dtype="Number"
 					/>
 				</div>
