@@ -159,7 +159,7 @@ form.ordemparanormal.actor {
 		}
 
 		.tab {
-			padding: 0.75rem 0.75rem;
+			padding: 0 0.75rem;
 			height: 100%;
 			overflow: auto;
 
@@ -354,16 +354,6 @@ form.ordemparanormal.actor {
 
 			.item-name {
 				color: colors.$c-dark;
-
-				.item-image {
-					display: flex;
-					align-items: center;
-					flex: 0 0 30px;
-					height: 30px;
-					background-size: 30px;
-					border: none;
-					margin-right: 1px;
-				}
 			}
 		}
 
@@ -405,11 +395,10 @@ form.ordemparanormal.actor {
 		.item-image {
 			border: 1px solid #00000070;
 			background: black;
-			flex: 0 0 30px;
-			height: 30px;
+			height: 28px;
+			width: 28px;
 			background-size: cover;
 			border: none;
-			margin-right: 1px;
 		}
 
 		.item-name {
@@ -941,25 +930,18 @@ form.ordemparanormal.actor {
 	background-color: aqua;
 }
 
-.item-image {
-	perspective: 50px;
-
-	img {
-		border: 1px solid #00000070;
-	}
-}
-
 .slide {
 	overflow: hidden;
+	color: colors.$off-white;
 
 	& > img,
 	a {
 		transition: 0.3s all ease-in-out;
 		position: absolute;
+		color: colors.$off-white;
 	}
 
 	& > a {
-		margin-left: 4px;
 		font-size: 20px;
 		transform: translate(50px, 0);
 	}
@@ -967,10 +949,12 @@ form.ordemparanormal.actor {
 	&:hover {
 		& > img {
 			transform: translate(-(200px), 0);
+			color: colors.$off-white;
 		}
 
 		& > a {
 			transform: translate(0, 0);
+			color: colors.$off-white;
 		}
 	}
 }
@@ -1248,17 +1232,11 @@ form.ordemparanormal.actor {
 /* --- NAVEGAÇÃO DE TABS (ESTILO MINIMALISTA) --- */
 form.ordemparanormal.actor nav.sheet-tabs.tabs,
 form.ordemparanormal.item nav.sheet-tabs.tabs {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: stretch;
-	gap: 4px;
-
-	background: rgba(0, 0, 0, 0.02);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-	padding: 0 10px;
-	height: 36px;
-	flex: 0 0 auto;
+	display: inline-flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 0 16px;
+	border: none;
 
 	a {
 		display: flex;
@@ -1268,15 +1246,13 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		padding: 0 16px;
 		height: 100%;
 
-		font-family: "Signika", "Roboto", sans-serif;
-		font-size: 12.5px;
-		font-weight: bold;
-		text-transform: uppercase;
-		color: #666;
+		font-family: typography.$font-primary;
+		font-weight: 500;
+		font-size: 14px;
+		color: colors.$light-taupe;
 		text-decoration: none;
 		position: relative;
 		transition: all 0.2s ease;
-		cursor: pointer;
 
 		i {
 			font-size: 13px;
@@ -1286,7 +1262,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 
 		&:hover {
 			color: #000;
-			background: rgba(0, 0, 0, 0.03);
+			text-shadow: none;
 
 			i {
 				color: #b1161a;
@@ -1294,23 +1270,12 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 		}
 
 		&.active {
-			color: #b1161a;
-			font-weight: 800;
+			color: colors.$medium-gray;
+			font-weight: 600;
+			text-shadow: none;
 
 			i {
-				color: #b1161a;
-			}
-
-			&::after {
-				content: "";
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				width: 100%;
-				height: 3px;
-				background: #b1161a;
-				border-radius: 3px 3px 0 0;
-				box-shadow: 0 -2px 6px rgba(177, 22, 26, 0.3);
+				color: colors.$gray;
 			}
 		}
 	}
@@ -1599,6 +1564,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 				cursor: pointer;
 
 				.item-image {
+					flex: 0 0 auto;
 					width: 28px;
 					height: 28px;
 					object-fit: cover;
@@ -1608,6 +1574,7 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 				}
 
 				.item-name {
+					flex: 1;
 					font-family: "Signika", sans-serif;
 					font-weight: bold;
 					font-size: 13px;
