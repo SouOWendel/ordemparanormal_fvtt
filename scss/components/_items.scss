@@ -1,5 +1,6 @@
 @use "../utils/variables";
 @use "../utils/colors";
+@use "../utils/typography";
 
 /* ==========================================================================
    ESCOPO BLINDADO: Apenas elementos dentro da janela de Item serão afetados
@@ -47,7 +48,8 @@
 	.content-item {
 		height: 100%;
 		overflow-y: auto;
-		padding: 10px;
+		margin: 0 !important;
+		padding: 0 8px 0 16px;
 	}
 
 	/* ==========================================================================
@@ -66,7 +68,7 @@
 
 		&:hover,
 		&:focus {
-			border-color: #b1161a;
+			border-color: colors.$light-taupe;
 			outline: none;
 			background: rgba(255, 255, 255, 0.6);
 		}
@@ -142,7 +144,7 @@
 
 			&:hover {
 				transform: scale(1.03);
-				border-color: #b1161a;
+				border-color: colors.$light-taupe;
 
 				.profile-img-hover {
 					opacity: 1;
@@ -161,7 +163,7 @@
 		}
 
 		.document-name input {
-			font-family: "Signika", "Roboto", sans-serif;
+			font-family: typography.$font-primary;
 			font-size: 1.45rem;
 			font-weight: 800;
 			letter-spacing: -0.5px;
@@ -177,7 +179,7 @@
 				border-bottom-color: rgba(0, 0, 0, 0.3);
 			}
 			&:focus {
-				border-bottom-color: #b1161a;
+				border-bottom-color: colors.$light-taupe;
 				box-shadow: none;
 			}
 		}
@@ -200,7 +202,7 @@
 					align-items: center;
 					gap: 6px;
 					padding: 0 8px;
-					font-family: "Signika", sans-serif;
+					font-family: typography.$font-primary;
 					font-size: 11px;
 					font-weight: bold;
 					text-transform: uppercase;
@@ -220,10 +222,10 @@
 				}
 
 				&:focus-within {
-					border-color: #b1161a;
+					border-color: colors.$light-taupe;
 					.stat-label {
-						color: #b1161a;
-						border-right-color: #b1161a;
+						color: colors.$light-taupe;
+						border-right-color: colors.$light-taupe;
 					}
 				}
 			}
@@ -313,7 +315,7 @@
 			color: #191813;
 			font-size: 13px;
 			text-transform: uppercase;
-			font-family: "Signika", sans-serif;
+			font-family: typography.$font-primary;
 		}
 	}
 
@@ -423,9 +425,7 @@
 	.description-container {
 		flex: 1 1 auto;
 		height: 100%;
-		overflow-y: scroll;
 		overflow-x: hidden;
-		padding: 15px 6px 15px 15px;
 		scrollbar-width: thin;
 		scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 
@@ -562,7 +562,7 @@
 
 					h2 {
 						margin: 0;
-						font-family: "Signika", sans-serif;
+						font-family: typography.$font-primary;
 						font-size: 24px;
 						color: #222;
 						border-bottom: none;

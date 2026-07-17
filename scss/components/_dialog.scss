@@ -1,3 +1,5 @@
+@use "../utils/typography";
+
 // Patch notes (DialogV2). Dedicated class on the window — see message-system.mjs `classes`.
 dialog.ordemparanormal-patch-notes.application {
 	.standard-form .form-footer {
@@ -274,7 +276,7 @@ dialog.ordemparanormal-patch-notes.application {
 
 .areaTemplateWindow {
 	box-shadow: 0 0 10x #000 !important;
-	font-family: "Signika", "Roboto", sans-serif;
+	font-family: typography.$font-primary;
 
 	.window-header {
 		font-size: 13px;
@@ -282,7 +284,7 @@ dialog.ordemparanormal-patch-notes.application {
 }
 
 dialog.ordemparanormal.application.roll-configuration {
-	font-family: "Source Sans 3", "Signika", sans-serif;
+	font-family: typography.$font-primary;
 	background: rgba(19, 19, 19, 0.9) 100% 80% / 200% 200% url("../media/assets/ondulacoes.webp") !important;
 
 	.window-header,
