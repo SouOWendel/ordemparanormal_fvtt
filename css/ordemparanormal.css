@@ -33,7 +33,7 @@ dialog.ordemparanormal.application {
 }
 
 .window-app {
-	font-family: "Roboto", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 }
 
 .rollable:hover,
@@ -65,6 +65,10 @@ dialog.ordemparanormal.application {
 :root {
 	scrollbar-width: initial !important;
 	scrollbar-color: initial !important;
+}
+
+.op-shadow {
+	box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 .grid,
@@ -282,551 +286,6 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .capitalize {
 	text-transform: capitalize;
-}
-.system-ordemparanormal {
-	/* ========================================================= */
-	/* --- LARGURAS DAS COLUNAS UNIFICADAS --- */
-	/* ========================================================= */
-}
-.system-ordemparanormal .col-name {
-	flex: 1;
-	text-align: left;
-}
-.system-ordemparanormal .col-category {
-	width: 70px;
-	text-align: center;
-}
-.system-ordemparanormal .col-space {
-	width: 70px;
-	text-align: center;
-}
-.system-ordemparanormal .col-quantity {
-	width: 90px;
-	text-align: center;
-}
-.system-ordemparanormal .col-type {
-	width: 100px;
-	text-align: center;
-}
-.system-ordemparanormal .col-cost {
-	width: 70px;
-	text-align: center;
-}
-.system-ordemparanormal .col-exec {
-	width: 90px;
-	text-align: center;
-}
-.system-ordemparanormal .col-range {
-	width: 75px;
-	text-align: center;
-}
-.system-ordemparanormal .col-target {
-	width: 100px;
-	text-align: center;
-}
-.system-ordemparanormal .col-duration {
-	width: 85px;
-	text-align: center;
-}
-.system-ordemparanormal .col-resist {
-	width: 120px;
-	text-align: center;
-}
-.system-ordemparanormal .col-controls {
-	width: 100px;
-	text-align: right;
-	justify-content: flex-end;
-}
-.system-ordemparanormal .col-prop {
-	width: 50px;
-	text-align: center;
-}
-.system-ordemparanormal {
-	/* Realce visual para o custo (Ex: 2 PE) */
-}
-.system-ordemparanormal .badge-cat.highlight {
-	font-weight: 900;
-	color: #b1161a;
-	background: rgba(177, 22, 26, 0.08);
-	border-color: rgba(177, 22, 26, 0.15);
-}
-.system-ordemparanormal {
-	/* ========================================================= */
-	/* --- TEMA E ESTRUTURA GLOBAL LEGADA --- */
-	/* ========================================================= */
-}
-.system-ordemparanormal .application.theme-light {
-	background: url("../media/parchment.jpg") repeat;
-	--color-header-background: #333;
-	--color-border: #302831;
-	--color-tabs-border: #555;
-	--color-fieldset-border: #efe6d8;
-	--color-form-label: #222;
-	--color-form-label-hover: #111;
-	--color-form-hint: #444;
-	--color-form-hint-hover: #222;
-	--color-select-option-bg: #f7f3e8;
-	color: #222;
-}
-.system-ordemparanormal .application.theme-light input,
-.system-ordemparanormal .application.theme-light select {
-	color: #222 !important;
-}
-.system-ordemparanormal section.itemsheet,
-.system-ordemparanormal form.ordemparanormal.actor {
-	overflow: hidden;
-	color: #222;
-}
-.system-ordemparanormal section.itemsheet .scrollable,
-.system-ordemparanormal form.ordemparanormal.actor .scrollable {
-	box-sizing: border-box;
-	width: 100%;
-	padding: 0;
-}
-.system-ordemparanormal section.itemsheet .prosemirror menu,
-.system-ordemparanormal section.itemsheet prosemirror menu,
-.system-ordemparanormal form.ordemparanormal.actor .prosemirror menu,
-.system-ordemparanormal form.ordemparanormal.actor prosemirror menu {
-	background: #eeede0;
-}
-.system-ordemparanormal section.itemsheet section.window-content,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content {
-	position: relative;
-	display: flex;
-	background: #eeede0;
-	height: 100%;
-	padding: 0;
-}
-.system-ordemparanormal section.itemsheet section.window-content input,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content input {
-	text-align: center;
-}
-.system-ordemparanormal section.itemsheet section.window-content .tab,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab {
-	padding: 0.75rem 0.75rem;
-	height: 100%;
-	overflow: auto;
-}
-.system-ordemparanormal section.itemsheet section.window-content .tab.active,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab.active {
-	display: flex;
-	flex-direction: column;
-}
-.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab="inventory"],
-.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab="inventory"] {
-	overflow: hidden;
-	padding-bottom: 20px;
-}
-.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab="inventory"] .inventory-body,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab="inventory"] .inventory-body {
-	margin-bottom: 10px;
-	overflow: auto;
-	height: 100%;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige {
-	position: relative;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	background-color: #eeede0;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents {
-	display: flex;
-	padding: 0 6px;
-	gap: 8px;
-	margin-bottom: 8px;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .limit,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .limit {
-	display: flex;
-	border: 1px solid #888;
-	border-radius: 4px;
-	width: 44px;
-	height: 32px;
-	text-align: center;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .prestige,
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	section.window-content
-	section.inventory-prestige
-	.patents
-	.prestige {
-	display: flex;
-	flex: 1;
-	text-align: center;
-	font-size: 12px;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .name,
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .credit,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .name,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .credit {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-grow: 1;
-	padding: 4px 6px;
-	border: 1px solid #888;
-	border-radius: 4px;
-	background-color: rgba(0, 0, 0, 0.05);
-	font-weight: bold;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space {
-	position: relative;
-	width: 100%;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body {
-	position: absolute;
-	border: 1px solid #272727;
-	border-radius: 3px;
-	width: 100%;
-	height: 13px;
-	top: -6px;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .spacelabel,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .spacelabel {
-	position: absolute;
-	z-index: 12;
-	color: #fff;
-	font-size: 9px;
-	padding: 1px 4px;
-	mix-blend-mode: difference;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .bar,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .bar {
-	display: block !important;
-	margin: 0;
-	border-radius: 2px;
-	background-color: #272727;
-	height: 12px;
-	z-index: 10;
-	overflow: hidden;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .barover,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .barover {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block !important;
-	border-radius: 2px;
-	background-color: #691313;
-	height: 12px;
-	color: #fff;
-	font-size: 9px;
-	z-index: 11;
-	padding-top: 6px;
-	overflow: hidden;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label,
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body i,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
-	position: absolute;
-	top: 0px;
-	font-size: 10px;
-	z-index: 12;
-	mix-blend-mode: difference;
-	filter: invert(1);
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body i,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
-	color: rgb(0, 0, 0);
-	left: 50%;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label {
-	right: 20px;
-}
-.system-ordemparanormal section.itemsheet section.window-content span.actor-title-header,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content span.actor-title-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.05);
-	border: 2px groove #eeede0;
-	padding: 4px;
-}
-.system-ordemparanormal section.itemsheet .items-list,
-.system-ordemparanormal form.ordemparanormal.actor .items-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow-y: auto;
-	scrollbar-width: thin;
-	color: #444;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-list,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-name,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name {
-	flex: 2;
-	margin: 0;
-	overflow: hidden;
-	text-align: left;
-	align-items: center;
-	display: flex;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-name h3,
-.system-ordemparanormal section.itemsheet .items-list .item-name h4,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h3,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h4 {
-	color: #222;
-	font-size: 13px;
-	margin: 0;
-	white-space: nowrap;
-	overflow: hidden;
-	text-shadow: none;
-	font-family: "Signika";
-}
-.system-ordemparanormal section.itemsheet .items-list .item-controls,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls {
-	display: flex;
-	flex: 0 0 100px;
-	justify-content: flex-end;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-controls a,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls a {
-	font-size: 12px;
-	text-align: center;
-	margin: 0 6px;
-}
-.system-ordemparanormal section.itemsheet .items-list .item,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item {
-	align-items: center;
-	padding: 0 2px;
-	border-bottom: 1px solid #c9c7b8;
-}
-.system-ordemparanormal section.itemsheet .items-list .item:last-child,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item:last-child {
-	border-bottom: none;
-}
-.system-ordemparanormal section.itemsheet .items-list .item .item-name,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name {
-	color: #191813;
-}
-.system-ordemparanormal section.itemsheet .items-list .item .item-name .item-image,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name .item-image {
-	display: flex;
-	align-items: center;
-	flex: 0 0 30px;
-	height: 30px;
-	background-size: 30px;
-	border: none;
-	margin-right: 1px;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-prop,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-prop {
-	text-align: center;
-	border-left: 1px solid #c9c7b8;
-	border-right: 1px solid #c9c7b8;
-	font-size: 12px;
-}
-.system-ordemparanormal section.itemsheet .items-list .items-header,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header {
-	height: 28px;
-	margin: 2px 0;
-	padding: 0;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.05);
-	border: 2px groove #eeede0;
-	font-weight: bold;
-}
-.system-ordemparanormal section.itemsheet .items-list .items-header > *,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header > * {
-	font-size: 12px;
-	text-align: center;
-}
-.system-ordemparanormal section.itemsheet .items-list .items-header .item-name,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header .item-name {
-	padding-left: 5px;
-	text-align: left;
-}
-.system-ordemparanormal section.itemsheet .agent-details,
-.system-ordemparanormal form.ordemparanormal.actor .agent-details {
-	align-items: center;
-	overflow-y: auto;
-}
-.system-ordemparanormal section.itemsheet .agent-details .item-pills,
-.system-ordemparanormal form.ordemparanormal.actor .agent-details .item-pills {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	border-radius: 5px;
-	padding: 2px 4px;
-	background: rgba(0, 0, 0, 0.05);
-}
-.system-ordemparanormal section.itemsheet .agent-details .item-image,
-.system-ordemparanormal form.ordemparanormal.actor .agent-details .item-image {
-	border: 1px solid rgba(0, 0, 0, 0.4392156863);
-	background: black;
-	flex: 0 0 30px;
-	height: 30px;
-	background-size: cover;
-	border: none;
-	margin-right: 1px;
-}
-.system-ordemparanormal section.itemsheet .agent-details .item-name,
-.system-ordemparanormal form.ordemparanormal.actor .agent-details .item-name {
-	color: #191813;
-	flex: 1;
-	white-space: nowrap;
-	overflow: hidden;
-	text-shadow: none;
-	font-family: "Signika";
-}
-.system-ordemparanormal .sheet-body {
-	flex: 1;
-	overflow: hidden;
-	display: flex;
-}
-.system-ordemparanormal .sheet-body .tab {
-	flex: 1;
-	height: 100%;
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding-right: 5px;
-}
-.system-ordemparanormal .sheet-body .tab.active {
-	display: block;
-}
-.system-ordemparanormal .sheet-body .tab {
-	overflow-y: hidden;
-	align-content: flex-start;
-	padding-right: 2px;
-	height: 100%;
-	min-height: 150px;
-}
-.system-ordemparanormal .sheet-body .tab.skills,
-.system-ordemparanormal .sheet-body .tab.inventory,
-.system-ordemparanormal .sheet-body .tab.abilities,
-.system-ordemparanormal .sheet-body .tab.rituals,
-.system-ordemparanormal .sheet-body .tab.biography,
-.system-ordemparanormal .sheet-body .tab.effects,
-.system-ordemparanormal .sheet-body .tab.enigma,
-.system-ordemparanormal .sheet-body .tab.class,
-.system-ordemparanormal .sheet-body .tab.origin,
-.system-ordemparanormal .sheet-body .tab.path {
-	overflow-y: auto;
-}
-.system-ordemparanormal .sheet-body .tab .editor {
-	height: 100%;
-	min-height: 150px;
-}
-.system-ordemparanormal .window-content {
-	overflow: hidden;
-}
-.system-ordemparanormal .item-form {
-	font-family: "Roboto", sans-serif;
-}
-.system-ordemparanormal .sheet-tabs {
-	flex: 0 0 auto;
-	display: flex;
-	gap: 10px;
-}
-.system-ordemparanormal .tox .tox-editor-container {
-	background: #fff;
-}
-.system-ordemparanormal .tox .tox-edit-area {
-	padding: 0 8px;
-}
-.system-ordemparanormal .skills-content {
-	font-size: 12px;
-	padding: 0 2px;
-	margin-top: 0;
-	column-count: 2;
-}
-.system-ordemparanormal .skills-content select,
-.system-ordemparanormal .skills-content input {
-	font-size: 11px;
-	border: none;
-	height: 21px;
-}
-.system-ordemparanormal .skills-content .skill {
-	padding: 3.3px 6px;
-}
-.system-ordemparanormal .skills-content .skill .modifier {
-	max-width: 30px;
-}
-.system-ordemparanormal .skills-content .skill .rollFreeSkill {
-	position: absolute;
-	left: 48%;
-	width: 24px;
-}
-.system-ordemparanormal .skills-content .skill i {
-	padding: 0 5px;
-}
-.system-ordemparanormal .resource .categoryCheck {
-	display: flex;
-}
-.system-ordemparanormal .resources {
-	gap: 10px;
-	margin: 5px 0;
-}
-.system-ordemparanormal .invalid {
-	position: relative;
-}
-.system-ordemparanormal .item-alert {
-	position: relative;
-	border-radius: 5px;
-	padding: 8px;
-	margin: 10px 5px;
-	background-color: aliceblue;
-}
-.system-ordemparanormal .item-editable-resource {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-}
-.system-ordemparanormal .item-editable-resource i {
-	padding: 4px;
-}
-.system-ordemparanormal .item-editable-resource input {
-	background: none;
-	border: none;
-}
-.system-ordemparanormal .biography aside,
-.system-ordemparanormal .biography div:first-of-type {
-	padding: 2px;
-}
-.system-ordemparanormal .biography .class,
-.system-ordemparanormal .biography .trail {
-	font-size: 12px;
-}
-.system-ordemparanormal .biography fieldset {
-	border: 1px solid rgba(0, 0, 0, 0.2509803922);
-	border-radius: 10px;
-}
-.system-ordemparanormal .biography .bio-desc .editor {
-	min-height: 230px;
-}
-.system-ordemparanormal .biography .bio-goals .editor {
-	min-height: 100px;
-}
-.system-ordemparanormal .inventory {
-	padding-bottom: 24px;
-	overflow: hidden !important;
-}
-.system-ordemparanormal .ritual-dt {
-	display: flex;
-	justify-content: center;
-	margin: 0 8px 8px;
-	padding: 0 8px;
-	border: 1px solid #b8b8b8;
-	box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
-	border-radius: 5px;
-	text-align: center;
-}
-.system-ordemparanormal .ritual-dt p {
-	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
-	font-weight: bold;
 }
 .system-ordemparanormal .threat #senses,
 .system-ordemparanormal .threat #defenses,
@@ -1081,8 +540,206 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .threat .resource-content select {
 	max-width: 100%;
 }
-.system-ordemparanormal .threat .items-list .item {
-	flex-wrap: wrap;
+.system-ordemparanormal {
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+}
+.system-ordemparanormal .lowercase {
+	text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+	text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+	text-transform: capitalize;
+}
+.system-ordemparanormal {
+	/* ========================================================= */
+	/* --- TEMA E ESTRUTURA GLOBAL LEGADA --- */
+	/* ========================================================= */
+}
+.system-ordemparanormal .application.theme-light {
+	background: url("../media/parchment.jpg") repeat;
+	--color-header-background: #333;
+	--color-border: #302831;
+	--color-tabs-border: #555;
+	--color-fieldset-border: #efe6d8;
+	--color-form-label: #222;
+	--color-form-label-hover: #111;
+	--color-form-hint: #444;
+	--color-form-hint-hover: #222;
+	--color-select-option-bg: #f7f3e8;
+	color: #222;
+}
+.system-ordemparanormal .application.theme-light input,
+.system-ordemparanormal .application.theme-light select {
+	color: #222 !important;
+}
+.system-ordemparanormal section.itemsheet,
+.system-ordemparanormal form.ordemparanormal.actor {
+	overflow: hidden;
+	color: #171717;
+}
+.system-ordemparanormal section.itemsheet .scrollable,
+.system-ordemparanormal form.ordemparanormal.actor .scrollable {
+	box-sizing: border-box;
+	width: 100%;
+}
+.system-ordemparanormal section.itemsheet .prosemirror menu,
+.system-ordemparanormal section.itemsheet prosemirror menu,
+.system-ordemparanormal form.ordemparanormal.actor .prosemirror menu,
+.system-ordemparanormal form.ordemparanormal.actor prosemirror menu {
+	background: #7f7a67;
+}
+.system-ordemparanormal section.itemsheet section.window-content,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content {
+	position: relative;
+	display: flex;
+	height: 100%;
+	padding: 0;
+}
+.system-ordemparanormal section.itemsheet section.window-content input,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content input {
+	text-align: center;
+}
+.system-ordemparanormal section.itemsheet section.window-content .tab,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab {
+	padding: 0;
+	height: 100%;
+	overflow: auto;
+}
+.system-ordemparanormal section.itemsheet section.window-content .tab.active,
+.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab.active {
+	display: flex;
+	flex-direction: column;
+}
+.system-ordemparanormal .sheet-body {
+	flex: 1;
+	overflow: hidden;
+	display: flex;
+}
+.system-ordemparanormal .sheet-body .tab {
+	flex: 1;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 5px;
+}
+.system-ordemparanormal .sheet-body .tab.active {
+	display: block;
+}
+.system-ordemparanormal .sheet-body .tab {
+	overflow-y: hidden;
+	align-content: flex-start;
+	padding-right: 2px;
+	height: 100%;
+	min-height: 150px;
+}
+.system-ordemparanormal .sheet-body .tab.skills,
+.system-ordemparanormal .sheet-body .tab.inventory,
+.system-ordemparanormal .sheet-body .tab.abilities,
+.system-ordemparanormal .sheet-body .tab.rituals,
+.system-ordemparanormal .sheet-body .tab.biography,
+.system-ordemparanormal .sheet-body .tab.effects,
+.system-ordemparanormal .sheet-body .tab.enigma,
+.system-ordemparanormal .sheet-body .tab.class,
+.system-ordemparanormal .sheet-body .tab.origin,
+.system-ordemparanormal .sheet-body .tab.path {
+	overflow-y: auto;
+}
+.system-ordemparanormal .sheet-body .tab .editor {
+	height: 100%;
+	min-height: 150px;
+}
+.system-ordemparanormal .window-content {
+	overflow: hidden;
+}
+.system-ordemparanormal .item-form {
+	font-family: "Source Sans 3", sans-serif;
+}
+.system-ordemparanormal .sheet-tabs {
+	flex: 0 0 auto;
+	display: flex;
+	gap: 10px;
+}
+.system-ordemparanormal .tox .tox-editor-container {
+	background: #fff;
+}
+.system-ordemparanormal .tox .tox-edit-area {
+	padding: 0 8px;
+}
+.system-ordemparanormal .skills-content {
+	font-size: 12px;
+	padding: 0 12px;
+	margin-top: 0;
+	column-count: 2;
+}
+.system-ordemparanormal .skills-content select,
+.system-ordemparanormal .skills-content input {
+	font-size: 11px;
+	border: none;
+	height: 21px;
+}
+.system-ordemparanormal .skills-content .skill {
+	padding: 3.3px 6px;
+}
+.system-ordemparanormal .skills-content .skill .modifier {
+	max-width: 30px;
+}
+.system-ordemparanormal .skills-content .skill .rollFreeSkill {
+	position: absolute;
+	left: 48%;
+	width: 24px;
+}
+.system-ordemparanormal .skills-content .skill i {
+	padding: 0 5px;
+}
+.system-ordemparanormal .resource .categoryCheck {
+	display: flex;
+}
+.system-ordemparanormal .resources {
+	gap: 10px;
+	margin: 5px 0;
+}
+.system-ordemparanormal .invalid {
+	position: relative;
+}
+.system-ordemparanormal .item-alert {
+	position: relative;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 10px 5px;
+	background-color: aliceblue;
+}
+.system-ordemparanormal .item-editable-resource {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+.system-ordemparanormal .item-editable-resource i {
+	padding: 4px;
+}
+.system-ordemparanormal .item-editable-resource input {
+	background: none;
+	border: none;
+}
+.system-ordemparanormal .inventory {
+	padding-bottom: 24px;
+	overflow: hidden !important;
+}
+.system-ordemparanormal .ritual-dt {
+	display: flex;
+	justify-content: center;
+	margin: 0 8px 8px;
+	padding: 0 8px;
+	border: 1px solid #b8b8b8;
+	box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
+	border-radius: 5px;
+	text-align: center;
+}
+.system-ordemparanormal .ritual-dt p {
+	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
+	font-weight: bold;
 }
 .system-ordemparanormal .item .sheet-header {
 	flex: 0 auto;
@@ -1134,30 +791,27 @@ dialog.ordemparanormal.application {
 	flex: 1;
 	background-color: aqua;
 }
-.system-ordemparanormal .item-image {
-	perspective: 50px;
-}
-.system-ordemparanormal .item-image img {
-	border: 1px solid rgba(0, 0, 0, 0.4392156863);
-}
 .system-ordemparanormal .slide {
 	overflow: hidden;
+	color: #eeeeee;
 }
 .system-ordemparanormal .slide > img,
 .system-ordemparanormal .slide a {
 	transition: 0.3s all ease-in-out;
 	position: absolute;
+	color: #eeeeee;
 }
 .system-ordemparanormal .slide > a {
-	margin-left: 4px;
 	font-size: 20px;
 	transform: translate(50px, 0);
 }
 .system-ordemparanormal .slide:hover > img {
 	transform: translate(-200px, 0);
+	color: #eeeeee;
 }
 .system-ordemparanormal .slide:hover > a {
 	transform: translate(0, 0);
+	color: #eeeeee;
 }
 .system-ordemparanormal {
 	/* =================================================== */
@@ -1241,7 +895,7 @@ dialog.ordemparanormal.application {
 	h1.charname
 	input {
 	font-size: 28px;
-	font-family: "Signika", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	font-weight: bold;
 	width: 100%;
 	border: none;
@@ -1590,16 +1244,11 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: stretch;
-	gap: 4px;
-	background: rgba(0, 0, 0, 0.02);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-	padding: 0 10px;
-	height: 36px;
-	flex: 0 0 auto;
+	display: inline-flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 0 16px;
+	border: none;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a {
@@ -1609,15 +1258,13 @@ dialog.ordemparanormal.application {
 	gap: 8px;
 	padding: 0 16px;
 	height: 100%;
-	font-family: "Signika", "Roboto", sans-serif;
-	font-size: 12.5px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #666;
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	color: #7f7a67;
 	text-decoration: none;
 	position: relative;
 	transition: all 0.2s ease;
-	cursor: pointer;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a i,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a i {
@@ -1628,715 +1275,21 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a:hover,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a:hover {
 	color: #000;
-	background: rgba(0, 0, 0, 0.03);
+	text-shadow: none;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a:hover i,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a:hover i {
-	color: #b1161a;
+	color: #7f7a67;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active {
-	color: #b1161a;
-	font-weight: 800;
+	color: #1f1f1f;
+	font-weight: 600;
+	text-shadow: none;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active i,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active i {
-	color: #b1161a;
-}
-.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active::after,
-.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active::after {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 3px;
-	background: #b1161a;
-	border-radius: 3px 3px 0 0;
-	box-shadow: 0 -2px 6px rgba(177, 22, 26, 0.3);
-}
-.system-ordemparanormal {
-	/* ========================================================= */
-	/* --- DESIGN DO INVENTÁRIO (DOSSIÊ TÁTICO / ORDEM) ------ */
-	/* ========================================================= */
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
-.system-ordemparanormal .tab.inventory-tab {
-	flex-direction: column !important;
-	height: 100% !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	background: transparent;
-	overflow: hidden !important;
-	/* --- 1. CABEÇALHO DE PRESTÍGIO E PATENTES --- */
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 15px;
-	padding: 8px 15px;
-	background: rgba(0, 0, 0, 0.02);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	flex: 0 0 auto !important;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 8px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label {
-	font-family: "Signika", sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #555;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label i,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label i {
-	color: #b1161a;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box input,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box input {
-	width: 60px;
-	height: 24px;
-	font-weight: bold;
-	text-align: center;
-	font-size: 13px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 12px;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.section-title,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .section-title {
-	font-family: "Signika", sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #555;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid {
-	display: flex;
-	gap: 4px;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge {
-	display: flex;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.05);
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	height: 24px;
-	overflow: hidden;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge
-	label,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge label {
-	padding: 0 6px;
-	font-family: "Signika", sans-serif;
-	font-weight: 900;
-	font-size: 11px;
-	color: #444;
-	background: rgba(0, 0, 0, 0.03);
-	border-right: 1px solid rgba(0, 0, 0, 0.15);
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge
-	input,
-.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge input {
-	width: 26px !important;
-	height: 100%;
-	border: none;
-	background: transparent;
-	text-align: center;
-	font-weight: bold;
-	font-size: 12px;
-	color: #000;
-	padding: 0;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge
-	input:disabled,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge
-	input:disabled {
-	opacity: 0.8;
-	cursor: not-allowed;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
-.system-ordemparanormal .tab.inventory-tab {
-	/* --- 2. CONTAINER DE ROLAGEM E TÍTULOS --- */
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory,
-.system-ordemparanormal .tab.inventory-tab .scrollable-inventory {
-	flex: 1 1 auto !important;
-	overflow-y: scroll !important;
-	overflow-x: hidden !important;
-	padding: 15px;
-	scrollbar-width: thin;
-	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory::-webkit-scrollbar,
-.system-ordemparanormal .tab.inventory-tab .scrollable-inventory::-webkit-scrollbar {
-	width: 6px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory::-webkit-scrollbar-track,
-.system-ordemparanormal .tab.inventory-tab .scrollable-inventory::-webkit-scrollbar-track {
-	background: transparent;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory::-webkit-scrollbar-thumb,
-.system-ordemparanormal .tab.inventory-tab .scrollable-inventory::-webkit-scrollbar-thumb {
-	background: rgba(0, 0, 0, 0.25);
-	border-radius: 3px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .scrollable-inventory::-webkit-scrollbar-thumb:hover,
-.system-ordemparanormal .tab.inventory-tab .scrollable-inventory::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 0, 0, 0.45);
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-row-main,
-.system-ordemparanormal .tab.inventory-tab .inventory-list-header,
-.system-ordemparanormal .tab.inventory-tab .item-row-main {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
-.system-ordemparanormal .tab.inventory-tab .inventory-list-header {
-	background: #161616 !important;
-	color: #fff !important;
-	border: none !important;
-	font-family: "Signika", sans-serif;
-	font-size: 10.5px;
-	font-weight: bold;
-	text-transform: uppercase;
-	padding: 4px 10px;
-	border-radius: 3px;
-	margin-bottom: 4px;
-	letter-spacing: 0.5px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header i,
-.system-ordemparanormal .tab.inventory-tab .inventory-list-header i {
-	color: #b1161a;
-	margin-right: 4px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-category,
-.system-ordemparanormal .tab.inventory-tab .inventory-category {
-	margin-bottom: 5px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-image.slide,
-.system-ordemparanormal .tab.inventory-tab .item-image.slide {
-	position: relative;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input,
-.system-ordemparanormal .tab.inventory-tab .inline-input {
-	width: 100%;
-	height: 24px;
-	background: transparent;
-	border: 1px solid transparent;
-	text-align: center;
-	font-family: "Roboto", sans-serif;
-	font-size: 13px;
-	font-weight: bold;
-	color: #000;
-	border-radius: 4px;
-	transition: all 0.2s;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:hover,
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:focus,
-.system-ordemparanormal .tab.inventory-tab .inline-input:hover,
-.system-ordemparanormal .tab.inventory-tab .inline-input:focus {
-	border-color: rgba(0, 0, 0, 0.2);
-	background: rgba(255, 255, 255, 0.5);
-	outline: none;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input.badge-cat-input,
-.system-ordemparanormal .tab.inventory-tab .inline-input.badge-cat-input {
-	background: rgba(0, 0, 0, 0.04);
-	border-color: rgba(0, 0, 0, 0.05);
-	color: #444;
-	font-size: 11.5px;
-	width: 40px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value,
-.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value {
-	width: 32px;
-	margin: 0;
-	padding: 0;
-	border: none;
-	background: transparent;
-	font-size: 11.5px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:hover,
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:focus,
-.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:hover,
-.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:focus {
-	border: none;
-	background: rgba(255, 255, 255, 0.3);
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
-.system-ordemparanormal .tab.inventory-tab {
-	/* --- 3. LINHAS DOS ITENS DA LISTA --- */
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description {
-	display: none;
-	background: rgba(0, 0, 0, 0.01);
-	color: #444;
-	border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
-	padding: 10px 15px 10px 50px !important;
-	line-height: 1.4;
-	width: 100%;
-	margin-top: 5px;
-	font-size: 0.9em;
-	text-align: left;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description.expanded,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description.expanded {
-	display: block;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row {
-	background: rgba(0, 0, 0, 0.02);
-	border: 1px solid rgba(0, 0, 0, 0.08);
-	border-radius: 4px;
-	transition: all 0.2s ease;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row:hover,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row:hover {
-	background: rgba(0, 0, 0, 0.04);
-	border-color: rgba(0, 0, 0, 0.18);
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row.is-active,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row.is-active {
-	border-left: 3px solid #b1161a;
-	background: rgba(177, 22, 26, 0.02);
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-row-main,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-row-main {
-	padding: 6px 12px;
-	height: 40px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity {
-	flex: 1;
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	cursor: pointer;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-identity
-	.item-image,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-image {
-	width: 28px;
-	height: 28px;
-	object-fit: cover;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	background: #111;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity .item-name,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name {
-	font-family: "Signika", sans-serif;
-	font-weight: bold;
-	font-size: 13px;
-	color: #222;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-identity
-	.item-name:hover,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name:hover {
-	color: #b1161a;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 12.5px;
-	font-weight: bold;
-	color: #444;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-meta-col
-	.font-muted,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .font-muted {
-	color: #888;
-	font-size: 11px;
-	margin-right: 2px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat {
-	font-size: 10.5px;
-	background: rgba(0, 0, 0, 0.06);
-	padding: 2px 6px;
-	border-radius: 3px;
-	border: 1px solid rgba(0, 0, 0, 0.05);
-	color: #555;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .quantity-controller,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller {
-	display: flex;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.04);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	height: 24px;
-	overflow: hidden;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.quantity-controller
-	.adjustment-button,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .adjustment-button {
-	padding: 0 6px;
-	font-size: 9px;
-	color: #666;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	transition: background 0.2s;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.quantity-controller
-	.adjustment-button:hover,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-items-list
-	.item-row
-	.quantity-controller
-	.adjustment-button:hover {
-	background: rgba(0, 0, 0, 0.08);
-	color: #000;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.quantity-controller
-	.qty-value,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .qty-value {
-	width: 30px;
-	text-align: center;
-	font-size: 11.5px;
-	font-weight: bold;
-	color: #000;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn {
-	color: #777;
-	padding: 4px 6px;
-	border-radius: 4px;
-	transition: all 0.2s ease;
-	cursor: pointer;
-	font-size: 12px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn:hover,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn:hover {
-	color: #000;
-	background: rgba(0, 0, 0, 0.06);
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active {
-	color: #d1a100;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-btn.btn-star.active:hover,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active:hover {
-	color: #f3ca30;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-btn.btn-delete:hover,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-delete:hover {
-	color: #fff;
-	background: #b1161a;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-expanded-description,
-.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-expanded-description {
-	border-top: 1px dashed rgba(0, 0, 0, 0.1);
-	background: rgba(0, 0, 0, 0.01);
-	padding: 10px 15px 10px 50px;
-	font-size: 12px;
-	color: #444;
-	text-align: left;
-	line-height: 1.4;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-expanded-description
-	.description-body-content
-	p,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-expanded-description
-	.description-body-content
-	p {
-	margin: 0 0 8px 0;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-expanded-description
-	.description-body-content
-	p:last-child,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-expanded-description
-	.description-body-content
-	p:last-child {
-	margin: 0;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
-.system-ordemparanormal .tab.inventory-tab {
-	/* --- 4. RODAPÉ VISUAL DE COMPENSAÇÃO DE CARGA --- */
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space {
-	background: rgba(0, 0, 0, 0.03);
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 6px 15px;
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	flex: 0 0 auto !important;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-label,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-label {
-	font-family: "Signika", sans-serif;
-	font-size: 10px;
-	font-weight: bold;
-	color: #555;
-	display: flex;
-	align-items: center;
-	gap: 4px;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-counter,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter {
-	font-family: "Signika", sans-serif;
-	font-weight: 800;
-	font-size: 12px;
-	display: flex;
-	align-items: center;
-	gap: 2px;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space
-	.space-status-bar
-	.space-counter
-	.current,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .current {
-	color: #000;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space
-	.space-status-bar
-	.space-counter
-	.divider,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .divider {
-	color: #aaa;
-	font-weight: normal;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space
-	.space-status-bar
-	.space-counter
-	.max,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .max {
-	color: #666;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .progress-bar-container,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container {
-	width: 100%;
-	height: 4px;
-	background: rgba(0, 0, 0, 0.08);
-	border-radius: 2px;
-	overflow: hidden;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space
-	.progress-bar-container
-	.progress-fill,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container .progress-fill {
-	height: 100%;
-	background: #161616;
-	border-radius: 2px;
-	transition:
-		width 0.4s ease,
-		background-color 0.4s ease;
-}
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space.is-overburdened,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened {
-	background: rgba(177, 22, 26, 0.04);
-	border-top-color: rgba(177, 22, 26, 0.2);
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.space-status-bar
-	.space-label,
-.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened .space-status-bar .space-label {
-	color: #b1161a;
-	animation: op-pulse 2s infinite ease-in-out;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.space-status-bar
-	.space-counter
-	.current,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.space-status-bar
-	.space-counter
-	.current {
-	color: #b1161a;
-}
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.progress-bar-container
-	.progress-fill,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.progress-bar-container
-	.progress-fill {
-	background: #b1161a;
-}
-@keyframes op-pulse {
-	0% {
-		opacity: 0.8;
-	}
-	50% {
-		opacity: 1;
-		color: #ff2a30;
-	}
-	100% {
-		opacity: 0.8;
-	}
+	color: #151515;
 }
 .system-ordemparanormal {
 	/* ========================================================= */
@@ -2351,7 +1304,7 @@ dialog.ordemparanormal.application {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .system-ordemparanormal .tactical-control-bar .toggle-btn {
-	font-family: "Signika", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	font-size: 11px;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -2366,7 +1319,7 @@ dialog.ordemparanormal.application {
 	color: #000;
 }
 .system-ordemparanormal .tactical-control-bar .toggle-btn.is-active {
-	color: #b1161a;
+	color: #7f7a67;
 }
 .system-ordemparanormal .resource-manager-box {
 	margin-bottom: 15px;
@@ -2417,54 +1370,21 @@ dialog.ordemparanormal.application {
 	font-weight: normal;
 	font-size: 12px;
 }
-.system-ordemparanormal {
-	/* ========================================================= */
-	/* --- 5. DESIGN DA BIOGRAFIA (DOSSIÊ TÁTICO) --- */
-	/* ========================================================= */
-}
-.system-ordemparanormal .dossier-section {
-	margin-bottom: 0 !important;
-	display: flex;
-	flex-direction: column;
-}
-.system-ordemparanormal .dossier-section .inventory-list-header {
-	margin-bottom: 0 !important;
-	border-radius: 4px 4px 0 0 !important;
-}
-.system-ordemparanormal .dossier-section .dossier-editor-container {
-	background: rgba(0, 0, 0, 0.02);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-top: none;
-	border-radius: 0 0 4px 4px;
-	min-height: 250px;
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-}
-.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	min-height: 250px;
-}
-.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .editor-content,
-.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .ProseMirror {
-	padding: 15px;
-	color: #222;
-}
-.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content {
-	padding: 15px;
-	color: #222;
-	line-height: 1.5;
-}
-.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p {
-	margin: 0 0 10px 0;
-}
-.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p:last-child {
-	margin: 0;
-}
 .system-ordemparanormal .resource-label {
 	font-weight: bold;
+}
+.system-ordemparanormal {
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+}
+.system-ordemparanormal .lowercase {
+	text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+	text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+	text-transform: capitalize;
 }
 .system-ordemparanormal {
 	/* ==========================================================================
@@ -2510,7 +1430,8 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .op-item-sheet .content-item {
 	height: 100%;
 	overflow-y: auto;
-	padding: 10px;
+	margin: 0 !important;
+	padding: 0 8px 0 16px;
 }
 .system-ordemparanormal .op-item-sheet {
 	/* ==========================================================================
@@ -2534,7 +1455,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .op-item-sheet select:focus,
 .system-ordemparanormal .op-item-sheet textarea:hover,
 .system-ordemparanormal .op-item-sheet textarea:focus {
-	border-color: #b1161a;
+	border-color: #7f7a67;
 	outline: none;
 	background: rgba(255, 255, 255, 0.6);
 }
@@ -2606,7 +1527,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper:hover {
 	transform: scale(1.03);
-	border-color: #b1161a;
+	border-color: #7f7a67;
 }
 .system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper:hover .profile-img-hover {
 	opacity: 1;
@@ -2621,7 +1542,7 @@ dialog.ordemparanormal.application {
 	gap: 10px;
 }
 .system-ordemparanormal .op-item-sheet .item-header .document-name input {
-	font-family: "Signika", "Roboto", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	font-size: 1.45rem;
 	font-weight: 800;
 	letter-spacing: -0.5px;
@@ -2637,7 +1558,7 @@ dialog.ordemparanormal.application {
 	border-bottom-color: rgba(0, 0, 0, 0.3);
 }
 .system-ordemparanormal .op-item-sheet .item-header .document-name input:focus {
-	border-bottom-color: #b1161a;
+	border-bottom-color: #7f7a67;
 	box-shadow: none;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats {
@@ -2658,7 +1579,7 @@ dialog.ordemparanormal.application {
 	align-items: center;
 	gap: 6px;
 	padding: 0 8px;
-	font-family: "Signika", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	font-size: 11px;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -2676,11 +1597,11 @@ dialog.ordemparanormal.application {
 	background: transparent;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge:focus-within {
-	border-color: #b1161a;
+	border-color: #7f7a67;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge:focus-within .stat-label {
-	color: #b1161a;
-	border-right-color: #b1161a;
+	color: #7f7a67;
+	border-right-color: #7f7a67;
 }
 .system-ordemparanormal .op-item-sheet {
 	/* ==========================================================================
@@ -2763,7 +1684,7 @@ dialog.ordemparanormal.application {
 	color: #191813;
 	font-size: 13px;
 	text-transform: uppercase;
-	font-family: "Signika", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 }
 .system-ordemparanormal .op-item-sheet .armament-grid-2 {
 	display: grid;
@@ -2862,9 +1783,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .op-item-sheet .description-container {
 	flex: 1 1 auto;
 	height: 100%;
-	overflow-y: scroll;
 	overflow-x: hidden;
-	padding: 15px 6px 15px 15px;
 	scrollbar-width: thin;
 	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 }
@@ -3007,7 +1926,7 @@ dialog.ordemparanormal.application {
 	.fullscreen-editor-header
 	h2 {
 	margin: 0;
-	font-family: "Signika", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	font-size: 24px;
 	color: #222;
 	border-bottom: none;
@@ -3084,6 +2003,7 @@ dialog.ordemparanormal.application {
   	   ========================================================================== */
 }
 .system-ordemparanormal .effects-management .effects-section {
+	border-radius: 4px;
 	margin-bottom: 10px;
 }
 .system-ordemparanormal .effects-management .effects-header,
@@ -3154,6 +2074,19 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls a:hover {
 	color: #111;
+}
+.system-ordemparanormal {
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+}
+.system-ordemparanormal .lowercase {
+	text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+	text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+	text-transform: capitalize;
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .standard-form .form-footer {
 	flex-wrap: wrap;
@@ -3389,13 +2322,13 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .areaTemplateWindow {
 	box-shadow: 0 0 10x #000 !important;
-	font-family: "Signika", "Roboto", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 }
 .system-ordemparanormal .areaTemplateWindow .window-header {
 	font-size: 13px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration {
-	font-family: "Source Sans 3", "Signika", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	background: rgba(19, 19, 19, 0.9) 100% 80%/200% 200% url("../media/assets/ondulacoes.webp") !important;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header,
@@ -3684,7 +2617,7 @@ dialog.ordemparanormal.application {
 	border: 1px solid #555;
 	border-radius: 4px;
 	color: #111;
-	font-family: "Signika", "Palatino Linotype", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	font-size: 0.875rem;
 	line-height: normal;
 	text-decoration: none;
@@ -3713,7 +2646,7 @@ dialog.ordemparanormal.application {
 	border: 1px solid #b8b8b8;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 	border-radius: 5px;
-	font-family: "Warnock Pro", "Roboto", sans-serif, "Arial";
+	font-family: "Warnock Pro", "Source Sans 3", sans-serif, "Arial";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 14px;
@@ -3740,7 +2673,7 @@ dialog.ordemparanormal.application {
 	margin-top: 4px;
 	margin-bottom: 1px;
 	text-transform: uppercase;
-	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-weight: bold;
@@ -3761,7 +2694,7 @@ dialog.ordemparanormal.application {
 	background-color: #b8b8b8;
 }
 .system-ordemparanormal .chat-card .ritual-info {
-	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -3918,6 +2851,886 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .additionalContent .flexe {
 	display: flex !important;
+}
+.system-ordemparanormal {
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+}
+.system-ordemparanormal .lowercase {
+	text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+	text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+	text-transform: capitalize;
+}
+.system-ordemparanormal {
+	/* ========================================================= */
+	/* --- LARGURAS DAS COLUNAS UNIFICADAS --- */
+	/* ========================================================= */
+}
+.system-ordemparanormal .col-name {
+	flex: 1;
+	text-align: left;
+}
+.system-ordemparanormal .col-category {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-space {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-quantity {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal .col-type {
+	width: 100px;
+	text-align: center;
+}
+.system-ordemparanormal .col-cost {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-exec {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal .col-range {
+	width: 75px;
+	text-align: center;
+}
+.system-ordemparanormal .col-target {
+	width: 80px;
+	text-align: center;
+}
+.system-ordemparanormal .col-duration {
+	width: 60px;
+	text-align: center;
+}
+.system-ordemparanormal .col-resist {
+	width: 80px;
+	text-align: center;
+}
+.system-ordemparanormal .col-controls {
+	width: 100px;
+	text-align: right;
+	justify-content: flex-end;
+}
+.system-ordemparanormal .col-controls-mini {
+	width: 40px;
+	text-align: right;
+	justify-content: flex-end;
+}
+.system-ordemparanormal .col-prop {
+	width: 50px;
+	text-align: center;
+}
+.system-ordemparanormal {
+	/* Realce visual para o custo (Ex: 2 PE) */
+}
+.system-ordemparanormal .badge-cat.highlight {
+	font-weight: 900;
+	color: #7f7a67;
+	background: rgba(177, 22, 26, 0.08);
+	border-color: rgba(177, 22, 26, 0.15);
+}
+.system-ordemparanormal {
+	/* ========================================================= */
+	/* --- DESIGN DO INVENTÁRIO (ORDEM) ------ */
+	/* ========================================================= */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	flex-direction: column !important;
+	height: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	background: transparent;
+	overflow: hidden !important;
+	/* --- CABEÇALHO DE PRESTÍGIO E PATENTES --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	padding: 8px 15px;
+	margin: 0 16px;
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	flex: 0 0 auto !important;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 2px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .label,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .label {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label i,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .label i,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label i,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .label i {
+	color: #7f7a67;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box input,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box input {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: transparent;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	color: #000;
+	padding: 0;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
+	/* Ajuste específico para o input de Prestígio (Números pequenos) */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .prestige-input,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .prestige-input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .prestige-input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .prestige-input {
+	width: 60px;
+	height: 24px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
+	/* Ajuste específico para o input da Patente (Textos mais longos) */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .patent-input,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .patent-input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .patent-input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .patent-input {
+	width: 140px;
+	height: 24px;
+	font-weight: bold;
+	text-align: left;
+	padding: 0 8px;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.section-title,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .section-title {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	display: flex;
+	align-items: start;
+	gap: 6px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid {
+	display: flex;
+	gap: 4px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	height: 24px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	label,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge label {
+	padding: 0 6px;
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 900;
+	font-size: 11px;
+	color: #444;
+	background: rgba(0, 0, 0, 0.03);
+	border-right: 1px solid rgba(0, 0, 0, 0.15);
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge input {
+	width: 26px !important;
+	height: 100%;
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	color: #000;
+	padding: 0;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input:disabled,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input:disabled {
+	opacity: 0.8;
+	cursor: not-allowed;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- CABEÇALHO DE RITUAIS --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	padding: 8px 15px;
+	margin: 0 16px;
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	flex: 0 0 auto !important;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .label,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .label {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .label i,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .label i {
+	color: #7f7a67;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box input,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box input {
+	width: 60px;
+	height: 24px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .badge-ritual,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .badge-ritual {
+	font-size: 14px;
+	background: rgba(0, 0, 0, 0.06);
+	padding: 2px 6px;
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	color: #555;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-row-main,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header,
+.system-ordemparanormal .tab.inventory-tab .item-row-main {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header {
+	background: rgba(0, 0, 0, 0.1);
+	color: #444;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 10.5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 6px 10px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header i,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header i {
+	color: #7f7a67;
+	margin-right: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-category,
+.system-ordemparanormal .tab.inventory-tab .inventory-category {
+	margin-bottom: 8px;
+	border-radius: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-image.slide,
+.system-ordemparanormal .tab.inventory-tab .item-image.slide {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input,
+.system-ordemparanormal .tab.inventory-tab .inline-input {
+	width: 100%;
+	height: 24px;
+	background: transparent;
+	border: 1px solid transparent;
+	text-align: center;
+	font-family: "Roboto", sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000;
+	border-radius: 4px;
+	transition: all 0.2s;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:focus,
+.system-ordemparanormal .tab.inventory-tab .inline-input:hover,
+.system-ordemparanormal .tab.inventory-tab .inline-input:focus {
+	border-color: rgba(0, 0, 0, 0.2);
+	background: rgba(255, 255, 255, 0.5);
+	outline: none;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input.badge-cat-input,
+.system-ordemparanormal .tab.inventory-tab .inline-input.badge-cat-input {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: rgba(0, 0, 0, 0.05);
+	color: #444;
+	font-size: 11.5px;
+	width: 40px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value {
+	width: 32px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font-size: 11.5px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:focus,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:hover,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:focus {
+	background: rgba(255, 255, 255, 0.3);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- 3. LINHAS DOS ITENS DA LISTA --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description {
+	display: none;
+	background: rgba(0, 0, 0, 0.01);
+	color: #444;
+	border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
+	padding: 10px 15px 10px 50px !important;
+	line-height: 1.4;
+	width: 100%;
+	margin-top: 5px;
+	font-size: 0.9em;
+	text-align: left;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description.expanded,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description.expanded {
+	display: block;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row {
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 0;
+	transition: all 0.2s ease;
+	margin: 0;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row:last-child,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row:hover {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: rgba(0, 0, 0, 0.18);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row.is-active,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row.is-active {
+	border-left: 3px solid #7f7a67;
+	background: rgba(177, 22, 26, 0.02);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-row-main,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-row-main {
+	padding: 6px 12px;
+	height: 40px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-identity
+	.item-image,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-image {
+	flex: 0 0 auto;
+	width: 28px;
+	height: 28px;
+	object-fit: cover;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	background: #111;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity .item-name,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name {
+	flex: 1;
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #222;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-identity
+	.item-name:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name:hover {
+	color: #7f7a67;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12.5px;
+	font-weight: bold;
+	color: #444;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-meta-col
+	.font-muted,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .font-muted {
+	color: #888;
+	font-size: 11px;
+	margin-right: 2px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat {
+	font-size: 10.5px;
+	background: rgba(0, 0, 0, 0.06);
+	padding: 2px 6px;
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	color: #555;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .quantity-controller,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.04);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	height: 24px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .adjustment-button {
+	padding: 0 6px;
+	font-size: 9px;
+	color: #666;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	transition: background 0.2s;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button:hover,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button:hover {
+	background: rgba(0, 0, 0, 0.08);
+	color: #000;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.qty-value,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .qty-value {
+	width: 30px;
+	text-align: center;
+	font-size: 11.5px;
+	font-weight: bold;
+	color: #000;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn {
+	color: #777;
+	padding: 4px 6px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn:hover {
+	color: #000;
+	background: rgba(0, 0, 0, 0.06);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active {
+	color: #d1a100;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-btn.btn-star.active:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active:hover {
+	color: #f3ca30;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-btn.btn-delete:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-delete:hover {
+	color: #fff;
+	background: #7f7a67;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- 4. RODAPÉ VISUAL DE COMPENSAÇÃO DE CARGA --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space {
+	background: rgba(0, 0, 0, 0.03);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 6px 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	flex: 0 0 auto !important;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-label,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-label {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-counter,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter {
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 800;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.current,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .current {
+	color: #000;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.divider,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .divider {
+	color: #aaa;
+	font-weight: normal;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.max,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .max {
+	color: #666;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .progress-bar-container,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container {
+	width: 100%;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.08);
+	border-radius: 2px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.progress-bar-container
+	.progress-fill,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container .progress-fill {
+	height: 100%;
+	background: #161616;
+	border-radius: 2px;
+	transition:
+		width 0.4s ease,
+		background-color 0.4s ease;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space.is-overburdened,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened {
+	background: rgba(177, 22, 26, 0.04);
+	border-top-color: rgba(177, 22, 26, 0.2);
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-label,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened .space-status-bar .space-label {
+	color: #b1161a;
+	animation: op-pulse 2s infinite ease-in-out;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-counter
+	.current,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-counter
+	.current {
+	color: #b1161a;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.progress-bar-container
+	.progress-fill,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.progress-bar-container
+	.progress-fill {
+	background: #b1161a;
+}
+.system-ordemparanormal {
+	/* --- 2. CONTAINER DE ROLAGEM E TÍTULOS --- */
+}
+.system-ordemparanormal .scrollable-inventory,
+.system-ordemparanormal .effects-management {
+	flex: 1 1 auto !important;
+	overflow-y: auto !important;
+	overflow-x: hidden !important;
+	padding: 10px 5px 0 16px;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+	scrollbar-gutter: stable;
+}
+.system-ordemparanormal .scrollable-inventory::-webkit-scrollbar,
+.system-ordemparanormal .effects-management::-webkit-scrollbar {
+	width: 6px;
+}
+.system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-track,
+.system-ordemparanormal .effects-management::-webkit-scrollbar-track {
+	background: transparent;
+}
+.system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-thumb,
+.system-ordemparanormal .effects-management::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
+}
+.system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-thumb:hover,
+.system-ordemparanormal .effects-management::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.45);
+}
+@keyframes op-pulse {
+	0% {
+		opacity: 0.8;
+	}
+	50% {
+		opacity: 1;
+		color: #ff2a30;
+	}
+	100% {
+		opacity: 0.8;
+	}
+}
+.system-ordemparanormal .biography .class,
+.system-ordemparanormal .biography .trail {
+	font-size: 12px;
+}
+.system-ordemparanormal .biography fieldset {
+	border: 1px solid rgba(0, 0, 0, 0.2509803922);
+	border-radius: 10px;
+}
+.system-ordemparanormal .biography .bio-desc .editor {
+	min-height: 230px;
+}
+.system-ordemparanormal .biography .bio-goals .editor {
+	min-height: 100px;
+}
+.system-ordemparanormal .dossier-section {
+	margin-bottom: 0 !important;
+	display: flex;
+	flex-direction: column;
+}
+.system-ordemparanormal .dossier-section .inventory-list-header {
+	margin-bottom: 0 !important;
+	border-radius: 4px 4px 0 0 !important;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container {
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	min-height: 250px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 250px;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .editor-content,
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .ProseMirror {
+	padding: 15px;
+	color: #222;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content {
+	padding: 15px;
+	color: #222;
+	line-height: 1.5;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p {
+	margin: 0 0 10px 0;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p:last-child {
+	margin: 0;
 }
 
 /*# sourceMappingURL=ordemparanormal.css.map */
