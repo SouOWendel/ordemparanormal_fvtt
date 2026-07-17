@@ -12,6 +12,8 @@
 
 /* Styles limited to ordemparanormal sheets */
 .system-ordemparanormal {
+	@include meta.load-css("components/threat");
+
 	@include meta.load-css("components/forms");
 	@include meta.load-css("components/resource");
 	@include meta.load-css("components/items");
@@ -21,4 +23,7 @@
 	@include meta.load-css("components/chat");
 	@include meta.load-css("components/sidebar");
 	@include meta.load-css("components/formApp");
+
+	@include meta.load-css("components/inventory");
+	@include meta.load-css("components/biography");
 }
