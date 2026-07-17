@@ -1,7 +1,7 @@
 <section class="tab ability {{tab.cssClass}} scrollable" data-group="primary" data-tab="abilityAttr">
-	<div class="content-item" style="padding: 10px;">
+	<div class="content-item">
 
-		<div class="class-attributes-section">
+		<div class="class-attributes-section op-shadow">
 			<div class="section-title">Configurações de Habilidade</div>
 
 			<div class="grid" style="grid-template-columns: 120px 1fr; gap: 10px; align-items: center;">
@@ -14,6 +14,9 @@
 				<select name="system.activation" data-dtype="String">
 					{{selectOptions optionExecution selected=system.activation localize=true blank="—"}}
 				</select>
+
+				<label class="resource-label">{{localize "op.cost"}}</label>
+				<input type="text" name="system.cost" value="{{system.cost}}" data-dtype="Number" />
 			</div>
 		</div>
 
