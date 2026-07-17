@@ -1,13 +1,9 @@
 {{! Biography Tab }}
 <section class="tab flexcol biography inventory-tab {{tab.cssClass}}" data-group="primary" data-tab="biography">
-
-	<div
-		class="inventory-list-container scrollable-inventory"
-		style="padding: 15px; display: flex; flex-direction: column; gap: 20px;"
-	>
+	<div class="content-item inventory-list-container scrollable-inventory">
 
 		{{! SEÇÃO 1: BIOGRAFIA }}
-		<div class="inventory-category dossier-section">
+		<div class="inventory-category dossier-section op-shadow">
 			<div class="inventory-list-header">
 				<span class="col-name"><i class="fas fa-fingerprint"></i> Biografia do Agente</span>
 			</div>
@@ -32,7 +28,7 @@
 		</div>
 
 		{{! SEÇÃO 2: OBJETIVOS }}
-		<div class="inventory-category dossier-section">
+		<div class="inventory-category dossier-section op-shadow">
 			<div class="inventory-list-header">
 				<span class="col-name"><i class="fas fa-bullseye-arrow"></i> Objetivos da Missão</span>
 			</div>
@@ -55,6 +51,5 @@
 				{{/if}}
 			</div>
 		</div>
-
 	</div>
 </section>

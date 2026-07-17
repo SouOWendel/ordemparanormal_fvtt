@@ -1,6 +1,4 @@
 <section class="tab flexcol abilities-tab inventory-tab {{tab.cssClass}}" data-tab="abilities" data-group="primary">
-
-	{{! 1. BOTÃO DE CONTROLE DE RECURSOS }}
 	<div class="tactical-control-bar">
 		<a
 			data-action="toggleResources"
@@ -11,8 +9,6 @@
 			{{#if mostrarRecursos}}Ocultar Recursos{{else}}Gerir Recursos{{/if}}
 		</a>
 	</div>
-
-	{{! 2. ÁREA DE RECURSOS (DOSSIÊ TÁTICO) }}
 	{{#if mostrarRecursos}}
 		<div class="inventory-prestige-header resource-manager-box">
 			<div
@@ -105,17 +101,12 @@
 		</div>
 	{{/if}}
 
-	{{! ===================================================== }}
-	{{! LISTA DE HABILIDADES (CORRIGIDA COM ESTRUTURA DO INVENTÁRIO) }}
-	{{! ===================================================== }}
 	<div class="inventory-list-container scrollable-inventory">
 		{{#each abilities.valid as |section type|}}
-			<div class="inventory-category">
-
-				{{! CABEÇALHO DA SEÇÃO - Agora é uma DIV idêntica à do inventário }}
+			<div class="inventory-category op-shadow">
 				<div class="inventory-list-header">
 					<span class="col-name">
-						<i class="fas fa-bolt"></i>
+						<i class="fa-solid fa-bahai"></i>
 						{{#ifEquals type 1}}{{localize "op.abilitiesAbv.origin"}}{{/ifEquals}}
 						{{#ifEquals type 2}}{{localize "op.abilitiesAbv.class"}}{{/ifEquals}}
 						{{#ifEquals type 3}}{{localize "op.abilitiesAbv.path"}}{{/ifEquals}}
@@ -146,7 +137,7 @@
 				</div>
 
 				{{! LOOP DOS ITENS }}
-				<ol class="inventory-items-list items-list main-items">
+				<ol class="inventory-items-list main-items">
 					{{#each section as |item id|}}
 						<li class="item item-row draggable" data-document-class="Item" data-item-id="{{item._id}}">
 							<div class="item-row-main">
@@ -202,7 +193,7 @@
 				<div class="inventory-list-header alert-header">
 					<span class="col-name"><i class="fas fa-triangle-exclamation"></i> Outros Itens (Não Classificados)</span>
 				</div>
-				<ol class="inventory-items-list items-list">
+				<ol class="inventory-items-list">
 					{{#each abilities.invalid as |item id|}}
 						<li class="item item-row draggable" data-document-class="Item" data-item-id="{{item._id}}">
 							<div class="item-row-main">

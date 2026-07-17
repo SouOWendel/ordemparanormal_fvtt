@@ -1,6 +1,6 @@
 <section class="tab armament {{tab.cssClass}}" data-group="primary" data-tab="armamentCombat">
-	<div class="content-item scrollable" style="padding: 10px;">
-		<fieldset class="armament-fieldset">
+	<div class="content-item scrollable">
+		<fieldset class="armament-fieldset op-shadow">
 			<legend><i class="fas fa-crosshairs"></i> Tipos</legend>
 			<div class="armament-grid-2" style="margin-bottom: {{ternary (eq system.types.rangeType.name 'ranged') '8px' '0'}};">
 				<div class="armament-field">
@@ -28,7 +28,7 @@
 			{{/if}}
 		</fieldset>
 
-		<fieldset class="armament-fieldset">
+		<fieldset class="armament-fieldset op-shadow">
 			<legend><i class="fas fa-shield-alt"></i> Detalhes de Combate</legend>
 			<div class="armament-grid-2">
 				<div class="armament-field">
@@ -42,7 +42,7 @@
 			</div>
 		</fieldset>
 
-		<fieldset class="armament-fieldset">
+		<fieldset class="armament-fieldset op-shadow">
 			<legend><i class="fas fa-dice"></i> Fórmulas de Rolagem</legend>
 			<div class="armament-field" style="margin-bottom: 12px;">
 				<label>Fórmula de Ataque</label>

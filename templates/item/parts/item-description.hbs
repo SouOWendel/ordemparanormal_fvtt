@@ -1,8 +1,8 @@
 <section class="tab description {{tab.cssClass}}" data-group="primary" data-tab="description">
-	<div class="content-item scrollable description-container">
+	<div class="content-item description-container scrollable">
 
 		<details
-			class="description-box {{ternary editingDescription 'fullscreen-editor' ''}}"
+			class="description-box op-shadow {{ternary editingDescription 'fullscreen-editor' ''}}"
 			{{ternary editingDescription "open" ""}}
 		>
 			<summary>
@@ -42,7 +42,7 @@
 		</details>
 
 		<details
-			class="description-box {{ternary editingChatDescription 'fullscreen-editor' ''}}"
+			class="description-box op-shadow {{ternary editingChatDescription 'fullscreen-editor' ''}}"
 			{{ternary editingChatDescription "open" ""}}
 		>
 			<summary>
