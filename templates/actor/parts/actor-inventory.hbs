@@ -1,6 +1,19 @@
 <section class="tab inventory-tab {{tab.cssClass}}" data-tab="inventory" data-group="primary">
 
-	<header class="inventory-prestige-header">
+	<header class="inventory-prestige-header op-shadow">
+		<div class="patent-box">
+			<span class="label"><i class="fas fa-medal"></i> Patente</span>
+			<input
+				type="text"
+				name="system.patent.name"
+				value="{{system.patent.name}}"
+				placeholder="Nome"
+				class="patent-input"
+				data-dtype="String"
+				disabled
+			/>
+		</div>
+
 		<div class="prestige-box">
 			<span class="label"><i class="fas fa-id-badge"></i> Pontos de Prestígio</span>
 			<input
@@ -8,6 +21,7 @@
 				name="system.patent.prestigePoints"
 				value="{{system.patent.prestigePoints}}"
 				placeholder="0"
+				class="prestige-input"
 				data-dtype="Number"
 			/>
 		</div>
@@ -65,9 +79,9 @@
 
 	<div class="inventory-list-container scrollable-inventory">
 
-		<div class="inventory-category">
+		<div class="inventory-category op-shadow">
 			<div class="inventory-list-header">
-				<span class="col-name"><i class="fas fa-crosshairs"></i> {{localize "op.armaments"}}</span>
+				<span class="col-name"><i class="fa-solid fa-gun"></i> {{localize "op.armaments"}}</span>
 				<span class="col-prop">Prof.</span>
 				<span class="col-prop">Crit.</span>
 				<span class="col-prop">Alcance</span>
@@ -114,12 +128,20 @@
 							</div>
 
 							<div class="item-meta-col col-prop">
-								<span class="badge-cat">{{#if item.system.proficiency}}{{localize
-											(concat "op.proficiencyChoicesAbbr." item.system.proficiency)
-										}}{{else}}—{{/if}}</span>
+								<span class="badge-cat">
+									{{ternary
+										item.system.proficiency
+										(localize (concat "op.proficiencyChoicesAbbr." item.system.proficiency))
+										"—"
+									}}
+								</span>
 							</div>
-							<div class="item-meta-col col-prop"><span class="badge-cat">{{item.system.critical}}</span></div>
-							<div class="item-meta-col col-prop"><span class="badge-cat">{{item.system.range}}</span></div>
+							<div class="item-meta-col col-prop">
+								<span class="badge-cat">{{ternary item.system.critical item.system.critical "—"}}</span>
+							</div>
+							<div class="item-meta-col col-prop">
+								<span class="badge-cat">{{ternary item.system.range item.system.range "—"}}</span>
+							</div>
 							<div class="item-meta-col col-space item-editable-resource">
 								<input
 									class="inline-input"
@@ -155,9 +177,10 @@
 			</ol>
 		</div>
 
-		<div class="inventory-category">
+		<div class="inventory-category op-shadow">
 			<div class="inventory-list-header">
-				<span class="col-name"><i class="fas fa-boxes-stacked"></i> {{localize "op.generalEquipment.plural"}}</span>
+				<span class="col-name"><i class="fa-solid fa-screwdriver-wrench"></i>
+					{{localize "op.generalEquipment.plural"}}</span>
 				<span class="col-category">Cat.</span>
 				<span class="col-space">Espaço</span>
 				<span class="col-quantity">Qtd.</span>
@@ -274,9 +297,9 @@
 			</ol>
 		</div>
 
-		<div class="inventory-category">
+		<div class="inventory-category op-shadow">
 			<div class="inventory-list-header">
-				<span class="col-name"><i class="fas fa-shield-halved"></i> {{localize "op.protection.plural"}}</span>
+				<span class="col-name"><i class="fa-solid fa-shield"></i> {{localize "op.protection.plural"}}</span>
 				<span class="col-category">Defesa</span>
 				<span class="col-space">Espaço</span>
 				<span class="col-quantity">Qtd.</span>
@@ -321,7 +344,9 @@
 								<span class="item-name item-toggle" style="cursor: pointer;" data-tooltip="{{item.name}}">{{item.name}}</span>
 							</div>
 
-							<div class="item-meta-col col-category"><span class="badge-cat">{{item.system.defense}}</span></div>
+							<div class="item-meta-col col-category">
+								<span class="badge-cat">{{ternary item.system.defense item.system.defense "—"}}</span>
+							</div>
 							<div class="item-meta-col col-space item-editable-resource">
 								<input
 									class="inline-input"

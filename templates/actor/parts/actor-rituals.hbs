@@ -1,15 +1,10 @@
 <section class="tab flexcol rituals-tab inventory-tab {{tab.cssClass}}" data-tab="rituals" data-group="primary">
 
 	{{! CABEÇALHO SUPERIOR: DT DO RITUAL }}
-	<header class="inventory-prestige-header" style="justify-content: center; padding: 12px;">
-		<div class="prestige-box" style="flex-direction: row; align-items: center; gap: 10px;">
+	<header class="inventory-ritual-header" style="justify-content: center; padding: 12px;">
+		<div class="ritual-box" style="flex-direction: row; align-items: center; gap: 10px;">
 			<span class="label"><i class="fas fa-book-skull"></i> {{localize "op.ritualdt"}}</span>
-			<span
-				class="badge-cat highlight"
-				style="font-size: 16px; padding: 4px 16px; border-radius: 4px; border: 1px solid rgba(177, 22, 26, 0.3);"
-			>
-				{{system.ritual.DT}}
-			</span>
+			<span class="badge-ritual"> {{system.ritual.DT}} </span>
 		</div>
 	</header>
 
@@ -18,7 +13,7 @@
 
 		{{! LOOP: RITUAIS VÁLIDOS POR CÍRCULO }}
 		{{#each rituals.valid as |rituals circle|}}
-			<div class="inventory-category">
+			<div class="inventory-category op-shadow">
 
 				{{! Cabeçalho da Categoria (Ex: 1º Círculo) }}
 				<div class="inventory-list-header items-header">
@@ -43,7 +38,7 @@
 					<span class="col-duration">{{localize "op.duration"}}</span>
 					<span class="col-resist">{{localize "op.resistance"}}</span>
 
-					<span class="col-controls">
+					<span class="col-controls-mini">
 						{{#if @root.editable}}
 							<a
 								class="item-control item-create"
@@ -60,7 +55,7 @@
 				</div>
 
 				{{! Lista de Itens do Círculo }}
-				<ol class="inventory-items-list items-list main-items">
+				<ol class="inventory-items-list main-items">
 					{{#each rituals as |item id|}}
 						<li class="item item-row draggable" data-document-class="Item" data-item-id="{{item._id}}">
 							<div class="item-row-main">
@@ -106,7 +101,7 @@
 								</div>
 
 								{{! Controles }}
-								<div class="item-meta-col col-controls">
+								<div class="item-meta-col col-controls-mini">
 									<a class="item-btn item-edit" data-action="viewDoc" title="Editar Item"><i class="fas fa-edit"></i></a>
 									<a class="item-btn btn-delete" data-action="deleteDoc" title="Apagar Item"><i class="fas fa-trash"></i></a>
 								</div>
@@ -131,7 +126,7 @@
 					<span class="col-target">{{localize "op.area"}}</span>
 					<span class="col-duration">{{localize "op.duration"}}</span>
 					<span class="col-resist">{{localize "op.resistance"}}</span>
-					<span class="col-controls">
+					<span class="col-controls-mini">
 						{{#if @root.editable}}
 							<a class="item-control item-create" data-action="createDoc" title="Criar Ritual Especial" data-type="ritual">
 								<i class="fas fa-plus"></i>
@@ -139,7 +134,7 @@
 						{{/if}}
 					</span>
 				</div>
-				<ol class="inventory-items-list items-list main-items">
+				<ol class="inventory-items-list main-items">
 					{{#each rituals.invalid as |item id|}}
 						<li class="item item-row draggable" data-document-class="Item" data-item-id="{{item._id}}">
 							<div class="item-row-main">
@@ -156,7 +151,7 @@
 								<div class="item-meta-col col-duration"><span class="badge-cat">{{item.system.duration}}</span></div>
 								<div class="item-meta-col col-resist"><span class="badge-cat">{{item.system.resistance}}</span></div>
 
-								<div class="item-meta-col col-controls">
+								<div class="item-meta-col col-controls-mini">
 									<a class="item-btn item-edit" data-action="viewDoc" title="Editar Item"><i class="fas fa-edit"></i></a>
 									<a class="item-btn btn-delete" data-action="deleteDoc" title="Apagar Item"><i class="fas fa-trash"></i></a>
 								</div>
