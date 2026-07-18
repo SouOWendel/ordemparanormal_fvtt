@@ -1,5 +1,9 @@
 @use "variables";
+@use "colors";
 
+// ========================================
+// Visibility Mixins
+// ========================================
 @mixin element-invisible {
 	position: absolute;
 
@@ -32,4 +36,41 @@
 	background: variables.$bg-transparent-light;
 	border: variables.$border-groove;
 	font-weight: bold;
+}
+// ========================================
+// Badge Mixin (combat, effects, etc.)
+// ========================================
+@mixin badge($bg-color, $text-color: colors.$c-white) {
+	font-size: 10px;
+	font-weight: bold;
+	padding: 1px 4px;
+	border-radius: 3px;
+	background: $bg-color;
+	color: $text-color;
+	white-space: nowrap;
+}
+
+// ========================================
+// State Mixins (success/failure feedback)
+// ========================================
+@mixin state-success {
+	color: colors.$c-success;
+	background: colors.$c-success-bg;
+	border: 1px solid colors.$c-success-border;
+}
+
+@mixin state-failure {
+	color: colors.$c-error;
+	background: colors.$c-error-bg;
+	border: 1px solid colors.$c-error-border;
+}
+
+// ========================================
+// Card Base Styling
+// ========================================
+@mixin card-base {
+	padding: 4px 4px;
+	border: 1px solid colors.$c-gray-light;
+	box-shadow: colors.$c-overlay-light 0px 1px 2px 0px;
+	border-radius: 5px;
 }

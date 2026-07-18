@@ -15,6 +15,8 @@ export class RitualData extends foundry.abstract.TypeDataModel {
 			}),
 			duration: new fields.StringField({ initial: "" }),
 			resistance: new fields.StringField({ initial: "" }),
+			skillResis: new fields.StringField({ initial: "" }),
+			targetQtd: new fields.StringField({ initial: "" }),
 			studentForm: new fields.BooleanField({ initial: false }),
 			trueForm: new fields.BooleanField({ initial: false }),
 		};

@@ -1,0 +1,172 @@
+@use "../utils/colors";
+@use "../utils/variables";
+@use "../utils/mixins";
+
+// Combat QoL Features - Targeting, Hit Results, Action Badges
+
+// ----------------------------------------
+// Targeting & Hit Result Display
+// ----------------------------------------
+.target-info {
+	text-align: center;
+	font-size: variables.$font-md;
+	color: var(--color-text-secondary, colors.$c-gray-medium);
+	margin: variables.$spacing-sm 0;
+}
+
+.hit-result {
+	text-align: center;
+	font-weight: bold;
+	padding: variables.$spacing-sm variables.$spacing-md;
+	border-radius: variables.$radius-md;
+	margin: variables.$spacing-sm 0;
+	font-size: variables.$font-base;
+
+	&.success {
+		@include mixins.state-success;
+	}
+
+	&.failure {
+		@include mixins.state-failure;
+	}
+
+	.vs-defense {
+		font-weight: normal;
+		font-size: variables.$font-sm;
+		margin-left: variables.$spacing-md;
+	}
+}
+
+// ----------------------------------------
+// DT Result Badge (Skill Checks)
+// ----------------------------------------
+.dt-result {
+	font-size: variables.$font-md;
+	font-weight: bold;
+	text-align: center;
+	padding: variables.$spacing-xs variables.$spacing-md;
+	border-radius: variables.$radius-sm;
+	margin-top: variables.$spacing-xs;
+
+	&.success {
+		color: colors.$c-success;
+		background: colors.$c-success-bg;
+	}
+
+	&.failure {
+		color: colors.$c-error;
+		background: colors.$c-error-bg;
+	}
+}
+
+// ----------------------------------------
+// Combat Tracker HP Display
+// ----------------------------------------
+.op-hp-display {
+	font-size: variables.$font-sm;
+	opacity: 0.85;
+	margin-left: variables.$spacing-sm;
+}
+
+// ----------------------------------------
+// Critical Hit Button Highlight
+// ----------------------------------------
+.card-buttons button.hit-critical {
+	border-color: colors.$c-warning;
+}
+
+// ----------------------------------------
+// Defender Reaction Panel
+// ----------------------------------------
+.reaction-panel {
+	border: 1px solid var(--color-border-light, colors.$c-gray-light);
+	border-radius: variables.$radius-md;
+	padding: variables.$spacing-sm variables.$spacing-md;
+	margin: variables.$spacing-sm 0;
+	background: var(--color-bg-secondary, rgba(0, 0, 0, 0.04));
+
+	.reaction-panel-title {
+		font-weight: bold;
+		font-size: variables.$font-sm;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		opacity: 0.75;
+		margin-bottom: variables.$spacing-xs;
+	}
+
+	.reaction-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: variables.$spacing-xs;
+	}
+
+	.reaction-button {
+		flex: 1 1 auto;
+		min-width: 80px;
+		padding: variables.$spacing-xs variables.$spacing-sm;
+		font-size: variables.$font-sm;
+		cursor: pointer;
+
+		&:disabled {
+			opacity: 0.45;
+			cursor: not-allowed;
+		}
+
+		&.reaction-dodge {
+			border-color: colors.$c-action-reaction;
+		}
+
+		&.reaction-block {
+			border-color: colors.$c-action-standard;
+		}
+
+		&.reaction-counterAttack {
+			border-color: colors.$c-warning;
+		}
+
+		&.reaction-skip {
+			opacity: 0.7;
+		}
+	}
+
+	.reaction-status {
+		font-style: italic;
+		font-size: variables.$font-sm;
+		opacity: 0.8;
+	}
+
+	&.reaction-applied {
+		opacity: 0.85;
+	}
+}
+
+.hit-result.dodged {
+	box-shadow: inset 0 0 0 2px colors.$c-action-reaction;
+}
+
+// ----------------------------------------
+// Action Type Badges (Threat Attacks)
+// ----------------------------------------
+.op-action-badge {
+	@include mixins.badge(transparent);
+
+	&.standard {
+		background: colors.$c-action-standard;
+	}
+
+	&.free {
+		background: colors.$c-action-free;
+	}
+
+	&.movement {
+		background: colors.$c-action-movement;
+	}
+
+	&.reaction {
+		background: colors.$c-action-reaction;
+	}
+
+	&.full {
+		background: colors.$c-action-full;
+	}
+}

@@ -32,6 +32,16 @@ export default class SkillToolRollConfigurationDialog extends D20RollConfigurati
 				value: this.config.attributeId,
 				options: Object.entries(CONFIG.op.attributes).map(([value, l]) => ({ value, label: game.i18n.localize(l) })),
 			});
+		context.fields.push({
+			field: new foundry.data.fields.NumberField({
+				label: game.i18n.localize("op.rollDT"),
+				nullable: true,
+				integer: true,
+				min: 0,
+			}),
+			name: "target",
+			value: this.config.rolls?.[0]?.options?.target ?? null,
+		});
 		return context;
 	}
 
@@ -42,6 +52,12 @@ export default class SkillToolRollConfigurationDialog extends D20RollConfigurati
 	/** @inheritDoc */
 	_onChangeForm(formConfig, event) {
 		super._onChangeForm(formConfig, event);
+		const formData = new FormDataExtended(this.form);
+		const raw = formData.get("target");
+		this._target = raw !== null && raw !== "" && Number.isFinite(Number(raw)) ? Number(raw) : undefined;
+		for (const roll of this.rolls) {
+			roll.options.target = this._target;
+		}
 		if (this.config.skill && event.target?.name === "attribute") {
 			const skillLabel = game.i18n.localize(CONFIG.op.skills[this.config.skill] ?? "");
 			const ability = event.target.value ?? this.config.subject.skills[this.config.skill]?.attr[0] ?? "";
@@ -50,5 +66,14 @@ export default class SkillToolRollConfigurationDialog extends D20RollConfigurati
 			foundry.utils.setProperty(this.message, "data.flavor", flavor);
 			this._updateFrame({ window: { title: flavor } });
 		}
+	}
+
+	/** @inheritDoc */
+	_finalizeRolls(action) {
+		const rolls = super._finalizeRolls(action);
+		if (this._target !== undefined) {
+			for (const roll of rolls) roll.options.target = this._target;
+		}
+		return rolls;
 	}
 }

@@ -103,7 +103,6 @@ Hooks.once("quenchReady", (quench) => {
 					};
 					const actor = fakeActor({}, "7.0.0", [fakeItem]);
 					await migrateActorData(actor, { system: actor.system, _stats: actor._stats }, {}, {});
-					// Image should be normalised (accent removed, lowercase, hyphens)
 					assert.notInclude(fakeItem.img ?? "", "%20", "URL encoding should be removed");
 				});
 
@@ -136,6 +135,7 @@ Hooks.once("quenchReady", (quench) => {
 					await migrateActorData(actor, { system: actor.system, _stats: actor._stats }, {}, {});
 					const img = fakeItem.img ?? "";
 					assert.notMatch(img, /[A-Z]/, "filename should be lowercased");
+					assert.notMatch(img, /[À-ÿ]/, "accented characters should be removed");
 				});
 
 				it("item with already-normalised path at 7.3.0 — no update", async () => {
@@ -150,7 +150,6 @@ Hooks.once("quenchReady", (quench) => {
 						},
 					};
 					const actor = fakeActor({}, "7.3.0", [fakeItem]);
-					// Should not throw or call update
 					await migrateActorData(actor, { system: actor.system, _stats: actor._stats }, {}, {});
 				});
 			});

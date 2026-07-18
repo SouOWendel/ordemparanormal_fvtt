@@ -86,6 +86,13 @@ describe("AbilityData.defineSchema()", () => {
 		expect(keys).toContain("description");
 		expect(keys).toContain("activation");
 	});
+
+	it("includes cost and costType (previously read by sheets but missing from schema)", () => {
+		const schema = AbilityData.defineSchema();
+		const keys = Object.keys(schema);
+		expect(keys).toContain("cost");
+		expect(keys).toContain("costType");
+	});
 });
 
 describe("RitualData.defineSchema()", () => {
@@ -103,6 +110,13 @@ describe("RitualData.defineSchema()", () => {
 		expect(keys).toContain("resistance");
 		expect(keys).toContain("studentForm");
 		expect(keys).toContain("trueForm");
+	});
+
+	it("includes skillResis and targetQtd (previously written by template but missing from schema)", () => {
+		const schema = RitualData.defineSchema();
+		const keys = Object.keys(schema);
+		expect(keys).toContain("skillResis");
+		expect(keys).toContain("targetQtd");
 	});
 
 	it("area schema has name, size, type", () => {

@@ -84,10 +84,10 @@ op.dropdownDegree = {
 
 op.dropdownDegreeThreat = {
 	...op.dropdownDegree, // Pega tudo que tem na lista de cima
-	master: "op.degreeTrainingChoices.Mast", // +20
-	alfa: "op.degreeTrainingChoices.Alfa", // +25
-	gama: "op.degreeTrainingChoices.Gama", // +30
-	delta: "op.degreeTrainingChoices.Delta", // +35
+	master: "op.degreeTrainingChoices.mast", // +20
+	alfa: "op.degreeTrainingChoices.alfa", // +25
+	gama: "op.degreeTrainingChoices.gama", // +30
+	delta: "op.degreeTrainingChoices.delta", // +35
 };
 
 /**
@@ -290,7 +290,6 @@ op.dropdownDamageType = {
 	eletricDamage: "op.damageTypeChoices.eletricDamage",
 	chemicalDamage: "op.damageTypeChoices.chemicalDamage",
 	mentalDamage: "op.damageTypeChoices.mentalDamage",
-	damageDamage: "op.damageTypeChoices.damageDamage",
 };
 
 /**

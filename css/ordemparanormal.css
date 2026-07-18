@@ -1934,7 +1934,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary .summary-title {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 6px;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary .editor-edit {
 	margin-left: auto;
@@ -2246,7 +2246,7 @@ dialog.ordemparanormal.application {
 	overflow: auto;
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-hint {
-	padding: 8px;
+	padding: 6px;
 	border-top: 1px solid rgba(0, 0, 0, 0.19);
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-hint p {
@@ -2297,7 +2297,7 @@ dialog.ordemparanormal.application {
 	position: relative;
 	width: 100%;
 	height: 156px;
-	margin: 8px 0;
+	margin: 6px 0;
 	border-radius: 5px !important;
 	display: flex;
 	background-position: center !important;
@@ -2396,7 +2396,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal #d20dice-dialog fieldset {
 	display: flex;
 	gap: 0.1rem;
-	border-radius: 8px;
+	border-radius: 6px;
 	flex-wrap: nowrap;
 	flex-direction: column;
 }
@@ -2556,7 +2556,7 @@ dialog.ordemparanormal.application {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 8px;
+	gap: 6px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice li {
 	position: relative;
@@ -2737,7 +2737,7 @@ dialog.ordemparanormal.application {
 	min-height: 2em;
 	gap: 0.25rem;
 	padding: 0 0.5rem;
-	background: rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.05);
 	border: 1px solid #555;
 	border-radius: 4px;
 	color: #111;
@@ -2761,9 +2761,9 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .card-footer span {
 	color: #161616;
 	font-size: 11px;
-	padding: 2px 3px;
+	padding: 2px 2px;
 	border-radius: 6px;
-	border: 1px solid rgba(0, 0, 0, 0.1882352941);
+	border: 1px solid rgba(0, 0, 0, 0.13);
 }
 .system-ordemparanormal .chat-card details {
 	padding: 4px 4px;
@@ -2908,7 +2908,7 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .dice-result .dice-total::before {
 	content: "";
 	width: 36px;
-	border-left: 1px solid #bbb;
+	border-left: 1px solid #b8b8b8;
 }
 .system-ordemparanormal .dice-result .dice-total::after {
 	transition: all 250ms ease;
@@ -2930,7 +2930,7 @@ dialog.ordemparanormal.application {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 6px;
 }
 .system-ordemparanormal .op.system-badge img {
 	border: 0;
@@ -2960,7 +2960,7 @@ dialog.ordemparanormal.application {
 	font-size: 12px;
 	line-height: 16px;
 	color: #4b4a44;
-	margin: 3px 0;
+	margin: 2px 0;
 	text-align: justify;
 	hyphens: auto;
 }

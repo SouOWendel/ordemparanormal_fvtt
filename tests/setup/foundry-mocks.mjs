@@ -48,6 +48,13 @@ class MockOperatorTerm {
 	}
 }
 
+// --- KeyboardManager mock (used by utils.mjs / areKeysPressed) ---
+const MockKeyboardManager = {
+	MODIFIER_CODES: { Alt: ["Alt"], Control: ["Control", "MetaLeft", "MetaRight"], Shift: ["Shift"] },
+	MODIFIER_KEYS: { ALT: "Alt", CONTROL: "Control", SHIFT: "Shift" },
+};
+globalThis.KeyboardManager = MockKeyboardManager;
+
 // --- foundry namespace ---
 globalThis.foundry = {
 	dice: {
@@ -78,6 +85,12 @@ globalThis.foundry = {
 			if (v === undefined) return "undefined";
 			if (Array.isArray(v)) return "Array";
 			return typeof v === "object" ? "Object" : typeof v;
+		},
+		randomID: (length = 16) => {
+			const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			let out = "";
+			for (let i = 0; i < length; i++) out += chars[Math.floor(Math.random() * chars.length)];
+			return out;
 		},
 		mergeObject: (original, other = {}, options = {}) => {
 			if (!other) return original;
@@ -189,7 +202,7 @@ globalThis.foundry = {
 					enrichHTML: async (content) => content,
 				},
 			},
-			ContextMenu: class ContextMenu {},
+			ContextMenu: { implementation: class ContextMenu {} },
 		},
 	},
 };
@@ -271,9 +284,28 @@ globalThis.Roll = class Roll {
 		return Number(expression) || 0;
 	}
 
+	get result() {
+		return String(this.total);
+	}
+
+	get dice() {
+		return this.terms.filter((t) => t.faces);
+	}
+
 	async evaluate() {
 		this._evaluated = true;
+		this.total = 10;
 		return this;
+	}
+
+	resetFormula() {
+		// no-op stub — real Foundry rebuilds the formula string from terms
+	}
+
+	applyRollMode() {}
+
+	toObject() {
+		return { formula: this.formula, data: this.data, options: this.options };
 	}
 
 	async toMessage() {
@@ -365,6 +397,7 @@ globalThis.game = {
 		format: (key, data) => key,
 		has: () => true,
 	},
+	socket: { emit: () => {}, on: () => {} },
 	keybindings: { register: () => {} },
 	system: { version: "7.3.3", flags: {}, title: "Ordem Paranormal" },
 	modules: { get: () => null },
@@ -372,7 +405,7 @@ globalThis.game = {
 	actors: { size: 0 },
 	scenes: { size: 0 },
 	items: { size: 0 },
-	users: { filter: () => [] },
+	users: { filter: () => [], some: () => true, find: () => ({ isGM: true, active: true }) },
 	world: { flags: {} },
 };
 
@@ -449,6 +482,21 @@ if (!Number.prototype.toNearest) {
 globalThis.getDocumentClass = (name) => {
 	if (name === "ChatMessage") return ChatMessage;
 	return class {};
+};
+
+globalThis.Combat = class Combat {
+	constructor(data = {}, context = {}) {
+		Object.assign(this, data);
+		this.combatants = this.combatants || [];
+	}
+
+	async rollAll(options = {}) {
+		// Stub - subclasses override
+	}
+
+	async updateEmbeddedDocuments(embeddedName, updates, options = {}) {
+		return [];
+	}
 };
 
 globalThis.fromUuid = async () => null;

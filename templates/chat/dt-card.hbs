@@ -1,0 +1,12 @@
+<div class="chat-card dt-card">
+	<header class="card-header">
+		<h3>{{localize "op.dtCardTitle" dt=dt}}</h3>
+		<p>{{skillLabel}}</p>
+	</header>
+	<div class="card-buttons">
+		<button type="button" data-action="rollDT" data-skill="{{skillKey}}" data-target="{{dt}}" data-visibility="all">
+			<i class="fa-solid fa-dice-d20"></i>
+			{{localize "op.dtCardButton"}}
+		</button>
+	</div>
+</div>

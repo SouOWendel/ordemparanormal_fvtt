@@ -1,5 +1,16 @@
 @use "colors";
 
+// ========================================
+// Spacing Scale
+// ========================================
+$spacing-xs: 2px;
+$spacing-sm: 4px;
+$spacing-md: 6px;
+$spacing-lg: 10px;
+$spacing-xl: 12px;
+$spacing-2xl: 20px;
+
+// Legacy padding (manter compatibilidade)
 $padding-sm: 5px;
 $padding-md: 10px;
 $padding-lg: 20px;
@@ -14,3 +25,34 @@ $space-bar-over: rgba(177, 22, 26, 0.5);
 
 $bg-transparent-light: rgba(0, 0, 0, 0.05);
 $border-transparent-medium: rgba(39, 39, 39, 0.25);
+// ========================================
+// Border Radius
+// ========================================
+$radius-sm: 3px;
+$radius-md: 4px;
+$radius-lg: 5px;
+$radius-xl: 6px;
+
+// ========================================
+// Font Sizes
+// ========================================
+$font-xs: 10px;
+$font-sm: 11px;
+$font-md: 12px;
+$font-base: 13px;
+$font-lg: 14px;
+$font-xl: 15px;
+
+// ========================================
+// Borders
+// ========================================
+$border-groove: 2px groove #eeede0;
+$border-transparent: 1px solid #00000040;
+
+// ========================================
+// UI Component Sizes
+// ========================================
+$header-height: 28px;
+$button-height: 36px;
+$profile-img-size: 48px;
+$input-width-sm: 40px;
