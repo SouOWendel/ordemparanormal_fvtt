@@ -110,8 +110,6 @@
 						{{#ifEquals type 5}}{{localize "op.abilitiesAbv.general"}}{{/ifEquals}}
 						{{#ifEquals type 6}}{{localize "op.abilitiesAbv.ability"}}{{/ifEquals}}
 					</span>
-
-					<span class="col-type">Tipo</span>
 					<span class="col-cost">Custo</span>
 					<span class="col-exec">Execução</span>
 
@@ -145,15 +143,6 @@
 										<a class="rollable" data-roll-type="item" data-action="onRoll"><i class="fa-solid fa-dice-d20"></i></a>
 									</div>
 									<span class="item-name item-toggle" style="cursor: pointer;" data-tooltip="{{item.name}}">{{item.name}}</span>
-								</div>
-
-								{{! Colunas de Dados Estilizadas }}
-								<div class="item-meta-col col-type">
-									<span class="badge-cat">
-										{{#if item.system.abilityType}}
-											{{localize (concat "op.powerTypeChoices." item.system.abilityType)}}
-										{{else}}—{{/if}}
-									</span>
 								</div>
 
 								<div class="item-meta-col col-cost">
