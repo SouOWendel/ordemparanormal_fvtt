@@ -1,5 +1,3 @@
-import { calculateSkillProficiency } from "../../helpers/actor-calculations.mjs";
-
 const defaultAttrs = {
 	fighting: "str",
 	aim: "dex",
@@ -161,8 +159,6 @@ export class ThreatData extends foundry.abstract.TypeDataModel {
 				}
 
 				if (!skill.degree) skill.degree = { value: 0, label: "untrained" };
-
-				skill.degree.value = calculateSkillProficiency(skill.degree.label);
 
 				if (keySkill === "freeSkill" && skill.name) {
 					skill.label = skill.name;
