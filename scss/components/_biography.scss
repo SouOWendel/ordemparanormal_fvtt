@@ -21,7 +21,7 @@
 }
 
 .dossier-section {
-	margin-bottom: 0 !important;
+	margin-bottom: 8px;
 	display: flex;
 	flex-direction: column;
 
@@ -50,6 +50,12 @@
 			.ProseMirror {
 				padding: 15px;
 				color: #222;
+			}
+
+			.icon {
+				margin: 4px;
+				height: 32px;
+				width: 32px;
 			}
 		}
 

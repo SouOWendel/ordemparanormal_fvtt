@@ -321,13 +321,15 @@ dialog.ordemparanormal.application.roll-configuration {
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
+			text-align: center;
 		}
 
 		.window-subtitle {
 			margin: 0;
-			font-size: 16;
+			font-size: 16px;
 			line-height: 30px;
 			text-shadow: none;
+			text-align: center;
 		}
 
 		.header-control {
