@@ -5,13 +5,17 @@
  */
 
 /**
- * @param {string} degreeLabel  'untrained'|'trained'|'veteran'|'expert'
- * @returns {number} 0, 5, 10, or 15
+ * @param {string} degreeLabel  'untrained'|'trained'|'veteran'|'expert'|'master'|'alfa'|'gama'|'delta'
+ * @returns {number} 0, 5, 10, 15, 20, 25, 30, or 35
  */
 export function calculateSkillProficiency(degreeLabel) {
 	if (degreeLabel === "trained") return 5;
 	if (degreeLabel === "veteran") return 10;
 	if (degreeLabel === "expert") return 15;
+	if (degreeLabel === "master") return 20;
+	if (degreeLabel === "alfa") return 25;
+	if (degreeLabel === "gama") return 30;
+	if (degreeLabel === "delta") return 35;
 	return 0;
 }
 

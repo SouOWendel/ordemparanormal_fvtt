@@ -68,22 +68,15 @@
 			<td>{{data.range}}</td>
 		</tr>
 	</table>
-	{{/ifEquals}}
+	{{/ifEquals}} {{#if targetName}}
+	<div class="target-info"><i class="fa-solid fa-crosshairs"></i> {{targetName}}</div>
+	{{/if}}
 	<div class="card-buttons">
 		{{#if data.formulas.attack}}
 		<button data-action="attack"><i class="fa-solid fa-dice-d20"></i> {{localize "op.rollAtk"}}</button>
 		{{/if}} {{#if data.formulas.damage}}
 		<button data-action="damage"><i class="fa-solid fa-dice"></i> {{localize "op.rollDmg"}}</button>
 		{{/if}}
-		<!-- {{#if data.studentForm}}
-		<button data-action="attack">
-			<i class="fa-solid fa-dice-d20"></i> Forma Discente
-		</button>
-		{{/if}} {{#if data.trueForm}}
-		<button data-action="attack">
-			<i class="fa-solid fa-dice-d20"></i> Forma Verdadeira
-		</button>
-		{{/if}} -->
 	</div>
 	<footer class="card-footer">
 		{{#each info}}

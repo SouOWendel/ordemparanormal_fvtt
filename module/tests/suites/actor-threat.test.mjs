@@ -1,8 +1,11 @@
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.actor.threat",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
 
 			describe("ThreatData._prepareBaseSkills() — degree value", () => {
 				let actor;

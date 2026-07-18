@@ -15,7 +15,7 @@
 	.prosemirror menu,
 	prosemirror menu {
 		gap: 0;
-		background: #eeede0;
+		background: colors.$c-parchment-light;
 	}
 
 	.scrollable {
@@ -28,28 +28,28 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: rgba(0, 0, 0, 0.05);
-		border: 2px groove #eeede0;
-		padding: 4px;
+		background: colors.$c-overlay-light;
+		border: variables.$border-groove;
+		padding: variables.$spacing-sm;
 	}
 
 	.resource-type {
 		margin-top: 0;
 		margin-right: 0;
-		margin-bottom: 10px;
-		border: 1px solid colors.$transparent-c-black;
-		border-radius: 4px;
-		padding: 10px;
+		margin-bottom: variables.$spacing-lg;
+		border: 1px solid colors.$c-overlay-dark;
+		border-radius: variables.$radius-md;
+		padding: variables.$spacing-lg;
 	}
 
 	.content-item {
 		height: 100%;
 		overflow-y: auto;
-		padding-top: 10px;
+		padding-top: variables.$spacing-lg;
 	}
 
 	.section-attack {
-		margin-bottom: 20px;
+		margin-bottom: variables.$spacing-2xl;
 	}
 
 	.attack-formula {
@@ -64,7 +64,7 @@
 		justify-content: space-between;
 		flex-direction: row;
 		align-items: center;
-		gap: 4px;
+		gap: variables.$spacing-sm;
 	}
 
 	.damage-formula {
@@ -82,25 +82,25 @@
 	.specifications {
 		h4 {
 			color: #16161670;
-			border-bottom: 1px solid colors.$transparent-c-black;
+			border-bottom: 1px solid colors.$c-overlay-dark;
 		}
 	}
 
 	.combat {
 		h4 {
 			color: #16161670;
-			border-bottom: 1px solid colors.$transparent-c-black;
+			border-bottom: 1px solid colors.$c-overlay-dark;
 		}
 
 		.resource-label {
-			font-size: 13px;
+			font-size: variables.$font-base;
 		}
 	}
 
 	.item-sheet-form {
 		display: flex;
 		flex: 1 10px;
-		margin: 2px 0px;
+		margin: variables.$spacing-xs 0px;
 		align-items: center;
 		flex-direction: row;
 
@@ -110,7 +110,7 @@
 		}
 
 		i {
-			margin-left: 6px;
+			margin-left: variables.$spacing-md;
 		}
 	}
 
@@ -127,41 +127,41 @@
 		flex: 0 0 20px;
 		justify-content: flex-end;
 		a {
-			font-size: 12px;
+			font-size: variables.$font-md;
 			text-align: center;
-			margin: 0 6px;
+			margin: 0 variables.$spacing-md;
 		}
 	}
 
 	.item-sheet {
 		.item-attribute {
 			flex: 1;
-			padding: 0 8px;
+			padding: 0 variables.$spacing-md;
 		}
 		.item-skill {
 			flex: 1;
-			padding: 0 8px;
+			padding: 0 variables.$spacing-md;
 		}
 		.item-bonus {
 			flex: 2;
-			padding: 0 8px;
+			padding: 0 variables.$spacing-md;
 		}
 	}
 
 	.damage-box {
 		color: #00000070;
-		padding: 6px;
+		padding: variables.$spacing-md;
 		text-align: center;
-		border-bottom: 1px dashed #00000040;
+		border-bottom: 1px dashed colors.$c-overlay-dark;
 
 		a:hover {
-			color: #555;
+			color: colors.$c-gray-medium;
 		}
 	}
 
 	.damage-control {
 		.fa-trash {
-			font-size: 12px;
+			font-size: variables.$font-md;
 		}
 	}
 
@@ -170,62 +170,61 @@
 		margin-right: 15px;
 	}
 
-	/* 1. Prepara o container principal para ser a referência de posicionamento */
+	/* Damage formula tree structure */
 	.container-formula {
-		position: relative; /* Essencial para que os pseudo-elementos se posicionem corretamente */
-		padding-left: 0px; /* Cria um espaço à esquerda para a linha não ficar colada */
-		font-family: sans-serif; /* Apenas para estilização de exemplo */
+		position: relative;
+		padding-left: 0px;
+		font-family: sans-serif;
 	}
 
 	.part-damage-section {
-		padding-left: 20px;
-		padding-top: 10px;
+		padding-left: variables.$spacing-2xl;
+		padding-top: variables.$spacing-lg;
 	}
 
-	/* 2. Cria a LINHA VERTICAL principal */
+	/* Vertical main line */
 	.linhas-adicionais::before {
-		content: ""; /* Pseudo-elementos precisam disso para aparecer */
-		position: absolute; /* Posição absoluta em relação ao .container-formula */
+		content: "";
+		position: absolute;
 
-		/* Posição da linha */
-		left: 15px; /* Distância da borda esquerda do container */
-		top: 50px; /* Distância do topo (ajuste conforme a altura da sua linha principal) */
-		bottom: 52px; /* Distância da base (ajuste para a linha não passar do último elemento) */
+		/* Position */
+		left: 15px;
+		top: 50px;
+		bottom: 52px;
 
-		/* Estilo da linha */
-		width: 2px; /* Espessura da linha */
-		background-color: #b0b0b0; /* Cor da linha */
-		border-radius: 2px;
+		/* Style */
+		width: 2px;
+		background-color: colors.$c-gray-light;
+		border-radius: variables.$spacing-xs;
 	}
 
-	/* 3. Prepara cada linha secundária para ter sua própria linha de conexão */
+	/* Prepare each secondary line */
 	.linha-secundaria {
-		position: relative; /* Cada linha será uma referência para sua própria linha horizontal */
-		margin-left: 25px; /* Empurra o conteúdo para a direita, criando espaço para a conexão */
-		margin-bottom: 5px; /* Espaçamento entre as linhas */
+		position: relative;
+		margin-left: 25px;
+		margin-bottom: variables.$padding-sm;
 	}
 
-	/* 4. Cria as LINHAS HORIZONTAIS que se conectam à linha vertical */
+	/* Horizontal connecting lines */
 	.linha-secundaria::before {
 		content: "";
 		position: absolute;
 
-		/* Posição da linha */
-		top: 50%; /* Centraliza a linha verticalmente no meio da altura do formulário */
-		left: -30px; /* Começa 10px para a esquerda, conectando-se à linha vertical */
+		/* Position */
+		top: 50%;
+		left: -30px;
 
-		/* Estilo da linha */
-		width: 30px; /* Comprimento da linha (deve corresponder ao 'left' negativo) */
-		height: 2px; /* Espessura da linha */
-		background-color: #b0b0b0; /* Mesma cor da linha vertical */
-		border-radius: 2px;
+		/* Style */
+		width: 30px;
+		height: 2px;
+		background-color: colors.$c-gray-light;
+		border-radius: variables.$spacing-xs;
 	}
 
-	/* Estilos adicionais para parecer com a imagem (opcional) */
 	.linha-principal,
 	.linha-secundaria {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: variables.$spacing-md;
 	}
 }

@@ -64,16 +64,20 @@ export default class D20Die extends Die {
 	/* -------------------------------------------- */
 
 	/**
-	 * Apply advantage mode to this die.
-	 * @param {number} advantageMode  Advantage mode to apply.
+	 * Apply advantage/disadvantage modifier to this die.
+	 *
+	 * Regra do Ordem Paranormal: desvantagens DIMINUEM a quantidade de dados; o
+	 * `kl` (keep lowest) só entra em ação quando o resultado final é menor que 1
+	 * (i.e. atributo 1 com 1 desvantagem → 2d20kl; atributo 3 com 1 desvantagem
+	 * → 2d20kh; atributo 1 puro → 1d20).
 	 */
 	applyModifier() {
 		this.modifiers.findSplice((m) => ["kh", "kl"].includes(m));
-		if (this.number > 0) {
-			this.modifiers.push("kh");
-		} else {
+		if (this.number < 1) {
 			this.number = 2;
 			this.modifiers.push("kl");
+		} else if (this.number > 1) {
+			this.modifiers.push("kh");
 		}
 	}
 

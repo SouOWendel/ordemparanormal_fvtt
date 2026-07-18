@@ -84,10 +84,10 @@ op.dropdownDegree = {
 
 op.dropdownDegreeThreat = {
 	...op.dropdownDegree, // Pega tudo que tem na lista de cima
-	master: "op.degreeTrainingChoices.Mast", // +20
-	alfa: "op.degreeTrainingChoices.Alfa", // +25
-	gama: "op.degreeTrainingChoices.Gama", // +30
-	delta: "op.degreeTrainingChoices.Delta", // +35
+	master: "op.degreeTrainingChoices.mast", // +20
+	alfa: "op.degreeTrainingChoices.alfa", // +25
+	gama: "op.degreeTrainingChoices.gama", // +30
+	delta: "op.degreeTrainingChoices.delta", // +35
 };
 
 /**
@@ -127,15 +127,15 @@ op.dropdownTrilha = {
 		{ name: "tecnico", label: "op.trilhas.tecnico" },
 	],
 	occultist: [
-		{name: 'conduite', label: 'op.trilhas.conduite'},
-		{name: 'exorcista', label: 'op.trilhas.exorcista'},
-		{name: 'flagelador', label: 'op.trilhas.flagelador'},
-		{name: 'graduado', label: 'op.trilhas.graduado'},
-		{name: 'intuitivo', label: 'op.trilhas.intuitivo'},
-		{name: 'laminaParanormal', label: 'op.trilhas.laminaParanormal'},
-		{name: 'parapsicologo', label: 'op.trilhas.parapsicologo'},
-		{name: 'possuido', label: 'op.trilhas.possuido'},
-		{name: 'maledictologo', label: 'op.trilhas.maledictologo'},
+		{ name: "conduite", label: "op.trilhas.conduite" },
+		{ name: "exorcista", label: "op.trilhas.exorcista" },
+		{ name: "flagelador", label: "op.trilhas.flagelador" },
+		{ name: "graduado", label: "op.trilhas.graduado" },
+		{ name: "intuitivo", label: "op.trilhas.intuitivo" },
+		{ name: "laminaParanormal", label: "op.trilhas.laminaParanormal" },
+		{ name: "parapsicologo", label: "op.trilhas.parapsicologo" },
+		{ name: "possuido", label: "op.trilhas.possuido" },
+		{ name: "maledictologo", label: "op.trilhas.maledictologo" },
 	],
 	survivor: [
 		{ name: "durao", label: "op.trilhas.durao" },
@@ -283,7 +283,6 @@ op.dropdownDamageType = {
 	eletricDamage: "op.damageTypeChoices.eletricDamage",
 	chemicalDamage: "op.damageTypeChoices.chemicalDamage",
 	mentalDamage: "op.damageTypeChoices.mentalDamage",
-	damageDamage: "op.damageTypeChoices.damageDamage",
 };
 
 /**

@@ -13,6 +13,8 @@ export default defineConfig({
 				"module/helpers/effects.mjs",
 				"module/helpers/config.mjs",
 				"module/dice/**/*.mjs",
+				"module/documents/actor.mjs",
+				"module/documents/chat-message.mjs",
 				"module/documents/item.mjs",
 				"utils/semver-compare.mjs",
 			],

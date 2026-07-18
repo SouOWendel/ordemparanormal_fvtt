@@ -1,0 +1,26 @@
+{
+	"_id": "macroAplicarDano",
+	"name": "Aplicar Dano Rápido",
+	"type": "script",
+	"author": "FabricioSouza001",
+	"img": "icons/svg/blood.svg",
+	"scope": "global",
+	"command": "const targets = [...(game.user.targets ?? [])];\nif (!targets.length) return ui.notifications.warn(game.i18n.localize(\"op.macroNeedsTarget\"));\n\nconst typeOptions = Object.entries(CONFIG.op?.dropdownDamageType ?? {})\n\t.map(([k, v]) => `<option value=\"${k}\">${game.i18n.localize(v)}</option>`)\n\t.join(\"\");\nconst content = `\n\t<div class=\"form-group\"><label>${game.i18n.localize(\"op.macroDamageAmount\")}</label><input type=\"number\" name=\"amount\" value=\"0\" min=\"0\" autofocus /></div>\n\t<div class=\"form-group\"><label>${game.i18n.localize(\"op.macroDamageType\")}</label><select name=\"damageType\"><option value=\"\">${game.i18n.localize(\"op.macroNoDamageType\")}</option>${typeOptions}</select></div>\n\t<div class=\"form-group\"><label>${game.i18n.localize(\"op.macroIgnoreRD\")}</label><input type=\"checkbox\" name=\"ignoreRD\" /></div>\n\t<div class=\"form-group\"><label>${game.i18n.localize(\"op.macroNonLethal\")}</label><input type=\"checkbox\" name=\"nonLethal\" /></div>\n`;\n\nconst input = await foundry.applications.api.DialogV2.prompt({\n\twindow: { title: game.i18n.localize(\"op.macroQuickDamageTitle\") },\n\tcontent,\n\tok: {\n\t\tlabel: game.i18n.localize(\"op.macroApplyButton\"),\n\t\tcallback: (_event, button) => new FormDataExtended(button.form).object,\n\t},\n});\nif (!input || !input.amount || input.amount <= 0) return;\n\nconst opts = {\n\tdamageType: input.damageType || undefined,\n\tignoreRD: !!input.ignoreRD,\n\tnonLethal: !!input.nonLethal,\n};\n\nfor (const token of targets) {\n\tconst actor = token.actor;\n\tif (!actor) continue;\n\tconst result = await actor.applyDamage(Number(input.amount), opts);\n\tconst blocked = result.blocked > 0 ? game.i18n.format(\"op.macroBlockedDR\", { blocked: result.blocked }) : \"\";\n\tChatMessage.create({\n\t\tcontent: game.i18n.format(\"op.macroDamageApplied\", { amount: input.amount, actor: actor.name, final: result.finalDamage, blocked }),\n\t\tspeaker: ChatMessage.getSpeaker({ actor }),\n\t});\n}",
+	"flags": {},
+	"folder": null,
+	"sort": 300000,
+	"ownership": {
+		"default": 0
+	},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"coreVersion": "13.351",
+		"systemId": "ordemparanormal",
+		"systemVersion": "7.3.3",
+		"createdTime": null,
+		"modifiedTime": null,
+		"lastModifiedBy": null
+	},
+	"_key": "!macros!macroAplicarDano"
+}

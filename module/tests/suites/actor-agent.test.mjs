@@ -1,8 +1,11 @@
+import { installBatchGuards } from "../helpers/fixtures.mjs";
+
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
 		"ordemparanormal.actor.agent",
 		(context) => {
 			const { describe, it, assert, before, after } = context;
+			installBatchGuards(context, { prefix: "[Quench]" });
 
 			// ----------------------------------------------------------------
 			// Helpers
@@ -121,7 +124,7 @@ Hooks.once("quenchReady", (quench) => {
 			});
 
 			// ----------------------------------------------------------------
-			// Survivor class (progress = stage.value, PE.perRound always 1)
+			// Survivor class (progress = stage.value)
 			// ----------------------------------------------------------------
 			describe("survivor — stage progress rule", () => {
 				let actorS1;
@@ -141,8 +144,10 @@ Hooks.once("quenchReady", (quench) => {
 				it("stage=1 (progress=1): PE.max = 2 + PRE(2) = 4", () => {
 					assert.equal(actorS1.system.PE.max, 4);
 				});
-				it("stage=1: PE.perRound = 1 (PD branch, always 1 for survivor)", () => {
-					// survivor uses PD.perRound=1 regardless of progress
+				it("stage=1: PE.perRound = 1 (always 1 for survivor)", () => {
+					assert.equal(actorS1.system.PE.perRound, 1);
+				});
+				it("stage=1: PD.perRound = 1 (always 1 for survivor)", () => {
 					assert.equal(actorS1.system.PD.perRound, 1);
 				});
 				it("stage=2 (progress=2): PV.max = 8+3+2 = 13", () => {
@@ -150,6 +155,12 @@ Hooks.once("quenchReady", (quench) => {
 				});
 				it("stage=2: SAN.max = 8+2 = 10", () => {
 					assert.equal(actorS2.system.SAN.max, 10);
+				});
+				it("stage=2: PE.perRound = 1 (always 1 for survivor)", () => {
+					assert.equal(actorS2.system.PE.perRound, 1);
+				});
+				it("stage=2: PD.perRound = 1 (always 1 for survivor)", () => {
+					assert.equal(actorS2.system.PD.perRound, 1);
 				});
 			});
 
@@ -195,7 +206,6 @@ Hooks.once("quenchReady", (quench) => {
 				});
 
 				it("nivel=3 rule=2 (progress=3): PV.max = 20+3+2×(4+3) = 37", () => {
-					// progress=3, progressAdjust=2: 20+3 + 2*(4+3) = 23 + 14 = 37
 					assert.equal(actor.system.PV.max, 37);
 				});
 				it("PE.perRound = 3 (progress=3)", () => {

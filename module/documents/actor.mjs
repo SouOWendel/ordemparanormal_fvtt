@@ -214,6 +214,65 @@ export class OrdemActor extends Actor {
 	}
 
 	/**
+	 * Apply damage to this actor, respecting damage resistances.
+	 *
+	 * @param {number} amount                      Total damage amount before resistances.
+	 * @param {object} [options={}]
+	 * @param {string} [options.damageType]        Key from system.resistances (e.g. "cuttingDamage").
+	 * @param {boolean} [options.ignoreRD=false]   Bypass damage resistance (Perda de Vida rule).
+	 * @param {boolean} [options.nonLethal=false]  Apply as non-lethal damage (tracked separately).
+	 * @param {number} [options.extraRD=0]         Extra DR (e.g. from a Bloqueio reaction) added to base RD.
+	 * @returns {Promise<{finalDamage: number, blocked: number, newPV: number, conditions: string[]}>}
+	 */
+	async applyDamage(amount, { damageType, ignoreRD = false, nonLethal = false, extraRD = 0 } = {}) {
+		const isThreat = this.type === "threat";
+		const resource = isThreat ? this.system.attributes?.hp : this.system.PV;
+		const resistances = this.system.resistances ?? {};
+
+		const baseRd = (!ignoreRD && damageType && resistances[damageType]?.value) || 0;
+		const totalRd = baseRd + Math.max(0, extraRD || 0);
+		const finalDamage = Math.max(0, amount - totalRd);
+		const blocked = amount - finalDamage;
+
+		// Delegate to GM via socket when the current user doesn't own this actor
+		if (!this.isOwner) {
+			// No-GM guard (Foundry docs: GM-authoritative socket pattern) — without this,
+			// emit silently drops if no GM is connected.
+			const gmOnline = game.users.some((u) => u.isGM && u.active);
+			if (!gmOnline) {
+				ui.notifications.warn(game.i18n.localize("op.applyDamageNeedsGM"));
+				return { finalDamage: 0, blocked: 0, newPV: null, conditions: [] };
+			}
+			game.socket.emit("system.ordemparanormal", {
+				type: "applyDamage",
+				actorUuid: this.uuid,
+				amount,
+				options: { damageType, ignoreRD, nonLethal, extraRD },
+				userId: game.user.id,
+			});
+			// newPV is unknown here — update happens asynchronously on the GM client
+			return { finalDamage, blocked, newPV: null, conditions: [] };
+		}
+
+		const conditions = [];
+
+		if (!isThreat && nonLethal) {
+			const newNonLethal = (resource.nonLethal ?? 0) + finalDamage;
+			await this.update({ "system.PV.nonLethal": newNonLethal });
+			return { finalDamage, blocked, newPV: resource.value, conditions };
+		}
+
+		const newPV = Math.max(0, resource.value - finalDamage);
+		const hpKey = isThreat ? "system.attributes.hp.value" : "system.PV.value";
+		await this.update({ [hpKey]: newPV });
+
+		if (newPV <= 0) conditions.push("morrendo");
+		if (newPV <= resource.max / 2) conditions.push("machucado");
+
+		return { finalDamage, blocked, newPV, conditions };
+	}
+
+	/**
 	 * Roll an Ability Check.
 	 * @param {Partial<AbilityRollProcessConfiguration>} config  Configuration information for the roll.
 	 * @param {Partial<BasicRollDialogConfiguration>} dialog     Configuration for the roll dialog.
@@ -431,8 +490,8 @@ export class OrdemActor extends Actor {
 			BasicRoll.mergeConfigs(
 				{
 					options: {
-						// maximum: relevant?.roll.max,
-						// minimum: relevant?.roll.min
+						advantage: rollConfig.advantage || false,
+						disadvantage: rollConfig.disadvantage || false,
 					},
 				},
 				config.rolls?.shift()

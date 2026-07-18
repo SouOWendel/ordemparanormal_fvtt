@@ -187,6 +187,16 @@
 			"ownership": {
 				"PLAYER": "OBSERVER"
 			}
+		},
+		{
+			"name": "macros",
+			"label": "Macros de Combate",
+			"system": "ordemparanormal",
+			"type": "Macro",
+			"path": "packs/macros",
+			"ownership": {
+				"PLAYER": "OBSERVER"
+			}
 		}
 	],
 	"packFolders": [
@@ -194,7 +204,7 @@
 			"name": "Conteúdos para Ordem Paranormal",
 			"sorting": "m",
 			"color": "#000000",
-			"packs": ["bookrules", "others", "creatingmissions"],
+			"packs": ["bookrules", "others", "creatingmissions", "macros"],
 			"folders": [
 				{
 					"name": "Equipamentos do Livro",
@@ -292,6 +302,7 @@
 			"ritual": {}
 		}
 	},
+	"socket": true,
 	"url": "https://github.com/SouOWendel/ordemparanormal_fvtt",
 	"manifest": "https://raw.githubusercontent.com/souowendel/ordemparanormal_fvtt/main/system.json",
 	"download": "https://github.com/SouOWendel/ordemparanormal_fvtt/releases/download/v7.3.3/ordem_fvtt-v7.3.3.zip",

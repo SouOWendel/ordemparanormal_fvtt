@@ -1,3 +1,6 @@
+@use "../utils/colors";
+@use "../utils/variables";
+
 // Patch notes (DialogV2). Dedicated class on the window — see message-system.mjs `classes`.
 dialog.ordemparanormal-patch-notes.application {
 	.standard-form .form-footer {
@@ -14,7 +17,7 @@ dialog.ordemparanormal-patch-notes.application {
 
 	.ordemparanormal-patch-notes-main .grid-2col {
 		height: 490px;
-		margin-top: 10px;
+		margin-top: variables.$spacing-lg;
 		align-items: stretch;
 	}
 
@@ -30,7 +33,7 @@ dialog.ordemparanormal-patch-notes.application {
 	}
 
 	.ordemparanormal-patch-notes-hint {
-		padding: 8px;
+		padding: variables.$spacing-md;
 		border-top: 1px solid rgba(0, 0, 0, 0.19);
 
 		p {
@@ -50,10 +53,10 @@ dialog.ordemparanormal-patch-notes.application {
 	}
 
 	a {
-		box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+		box-shadow: colors.$c-overlay-light 0px 1px 2px 0px;
 		&:hover,
 		&:focus {
-			color: #000;
+			color: colors.$c-black;
 			text-shadow: 0 0 10px rgb(255, 255, 255);
 			cursor: pointer;
 		}
@@ -69,7 +72,7 @@ dialog.ordemparanormal-patch-notes.application {
 
 		.discord {
 			color: white;
-			text-shadow: 1px 1px 1px #000;
+			text-shadow: colors.$shadow-black-text;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			font-family: "PT Sans", "Roboto", "sans-serif";
@@ -83,7 +86,7 @@ dialog.ordemparanormal-patch-notes.application {
 }
 
 .content-dialog::-webkit-scrollbar-thumb {
-	background: rgba(0, 0, 0, 0.13);
+	background: colors.$c-overlay-medium;
 	border: 0;
 }
 
@@ -91,8 +94,8 @@ dialog.ordemparanormal-patch-notes.application {
 	position: relative;
 	width: 100%;
 	height: 156px;
-	margin: 8px 0;
-	border-radius: 5px !important;
+	margin: variables.$spacing-md 0;
+	border-radius: variables.$radius-lg !important;
 	display: flex;
 
 	background: {
@@ -112,10 +115,10 @@ dialog.ordemparanormal-patch-notes.application {
 
 .dialog-buttons {
 	display: flex;
-	gap: 4px;
+	gap: variables.$spacing-sm;
 
 	button {
-		height: 36px;
+		height: variables.$button-height;
 		opacity: 0.6;
 		transition: all 0.2s ease-in;
 	}
@@ -134,7 +137,7 @@ dialog.ordemparanormal-patch-notes.application {
 	a {
 		&:hover,
 		&:focus {
-			color: #000;
+			color: colors.$c-black;
 			text-shadow: 0 0 10px rgb(255, 255, 255);
 			cursor: pointer;
 		}
@@ -150,7 +153,7 @@ dialog.ordemparanormal-patch-notes.application {
 	}
 
 	a[href] {
-		color: #464646;
+		color: colors.$c-link-gray;
 	}
 }
 
@@ -179,7 +182,7 @@ dialog.ordemparanormal-patch-notes.application {
 
 		.header-dice {
 			display: inline-block;
-			gap: 10px;
+			gap: variables.$spacing-lg;
 			justify-content: space-around;
 
 			input.diceMod {
@@ -208,14 +211,14 @@ dialog.ordemparanormal-patch-notes.application {
 	}
 
 	legend {
-		font-size: 15px;
+		font-size: variables.$font-xl;
 		font-weight: bold;
 	}
 
 	fieldset {
 		display: flex;
 		gap: 0.1rem;
-		border-radius: 8px;
+		border-radius: variables.$radius-xl;
 		flex-wrap: nowrap;
 		flex-direction: column;
 	}
@@ -229,7 +232,7 @@ dialog.ordemparanormal-patch-notes.application {
 		// filter: blur(0.8px);
 
 		.hint {
-			font-size: 14px;
+			font-size: variables.$font-lg;
 			margin: 0;
 		}
 	}
@@ -242,14 +245,14 @@ dialog.ordemparanormal-patch-notes.application {
 		height: 38px;
 		background: rgba(255, 255, 240, 0.8);
 		border: 1px solid #b5b3a4;
-		border-radius: 3px;
-		font-size: 14px;
+		border-radius: variables.$radius-sm;
+		font-size: variables.$font-lg;
 		cursor: pointer;
 		width: 100%;
 		margin: 0;
 
 		i {
-			padding: 4px;
+			padding: variables.$spacing-sm;
 		}
 	}
 }
@@ -277,7 +280,7 @@ dialog.ordemparanormal-patch-notes.application {
 	font-family: "Signika", "Roboto", sans-serif;
 
 	.window-header {
-		font-size: 13px;
+		font-size: variables.$font-base;
 	}
 }
 
@@ -331,14 +334,14 @@ dialog.ordemparanormal.application.roll-configuration {
 		.header-control {
 			margin: 0;
 			line-height: normal;
-			background: rgba(0, 0, 0, 0.25);
+			background: colors.$c-overlay-medium-alt;
 			border-color: #242731;
-			font-size: 12px;
+			font-size: variables.$font-md;
 			--color-light-text-heading: #f7f3e8;
 			--button-size: 20px;
 			--button-text-color: #f7f3e8;
 			padding: 3px;
-			box-shadow: 0 0 8px rgba(0, 0, 0, 0.13);
+			box-shadow: 0 0 8px colors.$c-overlay-medium;
 			gap: 0.25rem;
 			min-height: unset;
 			display: flex;
@@ -365,7 +368,7 @@ dialog.ordemparanormal.application.roll-configuration {
 			inset-block-start: 52px;
 			margin: 0;
 			border: 0;
-			font-size: 14px;
+			font-size: variables.$font-lg;
 			text-shadow: none;
 			position: absolute;
 			inset-inline: 25px;
@@ -398,21 +401,21 @@ dialog.ordemparanormal.application.roll-configuration {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				gap: 8px;
+				gap: variables.$spacing-md;
 
 				li {
 					position: relative;
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					gap: 4px;
+					gap: variables.$spacing-sm;
 				}
 
 				img {
 					width: 42px;
 					border: none;
-					-webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
-					filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+					-webkit-filter: drop-shadow(0 0 8px colors.$c-overlay-dark);
+					filter: drop-shadow(0 0 8px colors.$c-overlay-dark);
 				}
 
 				.badge {
@@ -420,14 +423,14 @@ dialog.ordemparanormal.application.roll-configuration {
 					display: flex;
 					height: 18px;
 					width: 28px;
-					box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+					box-shadow: 0 0 4px colors.$c-overlay-medium-alt;
 					border: 0.5 solid rgba(255, 255, 255, 0.1);
-					background-color: rgba(0, 0, 0, 0.4);
-					border-radius: 4px;
+					background-color: colors.$c-overlay-dark;
+					border-radius: variables.$radius-md;
 					justify-content: center;
 					align-items: center;
-					padding: 2px;
-					gap: 4px;
+					padding: variables.$spacing-xs;
+					gap: variables.$spacing-sm;
 
 					&.kh,
 					&.kl {
@@ -448,13 +451,13 @@ dialog.ordemparanormal.application.roll-configuration {
 					}
 
 					span {
-						font-size: 14px;
+						font-size: variables.$font-lg;
 						text-align: center;
 					}
 
 					i {
 						height: 12px;
-						font-size: 13px;
+						font-size: variables.$font-base;
 					}
 				}
 			}
@@ -463,8 +466,8 @@ dialog.ordemparanormal.application.roll-configuration {
 		fieldset {
 			display: flex;
 			flex-direction: column;
-			gap: 4px;
-			border-radius: 4px;
+			gap: variables.$spacing-sm;
+			border-radius: variables.$radius-md;
 			margin: 0;
 
 			.form-group {
@@ -488,7 +491,7 @@ dialog.ordemparanormal.application.roll-configuration {
 
 			.label {
 				font-style: italic;
-				font-size: 12px;
+				font-size: variables.$font-md;
 			}
 		}
 	}

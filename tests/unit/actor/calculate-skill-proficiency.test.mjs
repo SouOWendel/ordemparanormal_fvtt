@@ -18,8 +18,24 @@ describe("calculateSkillProficiency", () => {
 		expect(calculateSkillProficiency("expert")).toBe(15);
 	});
 
+	it("returns 20 for master", () => {
+		expect(calculateSkillProficiency("master")).toBe(20);
+	});
+
+	it("returns 25 for alfa", () => {
+		expect(calculateSkillProficiency("alfa")).toBe(25);
+	});
+
+	it("returns 30 for gama", () => {
+		expect(calculateSkillProficiency("gama")).toBe(30);
+	});
+
+	it("returns 35 for delta", () => {
+		expect(calculateSkillProficiency("delta")).toBe(35);
+	});
+
 	it("returns 0 for unknown string", () => {
-		expect(calculateSkillProficiency("master")).toBe(0);
+		expect(calculateSkillProficiency("ascended")).toBe(0);
 	});
 
 	it("returns 0 for empty string", () => {

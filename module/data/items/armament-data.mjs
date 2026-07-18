@@ -38,6 +38,9 @@ export class ArmamentData extends foundry.abstract.TypeDataModel {
 				extraFormula: new fields.StringField({ initial: "1d4" }),
 			}),
 			penalty: new fields.StringField({ initial: "" }),
+			actionType: new fields.StringField({ initial: "standard" }),
+			numberOfAttacks: new fields.NumberField({ required: false, integer: true, initial: 1, min: 1, max: 8 }),
+			rangeCategory: new fields.StringField({ initial: "" }),
 			conditions: new fields.SchemaField({
 				improvised: new fields.BooleanField({ initial: false }),
 				throwable: new fields.BooleanField({ initial: false }),
