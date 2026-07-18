@@ -3,221 +3,407 @@
 @use "../utils/variables";
 
 .threat {
-	#senses,
-	#defenses,
-	#attributes,
-	#general,
-	#disturbingPresence,
-	#actions,
-	#abilities {
-		padding: 5px;
-		border: 1px solid variables.$border-transparent-medium;
-		margin-top: 5px;
-		border-radius: 5px;
-
-		.display-flex {
-			align-items: center;
-		}
-	}
-
-	.miniInput {
-		width: 32px;
-	}
-
-	#attributes {
-		justify-content: space-between;
-
-		.pre,
-		.vit,
-		.str,
-		.int,
-		.dex {
-			text-align: center;
-
-			input {
-				height: 32px;
-			}
-		}
-	}
-
-	label + input {
-		margin-left: 5px;
-	}
-
-	#announcement {
-		a {
-			color: colors.$border-dark;
-		}
-
-		.link-alert {
-			padding: 0 10px;
-		}
-	}
-
-	#descriptions div {
-		margin: 8px 0;
-
-		textarea {
-			height: 200px;
-		}
-	}
-
-	#actions textarea,
-	#abilities textarea {
-		height: 300px;
-	}
-
-	/* --- LAYOUT GERAL --- */
-	.sheet-tabs .item.active {
-		text-decoration: underline;
-		font-weight: bold;
-		text-shadow: 0 0 5px var(--color-shadow-primary);
-	}
-
-	.sheet-tabs .item {
+	/* --- CABEÇALHO PRINCIPAL --- */
+	.header-identify {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		gap: 5px;
-	}
-
-	.sheet-tabs .item img {
-		border: none;
-		margin: 0;
-		padding: 0;
-		vertical-align: middle;
-	}
-
-	/* --- IMAGEM E CABEÇALHO --- */
-	.header-identify {
+		gap: 12px; /* Respiro levemente aumentado */
 		flex-wrap: wrap;
-		gap: 10px;
-	}
 
-	.threat-profile-img {
-		flex: 0 0 110px;
-		height: 110px;
-		width: 110px;
-		object-fit: cover;
-		border: 1px solid #000;
-		border-radius: 5px;
-		cursor: pointer;
-		margin-right: 15px;
-	}
-
-	@container (max-width: 400px) {
-		.header-identify {
-			justify-content: center;
-		}
 		.threat-profile-img {
-			margin-right: 0;
-			margin-bottom: 5px;
+			flex: 0 0 85px;
+			height: 85px;
+			width: 85px;
+			object-fit: cover;
+			border: 1px solid #000;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		.identity-info {
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			min-width: 200px;
+			gap: 6px; /* Mais espaço entre nome e stats */
+		}
+
+		.charname {
+			margin: 0;
+			input {
+				text-align: center;
+				font-weight: 800;
+				font-size: 1.4rem; /* Fonte um pouco maior */
+				width: 100%;
+				border: none;
+				border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+				background: transparent;
+				border-radius: 0;
+				height: 28px; /* Altura ajustada para a nova fonte */
+
+				&:focus {
+					border-bottom-color: variables.$border-dark;
+				}
+			}
 		}
 	}
 
 	.header-stats-row {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 5px;
-		margin-top: 5px;
+		gap: 8px; /* Mais espaço entre VD e Presença */
 		align-items: stretch;
-		width: 100%;
-	}
-
-	.disturbing-presence {
-		background: rgba(0, 0, 0, 0.05);
-		border-radius: 5px;
-		border: 1px solid #ccc;
-		padding: 5px 10px;
-		flex: 1;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 15px;
 		flex-wrap: wrap;
+
+		.vd-box {
+			background: rgba(0, 0, 0, 0.05);
+			border: 1px solid variables.$border-transparent-medium;
+			border-radius: 5px;
+			padding: 4px 6px; /* Mais espaço interno */
+			flex: 0 0 55px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			label {
+				font-weight: bold;
+				font-size: 11px; /* Maior legibilidade */
+				color: #333;
+			}
+
+			input {
+				width: 100%;
+				text-align: center;
+				font-size: 1.1rem; /* Maior legibilidade */
+				font-weight: bold;
+				border: none;
+				background: transparent;
+				padding: 0;
+				height: 22px;
+			}
+		}
+
+		.disturbing-presence {
+			background: rgba(0, 0, 0, 0.05);
+			border: 1px solid variables.$border-transparent-medium;
+			border-radius: 5px;
+			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 12px; /* Gaps mais confortáveis */
+			padding: 4px 10px; /* Padding mais confortável */
+			flex-wrap: wrap;
+
+			.section-title {
+				font-weight: bold;
+				font-size: 13px; /* Maior legibilidade */
+				color: #333;
+			}
+
+			.presence-stat {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+
+				label {
+					font-size: 11px;
+					font-weight: bold;
+					color: #555;
+				}
+
+				input {
+					height: 22px; /* Altura confortável */
+					font-size: 12px;
+					text-align: center;
+					background: rgba(255, 255, 255, 0.7);
+					border: 1px solid rgba(0, 0, 0, 0.2);
+					border-radius: 3px;
+
+					&[name*="dt"] {
+						width: 40px;
+					}
+					&[name*="mentalDamage"] {
+						width: 75px;
+					}
+				}
+
+				i {
+					color: colors.$gray;
+					font-size: 15px;
+				}
+			}
+		}
 	}
 
-	/* --- ABA ENIGMA --- */
-	.sheet-body .tab.enigma {
-		height: 100%;
+	/* --- AGRUPAMENTOS FLEX & GRID --- */
+	.header-fields {
+		margin-top: 6px;
+	}
+
+	/* --- CABEÇALHO COMBATE (hp-box, defense-box, etc) --- */
+	.combat-stats-row {
 		display: flex;
-		flex-direction: column;
-		overflow: hidden !important;
+		gap: 8px; /* Elementos menos colados */
+		margin: 6px 0;
+		flex-wrap: wrap;
+
+		.resource {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex: 1;
+			min-width: 90px;
+			background: rgba(0, 0, 0, 0.02);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 4px;
+			padding: 4px; /* Mais espaço interno */
+
+			.resource-label {
+				text-transform: uppercase;
+				font-size: 11px; /* Títulos mais legíveis */
+				font-weight: bold;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				margin-bottom: 4px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.resource-content {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			input {
+				text-align: center;
+				border: none;
+				background: transparent;
+				width: 100%;
+				height: 22px;
+				font-size: 13px;
+			}
+		}
+		.hp-box {
+			flex: 1.5;
+			.divider {
+				margin: 0 4px;
+				font-weight: bold;
+				color: #666;
+				font-size: 13px;
+			}
+		}
 	}
 
-	.enigma-container {
-		padding: 15px;
-		background: rgba(0, 0, 0, 0.03);
-		border: 1px solid #999;
-		border-radius: 5px;
-		height: 100%;
+	/* --- CLASSIFICAÇÃO + ATRIBUTOS --- */
+	.class-attr-row {
 		display: flex;
-		flex-direction: column;
-		overflow-y: auto;
-	}
+		gap: 6px; /* Separação suave entre os itens da linha */
+		margin: 6px 0;
+		flex-wrap: nowrap;
 
-	.actor-title-header {
-		font-size: 1.4em;
-		font-weight: bold;
-		border-bottom: 2px solid #333;
-		margin-bottom: 10px;
-		padding-bottom: 2px;
-		display: block;
-		text-transform: uppercase;
-		color: #191813;
-	}
+		.resource {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background: rgba(0, 0, 0, 0.02);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 4px;
+			padding: 4px 2px;
+			min-width: 0;
 
-	prose-mirror {
-		min-height: 200px;
-		flex: 1;
-		background: rgba(255, 255, 255, 0.3);
-		padding: 5px;
-		border-radius: 4px;
-		color: #191813;
+			.resource-label {
+				text-transform: uppercase;
+				font-size: 10px; /* Incremento na fonte das siglas/títulos */
+				font-weight: bold;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				margin-bottom: 4px;
+				width: 100%;
+				text-align: center;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.resource-content {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+			}
+
+			input,
+			select {
+				text-align: center;
+				border: none;
+				background: transparent;
+				width: 100%;
+				height: 22px;
+				font-size: 12px;
+				padding: 0;
+			}
+		}
+
+		.select-box {
+			flex: 1.5;
+		}
+
+		.attr-box {
+			flex: 1;
+			background: rgba(0, 0, 0, 0.04);
+
+			input {
+				font-size: 1.1rem;
+				font-weight: bold;
+			} /* Números maiores */
+		}
 	}
 
 	/* --- PERÍCIAS --- */
 	.threat-skills-container {
-		margin-top: 5px;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 5px;
-		justify-content: space-between;
+		gap: 6px; /* Gaps menos colados */
+		margin-top: 8px;
+
+		.skill-box {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background: rgba(0, 0, 0, 0.02);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 4px;
+			padding: 4px; /* Padding confortável */
+
+			.resource-label {
+				font-size: 11.5px; /* Fonte ajustada para leitura */
+				margin-bottom: 4px;
+				text-align: center;
+				line-height: 1;
+				span {
+					color: #666;
+					font-size: 9.5px;
+					font-weight: normal;
+				}
+			}
+
+			.free-skill-header {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 5px;
+				margin-bottom: 4px;
+
+				input {
+					font-size: 11px;
+					height: 16px;
+					width: 70px;
+					text-align: center;
+					border: none;
+					border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+					background: transparent;
+					padding: 0;
+				}
+				i {
+					font-size: 11px;
+				}
+			}
+
+			.skill-controls {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 6px;
+				input {
+					width: 32px;
+					text-align: center;
+					height: 18px;
+					font-size: 12px;
+				}
+				a i {
+					font-size: 11px;
+				}
+			}
+		}
 	}
 
+	/* --- TAGS (Resistências e Características) --- */
 	.threat-tags {
-		gap: 10px;
-	}
-
-	/* --- RESISTÊNCIAS --- */
-	.resistance-container-grid,
-	.traits-container-grid {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 3px;
-		padding: 2px;
-		align-items: center;
-		justify-content: center;
-		min-height: 30px;
-	}
-
-	.resistance-tag {
-		flex: 1 0 auto;
-		min-width: 60px;
-		font-size: 10px;
-		border: 1px solid #7a7971;
-		padding: 2px;
-		border-radius: 4px;
-		background: rgba(0, 0, 0, 0.05);
-		white-space: nowrap;
 		display: flex;
 		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		gap: 4px;
+		align-items: start;
+		gap: 8px; /* Elementos lado a lado mais separados */
+		margin-top: 10px;
 
-		.resistance-tag-label {
+		.tags-box {
+			flex: 1;
+			min-width: 0;
+			background: rgba(0, 0, 0, 0.02);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 4px;
+			padding: 4px;
+
+			.resource-label {
+				display: block;
+				text-align: center;
+				font-size: 11px; /* Títulos visíveis */
+				font-weight: bold;
+				text-transform: uppercase;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				margin-bottom: 4px;
+				padding-bottom: 2px;
+			}
+		}
+
+		.config-header a {
+			text-decoration: none;
+			color: inherit;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 6px;
+
+			i.fa-cog {
+				font-size: 0.85em;
+				opacity: 0.4;
+				transition: 0.2s;
+			}
+
+			&:hover i.fa-cog {
+				opacity: 1;
+			}
+		}
+
+		.resistance-container-grid,
+		.traits-container-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 5px; /* Espaço entre as tags */
+			padding: 2px;
+			align-items: center;
+			justify-content: center;
+			min-height: 24px;
+		}
+
+		.resistance-tag,
+		.traits-tag {
+			flex: 1 0 auto;
+			min-width: 50px;
+			font-size: 10px; /* Fonte das tags legível */
+			border: 1px solid #7a7971;
+			padding: 2px 6px; /* Tags menos 'magrelas' */
+			border-radius: 3px;
+			background: rgba(0, 0, 0, 0.05);
+			white-space: nowrap;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			gap: 4px;
+		}
+
+		.resistance-tag-label,
+		.traits-tag-label {
 			font-weight: bold;
 			text-transform: uppercase;
 			font-size: 10px;
@@ -244,33 +430,5 @@
 			color: #c0392b;
 			font-size: 10px;
 		}
-	}
-
-	.traits-tag {
-		flex: 1 0 auto;
-		min-width: 60px;
-		font-size: 10px;
-		border: 1px solid #7a7971;
-		padding: 2px;
-		border-radius: 4px;
-		background: rgba(0, 0, 0, 0.05);
-		white-space: nowrap;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		gap: 4px;
-	}
-
-	.traits-tag-label {
-		font-weight: bold;
-		text-transform: uppercase;
-		font-size: 10px;
-		margin-bottom: 1px;
-	}
-
-	.resource-content select {
-		max-width: 100%;
 	}
 }
