@@ -289,12 +289,54 @@
 			font-size: 13px;
 			cursor: pointer;
 			margin: 0;
+			transition: color 0.2s ease;
+
+			&:hover {
+				color: #7f7a67;
+			}
 
 			input[type="radio"] {
-				width: 14px !important;
-				height: 14px !important;
+				-webkit-appearance: none !important;
+				-moz-appearance: none !important;
+				appearance: none !important;
+				background-image: none !important;
+				background-color: rgba(0, 0, 0, 0.05);
+				width: 16px !important;
+				height: 16px !important;
+				border: 1px solid rgba(0, 0, 0, 0.3) !important;
+				border-radius: 50% !important;
 				margin: 0;
 				flex-shrink: 0;
+				cursor: pointer;
+				transition: all 0.2s ease;
+
+				outline: none !important;
+				box-shadow: none !important;
+
+				&:hover {
+					border-color: #7f7a67 !important;
+					background-color: rgba(255, 255, 255, 0.5);
+				}
+
+				&:checked {
+					border-color: #7f7a67 !important;
+					background-color: transparent !important;
+					background-image: radial-gradient(circle, #7f7a67 35%, transparent 40%) !important;
+				}
+
+				&:focus {
+					box-shadow: 0 0 4px rgba(127, 122, 103, 0.4) !important;
+				}
+
+				/* ========================================================
+					A MÁGICA: Matando os estilos globais do Foundry V12
+					======================================================== */
+				&::before,
+				&::after {
+					content: none !important;
+					display: none !important;
+					background: transparent !important;
+				}
 			}
 		}
 	}
