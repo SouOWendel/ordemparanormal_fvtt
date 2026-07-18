@@ -579,16 +579,19 @@
 					display: flex !important;
 					flex-direction: column !important;
 					flex: 1 1 auto !important;
+					height: 100% !important;
 
+					.editor,
 					.editor-container {
 						display: flex !important;
 						flex-direction: column !important;
 						flex: 1 1 auto !important;
+						min-height: 300px !important;
 
 						.editor-content,
 						.ProseMirror {
 							flex: 1 1 auto !important;
-							height: 100% !important;
+							min-height: 300px !important;
 							overflow-y: auto !important;
 							padding: 15px 20px !important;
 						}

@@ -2,290 +2,289 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 .lowercase {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 .uppercase {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .capitalize {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 /* Global styles */
 dialog.ordemparanormal.application {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .no-scroll {
-	overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 .scroll {
-	overflow: auto !important;
+  overflow: auto !important;
 }
 
 .no-orange-hyperlink {
-	color: initial;
-	text-decoration: none;
+  color: initial;
+  text-decoration: none;
 }
 
 .window-app {
-	font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", sans-serif;
 }
 
-.rollable:hover,
-.rollable:focus {
-	color: #000;
-	text-shadow: 0 0 10px red;
-	cursor: pointer;
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
 }
 
 .p-side-10 {
-	padding: 0 10px;
+  padding: 0 10px;
 }
 
 .directory-list::-webkit-scrollbar {
-	width: 3px;
-	height: 6px;
+  width: 3px;
+  height: 6px;
 }
 .directory-list::-webkit-scrollbar-thumb {
-	outline: none !important;
-	border-radius: 3px !important;
-	background: #782e22 !important;
-	border: 1px solid var(--color-border-highlight) !important;
+  outline: none !important;
+  border-radius: 3px !important;
+  background: #782e22 !important;
+  border: 1px solid var(--color-border-highlight) !important;
 }
 .directory-list::-webkit-scrollbar-track {
-	box-shadow: 0 0 1px #999 inset;
-	border-radius: 4px;
+  box-shadow: 0 0 1px #999 inset;
+  border-radius: 4px;
 }
 
 :root {
-	scrollbar-width: initial !important;
-	scrollbar-color: initial !important;
+  scrollbar-width: initial !important;
+  scrollbar-color: initial !important;
 }
 
 .op-shadow {
-	box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 .grid,
 .grid-2col {
-	display: grid;
-	grid-column: span 2 / span 2;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 10px;
-	margin: 10px 0;
-	padding: 0;
+  display: grid;
+  grid-column: span 2/span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
 }
 
 .grid-3col {
-	grid-column: span 3 / span 3;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column: span 3/span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-4col {
-	grid-column: span 4 / span 4;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-column: span 4/span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .grid-5col {
-	grid-column: span 5 / span 5;
-	grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-column: span 5/span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .grid-6col {
-	grid-column: span 6 / span 6;
-	grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-column: span 6/span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .grid-7col {
-	grid-column: span 7 / span 7;
-	grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-column: span 7/span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .grid-8col {
-	grid-column: span 8 / span 8;
-	grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-column: span 8/span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 
 .grid-9col {
-	grid-column: span 9 / span 9;
-	grid-template-columns: repeat(9, minmax(0, 1fr));
+  grid-column: span 9/span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
 }
 
 .grid-10col {
-	grid-column: span 10 / span 10;
-	grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-column: span 10/span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 
 .grid-11col {
-	grid-column: span 11 / span 11;
-	grid-template-columns: repeat(11, minmax(0, 1fr));
+  grid-column: span 11/span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
 }
 
 .grid-12col {
-	grid-column: span 12 / span 12;
-	grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column: span 12/span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .grid-start-2 {
-	grid-column-start: 2;
+  grid-column-start: 2;
 }
 
 .grid-start-3 {
-	grid-column-start: 3;
+  grid-column-start: 3;
 }
 
 .grid-start-4 {
-	grid-column-start: 4;
+  grid-column-start: 4;
 }
 
 .grid-start-5 {
-	grid-column-start: 5;
+  grid-column-start: 5;
 }
 
 .grid-start-6 {
-	grid-column-start: 6;
+  grid-column-start: 6;
 }
 
 .grid-start-7 {
-	grid-column-start: 7;
+  grid-column-start: 7;
 }
 
 .grid-start-8 {
-	grid-column-start: 8;
+  grid-column-start: 8;
 }
 
 .grid-start-9 {
-	grid-column-start: 9;
+  grid-column-start: 9;
 }
 
 .grid-start-10 {
-	grid-column-start: 10;
+  grid-column-start: 10;
 }
 
 .grid-start-11 {
-	grid-column-start: 11;
+  grid-column-start: 11;
 }
 
 .grid-start-12 {
-	grid-column-start: 12;
+  grid-column-start: 12;
 }
 
 .grid-span-2 {
-	grid-column-end: span 2;
+  grid-column-end: span 2;
 }
 
 .grid-span-3 {
-	grid-column-end: span 3;
+  grid-column-end: span 3;
 }
 
 .grid-span-4 {
-	grid-column-end: span 4;
+  grid-column-end: span 4;
 }
 
 .grid-span-5 {
-	grid-column-end: span 5;
+  grid-column-end: span 5;
 }
 
 .grid-span-6 {
-	grid-column-end: span 6;
+  grid-column-end: span 6;
 }
 
 .grid-span-7 {
-	grid-column-end: span 7;
+  grid-column-end: span 7;
 }
 
 .grid-span-8 {
-	grid-column-end: span 8;
+  grid-column-end: span 8;
 }
 
 .grid-span-9 {
-	grid-column-end: span 9;
+  grid-column-end: span 9;
 }
 
 .grid-span-10 {
-	grid-column-end: span 10;
+  grid-column-end: span 10;
 }
 
 .grid-span-11 {
-	grid-column-end: span 11;
+  grid-column-end: span 11;
 }
 
 .grid-span-12 {
-	grid-column-end: span 12;
+  grid-column-end: span 12;
 }
 
 .display-flex {
-	display: flex;
+  display: flex;
 }
 
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .flex-group-left {
-	justify-content: flex-start;
-	text-align: left;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .flex-group-right {
-	justify-content: flex-end;
-	text-align: right;
+  justify-content: flex-end;
+  text-align: right;
 }
 
 .flexshrink {
-	flex: 1;
+  flex: 1;
 }
 
 .flex-between {
-	justify-content: space-between;
+  justify-content: space-between;
 }
 
 .flexlarge {
-	flex: 2;
+  flex: 2;
 }
 
 .align-left {
-	justify-content: flex-start;
-	text-align: left;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .align-right {
-	justify-content: flex-end;
-	text-align: right;
+  justify-content: flex-end;
+  text-align: right;
 }
 
 .align-center {
-	justify-content: center;
-	text-align: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .align-items-center {
-	justify-content: center;
-	align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Styles limited to ordemparanormal sheets */
 .system-ordemparanormal {
-	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 .system-ordemparanormal .uppercase {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .system-ordemparanormal .capitalize {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 .system-ordemparanormal .threat #senses,
 .system-ordemparanormal .threat #defenses,
@@ -294,10 +293,10 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .threat #disturbingPresence,
 .system-ordemparanormal .threat #actions,
 .system-ordemparanormal .threat #abilities {
-	padding: 5px;
-	border: 1px solid rgba(39, 39, 39, 0.25);
-	margin-top: 5px;
-	border-radius: 5px;
+  padding: 5px;
+  border: 1px solid rgba(39, 39, 39, 0.25);
+  margin-top: 5px;
+  border-radius: 5px;
 }
 .system-ordemparanormal .threat #senses .display-flex,
 .system-ordemparanormal .threat #defenses .display-flex,
@@ -306,1678 +305,1363 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .threat #disturbingPresence .display-flex,
 .system-ordemparanormal .threat #actions .display-flex,
 .system-ordemparanormal .threat #abilities .display-flex {
-	align-items: center;
+  align-items: center;
 }
 .system-ordemparanormal .threat .miniInput {
-	width: 32px;
+  width: 32px;
 }
 .system-ordemparanormal .threat #attributes {
-	justify-content: space-between;
+  justify-content: space-between;
 }
 .system-ordemparanormal .threat #attributes .pre,
 .system-ordemparanormal .threat #attributes .vit,
 .system-ordemparanormal .threat #attributes .str,
 .system-ordemparanormal .threat #attributes .int,
 .system-ordemparanormal .threat #attributes .dex {
-	text-align: center;
+  text-align: center;
 }
 .system-ordemparanormal .threat #attributes .pre input,
 .system-ordemparanormal .threat #attributes .vit input,
 .system-ordemparanormal .threat #attributes .str input,
 .system-ordemparanormal .threat #attributes .int input,
 .system-ordemparanormal .threat #attributes .dex input {
-	height: 32px;
+  height: 32px;
 }
 .system-ordemparanormal .threat label + input {
-	margin-left: 5px;
+  margin-left: 5px;
 }
 .system-ordemparanormal .threat #announcement a {
-	color: #272727;
+  color: #272727;
 }
 .system-ordemparanormal .threat #announcement .link-alert {
-	padding: 0 10px;
+  padding: 0 10px;
 }
 .system-ordemparanormal .threat #descriptions div {
-	margin: 8px 0;
+  margin: 8px 0;
 }
 .system-ordemparanormal .threat #descriptions div textarea {
-	height: 200px;
+  height: 200px;
 }
 .system-ordemparanormal .threat #actions textarea,
 .system-ordemparanormal .threat #abilities textarea {
-	height: 300px;
+  height: 300px;
 }
 .system-ordemparanormal .threat {
-	/* --- LAYOUT GERAL --- */
+  /* --- LAYOUT GERAL --- */
 }
 .system-ordemparanormal .threat .sheet-tabs .item.active {
-	text-decoration: underline;
-	font-weight: bold;
-	text-shadow: 0 0 5px var(--color-shadow-primary);
+  text-decoration: underline;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--color-shadow-primary);
 }
 .system-ordemparanormal .threat .sheet-tabs .item {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 .system-ordemparanormal .threat .sheet-tabs .item img {
-	border: none;
-	margin: 0;
-	padding: 0;
-	vertical-align: middle;
+  border: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
 }
 .system-ordemparanormal .threat {
-	/* --- IMAGEM E CABEÇALHO --- */
+  /* --- IMAGEM E CABEÇALHO --- */
 }
 .system-ordemparanormal .threat .header-identify {
-	flex-wrap: wrap;
-	gap: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .system-ordemparanormal .threat .threat-profile-img {
-	flex: 0 0 110px;
-	height: 110px;
-	width: 110px;
-	object-fit: cover;
-	border: 1px solid #000;
-	border-radius: 5px;
-	cursor: pointer;
-	margin-right: 15px;
+  flex: 0 0 110px;
+  height: 110px;
+  width: 110px;
+  object-fit: cover;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 15px;
 }
 @container (max-width: 400px) {
-	.system-ordemparanormal .threat .header-identify {
-		justify-content: center;
-	}
-	.system-ordemparanormal .threat .threat-profile-img {
-		margin-right: 0;
-		margin-bottom: 5px;
-	}
+  .system-ordemparanormal .threat .header-identify {
+    justify-content: center;
+  }
+  .system-ordemparanormal .threat .threat-profile-img {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
 }
 .system-ordemparanormal .threat .header-stats-row {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 5px;
-	margin-top: 5px;
-	align-items: stretch;
-	width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+  align-items: stretch;
+  width: 100%;
 }
 .system-ordemparanormal .threat .disturbing-presence {
-	background: rgba(0, 0, 0, 0.05);
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	padding: 5px 10px;
-	flex: 1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 15px;
-	flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 .system-ordemparanormal .threat {
-	/* --- ABA ENIGMA --- */
+  /* --- ABA ENIGMA --- */
 }
 .system-ordemparanormal .threat .sheet-body .tab.enigma {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden !important;
 }
 .system-ordemparanormal .threat .enigma-container {
-	padding: 15px;
-	background: rgba(0, 0, 0, 0.03);
-	border: 1px solid #999;
-	border-radius: 5px;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	overflow-y: auto;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid #999;
+  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 .system-ordemparanormal .threat .actor-title-header {
-	font-size: 1.4em;
-	font-weight: bold;
-	border-bottom: 2px solid #333;
-	margin-bottom: 10px;
-	padding-bottom: 2px;
-	display: block;
-	text-transform: uppercase;
-	color: #191813;
+  font-size: 1.4em;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  display: block;
+  text-transform: uppercase;
+  color: #191813;
 }
 .system-ordemparanormal .threat prose-mirror {
-	min-height: 200px;
-	flex: 1;
-	background: rgba(255, 255, 255, 0.3);
-	padding: 5px;
-	border-radius: 4px;
-	color: #191813;
+  min-height: 200px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  border-radius: 4px;
+  color: #191813;
 }
 .system-ordemparanormal .threat {
-	/* --- PERÍCIAS --- */
+  /* --- PERÍCIAS --- */
 }
 .system-ordemparanormal .threat .threat-skills-container {
-	margin-top: 5px;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 5px;
-	justify-content: space-between;
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  justify-content: space-between;
 }
 .system-ordemparanormal .threat .threat-tags {
-	gap: 10px;
+  gap: 10px;
 }
 .system-ordemparanormal .threat {
-	/* --- RESISTÊNCIAS --- */
+  /* --- RESISTÊNCIAS --- */
 }
 .system-ordemparanormal .threat .resistance-container-grid,
 .system-ordemparanormal .threat .traits-container-grid {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 3px;
-	padding: 2px;
-	align-items: center;
-	justify-content: center;
-	min-height: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
 }
 .system-ordemparanormal .threat .resistance-tag {
-	flex: 1 0 auto;
-	min-width: 60px;
-	font-size: 10px;
-	border: 1px solid #7a7971;
-	padding: 2px;
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.05);
-	white-space: nowrap;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	gap: 4px;
+  flex: 1 0 auto;
+  min-width: 60px;
+  font-size: 10px;
+  border: 1px solid #7a7971;
+  padding: 2px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-label {
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 10px;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-values {
-	display: flex;
-	gap: 3px;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-value {
-	font-size: 11px;
-	font-weight: bold;
+  font-size: 11px;
+  font-weight: bold;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-immune {
-	color: #2c3e50;
-	font-size: 10px;
+  color: #2c3e50;
+  font-size: 10px;
 }
 .system-ordemparanormal .threat .resistance-tag .resistance-tag-vulnerable {
-	color: #c0392b;
-	font-size: 10px;
+  color: #c0392b;
+  font-size: 10px;
 }
 .system-ordemparanormal .threat .traits-tag {
-	flex: 1 0 auto;
-	min-width: 60px;
-	font-size: 10px;
-	border: 1px solid #7a7971;
-	padding: 2px;
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.05);
-	white-space: nowrap;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	gap: 4px;
+  flex: 1 0 auto;
+  min-width: 60px;
+  font-size: 10px;
+  border: 1px solid #7a7971;
+  padding: 2px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
 }
 .system-ordemparanormal .threat .traits-tag-label {
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 10px;
-	margin-bottom: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-bottom: 1px;
 }
 .system-ordemparanormal .threat .resource-content select {
-	max-width: 100%;
+  max-width: 100%;
 }
 .system-ordemparanormal {
-	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 .system-ordemparanormal .uppercase {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .system-ordemparanormal .capitalize {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 .system-ordemparanormal {
-	/* ========================================================= */
-	/* --- TEMA E ESTRUTURA GLOBAL LEGADA --- */
-	/* ========================================================= */
+  /* ========================================================= */
+  /* --- TEMA E ESTRUTURA GLOBAL LEGADA --- */
+  /* ========================================================= */
 }
 .system-ordemparanormal .application.theme-light {
-	background: url("../media/parchment.jpg") repeat;
-	--color-header-background: #333;
-	--color-border: #302831;
-	--color-tabs-border: #555;
-	--color-fieldset-border: #efe6d8;
-	--color-form-label: #222;
-	--color-form-label-hover: #111;
-	--color-form-hint: #444;
-	--color-form-hint-hover: #222;
-	--color-select-option-bg: #f7f3e8;
-	color: #222;
+  background: url("../media/parchment.jpg") repeat;
+  --color-header-background: #333;
+  --color-border: #302831;
+  --color-tabs-border: #555;
+  --color-fieldset-border: #efe6d8;
+  --color-form-label: #222;
+  --color-form-label-hover: #111;
+  --color-form-hint: #444;
+  --color-form-hint-hover: #222;
+  --color-select-option-bg: #f7f3e8;
+  color: #222;
 }
 .system-ordemparanormal .application.theme-light input,
 .system-ordemparanormal .application.theme-light select {
-	color: #222 !important;
+  color: #222 !important;
 }
 .system-ordemparanormal section.itemsheet,
 .system-ordemparanormal form.ordemparanormal.actor {
-	overflow: hidden;
-	color: #171717;
+  overflow: hidden;
+  color: #171717;
 }
 .system-ordemparanormal section.itemsheet .scrollable,
 .system-ordemparanormal form.ordemparanormal.actor .scrollable {
-	box-sizing: border-box;
-	width: 100%;
+  box-sizing: border-box;
+  width: 100%;
 }
 .system-ordemparanormal section.itemsheet .prosemirror menu,
 .system-ordemparanormal section.itemsheet prosemirror menu,
 .system-ordemparanormal form.ordemparanormal.actor .prosemirror menu,
 .system-ordemparanormal form.ordemparanormal.actor prosemirror menu {
-	background: #7f7a67;
+  background: #7f7a67;
 }
 .system-ordemparanormal section.itemsheet section.window-content,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content {
-	position: relative;
-	display: flex;
-	height: 100%;
-	padding: 0;
+  position: relative;
+  display: flex;
+  height: 100%;
+  padding: 0;
 }
 .system-ordemparanormal section.itemsheet section.window-content input,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content input {
-	text-align: center;
+  text-align: center;
 }
 .system-ordemparanormal section.itemsheet section.window-content .tab,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab {
-	padding: 0;
-	height: 100%;
-	overflow: auto;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
 }
 .system-ordemparanormal section.itemsheet section.window-content .tab.active,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab.active {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .system-ordemparanormal .sheet-body {
-	flex: 1;
-	overflow: hidden;
-	display: flex;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
 }
 .system-ordemparanormal .sheet-body .tab {
-	flex: 1;
-	height: 100%;
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding-right: 5px;
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
 }
 .system-ordemparanormal .sheet-body .tab.active {
-	display: block;
+  display: block;
 }
 .system-ordemparanormal .sheet-body .tab {
-	overflow-y: hidden;
-	align-content: flex-start;
-	padding-right: 2px;
-	height: 100%;
-	min-height: 150px;
+  overflow-y: hidden;
+  align-content: flex-start;
+  padding-right: 2px;
+  height: 100%;
+  min-height: 150px;
 }
-.system-ordemparanormal .sheet-body .tab.skills,
-.system-ordemparanormal .sheet-body .tab.inventory,
-.system-ordemparanormal .sheet-body .tab.abilities,
-.system-ordemparanormal .sheet-body .tab.rituals,
-.system-ordemparanormal .sheet-body .tab.biography,
-.system-ordemparanormal .sheet-body .tab.effects,
-.system-ordemparanormal .sheet-body .tab.enigma,
-.system-ordemparanormal .sheet-body .tab.class,
-.system-ordemparanormal .sheet-body .tab.origin,
-.system-ordemparanormal .sheet-body .tab.path {
-	overflow-y: auto;
+.system-ordemparanormal .sheet-body .tab.skills, .system-ordemparanormal .sheet-body .tab.inventory, .system-ordemparanormal .sheet-body .tab.abilities, .system-ordemparanormal .sheet-body .tab.rituals, .system-ordemparanormal .sheet-body .tab.biography, .system-ordemparanormal .sheet-body .tab.effects, .system-ordemparanormal .sheet-body .tab.enigma, .system-ordemparanormal .sheet-body .tab.class, .system-ordemparanormal .sheet-body .tab.origin, .system-ordemparanormal .sheet-body .tab.path {
+  overflow-y: auto;
 }
 .system-ordemparanormal .sheet-body .tab .editor {
-	height: 100%;
-	min-height: 150px;
+  height: 100%;
+  min-height: 150px;
 }
 .system-ordemparanormal .window-content {
-	overflow: hidden;
+  overflow: hidden;
 }
 .system-ordemparanormal .item-form {
-	font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", sans-serif;
 }
 .system-ordemparanormal .sheet-tabs {
-	flex: 0 0 auto;
-	display: flex;
-	gap: 10px;
+  flex: 0 0 auto;
+  display: flex;
+  gap: 10px;
 }
 .system-ordemparanormal .tox .tox-editor-container {
-	background: #fff;
+  background: #fff;
 }
 .system-ordemparanormal .tox .tox-edit-area {
-	padding: 0 8px;
+  padding: 0 8px;
 }
 .system-ordemparanormal .skills-content {
-	font-size: 12px;
-	padding: 0 12px;
-	margin-top: 0;
-	column-count: 2;
+  font-size: 12px;
+  padding: 0 12px;
+  margin-top: 0;
+  column-count: 2;
 }
 .system-ordemparanormal .skills-content select,
 .system-ordemparanormal .skills-content input {
-	font-size: 11px;
-	border: none;
-	height: 21px;
+  font-size: 11px;
+  border: none;
+  height: 21px;
 }
 .system-ordemparanormal .skills-content .skill {
-	padding: 3.3px 6px;
+  padding: 3.3px 6px;
 }
 .system-ordemparanormal .skills-content .skill .modifier {
-	max-width: 30px;
+  max-width: 30px;
 }
 .system-ordemparanormal .skills-content .skill .rollFreeSkill {
-	position: absolute;
-	left: 48%;
-	width: 24px;
+  position: absolute;
+  left: 48%;
+  width: 24px;
 }
 .system-ordemparanormal .skills-content .skill i {
-	padding: 0 5px;
+  padding: 0 5px;
 }
 .system-ordemparanormal .resource .categoryCheck {
-	display: flex;
+  display: flex;
 }
 .system-ordemparanormal .resources {
-	gap: 10px;
-	margin: 5px 0;
+  gap: 10px;
+  margin: 5px 0;
 }
 .system-ordemparanormal .invalid {
-	position: relative;
+  position: relative;
 }
 .system-ordemparanormal .item-alert {
-	position: relative;
-	border-radius: 5px;
-	padding: 8px;
-	margin: 10px 5px;
-	background-color: aliceblue;
+  position: relative;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 10px 5px;
+  background-color: aliceblue;
 }
 .system-ordemparanormal .item-editable-resource {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .system-ordemparanormal .item-editable-resource i {
-	padding: 4px;
+  padding: 4px;
 }
 .system-ordemparanormal .item-editable-resource input {
-	background: none;
-	border: none;
+  background: none;
+  border: none;
 }
 .system-ordemparanormal .inventory {
-	padding-bottom: 24px;
-	overflow: hidden !important;
+  padding-bottom: 24px;
+  overflow: hidden !important;
 }
 .system-ordemparanormal .ritual-dt {
-	display: flex;
-	justify-content: center;
-	margin: 0 8px 8px;
-	padding: 0 8px;
-	border: 1px solid #b8b8b8;
-	box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
-	border-radius: 5px;
-	text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 8px 8px;
+  padding: 0 8px;
+  border: 1px solid #b8b8b8;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
+  border-radius: 5px;
+  text-align: center;
 }
 .system-ordemparanormal .ritual-dt p {
-	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
-	font-weight: bold;
+  font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
+  font-weight: bold;
 }
 .system-ordemparanormal .item .sheet-header {
-	flex: 0 auto;
-	overflow: hidden;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	margin-bottom: 10px;
-	height: 180px;
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  height: 180px;
 }
 .system-ordemparanormal .item .sheet-header .profile-img {
-	flex: 0 0 100px;
-	height: 100px;
-	margin-right: 10px;
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
 }
 .system-ordemparanormal .item .sheet-header .header-fields {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 }
 .system-ordemparanormal .item .sheet-header .header-fields .document-name {
-	width: 100%;
+  width: 100%;
 }
 .system-ordemparanormal .item .window-content {
-	height: 100%;
+  height: 100%;
 }
 .system-ordemparanormal .item .content {
-	height: 100%;
-	overflow-y: auto;
+  height: 100%;
+  overflow-y: auto;
 }
 .system-ordemparanormal .item .tab {
-	overflow-y: hidden;
-	height: 100%;
-	align-content: flex-start;
-	padding-right: 2px;
+  overflow-y: hidden;
+  height: 100%;
+  align-content: flex-start;
+  padding-right: 2px;
 }
 .system-ordemparanormal {
-	/* ITEMS IN ACTOR SHEET (AGENT) */
+  /* ITEMS IN ACTOR SHEET (AGENT) */
 }
 .system-ordemparanormal .item-space {
-	flex: 1 20px;
-	padding: 0 8px;
+  flex: 1 20px;
+  padding: 0 8px;
 }
 .system-ordemparanormal .item-sheet {
-	display: flex;
-	flex: 1;
-	background-color: aqua;
+  display: flex;
+  flex: 1;
+  background-color: aqua;
 }
 .system-ordemparanormal .slide {
-	overflow: hidden;
-	color: #eeeeee;
+  overflow: hidden;
+  color: #eeeeee;
 }
 .system-ordemparanormal .slide > img,
 .system-ordemparanormal .slide a {
-	transition: 0.3s all ease-in-out;
-	position: absolute;
-	color: #eeeeee;
+  transition: 0.3s all ease-in-out;
+  position: absolute;
+  color: #eeeeee;
 }
 .system-ordemparanormal .slide > a {
-	font-size: 20px;
-	transform: translate(50px, 0);
+  font-size: 20px;
+  transform: translate(50px, 0);
 }
 .system-ordemparanormal .slide:hover > img {
-	transform: translate(-200px, 0);
-	color: #eeeeee;
+  transform: translate(-200px, 0);
+  color: #eeeeee;
 }
 .system-ordemparanormal .slide:hover > a {
-	transform: translate(0, 0);
-	color: #eeeeee;
+  transform: translate(0, 0);
+  color: #eeeeee;
 }
 .system-ordemparanormal {
-	/* =================================================== */
-	/* ESTILOS DO NOVO CABEÇALHO DO AGENTE (HEADER)        */
-	/* =================================================== */
+  /* =================================================== */
+  /* ESTILOS DO NOVO CABEÇALHO DO AGENTE (HEADER)        */
+  /* =================================================== */
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op {
-	display: flex;
-	flex-direction: column;
-	padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .truncate-text {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top {
-	display: flex;
-	gap: 12px;
-	margin-bottom: 8px;
-	align-items: stretch;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+  align-items: stretch;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-image-container {
-	flex: 0 0 auto;
-	display: flex;
-	align-items: stretch;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-image-container
-	.profile-img {
-	width: 140px;
-	min-width: 120px;
-	max-width: 150px;
-	height: calc(100% - 4px);
-	max-height: 160px;
-	margin-top: 4px;
-	object-fit: cover;
-	object-position: top center;
-	border-radius: 5px;
-	border: 2px solid #302831;
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-	margin-right: 0;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-image-container .profile-img {
+  width: 140px;
+  min-width: 120px;
+  max-width: 150px;
+  height: calc(100% - 4px);
+  max-height: 160px;
+  margin-top: 4px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 5px;
+  border: 2px solid #302831;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  margin-right: 0;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	justify-content: space-between;
-	/* Identidade e Progresso */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: space-between;
+  /* Identidade e Progresso */
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .header-identify {
-	display: flex;
-	gap: 10px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	padding-bottom: 4px;
-	align-items: flex-end;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 4px;
+  align-items: flex-end;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.header-identify
-	h1.charname {
-	flex: 1;
-	margin: 0;
-	padding: 0;
-	height: 36px;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .header-identify h1.charname {
+  flex: 1;
+  margin: 0;
+  padding: 0;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.header-identify
-	h1.charname
-	input {
-	font-size: 28px;
-	font-family: "Source Sans 3", sans-serif;
-	font-weight: bold;
-	width: 100%;
-	border: none;
-	background: transparent;
-	padding: 0;
-	height: 100%;
-	line-height: 36px;
-	min-width: unset;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .header-identify h1.charname input {
+  font-size: 28px;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  padding: 0;
+  height: 100%;
+  line-height: 36px;
+  min-width: unset;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.header-identify
-	.progress-group {
-	display: flex;
-	flex: 0 0 auto;
-	gap: 6px;
-	align-items: flex-end;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .header-identify .progress-group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+  align-items: flex-end;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.header-identify
-	.progress-group
-	.resource {
-	padding-left: 0;
-	margin: 0;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .header-identify .progress-group .resource {
+  padding-left: 0;
+  margin: 0;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.header-identify
-	.progress-group
-	.resource
-	.resource-label {
-	font-size: 11px;
-	margin-bottom: 2px;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .header-identify .progress-group .resource .resource-label {
+  font-size: 11px;
+  margin-bottom: 2px;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
-	/* Classe, Origem, Trilha (Pills) */
+  /* Classe, Origem, Trilha (Pills) */
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources {
-	margin: 0;
-	gap: 8px;
-	overflow: visible;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources {
+  margin: 0;
+  gap: 8px;
+  overflow: visible;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.item-pills {
-	flex: 1 1 0;
-	min-width: 0;
-	display: flex;
-	align-items: center;
-	padding: 4px 6px;
-	height: 32px;
-	border-radius: 4px;
-	overflow: hidden;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .item-pills {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  height: 32px;
+  border-radius: 4px;
+  overflow: hidden;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.item-pills
-	.item-name {
-	flex: 1;
-	min-width: 0;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .item-pills .item-name {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.item-pills
-	.item-name
-	.item-image {
-	width: 22px;
-	height: 22px;
-	flex: 0 0 22px;
-	border-radius: 2px;
-	margin-right: 0;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .item-pills .item-name .item-image {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border-radius: 2px;
+  margin-right: 0;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.item-pills
-	.item-name
-	.item-name-text {
-	padding-left: 6px;
-	font-size: 13px;
-	flex: 1;
-	min-width: 0;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .item-pills .item-name .item-name-text {
+  padding-left: 6px;
+  font-size: 13px;
+  flex: 1;
+  min-width: 0;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.item-pills
-	.item-controls {
-	flex: 0 0 auto;
-	display: flex;
-	align-items: center;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .item-pills .item-controls {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.interactive-pill {
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	background: rgba(0, 0, 0, 0.04);
-	transition: all 0.2s ease-in-out;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .interactive-pill {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.interactive-pill:hover {
-	background: rgba(0, 0, 0, 0.08);
-	border-color: rgba(0, 0, 0, 0.3);
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .interactive-pill:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.3);
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.interactive-pill:active {
-	background: rgba(0, 0, 0, 0.15);
-	transform: scale(0.98);
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .interactive-pill:active {
+  background: rgba(0, 0, 0, 0.15);
+  transform: scale(0.98);
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.interactive-pill {
-	/* Efeito da Lixeira Dinâmica */
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .interactive-pill {
+  /* Efeito da Lixeira Dinâmica */
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.interactive-pill
-	.dynamic-trash {
-	max-width: 0;
-	overflow: hidden;
-	opacity: 0;
-	visibility: visible !important;
-	transition:
-		max-width 0.25s ease-in-out,
-		opacity 0.2s ease;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .interactive-pill .dynamic-trash {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: visible !important;
+  transition: max-width 0.25s ease-in-out, opacity 0.2s ease;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.interactive-pill:hover
-	.dynamic-trash {
-	max-width: 30px;
-	opacity: 1;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .interactive-pill:hover .dynamic-trash {
+  max-width: 30px;
+  opacity: 1;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.empty-slot {
-	border: 1px dashed rgba(0, 0, 0, 0.3);
-	background: rgba(0, 0, 0, 0.02);
-	transition: all 0.2s ease-in-out;
-	cursor: pointer;
-	justify-content: center;
-	color: rgba(0, 0, 0, 0.5);
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .empty-slot {
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.5);
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.empty-slot:hover {
-	background: rgba(0, 0, 0, 0.06);
-	border-style: solid;
-	border-color: rgba(0, 0, 0, 0.4);
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .empty-slot:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.4);
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.empty-slot:active {
-	transform: scale(0.98);
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .empty-slot:active {
+  transform: scale(0.98);
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.empty-slot
-	i {
-	margin-right: 4px;
-	font-size: 11px;
-	flex: 0 0 auto;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .empty-slot i {
+  margin-right: 4px;
+  font-size: 11px;
+  flex: 0 0 auto;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.agent-details.resources
-	.empty-slot
-	span {
-	font-size: 12px;
-	font-weight: bold;
-	text-transform: uppercase;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .agent-details.resources .empty-slot span {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
-	/* Barras de Status (PV, PE, SAN) */
+  /* Barras de Status (PV, PE, SAN) */
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .resources-main {
-	margin: 0;
-	gap: 8px;
+  margin: 0;
+  gap: 8px;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.resources-main
-	.resource {
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.02);
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .resources-main .resource {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.02);
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.resources-main
-	.resource
-	.resource-label {
-	background: rgba(0, 0, 0, 0.06);
-	color: #222;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 2px 2px 0 0;
-	font-size: 11px;
-	padding: 3px;
-	display: block;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .resources-main .resource .resource-label {
+  background: rgba(0, 0, 0, 0.06);
+  color: #222;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px 2px 0 0;
+  font-size: 11px;
+  padding: 3px;
+  display: block;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.resources-main
-	.resource
-	.resource-content {
-	padding: 2px 4px;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .resources-main .resource .resource-content {
+  padding: 2px 4px;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.resources-main
-	.resource
-	.resource-content
-	input {
-	background: transparent;
-	border: none;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .resources-main .resource .resource-content input {
+  background: transparent;
+  border: none;
 }
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	header.sheet-header-op
-	.header-top
-	.header-fields
-	.resources-main
-	.resource
-	.resource-content
-	span {
-	font-size: 12px;
-	color: #555;
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .resources-main .resource .resource-content span {
+  font-size: 12px;
+  color: #555;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op {
-	/* Caixa Inferior (Atributos e Defesas) */
+  /* Caixa Inferior (Atributos e Defesas) */
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom {
-	display: flex;
-	flex-direction: column;
-	background: rgba(0, 0, 0, 0.03);
-	padding: 6px 10px;
-	border-radius: 4px;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	gap: 6px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 6px;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources {
-	margin: 0;
-	gap: 8px;
+  margin: 0;
+  gap: 8px;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources .resource-label {
-	font-size: 12px;
+  font-size: 12px;
 }
 .system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources .resource-content {
-	padding: 1px;
+  padding: 1px;
 }
 .system-ordemparanormal {
-	/* --- NAVEGAÇÃO DE TABS (ESTILO MINIMALISTA) --- */
+  /* --- NAVEGAÇÃO DE TABS (ESTILO MINIMALISTA) --- */
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs {
-	display: inline-flex;
-	justify-content: space-evenly;
-	align-items: center;
-	padding: 0 16px;
-	border: none;
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 16px;
+  border: none;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 8px;
-	padding: 0 16px;
-	height: 100%;
-	font-family: "Source Sans 3", sans-serif;
-	font-weight: 500;
-	font-size: 14px;
-	color: #7f7a67;
-	text-decoration: none;
-	position: relative;
-	transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  height: 100%;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #7f7a67;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s ease;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a i,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a i {
-	font-size: 13px;
-	color: #777;
-	transition: color 0.2s ease;
+  font-size: 13px;
+  color: #777;
+  transition: color 0.2s ease;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a:hover,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a:hover {
-	color: #000;
-	text-shadow: none;
+  color: #000;
+  text-shadow: none;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a:hover i,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a:hover i {
-	color: #7f7a67;
+  color: #7f7a67;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active {
-	color: #1f1f1f;
-	font-weight: 600;
-	text-shadow: none;
+  color: #1f1f1f;
+  font-weight: 600;
+  text-shadow: none;
 }
 .system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active i,
 .system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active i {
-	color: #151515;
-}
-.system-ordemparanormal {
-	/* ========================================================= */
-	/* --- GERENCIADOR DE RECURSOS (ABA HABILIDADES) --- */
-	/* ========================================================= */
-}
-.system-ordemparanormal .tactical-control-bar {
-	display: flex;
-	justify-content: flex-end;
-	padding: 4px 15px;
-	background: rgba(0, 0, 0, 0.02);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-.system-ordemparanormal .tactical-control-bar .toggle-btn {
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #666;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	transition: all 0.2s;
-}
-.system-ordemparanormal .tactical-control-bar .toggle-btn:hover {
-	color: #000;
-}
-.system-ordemparanormal .tactical-control-bar .toggle-btn.is-active {
-	color: #7f7a67;
-}
-.system-ordemparanormal .resource-manager-box {
-	margin-bottom: 15px;
-	border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
-}
-.system-ordemparanormal .resource-manager-box .resource-badge {
-	height: 30px !important;
-	padding-right: 6px;
-}
-.system-ordemparanormal .resource-manager-box .resource-badge label {
-	padding: 0;
-}
-.system-ordemparanormal .resource-manager-box .resource-badge label input {
-	width: 80px !important;
-	text-transform: uppercase;
-	font-size: 11px;
-	color: #444;
-	background: transparent;
-	border: none;
-	text-align: center;
-}
-.system-ordemparanormal .resource-manager-box .resource-badge label input:hover,
-.system-ordemparanormal .resource-manager-box .resource-badge label input:focus {
-	background: rgba(255, 255, 255, 0.5);
-}
-.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs {
-	display: flex;
-	align-items: center;
-	height: 100%;
-	gap: 2px;
-}
-.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input {
-	width: 30px !important;
-	height: 100%;
-	border: none;
-	background: transparent;
-	text-align: center;
-	font-weight: bold;
-	font-size: 13px;
-	color: #000;
-}
-.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input:hover,
-.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input:focus {
-	background: rgba(255, 255, 255, 0.5);
-}
-.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs .divider {
-	color: #888;
-	font-weight: normal;
-	font-size: 12px;
+  color: #151515;
 }
 .system-ordemparanormal .resource-label {
-	font-weight: bold;
+  font-weight: bold;
 }
 .system-ordemparanormal {
-	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 .system-ordemparanormal .uppercase {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .system-ordemparanormal .capitalize {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 .system-ordemparanormal {
-	/* ==========================================================================
+  /* ==========================================================================
      ESCOPO BLINDADO: Apenas elementos dentro da janela de Item serão afetados
      ========================================================================== */
 }
 .system-ordemparanormal .op-item-sheet {
-	/* ==========================================================================
+  /* ==========================================================================
      1. BASE & ESTRUTURA
      ========================================================================== */
-	min-height: 250px;
-	min-width: 530px;
-	display: flex;
-	flex-direction: column;
-	height: auto;
+  min-height: 250px;
+  min-width: 530px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 .system-ordemparanormal .op-item-sheet .window-content {
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .system-ordemparanormal .op-item-sheet .tab {
-	flex-direction: column;
-	flex: 1 1 auto;
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 .system-ordemparanormal .op-item-sheet .tab.active {
-	display: flex;
+  display: flex;
 }
 .system-ordemparanormal .op-item-sheet .scrollable {
-	box-sizing: border-box;
-	width: 100%;
-	height: auto;
-	min-height: 100px;
-	max-height: 100vh;
-	overflow-y: auto;
-	overflow-x: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .system-ordemparanormal .op-item-sheet .content-item {
-	height: 100%;
-	overflow-y: auto;
-	margin: 0 !important;
-	padding: 0 8px 0 16px;
+  height: 100%;
+  overflow-y: auto;
+  margin: 0 !important;
+  padding: 0 8px 0 16px;
 }
 .system-ordemparanormal .op-item-sheet {
-	/* ==========================================================================
+  /* ==========================================================================
      2. ELEMENTOS DE FORMULÁRIO GLOBAIS
      ========================================================================== */
 }
-.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]),
+.system-ordemparanormal .op-item-sheet input:not([type=radio]):not([type=checkbox]),
 .system-ordemparanormal .op-item-sheet select,
 .system-ordemparanormal .op-item-sheet textarea {
-	width: 100%;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.02);
-	font-family: sans-serif;
-	transition: all 0.2s ease;
-	padding: 0 6px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.02);
+  font-family: sans-serif;
+  transition: all 0.2s ease;
+  padding: 0 6px;
 }
-.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]):hover,
-.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]):focus,
+.system-ordemparanormal .op-item-sheet input:not([type=radio]):not([type=checkbox]):hover, .system-ordemparanormal .op-item-sheet input:not([type=radio]):not([type=checkbox]):focus,
 .system-ordemparanormal .op-item-sheet select:hover,
 .system-ordemparanormal .op-item-sheet select:focus,
 .system-ordemparanormal .op-item-sheet textarea:hover,
 .system-ordemparanormal .op-item-sheet textarea:focus {
-	border-color: #7f7a67;
-	outline: none;
-	background: rgba(255, 255, 255, 0.6);
+  border-color: #7f7a67;
+  outline: none;
+  background: rgba(255, 255, 255, 0.6);
 }
-.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]):disabled,
+.system-ordemparanormal .op-item-sheet input:not([type=radio]):not([type=checkbox]):disabled,
 .system-ordemparanormal .op-item-sheet select:disabled,
 .system-ordemparanormal .op-item-sheet textarea:disabled {
-	background-color: rgba(0, 0, 0, 0.08);
-	cursor: not-allowed;
-	opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.08);
+  cursor: not-allowed;
+  opacity: 0.6;
 }
-.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]),
+.system-ordemparanormal .op-item-sheet input:not([type=radio]):not([type=checkbox]),
 .system-ordemparanormal .op-item-sheet select {
-	height: 26px;
+  height: 26px;
 }
 .system-ordemparanormal .op-item-sheet textarea {
-	padding: 6px;
-	resize: vertical;
+  padding: 6px;
+  resize: vertical;
 }
 .system-ordemparanormal .op-item-sheet .resource-label {
-	font-size: 13px;
-	font-weight: bold;
-	color: #444;
+  font-size: 13px;
+  font-weight: bold;
+  color: #444;
 }
 .system-ordemparanormal .op-item-sheet {
-	/* ==========================================================================
+  /* ==========================================================================
      3. CABEÇALHO DO ITEM (Item Header)
      ========================================================================== */
 }
 .system-ordemparanormal .op-item-sheet .item-header {
-	display: flex;
-	align-items: center;
-	flex: 0 0 auto;
-	gap: 20px;
-	padding: 15px 20px;
-	background: rgba(0, 0, 0, 0.01);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 20px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.01);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper {
-	position: relative;
-	width: 68px;
-	height: 68px;
-	border: 2px solid #161616;
-	border-radius: 4px;
-	overflow: hidden;
-	background: #111;
-	cursor: pointer;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-	transition:
-		transform 0.2s ease,
-		border-color 0.2s ease;
+  position: relative;
+  width: 68px;
+  height: 68px;
+  border: 2px solid #161616;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #111;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 .system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper .profile-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: opacity 0.2s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
 }
 .system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper .profile-img-hover {
-	position: absolute;
-	inset: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: rgba(177, 22, 26, 0.85);
-	color: #fff;
-	font-size: 14px;
-	opacity: 0;
-	transition: opacity 0.2s ease;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(177, 22, 26, 0.85);
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 .system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper:hover {
-	transform: scale(1.03);
-	border-color: #7f7a67;
+  transform: scale(1.03);
+  border-color: #7f7a67;
 }
 .system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper:hover .profile-img-hover {
-	opacity: 1;
+  opacity: 1;
 }
 .system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper:hover .profile-img {
-	opacity: 0.3;
+  opacity: 0.3;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-fields {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .system-ordemparanormal .op-item-sheet .item-header .document-name input {
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 1.45rem;
-	font-weight: 800;
-	letter-spacing: -0.5px;
-	padding: 4px 0;
-	color: #1a1a1a;
-	background: transparent;
-	border: none;
-	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-	border-radius: 0;
-	height: auto;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  padding: 4px 0;
+  color: #1a1a1a;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  height: auto;
 }
 .system-ordemparanormal .op-item-sheet .item-header .document-name input:hover {
-	border-bottom-color: rgba(0, 0, 0, 0.3);
+  border-bottom-color: rgba(0, 0, 0, 0.3);
 }
 .system-ordemparanormal .op-item-sheet .item-header .document-name input:focus {
-	border-bottom-color: #7f7a67;
-	box-shadow: none;
+  border-bottom-color: #7f7a67;
+  box-shadow: none;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats {
-	display: flex;
-	gap: 12px;
+  display: flex;
+  gap: 12px;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge {
-	display: flex;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.04);
-	border: 1px solid rgba(0, 0, 0, 0.12);
-	border-radius: 4px;
-	overflow: hidden;
-	height: 26px;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 26px;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge .stat-label {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	padding: 0 8px;
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #555;
-	background: rgba(0, 0, 0, 0.03);
-	border-right: 1px solid rgba(0, 0, 0, 0.12);
-	height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+  background: rgba(0, 0, 0, 0.03);
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  height: 100%;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge input {
-	width: 44px;
-	height: 100%;
-	text-align: center;
-	font-weight: bold;
-	border: none;
-	background: transparent;
+  width: 44px;
+  height: 100%;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  background: transparent;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge:focus-within {
-	border-color: #7f7a67;
+  border-color: #7f7a67;
 }
 .system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge:focus-within .stat-label {
-	color: #7f7a67;
-	border-right-color: #7f7a67;
+  color: #7f7a67;
+  border-right-color: #7f7a67;
 }
 .system-ordemparanormal .op-item-sheet {
-	/* ==========================================================================
+  /* ==========================================================================
      4. BLOCOS DE ATRIBUTOS E LAYOUTS COMUNS
      ========================================================================== */
 }
 .system-ordemparanormal .op-item-sheet .class-attributes-section,
 .system-ordemparanormal .op-item-sheet .general-attributes-section {
-	background: rgba(0, 0, 0, 0.03);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	padding: 10px 15px;
-	margin-bottom: 15px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
 }
 .system-ordemparanormal .op-item-sheet .class-attributes-section .section-title,
 .system-ordemparanormal .op-item-sheet .general-attributes-section .section-title {
-	font-weight: bold;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	margin-bottom: 10px;
-	padding-bottom: 5px;
-	text-transform: uppercase;
-	font-size: 12px;
-	color: #444;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #444;
 }
 .system-ordemparanormal .op-item-sheet .form-group-row {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 .system-ordemparanormal .op-item-sheet .form-group-textarea {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
 }
 .system-ordemparanormal .op-item-sheet .grid-2col {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 .system-ordemparanormal .op-item-sheet .categoryCheck {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 15px;
-	align-items: center;
-	padding: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  padding: 5px 0;
 }
 .system-ordemparanormal .op-item-sheet .categoryCheck .radio-label,
 .system-ordemparanormal .op-item-sheet .categoryCheck label.radio {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	font-size: 13px;
-	cursor: pointer;
-	margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  margin: 0;
 }
-.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type="radio"],
-.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type="radio"] {
-	width: 14px !important;
-	height: 14px !important;
-	margin: 0;
-	flex-shrink: 0;
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type=radio],
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type=radio] {
+  width: 14px !important;
+  height: 14px !important;
+  margin: 0;
+  flex-shrink: 0;
 }
 .system-ordemparanormal .op-item-sheet {
-	/* ==========================================================================
+  /* ==========================================================================
      5. ABA DE ARMAMENTOS E COMBATE
      ========================================================================== */
 }
 .system-ordemparanormal .op-item-sheet .armament-fieldset {
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 6px;
-	padding: 10px 12px;
-	margin-bottom: 12px;
-	background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: rgba(0, 0, 0, 0.03);
 }
 .system-ordemparanormal .op-item-sheet .armament-fieldset legend {
-	font-weight: bold;
-	padding: 0 8px;
-	color: #191813;
-	font-size: 13px;
-	text-transform: uppercase;
-	font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  padding: 0 8px;
+  color: #191813;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-family: "Source Sans 3", sans-serif;
 }
 .system-ordemparanormal .op-item-sheet .armament-grid-2 {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 .system-ordemparanormal .op-item-sheet .armament-field {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 .system-ordemparanormal .op-item-sheet .armament-field label {
-	font-size: 11px;
-	font-weight: bold;
-	color: #444;
-	text-transform: uppercase;
-	margin-left: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #444;
+  text-transform: uppercase;
+  margin-left: 2px;
 }
 .system-ordemparanormal .op-item-sheet .formula-row {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	background: rgba(0, 0, 0, 0.04);
-	padding: 6px 8px;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  margin-bottom: 6px;
 }
 .system-ordemparanormal .op-item-sheet .formula-row i {
-	color: #555;
-	font-size: 12px;
+  color: #555;
+  font-size: 12px;
 }
 .system-ordemparanormal .op-item-sheet .formula-row .flex-grow {
-	flex: 1;
+  flex: 1;
 }
 .system-ordemparanormal .op-item-sheet .formula-row .flex-large {
-	flex: 1.5;
+  flex: 1.5;
 }
 .system-ordemparanormal .op-item-sheet .add-damage-btn {
-	display: block;
-	text-align: center;
-	background: rgba(0, 0, 0, 0.04);
-	padding: 6px;
-	border-radius: 4px;
-	color: #444;
-	border: 1px dashed rgba(0, 0, 0, 0.3);
-	transition: 0.2s;
-	cursor: pointer;
-	margin-top: 8px;
-	font-weight: bold;
+  display: block;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px;
+  border-radius: 4px;
+  color: #444;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+  cursor: pointer;
+  margin-top: 8px;
+  font-weight: bold;
 }
 .system-ordemparanormal .op-item-sheet .add-damage-btn:hover {
-	background: rgba(0, 0, 0, 0.08);
-	color: #111;
-	border-style: solid;
+  background: rgba(0, 0, 0, 0.08);
+  color: #111;
+  border-style: solid;
 }
 .system-ordemparanormal .op-item-sheet .delete-damage {
-	color: #a33;
-	padding: 0 4px;
-	cursor: pointer;
+  color: #a33;
+  padding: 0 4px;
+  cursor: pointer;
 }
 .system-ordemparanormal .op-item-sheet .delete-damage:hover {
-	color: #ff0000;
+  color: #ff0000;
 }
 .system-ordemparanormal .op-item-sheet .checkbox-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 8px;
-	margin-top: 4px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 4px;
 }
 .system-ordemparanormal .op-item-sheet .checkbox-pill {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	background: rgba(0, 0, 0, 0.04);
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	padding: 4px 8px;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 .system-ordemparanormal .op-item-sheet .checkbox-pill:hover {
-	background: rgba(0, 0, 0, 0.08);
-	border-color: #888;
+  background: rgba(0, 0, 0, 0.08);
+  border-color: #888;
 }
 .system-ordemparanormal .op-item-sheet .checkbox-pill span {
-	font-size: 12px;
-	font-weight: bold;
-	color: #222;
+  font-size: 12px;
+  font-weight: bold;
+  color: #222;
 }
 .system-ordemparanormal .op-item-sheet {
-	/* ==========================================================================
+  /* ==========================================================================
      6. EDITOR PROSEMIRROR & DESCRIÇÃO
      ========================================================================== */
 }
 .system-ordemparanormal .op-item-sheet .description-container {
-	flex: 1 1 auto;
-	height: 100%;
-	overflow-x: hidden;
-	scrollbar-width: thin;
-	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+  flex: 1 1 auto;
+  height: 100%;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 }
 .system-ordemparanormal .op-item-sheet .description-container::-webkit-scrollbar {
-	width: 6px;
+  width: 6px;
 }
 .system-ordemparanormal .op-item-sheet .description-container::-webkit-scrollbar-track {
-	background: transparent;
-	margin: 4px 0;
+  background: transparent;
+  margin: 4px 0;
 }
 .system-ordemparanormal .op-item-sheet .description-container::-webkit-scrollbar-thumb {
-	background: rgba(0, 0, 0, 0.25);
-	border-radius: 3px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
 }
 .system-ordemparanormal .op-item-sheet .description-container::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.45);
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box {
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 6px;
-	background: rgba(0, 0, 0, 0.03);
-	margin-bottom: 15px;
-	transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.03);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary {
-	position: relative;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	padding: 12px 40px 12px 12px;
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 13px;
-	color: #555;
-	cursor: pointer;
-	list-style: none;
-	background: rgba(0, 0, 0, 0.02);
-	border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 12px 40px 12px 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  list-style: none;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 5px;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary::-webkit-details-marker {
-	display: none;
+  display: none;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary .summary-title {
-	display: flex;
-	align-items: center;
-	gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary .editor-edit {
-	margin-left: auto;
-	padding: 4px 6px;
-	border-radius: 4px;
-	color: #666;
-	transition: 0.2s;
+  margin-left: auto;
+  padding: 4px 6px;
+  border-radius: 4px;
+  color: #666;
+  transition: 0.2s;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary .editor-edit:hover {
-	background: rgba(0, 0, 0, 0.08);
-	color: #000;
+  background: rgba(0, 0, 0, 0.08);
+  color: #000;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary .notes {
-	flex-basis: 100%;
-	margin: 6px 0 0 0;
-	font-size: 11.5px;
-	font-weight: normal;
-	text-transform: none;
-	color: #666;
-	font-style: italic;
+  flex-basis: 100%;
+  margin: 6px 0 0 0;
+  font-size: 11.5px;
+  font-weight: normal;
+  text-transform: none;
+  color: #666;
+  font-style: italic;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box summary::after {
-	content: "\f107";
-	font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
-	font-weight: 900;
-	position: absolute;
-	right: 15px;
-	top: 14px;
-	transition: transform 0.3s ease;
+  content: "\f107";
+  font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
+  font-weight: 900;
+  position: absolute;
+  right: 15px;
+  top: 14px;
+  transition: transform 0.3s ease;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box[open] summary {
-	background: transparent;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 5px 5px 0 0;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px 5px 0 0;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box[open] summary::after {
-	transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box .description-content-inner {
-	padding: 15px;
+  padding: 15px;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor {
-	display: flex;
-	flex-direction: column;
-	flex: 1 1 auto;
-	min-height: 400px;
-	background: #eeede0;
-	margin: 0;
-	border: none;
-	border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 400px;
+  background: #eeede0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor summary {
-	display: none;
+  display: none;
 }
-.system-ordemparanormal
-	.op-item-sheet
-	.description-container
-	.description-box.fullscreen-editor
-	.description-content-inner,
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor .description-content-inner,
 .system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor .content-wrapper {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0;
 }
-.system-ordemparanormal
-	.op-item-sheet
-	.description-container
-	.description-box.fullscreen-editor
-	.fullscreen-editor-header {
-	display: flex;
-	align-items: center;
-	gap: 15px;
-	padding: 15px 20px;
-	background: rgba(0, 0, 0, 0.05);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor .fullscreen-editor-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
-.system-ordemparanormal
-	.op-item-sheet
-	.description-container
-	.description-box.fullscreen-editor
-	.fullscreen-editor-header
-	img {
-	width: 48px;
-	height: 48px;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 4px;
-	object-fit: cover;
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor .fullscreen-editor-header img {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  object-fit: cover;
 }
-.system-ordemparanormal
-	.op-item-sheet
-	.description-container
-	.description-box.fullscreen-editor
-	.fullscreen-editor-header
-	h2 {
-	margin: 0;
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 24px;
-	color: #222;
-	border-bottom: none;
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor .fullscreen-editor-header h2 {
+  margin: 0;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 24px;
+  color: #222;
+  border-bottom: none;
 }
-.system-ordemparanormal
-	.op-item-sheet
-	.description-container
-	.description-box.fullscreen-editor
-	.fullscreen-editor-header
-	h2
-	span {
-	font-size: 16px;
-	color: #666;
-	font-weight: normal;
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor .fullscreen-editor-header h2 span {
+  font-size: 16px;
+  color: #666;
+  font-weight: normal;
 }
 .system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror {
-	display: flex !important;
-	flex-direction: column !important;
-	flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  height: 100% !important;
 }
-.system-ordemparanormal
-	.op-item-sheet
-	.description-container
-	.description-box.fullscreen-editor
-	prose-mirror
-	.editor-container {
-	display: flex !important;
-	flex-direction: column !important;
-	flex: 1 1 auto !important;
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror .editor,
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror .editor-container {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 300px !important;
 }
-.system-ordemparanormal
-	.op-item-sheet
-	.description-container
-	.description-box.fullscreen-editor
-	prose-mirror
-	.editor-container
-	.editor-content,
-.system-ordemparanormal
-	.op-item-sheet
-	.description-container
-	.description-box.fullscreen-editor
-	prose-mirror
-	.editor-container
-	.ProseMirror {
-	flex: 1 1 auto !important;
-	height: 100% !important;
-	overflow-y: auto !important;
-	padding: 15px 20px !important;
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror .editor .editor-content,
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror .editor .ProseMirror,
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror .editor-container .editor-content,
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror .editor-container .ProseMirror {
+  flex: 1 1 auto !important;
+  min-height: 300px !important;
+  overflow-y: auto !important;
+  padding: 15px 20px !important;
 }
 .system-ordemparanormal .op-item-sheet {
-	/* ==========================================================================
+  /* ==========================================================================
      7. COMPORTAMENTO GLOBAL DO FULLSCREEN (Application V2)
      ========================================================================== */
 }
@@ -1985,677 +1669,621 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .op-item-sheet.op-fullscreen-active nav.tabs,
 .system-ordemparanormal .op-item-sheet.op-fullscreen-active .sheet-navigation,
 .system-ordemparanormal .op-item-sheet.op-fullscreen-active .description-box:not(.fullscreen-editor) {
-	display: none !important;
+  display: none !important;
 }
 .system-ordemparanormal .op-item-sheet.op-fullscreen-active .window-content,
 .system-ordemparanormal .op-item-sheet.op-fullscreen-active .tab.description,
 .system-ordemparanormal .op-item-sheet.op-fullscreen-active .description-container {
-	display: flex !important;
-	flex-direction: column !important;
-	height: 100% !important;
-	max-height: none !important;
-	overflow: hidden !important;
-	padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  padding: 0 !important;
 }
 .system-ordemparanormal {
-	/* ==========================================================================
+  /* ==========================================================================
   	   ABA DE EFEITOS (Active Effects)
   	   ========================================================================== */
 }
 .system-ordemparanormal .effects-management .effects-section {
-	border-radius: 4px;
-	margin-bottom: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 .system-ordemparanormal .effects-management .effects-header,
 .system-ordemparanormal .effects-management .effect-item {
-	display: flex;
-	align-items: center;
-	padding: 6px 10px;
-	gap: 8px;
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  gap: 8px;
 }
 .system-ordemparanormal .effects-management .effect-name {
-	flex: 1.5;
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	font-weight: bold;
+  flex: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
 }
 .system-ordemparanormal .effects-management .effect-source {
-	flex: 1;
-	text-align: center;
+  flex: 1;
+  text-align: center;
 }
 .system-ordemparanormal .effects-management .effect-duration {
-	flex: 1;
-	text-align: center;
+  flex: 1;
+  text-align: center;
 }
 .system-ordemparanormal .effects-management .effect-controls {
-	flex: 0 0 90px;
-	display: flex;
-	justify-content: flex-end;
-	gap: 8px;
+  flex: 0 0 90px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }
 .system-ordemparanormal .effects-management .effects-header {
-	background: rgba(0, 0, 0, 0.1);
-	border-radius: 4px 4px 0 0;
-	font-weight: bold;
-	font-size: 11px;
-	text-transform: uppercase;
-	color: #444;
-	border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px 4px 0 0;
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #444;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .system-ordemparanormal .effects-management .effect-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-top: none;
-	border-radius: 0 0 4px 4px;
-	background: rgba(0, 0, 0, 0.02);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background: rgba(0, 0, 0, 0.02);
 }
 .system-ordemparanormal .effects-management .effect-list .effect-item {
-	border-top: 1px solid rgba(0, 0, 0, 0.05);
-	font-size: 13px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 13px;
 }
 .system-ordemparanormal .effects-management .effect-list .effect-item:hover {
-	background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 .system-ordemparanormal .effects-management .effect-list .effect-item .effect-image {
-	width: 24px;
-	height: 24px;
-	flex: 0 0 24px;
-	object-fit: cover;
-	border-radius: 4px;
-	border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls a {
-	color: #666;
-	font-size: 12px;
-	transition: 0.2s;
+  color: #666;
+  font-size: 12px;
+  transition: 0.2s;
 }
 .system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls a:hover {
-	color: #111;
+  color: #111;
 }
 .system-ordemparanormal {
-	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 .system-ordemparanormal .uppercase {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .system-ordemparanormal .capitalize {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .standard-form .form-footer {
-	flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal-patch-notes.application
-	.standard-form
-	.form-footer
-	button.patch-notes-footer-next {
-	display: inline-flex;
-	flex-direction: row-reverse;
-	align-items: center;
-	column-gap: 0.35em;
+.system-ordemparanormal dialog.ordemparanormal-patch-notes.application .standard-form .form-footer button.patch-notes-footer-next {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  column-gap: 0.35em;
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-main .grid-2col {
-	height: 490px;
-	margin-top: 10px;
-	align-items: stretch;
+  height: 490px;
+  margin-top: 10px;
+  align-items: stretch;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal-patch-notes.application
-	.ordemparanormal-patch-notes-main
-	.grid-2col
-	> .scroll.content-dialog {
-	height: 100% !important;
-	min-height: 0;
-	overflow: auto;
+.system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-main .grid-2col > .scroll.content-dialog {
+  height: 100% !important;
+  min-height: 0;
+  overflow: auto;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal-patch-notes.application
-	.ordemparanormal-patch-notes-main
-	.grid-2col
-	> aside {
-	height: min-content;
-	overflow: auto;
+.system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-main .grid-2col > aside {
+  height: min-content;
+  overflow: auto;
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-hint {
-	padding: 8px;
-	border-top: 1px solid rgba(0, 0, 0, 0.19);
+  padding: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.19);
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .ordemparanormal-patch-notes-hint p {
-	margin: 0;
+  margin: 0;
 }
 .system-ordemparanormal .content-dialog {
-	height: 500px;
-	padding: 0 2px;
-	line-height: 1.3;
+  height: 500px;
+  padding: 0 2px;
+  line-height: 1.3;
 }
 .system-ordemparanormal .content-dialog li {
-	padding-top: 2px;
-	padding-bottom: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 .system-ordemparanormal .content-dialog a {
-	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
-.system-ordemparanormal .content-dialog a:hover,
-.system-ordemparanormal .content-dialog a:focus {
-	color: #000;
-	text-shadow: 0 0 10px rgb(255, 255, 255);
-	cursor: pointer;
+.system-ordemparanormal .content-dialog a:hover, .system-ordemparanormal .content-dialog a:focus {
+  color: #000;
+  text-shadow: 0 0 10px rgb(255, 255, 255);
+  cursor: pointer;
 }
 .system-ordemparanormal .content-dialog a h1,
 .system-ordemparanormal .content-dialog a h2,
 .system-ordemparanormal .content-dialog a h3,
 .system-ordemparanormal .content-dialog a h4 {
-	border: 0;
-	text-decoration: none;
-	font-weight: 700;
+  border: 0;
+  text-decoration: none;
+  font-weight: 700;
 }
 .system-ordemparanormal .content-dialog a .discord {
-	color: white;
-	text-shadow: 1px 1px 1px #000;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: "PT Sans", "Roboto", "sans-serif";
+  color: white;
+  text-shadow: 1px 1px 1px #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "PT Sans", "Roboto", "sans-serif";
 }
 .system-ordemparanormal .content-dialog a .discord p {
-	font-size: medium;
-	font-weight: 700;
+  font-size: medium;
+  font-weight: 700;
 }
 .system-ordemparanormal .content-dialog::-webkit-scrollbar-thumb {
-	background: rgba(0, 0, 0, 0.13);
-	border: 0;
+  background: rgba(0, 0, 0, 0.13);
+  border: 0;
 }
 .system-ordemparanormal .announcement {
-	position: relative;
-	width: 100%;
-	height: 156px;
-	margin: 8px 0;
-	border-radius: 5px !important;
-	display: flex;
-	background-position: center !important;
-	background-size: 100% 100% !important;
-	background-repeat: no-repeat !important;
+  position: relative;
+  width: 100%;
+  height: 156px;
+  margin: 8px 0;
+  border-radius: 5px !important;
+  display: flex;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
 }
 .system-ordemparanormal .announcement p {
-	width: 100%;
+  width: 100%;
 }
 .system-ordemparanormal .content-dialog a:first-child .adverts {
-	margin: 0;
+  margin: 0;
 }
 .system-ordemparanormal .dialog-buttons {
-	display: flex;
-	gap: 4px;
+  display: flex;
+  gap: 4px;
 }
 .system-ordemparanormal .dialog-buttons button {
-	height: 36px;
-	opacity: 0.6;
-	transition: all 0.2s ease-in;
+  height: 36px;
+  opacity: 0.6;
+  transition: all 0.2s ease-in;
 }
 .system-ordemparanormal .dialog-buttons button:hover {
-	opacity: 1;
+  opacity: 1;
 }
 .system-ordemparanormal .dialog-credits li {
-	padding-top: 2px;
-	padding-bottom: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
-.system-ordemparanormal .dialog-credits a:hover,
-.system-ordemparanormal .dialog-credits a:focus {
-	color: #000;
-	text-shadow: 0 0 10px rgb(255, 255, 255);
-	cursor: pointer;
+.system-ordemparanormal .dialog-credits a:hover, .system-ordemparanormal .dialog-credits a:focus {
+  color: #000;
+  text-shadow: 0 0 10px rgb(255, 255, 255);
+  cursor: pointer;
 }
 .system-ordemparanormal .dialog-credits a h1,
 .system-ordemparanormal .dialog-credits a h2,
 .system-ordemparanormal .dialog-credits a h3,
 .system-ordemparanormal .dialog-credits a h4 {
-	border: 0;
-	text-decoration: none;
-	font-weight: 700;
+  border: 0;
+  text-decoration: none;
+  font-weight: 700;
 }
 .system-ordemparanormal .dialog-credits a[href] {
-	color: #464646;
+  color: #464646;
 }
 .system-ordemparanormal #d20dice-dialog {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-	margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 10px;
 }
 .system-ordemparanormal #d20dice-dialog .situational {
-	padding: 0 10px;
+  padding: 0 10px;
 }
 .system-ordemparanormal #d20dice-dialog .fa-dice-d20 {
-	position: relative;
-	font-size: 2rem;
-	z-index: 0 !important;
+  position: relative;
+  font-size: 2rem;
+  z-index: 0 !important;
 }
 .system-ordemparanormal #d20dice-dialog .header {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
-	padding: 1rem 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 10px;
 }
 .system-ordemparanormal #d20dice-dialog .header .header-dice {
-	display: inline-block;
-	gap: 10px;
-	justify-content: space-around;
+  display: inline-block;
+  gap: 10px;
+  justify-content: space-around;
 }
 .system-ordemparanormal #d20dice-dialog .header .header-dice input.diceMod {
-	position: relative;
-	font-size: 2.75rem;
-	font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
-	top: 2px;
-	width: 30px;
-	height: 40px;
-	border: none;
-	background: none;
-	z-index: 1 !important;
+  position: relative;
+  font-size: 2.75rem;
+  font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
+  top: 2px;
+  width: 30px;
+  height: 40px;
+  border: none;
+  background: none;
+  z-index: 1 !important;
 }
 .system-ordemparanormal #d20dice-dialog .header .big-letters {
-	font-size: 2.5rem;
-	font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
-	text-align: center;
-	vertical-align: baseline;
+  font-size: 2.5rem;
+  font-family: "Warnock Pro", Arial, Helvetica, sans-serif;
+  text-align: center;
+  vertical-align: baseline;
 }
 .system-ordemparanormal #d20dice-dialog .header .formula {
-	padding-left: 5px;
+  padding-left: 5px;
 }
 .system-ordemparanormal #d20dice-dialog legend {
-	font-size: 15px;
-	font-weight: bold;
+  font-size: 15px;
+  font-weight: bold;
 }
 .system-ordemparanormal #d20dice-dialog fieldset {
-	display: flex;
-	gap: 0.1rem;
-	border-radius: 8px;
-	flex-wrap: nowrap;
-	flex-direction: column;
+  display: flex;
+  gap: 0.1rem;
+  border-radius: 8px;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 .system-ordemparanormal #d20dice-dialog .adjusts {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
 }
 .system-ordemparanormal #d20dice-dialog .adjusts .hint {
-	font-size: 14px;
-	margin: 0;
+  font-size: 14px;
+  margin: 0;
 }
 .system-ordemparanormal #d20dice-dialog .submit {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	height: 38px;
-	background: rgba(255, 255, 240, 0.8);
-	border: 1px solid #b5b3a4;
-	border-radius: 3px;
-	font-size: 14px;
-	cursor: pointer;
-	width: 100%;
-	margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 38px;
+  background: rgba(255, 255, 240, 0.8);
+  border: 1px solid #b5b3a4;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
 }
 .system-ordemparanormal #d20dice-dialog .submit i {
-	padding: 4px;
+  padding: 4px;
 }
 .system-ordemparanormal .itemAreaTemplate #areaTemplate {
-	gap: 0.2rem !important;
+  gap: 0.2rem !important;
 }
 .system-ordemparanormal .itemAreaTemplate .predefinedAreas {
-	padding: 0 !important;
+  padding: 0 !important;
 }
 .system-ordemparanormal .itemAreaTemplate input {
-	width: auto;
+  width: auto;
 }
-.system-ordemparanormal .itemAreaTemplate input[type="text"] {
-	min-width: 30px !important;
-	width: auto !important;
-	text-align: center !important;
+.system-ordemparanormal .itemAreaTemplate input[type=text] {
+  min-width: 30px !important;
+  width: auto !important;
+  text-align: center !important;
 }
 .system-ordemparanormal .areaTemplateWindow {
-	box-shadow: 0 0 10x #000 !important;
-	font-family: "Source Sans 3", sans-serif;
+  box-shadow: 0 0 10x #000 !important;
+  font-family: "Source Sans 3", sans-serif;
 }
 .system-ordemparanormal .areaTemplateWindow .window-header {
-	font-size: 13px;
+  font-size: 13px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration {
-	font-family: "Source Sans 3", sans-serif;
-	background: rgba(19, 19, 19, 0.9) 100% 80%/200% 200% url("../media/assets/ondulacoes.webp") !important;
+  font-family: "Source Sans 3", sans-serif;
+  background: rgba(19, 19, 19, 0.9) 100% 80%/200% 200% url("../media/assets/ondulacoes.webp") !important;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header,
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content {
-	backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header {
-	position: relative;
-	overflow: visible;
-	justify-content: flex-end;
-	background: none;
-	margin-block-end: 30px;
-	border: none;
-	align-items: center;
-	margin-bottom: 0 !important;
-	padding: 5px 10px 50px 10px;
+  position: relative;
+  overflow: visible;
+  justify-content: flex-end;
+  background: none;
+  margin-block-end: 30px;
+  border: none;
+  align-items: center;
+  margin-bottom: 0 !important;
+  padding: 5px 10px 50px 10px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-icon {
-	color: #999;
-	margin-right: auto;
-	font-size: 15px;
-	flex: none;
+  color: #999;
+  margin-right: auto;
+  font-size: 15px;
+  flex: none;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-icon* {
-	max-block-size: 100%;
+  max-block-size: 100%;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-title {
-	flex: 1;
-	margin: 0;
-	line-height: 46px;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+  flex: 1;
+  margin: 0;
+  line-height: 46px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-subtitle {
-	margin: 0;
-	font-size: 16;
-	line-height: 30px;
-	text-shadow: none;
+  margin: 0;
+  font-size: 16;
+  line-height: 30px;
+  text-shadow: none;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .header-control {
-	margin: 0;
-	line-height: normal;
-	background: rgba(0, 0, 0, 0.25);
-	border-color: #242731;
-	font-size: 12px;
-	--color-light-text-heading: #f7f3e8;
-	--button-size: 20px;
-	--button-text-color: #f7f3e8;
-	padding: 3px;
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.13);
-	gap: 0.25rem;
-	min-height: unset;
-	display: flex;
-	align-items: center;
-	--button-hover-border-color: ;
+  margin: 0;
+  line-height: normal;
+  background: rgba(0, 0, 0, 0.25);
+  border-color: #242731;
+  font-size: 12px;
+  --color-light-text-heading: #f7f3e8;
+  --button-size: 20px;
+  --button-text-color: #f7f3e8;
+  padding: 3px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.13);
+  gap: 0.25rem;
+  min-height: unset;
+  display: flex;
+  align-items: center;
+  --button-hover-border-color: ;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header:has(h2:not(:empty)) {
-	margin-block-end: 36px;
+  margin-block-end: 36px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header h1 {
-	inset-block-start: 16px;
-	font-size: 20px;
-	position: absolute;
-	inset-inline: 20px;
-	font-weight: bold;
-	text-align: start;
-	z-index: -1;
-	font-family: "Libre Baskerville", "Signika", sans-serif;
+  inset-block-start: 16px;
+  font-size: 20px;
+  position: absolute;
+  inset-inline: 20px;
+  font-weight: bold;
+  text-align: start;
+  z-index: -1;
+  font-family: "Libre Baskerville", "Signika", sans-serif;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header h2 {
-	inset-block-start: 52px;
-	margin: 0;
-	border: 0;
-	font-size: 14px;
-	text-shadow: none;
-	position: absolute;
-	inset-inline: 25px;
-	font-weight: bold;
-	text-align: start;
-	z-index: -1;
-	font-family: "Libre Baskerville", "Signika", sans-serif;
+  inset-block-start: 52px;
+  margin: 0;
+  border: 0;
+  font-size: 14px;
+  text-shadow: none;
+  position: absolute;
+  inset-inline: 25px;
+  font-weight: bold;
+  text-align: start;
+  z-index: -1;
+  font-family: "Libre Baskerville", "Signika", sans-serif;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content {
-	margin-block-start: -8px;
-	padding-block-start: 8px;
-	padding-block-end: 14px;
-	padding-inline: 14px;
-	overflow-y: auto;
-	margin-top: 0em;
-	background: transparent;
-	unicode-bidi: isolate;
+  margin-block-start: -8px;
+  padding-block-start: 8px;
+  padding-block-end: 14px;
+  padding-inline: 14px;
+  overflow-y: auto;
+  margin-top: 0em;
+  background: transparent;
+  unicode-bidi: isolate;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .unlist {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice {
-	margin: 12px 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 8px;
+  margin: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice li {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice img {
-	width: 42px;
-	border: none;
-	-webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
-	filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  width: 42px;
+  border: none;
+  -webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge {
-	position: relative;
-	display: flex;
-	height: 18px;
-	width: 28px;
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-	border: 0.5 solid rgba(255, 255, 255, 0.1);
-	background-color: rgba(0, 0, 0, 0.4);
-	border-radius: 4px;
-	justify-content: center;
-	align-items: center;
-	padding: 2px;
-	gap: 4px;
+  position: relative;
+  display: flex;
+  height: 18px;
+  width: 28px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  border: 0.5 solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  gap: 4px;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal.application.roll-configuration
-	form.window-content
-	.rolls
-	.dice
-	.badge.kh,
-.system-ordemparanormal
-	dialog.ordemparanormal.application.roll-configuration
-	form.window-content
-	.rolls
-	.dice
-	.badge.kl {
-	position: absolute;
-	width: 18px;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kh, .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kl {
+  position: absolute;
+  width: 18px;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal.application.roll-configuration
-	form.window-content
-	.rolls
-	.dice
-	.badge.kh {
-	color: #216e2f;
-	right: -8px;
-	top: -8px;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kh {
+  color: #216e2f;
+  right: -8px;
+  top: -8px;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal.application.roll-configuration
-	form.window-content
-	.rolls
-	.dice
-	.badge.kl {
-	color: #df2563;
-	right: -8px;
-	bottom: -8px;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge.kl {
+  color: #df2563;
+  right: -8px;
+  bottom: -8px;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal.application.roll-configuration
-	form.window-content
-	.rolls
-	.dice
-	.badge
-	span {
-	font-size: 14px;
-	text-align: center;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge span {
+  font-size: 14px;
+  text-align: center;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal.application.roll-configuration
-	form.window-content
-	.rolls
-	.dice
-	.badge
-	i {
-	height: 12px;
-	font-size: 13px;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .rolls .dice .badge i {
+  height: 12px;
+  font-size: 13px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	border-radius: 4px;
-	margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: 4px;
+  margin: 0;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset .form-group {
-	margin: 0;
+  margin: 0;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal.application.roll-configuration
-	form.window-content
-	fieldset
-	.form-group
-	label {
-	flex-basis: 50px;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content fieldset .form-group label {
+  flex-basis: 50px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: #e6ddd0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e6ddd0;
 }
-.system-ordemparanormal
-	dialog.ordemparanormal.application.roll-configuration
-	form.window-content
-	.formula-line
-	.formula {
-	font-weight: bold;
+.system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line .formula {
+  font-weight: bold;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration form.window-content .formula-line .label {
-	font-style: italic;
-	font-size: 12px;
+  font-style: italic;
+  font-size: 12px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h1,
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h2,
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h3,
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration h4,
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration span {
-	color: #f7f3e8;
+  color: #f7f3e8;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button {
-	color: #c2c2c2;
-	border-color: #9f8475;
+  color: #c2c2c2;
+  border-color: #9f8475;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button.normal {
-	color: #e0e0e0 !important;
+  color: #e0e0e0 !important;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration button:hover {
-	background: #816b66;
-	border-color: #e7d1b1;
+  background: #816b66;
+  border-color: #e7d1b1;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration input,
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration select {
-	background: #302831;
-	color: #e7d1b1;
-	border-color: rgba(0, 0, 0, 0);
+  background: #302831;
+  color: #e7d1b1;
+  border-color: rgba(0, 0, 0, 0);
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration input:placeholder {
-	color: #e7d1b1;
+  color: #e7d1b1;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration label,
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration legend {
-	color: #d0b8a3;
+  color: #d0b8a3;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration fieldset {
-	border-color: #816b66;
+  border-color: #816b66;
 }
 .system-ordemparanormal {
-	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 .system-ordemparanormal .uppercase {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .system-ordemparanormal .capitalize {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 .system-ordemparanormal .card-buttons {
-	position: relative;
-	display: flex;
-	width: 100%;
-	flex-grow: 1;
-	gap: 4px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  gap: 4px;
 }
 .system-ordemparanormal .card-buttons button {
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-	height: 2em;
-	min-height: 2em;
-	gap: 0.25rem;
-	padding: 0 0.5rem;
-	background: rgba(0, 0, 0, 0.1);
-	border: 1px solid #555;
-	border-radius: 4px;
-	color: #111;
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 0.875rem;
-	line-height: normal;
-	text-decoration: none;
-	cursor: pointer;
-	transition: 0.5s;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  min-height: 2em;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #111;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.875rem;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.5s;
 }
 .system-ordemparanormal .card-buttons button:hover {
-	background: #222;
-	color: #ccc;
+  background: #222;
+  color: #ccc;
 }
 .system-ordemparanormal .card-buttons:first-of-type {
-	margin-bottom: 2px;
+  margin-bottom: 2px;
 }
 .system-ordemparanormal .card-footer {
-	margin-top: 6px;
+  margin-top: 6px;
 }
 .system-ordemparanormal .card-footer span {
-	color: #161616;
-	font-size: 11px;
-	padding: 2px 3px;
-	border-radius: 6px;
-	border: 1px solid rgba(0, 0, 0, 0.1882352941);
+  color: #161616;
+  font-size: 11px;
+  padding: 2px 3px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1882352941);
 }
 .system-ordemparanormal .chat-card details {
-	padding: 4px 4px;
-	border: 1px solid #b8b8b8;
-	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-	border-radius: 5px;
-	font-family: "Warnock Pro", "Source Sans 3", sans-serif, "Arial";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-size: 14px;
+  padding: 4px 4px;
+  border: 1px solid #b8b8b8;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  border-radius: 5px;
+  font-family: "Warnock Pro", "Source Sans 3", sans-serif, "Arial";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
 }
 .system-ordemparanormal .chat-card details summary {
-	margin-left: 4px;
+  margin-left: 4px;
 }
 .system-ordemparanormal .chat-card details p {
-	hyphens: auto;
+  hyphens: auto;
 }
 .system-ordemparanormal .chat-card h1,
 .system-ordemparanormal .chat-card h2,
@@ -2663,1074 +2291,1082 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .chat-card h4,
 .system-ordemparanormal .chat-card h5,
 .system-ordemparanormal .chat-card h6 {
-	margin: 0 !important;
+  margin: 0 !important;
 }
 .system-ordemparanormal .chat-card span.element {
-	display: inline-block;
-	font-size: 12px;
-	color: #fff;
-	padding: 1px 4px;
-	margin-top: 4px;
-	margin-bottom: 1px;
-	text-transform: uppercase;
-	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-weight: bold;
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+  padding: 1px 4px;
+  margin-top: 4px;
+  margin-bottom: 1px;
+  text-transform: uppercase;
+  font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: bold;
 }
 .system-ordemparanormal .chat-card span.element.death {
-	background-color: #000;
+  background-color: #000;
 }
 .system-ordemparanormal .chat-card span.element.blood {
-	background-color: #b1161a;
+  background-color: #b1161a;
 }
 .system-ordemparanormal .chat-card span.element.knowledge {
-	background-color: #bf9100;
+  background-color: #bf9100;
 }
 .system-ordemparanormal .chat-card span.element.energy {
-	background-color: #9a00fd;
+  background-color: #9a00fd;
 }
 .system-ordemparanormal .chat-card span.element.fear {
-	background-color: #b8b8b8;
+  background-color: #b8b8b8;
 }
 .system-ordemparanormal .chat-card .ritual-info {
-	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .system-ordemparanormal .chat-card .ritual-info strong {
-	color: #b92730;
+  color: #b92730;
 }
 .system-ordemparanormal .chat-card table {
-	margin: 10px 0;
+  margin: 10px 0;
 }
 .system-ordemparanormal .chat-card table tr {
-	text-align: center;
+  text-align: center;
 }
 .system-ordemparanormal .chat-card table tr th,
 .system-ordemparanormal .chat-card table tr td {
-	padding: 5px;
+  padding: 5px;
 }
 .system-ordemparanormal .chat-card .header {
-	display: flex;
-	width: 100%;
-	align-items: center;
-	padding: 6px 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 6px 0;
 }
 .system-ordemparanormal .chat-card .header h2 {
-	padding-left: 6px;
-	border: 0;
-	font-family:
-		"Warnock Pro",
-		"Signika" "Times New Roman",
-		Times,
-		serif;
-	padding-top: 10px;
+  padding-left: 6px;
+  border: 0;
+  font-family: "Warnock Pro", "Signika" "Times New Roman", Times, serif;
+  padding-top: 10px;
 }
 .system-ordemparanormal .dice-roll .dice-total.success {
-	color: inherit;
-	background: #c7d0c0;
-	border: 1px solid #006c00;
+  color: inherit;
+  background: #c7d0c0;
+  border: 1px solid #006c00;
 }
 .system-ordemparanormal .dice-roll .dice-total.failure {
-	color: inherit;
-	background: #ffdddd;
-	border: 1px solid #6e0000;
+  color: inherit;
+  background: #ffdddd;
+  border: 1px solid #6e0000;
 }
 .system-ordemparanormal .dice-roll .dice-total.critical {
-	color: green;
+  color: green;
 }
 .system-ordemparanormal .dice-roll .dice-total.critical small {
-	font-size: 15px;
+  font-size: 15px;
 }
 .system-ordemparanormal .dice-roll .dice-total.fumble {
-	color: red;
+  color: red;
 }
 .system-ordemparanormal {
-	/* ---------------------------------- */
-	/*  Dice Rolls                        */
-	/* ---------------------------------- */
+  /* ---------------------------------- */
+  /*  Dice Rolls                        */
+  /* ---------------------------------- */
 }
 .system-ordemparanormal .dice-result {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .system-ordemparanormal .dice-result .dice-tooltip {
-	flex: none;
+  flex: none;
 }
 .system-ordemparanormal .dice-result .dice-formula,
 .system-ordemparanormal .dice-result .dice-total {
-	border-radius: 3px;
-	padding: 0.25rem;
-	line-height: normal;
-	flex: auto;
-	margin: 0;
+  border-radius: 3px;
+  padding: 0.25rem;
+  line-height: normal;
+  flex: auto;
+  margin: 0;
 }
 .system-ordemparanormal .dice-result .wrapper,
 .system-ordemparanormal .dice-result .dice-tooltip {
-	padding-top: 5px;
+  padding-top: 5px;
 }
 .system-ordemparanormal .dice-result .dice-total {
-	font-weight: bold;
-	padding: 0.125rem;
-	margin-top: 0.25rem;
-	position: relative;
+  font-weight: bold;
+  padding: 0.125rem;
+  margin-top: 0.25rem;
+  position: relative;
 }
-.system-ordemparanormal .dice-result .dice-total::before,
-.system-ordemparanormal .dice-result .dice-total::after {
-	position: absolute;
-	inset: 6px 0 6px auto;
+.system-ordemparanormal .dice-result .dice-total::before, .system-ordemparanormal .dice-result .dice-total::after {
+  position: absolute;
+  inset: 6px 0 6px auto;
 }
 .system-ordemparanormal .dice-result .dice-total::before {
-	content: "";
-	width: 36px;
-	border-left: 1px solid #bbb;
+  content: "";
+  width: 36px;
+  border-left: 1px solid #bbb;
 }
 .system-ordemparanormal .dice-result .dice-total::after {
-	transition: all 250ms ease;
+  transition: all 250ms ease;
 }
-.system-ordemparanormal .dice-result .dice-total.critical,
-.system-ordemparanormal .dice-result .dice-total.fumble {
-	border-width: 3px;
-	border-style: double;
+.system-ordemparanormal .dice-result .dice-total.critical, .system-ordemparanormal .dice-result .dice-total.fumble {
+  border-width: 3px;
+  border-style: double;
 }
 .system-ordemparanormal .dice-result .dice-total > .icons {
-	position: absolute;
-	inset: 0 auto 0 12px;
-	display: flex;
-	gap: 2px;
-	align-items: center;
-	opacity: 0.35;
+  position: absolute;
+  inset: 0 auto 0 12px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  opacity: 0.35;
 }
 .system-ordemparanormal .op.system-badge {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 .system-ordemparanormal .op.system-badge img {
-	border: 0;
+  border: 0;
 }
 .system-ordemparanormal .op.system-badge p {
-	margin: 0;
+  margin: 0;
 }
 .system-ordemparanormal .op.system-badge a[href] {
-	color: var(--color-text-light-highlight);
-	text-decoration: none;
+  color: var(--color-text-light-highlight);
+  text-decoration: none;
 }
 .system-ordemparanormal .additionalContent .selectize-input {
-	max-width: 330px !important;
-	height: 40px;
-	display: inline-flex;
-	text-wrap: wrap;
-	overflow: hidden;
+  max-width: 330px !important;
+  height: 40px;
+  display: inline-flex;
+  text-wrap: wrap;
+  overflow: hidden;
 }
 .system-ordemparanormal .additionalContent .selectize-input .item {
-	width: 100px !important;
+  width: 100px !important;
 }
 .system-ordemparanormal .additionalContent label {
-	font-weight: 400 !important;
-	line-height: 1.25;
+  font-weight: 400 !important;
+  line-height: 1.25;
 }
 .system-ordemparanormal .additionalContent p {
-	font-size: 12px;
-	line-height: 16px;
-	color: #4b4a44;
-	margin: 3px 0;
-	text-align: justify;
-	hyphens: auto;
+  font-size: 12px;
+  line-height: 16px;
+  color: #4b4a44;
+  margin: 3px 0;
+  text-align: justify;
+  hyphens: auto;
 }
 .system-ordemparanormal .additionalContent input {
-	max-height: 10px !important;
+  max-height: 10px !important;
 }
 .system-ordemparanormal .additionalContent input::placeholder {
-	opacity: 0.4;
+  opacity: 0.4;
 }
 .system-ordemparanormal .additionalContent .container > div {
-	padding: 10px;
+  padding: 10px;
 }
 .system-ordemparanormal .additionalContent .flexe {
-	display: flex !important;
+  display: flex !important;
 }
 .system-ordemparanormal {
-	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
 .system-ordemparanormal .lowercase {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 .system-ordemparanormal .uppercase {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .system-ordemparanormal .capitalize {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 .system-ordemparanormal {
-	/* ========================================================= */
-	/* --- LARGURAS DAS COLUNAS UNIFICADAS --- */
-	/* ========================================================= */
+  /* ========================================================= */
+  /* --- LARGURAS DAS COLUNAS UNIFICADAS --- */
+  /* ========================================================= */
 }
 .system-ordemparanormal .col-name {
-	flex: 1;
-	text-align: left;
+  flex: 1;
+  text-align: left;
 }
 .system-ordemparanormal .col-category {
-	width: 70px;
-	text-align: center;
+  width: 70px;
+  text-align: center;
 }
 .system-ordemparanormal .col-space {
-	width: 70px;
-	text-align: center;
+  width: 70px;
+  text-align: center;
 }
 .system-ordemparanormal .col-quantity {
-	width: 90px;
-	text-align: center;
+  width: 90px;
+  text-align: center;
 }
 .system-ordemparanormal .col-type {
-	width: 100px;
-	text-align: center;
+  width: 100px;
+  text-align: center;
 }
 .system-ordemparanormal .col-cost {
-	width: 70px;
-	text-align: center;
+  width: 70px;
+  text-align: center;
 }
 .system-ordemparanormal .col-exec {
-	width: 90px;
-	text-align: center;
+  width: 90px;
+  text-align: center;
 }
 .system-ordemparanormal .col-range {
-	width: 75px;
-	text-align: center;
+  width: 75px;
+  text-align: center;
 }
 .system-ordemparanormal .col-target {
-	width: 80px;
-	text-align: center;
+  width: 80px;
+  text-align: center;
 }
 .system-ordemparanormal .col-duration {
-	width: 60px;
-	text-align: center;
+  width: 60px;
+  text-align: center;
 }
 .system-ordemparanormal .col-resist {
-	width: 80px;
-	text-align: center;
+  width: 80px;
+  text-align: center;
 }
 .system-ordemparanormal .col-controls {
-	width: 100px;
-	text-align: right;
-	justify-content: flex-end;
+  width: 100px;
+  text-align: right;
+  justify-content: flex-end;
 }
 .system-ordemparanormal .col-controls-mini {
-	width: 40px;
-	text-align: right;
-	justify-content: flex-end;
+  width: 40px;
+  text-align: right;
+  justify-content: flex-end;
 }
 .system-ordemparanormal .col-prop {
-	width: 50px;
-	text-align: center;
+  width: 50px;
+  text-align: center;
 }
 .system-ordemparanormal {
-	/* Realce visual para o custo (Ex: 2 PE) */
+  /* Realce visual para o custo (Ex: 2 PE) */
 }
 .system-ordemparanormal .badge-cat.highlight {
-	font-weight: 900;
-	color: #7f7a67;
-	background: rgba(177, 22, 26, 0.08);
-	border-color: rgba(177, 22, 26, 0.15);
+  font-weight: 900;
+  color: #7f7a67;
+  background: rgba(177, 22, 26, 0.08);
+  border-color: rgba(177, 22, 26, 0.15);
 }
 .system-ordemparanormal {
-	/* ========================================================= */
-	/* --- DESIGN DO INVENTÁRIO (ORDEM) ------ */
-	/* ========================================================= */
+  /* ========================================================= */
+  /* --- DESIGN DO INVENTÁRIO (ORDEM) ------ */
+  /* ========================================================= */
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab,
 .system-ordemparanormal .tab.inventory-tab {
-	flex-direction: column !important;
-	height: 100% !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	background: transparent;
-	overflow: hidden !important;
-	/* --- CABEÇALHO DE PRESTÍGIO E PATENTES --- */
+  flex-direction: column !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent;
+  overflow: hidden !important;
+  /* --- CABEÇALHO DE PRESTÍGIO E PATENTES --- */
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 15px;
-	padding: 8px 15px;
-	margin: 0 16px;
-	background: rgba(0, 0, 0, 0.02);
-	border: 1px solid rgba(0, 0, 0, 0.08);
-	border-radius: 4px;
-	flex: 0 0 auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 15px;
+  margin: 0 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  flex: 0 0 auto !important;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	gap: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .label,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .label {
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 12px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #555;
-	display: flex;
-	align-items: center;
-	gap: 6px;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label i,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .label i,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label i,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .label i {
-	color: #7f7a67;
+  color: #7f7a67;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box input,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box input,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box input,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box input {
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	background: transparent;
-	text-align: center;
-	font-weight: bold;
-	font-size: 12px;
-	color: #000;
-	padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: transparent;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: #000;
+  padding: 0;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
-	/* Ajuste específico para o input de Prestígio (Números pequenos) */
+  /* Ajuste específico para o input de Prestígio (Números pequenos) */
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .prestige-input,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .prestige-input,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .prestige-input,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .prestige-input {
-	width: 60px;
-	height: 24px;
-	font-weight: bold;
-	text-align: center;
-	font-size: 12px;
+  width: 60px;
+  height: 24px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
-	/* Ajuste específico para o input da Patente (Textos mais longos) */
+  /* Ajuste específico para o input da Patente (Textos mais longos) */
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .patent-input,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .patent-input,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .patent-input,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .patent-input {
-	width: 140px;
-	height: 24px;
-	font-weight: bold;
-	text-align: left;
-	padding: 0 8px;
-	font-size: 12px;
+  width: 140px;
+  height: 24px;
+  font-weight: bold;
+  text-align: left;
+  padding: 0 8px;
+  font-size: 12px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.section-title,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .section-title,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .section-title {
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #555;
-	display: flex;
-	align-items: start;
-	gap: 6px;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+  display: flex;
+  align-items: start;
+  gap: 6px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid {
-	display: flex;
-	gap: 4px;
+  display: flex;
+  gap: 4px;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge {
-	display: flex;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.05);
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	height: 24px;
-	overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  height: 24px;
+  overflow: hidden;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge
-	label,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge label,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge label {
-	padding: 0 6px;
-	font-family: "Source Sans 3", sans-serif;
-	font-weight: 900;
-	font-size: 11px;
-	color: #444;
-	background: rgba(0, 0, 0, 0.03);
-	border-right: 1px solid rgba(0, 0, 0, 0.15);
-	height: 100%;
-	display: flex;
-	align-items: center;
+  padding: 0 6px;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  color: #444;
+  background: rgba(0, 0, 0, 0.03);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge
-	input,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge input,
 .system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge input {
-	width: 26px !important;
-	height: 100%;
-	border: none;
-	background: transparent;
-	text-align: center;
-	font-weight: bold;
-	font-size: 12px;
-	color: #000;
-	padding: 0;
+  width: 26px !important;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: #000;
+  padding: 0;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge
-	input:disabled,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-prestige-header
-	.category-limits
-	.limits-grid
-	.limit-badge
-	input:disabled {
-	opacity: 0.8;
-	cursor: not-allowed;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge input:disabled,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge input:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab,
 .system-ordemparanormal .tab.inventory-tab {
-	/* --- CABEÇALHO DE RITUAIS --- */
+  /* --- CABEÇALHO DE RITUAIS --- */
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header,
 .system-ordemparanormal .tab.inventory-tab .inventory-ritual-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 15px;
-	padding: 8px 15px;
-	margin: 0 16px;
-	background: rgba(0, 0, 0, 0.02);
-	border: 1px solid rgba(0, 0, 0, 0.08);
-	border-radius: 4px;
-	flex: 0 0 auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 15px;
+  margin: 0 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  flex: 0 0 auto !important;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box,
 .system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box {
-	display: flex;
-	align-items: center;
-	gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .label,
 .system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .label {
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 12px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #555;
-	display: flex;
-	align-items: center;
-	gap: 6px;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .label i,
 .system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .label i {
-	color: #7f7a67;
+  color: #7f7a67;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box input,
 .system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box input {
-	width: 60px;
-	height: 24px;
-	font-weight: bold;
-	text-align: center;
-	font-size: 12px;
+  width: 60px;
+  height: 24px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .badge-ritual,
 .system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .badge-ritual {
-	font-size: 14px;
-	background: rgba(0, 0, 0, 0.06);
-	padding: 2px 6px;
-	border-radius: 3px;
-	border: 1px solid rgba(0, 0, 0, 0.05);
-	color: #555;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #555;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-row-main,
 .system-ordemparanormal .tab.inventory-tab .inventory-list-header,
 .system-ordemparanormal .tab.inventory-tab .item-row-main {
-	display: flex;
-	align-items: center;
-	gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
 .system-ordemparanormal .tab.inventory-tab .inventory-list-header {
-	background: rgba(0, 0, 0, 0.1);
-	color: #444;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 10.5px;
-	font-weight: bold;
-	text-transform: uppercase;
-	padding: 6px 10px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #444;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 10.5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header i,
 .system-ordemparanormal .tab.inventory-tab .inventory-list-header i {
-	color: #7f7a67;
-	margin-right: 4px;
+  color: #7f7a67;
+  margin-right: 4px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-category,
 .system-ordemparanormal .tab.inventory-tab .inventory-category {
-	margin-bottom: 8px;
-	border-radius: 4px;
+  margin-bottom: 8px;
+  border-radius: 4px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-image.slide,
 .system-ordemparanormal .tab.inventory-tab .item-image.slide {
-	position: relative;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input,
 .system-ordemparanormal .tab.inventory-tab .inline-input {
-	width: 100%;
-	height: 24px;
-	background: transparent;
-	border: 1px solid transparent;
-	text-align: center;
-	font-family: "Roboto", sans-serif;
-	font-size: 13px;
-	font-weight: bold;
-	color: #000;
-	border-radius: 4px;
-	transition: all 0.2s;
+  width: 100%;
+  height: 24px;
+  background: transparent;
+  border: 1px solid transparent;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000;
+  border-radius: 4px;
+  transition: all 0.2s;
 }
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:hover,
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:focus,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:hover, .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:focus,
 .system-ordemparanormal .tab.inventory-tab .inline-input:hover,
 .system-ordemparanormal .tab.inventory-tab .inline-input:focus {
-	border-color: rgba(0, 0, 0, 0.2);
-	background: rgba(255, 255, 255, 0.5);
-	outline: none;
+  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input.badge-cat-input,
 .system-ordemparanormal .tab.inventory-tab .inline-input.badge-cat-input {
-	background: rgba(0, 0, 0, 0.04);
-	border-color: rgba(0, 0, 0, 0.05);
-	color: #444;
-	font-size: 11.5px;
-	width: 40px;
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.05);
+  color: #444;
+  font-size: 11.5px;
+  width: 40px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value,
 .system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value {
-	width: 32px;
-	margin: 0;
-	padding: 0;
-	border: none;
-	background: transparent;
-	font-size: 11.5px;
+  width: 32px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 11.5px;
 }
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:hover,
-.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:focus,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:hover, .system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:focus,
 .system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:hover,
 .system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:focus {
-	background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab,
 .system-ordemparanormal .tab.inventory-tab {
-	/* --- 3. LINHAS DOS ITENS DA LISTA --- */
+  /* --- 3. LINHAS DOS ITENS DA LISTA --- */
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description {
-	display: none;
-	background: rgba(0, 0, 0, 0.01);
-	color: #444;
-	border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
-	padding: 10px 15px 10px 50px !important;
-	line-height: 1.4;
-	width: 100%;
-	margin-top: 5px;
-	font-size: 0.9em;
-	text-align: left;
+  display: none;
+  background: rgba(0, 0, 0, 0.01);
+  color: #444;
+  border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
+  padding: 10px 15px 10px 50px !important;
+  line-height: 1.4;
+  width: 100%;
+  margin-top: 5px;
+  font-size: 0.9em;
+  text-align: left;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description.expanded,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description.expanded {
-	display: block;
+  display: block;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row {
-	background: rgba(0, 0, 0, 0.02);
-	border: 1px solid rgba(0, 0, 0, 0.08);
-	border-radius: 0;
-	transition: all 0.2s ease;
-	margin: 0;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  transition: all 0.2s ease;
+  margin: 0;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row:last-child,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row:last-child {
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row:hover,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row:hover {
-	background: rgba(0, 0, 0, 0.04);
-	border-color: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.18);
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row.is-active,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row.is-active {
-	border-left: 3px solid #7f7a67;
-	background: rgba(177, 22, 26, 0.02);
+  border-left: 3px solid #7f7a67;
+  background: rgba(177, 22, 26, 0.02);
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-row-main,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-row-main {
-	padding: 6px 12px;
-	height: 40px;
+  padding: 6px 12px;
+  height: 40px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity {
-	flex: 1;
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	cursor: pointer;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-identity
-	.item-image,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity .item-image,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-image {
-	flex: 0 0 auto;
-	width: 28px;
-	height: 28px;
-	object-fit: cover;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	background: #111;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background: #111;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity .item-name,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name {
-	flex: 1;
-	font-family: "Source Sans 3", sans-serif;
-	font-weight: bold;
-	font-size: 13px;
-	color: #222;
+  flex: 1;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: #222;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-identity
-	.item-name:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity .item-name:hover,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name:hover {
-	color: #7f7a67;
+  color: #7f7a67;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 12.5px;
-	font-weight: bold;
-	color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12.5px;
+  font-weight: bold;
+  color: #444;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-meta-col
-	.font-muted,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col .font-muted,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .font-muted {
-	color: #888;
-	font-size: 11px;
-	margin-right: 2px;
+  color: #888;
+  font-size: 11px;
+  margin-right: 2px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat {
-	font-size: 10.5px;
-	background: rgba(0, 0, 0, 0.06);
-	padding: 2px 6px;
-	border-radius: 3px;
-	border: 1px solid rgba(0, 0, 0, 0.05);
-	color: #555;
+  font-size: 10.5px;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #555;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .quantity-controller,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller {
-	display: flex;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.04);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	height: 24px;
-	overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 24px;
+  overflow: hidden;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.quantity-controller
-	.adjustment-button,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .quantity-controller .adjustment-button,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .adjustment-button {
-	padding: 0 6px;
-	font-size: 9px;
-	color: #666;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	transition: background 0.2s;
+  padding: 0 6px;
+  font-size: 9px;
+  color: #666;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.quantity-controller
-	.adjustment-button:hover,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-items-list
-	.item-row
-	.quantity-controller
-	.adjustment-button:hover {
-	background: rgba(0, 0, 0, 0.08);
-	color: #000;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .quantity-controller .adjustment-button:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .adjustment-button:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #000;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.quantity-controller
-	.qty-value,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .quantity-controller .qty-value,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .qty-value {
-	width: 30px;
-	text-align: center;
-	font-size: 11.5px;
-	font-weight: bold;
-	color: #000;
+  width: 30px;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: bold;
+  color: #000;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn {
-	color: #777;
-	padding: 4px 6px;
-	border-radius: 4px;
-	transition: all 0.2s ease;
-	cursor: pointer;
-	font-size: 12px;
+  color: #777;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-size: 12px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn:hover,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn:hover {
-	color: #000;
-	background: rgba(0, 0, 0, 0.06);
+  color: #000;
+  background: rgba(0, 0, 0, 0.06);
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active {
-	color: #d1a100;
+  color: #d1a100;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-btn.btn-star.active:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active:hover,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active:hover {
-	color: #f3ca30;
+  color: #f3ca30;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-items-list
-	.item-row
-	.item-btn.btn-delete:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn.btn-delete:hover,
 .system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-delete:hover {
-	color: #fff;
-	background: #7f7a67;
+  color: #fff;
+  background: #7f7a67;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab,
 .system-ordemparanormal .tab.inventory-tab {
-	/* --- 4. RODAPÉ VISUAL DE COMPENSAÇÃO DE CARGA --- */
+  /* --- 4. RODAPÉ VISUAL DE COMPENSAÇÃO DE CARGA --- */
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space {
-	background: rgba(0, 0, 0, 0.03);
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 6px 15px;
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	flex: 0 0 auto !important;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 6px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 0 0 auto !important;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-label,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-label {
-	font-family: "Source Sans 3", sans-serif;
-	font-size: 10px;
-	font-weight: bold;
-	color: #555;
-	display: flex;
-	align-items: center;
-	gap: 4px;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-counter,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter {
-	font-family: "Source Sans 3", sans-serif;
-	font-weight: 800;
-	font-size: 12px;
-	display: flex;
-	align-items: center;
-	gap: 2px;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space
-	.space-status-bar
-	.space-counter
-	.current,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-counter .current,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .current {
-	color: #000;
+  color: #000;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space
-	.space-status-bar
-	.space-counter
-	.divider,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-counter .divider,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .divider {
-	color: #aaa;
-	font-weight: normal;
+  color: #aaa;
+  font-weight: normal;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space
-	.space-status-bar
-	.space-counter
-	.max,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-counter .max,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .max {
-	color: #666;
+  color: #666;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .progress-bar-container,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container {
-	width: 100%;
-	height: 4px;
-	background: rgba(0, 0, 0, 0.08);
-	border-radius: 2px;
-	overflow: hidden;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space
-	.progress-bar-container
-	.progress-fill,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .progress-bar-container .progress-fill,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container .progress-fill {
-	height: 100%;
-	background: #161616;
-	border-radius: 2px;
-	transition:
-		width 0.4s ease,
-		background-color 0.4s ease;
+  height: 100%;
+  background: #161616;
+  border-radius: 2px;
+  transition: width 0.4s ease, background-color 0.4s ease;
 }
 .system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space.is-overburdened,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened {
-	background: rgba(177, 22, 26, 0.04);
-	border-top-color: rgba(177, 22, 26, 0.2);
+  background: rgba(177, 22, 26, 0.04);
+  border-top-color: rgba(177, 22, 26, 0.2);
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.space-status-bar
-	.space-label,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space.is-overburdened .space-status-bar .space-label,
 .system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened .space-status-bar .space-label {
-	color: #b1161a;
-	animation: op-pulse 2s infinite ease-in-out;
+  color: #b1161a;
+  animation: op-pulse 2s infinite ease-in-out;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.space-status-bar
-	.space-counter
-	.current,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.space-status-bar
-	.space-counter
-	.current {
-	color: #b1161a;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space.is-overburdened .space-status-bar .space-counter .current,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened .space-status-bar .space-counter .current {
+  color: #b1161a;
 }
-.system-ordemparanormal
-	.sheet-body
-	.tab.active.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.progress-bar-container
-	.progress-fill,
-.system-ordemparanormal
-	.tab.inventory-tab
-	.inventory-footer-space.is-overburdened
-	.progress-bar-container
-	.progress-fill {
-	background: #b1161a;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space.is-overburdened .progress-bar-container .progress-fill,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened .progress-bar-container .progress-fill {
+  background: #b1161a;
 }
 .system-ordemparanormal {
-	/* --- 2. CONTAINER DE ROLAGEM E TÍTULOS --- */
+  /* --- 2. CONTAINER DE ROLAGEM E TÍTULOS --- */
 }
 .system-ordemparanormal .scrollable-inventory,
 .system-ordemparanormal .effects-management {
-	flex: 1 1 auto !important;
-	overflow-y: auto !important;
-	overflow-x: hidden !important;
-	padding: 10px 5px 0 16px;
-	scrollbar-width: thin;
-	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
-	scrollbar-gutter: stable;
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 10px 5px 0 16px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+  scrollbar-gutter: stable;
 }
 .system-ordemparanormal .scrollable-inventory::-webkit-scrollbar,
 .system-ordemparanormal .effects-management::-webkit-scrollbar {
-	width: 6px;
+  width: 6px;
 }
 .system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-track,
 .system-ordemparanormal .effects-management::-webkit-scrollbar-track {
-	background: transparent;
+  background: transparent;
 }
 .system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-thumb,
 .system-ordemparanormal .effects-management::-webkit-scrollbar-thumb {
-	background: rgba(0, 0, 0, 0.25);
-	border-radius: 3px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
 }
 .system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-thumb:hover,
 .system-ordemparanormal .effects-management::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.45);
 }
 @keyframes op-pulse {
-	0% {
-		opacity: 0.8;
-	}
-	50% {
-		opacity: 1;
-		color: #ff2a30;
-	}
-	100% {
-		opacity: 0.8;
-	}
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    color: #ff2a30;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+.system-ordemparanormal {
+  /* ========================================================= */
+  /* --- GERENCIADOR DE RECURSOS (ABA HABILIDADES) --- */
+  /* ========================================================= */
+}
+.system-ordemparanormal .tactical-control-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 15px;
+}
+.system-ordemparanormal .tactical-control-bar .toggle-btn {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.system-ordemparanormal .tactical-control-bar .toggle-btn:hover {
+  color: #000;
+}
+.system-ordemparanormal .tactical-control-bar .toggle-btn.is-active {
+  color: #7f7a67;
+}
+.system-ordemparanormal .resource-manager-box {
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge {
+  height: 30px !important;
+  padding-right: 6px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label {
+  padding: 0;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input {
+  width: 80px !important;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #444;
+  background: transparent;
+  border: none;
+  text-align: center;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input:hover, .system-ordemparanormal .resource-manager-box .resource-badge label input:focus {
+  background: rgba(255, 255, 255, 0.5);
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 2px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input {
+  width: 30px !important;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+  color: #000;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input:hover, .system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input:focus {
+  background: rgba(255, 255, 255, 0.5);
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs .divider {
+  color: #888;
+  font-weight: normal;
+  font-size: 12px;
+}
+.system-ordemparanormal {
+  /* --- GERENCIADOR DE RECURSOS --- */
+}
+.system-ordemparanormal .resource-manager-box {
+  /* Força a barra a se comportar em uma única linha horizontal */
+  display: flex;
+  justify-content: center; /* Centraliza os 3 blocos na tela */
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+.system-ordemparanormal .resource-manager-box .resource-management {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px; /* Espaço entre o Recurso 1, 2 e 3 */
+  flex-wrap: nowrap; /* Proíbe estritamente a quebra de linha */
+  width: 100%;
+  justify-content: space-evenly;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  height: 26px;
+  overflow: hidden;
+  flex-shrink: 1; /* Permite encolher levemente se a tela for muito pequena */
+  /* Área do Nome do Recurso */
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label {
+  background: rgba(0, 0, 0, 0.03);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input {
+  width: 80px; /* Largura fixa para o nome do recurso */
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-family: "Signika", sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  color: #444;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 4px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input::placeholder {
+  color: #888;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge {
+  /* Área dos Valores (Atual / Máximo) */
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 4px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input {
+  width: 28px !important; /* Espaço apenas para números (ex: 999) */
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: #000;
+  padding: 0;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs .divider {
+  font-weight: bold;
+  font-size: 12px;
+  color: #666;
+  margin: 0 2px;
 }
 .system-ordemparanormal .biography .class,
 .system-ordemparanormal .biography .trail {
-	font-size: 12px;
+  font-size: 12px;
 }
 .system-ordemparanormal .biography fieldset {
-	border: 1px solid rgba(0, 0, 0, 0.2509803922);
-	border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2509803922);
+  border-radius: 10px;
 }
 .system-ordemparanormal .biography .bio-desc .editor {
-	min-height: 230px;
+  min-height: 230px;
 }
 .system-ordemparanormal .biography .bio-goals .editor {
-	min-height: 100px;
+  min-height: 100px;
 }
 .system-ordemparanormal .dossier-section {
-	margin-bottom: 0 !important;
-	display: flex;
-	flex-direction: column;
+  margin-bottom: 0 !important;
+  display: flex;
+  flex-direction: column;
 }
 .system-ordemparanormal .dossier-section .inventory-list-header {
-	margin-bottom: 0 !important;
-	border-radius: 4px 4px 0 0 !important;
+  margin-bottom: 0 !important;
+  border-radius: 4px 4px 0 0 !important;
 }
 .system-ordemparanormal .dossier-section .dossier-editor-container {
-	background: rgba(0, 0, 0, 0.02);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-top: none;
-	border-radius: 0 0 4px 4px;
-	min-height: 250px;
-	display: flex;
-	flex-direction: column;
-	flex: 1;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 250px;
 }
 .system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .editor-content,
 .system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .ProseMirror {
-	padding: 15px;
-	color: #222;
+  padding: 15px;
+  color: #222;
 }
 .system-ordemparanormal .dossier-section .dossier-editor-container .locked-content {
-	padding: 15px;
-	color: #222;
-	line-height: 1.5;
+  padding: 15px;
+  color: #222;
+  line-height: 1.5;
 }
 .system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p {
-	margin: 0 0 10px 0;
+  margin: 0 0 10px 0;
 }
 .system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p:last-child {
-	margin: 0;
+  margin: 0;
 }
 
 /*# sourceMappingURL=ordemparanormal.css.map */

@@ -370,7 +370,6 @@ form.ordemparanormal.actor {
 						flex: 1;
 						margin: 0;
 						padding: 0;
-						height: 36px;
 
 						input {
 							font-size: 28px;
@@ -378,6 +377,7 @@ form.ordemparanormal.actor {
 							font-weight: bold;
 							width: 100%;
 							border: none;
+							border-radius: 4px;
 							background: transparent;
 							padding: 0;
 							height: 100%;
@@ -625,96 +625,6 @@ form.ordemparanormal.item nav.sheet-tabs.tabs {
 
 			i {
 				color: colors.$gray;
-			}
-		}
-	}
-}
-
-/* ========================================================= */
-/* --- GERENCIADOR DE RECURSOS (ABA HABILIDADES) --- */
-/* ========================================================= */
-.tactical-control-bar {
-	display: flex;
-	justify-content: flex-end;
-	padding: 4px 15px;
-	background: rgba(0, 0, 0, 0.02);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-
-	.toggle-btn {
-		font-family: typography.$font-primary;
-		font-size: 11px;
-		font-weight: bold;
-		text-transform: uppercase;
-		color: #666;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		gap: 6px;
-		transition: all 0.2s;
-
-		&:hover {
-			color: #000;
-		}
-
-		&.is-active {
-			color: colors.$light-taupe;
-		}
-	}
-}
-
-.resource-manager-box {
-	margin-bottom: 15px;
-	border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
-
-	.resource-badge {
-		height: 30px !important;
-		padding-right: 6px;
-
-		label {
-			padding: 0;
-
-			input {
-				width: 80px !important;
-				text-transform: uppercase;
-				font-size: 11px;
-				color: #444;
-				background: transparent;
-				border: none;
-				text-align: center;
-
-				&:hover,
-				&:focus {
-					background: rgba(255, 255, 255, 0.5);
-				}
-			}
-		}
-
-		.resource-inputs {
-			display: flex;
-			align-items: center;
-			height: 100%;
-			gap: 2px;
-
-			input {
-				width: 30px !important;
-				height: 100%;
-				border: none;
-				background: transparent;
-				text-align: center;
-				font-weight: bold;
-				font-size: 13px;
-				color: #000;
-
-				&:hover,
-				&:focus {
-					background: rgba(255, 255, 255, 0.5);
-				}
-			}
-
-			.divider {
-				color: #888;
-				font-weight: normal;
-				font-size: 12px;
 			}
 		}
 	}

@@ -658,3 +658,176 @@
 		opacity: 0.8;
 	}
 }
+
+/* ========================================================= */
+/* --- GERENCIADOR DE RECURSOS (ABA HABILIDADES) --- */
+/* ========================================================= */
+.tactical-control-bar {
+	display: flex;
+	justify-content: flex-end;
+	padding: 4px 15px;
+
+	.toggle-btn {
+		font-family: typography.$font-primary;
+		font-size: 11px;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: #666;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		transition: all 0.2s;
+
+		&:hover {
+			color: #000;
+		}
+
+		&.is-active {
+			color: colors.$light-taupe;
+		}
+	}
+}
+
+.resource-manager-box {
+	margin-bottom: 15px;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+
+	.resource-badge {
+		height: 30px !important;
+		padding-right: 6px;
+
+		label {
+			padding: 0;
+
+			input {
+				width: 80px !important;
+				text-transform: uppercase;
+				font-size: 11px;
+				color: #444;
+				background: transparent;
+				border: none;
+				text-align: center;
+
+				&:hover,
+				&:focus {
+					background: rgba(255, 255, 255, 0.5);
+				}
+			}
+		}
+
+		.resource-inputs {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			gap: 2px;
+
+			input {
+				width: 30px !important;
+				height: 100%;
+				border: none;
+				background: transparent;
+				text-align: center;
+				font-weight: bold;
+				font-size: 13px;
+				color: #000;
+
+				&:hover,
+				&:focus {
+					background: rgba(255, 255, 255, 0.5);
+				}
+			}
+
+			.divider {
+				color: #888;
+				font-weight: normal;
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+/* --- GERENCIADOR DE RECURSOS --- */
+.resource-manager-box {
+	/* Força a barra a se comportar em uma única linha horizontal */
+	display: flex;
+	justify-content: center; /* Centraliza os 3 blocos na tela */
+	padding: 8px 10px;
+	margin-bottom: 10px;
+
+	.resource-management {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 15px; /* Espaço entre o Recurso 1, 2 e 3 */
+		flex-wrap: nowrap; /* Proíbe estritamente a quebra de linha */
+		width: 100%;
+		justify-content: space-evenly;
+	}
+
+	.resource-badge {
+		display: flex;
+		align-items: center;
+		background: rgba(0, 0, 0, 0.05);
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 4px;
+		height: 26px;
+		overflow: hidden;
+		flex-shrink: 1; /* Permite encolher levemente se a tela for muito pequena */
+
+		/* Área do Nome do Recurso */
+		label {
+			background: rgba(0, 0, 0, 0.03);
+			border-right: 1px solid rgba(0, 0, 0, 0.15);
+			height: 100%;
+			display: flex;
+			align-items: center;
+			padding: 0;
+
+			input {
+				width: 80px; /* Largura fixa para o nome do recurso */
+				height: 100%;
+				border: none;
+				background: transparent;
+				font-family: "Signika", sans-serif;
+				font-weight: 900;
+				font-size: 11px;
+				color: #444;
+				text-align: center;
+				text-transform: uppercase;
+				padding: 0 4px;
+
+				&::placeholder {
+					color: #888;
+				}
+			}
+		}
+
+		/* Área dos Valores (Atual / Máximo) */
+		.resource-inputs {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			padding: 0 4px;
+
+			input {
+				width: 28px !important; /* Espaço apenas para números (ex: 999) */
+				height: 100%;
+				border: none;
+				background: transparent;
+				text-align: center;
+				font-weight: bold;
+				font-size: 12px;
+				color: #000;
+				padding: 0;
+			}
+
+			.divider {
+				font-weight: bold;
+				font-size: 12px;
+				color: #666;
+				margin: 0 2px;
+			}
+		}
+	}
+}
