@@ -1,3 +1,5 @@
+import { calculateSkillProficiency } from "../../helpers/actor-calculations.mjs";
+
 const defaultAttrs = {
 	fighting: "str",
 	aim: "dex",
