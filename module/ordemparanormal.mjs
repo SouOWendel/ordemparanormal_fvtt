@@ -303,18 +303,18 @@ function _configureFonts() {
 			editor: true,
 			fonts: [
 				{
-					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Regular.otf"],
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Regular.ttf"],
 				},
 				{
-					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Bold.otf"],
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Bold.ttf"],
 					weight: "bold",
 				},
 				{
-					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Italic.otf"],
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Italic.ttf"],
 					style: "italic",
 				},
 				{
-					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-BoldItalic.otf"],
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-BoldItalic.ttf"],
 					weight: "bold",
 					style: "italic",
 				},
