@@ -57,7 +57,7 @@
 				{{! Lista de Itens do Círculo }}
 				<ol class="inventory-items-list main-items">
 					{{#each rituals as |item id|}}
-						<li class="item item-row draggable" data-document-class="Item" data-item-id="{{item._id}}">
+						<li class="item item-row draggable" data-drag="true" data-document-class="Item" data-item-id="{{item._id}}">
 							<div class="item-row-main">
 
 								{{! Identidade (Imagem + Nome) }}
@@ -136,7 +136,7 @@
 				</div>
 				<ol class="inventory-items-list main-items">
 					{{#each rituals.invalid as |item id|}}
-						<li class="item item-row draggable" data-document-class="Item" data-item-id="{{item._id}}">
+						<li class="item item-row draggable" data-drag="true" data-document-class="Item" data-item-id="{{item._id}}">
 							<div class="item-row-main">
 								<div class="item-identity flexrow">
 									<div class="item-image slide">
