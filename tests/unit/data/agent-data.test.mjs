@@ -327,30 +327,54 @@ function makeAgent(overrides = {}) {
 	return Object.assign({}, base, overrides);
 }
 
-describe("AgentData.prepareBaseData() — status maxima", () => {
-	it("calculates PV.max and PE.max for a fighter at NEX 5", () => {
-		const agent = new AgentData(makeAgent({ class: "fighter", NEX: { value: 5 } }));
+describe("AgentData.prepareBaseData() — progress and resources", () => {
+	it("calculates progress from NEX and assigns PE.perRound", () => {
+		const agent = new AgentData(
+			makeAgent({
+				class: "fighter",
+				NEX: { value: 15 },
+			})
+		);
+
 		agent.prepareBaseData();
-		// NEX 5 → progress = floor(5/5) = 1 → progressAdjust = 0, no bonus
-		// fighter PV_max = 20 + VIG(3) = 23; PE_max = 2 + PRE(2) = 4
+
+		expect(agent._progress).toBe(3);
+		expect(agent._isSurvivor).toBe(false);
+		expect(agent._withoutSanity).toBe(false);
+		expect(agent.PE.perRound).toBe(3);
+	});
+
+	it("uses stage as progress and assigns PD.perRound for survivor", () => {
+		const agent = new AgentData(
+			makeAgent({
+				class: "survivor",
+				stage: { value: 4 },
+			})
+		);
+
+		agent.prepareBaseData();
+
+		expect(agent._progress).toBe(4);
+		expect(agent._isSurvivor).toBe(true);
+		expect(agent.PD.perRound).toBe(1);
+	});
+
+	it("leaves status maxima unchanged because OrdemActor calculates them", () => {
+		const agent = new AgentData(
+			makeAgent({
+				PV: { value: 5, max: 23, perRound: 1 },
+				PE: { value: 5, max: 4, perRound: 1 },
+				PD: { value: 5, max: 0, perRound: 1 },
+				SAN: { value: 5, max: 12, perRound: 1 },
+			})
+		);
+
+		agent.prepareBaseData();
+
 		expect(agent.PV.max).toBe(23);
 		expect(agent.PE.max).toBe(4);
-	});
-
-	it("calculates PD.max instead of PE.max when playing without sanity", () => {
-		// game mock returns false for globalPlayingWithoutSanity by default;
-		// override via makeAgent can't change game.settings — tested via class logic instead
-		// with withoutSanity=false the PE.max should be set (not PD)
-		const agent = new AgentData(makeAgent({ class: "specialist", NEX: { value: 5 } }));
-		agent.prepareBaseData();
-		// specialist PE_max = 3 + PRE(2) = 5; PD stays at initial since not withoutSanity
-		expect(agent.PE.max).toBe(5);
-	});
-
-	it("sets PV.max=0 when class is empty", () => {
-		const agent = new AgentData(makeAgent({ class: "" }));
-		agent.prepareBaseData();
-		expect(agent.PV.max).toBe(0);
+		expect(agent.PD.max).toBe(0);
+		expect(agent.SAN.max).toBe(12);
 	});
 });
 
