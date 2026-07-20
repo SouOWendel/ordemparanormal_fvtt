@@ -548,6 +548,48 @@ function attachChatCommandListenerOnce(host) {
 Hooks.on("renderChatLog", (_app, html) => OrdemItem.chatListeners(html));
 Hooks.on("renderChatPopout", (_app, html) => OrdemItem.chatListeners(html));
 
+/**
+ * Adds a datalist helper for suggesting valid Actor attribute keys in the ActiveEffect config dialog.
+ */
+Hooks.on("renderActiveEffectConfig", (activeEffectConfig, html, data) => {
+	const effectsSection = html.querySelector("section[data-tab='changes']");
+	if (!effectsSection) return;
+	console.log("Adding datalist for attribute keys in ActiveEffect config dialog...");
+
+	const datalist = document.createElement("datalist");
+	datalist.id = "attribute-key-list";
+
+	const inputFields = effectsSection.querySelectorAll(".key input");
+	inputFields.forEach((input) => input.setAttribute("list", datalist.id));
+
+	const attributeKeys = [];
+
+	for (const model of Object.values(CONFIG.Actor.dataModels)) {
+		model.schema.apply(function () {
+			// eslint-disable-next-line no-invalid-this
+			if (!(this instanceof foundry.data.fields.SchemaField)) {
+				attributeKeys.push({
+					// eslint-disable-next-line no-invalid-this
+					key: this.fieldPath,
+					// eslint-disable-next-line no-invalid-this
+					label: this.label,
+				});
+			}
+		});
+	}
+
+	attributeKeys
+		.sort((a, b) => a.key.localeCompare(b.key))
+		.forEach(({ key, label }) => {
+			const option = document.createElement("option");
+			option.value = key;
+			if (label) option.label = label;
+			datalist.appendChild(option);
+		});
+
+	effectsSection.appendChild(datalist);
+});
+
 // Single global listener — body is always present and survives re-renders.
 attachChatCommandListenerOnce(document.body);
 
