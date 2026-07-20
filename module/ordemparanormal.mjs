@@ -37,6 +37,9 @@ globalThis.ordemparanormal = {
 	dice,
 };
 
+const collections = foundry.documents.collections;
+const sheets = foundry.appv1.sheets;
+
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -86,18 +89,18 @@ Hooks.once("init", function () {
 	};
 
 	// Register sheet application classes
-	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("ordemparanormal", OrdemActorSheet, {
+	collections.Actors.unregisterSheet("core", sheets.ActorSheet);
+	collections.Actors.registerSheet("ordemparanormal", OrdemActorSheet, {
 		types: ["agent"],
 		makeDefault: true,
 	});
-	Actors.registerSheet("ordemparanormal", OrdemThreatSheet, {
+	collections.Actors.registerSheet("ordemparanormal", OrdemThreatSheet, {
 		types: ["threat"],
 		makeDefault: true,
 	});
 
-	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("ordemparanormal", OrdemItemSheet, {
+	collections.Items.unregisterSheet("core", sheets.ItemSheet);
+	collections.Items.registerSheet("ordemparanormal", OrdemItemSheet, {
 		makeDefault: true,
 	});
 	// Configure Fonts
