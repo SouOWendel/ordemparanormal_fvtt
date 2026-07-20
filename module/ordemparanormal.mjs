@@ -417,14 +417,33 @@ Handlebars.registerHelper("opOptionalDataAttr", function (name, value) {
  * `data-disabled` or `data-duration.rounds` for the "create effect" control by section type.
  * Used in `actor-effects`, `shared/effects`, and `threat-effects` templates.
  */
+function buildV13TemporaryEffectDurationAttributes() {
+	return ' data-duration.rounds="1"';
+}
+
+function buildV14TemporaryEffectDurationAttributes() {
+	return ' data-duration.value="1" data-duration.units="rounds"';
+}
+
+function buildTemporaryEffectDurationAttributes() {
+	const generation = game.release?.generation ?? Number.parseInt(game.version, 10);
+
+	// Foundry v13 uses `duration.rounds`.
+	// Foundry v14 uses `duration.value` and `duration.units`.
+	return generation >= 14 ? buildV14TemporaryEffectDurationAttributes() : buildV13TemporaryEffectDurationAttributes();
+}
+
 Handlebars.registerHelper("opActiveEffectCreateAttrs", function (section) {
-	const t = section?.type;
-	if (t === "inactive") {
+	const type = section?.type;
+
+	if (type === "inactive") {
 		return new Handlebars.SafeString(' data-disabled="true"');
 	}
-	if (t === "temporary") {
-		return new Handlebars.SafeString(' data-duration.rounds="1"');
+
+	if (type === "temporary") {
+		return new Handlebars.SafeString(buildTemporaryEffectDurationAttributes());
 	}
+
 	return new Handlebars.SafeString("");
 });
 
