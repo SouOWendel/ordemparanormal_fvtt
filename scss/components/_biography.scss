@@ -1,0 +1,76 @@
+@use "../utils/variables";
+
+.biography {
+	.class,
+	.trail {
+		font-size: 12px;
+	}
+
+	fieldset {
+		border: variables.$border-transparent;
+		border-radius: 10px;
+	}
+
+	.bio-desc .editor {
+		min-height: 230px;
+	}
+
+	.bio-goals .editor {
+		min-height: 100px;
+	}
+}
+
+.dossier-section {
+	margin-bottom: 8px;
+	display: flex;
+	flex-direction: column;
+
+	.inventory-list-header {
+		margin-bottom: 0 !important;
+		border-radius: 4px 4px 0 0 !important;
+	}
+
+	.dossier-editor-container {
+		background: rgba(0, 0, 0, 0.02);
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-top: none;
+		border-radius: 0 0 4px 4px;
+		min-height: 250px;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+
+		prose-mirror {
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			min-height: 250px;
+
+			.editor-content,
+			.ProseMirror {
+				padding: 15px;
+				color: #222;
+			}
+
+			.icon {
+				margin: 4px;
+				height: 32px;
+				width: 32px;
+			}
+		}
+
+		.locked-content {
+			padding: 15px;
+			color: #222;
+			line-height: 1.5;
+
+			p {
+				margin: 0 0 10px 0;
+			}
+
+			p:last-child {
+				margin: 0;
+			}
+		}
+	}
+}

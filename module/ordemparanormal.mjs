@@ -60,12 +60,15 @@ Hooks.once("init", function () {
 		threat: dataModels.ThreatData,
 	});
 	Object.assign(CONFIG.Item.dataModels, {
-		ammunition: dataModels.AmmunitionData,
+		// ammunition: dataModels.AmmunitionData,
 		armament: dataModels.ArmamentData,
 		generalEquipment: dataModels.GeneralEquipmentData,
 		protection: dataModels.ProtectionData,
 		ability: dataModels.AbilityData,
 		ritual: dataModels.RitualData,
+		origin: dataModels.OriginData,
+		path: dataModels.PathData,
+		class: dataModels.ClassData,
 	});
 	CONFIG.ChatMessage.documentClass = documents.ChatMessageOP;
 	CONFIG.time.roundTime = 6; // Pg. 169 of the Book
@@ -267,6 +270,48 @@ function _configureFonts() {
 				},
 				{
 					urls: ["systems/ordemparanormal/media/fonts/optima-nova-lt-pro/OptimaNovaLTProBoldItalic.otf"],
+					weight: "bold",
+					style: "italic",
+				},
+			],
+		},
+		"Libre Baskerville": {
+			editor: true,
+			fonts: [
+				{
+					urls: ["systems/ordemparanormal/media/fonts/libre-baskerville/LibreBaskerville-Regular.ttf"],
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/libre-baskerville/LibreBaskerville-Bold.ttf"],
+					weight: "bold",
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/libre-baskerville/LibreBaskerville-Italic.ttf"],
+					style: "italic",
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/libre-baskerville/LibreBaskerville-BoldItalic.ttf"],
+					weight: "bold",
+					style: "italic",
+				},
+			],
+		},
+		"Source Sans 3": {
+			editor: true,
+			fonts: [
+				{
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Regular.otf"],
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Bold.otf"],
+					weight: "bold",
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Italic.otf"],
+					style: "italic",
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-BoldItalic.otf"],
 					weight: "bold",
 					style: "italic",
 				},

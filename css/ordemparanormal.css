@@ -33,7 +33,7 @@ dialog.ordemparanormal.application {
 }
 
 .window-app {
-	font-family: "Roboto", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 }
 
 .rollable:hover,
@@ -65,6 +65,10 @@ dialog.ordemparanormal.application {
 :root {
 	scrollbar-width: initial !important;
 	scrollbar-color: initial !important;
+}
+
+.op-shadow {
+	box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 .grid,
@@ -283,6 +287,417 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .capitalize {
 	text-transform: capitalize;
 }
+.system-ordemparanormal .threat {
+	/* --- CABEÇALHO PRINCIPAL --- */
+}
+.system-ordemparanormal .threat .header-identify {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+.system-ordemparanormal .threat .header-identify .threat-profile-img {
+	flex: 0 0 85px;
+	height: 85px;
+	width: 85px;
+	object-fit: cover;
+	border: 1px solid #000;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.system-ordemparanormal .threat .header-identify .identity-info {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-width: 200px;
+	gap: 6px;
+}
+.system-ordemparanormal .threat .header-identify .charname {
+	margin: 0;
+}
+.system-ordemparanormal .threat .header-identify .charname input {
+	font-family: "Libre Baskerville", serif;
+	text-align: center;
+	font-weight: 800;
+	font-size: 1.5rem;
+	width: 100%;
+	border: none;
+	background: transparent;
+	border-radius: 0;
+	height: 40px;
+}
+.system-ordemparanormal .threat .header-identify .charname input:focus {
+	border-bottom-color: 1px solid #272727;
+}
+.system-ordemparanormal .threat .header-stats-row {
+	display: flex;
+	gap: 8px;
+	align-items: stretch;
+	flex-wrap: wrap;
+}
+.system-ordemparanormal .threat .header-stats-row .vd-box {
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(39, 39, 39, 0.25);
+	border-radius: 5px;
+	padding: 4px 6px;
+	flex: 0 0 55px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.system-ordemparanormal .threat .header-stats-row .vd-box label {
+	font-weight: bold;
+	font-size: 11px;
+	color: #333;
+}
+.system-ordemparanormal .threat .header-stats-row .vd-box input {
+	width: 100%;
+	text-align: center;
+	font-size: 1.1rem;
+	font-weight: bold;
+	border: none;
+	background: transparent;
+	padding: 0;
+	height: 22px;
+}
+.system-ordemparanormal .threat .header-stats-row .disturbing-presence {
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(39, 39, 39, 0.25);
+	border-radius: 5px;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	padding: 4px 10px;
+	flex-wrap: wrap;
+}
+.system-ordemparanormal .threat .header-stats-row .disturbing-presence .section-title {
+	font-weight: bold;
+	font-size: 13px;
+	color: #333;
+}
+.system-ordemparanormal .threat .header-stats-row .disturbing-presence .presence-stat {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+.system-ordemparanormal .threat .header-stats-row .disturbing-presence .presence-stat label {
+	font-size: 11px;
+	font-weight: bold;
+	color: #555;
+}
+.system-ordemparanormal .threat .header-stats-row .disturbing-presence .presence-stat input {
+	height: 22px;
+	font-size: 12px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+}
+.system-ordemparanormal .threat .header-stats-row .disturbing-presence .presence-stat input[name*="dt"] {
+	width: 40px;
+}
+.system-ordemparanormal .threat .header-stats-row .disturbing-presence .presence-stat input[name*="mentalDamage"] {
+	width: 75px;
+}
+.system-ordemparanormal .threat .header-stats-row .disturbing-presence .presence-stat i {
+	color: #151515;
+	font-size: 15px;
+}
+.system-ordemparanormal .threat {
+	/* --- AGRUPAMENTOS FLEX & GRID --- */
+}
+.system-ordemparanormal .threat .header-fields {
+	margin-top: 6px;
+}
+.system-ordemparanormal .threat {
+	/* --- CABEÇALHO COMBATE (hp-box, defense-box, etc) --- */
+}
+.system-ordemparanormal .threat .combat-stats-row {
+	display: flex;
+	gap: 8px;
+	margin: 6px 0;
+	flex-wrap: wrap;
+}
+.system-ordemparanormal .threat .combat-stats-row .resource {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+	min-width: 90px;
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 4px;
+}
+.system-ordemparanormal .threat .combat-stats-row .resource .resource-label {
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: bold;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 4px;
+	width: 100%;
+	text-align: center;
+}
+.system-ordemparanormal .threat .combat-stats-row .resource .resource-content {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.system-ordemparanormal .threat .combat-stats-row .resource input {
+	text-align: center;
+	border: none;
+	background: transparent;
+	width: 100%;
+	height: 22px;
+	font-size: 13px;
+}
+.system-ordemparanormal .threat .combat-stats-row .hp-box {
+	flex: 1.5;
+}
+.system-ordemparanormal .threat .combat-stats-row .hp-box .divider {
+	margin: 0 4px;
+	font-weight: bold;
+	color: #666;
+	font-size: 13px;
+}
+.system-ordemparanormal .threat {
+	/* --- CLASSIFICAÇÃO + ATRIBUTOS --- */
+}
+.system-ordemparanormal .threat .class-attr-row {
+	display: flex;
+	gap: 6px;
+	margin: 6px 0;
+	flex-wrap: nowrap;
+}
+.system-ordemparanormal .threat .class-attr-row .resource {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 4px 2px;
+	min-width: 0;
+}
+.system-ordemparanormal .threat .class-attr-row .resource .resource-label {
+	text-transform: uppercase;
+	font-size: 10px;
+	font-weight: bold;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 4px;
+	width: 100%;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.system-ordemparanormal .threat .class-attr-row .resource .resource-content {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.system-ordemparanormal .threat .class-attr-row .resource input,
+.system-ordemparanormal .threat .class-attr-row .resource select {
+	text-align: center;
+	border: none;
+	background: transparent;
+	width: 100%;
+	height: 22px;
+	font-size: 12px;
+	padding: 0;
+}
+.system-ordemparanormal .threat .class-attr-row .select-box {
+	flex: 1.5;
+}
+.system-ordemparanormal .threat .class-attr-row .attr-box {
+	flex: 1;
+	background: rgba(0, 0, 0, 0.04);
+}
+.system-ordemparanormal .threat .class-attr-row .attr-box input {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.system-ordemparanormal .threat {
+	/* --- PERÍCIAS --- */
+}
+.system-ordemparanormal .threat .threat-skills-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 6px;
+	margin-top: 8px;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 4px;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box .resource-label {
+	font-size: 11.5px;
+	margin-bottom: 4px;
+	text-align: center;
+	line-height: 1;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box .resource-label span {
+	color: #666;
+	font-size: 9.5px;
+	font-weight: normal;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box .free-skill-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	margin-bottom: 4px;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box .free-skill-header input {
+	font-size: 11px;
+	height: 16px;
+	width: 70px;
+	text-align: center;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	background: transparent;
+	padding: 0;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box .free-skill-header i {
+	font-size: 11px;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box .skill-controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box .skill-controls input {
+	width: 32px;
+	text-align: center;
+	height: 18px;
+	font-size: 12px;
+}
+.system-ordemparanormal .threat .threat-skills-container .skill-box .skill-controls a i {
+	font-size: 11px;
+}
+.system-ordemparanormal .threat {
+	/* --- TAGS (Resistências e Características) --- */
+}
+.system-ordemparanormal .threat .threat-tags {
+	display: flex;
+	flex-direction: row;
+	align-items: start;
+	gap: 8px;
+	margin-top: 10px;
+}
+.system-ordemparanormal .threat .threat-tags .tags-box {
+	flex: 1;
+	min-width: 0;
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 4px;
+}
+.system-ordemparanormal .threat .threat-tags .tags-box .resource-label {
+	display: block;
+	text-align: center;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 4px;
+	padding-bottom: 2px;
+}
+.system-ordemparanormal .threat .threat-tags .config-header a {
+	text-decoration: none;
+	color: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+}
+.system-ordemparanormal .threat .threat-tags .config-header a i.fa-cog {
+	font-size: 0.85em;
+	opacity: 0.4;
+	transition: 0.2s;
+}
+.system-ordemparanormal .threat .threat-tags .config-header a:hover i.fa-cog {
+	opacity: 1;
+}
+.system-ordemparanormal .threat .threat-tags .resistance-container-grid,
+.system-ordemparanormal .threat .threat-tags .traits-container-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	padding: 2px;
+	align-items: center;
+	justify-content: center;
+	min-height: 24px;
+}
+.system-ordemparanormal .threat .threat-tags .resistance-tag,
+.system-ordemparanormal .threat .threat-tags .traits-tag {
+	flex: 1 0 auto;
+	min-width: 50px;
+	font-size: 10px;
+	border: 1px solid #7a7971;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.05);
+	white-space: nowrap;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 4px;
+}
+.system-ordemparanormal .threat .threat-tags .resistance-tag-label,
+.system-ordemparanormal .threat .threat-tags .traits-tag-label {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+.system-ordemparanormal .threat .threat-tags .resistance-tag-values {
+	display: flex;
+	gap: 3px;
+	align-items: center;
+	justify-content: center;
+}
+.system-ordemparanormal .threat .threat-tags .resistance-tag-value {
+	font-size: 11px;
+	font-weight: bold;
+}
+.system-ordemparanormal .threat .threat-tags .resistance-tag-immune {
+	color: #2c3e50;
+	font-size: 10px;
+}
+.system-ordemparanormal .threat .threat-tags .resistance-tag-vulnerable {
+	color: #c0392b;
+	font-size: 10px;
+}
+.system-ordemparanormal {
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+}
+.system-ordemparanormal .lowercase {
+	text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+	text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+	text-transform: capitalize;
+}
+.system-ordemparanormal {
+	/* ========================================================= */
+	/* --- TEMA E ESTRUTURA GLOBAL LEGADA --- */
+	/* ========================================================= */
+}
 .system-ordemparanormal .application.theme-light {
 	background: url("../media/parchment.jpg") repeat;
 	--color-header-background: #333;
@@ -303,26 +718,25 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal section.itemsheet,
 .system-ordemparanormal form.ordemparanormal.actor {
 	overflow: hidden;
-	color: #222;
+	color: #171717;
 }
 .system-ordemparanormal section.itemsheet .scrollable,
 .system-ordemparanormal form.ordemparanormal.actor .scrollable {
 	box-sizing: border-box;
 	width: 100%;
-	padding: 0;
 }
 .system-ordemparanormal section.itemsheet .prosemirror menu,
 .system-ordemparanormal section.itemsheet prosemirror menu,
 .system-ordemparanormal form.ordemparanormal.actor .prosemirror menu,
 .system-ordemparanormal form.ordemparanormal.actor prosemirror menu {
-	background: #eeede0;
+	background: #7f7a67;
 }
 .system-ordemparanormal section.itemsheet section.window-content,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content {
 	position: relative;
 	display: flex;
-	background: #eeede0;
 	height: 100%;
+	padding: 0;
 }
 .system-ordemparanormal section.itemsheet section.window-content input,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content input {
@@ -330,7 +744,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal section.itemsheet section.window-content .tab,
 .system-ordemparanormal form.ordemparanormal.actor section.window-content .tab {
-	padding-top: 10px;
+	padding: 0;
 	height: 100%;
 	overflow: auto;
 }
@@ -339,333 +753,20 @@ dialog.ordemparanormal.application {
 	display: flex;
 	flex-direction: column;
 }
-.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab="inventory"],
-.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab="inventory"] {
-	overflow: hidden;
-	padding-bottom: 20px;
-}
-.system-ordemparanormal section.itemsheet section.window-content .tab[data-tab="inventory"] .inventory-body,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content .tab[data-tab="inventory"] .inventory-body {
-	margin-bottom: 5px;
-	overflow: auto;
-	height: 100%;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 10px;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress {
-	padding-left: 10px;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .progress input,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .progress input {
-	width: 40px;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .profile-img,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .profile-img {
-	flex: 0 0 48px;
-	height: 48px;
-	margin-right: 10px;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op h1.charname,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op h1.charname {
-	height: 45px;
-	padding: 0px;
-	margin: 5px 0;
-	border-bottom: 0;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op h1.charname input,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op h1.charname input {
-	min-width: 235px;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1,
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h2,
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h3,
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h4,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h1,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h2,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h3,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content header.sheet-header-op .header-identify h4 {
-	border: 0;
-}
-.system-ordemparanormal section.itemsheet section.window-content header.sheet-header-op .header-identify h1.charname,
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	section.window-content
-	header.sheet-header-op
-	.header-identify
-	h1.charname {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	margin: 0;
-}
-.system-ordemparanormal
-	section.itemsheet
-	section.window-content
-	header.sheet-header-op
-	.header-identify
-	h1.charname
-	input,
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	section.window-content
-	header.sheet-header-op
-	.header-identify
-	h1.charname
-	input {
-	font-size: 0.6em;
-	font-family: "Signika";
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige {
-	position: relative;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	background-color: #eeede0;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents {
-	display: flex;
-	padding: 0 6px;
-	gap: 8px;
-	margin-bottom: 8px;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .limit,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .limit {
-	display: flex;
-	border: 1px solid #888;
-	border-radius: 4px;
-	width: 44px;
-	height: 32px;
-	text-align: center;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .prestige,
-.system-ordemparanormal
-	form.ordemparanormal.actor
-	section.window-content
-	section.inventory-prestige
-	.patents
-	.prestige {
-	display: flex;
-	flex: 1;
-	text-align: center;
-	font-size: 12px;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .name,
-.system-ordemparanormal section.itemsheet section.window-content section.inventory-prestige .patents .credit,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .name,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.inventory-prestige .patents .credit {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-grow: 1;
-	padding: 4px 6px;
-	border: 1px solid #888;
-	border-radius: 4px;
-	background-color: rgba(0, 0, 0, 0.05);
-	font-weight: bold;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space {
-	position: relative;
-	width: 100%;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body {
-	position: absolute;
-	border: 1px solid #272727;
-	border-radius: 3px;
-	width: 100%;
-	height: 13px;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .spacelabel,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .spacelabel {
-	position: absolute;
-	z-index: 12;
-	color: #fff;
-	font-size: 9px;
-	padding: 1px 4px;
-	mix-blend-mode: difference;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .bar,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .bar {
-	display: block !important;
-	margin: 0;
-	border-radius: 2px;
-	background-color: #272727;
-	height: 12px;
-	z-index: 10;
-	overflow: hidden;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .barover,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .barover {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block !important;
-	border-radius: 2px;
-	background-color: #691313;
-	height: 12px;
-	color: #fff;
-	font-size: 9px;
-	z-index: 11;
-	padding-top: 6px;
-	overflow: hidden;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label,
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body i,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
-	position: absolute;
-	top: 0px;
-	font-size: 10px;
-	z-index: 12;
-	mix-blend-mode: difference;
-	filter: invert(1);
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body i,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body i {
-	color: rgb(0, 0, 0);
-	left: 50%;
-}
-.system-ordemparanormal section.itemsheet section.window-content section.space .space-body .label,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content section.space .space-body .label {
-	right: 20px;
-}
-.system-ordemparanormal section.itemsheet section.window-content span.actor-title-header,
-.system-ordemparanormal form.ordemparanormal.actor section.window-content span.actor-title-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.05);
-	border: 2px groove #eeede0;
-	padding: 4px;
-}
-.system-ordemparanormal section.itemsheet .items-list,
-.system-ordemparanormal form.ordemparanormal.actor .items-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow-y: auto;
-	scrollbar-width: thin;
-	color: #444;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-list,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-name,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name {
-	flex: 2;
-	margin: 0;
-	overflow: hidden;
-	text-align: left;
-	align-items: center;
-	display: flex;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-name h3,
-.system-ordemparanormal section.itemsheet .items-list .item-name h4,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h3,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-name h4 {
-	color: #222;
-	font-size: 13px;
-	margin: 0;
-	white-space: nowrap;
-	overflow: hidden;
-	text-shadow: none;
-	font-family: "Signika";
-}
-.system-ordemparanormal section.itemsheet .items-list .item-controls,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls {
-	display: flex;
-	flex: 0 0 100px;
-	justify-content: flex-end;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-controls a,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-controls a {
-	font-size: 12px;
-	text-align: center;
-	margin: 0 6px;
-}
-.system-ordemparanormal section.itemsheet .items-list .item,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item {
-	align-items: center;
-	padding: 0 2px;
-	border-bottom: 1px solid #c9c7b8;
-}
-.system-ordemparanormal section.itemsheet .items-list .item:last-child,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item:last-child {
-	border-bottom: none;
-}
-.system-ordemparanormal section.itemsheet .items-list .item .item-description,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-description {
-	display: none;
-	overflow: hidden;
-}
-.system-ordemparanormal section.itemsheet .items-list .item .item-description.expanded,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-description.expanded {
-	display: block;
-}
-.system-ordemparanormal section.itemsheet .items-list .item .item-name,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name {
-	color: #191813;
-}
-.system-ordemparanormal section.itemsheet .items-list .item .item-name .item-image,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item .item-name .item-image {
-	display: flex;
-	align-items: center;
-	flex: 0 0 30px;
-	height: 30px;
-	background-size: 30px;
-	border: none;
-	margin-right: 1px;
-}
-.system-ordemparanormal section.itemsheet .items-list .item-prop,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .item-prop {
-	text-align: center;
-	border-left: 1px solid #c9c7b8;
-	border-right: 1px solid #c9c7b8;
-	font-size: 12px;
-}
-.system-ordemparanormal section.itemsheet .items-list .items-header,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header {
-	height: 28px;
-	margin: 2px 0;
-	padding: 0;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.05);
-	border: 2px groove #eeede0;
-	font-weight: bold;
-}
-.system-ordemparanormal section.itemsheet .items-list .items-header > *,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header > * {
-	font-size: 12px;
-	text-align: center;
-}
-.system-ordemparanormal section.itemsheet .items-list .items-header .item-name,
-.system-ordemparanormal form.ordemparanormal.actor .items-list .items-header .item-name {
-	padding-left: 5px;
-	text-align: left;
-}
 .system-ordemparanormal .sheet-body {
+	flex: 1;
 	overflow: hidden;
+	display: flex;
+}
+.system-ordemparanormal .sheet-body .tab {
+	flex: 1;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 5px;
+}
+.system-ordemparanormal .sheet-body .tab.active {
+	display: block;
 }
 .system-ordemparanormal .sheet-body .tab {
 	overflow-y: hidden;
@@ -679,7 +780,11 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .sheet-body .tab.abilities,
 .system-ordemparanormal .sheet-body .tab.rituals,
 .system-ordemparanormal .sheet-body .tab.biography,
-.system-ordemparanormal .sheet-body .tab.effects {
+.system-ordemparanormal .sheet-body .tab.effects,
+.system-ordemparanormal .sheet-body .tab.enigma,
+.system-ordemparanormal .sheet-body .tab.class,
+.system-ordemparanormal .sheet-body .tab.origin,
+.system-ordemparanormal .sheet-body .tab.path {
 	overflow-y: auto;
 }
 .system-ordemparanormal .sheet-body .tab .editor {
@@ -690,10 +795,12 @@ dialog.ordemparanormal.application {
 	overflow: hidden;
 }
 .system-ordemparanormal .item-form {
-	font-family: "Roboto", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 }
 .system-ordemparanormal .sheet-tabs {
-	flex: 0;
+	flex: 0 0 auto;
+	display: flex;
+	gap: 10px;
 }
 .system-ordemparanormal .tox .tox-editor-container {
 	background: #fff;
@@ -703,7 +810,7 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .skills-content {
 	font-size: 12px;
-	padding: 0 2px;
+	padding: 0 12px;
 	margin-top: 0;
 	column-count: 2;
 }
@@ -756,24 +863,6 @@ dialog.ordemparanormal.application {
 	background: none;
 	border: none;
 }
-.system-ordemparanormal .biography aside,
-.system-ordemparanormal .biography div:first-of-type {
-	padding: 2px;
-}
-.system-ordemparanormal .biography .class,
-.system-ordemparanormal .biography .trail {
-	font-size: 12px;
-}
-.system-ordemparanormal .biography fieldset {
-	border: 1px solid rgba(0, 0, 0, 0.2509803922);
-	border-radius: 10px;
-}
-.system-ordemparanormal .biography .bio-desc .editor {
-	min-height: 230px;
-}
-.system-ordemparanormal .biography .bio-goals .editor {
-	min-height: 100px;
-}
 .system-ordemparanormal .inventory {
 	padding-bottom: 24px;
 	overflow: hidden !important;
@@ -789,281 +878,8 @@ dialog.ordemparanormal.application {
 	text-align: center;
 }
 .system-ordemparanormal .ritual-dt p {
-	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
 	font-weight: bold;
-}
-.system-ordemparanormal .threat #senses,
-.system-ordemparanormal .threat #defenses,
-.system-ordemparanormal .threat #attributes,
-.system-ordemparanormal .threat #general,
-.system-ordemparanormal .threat #disturbingPresence,
-.system-ordemparanormal .threat #actions,
-.system-ordemparanormal .threat #abilities {
-	padding: 5px;
-	border: 1px solid rgba(0, 0, 0, 0.25);
-	margin-top: 5px;
-	border-radius: 5px;
-}
-.system-ordemparanormal .threat #senses .display-flex,
-.system-ordemparanormal .threat #defenses .display-flex,
-.system-ordemparanormal .threat #attributes .display-flex,
-.system-ordemparanormal .threat #general .display-flex,
-.system-ordemparanormal .threat #disturbingPresence .display-flex,
-.system-ordemparanormal .threat #actions .display-flex,
-.system-ordemparanormal .threat #abilities .display-flex {
-	align-items: center;
-}
-.system-ordemparanormal .threat .miniInput {
-	width: 32px;
-}
-.system-ordemparanormal .threat #attributes {
-	justify-content: space-between;
-}
-.system-ordemparanormal .threat #attributes .pre,
-.system-ordemparanormal .threat #attributes .vit,
-.system-ordemparanormal .threat #attributes .str,
-.system-ordemparanormal .threat #attributes .int,
-.system-ordemparanormal .threat #attributes .dex {
-	text-align: center;
-}
-.system-ordemparanormal .threat #attributes .pre input,
-.system-ordemparanormal .threat #attributes .vit input,
-.system-ordemparanormal .threat #attributes .str input,
-.system-ordemparanormal .threat #attributes .int input,
-.system-ordemparanormal .threat #attributes .dex input {
-	height: 32px;
-}
-.system-ordemparanormal .threat label + input {
-	margin-left: 5px;
-}
-.system-ordemparanormal .threat #announcement a {
-	color: #272727;
-}
-.system-ordemparanormal .threat #announcement .link-alert {
-	padding: 0 10px;
-}
-.system-ordemparanormal .threat #descriptions div {
-	margin: 8px 0;
-}
-.system-ordemparanormal .threat #descriptions div textarea {
-	height: 200px;
-}
-.system-ordemparanormal .threat #actions textarea,
-.system-ordemparanormal .threat #abilities textarea {
-	height: 300px;
-}
-.system-ordemparanormal .threat {
-	/* --- LAYOUT GERAL --- */
-}
-.system-ordemparanormal .threat .sheet-body {
-	height: 100%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	container-type: inline-size;
-}
-.system-ordemparanormal .threat .sheet-body .tab {
-	display: none;
-	height: 100%;
-	overflow-y: auto;
-	padding-right: 5px;
-}
-.system-ordemparanormal .threat .sheet-body .tab.active {
-	display: block;
-}
-.system-ordemparanormal .threat .sheet-tabs .item.active {
-	text-decoration: underline;
-	font-weight: bold;
-	text-shadow: 0 0 5px var(--color-shadow-primary);
-}
-.system-ordemparanormal .threat .sheet-tabs .item {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
-}
-.system-ordemparanormal .threat .sheet-tabs .item img {
-	border: none;
-	margin: 0;
-	padding: 0;
-	vertical-align: middle;
-}
-.system-ordemparanormal .threat {
-	/* --- IMAGEM E CABEÇALHO --- */
-}
-.system-ordemparanormal .threat .header-identify {
-	flex-wrap: wrap;
-	gap: 10px;
-}
-.system-ordemparanormal .threat .threat-profile-img {
-	flex: 0 0 110px;
-	height: 110px;
-	width: 110px;
-	object-fit: cover;
-	border: 1px solid #000;
-	border-radius: 5px;
-	cursor: pointer;
-	margin-right: 15px;
-}
-@container (max-width: 400px) {
-	.system-ordemparanormal .threat .header-identify {
-		justify-content: center;
-	}
-	.system-ordemparanormal .threat .threat-profile-img {
-		margin-right: 0;
-		margin-bottom: 5px;
-	}
-}
-.system-ordemparanormal .threat .header-stats-row {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 5px;
-	margin-top: 5px;
-	align-items: stretch;
-	width: 100%;
-}
-.system-ordemparanormal .threat .disturbing-presence {
-	background: rgba(0, 0, 0, 0.05);
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	padding: 5px 10px;
-	flex: 1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 15px;
-	flex-wrap: wrap;
-}
-.system-ordemparanormal .threat {
-	/* --- ABA ENIGMA --- */
-}
-.system-ordemparanormal .threat .sheet-body .tab.enigma {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden !important;
-}
-.system-ordemparanormal .threat .enigma-container {
-	padding: 15px;
-	background: rgba(0, 0, 0, 0.03);
-	border: 1px solid #999;
-	border-radius: 5px;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	overflow-y: auto;
-}
-.system-ordemparanormal .threat .actor-title-header {
-	font-size: 1.4em;
-	font-weight: bold;
-	border-bottom: 2px solid #333;
-	margin-bottom: 10px;
-	padding-bottom: 2px;
-	display: block;
-	text-transform: uppercase;
-	color: #191813;
-}
-.system-ordemparanormal .threat prose-mirror {
-	min-height: 200px;
-	flex: 1;
-	background: rgba(255, 255, 255, 0.3);
-	padding: 5px;
-	border-radius: 4px;
-	color: #191813;
-}
-.system-ordemparanormal .threat {
-	/* --- PERÍCIAS (FIXADO EM 4 COLUNAS) --- */
-}
-.system-ordemparanormal .threat .threat-skills-container {
-	margin-top: 5px;
-	display: grid;
-	/* Força exatamente 4 colunas de tamanho igual */
-	grid-template-columns: repeat(4, 1fr);
-	gap: 5px;
-	justify-content: space-between;
-}
-.system-ordemparanormal .threat .threat-tags {
-	gap: 10px;
-}
-.system-ordemparanormal .threat {
-	/* --- RESISTÊNCIAS --- */
-}
-.system-ordemparanormal .threat .resistance-container-grid,
-.system-ordemparanormal .threat .traits-container-grid {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 3px;
-	padding: 2px;
-	align-items: center;
-	justify-content: center;
-	min-height: 30px;
-}
-.system-ordemparanormal .threat .resistance-tag {
-	flex: 1 0 auto;
-	min-width: 60px;
-	font-size: 10px;
-	border: 1px solid #7a7971;
-	padding: 2px;
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.05);
-	white-space: nowrap;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	gap: 4px;
-}
-.system-ordemparanormal .threat .resistance-tag .resistance-tag-label {
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 10px;
-}
-.system-ordemparanormal .threat .resistance-tag .resistance-tag-values {
-	display: flex;
-	gap: 3px;
-	align-items: center;
-	justify-content: center;
-}
-.system-ordemparanormal .threat .resistance-tag .resistance-tag-value {
-	font-size: 11px;
-	font-weight: bold;
-}
-.system-ordemparanormal .threat .resistance-tag .resistance-tag-immune {
-	color: #2c3e50;
-	font-size: 10px;
-}
-.system-ordemparanormal .threat .resistance-tag .resistance-tag-vulnerable {
-	color: #c0392b;
-	font-size: 10px;
-}
-.system-ordemparanormal .threat .traits-tag {
-	flex: 1 0 auto;
-	min-width: 60px;
-	font-size: 10px;
-	border: 1px solid #7a7971;
-	padding: 2px;
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.05);
-	white-space: nowrap;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	gap: 4px;
-}
-.system-ordemparanormal .threat .traits-tag-label {
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 10px;
-	margin-bottom: 1px;
-}
-.system-ordemparanormal .threat .resource-content select {
-	max-width: 100%;
-}
-.system-ordemparanormal .threat .items-list .item {
-	flex-wrap: wrap;
 }
 .system-ordemparanormal .item .sheet-header {
 	flex: 0 auto;
@@ -1115,404 +931,1284 @@ dialog.ordemparanormal.application {
 	flex: 1;
 	background-color: aqua;
 }
-.system-ordemparanormal .item-image {
-	perspective: 50px;
-}
-.system-ordemparanormal .item-image img {
-	border: 1px solid rgba(0, 0, 0, 0.4392156863);
-}
 .system-ordemparanormal .slide {
 	overflow: hidden;
+	color: #eeeeee;
 }
 .system-ordemparanormal .slide > img,
 .system-ordemparanormal .slide a {
 	transition: 0.3s all ease-in-out;
 	position: absolute;
+	color: #eeeeee;
 }
 .system-ordemparanormal .slide > a {
-	margin-left: 4px;
 	font-size: 20px;
 	transform: translate(50px, 0);
 }
 .system-ordemparanormal .slide:hover > img {
 	transform: translate(-200px, 0);
+	color: #eeeeee;
 }
 .system-ordemparanormal .slide:hover > a {
 	transform: translate(0, 0);
+	color: #eeeeee;
+}
+.system-ordemparanormal {
+	/* =================================================== */
+	/* ESTILOS DO NOVO CABEÇALHO DO AGENTE (HEADER)        */
+	/* =================================================== */
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op {
+	display: flex;
+	flex-direction: column;
+	padding: 0.5rem 1rem;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .truncate-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 8px;
+	align-items: stretch;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-image-container {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: stretch;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-image-container
+	.profile-img {
+	width: 140px;
+	min-width: 120px;
+	max-width: 150px;
+	height: calc(100% - 4px);
+	max-height: 160px;
+	margin-top: 4px;
+	object-fit: cover;
+	object-position: top center;
+	border-radius: 5px;
+	border: 2px solid #302831;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	margin-right: 0;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	justify-content: space-between;
+	/* Identidade e Progresso */
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .header-identify {
+	display: flex;
+	gap: 10px;
+	padding-bottom: 4px;
+	align-items: flex-end;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	h1.charname {
+	flex: 1;
+	margin: 0;
+	padding: 0;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	h1.charname
+	input {
+	font-size: 28px;
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: bold;
+	width: 100%;
+	border: none;
+	border-radius: 4px;
+	background: transparent;
+	padding: 0;
+	height: 100%;
+	line-height: 36px;
+	min-width: unset;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	.progress-group {
+	display: flex;
+	flex: 0 0 auto;
+	gap: 6px;
+	align-items: flex-end;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	.progress-group
+	.resource {
+	padding-left: 0;
+	margin: 0;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.header-identify
+	.progress-group
+	.resource
+	.resource-label {
+	font-size: 11px;
+	margin-bottom: 2px;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
+	/* Classe, Origem, Trilha (Pills) */
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources {
+	margin: 0;
+	gap: 8px;
+	overflow: visible;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills {
+	flex: 1 1 0;
+	min-width: 0;
+	display: flex;
+	align-items: center;
+	padding: 4px 6px;
+	height: 32px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills
+	.item-name {
+	flex: 1;
+	min-width: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills
+	.item-name
+	.item-image {
+	width: 22px;
+	height: 22px;
+	flex: 0 0 22px;
+	border-radius: 2px;
+	margin-right: 0;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills
+	.item-name
+	.item-name-text {
+	padding-left: 6px;
+	font-size: 13px;
+	flex: 1;
+	min-width: 0;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.item-pills
+	.item-controls {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: rgba(0, 0, 0, 0.04);
+	transition: all 0.2s ease-in-out;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill:hover {
+	background: rgba(0, 0, 0, 0.08);
+	border-color: rgba(0, 0, 0, 0.3);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill:active {
+	background: rgba(0, 0, 0, 0.15);
+	transform: scale(0.98);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill {
+	/* Efeito da Lixeira Dinâmica */
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill
+	.dynamic-trash {
+	max-width: 0;
+	overflow: hidden;
+	opacity: 0;
+	visibility: visible !important;
+	transition:
+		max-width 0.25s ease-in-out,
+		opacity 0.2s ease;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.interactive-pill:hover
+	.dynamic-trash {
+	max-width: 30px;
+	opacity: 1;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot {
+	border: 1px dashed rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.02);
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	justify-content: center;
+	color: rgba(0, 0, 0, 0.5);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot:hover {
+	background: rgba(0, 0, 0, 0.06);
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.4);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot:active {
+	transform: scale(0.98);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot
+	i {
+	margin-right: 4px;
+	font-size: 11px;
+	flex: 0 0 auto;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.agent-details.resources
+	.empty-slot
+	span {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields {
+	/* Barras de Status (PV, PE, SAN) */
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-top .header-fields .resources-main {
+	margin: 0;
+	gap: 8px;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.02);
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource
+	.resource-label {
+	background: rgba(0, 0, 0, 0.06);
+	color: #222;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 2px 2px 0 0;
+	font-size: 11px;
+	padding: 3px;
+	display: block;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource
+	.resource-content {
+	padding: 2px 4px;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource
+	.resource-content
+	input {
+	background: transparent;
+	border: none;
+}
+.system-ordemparanormal
+	form.ordemparanormal.actor
+	header.sheet-header-op
+	.header-top
+	.header-fields
+	.resources-main
+	.resource
+	.resource-content
+	span {
+	font-size: 12px;
+	color: #555;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op {
+	/* Caixa Inferior (Atributos e Defesas) */
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom {
+	display: flex;
+	flex-direction: column;
+	background: rgba(0, 0, 0, 0.03);
+	padding: 6px 10px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	gap: 6px;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources {
+	margin: 0;
+	gap: 8px;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources .resource-label {
+	font-size: 12px;
+}
+.system-ordemparanormal form.ordemparanormal.actor header.sheet-header-op .header-bottom .resources .resource-content {
+	padding: 1px;
+}
+.system-ordemparanormal {
+	/* --- NAVEGAÇÃO DE TABS (ESTILO MINIMALISTA) --- */
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs {
+	display: inline-flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 0 16px;
+	border: none;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 0 16px;
+	height: 100%;
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	color: #7f7a67;
+	text-decoration: none;
+	position: relative;
+	transition: all 0.2s ease;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a i,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a i {
+	font-size: 13px;
+	color: #777;
+	transition: color 0.2s ease;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a:hover,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a:hover {
+	color: #000;
+	text-shadow: none;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a:hover i,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a:hover i {
+	color: #7f7a67;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active {
+	color: #1f1f1f;
+	font-weight: 600;
+	text-shadow: none;
+}
+.system-ordemparanormal form.ordemparanormal.actor nav.sheet-tabs.tabs a.active i,
+.system-ordemparanormal form.ordemparanormal.item nav.sheet-tabs.tabs a.active i {
+	color: #151515;
 }
 .system-ordemparanormal .resource-label {
 	font-weight: bold;
 }
-.system-ordemparanormal .application.item ul,
-.system-ordemparanormal .application.item ol,
-.system-ordemparanormal .application.item h1,
-.system-ordemparanormal .application.item h2,
-.system-ordemparanormal .application.item h3,
-.system-ordemparanormal .application.item h4 {
-	margin: 0;
+.system-ordemparanormal {
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+}
+.system-ordemparanormal .lowercase {
+	text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+	text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+	text-transform: capitalize;
+}
+.system-ordemparanormal {
+	/* ==========================================================================
+     ESCOPO BLINDADO: Apenas elementos dentro da janela de Item serão afetados
+     ========================================================================== */
+}
+.system-ordemparanormal .op-item-sheet {
+	/* ==========================================================================
+     1. BASE & ESTRUTURA
+     ========================================================================== */
+	min-height: 250px;
+	min-width: 530px;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+}
+.system-ordemparanormal .op-item-sheet .window-content {
 	padding: 0;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
-.system-ordemparanormal .application.item .prosemirror menu,
-.system-ordemparanormal .application.item prosemirror menu {
-	gap: 0;
-	background: #eeede0;
+.system-ordemparanormal .op-item-sheet .tab {
+	flex-direction: column;
+	flex: 1 1 auto;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
 }
-.system-ordemparanormal .application.item .scrollable {
+.system-ordemparanormal .op-item-sheet .tab.active {
+	display: flex;
+}
+.system-ordemparanormal .op-item-sheet .scrollable {
 	box-sizing: border-box;
 	width: 100%;
-	padding: 0;
+	height: auto;
+	min-height: 100px;
+	max-height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
-.system-ordemparanormal .application.item span.item-title-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.05);
-	border: 2px groove #eeede0;
-	padding: 4px;
-}
-.system-ordemparanormal .application.item .resource-type {
-	margin-top: 0;
-	margin-right: 0;
-	margin-bottom: 10px;
-	border: 1px solid rgba(0, 0, 0, 0.4);
-	border-radius: 4px;
-	padding: 10px;
-}
-.system-ordemparanormal .application.item .content-item {
+.system-ordemparanormal .op-item-sheet .content-item {
 	height: 100%;
 	overflow-y: auto;
-	padding-top: 10px;
+	margin: 0 !important;
+	padding: 0 8px 0 16px;
 }
-.system-ordemparanormal .application.item .section-attack {
-	margin-bottom: 20px;
+.system-ordemparanormal .op-item-sheet {
+	/* ==========================================================================
+     2. ELEMENTOS DE FORMULÁRIO GLOBAIS
+     ========================================================================== */
 }
-.system-ordemparanormal .application.item .attack-formula {
+.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]),
+.system-ordemparanormal .op-item-sheet select,
+.system-ordemparanormal .op-item-sheet textarea {
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.02);
+	font-family: sans-serif;
+	transition: all 0.2s ease;
+	padding: 0 6px;
+}
+.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]):hover,
+.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]):focus,
+.system-ordemparanormal .op-item-sheet select:hover,
+.system-ordemparanormal .op-item-sheet select:focus,
+.system-ordemparanormal .op-item-sheet textarea:hover,
+.system-ordemparanormal .op-item-sheet textarea:focus {
+	border-color: #7f7a67;
+	outline: none;
+	background: rgba(255, 255, 255, 0.6);
+}
+.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]):disabled,
+.system-ordemparanormal .op-item-sheet select:disabled,
+.system-ordemparanormal .op-item-sheet textarea:disabled {
+	background-color: rgba(0, 0, 0, 0.08);
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+.system-ordemparanormal .op-item-sheet input:not([type="radio"]):not([type="checkbox"]),
+.system-ordemparanormal .op-item-sheet select {
+	height: 26px;
+}
+.system-ordemparanormal .op-item-sheet textarea {
+	padding: 6px;
+	resize: vertical;
+}
+.system-ordemparanormal .op-item-sheet .resource-label {
+	font-size: 13px;
+	font-weight: bold;
+	color: #444;
+}
+.system-ordemparanormal .op-item-sheet {
+	/* ==========================================================================
+     3. CABEÇALHO DO ITEM (Item Header)
+     ========================================================================== */
+}
+.system-ordemparanormal .op-item-sheet .item-header {
 	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
 	align-items: center;
+	flex: 0 0 auto;
+	gap: 20px;
+	padding: 15px 20px;
+	background: rgba(0, 0, 0, 0.01);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-.system-ordemparanormal .application.item .main-damage-formula {
+.system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper {
+	position: relative;
+	width: 68px;
+	height: 68px;
+	border: 2px solid #161616;
+	border-radius: 4px;
+	overflow: hidden;
+	background: #111;
+	cursor: pointer;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+	transition:
+		transform 0.2s ease,
+		border-color 0.2s ease;
+}
+.system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper .profile-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: opacity 0.2s ease;
+}
+.system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper .profile-img-hover {
+	position: absolute;
+	inset: 0;
 	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
 	align-items: center;
+	justify-content: center;
+	background: rgba(177, 22, 26, 0.85);
+	color: #fff;
+	font-size: 14px;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+.system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper:hover {
+	transform: scale(1.03);
+	border-color: #7f7a67;
+}
+.system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper:hover .profile-img-hover {
+	opacity: 1;
+}
+.system-ordemparanormal .op-item-sheet .item-header .profile-img-wrapper:hover .profile-img {
+	opacity: 0.3;
+}
+.system-ordemparanormal .op-item-sheet .item-header .header-fields {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.system-ordemparanormal .op-item-sheet .item-header .document-name input {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 1.45rem;
+	font-weight: 800;
+	letter-spacing: -0.5px;
+	padding: 4px 0;
+	color: #1a1a1a;
+	background: transparent;
+	border: none;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+	border-radius: 0;
+	height: auto;
+}
+.system-ordemparanormal .op-item-sheet .item-header .document-name input:hover {
+	border-bottom-color: rgba(0, 0, 0, 0.3);
+}
+.system-ordemparanormal .op-item-sheet .item-header .document-name input:focus {
+	border-bottom-color: #7f7a67;
+	box-shadow: none;
+}
+.system-ordemparanormal .op-item-sheet .item-header .header-stats {
+	display: flex;
+	gap: 12px;
+}
+.system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.04);
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: 4px;
+	overflow: hidden;
+	height: 26px;
+}
+.system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge .stat-label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 0 8px;
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	background: rgba(0, 0, 0, 0.03);
+	border-right: 1px solid rgba(0, 0, 0, 0.12);
+	height: 100%;
+}
+.system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge input {
+	width: 44px;
+	height: 100%;
+	text-align: center;
+	font-weight: bold;
+	border: none;
+	background: transparent;
+}
+.system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge:focus-within {
+	border-color: #7f7a67;
+}
+.system-ordemparanormal .op-item-sheet .item-header .header-stats .stat-badge:focus-within .stat-label {
+	color: #7f7a67;
+	border-right-color: #7f7a67;
+}
+.system-ordemparanormal .op-item-sheet {
+	/* ==========================================================================
+     4. BLOCOS DE ATRIBUTOS E LAYOUTS COMUNS
+     ========================================================================== */
+}
+.system-ordemparanormal .op-item-sheet .class-attributes-section,
+.system-ordemparanormal .op-item-sheet .general-attributes-section {
+	background: rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+}
+.system-ordemparanormal .op-item-sheet .class-attributes-section .section-title,
+.system-ordemparanormal .op-item-sheet .general-attributes-section .section-title {
+	font-weight: bold;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #444;
+}
+.system-ordemparanormal .op-item-sheet .form-group-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+.system-ordemparanormal .op-item-sheet .form-group-textarea {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	margin-bottom: 15px;
+}
+.system-ordemparanormal .op-item-sheet .grid-2col {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	align-items: center;
+	padding: 5px 0;
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label,
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	cursor: pointer;
+	margin: 0;
+	transition: color 0.2s ease;
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label:hover,
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio:hover {
+	color: #7f7a67;
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type="radio"],
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type="radio"] {
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
+	background-image: none !important;
+	background-color: rgba(0, 0, 0, 0.05);
+	width: 16px !important;
+	height: 16px !important;
+	border: 1px solid rgba(0, 0, 0, 0.3) !important;
+	border-radius: 50% !important;
+	margin: 0;
+	flex-shrink: 0;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	outline: none !important;
+	box-shadow: none !important;
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type="radio"]:hover,
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type="radio"]:hover {
+	border-color: #7f7a67 !important;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type="radio"]:checked,
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type="radio"]:checked {
+	border-color: #7f7a67 !important;
+	background-color: transparent !important;
+	background-image: radial-gradient(circle, #7f7a67 35%, transparent 40%) !important;
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type="radio"]:focus,
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type="radio"]:focus {
+	box-shadow: 0 0 4px rgba(127, 122, 103, 0.4) !important;
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type="radio"],
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type="radio"] {
+	/* ========================================================
+  	A MÁGICA: Matando os estilos globais do Foundry V12
+  	======================================================== */
+}
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type="radio"]::before,
+.system-ordemparanormal .op-item-sheet .categoryCheck .radio-label input[type="radio"]::after,
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type="radio"]::before,
+.system-ordemparanormal .op-item-sheet .categoryCheck label.radio input[type="radio"]::after {
+	content: none !important;
+	display: none !important;
+	background: transparent !important;
+}
+.system-ordemparanormal .op-item-sheet {
+	/* ==========================================================================
+     5. ABA DE ARMAMENTOS E COMBATE
+     ========================================================================== */
+}
+.system-ordemparanormal .op-item-sheet .armament-fieldset {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 6px;
+	padding: 10px 12px;
+	margin-bottom: 12px;
+	background: rgba(0, 0, 0, 0.03);
+}
+.system-ordemparanormal .op-item-sheet .armament-fieldset legend {
+	font-weight: bold;
+	padding: 0 8px;
+	color: #191813;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-family: "Source Sans 3", sans-serif;
+}
+.system-ordemparanormal .op-item-sheet .armament-grid-2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12px;
+}
+.system-ordemparanormal .op-item-sheet .armament-field {
+	display: flex;
+	flex-direction: column;
 	gap: 4px;
 }
-.system-ordemparanormal .application.item .damage-formula {
+.system-ordemparanormal .op-item-sheet .armament-field label {
+	font-size: 11px;
+	font-weight: bold;
+	color: #444;
+	text-transform: uppercase;
+	margin-left: 2px;
+}
+.system-ordemparanormal .op-item-sheet .formula-row {
 	display: flex;
-	flex-direction: row;
-	gap: 40px;
-}
-.system-ordemparanormal .application.item .damage-formula a {
-	width: 10px;
-}
-.system-ordemparanormal .application.item {
-	/* ITEM SHEET */
-}
-.system-ordemparanormal .application.item .specifications h4 {
-	color: rgba(22, 22, 22, 0.4392156863);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-}
-.system-ordemparanormal .application.item .combat h4 {
-	color: rgba(22, 22, 22, 0.4392156863);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-}
-.system-ordemparanormal .application.item .combat .resource-label {
-	font-size: 13px;
-}
-.system-ordemparanormal .application.item .item-sheet-form {
-	display: flex;
-	flex: 1 10px;
-	margin: 2px 0px;
 	align-items: center;
-	flex-direction: row;
+	gap: 8px;
+	background: rgba(0, 0, 0, 0.04);
+	padding: 6px 8px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	margin-bottom: 6px;
 }
-.system-ordemparanormal .application.item .item-sheet-form input,
-.system-ordemparanormal .application.item .item-sheet-form select {
-	width: 100%;
-}
-.system-ordemparanormal .application.item .item-sheet-form i {
-	margin-left: 6px;
-}
-.system-ordemparanormal .application.item .item-damage-bonus {
-	flex: 2;
-}
-.system-ordemparanormal .application.item .minor-size {
-	flex: 0 60px;
-}
-.system-ordemparanormal .application.item .item-sheet-controls {
-	display: flex;
-	flex: 0 0 20px;
-	justify-content: flex-end;
-}
-.system-ordemparanormal .application.item .item-sheet-controls a {
-	font-size: 12px;
-	text-align: center;
-	margin: 0 6px;
-}
-.system-ordemparanormal .application.item .item-sheet .item-attribute {
-	flex: 1;
-	padding: 0 6px;
-}
-.system-ordemparanormal .application.item .item-sheet .item-skill {
-	flex: 1;
-	padding: 0 6px;
-}
-.system-ordemparanormal .application.item .item-sheet .item-bonus {
-	flex: 2;
-	padding: 0 6px;
-}
-.system-ordemparanormal .application.item .damage-box {
-	color: rgba(0, 0, 0, 0.4392156863);
-	padding: 6px;
-	text-align: center;
-	border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
-}
-.system-ordemparanormal .application.item .damage-box a:hover {
+.system-ordemparanormal .op-item-sheet .formula-row i {
 	color: #555;
-}
-.system-ordemparanormal .application.item .damage-control .fa-trash {
 	font-size: 12px;
 }
-.system-ordemparanormal .application.item .delete-damage,
-.system-ordemparanormal .application.item .promote-part {
-	margin-right: 15px;
+.system-ordemparanormal .op-item-sheet .formula-row .flex-grow {
+	flex: 1;
 }
-.system-ordemparanormal .application.item {
-	/* Damage formula tree structure */
+.system-ordemparanormal .op-item-sheet .formula-row .flex-large {
+	flex: 1.5;
 }
-.system-ordemparanormal .application.item .container-formula {
+.system-ordemparanormal .op-item-sheet .add-damage-btn {
+	display: block;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.04);
+	padding: 6px;
+	border-radius: 4px;
+	color: #444;
+	border: 1px dashed rgba(0, 0, 0, 0.3);
+	transition: 0.2s;
+	cursor: pointer;
+	margin-top: 8px;
+	font-weight: bold;
+}
+.system-ordemparanormal .op-item-sheet .add-damage-btn:hover {
+	background: rgba(0, 0, 0, 0.08);
+	color: #111;
+	border-style: solid;
+}
+.system-ordemparanormal .op-item-sheet .delete-damage {
+	color: #a33;
+	padding: 0 4px;
+	cursor: pointer;
+}
+.system-ordemparanormal .op-item-sheet .delete-damage:hover {
+	color: #ff0000;
+}
+.system-ordemparanormal .op-item-sheet .checkbox-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+	margin-top: 4px;
+}
+.system-ordemparanormal .op-item-sheet .checkbox-pill {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	background: rgba(0, 0, 0, 0.04);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	padding: 4px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.system-ordemparanormal .op-item-sheet .checkbox-pill:hover {
+	background: rgba(0, 0, 0, 0.08);
+	border-color: #888;
+}
+.system-ordemparanormal .op-item-sheet .checkbox-pill span {
+	font-size: 12px;
+	font-weight: bold;
+	color: #222;
+}
+.system-ordemparanormal .op-item-sheet {
+	/* ==========================================================================
+     6. EDITOR PROSEMIRROR & DESCRIÇÃO
+     ========================================================================== */
+}
+.system-ordemparanormal .op-item-sheet .description-container {
+	flex: 1 1 auto;
+	height: 100%;
+	overflow-x: hidden;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+.system-ordemparanormal .op-item-sheet .description-container::-webkit-scrollbar {
+	width: 6px;
+}
+.system-ordemparanormal .op-item-sheet .description-container::-webkit-scrollbar-track {
+	background: transparent;
+	margin: 4px 0;
+}
+.system-ordemparanormal .op-item-sheet .description-container::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
+}
+.system-ordemparanormal .op-item-sheet .description-container::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.45);
+}
+.system-ordemparanormal .op-item-sheet .description-container .description-box {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.03);
+	margin-bottom: 15px;
+	transition: all 0.3s ease;
+}
+.system-ordemparanormal .op-item-sheet .description-container .description-box summary {
 	position: relative;
-	padding-left: 0px;
-	font-family: sans-serif;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 12px 40px 12px 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 13px;
+	color: #555;
+	cursor: pointer;
+	list-style: none;
+	background: rgba(0, 0, 0, 0.02);
+	border-radius: 5px;
 }
-.system-ordemparanormal .application.item .part-damage-section {
-	padding-left: 20px;
-	padding-top: 10px;
+.system-ordemparanormal .op-item-sheet .description-container .description-box summary::-webkit-details-marker {
+	display: none;
 }
-.system-ordemparanormal .application.item {
-	/* Vertical main line */
-}
-.system-ordemparanormal .application.item .linhas-adicionais::before {
-	content: "";
-	position: absolute;
-	/* Position */
-	left: 15px;
-	top: 50px;
-	bottom: 52px;
-	/* Style */
-	width: 2px;
-	background-color: #b8b8b8;
-	border-radius: 2px;
-}
-.system-ordemparanormal .application.item {
-	/* Prepare each secondary line */
-}
-.system-ordemparanormal .application.item .linha-secundaria {
-	position: relative;
-	margin-left: 25px;
-	margin-bottom: 5px;
-}
-.system-ordemparanormal .application.item {
-	/* Horizontal connecting lines */
-}
-.system-ordemparanormal .application.item .linha-secundaria::before {
-	content: "";
-	position: absolute;
-	/* Position */
-	top: 50%;
-	left: -30px;
-	/* Style */
-	width: 30px;
-	height: 2px;
-	background-color: #b8b8b8;
-	border-radius: 2px;
-}
-.system-ordemparanormal .application.item .linha-principal,
-.system-ordemparanormal .application.item .linha-secundaria {
+.system-ordemparanormal .op-item-sheet .description-container .description-box summary .summary-title {
 	display: flex;
 	align-items: center;
 	gap: 6px;
 }
-.system-ordemparanormal .application.item .effects input,
-.system-ordemparanormal .application.item .effects select {
-	color: #cfd2da;
+.system-ordemparanormal .op-item-sheet .description-container .description-box summary .editor-edit {
+	margin-left: auto;
+	padding: 4px 6px;
+	border-radius: 4px;
+	color: #666;
+	transition: 0.2s;
 }
-.system-ordemparanormal .application.item .effects .effects-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow-y: auto;
-	scrollbar-width: thin;
+.system-ordemparanormal .op-item-sheet .description-container .description-box summary .editor-edit:hover {
+	background: rgba(0, 0, 0, 0.08);
+	color: #000;
 }
-.system-ordemparanormal .application.item .effects .effects-list .effect-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+.system-ordemparanormal .op-item-sheet .description-container .description-box summary .notes {
+	flex-basis: 100%;
+	margin: 6px 0 0 0;
+	font-size: 11.5px;
+	font-weight: normal;
+	text-transform: none;
+	color: #666;
+	font-style: italic;
 }
-.system-ordemparanormal .application.item .effects .effects-list .effect-name {
-	flex: 2;
-	margin: 0;
-	overflow: hidden;
-	font-size: 13px;
-	text-align: left;
-	align-items: center;
+.system-ordemparanormal .op-item-sheet .description-container .description-box summary::after {
+	content: "\f107";
+	font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
+	font-weight: 900;
+	position: absolute;
+	right: 15px;
+	top: 14px;
+	transition: transform 0.3s ease;
+}
+.system-ordemparanormal .op-item-sheet .description-container .description-box[open] summary {
+	background: transparent;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px 5px 0 0;
+}
+.system-ordemparanormal .op-item-sheet .description-container .description-box[open] summary::after {
+	transform: rotate(180deg);
+}
+.system-ordemparanormal .op-item-sheet .description-container .description-box .description-content-inner {
+	padding: 15px;
+}
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor {
 	display: flex;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effect-name h3,
-.system-ordemparanormal .application.item .effects .effects-list .effect-name h4 {
+	flex-direction: column;
+	flex: 1 1 auto;
+	min-height: 400px;
+	background: #eeede0;
 	margin: 0;
-	white-space: nowrap;
-	overflow-x: hidden;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effect-controls {
-	display: flex;
-	flex: 0 0 100px;
-	justify-content: flex-end;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effect-controls a {
-	font-size: 12px;
-	text-align: center;
-	margin: 0 6px;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effect {
-	align-items: center;
-	padding: 0 2px;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effect:last-child {
-	border-bottom: none;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effect .effect-name {
-	color: #222;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effect .effect-name .effect-image {
-	flex: 0 0 30px;
-	height: 30px;
-	background-size: 30px;
 	border: none;
-	margin-right: 5px;
+	border-radius: 0;
 }
-.system-ordemparanormal .application.item .effects .effects-list .effect-prop {
-	text-align: center;
-	border-left: 1px solid #c9c7b8;
-	border-right: 1px solid #c9c7b8;
-	font-size: 12px;
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor summary {
+	display: none;
 }
-.system-ordemparanormal .application.item .effects .effects-list .effects-header {
-	height: 28px;
-	margin: 2px 0;
-	padding: 0;
-	align-items: center;
-	background: rgba(255, 255, 255, 0.05);
-	border: 2px groove #eeede0;
-	font-weight: bold;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effects-header > * {
-	font-size: 12px;
-	text-align: center;
-}
-.system-ordemparanormal .application.item .effects .effects-list .effects-header .effect-name {
-	padding-left: 5px;
-	text-align: left;
-}
-.system-ordemparanormal .effects-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow-y: auto;
-	scrollbar-width: thin;
-	color: #444;
-}
-.system-ordemparanormal .effects-list .effect-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.system-ordemparanormal .effects-list .effect-list .effect-source,
-.system-ordemparanormal .effects-list .effect-list .effect-duration {
-	text-align: center;
-}
-.system-ordemparanormal .effects-list .effect-name {
-	flex: 2;
-	margin: 0;
-	overflow: hidden;
-	font-size: 13px;
-	text-align: left;
-	align-items: center;
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	.description-content-inner,
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor .content-wrapper {
 	display: flex;
-}
-.system-ordemparanormal .effects-list .effect-name h3,
-.system-ordemparanormal .effects-list .effect-name h4 {
-	margin: 0;
-	white-space: nowrap;
-	overflow-x: hidden;
-}
-.system-ordemparanormal .effects-list .effect-controls {
-	display: flex;
-	flex: 0 0 100px;
-	justify-content: flex-end;
-}
-.system-ordemparanormal .effects-list .effect-controls a {
-	font-size: 12px;
-	text-align: center;
-	margin: 0 6px;
-}
-.system-ordemparanormal .effects-list .effect {
-	align-items: center;
-	padding: 0 2px;
-	border-bottom: 1px solid #c9c7b8;
-}
-.system-ordemparanormal .effects-list .effect:last-child {
-	border-bottom: none;
-}
-.system-ordemparanormal .effects-list .effect .effect-name {
-	color: #191813;
-}
-.system-ordemparanormal .effects-list .effect .effect-name .effect-image {
-	flex: 0 0 30px;
-	height: 30px;
-	background-size: 30px;
-	border: none;
-	margin-right: 5px;
-}
-.system-ordemparanormal .effects-list .effect-prop {
-	text-align: center;
-	border-left: 1px solid #c9c7b8;
-	border-right: 1px solid #c9c7b8;
-	font-size: 12px;
-}
-.system-ordemparanormal .effects-list .effects-header {
-	height: 28px;
-	margin: 2px 0;
+	flex-direction: column;
+	flex: 1;
 	padding: 0;
+}
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	.fullscreen-editor-header {
+	display: flex;
 	align-items: center;
+	gap: 15px;
+	padding: 15px 20px;
 	background: rgba(0, 0, 0, 0.05);
-	border: 2px groove #eeede0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	.fullscreen-editor-header
+	img {
+	width: 48px;
+	height: 48px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	object-fit: cover;
+}
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	.fullscreen-editor-header
+	h2 {
+	margin: 0;
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 24px;
+	color: #222;
+	border-bottom: none;
+}
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	.fullscreen-editor-header
+	h2
+	span {
+	font-size: 16px;
+	color: #666;
+	font-weight: normal;
+}
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 1 auto !important;
+	height: 100% !important;
+}
+.system-ordemparanormal .op-item-sheet .description-container .description-box.fullscreen-editor prose-mirror .editor,
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	prose-mirror
+	.editor-container {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 1 auto !important;
+	min-height: 300px !important;
+}
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	prose-mirror
+	.editor
+	.editor-content,
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	prose-mirror
+	.editor
+	.ProseMirror,
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	prose-mirror
+	.editor-container
+	.editor-content,
+.system-ordemparanormal
+	.op-item-sheet
+	.description-container
+	.description-box.fullscreen-editor
+	prose-mirror
+	.editor-container
+	.ProseMirror {
+	flex: 1 1 auto !important;
+	min-height: 300px !important;
+	overflow-y: auto !important;
+	padding: 15px 20px !important;
+}
+.system-ordemparanormal .op-item-sheet {
+	/* ==========================================================================
+     7. COMPORTAMENTO GLOBAL DO FULLSCREEN (Application V2)
+     ========================================================================== */
+}
+.system-ordemparanormal .op-item-sheet.op-fullscreen-active .item-header,
+.system-ordemparanormal .op-item-sheet.op-fullscreen-active nav.tabs,
+.system-ordemparanormal .op-item-sheet.op-fullscreen-active .sheet-navigation,
+.system-ordemparanormal .op-item-sheet.op-fullscreen-active .description-box:not(.fullscreen-editor) {
+	display: none !important;
+}
+.system-ordemparanormal .op-item-sheet.op-fullscreen-active .window-content,
+.system-ordemparanormal .op-item-sheet.op-fullscreen-active .tab.description,
+.system-ordemparanormal .op-item-sheet.op-fullscreen-active .description-container {
+	display: flex !important;
+	flex-direction: column !important;
+	height: 100% !important;
+	max-height: none !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+}
+.system-ordemparanormal {
+	/* ==========================================================================
+  	   ABA DE EFEITOS (Active Effects)
+  	   ========================================================================== */
+}
+.system-ordemparanormal .effects-management .effects-section {
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+.system-ordemparanormal .effects-management .effects-header,
+.system-ordemparanormal .effects-management .effect-item {
+	display: flex;
+	align-items: center;
+	padding: 6px 10px;
+	gap: 8px;
+}
+.system-ordemparanormal .effects-management .effect-name {
+	flex: 1.5;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 	font-weight: bold;
 }
-.system-ordemparanormal .effects-list .effects-header > * {
-	font-size: 12px;
+.system-ordemparanormal .effects-management .effect-source {
+	flex: 1;
 	text-align: center;
 }
-.system-ordemparanormal .effects-list .effects-header .effect-name {
-	padding-left: 5px;
-	text-align: left;
-}
-.system-ordemparanormal .effect-formula {
-	flex: 0 0 200px;
-	padding: 0 6px;
-}
-.system-ordemparanormal .effects .item .effect-source,
-.system-ordemparanormal .effects .item .effect-duration,
-.system-ordemparanormal .effects .item .effect-controls {
+.system-ordemparanormal .effects-management .effect-duration {
+	flex: 1;
 	text-align: center;
-	border-left: 1px solid #c9c7b8;
-	border-right: 1px solid #c9c7b8;
-	font-size: 12px;
 }
-.system-ordemparanormal .effects .item .effect-controls {
-	border: none;
+.system-ordemparanormal .effects-management .effect-controls {
+	flex: 0 0 90px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+.system-ordemparanormal .effects-management .effects-header {
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 4px 4px 0 0;
+	font-weight: bold;
+	font-size: 11px;
+	text-transform: uppercase;
+	color: #444;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.system-ordemparanormal .effects-management .effect-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	background: rgba(0, 0, 0, 0.02);
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item {
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+	font-size: 13px;
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item .effect-image {
+	width: 24px;
+	height: 24px;
+	flex: 0 0 24px;
+	object-fit: cover;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls a {
+	color: #666;
+	font-size: 12px;
+	transition: 0.2s;
+}
+.system-ordemparanormal .effects-management .effect-list .effect-item .effect-controls a:hover {
+	color: #111;
+}
+.system-ordemparanormal {
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+}
+.system-ordemparanormal .lowercase {
+	text-transform: lowercase;
+}
+.system-ordemparanormal .uppercase {
+	text-transform: uppercase;
+}
+.system-ordemparanormal .capitalize {
+	text-transform: capitalize;
 }
 .system-ordemparanormal dialog.ordemparanormal-patch-notes.application .standard-form .form-footer {
 	flex-wrap: wrap;
@@ -1748,13 +2444,13 @@ dialog.ordemparanormal.application {
 }
 .system-ordemparanormal .areaTemplateWindow {
 	box-shadow: 0 0 10x #000 !important;
-	font-family: "Signika", "Roboto", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 }
 .system-ordemparanormal .areaTemplateWindow .window-header {
 	font-size: 13px;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration {
-	font-family: "Source Sans 3", "Signika", sans-serif;
+	font-family: "Source Sans 3", sans-serif;
 	background: rgba(19, 19, 19, 0.9) 100% 80%/200% 200% url("../media/assets/ondulacoes.webp") !important;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header,
@@ -1788,12 +2484,14 @@ dialog.ordemparanormal.application {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	text-align: center;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .window-subtitle {
 	margin: 0;
-	font-size: 16;
+	font-size: 16px;
 	line-height: 30px;
 	text-shadow: none;
+	text-align: center;
 }
 .system-ordemparanormal dialog.ordemparanormal.application.roll-configuration .window-header .header-control {
 	margin: 0;
@@ -2042,8 +2740,8 @@ dialog.ordemparanormal.application {
 	background: rgba(0, 0, 0, 0.05);
 	border: 1px solid #555;
 	border-radius: 4px;
-	color: #161616;
-	font-family: "Signika", "Palatino Linotype", sans-serif;
+	color: #111;
+	font-family: "Source Sans 3", sans-serif;
 	font-size: 0.875rem;
 	line-height: normal;
 	text-decoration: none;
@@ -2072,7 +2770,7 @@ dialog.ordemparanormal.application {
 	border: 1px solid #b8b8b8;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 	border-radius: 5px;
-	font-family: "Warnock Pro", "Roboto", sans-serif, "Arial";
+	font-family: "Warnock Pro", "Source Sans 3", sans-serif, "Arial";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 14px;
@@ -2099,7 +2797,7 @@ dialog.ordemparanormal.application {
 	margin-top: 4px;
 	margin-bottom: 1px;
 	text-transform: uppercase;
-	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-weight: bold;
@@ -2120,7 +2818,7 @@ dialog.ordemparanormal.application {
 	background-color: #b8b8b8;
 }
 .system-ordemparanormal .chat-card .ritual-info {
-	font-family: "Optima Nova LT PRO", "Roboto", sans-serif, "Arial";
+	font-family: "Optima Nova LT PRO", "Source Sans 3", sans-serif, "Arial";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -2278,134 +2976,1047 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .additionalContent .flexe {
 	display: flex !important;
 }
-.system-ordemparanormal .target-info {
-	text-align: center;
-	font-size: 12px;
-	color: var(--color-text-secondary, #555);
-	margin: 4px 0;
+.system-ordemparanormal {
+	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 }
-.system-ordemparanormal .hit-result {
-	text-align: center;
-	font-weight: bold;
-	padding: 4px 6px;
-	border-radius: 4px;
-	margin: 4px 0;
-	font-size: 13px;
+.system-ordemparanormal .lowercase {
+	text-transform: lowercase;
 }
-.system-ordemparanormal .hit-result.success {
-	color: #2e7d32;
-	background: rgba(46, 125, 50, 0.1);
-	border: 1px solid rgba(46, 125, 50, 0.3);
-}
-.system-ordemparanormal .hit-result.failure {
-	color: #c62828;
-	background: rgba(198, 40, 40, 0.1);
-	border: 1px solid rgba(198, 40, 40, 0.3);
-}
-.system-ordemparanormal .hit-result .vs-defense {
-	font-weight: normal;
-	font-size: 11px;
-	margin-left: 6px;
-}
-.system-ordemparanormal .dt-result {
-	font-size: 12px;
-	font-weight: bold;
-	text-align: center;
-	padding: 2px 6px;
-	border-radius: 3px;
-	margin-top: 2px;
-}
-.system-ordemparanormal .dt-result.success {
-	color: #2e7d32;
-	background: rgba(46, 125, 50, 0.1);
-}
-.system-ordemparanormal .dt-result.failure {
-	color: #c62828;
-	background: rgba(198, 40, 40, 0.1);
-}
-.system-ordemparanormal .op-hp-display {
-	font-size: 11px;
-	opacity: 0.85;
-	margin-left: 4px;
-}
-.system-ordemparanormal .card-buttons button.hit-critical {
-	border-color: #f9a825;
-}
-.system-ordemparanormal .reaction-panel {
-	border: 1px solid var(--color-border-light, #b8b8b8);
-	border-radius: 4px;
-	padding: 4px 6px;
-	margin: 4px 0;
-	background: var(--color-bg-secondary, rgba(0, 0, 0, 0.04));
-}
-.system-ordemparanormal .reaction-panel .reaction-panel-title {
-	font-weight: bold;
-	font-size: 11px;
+.system-ordemparanormal .uppercase {
 	text-transform: uppercase;
-	letter-spacing: 0.5px;
-	opacity: 0.75;
-	margin-bottom: 2px;
 }
-.system-ordemparanormal .reaction-panel .reaction-buttons {
+.system-ordemparanormal .capitalize {
+	text-transform: capitalize;
+}
+.system-ordemparanormal {
+	/* ========================================================= */
+	/* --- LARGURAS DAS COLUNAS UNIFICADAS --- */
+	/* ========================================================= */
+}
+.system-ordemparanormal .col-name {
+	flex: 1;
+	text-align: left;
+}
+.system-ordemparanormal .col-category {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-space {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-quantity {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal .col-type {
+	width: 100px;
+	text-align: center;
+}
+.system-ordemparanormal .col-cost {
+	width: 70px;
+	text-align: center;
+}
+.system-ordemparanormal .col-exec {
+	width: 90px;
+	text-align: center;
+}
+.system-ordemparanormal .col-range {
+	width: 75px;
+	text-align: center;
+}
+.system-ordemparanormal .col-target {
+	width: 80px;
+	text-align: center;
+}
+.system-ordemparanormal .col-duration {
+	width: 60px;
+	text-align: center;
+}
+.system-ordemparanormal .col-resist {
+	width: 80px;
+	text-align: center;
+}
+.system-ordemparanormal .col-controls {
+	width: 100px;
+	text-align: right;
+	justify-content: flex-end;
+}
+.system-ordemparanormal .col-controls-mini {
+	width: 40px;
+	text-align: right;
+	justify-content: flex-end;
+}
+.system-ordemparanormal .col-prop {
+	width: 50px;
+	text-align: center;
+}
+.system-ordemparanormal {
+	/* Realce visual para o custo (Ex: 2 PE) */
+}
+.system-ordemparanormal .badge-cat.highlight {
+	font-weight: 900;
+	color: #7f7a67;
+	background: rgba(177, 22, 26, 0.08);
+	border-color: rgba(177, 22, 26, 0.15);
+}
+.system-ordemparanormal {
+	/* ========================================================= */
+	/* --- DESIGN DO INVENTÁRIO (ORDEM) ------ */
+	/* ========================================================= */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	flex-direction: column !important;
+	height: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	background: transparent;
+	overflow: hidden !important;
+	/* --- CABEÇALHO DE PRESTÍGIO E PATENTES --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header {
 	display: flex;
-	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	padding: 8px 15px;
+	margin: 0 16px;
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	flex: 0 0 auto !important;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
 	gap: 2px;
 }
-.system-ordemparanormal .reaction-panel .reaction-button {
-	flex: 1 1 auto;
-	min-width: 80px;
-	padding: 2px 4px;
-	font-size: 11px;
-	cursor: pointer;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .label,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .label {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 6px;
 }
-.system-ordemparanormal .reaction-panel .reaction-button:disabled {
-	opacity: 0.45;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .label i,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .label i,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .label i,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .label i {
+	color: #7f7a67;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box input,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box input {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: transparent;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	color: #000;
+	padding: 0;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
+	/* Ajuste específico para o input de Prestígio (Números pequenos) */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .prestige-input,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .prestige-input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .prestige-input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .prestige-input {
+	width: 60px;
+	height: 24px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box {
+	/* Ajuste específico para o input da Patente (Textos mais longos) */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .prestige-box .patent-input,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .patent-box .patent-input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .prestige-box .patent-input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .patent-box .patent-input {
+	width: 140px;
+	height: 24px;
+	font-weight: bold;
+	text-align: left;
+	padding: 0 8px;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.section-title,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .section-title {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	display: flex;
+	align-items: start;
+	gap: 6px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-prestige-header .category-limits .limits-grid,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid {
+	display: flex;
+	gap: 4px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	height: 24px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	label,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge label {
+	padding: 0 6px;
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 900;
+	font-size: 11px;
+	color: #444;
+	background: rgba(0, 0, 0, 0.03);
+	border-right: 1px solid rgba(0, 0, 0, 0.15);
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input,
+.system-ordemparanormal .tab.inventory-tab .inventory-prestige-header .category-limits .limits-grid .limit-badge input {
+	width: 26px !important;
+	height: 100%;
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	color: #000;
+	padding: 0;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input:disabled,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-prestige-header
+	.category-limits
+	.limits-grid
+	.limit-badge
+	input:disabled {
+	opacity: 0.8;
 	cursor: not-allowed;
 }
-.system-ordemparanormal .reaction-panel .reaction-button.reaction-dodge {
-	border-color: #e65100;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- CABEÇALHO DE RITUAIS --- */
 }
-.system-ordemparanormal .reaction-panel .reaction-button.reaction-block {
-	border-color: #1565c0;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	padding: 8px 15px;
+	margin: 0 16px;
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	flex: 0 0 auto !important;
 }
-.system-ordemparanormal .reaction-panel .reaction-button.reaction-counterAttack {
-	border-color: #f9a825;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box {
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
-.system-ordemparanormal .reaction-panel .reaction-button.reaction-skip {
-	opacity: 0.7;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .label,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .label {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 6px;
 }
-.system-ordemparanormal .reaction-panel .reaction-status {
-	font-style: italic;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .label i,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .label i {
+	color: #7f7a67;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box input,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box input {
+	width: 60px;
+	height: 24px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-ritual-header .ritual-box .badge-ritual,
+.system-ordemparanormal .tab.inventory-tab .inventory-ritual-header .ritual-box .badge-ritual {
+	font-size: 14px;
+	background: rgba(0, 0, 0, 0.06);
+	padding: 2px 6px;
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	color: #555;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-row-main,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header,
+.system-ordemparanormal .tab.inventory-tab .item-row-main {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header {
+	background: rgba(0, 0, 0, 0.1);
+	color: #444;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 10.5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 6px 10px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-list-header i,
+.system-ordemparanormal .tab.inventory-tab .inventory-list-header i {
+	color: #7f7a67;
+	margin-right: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-category,
+.system-ordemparanormal .tab.inventory-tab .inventory-category {
+	margin-bottom: 8px;
+	border-radius: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .item-image.slide,
+.system-ordemparanormal .tab.inventory-tab .item-image.slide {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input,
+.system-ordemparanormal .tab.inventory-tab .inline-input {
+	width: 100%;
+	height: 24px;
+	background: transparent;
+	border: 1px solid transparent;
+	text-align: center;
+	font-family: "Roboto", sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000;
+	border-radius: 4px;
+	transition: all 0.2s;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input:focus,
+.system-ordemparanormal .tab.inventory-tab .inline-input:hover,
+.system-ordemparanormal .tab.inventory-tab .inline-input:focus {
+	border-color: rgba(0, 0, 0, 0.2);
+	background: rgba(255, 255, 255, 0.5);
+	outline: none;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inline-input.badge-cat-input,
+.system-ordemparanormal .tab.inventory-tab .inline-input.badge-cat-input {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: rgba(0, 0, 0, 0.05);
+	color: #444;
+	font-size: 11.5px;
+	width: 40px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value {
+	width: 32px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font-size: 11.5px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:hover,
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .quantity-controller input.qty-value:focus,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:hover,
+.system-ordemparanormal .tab.inventory-tab .quantity-controller input.qty-value:focus {
+	background: rgba(255, 255, 255, 0.3);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- 3. LINHAS DOS ITENS DA LISTA --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description {
+	display: none;
+	background: rgba(0, 0, 0, 0.01);
+	color: #444;
+	border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
+	padding: 10px 15px 10px 50px !important;
+	line-height: 1.4;
+	width: 100%;
+	margin-top: 5px;
+	font-size: 0.9em;
+	text-align: left;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-description.expanded,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-description.expanded {
+	display: block;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row {
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 0;
+	transition: all 0.2s ease;
+	margin: 0;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row:last-child,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row:hover {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: rgba(0, 0, 0, 0.18);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row.is-active,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row.is-active {
+	border-left: 3px solid #7f7a67;
+	background: rgba(177, 22, 26, 0.02);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-row-main,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-row-main {
+	padding: 6px 12px;
+	height: 40px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-identity
+	.item-image,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-image {
+	flex: 0 0 auto;
+	width: 28px;
+	height: 28px;
+	object-fit: cover;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	background: #111;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-identity .item-name,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name {
+	flex: 1;
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #222;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-identity
+	.item-name:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-identity .item-name:hover {
+	color: #7f7a67;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12.5px;
+	font-weight: bold;
+	color: #444;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-meta-col
+	.font-muted,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .font-muted {
+	color: #888;
 	font-size: 11px;
-	opacity: 0.8;
+	margin-right: 2px;
 }
-.system-ordemparanormal .reaction-panel.reaction-applied {
-	opacity: 0.85;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-meta-col .badge-cat {
+	font-size: 10.5px;
+	background: rgba(0, 0, 0, 0.06);
+	padding: 2px 6px;
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	color: #555;
 }
-.system-ordemparanormal .hit-result.dodged {
-	box-shadow: inset 0 0 0 2px #e65100;
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .quantity-controller,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.04);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	height: 24px;
+	overflow: hidden;
 }
-.system-ordemparanormal .op-action-badge {
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .adjustment-button {
+	padding: 0 6px;
+	font-size: 9px;
+	color: #666;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	transition: background 0.2s;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button:hover,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.adjustment-button:hover {
+	background: rgba(0, 0, 0, 0.08);
+	color: #000;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.quantity-controller
+	.qty-value,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .quantity-controller .qty-value {
+	width: 30px;
+	text-align: center;
+	font-size: 11.5px;
+	font-weight: bold;
+	color: #000;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn {
+	color: #777;
+	padding: 4px 6px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	font-size: 12px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn:hover {
+	color: #000;
+	background: rgba(0, 0, 0, 0.06);
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active {
+	color: #d1a100;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-btn.btn-star.active:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-star.active:hover {
+	color: #f3ca30;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-items-list
+	.item-row
+	.item-btn.btn-delete:hover,
+.system-ordemparanormal .tab.inventory-tab .inventory-items-list .item-row .item-btn.btn-delete:hover {
+	color: #fff;
+	background: #7f7a67;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab,
+.system-ordemparanormal .tab.inventory-tab {
+	/* --- 4. RODAPÉ VISUAL DE COMPENSAÇÃO DE CARGA --- */
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space {
+	background: rgba(0, 0, 0, 0.03);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 6px 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	flex: 0 0 auto !important;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-label,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-label {
+	font-family: "Source Sans 3", sans-serif;
 	font-size: 10px;
 	font-weight: bold;
-	padding: 1px 4px;
-	border-radius: 3px;
+	color: #555;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .space-status-bar .space-counter,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter {
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 800;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.current,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .current {
+	color: #000;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.divider,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .divider {
+	color: #aaa;
+	font-weight: normal;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.space-status-bar
+	.space-counter
+	.max,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .space-status-bar .space-counter .max {
+	color: #666;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space .progress-bar-container,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container {
+	width: 100%;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.08);
+	border-radius: 2px;
+	overflow: hidden;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space
+	.progress-bar-container
+	.progress-fill,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space .progress-bar-container .progress-fill {
+	height: 100%;
+	background: #161616;
+	border-radius: 2px;
+	transition:
+		width 0.4s ease,
+		background-color 0.4s ease;
+}
+.system-ordemparanormal .sheet-body .tab.active.inventory-tab .inventory-footer-space.is-overburdened,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened {
+	background: rgba(177, 22, 26, 0.04);
+	border-top-color: rgba(177, 22, 26, 0.2);
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-label,
+.system-ordemparanormal .tab.inventory-tab .inventory-footer-space.is-overburdened .space-status-bar .space-label {
+	color: #b1161a;
+	animation: op-pulse 2s infinite ease-in-out;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-counter
+	.current,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.space-status-bar
+	.space-counter
+	.current {
+	color: #b1161a;
+}
+.system-ordemparanormal
+	.sheet-body
+	.tab.active.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.progress-bar-container
+	.progress-fill,
+.system-ordemparanormal
+	.tab.inventory-tab
+	.inventory-footer-space.is-overburdened
+	.progress-bar-container
+	.progress-fill {
+	background: #b1161a;
+}
+.system-ordemparanormal {
+	/* --- 2. CONTAINER DE ROLAGEM E TÍTULOS --- */
+}
+.system-ordemparanormal .scrollable-inventory,
+.system-ordemparanormal .effects-management {
+	flex: 1 1 auto !important;
+	overflow-y: auto !important;
+	overflow-x: hidden !important;
+	padding: 10px 5px 0 16px;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+	scrollbar-gutter: stable;
+}
+.system-ordemparanormal .scrollable-inventory::-webkit-scrollbar,
+.system-ordemparanormal .effects-management::-webkit-scrollbar {
+	width: 6px;
+}
+.system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-track,
+.system-ordemparanormal .effects-management::-webkit-scrollbar-track {
 	background: transparent;
-	color: #fff;
-	white-space: nowrap;
 }
-.system-ordemparanormal .op-action-badge.standard {
-	background: #1565c0;
+.system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-thumb,
+.system-ordemparanormal .effects-management::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
 }
-.system-ordemparanormal .op-action-badge.free {
-	background: #2e7d32;
+.system-ordemparanormal .scrollable-inventory::-webkit-scrollbar-thumb:hover,
+.system-ordemparanormal .effects-management::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.45);
 }
-.system-ordemparanormal .op-action-badge.movement {
-	background: #f57f17;
+@keyframes op-pulse {
+	0% {
+		opacity: 0.8;
+	}
+	50% {
+		opacity: 1;
+		color: #ff2a30;
+	}
+	100% {
+		opacity: 0.8;
+	}
 }
-.system-ordemparanormal .op-action-badge.reaction {
-	background: #e65100;
+.system-ordemparanormal {
+	/* ========================================================= */
+	/* --- GERENCIADOR DE RECURSOS (ABA HABILIDADES) --- */
+	/* ========================================================= */
 }
-.system-ordemparanormal .op-action-badge.full {
-	background: #b71c1c;
+.system-ordemparanormal .tactical-control-bar {
+	display: flex;
+	justify-content: flex-end;
+	padding: 4px 15px;
 }
+.system-ordemparanormal .tactical-control-bar .toggle-btn {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #666;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	transition: all 0.2s;
+}
+.system-ordemparanormal .tactical-control-bar .toggle-btn:hover {
+	color: #000;
+}
+.system-ordemparanormal .tactical-control-bar .toggle-btn.is-active {
+	color: #7f7a67;
+}
+.system-ordemparanormal .resource-manager-box {
+	margin-bottom: 15px;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge {
+	height: 30px !important;
+	padding-right: 6px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label {
+	padding: 0;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input {
+	width: 80px !important;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #444;
+	background: transparent;
+	border: none;
+	text-align: center;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input:hover,
+.system-ordemparanormal .resource-manager-box .resource-badge label input:focus {
+	background: rgba(255, 255, 255, 0.5);
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	gap: 2px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input {
+	width: 30px !important;
+	height: 100%;
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-weight: bold;
+	font-size: 13px;
+	color: #000;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input:hover,
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input:focus {
+	background: rgba(255, 255, 255, 0.5);
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs .divider {
+	color: #888;
+	font-weight: normal;
+	font-size: 12px;
+}
+.system-ordemparanormal {
+	/* --- GERENCIADOR DE RECURSOS --- */
+}
+.system-ordemparanormal .resource-manager-box {
+	/* Força a barra a se comportar em uma única linha horizontal */
+	display: flex;
+	justify-content: center; /* Centraliza os 3 blocos na tela */
+	padding: 8px 10px;
+	margin-bottom: 10px;
+}
+.system-ordemparanormal .resource-manager-box .resource-management {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 15px; /* Espaço entre o Recurso 1, 2 e 3 */
+	flex-wrap: nowrap; /* Proíbe estritamente a quebra de linha */
+	width: 100%;
+	justify-content: space-evenly;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	height: 26px;
+	overflow: hidden;
+	flex-shrink: 1; /* Permite encolher levemente se a tela for muito pequena */
+	/* Área do Nome do Recurso */
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label {
+	background: rgba(0, 0, 0, 0.03);
+	border-right: 1px solid rgba(0, 0, 0, 0.15);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding: 0;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input {
+	width: 80px; /* Largura fixa para o nome do recurso */
+	height: 100%;
+	border: none;
+	background: transparent;
+	font-family: "Signika", sans-serif;
+	font-weight: 900;
+	font-size: 11px;
+	color: #444;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 0 4px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge label input::placeholder {
+	color: #888;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge {
+	/* Área dos Valores (Atual / Máximo) */
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 0 4px;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs input {
+	width: 28px !important; /* Espaço apenas para números (ex: 999) */
+	height: 100%;
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	color: #000;
+	padding: 0;
+}
+.system-ordemparanormal .resource-manager-box .resource-badge .resource-inputs .divider {
+	font-weight: bold;
+	font-size: 12px;
+	color: #666;
+	margin: 0 2px;
+}
+.system-ordemparanormal .biography .class,
+.system-ordemparanormal .biography .trail {
+	font-size: 12px;
+}
+.system-ordemparanormal .biography fieldset {
+	border: 1px solid rgba(0, 0, 0, 0.2509803922);
+	border-radius: 10px;
+}
+.system-ordemparanormal .biography .bio-desc .editor {
+	min-height: 230px;
+}
+.system-ordemparanormal .biography .bio-goals .editor {
+	min-height: 100px;
+}
+.system-ordemparanormal .dossier-section {
+	margin-bottom: 8px;
+	display: flex;
+	flex-direction: column;
+}
+.system-ordemparanormal .dossier-section .inventory-list-header {
+	margin-bottom: 0 !important;
+	border-radius: 4px 4px 0 0 !important;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container {
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	min-height: 250px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 250px;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .editor-content,
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .ProseMirror {
+	padding: 15px;
+	color: #222;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container prose-mirror .icon {
+	margin: 4px;
+	height: 32px;
+	width: 32px;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content {
+	padding: 15px;
+	color: #222;
+	line-height: 1.5;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p {
+	margin: 0 0 10px 0;
+}
+.system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p:last-child {
+	margin: 0;
+}
+
+/*# sourceMappingURL=ordemparanormal.css.map */

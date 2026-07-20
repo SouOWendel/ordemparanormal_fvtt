@@ -1,7 +1,6 @@
 import {
 	calculateSkillProficiency,
 	calculateProgress,
-	calculateStatusMaxima,
 	calculatePerRound,
 	calculatePatent,
 	calculateRitualDT,
@@ -208,22 +207,8 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 		if (perRound.PD_perRound !== undefined) this.PD.perRound = perRound.PD_perRound;
 		if (perRound.PE_perRound !== undefined) this.PE.perRound = perRound.PE_perRound;
 
-		// Status maxima — must be in prepareBaseData so Active Effects can modify them
-		const VIG = this.attributes.vit.value;
-		const PRE = this.attributes.pre.value;
-		const maxima = calculateStatusMaxima(this.class, VIG, PRE, progress, withoutSanity);
-		if (this.class) {
-			this.PV.max = maxima.PV_max;
-			this.SAN.max = maxima.SAN_max;
-			if (withoutSanity) this.PD.max = maxima.PD_max;
-			else this.PE.max = maxima.PE_max;
-		} else {
-			this.PV.max = this.PV.max || 0;
-			this.PE.max = this.PE.max || 0;
-			this.SAN.max = this.SAN.max || 0;
-		}
-
 		// Ritual DT
+		const PRE = this.attributes.pre.value;
 		this.ritual.DT = calculateRitualDT(isSurvivor, this.NEX.value, PRE);
 	}
 

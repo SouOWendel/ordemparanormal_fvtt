@@ -1,0 +1,42 @@
+{
+  "name": "Ocultista",
+  "type": "class",
+  "_id": "4reKeoF6BumEKIbn",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "id": 0,
+    "description": "<p><strong>O Outro Lado é misterioso, perigoso e, de certa forma, cativante. Muitos estudiosos das entidades se perdem em seus reinos obscuros em busca de poder, mas existem aqueles que visam compreender e dominar os mistérios paranormais para usá-los para combater o próprio Outro Lado. Esse tipo de agente não é apenas um conhecedor do oculto, como também possui talento para se conectar com elementos paranormais.</strong></p><p>Ao contrário da crendice popular, ocultistas não são intrinsecamente malignos. Seria como dizer que o cientista que inventou a pólvora é culpado pelo assassino que disparou o revólver. Para a Ordem, o paranormal é uma força que pode ser usada para os mais diversos propósitos, de acordo com a intenção de seu usuário.</p><p>Ocultistas aplicam seu conhecimento acadêmico e suas capacidades de conjuração de rituais em missões para investigar e combater o paranormal em todas as suas formas, principalmente quando munição convencional não é o suficiente para lidar com a tarefa.</p><p><strong>Ocultistas Famosos:</strong> Agatha Volkomenn, Dante, Arnaldo Fritz, Marc Menet, Kian.</p>",
+    "chatDescription": "",
+    "disableCalculations": false,
+    "hpInitial": 12,
+    "hpPerLevel": 2,
+    "peInitial": 4,
+    "pePerLevel": 4,
+    "sanInitial": 20,
+    "sanPerLevel": 5,
+    "skillCount": 3,
+    "grantedSkills": "",
+    "proficiencies": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "sHhoUEHwKGP7EiE0": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1780878632110,
+    "modifiedTime": 1780878682221,
+    "lastModifiedBy": "sHhoUEHwKGP7EiE0"
+  },
+  "_key": "!items!4reKeoF6BumEKIbn"
+}

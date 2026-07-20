@@ -16,6 +16,9 @@
 	"op.ritual.plural": "Rituais",
 
 	"TYPES.Item.ability": "Habilidade",
+	"TYPES.Item.origin": "Origem",
+	"TYPES.Item.path": "Trilha",
+	"TYPES.Item.class": "Classe",
 	"op.ability.plural": "Habilidades",
 	"op.ability.diverse": "Habilidades Diversas",
 
@@ -113,10 +116,10 @@
 	},
 
 	"op.attDex": "Agilidade",
-	"op.attInt": "Inteligência",
-	"op.attVit": "Vigor",
-	"op.attPre": "Presença",
 	"op.attStr": "Força",
+	"op.attInt": "Intelecto",
+	"op.attPre": "Presença",
+	"op.attVit": "Vigor",
 
 	"op.dexAbv": "Agi",
 	"op.intAbv": "Int",
@@ -154,6 +157,16 @@
 	},
 
 	"op.className": "Classe",
+	"op.hpInitial": "PV Inicial",
+	"op.hpPerLevel": "PV por Nível",
+	"op.peInitial": "PE Inicial",
+	"op.pePerLevel": "PE por Nível",
+	"op.sanInitial": "Sanidade Inicial",
+	"op.sanPerLevel": "Sanidade por Nível",
+	"op.skillCount": "Quantidade de Perícias",
+	"op.grantedSkills": "Perícias Concedidas",
+	"op.proficiencies": "Proficiências",
+	"op.classAbilities": "Habilidades da Classe",
 	"op.classChoices": {
 		"fighter": "Combatente",
 		"specialist": "Especialista",
@@ -162,6 +175,8 @@
 	},
 
 	"op.originName": "Origem",
+	"op.originSkills": "Perícias Concedidas pela Origem",
+	"op.originAbility": "Habilidade de Origem",
 	"op.originsChoices": {
 		"academico": "Acadêmico",
 		"agenteDeSaude": "Agente de Saúde",
@@ -223,6 +238,7 @@
 	},
 
 	"op.trilhasName": "Trilhas",
+	"op.pathAbilities": "Habilidades de Trilha",
 	"op.trilhas": {
 		"agenteSecreto": "Agente Secreto",
 		"aniquilador": "Aniquilador",
@@ -295,6 +311,7 @@
 
 	"op.executionChoices": {
 		"free": "Livre",
+		"movement": "Movimento",
 		"default": "Padrão",
 		"complete": "Completa",
 		"reaction": "Reação"

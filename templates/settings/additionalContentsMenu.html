@@ -1,0 +1,51 @@
+<form class="additionalContent">
+	<h1>Ficha de Agente</h1>
+	<div class="flex container">
+		<div class="flexrow align-items-center">
+			<label class="align-items-center">Adicione novas <u>origens</u>.</label>
+			<input type="text" name="newOrigins" value="{{newOrigins}}" />
+		</div>
+		<p>
+			Utilize esta opção para adicionar uma ou mais classes as fichas de agente. Digite o nome das classes separando-as
+			através de uma virgula. Se precisar remover uma classe, apenas apague.
+		</p>
+		<div>
+			<label>Adicione novas <u>classes</u>.</label>
+			<p>
+				Utilize esta opção para adicionar uma ou mais classes as fichas de agente. Digite o nome das classes separando-as
+				através de uma virgula. Se precisar remover uma classe, apenas apague.
+			</p>
+			<input type="text" name="newClasses" value="{{newClasses}}" />
+		</div>
+		<div>
+			<label>Adicione novas <u>trilhas</u>.</label>
+			<p>
+				Utilize esta opção para adicionar uma ou mais classes as fichas de agente. Digite o nome das classes separando-as
+				através de uma virgula. Se precisar remover uma classe, apenas apague.
+			</p>
+			<input type="text" name="newTrails" value="{{newTrails}}" />
+		</div>
+	</div>
+
+	<script>
+		$(function () {
+			$(".additionalContent input").selectize({
+				plugins: ["restore_on_backspace", "clear_button"],
+				create: true,
+				delimiter: ",",
+				persist: false,
+				placeholder: "Primeira classe, segunda classe, terceira classe",
+				maxItems: null,
+				valueField: "value",
+				labelField: "name",
+				searchField: ["value", "name"],
+				options: [
+					{ value: "gauderioAbutre", name: "Gaudério Abutre" },
+					{ value: "revoltado", name: "Revoltado" },
+					{ value: "duble", name: "Dublê" },
+					{ value: "ginasta", name: "Ginasta" },
+				],
+			});
+		});
+	</script>
+</form>

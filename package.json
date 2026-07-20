@@ -53,6 +53,7 @@
 		"eslint-plugin-prettier": "^5.5.5",
 		"fancy-log": "^2.0.0",
 		"husky": "^9.1.7",
+		"lint-staged": "^16.4.0",
 		"nedb": "^1.8.0",
 		"prettier": "3.0.3",
 		"sass": "^1.99.0",
@@ -63,5 +64,14 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
+	},
+	"lint-staged": {
+		"*.{js,mjs,jsx,ts,tsx}": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"*.{html,css,scss,hbs,json}": [
+			"prettier --write"
+		]
 	}
 }

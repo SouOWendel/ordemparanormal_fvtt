@@ -1,0 +1,42 @@
+{
+  "name": "Combatente",
+  "type": "class",
+  "_id": "QNnkODg2lZLQSw3T",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "id": 0,
+    "description": "<p><strong>Treinado para lutar com todo tipo de armas, e com a força e a coragem para encarar os perigos de frente. É o tipo de agente que prefere abordagens mais diretas e costuma atirar primeiro e perguntar depois.</strong></p><p>Do mercenário especialista em armas de fogo até o perito em espadas, combatentes apresentam uma gama enorme de habilidades e técnicas especiais que aprimoram sua eficiência no campo de batalha, tornando-os membros essenciais em qualquer missão de extermínio. Além de treinar seu corpo, o combatente também é perito em liderar seus aliados em batalha e em cuidar de seu equipamento de combate, sempre preparado para assumir a linha de frente quando a coisa fica feia.</p><p><strong>Combatentes Famosos:</strong> Senhor Veríssimo, Joui Jouki, Gal, Antônio “Balu” Pontevedra, Tristan Monteiro e Ryder Staten.</p>",
+    "chatDescription": "",
+    "disableCalculations": false,
+    "hpInitial": 20,
+    "hpPerLevel": 4,
+    "peInitial": 2,
+    "pePerLevel": 2,
+    "sanInitial": 12,
+    "sanPerLevel": 3,
+    "skillCount": 1,
+    "grantedSkills": "",
+    "proficiencies": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "sHhoUEHwKGP7EiE0": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1780875592225,
+    "modifiedTime": 1780875734571,
+    "lastModifiedBy": "sHhoUEHwKGP7EiE0"
+  },
+  "_key": "!items!QNnkODg2lZLQSw3T"
+}
