@@ -11,11 +11,11 @@
 				<img src="{{icon}}" alt="{{label}}" />
 				{{#if isD20Die}}
 					{{#if isKeepHighest}}
-						<span class="badge kh">
+						<span class="badge kh {{ternary hasModifiers '' 'display-hidden'}}">
 							<i class="fa-solid fa-caret-up display-flex align-center"></i>
 						</span>
 					{{else}}
-						<span class="badge kl">
+						<span class="badge kl {{ternary hasModifiers '' 'display-hidden'}}">
 							<i class="fa-solid fa-caret-down display-flex align-center"></i>
 						</span>
 					{{/if}}
