@@ -140,13 +140,11 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			isSurvivor: this.isSurvivor,
 			tabs: this._getTabs(options.parts),
 			costLabel: this.usingWithoutSanityRule ? "PD" : "PE",
+			skillTotals: this._prepareSkillTotals(this.options.document.system.skills),
 		});
 
 		// Prepara os dados do Agente e seus Items.
-		if (this.document.type === "agent") {
-			this._prepareItems(context);
-			context.skillTotals = this._prepareSkillTotals(context.system.skills);
-		}
+		this._prepareItems(context);
 
 		return context;
 	}
@@ -308,7 +306,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			invalid: [],
 		};
 		const abilities = {
-			// 1 = Origem 2 = Classe 3 = Trilha 4 = Paranormal 5 = Geral 6 = Habilidade/Complicação
+			// 1 = Origem 2 = Classe 3 = Trilha 4 = Geral 5 = Paranormal 6 = Habilidade/Complicação
 			valid: { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] },
 			invalid: [],
 		};
@@ -348,7 +346,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			}
 			// Append to abilities.
 			else if (i.type === "ability") {
-				const type = i.system.abilityType;
+				const abilityType = i.system.abilityType;
 				const costVal = i.system.cost || "";
 
 				// Em vez de ler i.system.costType, usamos a configuração global (labelCusto)
@@ -360,13 +358,13 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 					i.activationLabel = "—";
 				}
 
-				if (type === "origin") abilities.valid[1].push(i);
-				else if (type === "class") abilities.valid[2].push(i);
-				else if (type === "path") abilities.valid[3].push(i);
-				else if (type === "paranormal") abilities.valid[4].push(i);
-				else if (type === "general") abilities.valid[5].push(i);
-				else if (type === "ability" || type === "complication") abilities.valid[6].push(i);
-				else if (!type) abilities.invalid.push(i);
+				if (abilityType === "origin") abilities.valid[1].push(i);
+				else if (abilityType === "class") abilities.valid[2].push(i);
+				else if (abilityType === "path") abilities.valid[3].push(i);
+				else if (abilityType === "general") abilities.valid[4].push(i);
+				else if (abilityType === "paranormal") abilities.valid[5].push(i);
+				else if (abilityType === "ability" || abilityType === "complication") abilities.valid[6].push(i);
+				else if (!abilityType) abilities.invalid.push(i);
 			} else if (i.type === "origin") {
 				details.origin = i;
 			} else if (i.type === "class") {
@@ -402,9 +400,10 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		return Object.fromEntries(
 			Object.entries(skills).map(([key, skill]) => {
 				const degree = Number(skill.degree?.value ?? 0);
+				const bonuses = Number(skill.value ?? 0);
 				const modifier = Number(skill.mod ?? 0);
 
-				return [key, degree + modifier];
+				return [key, degree + bonuses + modifier];
 			})
 		);
 	}
