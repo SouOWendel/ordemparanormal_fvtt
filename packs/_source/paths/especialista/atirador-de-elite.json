@@ -1,0 +1,42 @@
+{
+  "folder": "pqOZKp44b7GRyW0N",
+  "name": "Atirador de Elite",
+  "type": "class",
+  "_id": "TlysdvwSqWEV8ecm",
+  "img": "systems/ordemparanormal/media/icons/paths/atirador-de-elite.svg",
+  "system": {
+    "id": 0,
+    "description": "<p>Um tiro, uma morte. Ao contrário dos combatentes, você é perito em neutralizar ameaças de longe, terminando uma briga antes mesmo que ela comece. Você trata sua arma como uma ferramenta de precisão, sendo capaz de executar façanhas incríveis.</p><p class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 10% - Mira de Elite.</strong></span><span style=\"color: rgb(238, 0, 0)\"><strong> </strong></span>Você recebe proficiência com armas de fogo que usam balas longas e soma seu Intelecto em rolagens de dano com essas armas.</p><p class=\"MsoNormal\"><span style=\"mso-spacerun:yes\"><span style=\"color: rgb(187, 40, 45)\"><strong> </strong></span></span><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 40% - Disparo Letal.</strong></span><strong> </strong>Quando faz a ação mirar você pode gastar 1 PE para aumentar em +2 a margem de ameaça do próximo ataque que fizer até o final de seu próximo turno.</p><p class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 65% - Disparo Impactante</strong></span><strong>. </strong>Quando ataca com uma arma de fogo, você pode gastar 2 PE e, em vez de causar dano, fazer uma manobra entre derrubar, desarmar, empurrar ou quebrar.</p><p class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 99% - Atirar para Matar</strong></span><strong>. </strong>Quando faz um acerto crítico com uma arma de fogo, você causa dano máximo, sem precisar rolar dados</p>",
+    "chatDescription": "",
+    "disableCalculations": false,
+    "hpInitial": 0,
+    "hpPerLevel": 0,
+    "peInitial": 0,
+    "pePerLevel": 0,
+    "sanInitial": 0,
+    "sanPerLevel": 0,
+    "skillCount": 0,
+    "grantedSkills": "",
+    "proficiencies": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784492881595,
+    "modifiedTime": 1784493014349,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!TlysdvwSqWEV8ecm"
+}

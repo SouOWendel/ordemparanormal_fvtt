@@ -1,0 +1,33 @@
+{
+  "folder": "tzknJ6T3P1rXJYwo",
+  "name": "Influencer Paranormal",
+  "type": "origin",
+  "_id": "iPCO4VcEVjh40sIy",
+  "img": "systems/ordemparanormal/media/icons/origins/influencer-paranormal.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 64 do Arquivos Secretos 4</strong>.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784492505945,
+    "modifiedTime": 1784597454045,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!iPCO4VcEVjh40sIy"
+}

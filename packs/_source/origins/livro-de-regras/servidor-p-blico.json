@@ -1,0 +1,33 @@
+{
+  "name": "Servidor Público",
+  "type": "origin",
+  "_id": "AbispPFVwox1ez4b",
+  "img": "systems/ordemparanormal/media/icons/origins/servidor-publico.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você possuía carreira em um órgão do governo, lidando com burocracia e atendendo pessoas. Sua rotina foi quebrada quando você viu que o prefeito era um cultista ou que a câmara de vereadores se reunia à noite para realizar rituais. Quando os próprios representantes do povo estão dispostos a sacrificá-lo para entidades malignas, onde reside nossa esperança? Hoje, você sabe a resposta para essa pergunta: na Ordo Realitas.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Perícias Treinadas.</strong></em></span><strong> </strong>Intuição e Vontade.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Espírito Cívico.</strong></em></span><strong> </strong>Sempre que faz um teste para ajudar, você pode gastar 1 PE para aumentar o bônus concedido em +2.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "folder": "opgOrgfwBqJNU8Jq",
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784409922261,
+    "modifiedTime": 1784410428418,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!AbispPFVwox1ez4b"
+}

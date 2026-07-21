@@ -1,0 +1,33 @@
+{
+  "name": "T.I.",
+  "type": "origin",
+  "_id": "BAYdLbXFEMfbEtOs",
+  "img": "systems/ordemparanormal/media/icons/origins/T.I.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Programador, engenheiro de software ou simplesmente “o cara da T.I.”, você tem treinamento e experiência para lidar com sistemas informatizados. Seu talento (ou curiosidade exagerada) chamou a atenção da Ordem.</p><p class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Perícias Treinadas.</strong></em></span><strong> </strong>Investigação e Tecnologia.</p><p class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Motor de Busca.</strong></em></span><strong> </strong>A critério do mestre, sempre que tiver acesso a internet, você pode gastar 2 PE para substituir um teste de perícia qualquer por um teste de Tecnologia.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "folder": "opgOrgfwBqJNU8Jq",
+  "sort": 150000,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784410038509,
+    "modifiedTime": 1784410429620,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!BAYdLbXFEMfbEtOs"
+}

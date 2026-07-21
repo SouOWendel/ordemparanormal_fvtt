@@ -4,6 +4,7 @@
   "img": "systems/ordemparanormal/media/icons/equipments/operational/mochila-militar.svg",
   "system": {
     "description": "<p>Uma mochila leve e de alta qualidade. Ela n&atilde;o usa nenhum espa&ccedil;o e aumenta sua capacidade de carga em 2 espa&ccedil;os.</p>",
+    "chatDescription": "",
     "weight": 0,
     "category": "0",
     "using": {
@@ -17,25 +18,14 @@
     {
       "origin": "Compendium.ordemparanormal.generalEquipments.Item.0KKFBP9GfASOMSbX",
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "name": "Espaço Extra",
       "_id": "1qK9LWrvE2Z4Etej",
-      "changes": [
-        {
-          "key": "system.spaces.bonus.max",
-          "mode": 2,
-          "value": "2",
-          "priority": null
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
@@ -45,15 +35,29 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.363",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "createdTime": null,
+        "modifiedTime": null
       },
       "img": "systems/ordemparanormal/media/icons/general%20equipments/Mochila%20militar.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.spaces.bonus.max",
+            "value": 2,
+            "priority": null,
+            "type": "add"
+          }
+        ]
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!GDZEPqEU7qaPBIKp.1qK9LWrvE2Z4Etej"
     }
   ],
@@ -63,7 +67,7 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.363",
     "systemId": "ordemparanormal",
     "systemVersion": "7.2.4",
     "createdTime": 1768441745795,

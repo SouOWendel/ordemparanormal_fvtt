@@ -8,20 +8,20 @@
         "value": 12,
         "max": 12
       },
-      "str": {
-        "value": 1
-      },
       "dex": {
         "value": 3
       },
-      "vit": {
-        "value": 2
+      "int": {
+        "value": 1
       },
       "pre": {
         "value": 1
       },
-      "int": {
+      "str": {
         "value": 1
+      },
+      "vit": {
+        "value": 2
       },
       "movement": {
         "walk": 9,
@@ -32,10 +32,17 @@
         "value": 1
       }
     },
-    "defense": {
-      "value": 15,
-      "skillResistances": [],
-      "damageResistances": ""
+    "attacks": {
+      "atk1": {
+        "name": "Tentáculos",
+        "test": "1d20+8",
+        "damage": "1d4+1",
+        "damageType": "piercingDamage",
+        "critical": "20",
+        "criticalMult": "2",
+        "range": "Corpo a corpo",
+        "numberOfAttacks": "1"
+      }
     },
     "skills": {
       "fighting": {
@@ -120,22 +127,20 @@
         }
       }
     },
-    "attacks": {
-      "atk1": {
-        "name": "Tentáculos",
-        "test": "1d20+8",
-        "damage": "1d4+1",
-        "damageType": "piercingDamage",
-        "critical": "20",
-        "criticalMult": "2",
-        "range": "Corpo a corpo",
-        "numberOfAttacks": "1"
-      }
-    },
     "elements": {
       "main": "sangue",
       "others": ""
     },
+    "abilities": [
+      {
+        "name": "Parasitar",
+        "description": "Se o parasita causar dano em uma criatura, pode tentar se fixar nela (teste de Luta). Enquanto fixado, causa 1d4 de dano no início de cada turno e não pode ser atacado diretamente."
+      },
+      {
+        "name": "Enxame",
+        "description": "Parasitas nunca aparecem sozinhos. VD representa múltiplas criaturas."
+      }
+    ],
     "size": "Pequeno",
     "disturbingPresence": {
       "dt": 15,
@@ -145,7 +150,28 @@
     "senses": [
       "Percepção às cegas 9m"
     ],
+    "defense": {
+      "value": 15,
+      "skillResistances": [],
+      "damageResistances": ""
+    },
     "vulnerabilities": "",
+    "actions": [],
+    "details": {
+      "description": "<p>Pequenas criaturas tentaculares de Sangue que buscam se fixar em hospedeiros vivos. Ágeis e perturbadores, atacam em grupos coordenados.</p><p><strong>VD 1:</strong> Uma ameaça em grupo, difícil de acertar mas frágil quando atingida.</p>",
+      "fearRiddle": ""
+    },
+    "temporary": {
+      "abilities": "",
+      "senses": "",
+      "defense": {
+        "skillResistances": "",
+        "damageResistances": ""
+      },
+      "vulnerabilities": "",
+      "actions": "",
+      "characteristics": ""
+    },
     "resistances": {
       "cuttingDamage": {
         "value": 0,
@@ -192,6 +218,11 @@
         "vulnerable": false,
         "immune": false
       },
+      "damageDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
       "bloodDamage": {
         "value": 10,
         "vulnerable": false,
@@ -220,32 +251,6 @@
       "blindsight": true,
       "lowLightVision": false,
       "darkvision": false
-    },
-    "abilities": [
-      {
-        "name": "Parasitar",
-        "description": "Se o parasita causar dano em uma criatura, pode tentar se fixar nela (teste de Luta). Enquanto fixado, causa 1d4 de dano no início de cada turno e não pode ser atacado diretamente."
-      },
-      {
-        "name": "Enxame",
-        "description": "Parasitas nunca aparecem sozinhos. VD representa múltiplas criaturas."
-      }
-    ],
-    "actions": [],
-    "details": {
-      "description": "<p>Pequenas criaturas tentaculares de Sangue que buscam se fixar em hospedeiros vivos. Ágeis e perturbadores, atacam em grupos coordenados.</p><p><strong>VD 1:</strong> Uma ameaça em grupo, difícil de acertar mas frágil quando atingida.</p>",
-      "fearRiddle": ""
-    },
-    "temporary": {
-      "abilities": "",
-      "senses": "",
-      "defense": {
-        "skillResistances": "",
-        "damageResistances": ""
-      },
-      "vulnerabilities": "",
-      "actions": "",
-      "characteristics": ""
     }
   },
   "effects": [],
@@ -264,7 +269,12 @@
     "texture": {
       "src": "icons/svg/mystery-man.svg",
       "scaleX": 0.8,
-      "scaleY": 0.8
+      "scaleY": 0.8,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
     },
     "width": 1,
     "height": 1,
@@ -275,13 +285,78 @@
     },
     "bar2": {
       "attribute": null
-    }
+    },
+    "depth": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.363",
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": null,

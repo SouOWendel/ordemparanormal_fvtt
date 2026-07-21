@@ -1,0 +1,33 @@
+{
+  "folder": "NNs4Mm1qnMBc4PM5",
+  "name": "Mateiro",
+  "type": "origin",
+  "_id": "bb049vvfaAYAnDtT",
+  "img": "systems/ordemparanormal/media/icons/origins/mateiro.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 12 do suplemento Sobrevivendo ao Horror</strong>.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784492190507,
+    "modifiedTime": 1784598291081,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!bb049vvfaAYAnDtT"
+}

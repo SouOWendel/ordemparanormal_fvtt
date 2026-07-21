@@ -1,0 +1,33 @@
+{
+  "folder": "atFCyScCNazHNxX3",
+  "name": "Graduado",
+  "type": "path",
+  "_id": "4USCMgP4BmDE2jOj",
+  "img": "systems/ordemparanormal/media/icons/paths/graduado.svg",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você foca seus estudos em se tornar um conjurador versátil e poderoso, conhecendo mais rituais que os outros ocultistas e sendo capaz de torná-los mais difíceis de serem resistidos. Seu objetivo é desvendar e dominar os segredos do Outro Lado, custe o que custar.</p><p><span style=\"color: #bb282d\"><strong>NEX 10% - Saber Ampliado.</strong></span> Você aprende um ritual de 1º círculo. Toda vez que ganha acesso a um novo círculo, aprende um ritual adicional daquele círculo. Esses rituais não contam no seu limite de rituais.</p><p><span style=\"color: #bb282d\"><strong>NEX 40% - Grimório Ritualístico.</strong></span> Você cria um grimório especial, que armazena rituais que sua mente não seria capaz de guardar. Você aprende uma quantidade de rituais de 1º ou 2º círculos igual ao seu Intelecto. Quando ganha acesso a um novo círculo, pode incluir um novo ritual desse círculo em seu grimório. Esses rituais não contam em seu limite de rituais conhecidos. Para conjurar um ritual armazenado em seu grimório, você precisa antes empunhar o grimório e gastar uma ação completa o folheando para relembrar o ritual. O grimório ocupa 1 espaço em seu inventário. Se perdê-lo, você pode replicá-lo com duas ações de interlúdio.</p><p><span style=\"color: #bb282d\"><strong>NEX 65% - Rituais Eficientes.</strong></span> A DT para resistir a todos os seus rituais aumenta em +5.</p><p><span style=\"color: #bb282d\"><strong>NEX 99% - Conhecendo o Medo.</strong></span> Você aprende o ritual <em>Conhecendo o Medo</em>.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "mCARmiewelPiv8Ze": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784493832280,
+    "modifiedTime": 1784493956790,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!4USCMgP4BmDE2jOj"
+}

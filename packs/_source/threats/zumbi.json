@@ -8,20 +8,20 @@
         "value": 20,
         "max": 20
       },
-      "str": {
-        "value": 3
-      },
       "dex": {
         "value": 1
       },
-      "vit": {
-        "value": 3
+      "int": {
+        "value": 0
       },
       "pre": {
         "value": 0
       },
-      "int": {
-        "value": 0
+      "str": {
+        "value": 3
+      },
+      "vit": {
+        "value": 3
       },
       "movement": {
         "walk": 6,
@@ -32,10 +32,17 @@
         "value": 1
       }
     },
-    "defense": {
-      "value": 12,
-      "skillResistances": [],
-      "damageResistances": ""
+    "attacks": {
+      "atk1": {
+        "name": "Mordida",
+        "test": "1d20+8",
+        "damage": "1d6+3",
+        "damageType": "piercingDamage",
+        "critical": "20",
+        "criticalMult": "2",
+        "range": "Corpo a corpo",
+        "numberOfAttacks": "1"
+      }
     },
     "skills": {
       "fighting": {
@@ -120,22 +127,16 @@
         }
       }
     },
-    "attacks": {
-      "atk1": {
-        "name": "Mordida",
-        "test": "1d20+8",
-        "damage": "1d6+3",
-        "damageType": "piercingDamage",
-        "critical": "20",
-        "criticalMult": "2",
-        "range": "Corpo a corpo",
-        "numberOfAttacks": "1"
-      }
-    },
     "elements": {
       "main": "morte",
       "others": ""
     },
+    "abilities": [
+      {
+        "name": "Morto-Vivo",
+        "description": "Imune a efeitos mentais e veneno. Vulnerável a fogo."
+      }
+    ],
     "size": "Médio",
     "disturbingPresence": {
       "dt": 0,
@@ -145,7 +146,28 @@
     "senses": [
       "Visão no escuro"
     ],
+    "defense": {
+      "value": 12,
+      "skillResistances": [],
+      "damageResistances": ""
+    },
     "vulnerabilities": "",
+    "actions": [],
+    "details": {
+      "description": "<p>Um cadáver reanimado pelo Outro Lado, movido apenas pelo instinto de devorar carne viva. Zumbis são lentos mas resilientes, atacando com mordidas infectadas.</p><p><strong>VD 1:</strong> Uma criatura básica de Morte, comum em manifestações paranormais.</p>",
+      "fearRiddle": ""
+    },
+    "temporary": {
+      "abilities": "",
+      "senses": "",
+      "defense": {
+        "skillResistances": "",
+        "damageResistances": ""
+      },
+      "vulnerabilities": "",
+      "actions": "",
+      "characteristics": ""
+    },
     "resistances": {
       "cuttingDamage": {
         "value": 5,
@@ -192,6 +214,11 @@
         "vulnerable": false,
         "immune": true
       },
+      "damageDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
       "bloodDamage": {
         "value": 0,
         "vulnerable": false,
@@ -220,28 +247,6 @@
       "blindsight": false,
       "lowLightVision": false,
       "darkvision": true
-    },
-    "abilities": [
-      {
-        "name": "Morto-Vivo",
-        "description": "Imune a efeitos mentais e veneno. Vulnerável a fogo."
-      }
-    ],
-    "actions": [],
-    "details": {
-      "description": "<p>Um cadáver reanimado pelo Outro Lado, movido apenas pelo instinto de devorar carne viva. Zumbis são lentos mas resilientes, atacando com mordidas infectadas.</p><p><strong>VD 1:</strong> Uma criatura básica de Morte, comum em manifestações paranormais.</p>",
-      "fearRiddle": ""
-    },
-    "temporary": {
-      "abilities": "",
-      "senses": "",
-      "defense": {
-        "skillResistances": "",
-        "damageResistances": ""
-      },
-      "vulnerabilities": "",
-      "actions": "",
-      "characteristics": ""
     }
   },
   "effects": [],
@@ -260,7 +265,12 @@
     "texture": {
       "src": "icons/svg/mystery-man.svg",
       "scaleX": 1,
-      "scaleY": 1
+      "scaleY": 1,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
     },
     "width": 1,
     "height": 1,
@@ -271,13 +281,78 @@
     },
     "bar2": {
       "attribute": null
-    }
+    },
+    "depth": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.363",
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": null,

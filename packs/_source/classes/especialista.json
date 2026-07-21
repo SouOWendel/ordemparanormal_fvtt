@@ -2,7 +2,7 @@
   "name": "Especialista",
   "type": "class",
   "_id": "T0HF865kB4szDetP",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/classes/especialista.svg",
   "system": {
     "id": 0,
     "description": "<p><strong>Um agente que confia mais em esperteza do que em força bruta. Um especialista se vale de conhecimento técnico, raciocínio rápido ou mesmo lábia para resolver mistérios e enfrentar o paranormal.</strong></p><p>Cientistas, inventores, pesquisadores e técnicos de vários tipos são exemplos de especialistas, que são tão variados quanto as áreas do conhecimento e da tecnologia. Alguns ainda preferem estudar en\u0002genharia social e se tornam excelentes espiões infiltrados, ou mesmo estudam técnicas especiais de combate como artes marciais e tiro a distância, aliando conheci\u0002mento técnico e habilidade.</p><p>O que une todos os especialistas é sua incrível capacidade de aprender e improvisar usando seu intelecto e conhecimento avançado, que pode tirar o grupo todo dos mais diversos tipos de enrascadas.</p><p><strong>Especialistas Famosos:</strong> Aaron, Arthur Cervero, Rubens Naluti, Elizabeth Webber, Samuel Norte, Chizue Akechi.</p>",
@@ -31,12 +31,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.365",
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1780878547538,
-    "modifiedTime": 1780878620804,
-    "lastModifiedBy": "sHhoUEHwKGP7EiE0"
+    "modifiedTime": 1784491469719,
+    "lastModifiedBy": "mCARmiewelPiv8Ze"
   },
   "_key": "!items!T0HF865kB4szDetP"
 }

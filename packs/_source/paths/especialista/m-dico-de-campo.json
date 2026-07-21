@@ -1,0 +1,42 @@
+{
+  "folder": "pqOZKp44b7GRyW0N",
+  "name": "Médico de Campo",
+  "type": "class",
+  "_id": "WYtrJvqtJEvLfB0K",
+  "img": "systems/ordemparanormal/media/icons/paths/medico-de-campo.svg",
+  "system": {
+    "id": 0,
+    "description": "<p>Você é treinado em técnicas de primeiros socorros e tratamento de emergência, o que torna você um membro valioso para qualquer grupo de agentes. Ao contrário dos profissionais de saúde convencionais, você está acostumado com o campo de batalha e sabe tomar decisões rápidas no meio do caos.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>Especial</strong></span><strong>: </strong>para escolher esta trilha, você precisa ser treinado em Medicina. Para usar as habilidades desta trilha, você precisa possuir um kit de medicina.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 10% - Paramédico</strong></span><strong>. </strong>Você pode usar uma ação padrão e 2 PE para curar 2d10 pontos de vida de si mesmo ou de um aliado adjacente. Você pode curar +1d10 PV respectivamente em NEX 40%, 65% e 99%, gastando +1 PE por dado adicional de cura.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 40% - Equipe de Trauma</strong></span><strong>. </strong>Você pode usar uma ação padrão e 2 PE para remover uma condição negativa (exceto morrendo) de um aliado adjacente.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 65% - Resgate</strong></span><strong>. </strong>Uma vez por rodada, se estiver em alcance curto de um aliado machucado ou morrendo, você pode se aproximar do aliado com uma ação livre (desde que seja capaz de fazê-lo usando seu deslocamento normal). Além disso, sempre que curar PV ou remover condições do aliado, você e o aliado recebem +5 na Defesa até o início de seu próximo turno. Por fim, para você, o total de espaços ocupados por carregar um personagem é reduzido pela metade.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 99% - Reanimação.</strong></span><strong> </strong>Uma vez por cena, você pode gastar uma ação completa e 10 PE para trazer de volta à vida um personagem que tenha morrido na mesma cena (exceto morte por dano massivo).</p>",
+    "chatDescription": "",
+    "disableCalculations": false,
+    "hpInitial": 0,
+    "hpPerLevel": 0,
+    "peInitial": 0,
+    "pePerLevel": 0,
+    "sanInitial": 0,
+    "sanPerLevel": 0,
+    "skillCount": 0,
+    "grantedSkills": "",
+    "proficiencies": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784493154691,
+    "modifiedTime": 1784493216794,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!WYtrJvqtJEvLfB0K"
+}

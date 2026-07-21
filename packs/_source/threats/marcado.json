@@ -8,20 +8,20 @@
         "value": 60,
         "max": 60
       },
-      "str": {
-        "value": 3
-      },
       "dex": {
         "value": 3
       },
-      "vit": {
-        "value": 3
+      "int": {
+        "value": 2
       },
       "pre": {
         "value": 4
       },
-      "int": {
-        "value": 2
+      "str": {
+        "value": 3
+      },
+      "vit": {
+        "value": 3
       },
       "movement": {
         "walk": 12,
@@ -32,12 +32,27 @@
         "value": 5
       }
     },
-    "defense": {
-      "value": 18,
-      "skillResistances": [
-        "Vontade"
-      ],
-      "damageResistances": "Todos 5"
+    "attacks": {
+      "atk1": {
+        "name": "Ataque Marcado",
+        "test": "1d20+18",
+        "damage": "3d8+3",
+        "damageType": "deathDamage",
+        "critical": "19",
+        "criticalMult": "3",
+        "range": "Corpo a corpo",
+        "numberOfAttacks": "2"
+      },
+      "atk2": {
+        "name": "Disparo Paranormal",
+        "test": "1d20+13",
+        "damage": "2d10",
+        "damageType": "energyDamage",
+        "critical": "20",
+        "criticalMult": "2",
+        "range": "30m",
+        "numberOfAttacks": "1"
+      }
     },
     "skills": {
       "fighting": {
@@ -122,32 +137,28 @@
         }
       }
     },
-    "attacks": {
-      "atk1": {
-        "name": "Ataque Marcado",
-        "test": "1d20+18",
-        "damage": "3d8+3",
-        "damageType": "deathDamage",
-        "critical": "19",
-        "criticalMult": "3",
-        "range": "Corpo a corpo",
-        "numberOfAttacks": "2"
-      },
-      "atk2": {
-        "name": "Disparo Paranormal",
-        "test": "1d20+13",
-        "damage": "2d10",
-        "damageType": "energyDamage",
-        "critical": "20",
-        "criticalMult": "2",
-        "range": "30m",
-        "numberOfAttacks": "1"
-      }
-    },
     "elements": {
       "main": "morte",
       "others": "energia, conhecimento"
     },
+    "abilities": [
+      {
+        "name": "Presença Aterradora",
+        "description": "Criaturas que iniciam seu turno a até 9m devem fazer teste de Vontade DT 25 ou ficam abaladas por 1 rodada."
+      },
+      {
+        "name": "Marcas do Outro Lado",
+        "description": "Pode usar ação de movimento para se teletransportar até 18m. Deixa marcas paranormais visíveis no local de origem e destino."
+      },
+      {
+        "name": "Conhecimento Profano",
+        "description": "Pode conjurar rituais de 1º e 2º círculo de Morte e Conhecimento (DT 20) gastando 1 ação completa."
+      },
+      {
+        "name": "Adaptação Paranormal",
+        "description": "Após sofrer dano de um elemento paranormal, ganha resistência 10 contra aquele elemento até o fim do combate."
+      }
+    ],
     "size": "Médio",
     "disturbingPresence": {
       "dt": 25,
@@ -158,7 +169,30 @@
       "Visão no escuro",
       "Sentidos paranormais 18m"
     ],
+    "defense": {
+      "value": 18,
+      "skillResistances": [
+        "Vontade"
+      ],
+      "damageResistances": "Todos 5"
+    },
     "vulnerabilities": "",
+    "actions": [],
+    "details": {
+      "description": "<p>Um humano que foi completamente consumido pelo Outro Lado, transformado em uma aberração inteligente e letal. Marcados mantêm vestígios de sua humanidade, mas são completamente dominados por um elemento paranormal.</p><p>Este Marcado foi consumido por Morte, mas também manifesta traços de Energia e Conhecimento. Sua presença distorce a realidade ao redor, e ele empunha poderes rituais devastadores.</p><p><strong>VD 5:</strong> Uma ameaça mortal para agentes NEX 40-70%. Requer táticas coordenadas e conhecimento de suas fraquezas.</p>",
+      "fearRiddle": "<p><strong>Enigma do Medo:</strong> \"Eu fui como você, mas agora sou o que você teme se tornar. Minha marca é minha prisão e meu poder. O que me libertará também me destruirá.\"</p><p><strong>Resposta:</strong> Destruir as marcas paranormais em seu corpo (3 locais específicos) com dano de elemento oposto (Sangue) revela um ponto fraco que dobra o dano recebido por 1 rodada.</p>"
+    },
+    "temporary": {
+      "abilities": "",
+      "senses": "",
+      "defense": {
+        "skillResistances": "",
+        "damageResistances": ""
+      },
+      "vulnerabilities": "",
+      "actions": "",
+      "characteristics": ""
+    },
     "resistances": {
       "cuttingDamage": {
         "value": 5,
@@ -205,6 +239,11 @@
         "vulnerable": false,
         "immune": false
       },
+      "damageDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
       "bloodDamage": {
         "value": 5,
         "vulnerable": false,
@@ -233,40 +272,6 @@
       "blindsight": false,
       "lowLightVision": false,
       "darkvision": true
-    },
-    "abilities": [
-      {
-        "name": "Presença Aterradora",
-        "description": "Criaturas que iniciam seu turno a até 9m devem fazer teste de Vontade DT 25 ou ficam abaladas por 1 rodada."
-      },
-      {
-        "name": "Marcas do Outro Lado",
-        "description": "Pode usar ação de movimento para se teletransportar até 18m. Deixa marcas paranormais visíveis no local de origem e destino."
-      },
-      {
-        "name": "Conhecimento Profano",
-        "description": "Pode conjurar rituais de 1º e 2º círculo de Morte e Conhecimento (DT 20) gastando 1 ação completa."
-      },
-      {
-        "name": "Adaptação Paranormal",
-        "description": "Após sofrer dano de um elemento paranormal, ganha resistência 10 contra aquele elemento até o fim do combate."
-      }
-    ],
-    "actions": [],
-    "details": {
-      "description": "<p>Um humano que foi completamente consumido pelo Outro Lado, transformado em uma aberração inteligente e letal. Marcados mantêm vestígios de sua humanidade, mas são completamente dominados por um elemento paranormal.</p><p>Este Marcado foi consumido por Morte, mas também manifesta traços de Energia e Conhecimento. Sua presença distorce a realidade ao redor, e ele empunha poderes rituais devastadores.</p><p><strong>VD 5:</strong> Uma ameaça mortal para agentes NEX 40-70%. Requer táticas coordenadas e conhecimento de suas fraquezas.</p>",
-      "fearRiddle": "<p><strong>Enigma do Medo:</strong> \"Eu fui como você, mas agora sou o que você teme se tornar. Minha marca é minha prisão e meu poder. O que me libertará também me destruirá.\"</p><p><strong>Resposta:</strong> Destruir as marcas paranormais em seu corpo (3 locais específicos) com dano de elemento oposto (Sangue) revela um ponto fraco que dobra o dano recebido por 1 rodada.</p>"
-    },
-    "temporary": {
-      "abilities": "",
-      "senses": "",
-      "defense": {
-        "skillResistances": "",
-        "damageResistances": ""
-      },
-      "vulnerabilities": "",
-      "actions": "",
-      "characteristics": ""
     }
   },
   "effects": [],
@@ -285,7 +290,12 @@
     "texture": {
       "src": "icons/svg/mystery-man.svg",
       "scaleX": 1,
-      "scaleY": 1
+      "scaleY": 1,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
     },
     "width": 1,
     "height": 1,
@@ -296,13 +306,78 @@
     },
     "bar2": {
       "attribute": null
-    }
+    },
+    "depth": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.363",
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": null,

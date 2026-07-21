@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Arquivos Secretos",
+  "color": "#232220",
+  "sorting": "a",
+  "_id": "tzknJ6T3P1rXJYwo",
+  "description": "",
+  "sort": 300000,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784492346726,
+    "modifiedTime": 1784598504106,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!tzknJ6T3P1rXJYwo"
+}

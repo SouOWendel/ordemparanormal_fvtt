@@ -8,20 +8,20 @@
         "value": 40,
         "max": 40
       },
-      "str": {
-        "value": 4
-      },
       "dex": {
         "value": 2
       },
-      "vit": {
-        "value": 4
+      "int": {
+        "value": 1
       },
       "pre": {
         "value": 1
       },
-      "int": {
-        "value": 1
+      "str": {
+        "value": 4
+      },
+      "vit": {
+        "value": 4
       },
       "movement": {
         "walk": 9,
@@ -32,10 +32,17 @@
         "value": 3
       }
     },
-    "defense": {
-      "value": 15,
-      "skillResistances": [],
-      "damageResistances": "Sangue 10"
+    "attacks": {
+      "atk1": {
+        "name": "Garras Sanguinárias",
+        "test": "1d20+14",
+        "damage": "2d6+4",
+        "damageType": "cuttingDamage",
+        "critical": "19",
+        "criticalMult": "2",
+        "range": "Corpo a corpo",
+        "numberOfAttacks": "2"
+      }
     },
     "skills": {
       "fighting": {
@@ -120,22 +127,24 @@
         }
       }
     },
-    "attacks": {
-      "atk1": {
-        "name": "Garras Sanguinárias",
-        "test": "1d20+14",
-        "damage": "2d6+4",
-        "damageType": "cuttingDamage",
-        "critical": "19",
-        "criticalMult": "2",
-        "range": "Corpo a corpo",
-        "numberOfAttacks": "2"
-      }
-    },
     "elements": {
       "main": "sangue",
       "others": ""
     },
+    "abilities": [
+      {
+        "name": "Sede de Sangue",
+        "description": "Ao reduzir um inimigo a 0 PV, a criatura pode fazer um ataque adicional como ação livre."
+      },
+      {
+        "name": "Regeneração Rápida",
+        "description": "Recupera 5 PV no início de cada turno se tiver pelo menos 1 PV."
+      },
+      {
+        "name": "Faro de Sangue",
+        "description": "Pode detectar criaturas feridas (abaixo de 50% PV) a até 30m de distância."
+      }
+    ],
     "size": "Médio",
     "disturbingPresence": {
       "dt": 20,
@@ -146,7 +155,28 @@
       "Visão no escuro",
       "Faro"
     ],
+    "defense": {
+      "value": 15,
+      "skillResistances": [],
+      "damageResistances": "Sangue 10"
+    },
     "vulnerabilities": "Energia",
+    "actions": [],
+    "details": {
+      "description": "<p>Uma aberração musculosa e distorcida, coberta por carne exposta e veias pulsantes. Criaturas de Sangue são predadores brutais que se alimentam da vitalidade de suas vítimas.</p><p><strong>VD 3:</strong> Uma ameaça séria para agentes NEX 5-30%, com alta capacidade ofensiva e regeneração.</p>",
+      "fearRiddle": ""
+    },
+    "temporary": {
+      "abilities": "",
+      "senses": "",
+      "defense": {
+        "skillResistances": "",
+        "damageResistances": ""
+      },
+      "vulnerabilities": "",
+      "actions": "",
+      "characteristics": ""
+    },
     "resistances": {
       "cuttingDamage": {
         "value": 5,
@@ -193,6 +223,11 @@
         "vulnerable": false,
         "immune": false
       },
+      "damageDamage": {
+        "value": 0,
+        "vulnerable": false,
+        "immune": false
+      },
       "bloodDamage": {
         "value": 10,
         "vulnerable": false,
@@ -221,36 +256,6 @@
       "blindsight": false,
       "lowLightVision": false,
       "darkvision": true
-    },
-    "abilities": [
-      {
-        "name": "Sede de Sangue",
-        "description": "Ao reduzir um inimigo a 0 PV, a criatura pode fazer um ataque adicional como ação livre."
-      },
-      {
-        "name": "Regeneração Rápida",
-        "description": "Recupera 5 PV no início de cada turno se tiver pelo menos 1 PV."
-      },
-      {
-        "name": "Faro de Sangue",
-        "description": "Pode detectar criaturas feridas (abaixo de 50% PV) a até 30m de distância."
-      }
-    ],
-    "actions": [],
-    "details": {
-      "description": "<p>Uma aberração musculosa e distorcida, coberta por carne exposta e veias pulsantes. Criaturas de Sangue são predadores brutais que se alimentam da vitalidade de suas vítimas.</p><p><strong>VD 3:</strong> Uma ameaça séria para agentes NEX 5-30%, com alta capacidade ofensiva e regeneração.</p>",
-      "fearRiddle": ""
-    },
-    "temporary": {
-      "abilities": "",
-      "senses": "",
-      "defense": {
-        "skillResistances": "",
-        "damageResistances": ""
-      },
-      "vulnerabilities": "",
-      "actions": "",
-      "characteristics": ""
     }
   },
   "effects": [],
@@ -269,7 +274,12 @@
     "texture": {
       "src": "icons/svg/mystery-man.svg",
       "scaleX": 1,
-      "scaleY": 1
+      "scaleY": 1,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
     },
     "width": 1,
     "height": 1,
@@ -280,13 +290,78 @@
     },
     "bar2": {
       "attribute": null
-    }
+    },
+    "depth": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.363",
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": null,

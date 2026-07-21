@@ -1,0 +1,33 @@
+{
+  "folder": "tzknJ6T3P1rXJYwo",
+  "name": "Funcionário de Beira de Estrada",
+  "type": "origin",
+  "_id": "juKc3d7X6l0RqYy5",
+  "img": "systems/ordemparanormal/media/icons/origins/funcionario-de-beira-de-estrada.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "Your text here.",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784492601762,
+    "modifiedTime": 1784492648277,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!juKc3d7X6l0RqYy5"
+}

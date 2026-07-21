@@ -1,0 +1,33 @@
+{
+  "name": "Universitário",
+  "type": "origin",
+  "_id": "9SsXOfjVbtR8M2bD",
+  "img": "systems/ordemparanormal/media/icons/origins/universitario.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você era aluno de uma faculdade. Em sua rotina de estudos, provas e festas, acabou descobrindo algo — talvez um livro amaldiçoado na antiga biblioteca do campus? Por seu achado, foi convocado pela Ordem. Agora, estuda com mais afinco: nesse novo curso, ouviu dizer que as provas podem ser mortais.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Perícias Treinadas.</strong></em></span><strong> </strong>Atualidades e Investigação.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Dedicação.</strong></em></span><strong> </strong>Você recebe +1 PE, e mais 1 PE adicional a cada NEX ímpar (15%, 25%…). Além disso, seu limite de PE por turno aumenta em 1 (em NEX 5% seu limite é 2, em NEX 10% é 3 e assim por diante; isso não afeta a DT de seus efeitos).</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "folder": "opgOrgfwBqJNU8Jq",
+  "sort": 103125,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784410306380,
+    "modifiedTime": 1784410434480,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!9SsXOfjVbtR8M2bD"
+}

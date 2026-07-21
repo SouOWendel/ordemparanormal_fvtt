@@ -1,0 +1,33 @@
+{
+  "folder": "tzknJ6T3P1rXJYwo",
+  "name": "Cientista Ex-Panacea",
+  "type": "origin",
+  "_id": "sLcxyxW9zznwP1hu",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 66 do Arquivos Secretos 6</strong>.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "mCARmiewelPiv8Ze": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784597546077,
+    "modifiedTime": 1784597825472,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!sLcxyxW9zznwP1hu"
+}

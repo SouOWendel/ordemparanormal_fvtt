@@ -1,0 +1,33 @@
+{
+  "folder": "NNs4Mm1qnMBc4PM5",
+  "name": "Fánatico por Criaturas",
+  "type": "origin",
+  "_id": "WHYuFS6cmEaiY3vY",
+  "img": "systems/ordemparanormal/media/icons/origins/fanatico-por-criaturas.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 10 do suplemento Sobrevivendo ao Horror</strong>.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784492056418,
+    "modifiedTime": 1784598156509,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!WHYuFS6cmEaiY3vY"
+}

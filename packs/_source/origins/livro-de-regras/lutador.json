@@ -1,0 +1,33 @@
+{
+  "name": "Lutador",
+  "type": "origin",
+  "_id": "3H7gdHP0JKg1YmmR",
+  "img": "systems/ordemparanormal/media/icons/origins/lutador.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você pratica uma arte marcial ou esporte de luta, ou cresceu em um bairro perigoso onde aprendeu briga de rua. Já quebrou muitos ossos, tanto seus quanto dos outros. Pode ter conhecido a Ordem após um torneio secreto envolvendo entidades do Outro Lado ou ter sido recrutado pela sua capacidade de luta.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-spacerun:yes\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong> </strong></em></span></span><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Perícias treinadas.</strong></em></span><strong> </strong>Luta e Reflexos.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Mão Pesada. </strong></em></span>Você recebe +2 em rolagens de dano com ataques corpo a corpo.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "folder": "opgOrgfwBqJNU8Jq",
+  "sort": 900000,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784409632286,
+    "modifiedTime": 1784410428419,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!3H7gdHP0JKg1YmmR"
+}

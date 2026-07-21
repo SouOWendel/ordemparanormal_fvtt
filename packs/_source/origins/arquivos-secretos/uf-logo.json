@@ -1,0 +1,76 @@
+{
+  "folder": "tzknJ6T3P1rXJYwo",
+  "name": "Ufólogo",
+  "type": "armament",
+  "_id": "8z7TxM3LatGuiswE",
+  "img": "systems/ordemparanormal/media/icons/origins/teorico-da-conspiracao.svg",
+  "system": {
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 54 do Arquivos Secretos 5</strong>.</p>",
+    "chatDescription": "",
+    "weight": 1,
+    "category": 0,
+    "using": {
+      "state": true,
+      "class": "fas"
+    },
+    "quantity": 1,
+    "proficiency": "",
+    "types": {
+      "rangeType": {
+        "name": "",
+        "subRangeType": ""
+      },
+      "ammunitionType": "",
+      "gripType": ""
+    },
+    "critical": "",
+    "range": "",
+    "formulas": {
+      "attack": {
+        "formula": "1d4",
+        "attr": "",
+        "skill": "",
+        "bonus": ""
+      },
+      "damage": {
+        "formula": "1d4",
+        "attr": "",
+        "bonus": "",
+        "type": "",
+        "parts": []
+      },
+      "extraFormula": "1d4"
+    },
+    "penalty": "",
+    "conditions": {
+      "improvised": false,
+      "throwable": false,
+      "agile": false,
+      "automatic": false,
+      "adaptableGrip": false,
+      "pistolBlow": false
+    },
+    "actionType": "standard",
+    "numberOfAttacks": 1,
+    "rangeCategory": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784492653997,
+    "modifiedTime": 1784597496300,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!8z7TxM3LatGuiswE"
+}

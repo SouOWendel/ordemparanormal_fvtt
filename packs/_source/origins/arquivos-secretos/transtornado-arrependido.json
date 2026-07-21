@@ -1,0 +1,33 @@
+{
+  "folder": "tzknJ6T3P1rXJYwo",
+  "name": "Transtornado Arrependido",
+  "type": "origin",
+  "_id": "XBv0fs5KnGl6bq7M",
+  "img": "systems/ordemparanormal/media/icons/origins/transtornado-arrependido.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 43 do Arquivos Secretos 1</strong>.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784492445140,
+    "modifiedTime": 1784597243033,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!XBv0fs5KnGl6bq7M"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Religioso",
+  "type": "origin",
+  "_id": "bAkC0AXfnY4CBcpu",
+  "img": "systems/ordemparanormal/media/icons/origins/religioso.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você é devoto ou sacerdote de uma fé. Independentemente da religião que pratica, se dedica a auxiliar as pessoas com problemas espirituais. A partir disso, teve contato com o paranormal, o que fez com que fosse convocado pela Ordem.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Perícias Treinadas.</strong></em></span><strong> </strong>Religião e Vontade.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Acalentar.</strong></em></span><strong> </strong>Você recebe +5 em testes de Religião para acalmar. Além disso, quando acalma uma pessoa, ela recebe um número de pontos de Sanidade igual a 1d6 + a sua Presença.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "folder": "opgOrgfwBqJNU8Jq",
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784409882777,
+    "modifiedTime": 1784410428418,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!bAkC0AXfnY4CBcpu"
+}

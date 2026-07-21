@@ -1,0 +1,33 @@
+{
+  "folder": "NNs4Mm1qnMBc4PM5",
+  "name": "Chef do Outro Lado",
+  "type": "origin",
+  "_id": "at5MKeqOkp5o5NWr",
+  "img": "systems/ordemparanormal/media/icons/origins/chef-do-outro-lado.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 8 do suplemento Sobrevivendo ao Horror</strong>.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784491916128,
+    "modifiedTime": 1784598084362,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!at5MKeqOkp5o5NWr"
+}
