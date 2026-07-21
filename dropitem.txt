@@ -1,5 +1,0 @@
-_onDropItem
-_onDropCreateItems
-_onDropSingleItem
-
-https://foundryvtt.com/api/classes/foundry.abstract.SingletonEmbeddedCollection.html

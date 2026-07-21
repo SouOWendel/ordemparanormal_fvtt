@@ -172,10 +172,9 @@ export function calculatePatent(prestigePoints) {
  * @param {number} PRE
  * @returns {number}
  */
-export function calculateRitualDT(isSurvivor, nexValue, PRE) {
-	const calcNEX = nexValue < 99 ? Math.floor(nexValue / 5) : 20;
+export function calculateRitualDT(isSurvivor, progress, PRE) {
 	if (isSurvivor) return 10 + PRE;
-	return 10 + calcNEX + PRE;
+	return 10 + progress + PRE;
 }
 
 /**

@@ -178,11 +178,11 @@ export default class RollConfigurationDialog extends DialogOP {
 		}, {});
 
 		dice = Object.entries(byDenom).map(([dice, { icon, count }]) => ({ icon, label: `${count}${dice}`, number: count }));
-
 		dice[0] = foundry.utils.mergeObject(
 			{
 				isKeepHighest: this.rolls[0].isKeepHighest,
 				isD20Die: this.rolls[0].validD20Roll,
+				hasModifiers: this.rolls[0].terms[0].modifiers.length > 0,
 			},
 			dice[0]
 		);

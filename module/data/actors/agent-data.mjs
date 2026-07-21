@@ -209,7 +209,7 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 
 		// Ritual DT
 		const PRE = this.attributes.pre.value;
-		this.ritual.DT = calculateRitualDT(isSurvivor, this.NEX.value, PRE);
+		this.ritual.DT = calculateRitualDT(isSurvivor, progress, PRE);
 	}
 
 	prepareDerivedData() {
