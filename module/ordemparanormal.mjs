@@ -385,8 +385,9 @@ Handlebars.registerHelper("abilityTypeHelper", function (arg) {
 	if (arg == 1) return "origin";
 	else if (arg == 2) return "class";
 	else if (arg == 3) return "path";
-	else if (arg == 4) return "paranormal";
-	else if (arg == 5) return "ability";
+	else if (arg == 4) return "general";
+	else if (arg == 5) return "paranormal";
+	else if (arg == 6) return "ability";
 });
 
 Handlebars.registerHelper("inputValid", function (arg1, arg2) {
