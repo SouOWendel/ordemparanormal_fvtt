@@ -1,9 +1,0 @@
-- Preciso colocar um check para considerar que a classe usa estágios ao invés de níveis ou NEX. Isso serve para a classe de sobrevivente, por exemplo.
-
-- Preciso testar o design para Nível e NEX.
-
-- Considera o NEX pra soma da DT de ritual para regra de nível e nex
-- Consertar a resistencia a dano da ficha de ameaça
-
-
-- Adicionar ação de movimento para habilidades.
