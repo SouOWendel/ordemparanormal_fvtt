@@ -49,6 +49,18 @@
 						blank="—"
 					}}</select>
 
+				<label class="resource-label">{{localize "op.resistance"}}</label>
+				<div style="display: flex; gap: 5px;">
+					<select name="system.skillResis" data-dtype="String">
+						{{selectOptions optionSkillResis selected=system.skillResis localize=true blank="—"}}
+					</select>
+					{{#if system.skillResis}}
+						<select name="system.resistance" data-dtype="String">
+							{{selectOptions optionResistance selected=system.resistance localize=true blank="—"}}
+						</select>
+					{{/if}}
+				</div>
+
 				<label class="resource-label">Formas</label>
 				<div style="display: flex; gap: 20px; padding-left: 5px;">
 					<label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
