@@ -1,4 +1,4 @@
-/* eslint-disable new-cap */
+﻿/* eslint-disable new-cap */
 import { prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 const { api, sheets } = foundry.applications;
@@ -14,14 +14,16 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	constructor(options = {}) {
 		super(options);
 		this.#dragDrop = this.#createDragDropHandlers();
+		this._isEditingDescription = false;
+		this._isEditingChatDescription = false;
 	}
 
 	/** @inheritDoc */
 	static DEFAULT_OPTIONS = {
-		classes: ["ordemparanormal", "sheet", "item", "themed", "theme-light"],
+		classes: ["ordemparanormal", "op-item-sheet", "sheet", "item", "themed", "theme-light"],
 		position: {
 			width: 540,
-			height: 440,
+			height: "auto",
 		},
 		actions: {
 			onEditImage: this.#onEditImage,
@@ -30,6 +32,7 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			deleteDoc: this.#deleteEffect,
 			toggleEffect: this.#toggleEffect,
 			onDamageControl: this.#onDamageControl,
+			editDescription: this.#toggleDescriptionEdit,
 		},
 		form: {
 			submitOnChange: true,
@@ -74,6 +77,18 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			template: "systems/ordemparanormal/templates/item/parts/item-ritual-attributes.hbs",
 			scrollable: [".scrollable"],
 		},
+		originAttr: {
+			template: "systems/ordemparanormal/templates/item/parts/item-origin-attributes.hbs",
+			scrollable: [".scrollable"],
+		},
+		pathAttr: {
+			template: "systems/ordemparanormal/templates/item/parts/item-path-attributes.hbs",
+			scrollable: [".scrollable"],
+		},
+		classAttr: {
+			template: "systems/ordemparanormal/templates/item/parts/item-class-attributes.hbs",
+			scrollable: [".scrollable"],
+		},
 		effects: { template: "systems/ordemparanormal/templates/shared/effects.hbs", scrollable: [".scrollable"] },
 	};
 
@@ -100,6 +115,15 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 				break;
 			case "ritual":
 				options.parts.push("description", "ritualAttr", "effects");
+				break;
+			case "origin":
+				options.parts.push("description", "originAttr", "effects");
+				break;
+			case "path":
+				options.parts.push("description", "pathAttr", "effects");
+				break;
+			case "class":
+				options.parts.push("description", "classAttr", "effects");
 				break;
 		}
 	}
@@ -143,10 +167,16 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			attackSkills: CONFIG.op.attackSkills,
 			// Ritual's Dropdowns
 			optionExecution: CONFIG.op.dropdownExecution,
+			optionOrigins: CONFIG.op.dropdownOrigins,
+			optionPaths: CONFIG.op.dropdownPath,
+			optionClassChoices: CONFIG.op.dropdownClass,
 			// Item's Radiobox
 			categories: CONFIG.op.categories,
 			degree: CONFIG.op.ritualDegree,
 		});
+
+		context.editingDescription = this._isEditingDescription;
+		context.editingChatDescription = this._isEditingChatDescription;
 
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#updateDocuments
 		// https://foundryvtt.com/api/classes/foundry.abstract.Document.html#deleteDocuments
@@ -174,6 +204,13 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 						rollData: this.item.getRollData(),
 					}
 				);
+				context.enrichedChatDescription = this.item.system.chatDescription
+					? await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.chatDescription, {
+							secrets: this.document.isOwner,
+							relativeTo: this.item,
+							rollData: this.item.getRollData(),
+					  })
+					: null;
 				break;
 			case "abilityAttr":
 			case "armamentCombat":
@@ -181,6 +218,9 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			case "generalAttr":
 			case "protectionAttr":
 			case "ritualAttr":
+			case "originAttr":
+			case "pathAttr":
+			case "classAttr":
 				context.tab = context.tabs[partId];
 				break;
 			case "effects":
@@ -246,6 +286,18 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 					tab.id = "ritualAttr";
 					tab.label += "attributes";
 					break;
+				case "originAttr":
+					tab.id = "originAttr";
+					tab.label += "attributes";
+					break;
+				case "pathAttr":
+					tab.id = "pathAttr";
+					tab.label += "attributes";
+					break;
+				case "classAttr":
+					tab.id = "classAttr";
+					tab.label += "attributes";
+					break;
 				case "effects":
 					tab.id = "effects";
 					tab.label += "effects";
@@ -266,9 +318,41 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 */
 	_onRender(context, options) {
 		this.#dragDrop.forEach((d) => d.bind(this.element));
-		// You may want to add other special handling here
-		// Foundry comes with a large number of utility classes, e.g. SearchFilter
-		// That you may want to implement yourself.
+
+		const attributesContainer = this.element.querySelector(".class-attributes-section");
+		const disableCheckbox = this.element.querySelector('input[name="system.disableCalculations"]');
+
+		if (disableCheckbox && attributesContainer) {
+			const toggleCombatInputs = () => {
+				const inputs = attributesContainer.querySelectorAll("input");
+
+				inputs.forEach((input) => {
+					input.disabled = disableCheckbox.checked;
+				});
+			};
+
+			disableCheckbox.addEventListener("change", toggleCombatInputs);
+			toggleCombatInputs();
+		}
+
+		// Controle do Fullscreen
+		const isEditing = this._isEditingDescription || this._isEditingChatDescription;
+		this.element.classList.toggle("op-fullscreen-active", isEditing);
+
+		// --- A SOLUÇÃO: Conectar o evento do ProseMirror ao nosso Layout ---
+		const proseMirrors = this.element.querySelectorAll("prose-mirror");
+		for (const pm of proseMirrors) {
+			// Ouve o clique no botão nativo de "Salvar" do editor
+			pm.addEventListener("save", () => {
+				// Desliga as nossas variáveis de controle
+				this._isEditingDescription = false;
+				this._isEditingChatDescription = false;
+
+				// Retorna a janela ao tamanho normal e re-renderiza
+				this._toggleWindowSize(false);
+				this.render();
+			});
+		}
 	}
 
 	/** ************
@@ -276,6 +360,25 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 *   ACTIONS
 	 *
 	 **************/
+
+	// --- Controle de tamanho fixo ---
+	_toggleWindowSize(isEnteringFullscreen) {
+		if (isEnteringFullscreen) {
+			// Usamos "auto" para que o CSS assuma o controle do tamanho e do limite máximo
+			this.setPosition({ width: 540, height: 540 });
+		} else {
+			// Retorna para as configurações base
+			this.setPosition({ width: this.options.position.width, height: this.options.position.height });
+		}
+	}
+
+	static #toggleDescriptionEdit(event, target) {
+		event.stopPropagation();
+		this._isEditingDescription = !this._isEditingDescription;
+
+		this._toggleWindowSize(this._isEditingDescription);
+		this.render();
+	}
 
 	/**
 	 * Handle changing a Document's image.
@@ -287,7 +390,9 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 * @protected
 	 */
 	static async #onEditImage(event, target) {
-		const attr = target.dataset.edit;
+		const attrElement = target.closest(".profile-img-wrapper")?.querySelector("[data-edit]");
+		const attr = attrElement ? attrElement.dataset.edit : "img";
+
 		const current = foundry.utils.getProperty(this.document, attr);
 		const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
 		// V13: Use namespaced FilePicker
@@ -640,6 +745,17 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	/*  Form Submission                             */
 	/* -------------------------------------------- */
 
+	_prepareSubmitData(event, form, formData) {
+		if (this._isEditingDescription || this._isEditingChatDescription) {
+			this._toggleWindowSize(false);
+			this._isEditingDescription = false;
+			this._isEditingChatDescription = false;
+		}
+
+		// Retorna os dados para que o Foundry faça o salvamento no banco de dados
+		return super._prepareSubmitData(event, form, formData);
+	}
+
 	/** @inheritDoc */
 	_processSubmitData(event, form, submitData) {
 		const clone = this.document.clone(foundry.utils.deepClone(submitData));
@@ -664,4 +780,27 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	}
 
 	/* -------------------------------------------- */
+
+	/**
+	 * Sobrescreve o fechamento da janela ("X") para garantir o salvamento
+	 * de qualquer texto no ProseMirror antes de destruir a ficha do item.
+	 * @override
+	 */
+	async close(options = {}) {
+		if (this.isEditable) {
+			// 1. Pede para os editores atualizarem o formulário com o texto atual
+			const proseMirrors = this.element?.querySelectorAll("prose-mirror");
+			if (proseMirrors) {
+				for (const pm of proseMirrors) {
+					if (typeof pm.save === "function") pm.save();
+				}
+			}
+
+			// 2. Força o envio dos dados pro banco antes da janela sumir
+			await this.submit();
+		}
+
+		// 3. Destrói a janela normalmente (o que já desativa a edição para a próxima abertura)
+		return super.close(options);
+	}
 }

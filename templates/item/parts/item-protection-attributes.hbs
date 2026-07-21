@@ -1,8 +1,21 @@
 <section class="tab protection {{tab.cssClass}} scrollable" data-group="primary" data-tab="protectionAttr">
-	<div class="resource grid align-items-center">
-		<label class="resource-label">{{localize "op.defense"}}</label>
-		<input type="text" name="system.defense" value="{{system.defense}}" data-dtype="Number" />
-		<label class="resource-label">{{localize "op.category"}}</label>
-		<input type="text" name="system.category" value="{{system.category}}" data-dtype="String" />
+	<div class="content-item">
+
+		<div class="class-attributes-section op-shadow">
+			<div class="section-title">Atributos de Proteção</div>
+
+			<div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+				<div class="form-group">
+					<label class="resource-label">{{localize "op.defense"}}</label>
+					<input type="text" name="system.defense" value="{{system.defense}}" data-dtype="Number" />
+				</div>
+
+				<div class="form-group">
+					<label class="resource-label">{{localize "op.category"}}</label>
+					<input type="text" name="system.category" value="{{system.category}}" data-dtype="String" />
+				</div>
+			</div>
+		</div>
+
 	</div>
 </section>

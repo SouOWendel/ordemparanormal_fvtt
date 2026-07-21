@@ -1,24 +1,31 @@
-<section class="tab flexcol enigmas {{tab.cssClass}}" data-tab="enigmas" data-group="primary">
-	<div class="enigma-container">
-		<span class="actor-title-header">{{localize "op.enigma"}}</span>
-		<div style="flex: 1; display: flex; flex-direction: column;">
-			{{#if editable}}
-				<prose-mirror
-					name="system.details.fearRiddle"
-					data-document-u-u-i-d="{{actor.uuid}}"
-					value="{{system.details.fearRiddle}}"
-					collaborate="true"
-					toggled="true"
-				>
-					{{{enrichedFearRiddle}}}
-				</prose-mirror>
-			{{else}}
-				<div
-					style="padding: 10px; background: rgba(255,255,255,0.5); border: 1px solid #ccc; border-radius: 4px; height: 100%; overflow-y: auto;"
-				>
-					{{{enrichedFearRiddle}}}
-				</div>
-			{{/if}}
+<section class="tab inventory-tab enigmas {{tab.cssClass}}" data-tab="enigmas" data-group="primary">
+	<div class="inventory-list-container scrollable-inventory">
+
+		<div class="inventory-category dossier-section op-shadow">
+			<!-- CABEÇALHO DO ENIGMA -->
+			<div class="inventory-list-header">
+				<span class="col-name"><i class="fa-solid fa-puzzle-piece"></i> {{localize "op.enigma"}}</span>
+			</div>
+
+			<!-- ÁREA DO EDITOR (ProseMirror Padrão Dossiê) -->
+			<div class="dossier-editor-container">
+				{{#if editable}}
+					<prose-mirror
+						name="system.details.fearRiddle"
+						data-document-u-u-i-d="{{actor.uuid}}"
+						value="{{system.details.fearRiddle}}"
+						collaborate="true"
+						toggled="true"
+					>
+						{{{enrichedFearRiddle}}}
+					</prose-mirror>
+				{{else}}
+					<div class="locked-content">
+						{{{enrichedFearRiddle}}}
+					</div>
+				{{/if}}
+			</div>
 		</div>
+
 	</div>
 </section>

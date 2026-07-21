@@ -1,3 +1,4 @@
+@use "../utils/typography";
 @use "../utils/colors";
 @use "../utils/variables";
 
@@ -277,7 +278,7 @@ dialog.ordemparanormal-patch-notes.application {
 
 .areaTemplateWindow {
 	box-shadow: 0 0 10x #000 !important;
-	font-family: "Signika", "Roboto", sans-serif;
+	font-family: typography.$font-primary;
 
 	.window-header {
 		font-size: variables.$font-base;
@@ -285,7 +286,7 @@ dialog.ordemparanormal-patch-notes.application {
 }
 
 dialog.ordemparanormal.application.roll-configuration {
-	font-family: "Source Sans 3", "Signika", sans-serif;
+	font-family: typography.$font-primary;
 	background: rgba(19, 19, 19, 0.9) 100% 80% / 200% 200% url("../media/assets/ondulacoes.webp") !important;
 
 	.window-header,
@@ -322,13 +323,15 @@ dialog.ordemparanormal.application.roll-configuration {
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
+			text-align: center;
 		}
 
 		.window-subtitle {
 			margin: 0;
-			font-size: 16;
+			font-size: 16px;
 			line-height: 30px;
 			text-shadow: none;
+			text-align: center;
 		}
 
 		.header-control {

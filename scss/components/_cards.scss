@@ -17,11 +17,11 @@
 		min-height: 2em;
 		gap: 0.25rem;
 		padding: 0 0.5rem;
-		background: colors.$c-overlay-light;
-		border: 1px solid colors.$c-gray-medium;
-		border-radius: variables.$radius-md;
-		color: colors.$c-gray-darkest;
-		font-family: "Signika", "Palatino Linotype", sans-serif;
+		background: rgba(0, 0, 0, 0.1);
+		border: 1px solid #555;
+		border-radius: 4px;
+		color: #111;
+		font-family: typography.$font-primary;
 		font-size: 0.875rem;
 		line-height: normal;
 		text-decoration: none;

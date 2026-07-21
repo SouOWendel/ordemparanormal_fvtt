@@ -3,7 +3,7 @@
 import BasicRoll from "../dice/basic-roll.mjs";
 import SkillToolRollConfigurationDialog from "../applications/skill-tool-configuration-dialog.mjs";
 import AttributeRollConfigurationDialog from "../applications/attribute-configuration-dialog.mjs";
-import { calculateSpaces, calculateDefense } from "../helpers/actor-calculations.mjs";
+import { calculateSpaces, calculateDefense, calculateStatusMaxima } from "../helpers/actor-calculations.mjs";
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
@@ -75,6 +75,41 @@ export class OrdemActor extends Actor {
 			);
 			sys.defense.value = result.value;
 			sys.defense.dodge = result.dodge;
+
+			this._calculateMaxHP();
+		}
+	}
+
+	/**
+	 * Calcula o HP Máximo do Agente baseado na sua Classe e Vitalidade.
+	 * @private
+	 */
+	_calculateMaxHP() {
+		// Puxa os dados básicos
+		const vig = this.system.attributes.vit.value || 0;
+		const pre = this.system.attributes.pre.value || 0;
+		const progress = this.system._progress;
+		const withoutSanity = this.system.flags?.withoutSanity || false;
+
+		// Busca a Classe
+		const classItem = this.itemTypes.class[0];
+		const classStats = classItem ? classItem.system : null;
+
+		const isCalcActive = classStats ? !classStats.disableCalculations : false;
+
+		this.system.isDerivatedCalcsActive = isCalcActive;
+
+		if (isCalcActive) {
+			const maxStatus = calculateStatusMaxima(vig, pre, progress, withoutSanity, classStats);
+			const pvBonus = Number(this.system.PV.bonus) || 0;
+			const peBonus = Number(this.system.PE.bonus) || 0;
+			const pdBonus = Number(this.system.PD.bonus) || 0;
+			const sanBonus = Number(this.system.SAN.bonus) || 0;
+
+			this.system.PV.max = maxStatus.PV_max + pvBonus;
+			this.system.PE.max = maxStatus.PE_max + peBonus;
+			this.system.PD.max = maxStatus.PD_max + pdBonus;
+			this.system.SAN.max = maxStatus.SAN_max + sanBonus;
 		}
 	}
 

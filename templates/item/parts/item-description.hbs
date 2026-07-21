@@ -1,18 +1,87 @@
 <section class="tab description {{tab.cssClass}}" data-group="primary" data-tab="description">
-	<div class="content-item scrollable">
-		<span class="item-title-header">Descrição do Item</span>
-		{{#if editable}}
-			<prose-mirror
-				name="system.description"
-				data-document-u-u-i-d="{{item.uuid}}"
-				value="{{system.description}}"
-				collaborate="true"
-				toggled="true"
-			>
-				{{{enrichedDescription}}}
-			</prose-mirror>
-		{{else}}
-			{{{enrichedDescription}}}
-		{{/if}}
+	<div class="content-item description-container {{ternary editingDescription '' 'scrollable'}}">
+
+		<details
+			class="description-box op-shadow {{ternary editingDescription 'fullscreen-editor' ''}}"
+			{{ternary editingDescription "open" ""}}
+		>
+			<summary>
+				<div class="summary-title flex-row gap-1 align-items-center">
+					<i class="fas fa-info-circle"></i>
+					<span>Descrição do Item</span>
+				</div>
+
+				{{#if editable}}
+					<a class="editor-edit" data-action="editDescription" title="Expandir e Editar">
+						<i class="fas fa-edit"></i>
+					</a>
+				{{/if}}
+			</summary>
+
+			<div class="description-content-inner">
+				<div class="content-wrapper">
+					{{#if editingDescription}}
+						<div class="fullscreen-editor-header">
+							<img src="{{item.img}}" alt="{{item.name}}" />
+							<h2>{{item.name}} <span>- Editando Descrição</span></h2>
+						</div>
+
+						<prose-mirror
+							name="system.description"
+							data-document-u-u-i-d="{{item.uuid}}"
+							value="{{system.description}}"
+							collaborate="true"
+						>
+							{{{enrichedDescription}}}
+						</prose-mirror>
+					{{else}}
+						<div class="description-content">{{{enrichedDescription}}}</div>
+					{{/if}}
+				</div>
+			</div>
+		</details>
+
+		<details
+			class="description-box op-shadow {{ternary editingChatDescription 'fullscreen-editor' ''}}"
+			{{ternary editingChatDescription "open" ""}}
+		>
+			<summary>
+				<div class="summary-title flex-row gap-1 align-items-center">
+					<i class="fas fa-comment-dots"></i>
+					<span>Descrição para Chat</span>
+				</div>
+
+				{{#if editable}}
+					<a class="editor-edit" data-action="editChatDescription" title="Expandir e Editar">
+						<i class="fas fa-edit"></i>
+					</a>
+				{{/if}}
+
+				<p class="notes">Se preenchida, esta descrição será usada para exibição no chat.</p>
+			</summary>
+
+			<div class="description-content-inner">
+				<div class="content-wrapper">
+					{{#if editingChatDescription}}
+						<div class="fullscreen-editor-header">
+							<img src="{{item.img}}" alt="{{item.name}}" />
+							<h2>{{item.name}} <span>- Descrição de Chat</span></h2>
+						</div>
+
+						<prose-mirror
+							name="system.chatDescription"
+							data-document-u-u-i-d="{{item.uuid}}"
+							value="{{system.chatDescription}}"
+							collaborate="true"
+						>
+							{{{enrichedChatDescription}}}
+						</prose-mirror>
+					{{else}}
+						<div class="description-content">{{{enrichedChatDescription}}}</div>
+					{{/if}}
+				</div>
+			</div>
+		</details>
+
 	</div>
 </section>

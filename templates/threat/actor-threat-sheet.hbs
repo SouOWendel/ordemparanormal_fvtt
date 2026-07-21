@@ -1,6 +1,7 @@
 <section class="{{actor.type}} threat flexcol" id="threat" autocomplete="off">
-	{{! HEADER }}
 	<header class="sheet-header-op">
+
+		<!-- IDENTIDADE E STATUS PRINCIPAIS -->
 		<div class="header-identify align-center flex">
 			<img
 				class="threat-profile-img"
@@ -9,66 +10,48 @@
 				data-action="onEditImage"
 				title="{{actor.name}}"
 			/>
-			<div class="flexcol" style="flex: 1; justify-content: flex-start; gap: 5px; min-width: 200px;">
-				<div class="flexrow flex-center">
-					<h1 class="charname" style="margin: 0; flex: 1;">
-						<input
-							name="name"
-							type="text"
-							value="{{actor.name}}"
-							placeholder="{{localize 'op.threatName'}}"
-							style="text-align: center; font-weight: bold; font-size: 24px; width: 100%;"
-						/>
-					</h1>
-				</div>
+
+			<div class="identity-info flexcol">
+				<h1 class="charname">
+					<input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'op.threatName'}}" />
+				</h1>
 
 				<div class="header-stats-row">
-					<div
-						style="background: rgba(0, 0, 0, 0.05); border-radius: 5px; border: 1px solid #ccc; padding: 2px 5px; flex: 0 0 60px; display: flex; flex-direction: column; justify-content: center; align-items: center;"
-					>
-						<label
-							style="font-weight: bold; font-size: 11px; color: #333; margin-bottom: 2px; text-align: center; width: 100%;"
-						>{{localize "op.VD"}}</label>
+					<div class="vd-box">
+						<label>{{localize "op.VD"}}</label>
 						<input
 							type="number"
 							name="system.attributes.vd.value"
 							value="{{system.attributes.vd.value}}"
 							data-dtype="Number"
-							style="width: 100%; text-align: center; font-size: 16px; font-weight: bold; border: none; background: transparent; height: 20px; padding: 0;"
 						/>
 					</div>
 
 					<div class="disturbing-presence">
-						<label style="font-weight: bold; font-size: 14px; white-space: nowrap; color: #333;">{{localize
-								"op.attPre"
-							}}:</label>
+						<label class="section-title">{{localize "op.attPre"}}:</label>
 
-						<div style="display: flex; align-items: center; gap: 5px;">
-							<label style="font-size: 11px; color: #555; font-weight: bold;">DT</label>
+						<div class="presence-stat">
+							<label>DT</label>
 							<input
 								type="number"
 								name="system.disturbingPresence.dt"
 								value="{{system.disturbingPresence.dt}}"
-								style="height: 22px; font-size: 12px; width: 40px; text-align: center; border: 1px solid #999; border-radius: 3px; background: rgba(255,255,255,0.5);"
 								placeholder="0"
 							/>
 						</div>
 
-						<div style="display: flex; align-items: center; gap: 5px;">
-							<label style="font-size: 11px; color: #555; font-weight: bold;">{{localize "op.damage"}}</label>
+						<div class="presence-stat">
+							<label>{{localize "op.damage"}}</label>
 							<input
 								type="text"
 								name="system.disturbingPresence.mentalDamage"
 								value="{{system.disturbingPresence.mentalDamage}}"
-								style="height: 22px; font-size: 12px; width: 80px; text-align: center; border: 1px solid #999; border-radius: 3px; background: rgba(255,255,255,0.5);"
 								placeholder="Ex: 2d6"
 							/>
-
 							<i
 								class="fa-solid fa-brain rollable pointer"
 								data-action="onRollMentalDamage"
 								title="{{localize 'op.rollMentalDamage'}}"
-								style="color: #6a0dad; font-size: 16px; margin-left: 4px;"
 							></i>
 						</div>
 					</div>
@@ -76,45 +59,44 @@
 			</div>
 		</div>
 
-		<div class="header-fields" style="margin-top: 2px;">
-			<div class="resources flexrow">
-				<div class="resource flex-group-center">
-					<label class="resource-label"> {{localize "op.PV"}} </label>
-					<div class="resource-content flexrow flex-center flex-between">
+		<div class="header-fields">
+			<!-- COMBATE -->
+			<div class="combat-stats-row flexrow">
+				<div class="resource hp-box">
+					<label class="resource-label">{{localize "op.PV"}}</label>
+					<div class="resource-content flexrow flex-center">
 						<input type="text" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" data-dtype="Number" />
-						<span> / </span>
+						<span class="divider">/</span>
 						<input type="text" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" data-dtype="Number" />
 					</div>
 				</div>
-				<div class="resources flexrow" style="margin-top: 5px; flex-wrap: wrap;">
-					<div class="resource flex-group-center" style="flex: 1; min-width: 100px;">
-						<label class="resource-label">{{localize "op.defense"}}</label>
-						<div class="resource-content flexrow flex-center flex-between">
-							<input type="text" name="system.defense.value" value="{{system.defense.value}}" data-dtype="Number" />
-						</div>
+				<div class="resource defense-box">
+					<label class="resource-label">{{localize "op.defense"}}</label>
+					<div class="resource-content">
+						<input type="text" name="system.defense.value" value="{{system.defense.value}}" data-dtype="Number" />
 					</div>
-					<div class="resource flex-group-center" style="flex: 1; min-width: 100px;">
-						<label class="resource-label">{{localize "op.deslocamento"}}</label>
-						<div class="resource-content flexrow flex-center flex-between">
-							<input
-								type="text"
-								name="system.attributes.movement.walk"
-								value="{{system.attributes.movement.walk}}"
-								data-dtype="String"
-							/>
-						</div>
+				</div>
+				<div class="resource movement-box">
+					<label class="resource-label">{{localize "op.deslocamento"}}</label>
+					<div class="resource-content">
+						<input
+							type="text"
+							name="system.attributes.movement.walk"
+							value="{{system.attributes.movement.walk}}"
+							data-dtype="String"
+						/>
 					</div>
 				</div>
 			</div>
 
-			<div class="resources flexrow" style="margin-top: 5px; margin-bottom: 5px; gap: 10px; flex-wrap: wrap;">
-				<div class="resource flex-group-center" style="flex: 1 0 30%;">
-					<label class="resource-label">{{localize "op.type"}}</label>
-					<div class="resource-content">
-						<select name="system.details.creatureType" style="width: 100%; text-align: center;">
-							{{selectOptions threatTypes selected=system.details.creatureType localize=true}}
-						</select>
-					</div>
+			<!-- CLASSIFICAÇÃO E ATRIBUTOS (Linha Única) -->
+			<div class="class-attr-row">
+				<!-- Classificação -->
+				<div class="resource select-box">
+					<label class="resource-label" title="{{localize 'op.type'}}">{{localize "op.type"}}</label>
+					<select name="system.details.creatureType">
+						{{selectOptions threatTypes selected=system.details.creatureType localize=true}}
+					</select>
 				</div>
 				<div class="resource flex-group-center" style="flex: 1 0 30%;">
 					<label class="resource-label">{{localize "op.element"}}</label>
@@ -132,132 +114,115 @@
 						</select>
 					</div>
 				</div>
-			</div>
 
-			<div class="resources flexrow" style="flex-wrap: wrap; gap: 5px;">
-				<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+				<!-- Atributos Base -->
+				<div class="resource attr-box">
 					<label
 						class="resource-label rollable pointer"
 						data-action="onRollAttributeTest"
 						data-rollType="attribute"
 						data-key="dex"
-					>{{localize "op.attDex"}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
+						title="{{localize 'op.attDex'}}"
+					>AGI</label>
+					<div class="resource-content"><input
 							type="text"
 							name="system.attributes.dex.value"
 							value="{{system.attributes.dex.value}}"
 							data-dtype="Number"
-						/>
-					</div>
+						/></div>
 				</div>
-				<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+				<div class="resource attr-box">
 					<label
 						class="resource-label rollable pointer"
 						data-action="onRollAttributeTest"
 						data-rollType="attribute"
 						data-key="str"
-					>{{localize "op.attStr"}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
+						title="{{localize 'op.attStr'}}"
+					>FOR</label>
+					<div class="resource-content"><input
 							type="text"
 							name="system.attributes.str.value"
 							value="{{system.attributes.str.value}}"
 							data-dtype="Number"
-						/>
-					</div>
+						/></div>
 				</div>
-				<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+				<div class="resource attr-box">
 					<label
 						class="resource-label rollable pointer"
 						data-action="onRollAttributeTest"
 						data-rollType="attribute"
 						data-key="int"
-					>{{localize "op.attInt"}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
+						title="{{localize 'op.attInt'}}"
+					>INT</label>
+					<div class="resource-content"><input
 							type="text"
 							name="system.attributes.int.value"
 							value="{{system.attributes.int.value}}"
 							data-dtype="Number"
-						/>
-					</div>
+						/></div>
 				</div>
-				<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+				<div class="resource attr-box">
 					<label
 						class="resource-label rollable pointer"
 						data-action="onRollAttributeTest"
 						data-rollType="attribute"
 						data-key="pre"
-					>{{localize "op.attPre"}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
+						title="{{localize 'op.attPre'}}"
+					>PRE</label>
+					<div class="resource-content"><input
 							type="text"
 							name="system.attributes.pre.value"
 							value="{{system.attributes.pre.value}}"
 							data-dtype="Number"
-						/>
-					</div>
+						/></div>
 				</div>
-				<div class="resource flex-group-center" style="flex: 1; min-width: 50px;">
+				<div class="resource attr-box">
 					<label
 						class="resource-label rollable pointer"
 						data-action="onRollAttributeTest"
 						data-rollType="attribute"
 						data-key="vit"
-					>{{localize "op.attVit"}}</label>
-					<div class="resource-content flexrow flex-center flex-between">
-						<input
+						title="{{localize 'op.attVit'}}"
+					>VIG</label>
+					<div class="resource-content"><input
 							type="text"
 							name="system.attributes.vit.value"
 							value="{{system.attributes.vit.value}}"
 							data-dtype="Number"
-						/>
-					</div>
+						/></div>
 				</div>
 			</div>
 
-			<div class="resources threat-skills-container">
+			<!-- PERÍCIAS (MANTÉM O CÓDIGO ORIGINAL DAS PERÍCIAS AQUI) -->
+			<div class="threat-skills-container">
 				{{#each system.skills as |skill key|}}
-					<div
-						class="resource flex-group-center"
-						style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; width: 100%;"
-					>
+					<div class="skill-box resource flex-group-center">
 						{{#if (eq key "freeSkill")}}
-							<div
-								class="flexrow flex-center"
-								style="gap: 3px; margin-bottom: 2px; justify-content: center; align-items: center;"
-							>
+							<div class="free-skill-header flexrow flex-center">
 								<input
 									type="text"
 									name="system.skills.{{key}}.name"
 									value="{{skill.name}}"
 									placeholder="{{localize 'op.skill.freeSkill'}}"
-									style="font-size: 11px; height: 16px; text-align: center; width: 65px; border: none; border-bottom: 1px solid #7a7971; background: transparent; padding: 0;"
 								/>
 								<i
-									class="fas fa-dice rollable pointer compendium-skill"
+									class="fas fa-dice rollable pointer compendium-event-contextmenu"
 									data-action="onRollSkillCheck"
 									data-key="{{key}}"
 									data-roll="{{skill.formula}}"
 									data-label="{{skill.label}}"
-									style="font-size: 10px; color: #4b4a44;"
 								></i>
 							</div>
 						{{else}}
 							<label
-								class="resource-label rollable pointer compendium-skill"
+								class="resource-label rollable pointer compendium-event-contextmenu"
 								data-action="onRollSkillCheck"
 								data-key="{{key}}"
 								data-label="{{skill.label}}"
 								data-rollType="skill"
-								style="font-size: 12px; margin-bottom: 3px; display: flex; justify-content: center; align-items: center; text-align: center; width: 100%;"
 							>
 								{{skill.label}}
-								<span style="font-size: 9px; color: #555; font-weight: normal; margin-left: 3px;">({{lookup
-										skill.attr
-										0
-									}})</span>
+								<span>({{lookup skill.attr 0}})</span>
 							</label>
 						{{/if}}
 
@@ -285,74 +250,61 @@
 				{{/each}}
 			</div>
 
+			<!-- TAGS (RESISTÊNCIAS E CARACTERÍSTICAS LADO A LADO) -->
 			<div class="threat-tags flexrow">
-				<div class="resources flexrow" style="margin-top: 5px;">
-					<div class="resource flex-group-center">
-						<label class="resource-label">
-							<a
-								class="config-button"
-								data-action="openResistanceConfig"
-								title="{{localize 'op.resistancesTitle'}}"
-								style="text-decoration: none; color: inherit;"
-							>
-								<i class="fas fa-shield-alt"></i>
-								{{localize "op.resistances"}}
-								<i class="fas fa-cog" style="font-size: 0.8em; opacity: 0.5;"></i>
-							</a>
-						</label>
-
-						<div class="resource-content resistance-container-grid">
-							{{#each viewResistances as |res key|}}
-								{{#if res.isVisible}}
-									<span class="resistance-tag" title="{{res.translatedLabel}}">
-										<span class="resistance-tag-label">{{res.translatedLabel}}</span>
-										<span class="resistance-tag-values">
-											{{#if (gt res.value 0)}}<span class="resistance-tag-value">{{res.value}}</span>{{/if}}
-											{{#if res.immune}}<i
-													class="fas fa-shield-alt resistance-tag-immune"
-													title="{{localize 'op.immune'}}"
-												></i>{{/if}}
-											{{#if res.vulnerable}}<i
-													class="fas fa-heart-broken resistance-tag-vulnerable"
-													title="{{localize 'op.vulnerable'}}"
-												></i>{{/if}}
-										</span>
+				<!-- Alterado para flexrow -->
+				<!-- Resistências -->
+				<div class="resource tags-box">
+					<label class="resource-label config-header">
+						<a class="config-button" data-action="openResistanceConfig" title="{{localize 'op.resistancesTitle'}}">
+							<i class="fas fa-shield-alt"></i>
+							{{localize "op.resistances"}}
+							<i class="fas fa-cog"></i>
+						</a>
+					</label>
+					<div class="resource-content resistance-container-grid">
+						{{#each viewResistances as |res key|}}
+							{{#if res.isVisible}}
+								<span class="resistance-tag" title="{{res.translatedLabel}}">
+									<span class="resistance-tag-label">{{res.translatedLabel}}</span>
+									<span class="resistance-tag-values">
+										{{#if (gt res.value 0)}}<span class="resistance-tag-value">{{res.value}}</span>{{/if}}
+										{{#if res.immune}}<i
+												class="fas fa-shield-alt resistance-tag-immune"
+												title="{{localize 'op.immune'}}"
+											></i>{{/if}}
+										{{#if res.vulnerable}}<i
+												class="fas fa-heart-broken resistance-tag-vulnerable"
+												title="{{localize 'op.vulnerable'}}"
+											></i>{{/if}}
 									</span>
-								{{/if}}
-							{{/each}}
-						</div>
+								</span>
+							{{/if}}
+						{{/each}}
 					</div>
 				</div>
 
-				<div class="resources flexrow" style="margin-top: 5px;">
-					<div class="resource flex-group-center">
-						<label class="resource-label">
-							<a
-								class="config-button"
-								data-action="openTraitsConfig"
-								title="{{localize 'op.traitsTitle'}}"
-								style="text-decoration: none; color: inherit;"
-							>
-								<i class="fa-solid fa-list"></i>
-								{{localize "op.traitsLabel"}}
-								<i class="fas fa-cog" style="font-size: 0.8em; opacity: 0.5;"></i>
-							</a>
-						</label>
-
-						<div class="resource-content traits-container-grid">
-							{{#each viewTraits as |trait key|}}
-								{{#if trait.isVisible}}
-									<span class="traits-tag" title="{{trait.translatedLabel}}">
-										<span class="traits-tag-label">
-											{{trait.translatedLabel}}
-										</span>
-									</span>
-								{{/if}}
-							{{/each}}
-						</div>
+				<!-- Características -->
+				<div class="resource tags-box">
+					<label class="resource-label config-header">
+						<a class="config-button" data-action="openTraitsConfig" title="{{localize 'op.traitsTitle'}}">
+							<i class="fa-solid fa-list"></i>
+							{{localize "op.traitsLabel"}}
+							<i class="fas fa-cog"></i>
+						</a>
+					</label>
+					<div class="resource-content traits-container-grid">
+						{{#each viewTraits as |trait key|}}
+							{{#if trait.isVisible}}
+								<span class="traits-tag" title="{{trait.translatedLabel}}">
+									<span class="traits-tag-label">{{trait.translatedLabel}}</span>
+								</span>
+							{{/if}}
+						{{/each}}
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</header>
 </section>

@@ -1,0 +1,833 @@
+@use "../utils/typography";
+@use "../utils/colors";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/* ========================================================= */
+/* --- LARGURAS DAS COLUNAS UNIFICADAS --- */
+/* ========================================================= */
+.col-name {
+	flex: 1;
+	text-align: left;
+}
+
+.col-category {
+	width: 70px;
+	text-align: center;
+}
+
+.col-space {
+	width: 70px;
+	text-align: center;
+}
+
+.col-quantity {
+	width: 90px;
+	text-align: center;
+}
+
+.col-type {
+	width: 100px;
+	text-align: center;
+}
+
+.col-cost {
+	width: 70px;
+	text-align: center;
+}
+
+.col-exec {
+	width: 90px;
+	text-align: center;
+}
+
+.col-range {
+	width: 75px;
+	text-align: center;
+}
+
+.col-target {
+	width: 80px;
+	text-align: center;
+}
+
+.col-duration {
+	width: 60px;
+	text-align: center;
+}
+
+.col-resist {
+	width: 80px;
+	text-align: center;
+}
+
+.col-controls {
+	width: 100px;
+	text-align: right;
+	justify-content: flex-end;
+}
+
+.col-controls-mini {
+	width: 40px;
+	text-align: right;
+	justify-content: flex-end;
+}
+
+.col-prop {
+	width: 50px;
+	text-align: center;
+}
+
+/* Realce visual para o custo (Ex: 2 PE) */
+.badge-cat {
+	&.highlight {
+		font-weight: 900;
+		color: colors.$light-taupe;
+		background: rgba(177, 22, 26, 0.08);
+		border-color: rgba(177, 22, 26, 0.15);
+	}
+}
+
+/* ========================================================= */
+/* --- DESIGN DO INVENTÁRIO (ORDEM) ------ */
+/* ========================================================= */
+.sheet-body .tab.active.inventory-tab,
+.tab.inventory-tab {
+	flex-direction: column !important;
+	height: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	background: transparent;
+	overflow: hidden !important;
+
+	/* --- CABEÇALHO DE PRESTÍGIO E PATENTES --- */
+	.inventory-prestige-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 15px;
+		padding: 8px 15px;
+		margin: 0 16px;
+		background: rgba(0, 0, 0, 0.02);
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		border-radius: 4px;
+		flex: 0 0 auto !important;
+
+		.prestige-box,
+		.patent-box {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			gap: 2px;
+
+			.label {
+				font-family: typography.$font-primary;
+				font-size: 12px;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: #555;
+				display: flex;
+				align-items: center;
+				gap: 6px;
+
+				i {
+					color: colors.$light-taupe;
+				}
+			}
+
+			input {
+				border: variables.$border-medium;
+				background: transparent;
+				text-align: center;
+				font-weight: bold;
+				font-size: 12px;
+				color: #000;
+				padding: 0;
+			}
+
+			/* Ajuste específico para o input de Prestígio (Números pequenos) */
+			.prestige-input {
+				width: 60px;
+				height: 24px;
+				font-weight: bold;
+				text-align: center;
+				font-size: 12px;
+			}
+
+			/* Ajuste específico para o input da Patente (Textos mais longos) */
+			.patent-input {
+				width: 140px;
+				height: 24px;
+				font-weight: bold;
+				text-align: left;
+				padding: 0 8px;
+				font-size: 12px;
+			}
+		}
+
+		.category-limits {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 2px;
+
+			.section-title {
+				font-family: typography.$font-primary;
+				font-size: 11px;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: #555;
+				display: flex;
+				align-items: start;
+				gap: 6px;
+			}
+
+			.limits-grid {
+				display: flex;
+				gap: 4px;
+
+				.limit-badge {
+					display: flex;
+					align-items: center;
+					background: rgba(0, 0, 0, 0.05);
+					border: 1px solid rgba(0, 0, 0, 0.15);
+					border-radius: 4px;
+					height: 24px;
+					overflow: hidden;
+
+					label {
+						padding: 0 6px;
+						font-family: typography.$font-primary;
+						font-weight: 900;
+						font-size: 11px;
+						color: #444;
+						background: rgba(0, 0, 0, 0.03);
+						border-right: 1px solid rgba(0, 0, 0, 0.15);
+						height: 100%;
+						display: flex;
+						align-items: center;
+					}
+
+					input {
+						width: 26px !important;
+						height: 100%;
+						border: none;
+						background: transparent;
+						text-align: center;
+						font-weight: bold;
+						font-size: 12px;
+						color: #000;
+						padding: 0;
+
+						&:disabled {
+							opacity: 0.8;
+							cursor: not-allowed;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/* --- CABEÇALHO DE RITUAIS --- */
+	.inventory-ritual-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 15px;
+		padding: 8px 15px;
+		margin: 0 16px;
+		background: rgba(0, 0, 0, 0.02);
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		border-radius: 4px;
+		flex: 0 0 auto !important;
+
+		.ritual-box {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+
+			.label {
+				font-family: typography.$font-primary;
+				font-size: 12px;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: #555;
+				display: flex;
+				align-items: center;
+				gap: 6px;
+
+				i {
+					color: colors.$light-taupe;
+				}
+			}
+
+			input {
+				width: 60px;
+				height: 24px;
+				font-weight: bold;
+				text-align: center;
+				font-size: 12px;
+			}
+
+			.badge-ritual {
+				font-size: 14px;
+				background: rgba(0, 0, 0, 0.06);
+				padding: 2px 6px;
+				border-radius: 3px;
+				border: 1px solid rgba(0, 0, 0, 0.05);
+				color: #555;
+			}
+		}
+	}
+
+	.inventory-list-header,
+	.item-row-main {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+
+	.inventory-list-header {
+		background: rgba(0, 0, 0, 0.1);
+		color: #444;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+
+		font-family: typography.$font-primary;
+		font-size: 10.5px;
+		font-weight: bold;
+		text-transform: uppercase;
+		padding: 6px 10px;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+
+		i {
+			color: colors.$light-taupe;
+			margin-right: 4px;
+		}
+	}
+
+	.inventory-category {
+		margin-bottom: 8px;
+		border-radius: 4px;
+	}
+
+	.item-image.slide {
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.inline-input {
+		width: 100%;
+		height: 24px;
+		background: transparent;
+		border: 1px solid transparent;
+		text-align: center;
+		font-family: "Roboto", sans-serif;
+		font-size: 13px;
+		font-weight: bold;
+		color: #000;
+		border-radius: 4px;
+		transition: all 0.2s;
+
+		&:hover,
+		&:focus {
+			border-color: rgba(0, 0, 0, 0.2);
+			background: rgba(255, 255, 255, 0.5);
+			outline: none;
+		}
+
+		&.badge-cat-input {
+			background: rgba(0, 0, 0, 0.04);
+			border-color: rgba(0, 0, 0, 0.05);
+			color: #444;
+			font-size: 11.5px;
+			width: 40px;
+		}
+	}
+
+	.quantity-controller input.qty-value {
+		width: 32px;
+		margin: 0;
+		padding: 0;
+		border: none;
+		background: transparent;
+		font-size: 11.5px;
+
+		&:hover,
+		&:focus {
+			background: rgba(255, 255, 255, 0.3);
+		}
+	}
+
+	/* --- 3. LINHAS DOS ITENS DA LISTA --- */
+	.inventory-items-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+
+		.item-description {
+			display: none;
+			background: rgba(0, 0, 0, 0.01);
+			color: #444;
+			border-top: 1px dashed rgba(0, 0, 0, 0.2) !important;
+			padding: 10px 15px 10px 50px !important;
+			line-height: 1.4;
+			width: 100%;
+			margin-top: 5px;
+			font-size: 0.9em;
+			text-align: left;
+
+			&.expanded {
+				display: block;
+			}
+		}
+
+		.item-row {
+			background: rgba(0, 0, 0, 0.02);
+			border: 1px solid rgba(0, 0, 0, 0.08);
+			border-radius: 0;
+			transition: all 0.2s ease;
+			margin: 0;
+
+			&:last-child {
+				border-bottom-left-radius: 4px;
+				border-bottom-right-radius: 4px;
+			}
+
+			&:hover {
+				background: rgba(0, 0, 0, 0.04);
+				border-color: rgba(0, 0, 0, 0.18);
+			}
+
+			&.is-active {
+				border-left: 3px solid colors.$light-taupe;
+				background: rgba(177, 22, 26, 0.02);
+			}
+
+			.item-row-main {
+				padding: 6px 12px;
+				height: 40px;
+			}
+
+			.item-identity {
+				flex: 1;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				cursor: pointer;
+
+				.item-image {
+					flex: 0 0 auto;
+					width: 28px;
+					height: 28px;
+					object-fit: cover;
+					border: 1px solid rgba(0, 0, 0, 0.15);
+					border-radius: 4px;
+					background: #111;
+				}
+
+				.item-name {
+					flex: 1;
+					font-family: typography.$font-primary;
+					font-weight: bold;
+					font-size: 13px;
+					color: #222;
+
+					&:hover {
+						color: colors.$light-taupe;
+					}
+				}
+			}
+
+			.item-meta-col {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 12.5px;
+				font-weight: bold;
+				color: #444;
+
+				.font-muted {
+					color: #888;
+					font-size: 11px;
+					margin-right: 2px;
+				}
+
+				.badge-cat {
+					font-size: 10.5px;
+					background: rgba(0, 0, 0, 0.06);
+					padding: 2px 6px;
+					border-radius: 3px;
+					border: 1px solid rgba(0, 0, 0, 0.05);
+					color: #555;
+				}
+			}
+
+			.quantity-controller {
+				display: flex;
+				align-items: center;
+				background: rgba(0, 0, 0, 0.04);
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				border-radius: 4px;
+				height: 24px;
+				overflow: hidden;
+
+				.adjustment-button {
+					padding: 0 6px;
+					font-size: 9px;
+					color: #666;
+					height: 100%;
+					display: flex;
+					align-items: center;
+					transition: background 0.2s;
+
+					&:hover {
+						background: rgba(0, 0, 0, 0.08);
+						color: #000;
+					}
+				}
+
+				.qty-value {
+					width: 30px;
+					text-align: center;
+					font-size: 11.5px;
+					font-weight: bold;
+					color: #000;
+				}
+			}
+
+			.item-btn {
+				color: #777;
+				padding: 4px 6px;
+				border-radius: 4px;
+				transition: all 0.2s ease;
+				cursor: pointer;
+				font-size: 12px;
+
+				&:hover {
+					color: #000;
+					background: rgba(0, 0, 0, 0.06);
+				}
+
+				&.btn-star.active {
+					color: #d1a100;
+
+					&:hover {
+						color: #f3ca30;
+					}
+				}
+
+				&.btn-delete:hover {
+					color: #fff;
+					background: colors.$light-taupe;
+				}
+			}
+		}
+	}
+
+	/* --- 4. RODAPÉ VISUAL DE COMPENSAÇÃO DE CARGA --- */
+	.inventory-footer-space {
+		background: rgba(0, 0, 0, 0.03);
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		padding: 6px 15px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		flex: 0 0 auto !important;
+
+		.space-status-bar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.space-label {
+				font-family: typography.$font-primary;
+				font-size: 10px;
+				font-weight: bold;
+				color: #555;
+				display: flex;
+				align-items: center;
+				gap: 4px;
+			}
+
+			.space-counter {
+				font-family: typography.$font-primary;
+				font-weight: 800;
+				font-size: 12px;
+				display: flex;
+				align-items: center;
+				gap: 2px;
+
+				.current {
+					color: #000;
+				}
+
+				.divider {
+					color: #aaa;
+					font-weight: normal;
+				}
+
+				.max {
+					color: #666;
+				}
+			}
+		}
+
+		.progress-bar-container {
+			width: 100%;
+			height: 4px;
+			background: rgba(0, 0, 0, 0.08);
+			border-radius: 2px;
+			overflow: hidden;
+
+			.progress-fill {
+				height: 100%;
+				background: #161616;
+				border-radius: 2px;
+				transition:
+					width 0.4s ease,
+					background-color 0.4s ease;
+			}
+		}
+
+		&.is-overburdened {
+			background: rgba(177, 22, 26, 0.04);
+			border-top-color: rgba(177, 22, 26, 0.2);
+
+			.space-status-bar .space-label {
+				color: #b1161a;
+				animation: op-pulse 2s infinite ease-in-out;
+			}
+
+			.space-status-bar .space-counter .current {
+				color: #b1161a;
+			}
+
+			.progress-bar-container .progress-fill {
+				background: #b1161a;
+			}
+		}
+	}
+}
+
+/* --- 2. CONTAINER DE ROLAGEM E TÍTULOS --- */
+.scrollable-inventory,
+.effects-management {
+	flex: 1 1 auto !important;
+	overflow-y: auto !important;
+	overflow-x: hidden !important;
+	padding: 10px 5px 0 16px;
+
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+	scrollbar-gutter: stable;
+
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: rgba(0, 0, 0, 0.25);
+		border-radius: 3px;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.45);
+		}
+	}
+}
+
+@keyframes op-pulse {
+	0% {
+		opacity: 0.8;
+	}
+	50% {
+		opacity: 1;
+		color: #ff2a30;
+	}
+	100% {
+		opacity: 0.8;
+	}
+}
+
+/* ========================================================= */
+/* --- GERENCIADOR DE RECURSOS (ABA HABILIDADES) --- */
+/* ========================================================= */
+.tactical-control-bar {
+	display: flex;
+	justify-content: flex-end;
+	padding: 4px 15px;
+
+	.toggle-btn {
+		font-family: typography.$font-primary;
+		font-size: 11px;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: #666;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		transition: all 0.2s;
+
+		&:hover {
+			color: #000;
+		}
+
+		&.is-active {
+			color: colors.$light-taupe;
+		}
+	}
+}
+
+.resource-manager-box {
+	margin-bottom: 15px;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+
+	.resource-badge {
+		height: 30px !important;
+		padding-right: 6px;
+
+		label {
+			padding: 0;
+
+			input {
+				width: 80px !important;
+				text-transform: uppercase;
+				font-size: 11px;
+				color: #444;
+				background: transparent;
+				border: none;
+				text-align: center;
+
+				&:hover,
+				&:focus {
+					background: rgba(255, 255, 255, 0.5);
+				}
+			}
+		}
+
+		.resource-inputs {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			gap: 2px;
+
+			input {
+				width: 30px !important;
+				height: 100%;
+				border: none;
+				background: transparent;
+				text-align: center;
+				font-weight: bold;
+				font-size: 13px;
+				color: #000;
+
+				&:hover,
+				&:focus {
+					background: rgba(255, 255, 255, 0.5);
+				}
+			}
+
+			.divider {
+				color: #888;
+				font-weight: normal;
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+/* --- GERENCIADOR DE RECURSOS --- */
+.resource-manager-box {
+	/* Força a barra a se comportar em uma única linha horizontal */
+	display: flex;
+	justify-content: center; /* Centraliza os 3 blocos na tela */
+	padding: 8px 10px;
+	margin-bottom: 10px;
+
+	.resource-management {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 15px; /* Espaço entre o Recurso 1, 2 e 3 */
+		flex-wrap: nowrap; /* Proíbe estritamente a quebra de linha */
+		width: 100%;
+		justify-content: space-evenly;
+	}
+
+	.resource-badge {
+		display: flex;
+		align-items: center;
+		background: rgba(0, 0, 0, 0.05);
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 4px;
+		height: 26px;
+		overflow: hidden;
+		flex-shrink: 1; /* Permite encolher levemente se a tela for muito pequena */
+
+		/* Área do Nome do Recurso */
+		label {
+			background: rgba(0, 0, 0, 0.03);
+			border-right: 1px solid rgba(0, 0, 0, 0.15);
+			height: 100%;
+			display: flex;
+			align-items: center;
+			padding: 0;
+
+			input {
+				width: 80px; /* Largura fixa para o nome do recurso */
+				height: 100%;
+				border: none;
+				background: transparent;
+				font-family: "Signika", sans-serif;
+				font-weight: 900;
+				font-size: 11px;
+				color: #444;
+				text-align: center;
+				text-transform: uppercase;
+				padding: 0 4px;
+
+				&::placeholder {
+					color: #888;
+				}
+			}
+		}
+
+		/* Área dos Valores (Atual / Máximo) */
+		.resource-inputs {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			padding: 0 4px;
+
+			input {
+				width: 28px !important; /* Espaço apenas para números (ex: 999) */
+				height: 100%;
+				border: none;
+				background: transparent;
+				text-align: center;
+				font-weight: bold;
+				font-size: 12px;
+				color: #000;
+				padding: 0;
+			}
+
+			.divider {
+				font-weight: bold;
+				font-size: 12px;
+				color: #666;
+				margin: 0 2px;
+			}
+		}
+	}
+}

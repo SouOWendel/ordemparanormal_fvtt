@@ -1,3 +1,5 @@
+@use "colors";
+
 // ========================================
 // Spacing Scale
 // ========================================
@@ -13,6 +15,16 @@ $padding-sm: 5px;
 $padding-md: 10px;
 $padding-lg: 20px;
 
+$border-groove: 2px groove colors.$bg-light;
+$border-transparent: 1px solid colors.$transparent-c-black;
+$border-light: 1px solid colors.$border-light;
+$border-medium: 1px solid colors.$border-medium;
+$border-dark: 1px solid colors.$border-dark;
+
+$space-bar-over: rgba(177, 22, 26, 0.5);
+
+$bg-transparent-light: rgba(0, 0, 0, 0.05);
+$border-transparent-medium: rgba(39, 39, 39, 0.25);
 // ========================================
 // Border Radius
 // ========================================

@@ -60,12 +60,15 @@ Hooks.once("init", function () {
 		threat: dataModels.ThreatData,
 	});
 	Object.assign(CONFIG.Item.dataModels, {
-		ammunition: dataModels.AmmunitionData,
+		// ammunition: dataModels.AmmunitionData,
 		armament: dataModels.ArmamentData,
 		generalEquipment: dataModels.GeneralEquipmentData,
 		protection: dataModels.ProtectionData,
 		ability: dataModels.AbilityData,
 		ritual: dataModels.RitualData,
+		origin: dataModels.OriginData,
+		path: dataModels.PathData,
+		class: dataModels.ClassData,
 	});
 	CONFIG.ChatMessage.documentClass = documents.ChatMessageOP;
 	CONFIG.time.roundTime = 6; // Pg. 169 of the Book
@@ -272,6 +275,48 @@ function _configureFonts() {
 				},
 			],
 		},
+		"Libre Baskerville": {
+			editor: true,
+			fonts: [
+				{
+					urls: ["systems/ordemparanormal/media/fonts/libre-baskerville/LibreBaskerville-Regular.ttf"],
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/libre-baskerville/LibreBaskerville-Bold.ttf"],
+					weight: "bold",
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/libre-baskerville/LibreBaskerville-Italic.ttf"],
+					style: "italic",
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/libre-baskerville/LibreBaskerville-BoldItalic.ttf"],
+					weight: "bold",
+					style: "italic",
+				},
+			],
+		},
+		"Source Sans 3": {
+			editor: true,
+			fonts: [
+				{
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Regular.otf"],
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Bold.otf"],
+					weight: "bold",
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Italic.otf"],
+					style: "italic",
+				},
+				{
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-BoldItalic.otf"],
+					weight: "bold",
+					style: "italic",
+				},
+			],
+		},
 	});
 }
 
@@ -372,14 +417,33 @@ Handlebars.registerHelper("opOptionalDataAttr", function (name, value) {
  * `data-disabled` or `data-duration.rounds` for the "create effect" control by section type.
  * Used in `actor-effects`, `shared/effects`, and `threat-effects` templates.
  */
+function buildV13TemporaryEffectDurationAttributes() {
+	return ' data-duration.rounds="1"';
+}
+
+function buildV14TemporaryEffectDurationAttributes() {
+	return ' data-duration.value="1" data-duration.units="rounds"';
+}
+
+function buildTemporaryEffectDurationAttributes() {
+	const generation = game.release?.generation ?? Number.parseInt(game.version, 10);
+
+	// Foundry v13 uses `duration.rounds`.
+	// Foundry v14 uses `duration.value` and `duration.units`.
+	return generation >= 14 ? buildV14TemporaryEffectDurationAttributes() : buildV13TemporaryEffectDurationAttributes();
+}
+
 Handlebars.registerHelper("opActiveEffectCreateAttrs", function (section) {
-	const t = section?.type;
-	if (t === "inactive") {
+	const type = section?.type;
+
+	if (type === "inactive") {
 		return new Handlebars.SafeString(' data-disabled="true"');
 	}
-	if (t === "temporary") {
-		return new Handlebars.SafeString(' data-duration.rounds="1"');
+
+	if (type === "temporary") {
+		return new Handlebars.SafeString(buildTemporaryEffectDurationAttributes());
 	}
+
 	return new Handlebars.SafeString("");
 });
 

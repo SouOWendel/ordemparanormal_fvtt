@@ -16,6 +16,9 @@
 	"op.ritual.plural": "Rituals",
 
 	"TYPES.Item.ability": "Ability",
+	"TYPES.Item.origin": "Origin",
+	"TYPES.Item.path": "Path",
+	"TYPES.Item.class": "Class",
 	"op.ability.plural": "Abilities",
 	"op.ability.diverse": "Diverse Abilities",
 
@@ -113,10 +116,10 @@
 	},
 
 	"op.attDex": "Agility",
-	"op.attInt": "Intellect",
-	"op.attVit": "Vigor",
-	"op.attPre": "Presence",
 	"op.attStr": "Strength",
+	"op.attInt": "Intellect",
+	"op.attPre": "Presence",
+	"op.attVit": "Vigor",
 
 	"op.dexAbv": "Agi",
 	"op.intAbv": "Int",
@@ -152,6 +155,16 @@
 	},
 
 	"op.className": "Class",
+	"op.hpInitial": "Initial HP",
+	"op.hpPerLevel": "HP per Level",
+	"op.peInitial": "Initial EP",
+	"op.pePerLevel": "EP per Level",
+	"op.sanInitial": "Initial Sanity",
+	"op.sanPerLevel": "Sanity per Level",
+	"op.skillCount": "Skill Count",
+	"op.grantedSkills": "Granted Skills",
+	"op.proficiencies": "Proficiencies",
+	"op.classAbilities": "Class Abilities",
 	"op.classChoices": {
 		"fighter": "Combatant",
 		"specialist": "Specialist",
@@ -160,6 +173,8 @@
 	},
 
 	"op.originName": "Origin",
+	"op.originSkills": "Granted Origin Skills",
+	"op.originAbility": "Origin Ability",
 	"op.originsChoices": {
 		"academico": "Scholar",
 		"agenteDeSaude": "Health Agent",
@@ -221,6 +236,7 @@
 	},
 
 	"op.trilhasName": "Paths",
+	"op.pathAbilities": "Path Abilities",
 	"op.trilhas": {
 		"agenteSecreto": "Secret Agent",
 		"aniquilador": "Annihilator",
@@ -293,6 +309,7 @@
 
 	"op.executionChoices": {
 		"free": "Free",
+		"movement": "Movement",
 		"default": "Standard",
 		"complete": "Full",
 		"reaction": "Reaction"

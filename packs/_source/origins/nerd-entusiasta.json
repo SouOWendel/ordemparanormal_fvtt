@@ -1,0 +1,33 @@
+{
+  "name": "Nerd Entusiasta",
+  "type": "origin",
+  "_id": "R3jXPpHOYc5oI9jU",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "id": 0,
+    "grantedSkills": "",
+    "description": "<p><strong><span style=\"text-decoration: underline;\">Daniel Dill e Lukas Castanho</span></strong><br><em>Remate Paranormal</em></p><p>Você dedicou muito do seu tempo aprendendo sobre videogames, RPGs de mesa, ficção científica ou qualquer outro assunto considerado “nerd”. Sua obsessão em pesquisar fundo seus assuntos de interesse e sua capacidade em lidar com os mais variados temas chamou a atenção de organizações paranormais.</p>",
+    "chatDescription": "",
+    "ability": "Your text here."
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "sHhoUEHwKGP7EiE0": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1780878714152,
+    "modifiedTime": 1780878789944,
+    "lastModifiedBy": "sHhoUEHwKGP7EiE0"
+  },
+  "_key": "!items!R3jXPpHOYc5oI9jU"
+}
