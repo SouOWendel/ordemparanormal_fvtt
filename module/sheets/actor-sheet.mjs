@@ -11,16 +11,12 @@ const { api, sheets } = foundry.applications;
  * @extends {ActorSheet}
  */
 export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
-	/** */
-	constructor(options = {}) {
-		super(options);
-		this.#dragDrop = this.#createDragDropHandlers();
-	}
-
-	/** @inheritDoc */
+	/** @override */
 	static DEFAULT_OPTIONS = {
 		classes: ["ordemparanormal", "sheet", "actor", "themed", "theme-light"],
 		tag: "form",
+		roll: this._onRoll,
+		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
 		position: {
 			width: 600,
 			height: 820,
@@ -47,19 +43,38 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			toggleResources: this._onToggleResources,
 			findItem: this.#findItem,
 		},
-		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
 	};
 
 	/** @inheritDoc */
 	static PARTS = {
-		agent: { id: "agent", template: "systems/ordemparanormal/templates/actor/actor-agent-sheet.hbs" },
-		tabs: { id: "tabs", template: "templates/generic/tab-navigation.hbs" },
-		skills: { id: "skills", template: "systems/ordemparanormal/templates/actor/parts/actor-skills.hbs" },
-		inventory: { id: "inventory", template: "systems/ordemparanormal/templates/actor/parts/actor-inventory.hbs" },
-		abilities: { id: "abilities", template: "systems/ordemparanormal/templates/actor/parts/actor-abilities.hbs" },
-		rituals: { id: "rituals", template: "systems/ordemparanormal/templates/actor/parts/actor-rituals.hbs" },
-		biography: { id: "biography", template: "systems/ordemparanormal/templates/actor/parts/actor-biography.hbs" },
-		effects: { id: "effects", template: "systems/ordemparanormal/templates/shared/effects.hbs" },
+		agent: { id: "agent", template: "systems/ordemparanormal/templates/actor/actor-agent-sheet.hbs", scrollable: [""] },
+		tabs: { id: "tabs", template: "templates/generic/tab-navigation.hbs", scrollable: [""] },
+		skills: {
+			id: "skills",
+			template: "systems/ordemparanormal/templates/actor/parts/actor-skills.hbs",
+			scrollable: [""],
+		},
+		inventory: {
+			id: "inventory",
+			template: "systems/ordemparanormal/templates/actor/parts/actor-inventory.hbs",
+			scrollable: [""],
+		},
+		abilities: {
+			id: "abilities",
+			template: "systems/ordemparanormal/templates/actor/parts/actor-abilities.hbs",
+			scrollable: [""],
+		},
+		rituals: {
+			id: "rituals",
+			template: "systems/ordemparanormal/templates/actor/parts/actor-rituals.hbs",
+			scrollable: [""],
+		},
+		biography: {
+			id: "biography",
+			template: "systems/ordemparanormal/templates/actor/parts/actor-biography.hbs",
+			scrollable: [""],
+		},
+		effects: { id: "effects", template: "systems/ordemparanormal/templates/shared/effects.hbs", scrollable: [""] },
 	};
 
 	/** @inheritDoc */
@@ -402,8 +417,8 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	 * @protected
 	 * @override
 	 */
-	_onRender(context, options) {
-		this.#dragDrop.forEach((d) => d.bind(this.element));
+	async _onRender(context, options) {
+		await super._onRender(context, options);
 		this.#disableOverrides();
 
 		for (const input of this.element.querySelectorAll("input[type='number']")) {
@@ -574,18 +589,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		const effect = this._getEmbeddedDocument(target);
 		await effect.update({ disabled: !effect.disabled });
 	}
-
-	/**
-	 * Returns an array of DragDrop instances
-	 * @type {DragDrop[]}
-	 */
-	get dragDrop() {
-		return this.#dragDrop;
-	}
-
-	// This is marked as private because there's no real need
-	// for subclasses or external hooks to mess with it directly
-	#dragDrop;
 
 	/**
 	 * Disables inputs subject to active effects
@@ -854,59 +857,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		} else return console.warn("Could not find document class");
 	}
 
-	/** *************
-	 *
-	 * Drag and Drop
-	 *
-	 ***************/
-
-	/**
-	 * Define whether a user is able to begin a dragstart workflow for a given drag selector
-	 * @param {string} selector       The candidate HTML selector for dragging
-	 * @returns {boolean}             Can the current user drag this selector?
-	 * @protected
-	 */
-	_canDragStart(selector) {
-		// game.user fetches the current user
-		return this.isEditable;
-	}
-
-	/**
-	 * Define whether a user is able to conclude a drag-and-drop workflow for a given drop selector
-	 * @param {string} selector       The candidate HTML selector for the drop target
-	 * @returns {boolean}             Can the current user drop on this selector?
-	 * @protected
-	 */
-	_canDragDrop(selector) {
-		// game.user fetches the current user
-		return this.isEditable;
-	}
-
-	/**
-	 * Callback actions which occur at the beginning of a drag start workflow.
-	 * @param {DragEvent} event       The originating DragEvent
-	 * @protected
-	 */
-	_onDragStart(event) {
-		const docRow = event.currentTarget.closest("li");
-		if ("link" in event.target.dataset) return;
-
-		// Chained operation
-		const dragData = this._getEmbeddedDocument(docRow)?.toDragData();
-
-		if (!dragData) return;
-
-		// Set data transfer
-		event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
-	}
-
-	/**
-	 * Callback actions which occur when a dragged element is over a drop target.
-	 * @param {DragEvent} event       The originating DragEvent
-	 * @protected
-	 */
-	_onDragOver(event) {}
-
 	/**
 	 * Callback actions which occur when a dragged element is dropped on a target.
 	 * @param {DragEvent} event       The originating DragEvent
@@ -1035,64 +985,6 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		});
 
 		return this.actor.createEmbeddedDocuments("Item", itemDataArray);
-	}
-
-	/**
-	 * Handle a drop event for an existing embedded Item to sort that Item relative to its siblings
-	 * @param {Event} event
-	 * @param {Item} item
-	 * @private
-	 */
-	_onSortItem(event, item) {
-		// Get the drag source and drop target
-		const items = this.actor.items;
-		const dropTarget = event.target.closest("[data-item-id]");
-		if (!dropTarget) return;
-		const target = items.get(dropTarget.dataset.itemId);
-
-		// Don't sort on yourself
-		if (item.id === target.id) return;
-
-		// Identify sibling items based on adjacent HTML elements
-		const siblings = [];
-		for (const el of dropTarget.parentElement.children) {
-			const siblingId = el.dataset.itemId;
-			if (siblingId && siblingId !== item.id) siblings.push(items.get(el.dataset.itemId));
-		}
-
-		// Perform the sort
-		const sortUpdates = SortingHelpers.performIntegerSort(item, {
-			target,
-			siblings,
-		});
-		const updateData = sortUpdates.map((u) => {
-			const update = u.update;
-			update._id = u.target._id;
-			return update;
-		});
-
-		// Perform the update
-		return this.actor.updateEmbeddedDocuments("Item", updateData);
-	}
-
-	/**
-	 * Create drag-and-drop workflow handlers for this Application
-	 * @returns {DragDrop[]}     An array of DragDrop handlers
-	 * @private
-	 */
-	#createDragDropHandlers() {
-		return this.options.dragDrop.map((d) => {
-			d.permissions = {
-				dragstart: this._canDragStart.bind(this),
-				drop: this._canDragDrop.bind(this),
-			};
-			d.callbacks = {
-				dragstart: this._onDragStart.bind(this),
-				dragover: this._onDragOver.bind(this),
-				drop: this._onDrop.bind(this),
-			};
-			return new foundry.applications.ux.DragDrop.implementation(d);
-		});
 	}
 
 	/**

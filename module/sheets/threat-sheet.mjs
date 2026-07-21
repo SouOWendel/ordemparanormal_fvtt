@@ -10,14 +10,11 @@ const { api, sheets } = foundry.applications;
  * @extends {ActorSheetV2}
  */
 export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
-	#dragDrop;
-
 	/**
 	 *
 	 */
 	constructor(options = {}) {
 		super(options);
-		this.#dragDrop = this.#createDragDropHandlers();
 		// Define a aba inicial padrão
 		this.tabGroups = { primary: "attacks" };
 	}
@@ -58,17 +55,32 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 			openResistanceConfig: this.#onOpenResistanceConfig,
 			openTraitsConfig: this.#onOpenTraitsConfig,
 		},
-		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
 	};
 
 	/** @inheritDoc */
 	static PARTS = {
-		threat: { id: "sheet", template: "systems/ordemparanormal/templates/threat/actor-threat-sheet.hbs" },
-		tabs: { id: "tabs", template: "templates/generic/tab-navigation.hbs" },
-		attacks: { id: "attacks", template: "systems/ordemparanormal/templates/threat/parts/threat-attacks.hbs" },
-		abilities: { id: "abilities", template: "systems/ordemparanormal/templates/threat/parts/threat-abilities.hbs" },
-		enigmas: { id: "enigmas", template: "systems/ordemparanormal/templates/threat/parts/threat-enigmas.hbs" },
-		effects: { id: "effects", template: "systems/ordemparanormal/templates/shared/effects.hbs" },
+		threat: {
+			id: "sheet",
+			template: "systems/ordemparanormal/templates/threat/actor-threat-sheet.hbs",
+			scrollable: [""],
+		},
+		tabs: { id: "tabs", template: "templates/generic/tab-navigation.hbs", scrollable: [""] },
+		attacks: {
+			id: "attacks",
+			template: "systems/ordemparanormal/templates/threat/parts/threat-attacks.hbs",
+			scrollable: [""],
+		},
+		abilities: {
+			id: "abilities",
+			template: "systems/ordemparanormal/templates/threat/parts/threat-abilities.hbs",
+			scrollable: [""],
+		},
+		enigmas: {
+			id: "enigmas",
+			template: "systems/ordemparanormal/templates/threat/parts/threat-enigmas.hbs",
+			scrollable: [""],
+		},
+		effects: { id: "effects", template: "systems/ordemparanormal/templates/shared/effects.hbs", scrollable: [""] },
 	};
 
 	/** @inheritDoc */
@@ -103,9 +115,8 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 	}
 
 	/** @override */
-	_onRender(context, options) {
-		// Re-bind do Drag & Drop após renderizar
-		this.#dragDrop.forEach((d) => d.bind(this.element));
+	async _onRender(context, options) {
+		await super._onRender(context, options);
 		this.#disableOverrides();
 
 		for (const input of this.element.querySelectorAll("input[type='number']")) {
@@ -752,84 +763,6 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 	static async #onOpenTraitsConfig(event, target) {
 		event.preventDefault();
 		new TraitsConfig({ document: this.document }).render(true);
-	}
-
-	/* -------------------------------------------- */
-	/* Drag & Drop                                  */
-	/* -------------------------------------------- */
-
-	/** */
-	#createDragDropHandlers() {
-		return this.options.dragDrop.map((d) => {
-			d.permissions = { dragstart: this._canDragStart.bind(this), drop: this._canDragDrop.bind(this) };
-			d.callbacks = {
-				dragstart: this._onDragStart.bind(this),
-				dragover: this._onDragOver.bind(this),
-				drop: this._onDrop.bind(this),
-			};
-			return new foundry.applications.ux.DragDrop.implementation(d);
-		});
-	}
-
-	/** */
-	_canDragStart(selector) {
-		return this.isEditable;
-	}
-
-	/** */
-	_canDragDrop(selector) {
-		return this.isEditable;
-	}
-
-	/** */
-	_onDragStart(event) {
-		const docRow = event.currentTarget.closest("li");
-		if (event.target.dataset.link) return;
-		const item = this._getEmbeddedDocument(docRow);
-		if (!item) return;
-		event.dataTransfer.setData("text/plain", JSON.stringify(item.toDragData()));
-	}
-
-	/** */
-	_onDragOver(event) {}
-
-	/** */
-	async _onDrop(event) {
-		// V13: Use namespaced TextEditor
-		const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
-		if (!this.actor.isOwner) return false;
-		if (data.type === "Item") return this._onDropItem(event, data);
-		if (data.type === "ActiveEffect") return this._onDropActiveEffect(event, data);
-	}
-
-	/** */
-	async _onDropItem(event, data) {
-		if (!this.actor.isOwner) return false;
-
-		const item = await Item.implementation.fromDropData(data);
-		if (!item) return false;
-
-		// Handle item sorting within the same Actor
-		if (this.actor.uuid === item.parent?.uuid) return false;
-
-		// Convert Item object to data before creating
-		const itemData = item instanceof Item ? item.toObject() : item;
-
-		try {
-			return await this.actor.createEmbeddedDocuments("Item", [itemData]);
-		} catch (error) {
-			console.error("Erro ao criar item na ameaça:", error);
-			ui.notifications.error(`Erro ao adicionar item: ${error.message}`);
-			throw error;
-		}
-	}
-
-	/** */
-	async _onDropActiveEffect(event, data) {
-		const aeCls = getDocumentClass("ActiveEffect");
-		const effect = await aeCls.fromDropData(data);
-		if (!this.actor.isOwner || !effect) return false;
-		return aeCls.create(effect, { parent: this.actor });
 	}
 
 	/** ******************

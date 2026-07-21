@@ -2,8 +2,7 @@
 import { prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 const { api, sheets } = foundry.applications;
-
-// const TextEditor = foundry.applications.ux.TextEditor.implementation;
+const DragDrop = foundry.applications.ux.DragDrop;
 
 /**
  * Extend the basic ItemSheet with some very simple modifications
@@ -13,7 +12,6 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	/** */
 	constructor(options = {}) {
 		super(options);
-		this.#dragDrop = this.#createDragDropHandlers();
 		this._isEditingDescription = false;
 		this._isEditingChatDescription = false;
 	}
@@ -42,7 +40,7 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			title: "DCC.ActorSheetTitle", // Just the localization key
 		},
 		// Custom property that's merged into `this.options`
-		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
+		dragDrop: [{ dragSelector: ".draggable", dropSelector: null }],
 	};
 
 	/** @override */
@@ -316,8 +314,21 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 * @param {RenderOptions} options                 Provided render options
 	 * @protected
 	 */
-	_onRender(context, options) {
-		this.#dragDrop.forEach((d) => d.bind(this.element));
+	async _onRender(context, options) {
+		await super._onRender(context, options);
+		new DragDrop.implementation({
+			dragSelector: ".draggable",
+			dropSelector: null,
+			permissions: {
+				dragstart: this._canDragStart.bind(this),
+				drop: this._canDragDrop.bind(this),
+			},
+			callbacks: {
+				dragstart: this._onDragStart.bind(this),
+				dragover: this._onDragOver.bind(this),
+				drop: this._onDrop.bind(this),
+			},
+		}).bind(this.element);
 
 		const attributesContainer = this.element.querySelector(".class-attributes-section");
 		const disableCheckbox = this.element.querySelector('input[name="system.disableCalculations"]');
@@ -567,7 +578,15 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 		const allowed = Hooks.call("dropItemSheetData", item, this, data);
 		if (allowed === false) return;
 
-		// Handle different data types
+		// Although you will find implmentations to all doc types here, it is important to keep
+		// in mind that only Active Effects are "valid" for items.
+		// Actors have items, but items do not have actors.
+		// Items in items is not implemented on Foudry per default. If you need an implementation with that,
+		// try to search how other systems do. Basically they will use the drag and drop, but they will store
+		// the UUID of the item.
+		// Folders can only contain Actors or Items. So, fall on the cases above.
+		// We left them here so you can have an idea of how that would work, if you want to do some kind of
+		// implementation for that.
 		switch (data.type) {
 			case "ActiveEffect":
 				return this._onDropActiveEffect(event, data);
@@ -674,40 +693,6 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 	 */
 	async _onDropFolder(event, data) {
 		if (!this.item.isOwner) return [];
-	}
-
-	/** The following pieces set up drag handling and are unlikely to need modification  */
-
-	/**
-	 * Returns an array of DragDrop instances
-	 * @type {DragDrop[]}
-	 */
-	get dragDrop() {
-		return this.#dragDrop;
-	}
-
-	// This is marked as private because there's no real need
-	// for subclasses or external hooks to mess with it directly
-	#dragDrop;
-
-	/**
-	 * Create drag-and-drop workflow handlers for this Application
-	 * @returns {DragDrop[]}     An array of DragDrop handlers
-	 * @private
-	 */
-	#createDragDropHandlers() {
-		return this.options.dragDrop.map((d) => {
-			d.permissions = {
-				dragstart: this._canDragStart.bind(this),
-				drop: this._canDragDrop.bind(this),
-			};
-			d.callbacks = {
-				dragstart: this._onDragStart.bind(this),
-				dragover: this._onDragOver.bind(this),
-				drop: this._onDrop.bind(this),
-			};
-			return new foundry.applications.ux.DragDrop.implementation(d);
-		});
 	}
 
 	/* -------------------------------------------- */

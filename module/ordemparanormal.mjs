@@ -37,6 +37,9 @@ globalThis.ordemparanormal = {
 	dice,
 };
 
+const collections = foundry.documents.collections;
+const sheets = foundry.appv1.sheets;
+
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -86,18 +89,18 @@ Hooks.once("init", function () {
 	};
 
 	// Register sheet application classes
-	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("ordemparanormal", OrdemActorSheet, {
+	collections.Actors.unregisterSheet("core", sheets.ActorSheet);
+	collections.Actors.registerSheet("ordemparanormal", OrdemActorSheet, {
 		types: ["agent"],
 		makeDefault: true,
 	});
-	Actors.registerSheet("ordemparanormal", OrdemThreatSheet, {
+	collections.Actors.registerSheet("ordemparanormal", OrdemThreatSheet, {
 		types: ["threat"],
 		makeDefault: true,
 	});
 
-	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("ordemparanormal", OrdemItemSheet, {
+	collections.Items.unregisterSheet("core", sheets.ItemSheet);
+	collections.Items.registerSheet("ordemparanormal", OrdemItemSheet, {
 		makeDefault: true,
 	});
 	// Configure Fonts
@@ -300,18 +303,18 @@ function _configureFonts() {
 			editor: true,
 			fonts: [
 				{
-					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Regular.otf"],
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Regular.ttf"],
 				},
 				{
-					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Bold.otf"],
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Bold.ttf"],
 					weight: "bold",
 				},
 				{
-					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Italic.otf"],
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-Italic.ttf"],
 					style: "italic",
 				},
 				{
-					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-BoldItalic.otf"],
+					urls: ["systems/ordemparanormal/media/fonts/source-sans-3/SourceSans3-BoldItalic.ttf"],
 					weight: "bold",
 					style: "italic",
 				},
@@ -544,6 +547,48 @@ function attachChatCommandListenerOnce(host) {
 // keep its hook wiring intact — only the command-card listener moves to body.
 Hooks.on("renderChatLog", (_app, html) => OrdemItem.chatListeners(html));
 Hooks.on("renderChatPopout", (_app, html) => OrdemItem.chatListeners(html));
+
+/**
+ * Adds a datalist helper for suggesting valid Actor attribute keys in the ActiveEffect config dialog.
+ */
+Hooks.on("renderActiveEffectConfig", (activeEffectConfig, html, data) => {
+	const effectsSection = html.querySelector("section[data-tab='changes']");
+	if (!effectsSection) return;
+	console.log("Adding datalist for attribute keys in ActiveEffect config dialog...");
+
+	const datalist = document.createElement("datalist");
+	datalist.id = "attribute-key-list";
+
+	const inputFields = effectsSection.querySelectorAll(".key input");
+	inputFields.forEach((input) => input.setAttribute("list", datalist.id));
+
+	const attributeKeys = [];
+
+	for (const model of Object.values(CONFIG.Actor.dataModels)) {
+		model.schema.apply(function () {
+			// eslint-disable-next-line no-invalid-this
+			if (!(this instanceof foundry.data.fields.SchemaField)) {
+				attributeKeys.push({
+					// eslint-disable-next-line no-invalid-this
+					key: this.fieldPath,
+					// eslint-disable-next-line no-invalid-this
+					label: this.label,
+				});
+			}
+		});
+	}
+
+	attributeKeys
+		.sort((a, b) => a.key.localeCompare(b.key))
+		.forEach(({ key, label }) => {
+			const option = document.createElement("option");
+			option.value = key;
+			if (label) option.label = label;
+			datalist.appendChild(option);
+		});
+
+	effectsSection.appendChild(datalist);
+});
 
 // Single global listener — body is always present and survives re-renders.
 attachChatCommandListenerOnce(document.body);

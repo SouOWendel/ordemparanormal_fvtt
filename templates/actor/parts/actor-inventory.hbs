@@ -105,7 +105,6 @@
 				{{#each armament as |item id|}}
 					<li
 						class="item item-row draggable {{ternary item.system.using.active 'is-active' ''}}"
-						data-drag="true"
 						data-document-class="Item"
 						data-item-id="{{item._id}}"
 						style="display: flex; flex-direction: column; height: auto;"
@@ -203,7 +202,6 @@
 				{{#each generalEquip as |item id|}}
 					<li
 						class="item item-row draggable {{ternary item.system.using.active 'is-active' ''}}"
-						data-drag="true"
 						data-document-class="Item"
 						data-item-id="{{item._id}}"
 						style="display: flex; flex-direction: column; height: auto;"
@@ -322,7 +320,6 @@
 				{{#each protection as |item id|}}
 					<li
 						class="item item-row draggable {{ternary item.system.using.active 'is-active' ''}}"
-						data-drag="true"
 						data-document-class="Item"
 						data-item-id="{{item._id}}"
 						style="display: flex; flex-direction: column; height: auto;"

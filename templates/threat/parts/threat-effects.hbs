@@ -30,11 +30,10 @@
 				<ol class="effect-list">
 					{{#each section.effects as |effect|}}
 						<li
-							class="effect effect flexrow"
+							class="effect effect flexrow draggable"
 							data-effect-id="{{effect.id}}"
 							data-parent-id="{{effect.parent.id}}"
 							data-document-class="ActiveEffect"
-							data-drag="true"
 						>
 							<div class="effect-name flexrow">
 								<img class="effect-image" src="{{effect.img}}" height="24" width="24" />
