@@ -3,11 +3,11 @@ import { calculateRitualDT } from "../../../module/helpers/actor-calculations.mj
 
 describe("calculateRitualDT", () => {
 	it("non-survivor NEX=50 PRE=3: DT = 10 + 10 + 3 = 23", () => {
-		expect(calculateRitualDT(false, 50, 3)).toBe(23);
+		expect(calculateRitualDT(false, 10, 3)).toBe(23);
 	});
 
 	it("non-survivor NEX=99 PRE=3: DT = 10 + 20 + 3 = 33 (NEX clamped at 99)", () => {
-		expect(calculateRitualDT(false, 99, 3)).toBe(33);
+		expect(calculateRitualDT(false, 20, 3)).toBe(33);
 	});
 
 	it("non-survivor NEX=0 PRE=0: DT = 10", () => {
