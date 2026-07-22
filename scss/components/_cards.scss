@@ -1,13 +1,11 @@
 @use "../utils/typography";
-@use "../utils/colors";
-@use "../utils/variables";
 
 .card-buttons {
 	position: relative;
 	display: flex;
 	width: 100%;
 	flex-grow: 1;
-	gap: variables.$spacing-sm;
+	gap: 4px;
 
 	button {
 		width: 100%;
@@ -29,40 +27,40 @@
 		transition: 0.5s;
 
 		&:hover {
-			background: colors.$c-gray-dark;
-			color: colors.$c-gray-lighter;
+			background: #222;
+			color: #ccc;
 		}
 	}
 	&:first-of-type {
-		margin-bottom: variables.$spacing-xs;
+		margin-bottom: 2px;
 	}
 }
 
 .card-footer {
-	margin-top: variables.$spacing-md;
+	margin-top: 6px;
 
 	span {
-		color: colors.$c-gray-darkest;
-		font-size: variables.$font-sm;
-		padding: variables.$spacing-xs variables.$spacing-xs;
-		border-radius: variables.$radius-xl;
-		border: 1px solid colors.$c-overlay-medium;
+		color: #161616;
+		font-size: 11px;
+		padding: 2px 3px;
+		border-radius: 6px;
+		border: 1px solid #00000030;
 	}
 }
 
 .chat-card {
 	details {
-		padding: variables.$spacing-sm variables.$spacing-sm;
-		border: 1px solid colors.$c-gray-light;
-		box-shadow: colors.$c-overlay-light 0px 1px 2px 0px;
-		border-radius: variables.$radius-lg;
+		padding: 4px 4px;
+		border: 1px solid #b8b8b8;
+		box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+		border-radius: 5px;
 		font-family: typography.$op-warnock;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-		font-size: variables.$font-lg;
+		font-size: 14px;
 
 		summary {
-			margin-left: variables.$spacing-sm;
+			margin-left: 4px;
 		}
 
 		p {
@@ -81,10 +79,10 @@
 
 	span.element {
 		display: inline-block;
-		font-size: variables.$font-md;
-		color: colors.$c-white;
-		padding: 1px variables.$spacing-sm;
-		margin-top: variables.$spacing-sm;
+		font-size: 12px;
+		color: #fff;
+		padding: 1px 4px;
+		margin-top: 4px;
 		margin-bottom: 1px;
 		text-transform: uppercase;
 		font-family: typography.$op-optima;
@@ -92,7 +90,7 @@
 		-moz-osx-font-smoothing: grayscale;
 		font-weight: bold;
 		&.death {
-			background-color: colors.$c-black;
+			background-color: #000;
 		}
 
 		&.blood {
@@ -108,7 +106,7 @@
 		}
 
 		&.fear {
-			background-color: colors.$c-gray-light;
+			background-color: #b8b8b8;
 		}
 	}
 
@@ -122,12 +120,12 @@
 	}
 
 	table {
-		margin: variables.$spacing-lg 0;
+		margin: 10px 0;
 		tr {
 			text-align: center;
 			th,
 			td {
-				padding: variables.$padding-sm;
+				padding: 5px;
 			}
 		}
 	}
@@ -136,16 +134,16 @@
 		display: flex;
 		width: 100%;
 		align-items: center;
-		padding: variables.$spacing-md 0;
+		padding: 6px 0;
 		h2 {
-			padding-left: variables.$spacing-md;
+			padding-left: 6px;
 			border: 0;
 			font-family:
 				"Warnock Pro",
 				"Signika" "Times New Roman",
 				Times,
 				serif;
-			padding-top: variables.$spacing-lg;
+			padding-top: 10px;
 		}
 	}
 }

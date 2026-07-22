@@ -43,25 +43,6 @@
 		max-height: 100vh;
 		overflow-y: auto;
 		overflow-x: hidden;
-		padding: 0;
-	}
-
-	span.item-title-header {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: colors.$c-overlay-light;
-		border: variables.$border-groove;
-		padding: variables.$spacing-sm;
-	}
-
-	.resource-type {
-		margin-top: 0;
-		margin-right: 0;
-		margin-bottom: variables.$spacing-lg;
-		border: 1px solid colors.$c-overlay-dark;
-		border-radius: variables.$radius-md;
-		padding: variables.$spacing-lg;
 	}
 
 	.content-item {
@@ -84,609 +65,604 @@
 		font-family: sans-serif;
 		transition: all 0.2s ease;
 		padding: 0 6px;
-		padding-top: variables.$spacing-lg;
+
+		&:hover,
+		&:focus {
+			border-color: colors.$light-taupe;
+			outline: none;
+			background: rgba(255, 255, 255, 0.6);
+		}
+
+		&:disabled {
+			background-color: rgba(0, 0, 0, 0.08);
+			cursor: not-allowed;
+			opacity: 0.6;
+		}
 	}
 
-	.section-attack {
-		margin-bottom: variables.$spacing-2xl;
+	input:not([type="radio"]):not([type="checkbox"]),
+	select {
+		height: 26px;
 	}
 
-	&:hover,
-	&:focus {
-		border-color: colors.$light-taupe;
-		outline: none;
-		background: rgba(255, 255, 255, 0.6);
+	textarea {
+		padding: 6px;
+		resize: vertical;
 	}
 
-	&:disabled {
-		background-color: rgba(0, 0, 0, 0.08);
-		cursor: not-allowed;
-		opacity: 0.6;
+	.resource-label {
+		font-size: 13px;
+		font-weight: bold;
+		color: #444;
 	}
-}
 
-input:not([type="radio"]):not([type="checkbox"]),
-select {
-	height: 26px;
-}
-
-textarea {
-	padding: 6px;
-	resize: vertical;
-}
-
-.resource-label {
-	font-size: 13px;
-	font-weight: bold;
-	color: #444;
-}
-
-/* ==========================================================================
+	/* ==========================================================================
 	   3. CABEÇALHO DO ITEM (Item Header)
 	   ========================================================================== */
-.item-header {
-	display: flex;
-	align-items: center;
-	flex: 0 0 auto;
-	gap: 20px;
-	padding: 15px 20px;
-	background: rgba(0, 0, 0, 0.01);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	.item-header {
+		display: flex;
+		align-items: center;
+		flex: 0 0 auto;
+		gap: 20px;
+		padding: 15px 20px;
+		background: rgba(0, 0, 0, 0.01);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-	.profile-img-wrapper {
-		position: relative;
-		width: 68px;
-		height: 68px;
-		border: 2px solid #161616;
-		border-radius: 4px;
-		overflow: hidden;
-		background: #111;
-		cursor: pointer;
-		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-		transition:
-			transform 0.2s ease,
-			border-color 0.2s ease;
+		.profile-img-wrapper {
+			position: relative;
+			width: 68px;
+			height: 68px;
+			border: 2px solid #161616;
+			border-radius: 4px;
+			overflow: hidden;
+			background: #111;
+			cursor: pointer;
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+			transition:
+				transform 0.2s ease,
+				border-color 0.2s ease;
 
-		.profile-img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			transition: opacity 0.2s ease;
-		}
-
-		.profile-img-hover {
-			position: absolute;
-			inset: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: rgba(177, 22, 26, 0.85);
-			color: #fff;
-			font-size: 14px;
-			opacity: 0;
-			transition: opacity 0.2s ease;
-		}
-
-		&:hover {
-			transform: scale(1.03);
-			border-color: colors.$light-taupe;
+			.profile-img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: opacity 0.2s ease;
+			}
 
 			.profile-img-hover {
-				opacity: 1;
+				position: absolute;
+				inset: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(177, 22, 26, 0.85);
+				color: #fff;
+				font-size: 14px;
+				opacity: 0;
+				transition: opacity 0.2s ease;
 			}
-			.profile-img {
-				opacity: 0.3;
+
+			&:hover {
+				transform: scale(1.03);
+				border-color: colors.$light-taupe;
+
+				.profile-img-hover {
+					opacity: 1;
+				}
+				.profile-img {
+					opacity: 0.3;
+				}
+			}
+		}
+
+		.header-fields {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.document-name input {
+			font-family: typography.$font-primary;
+			font-size: 1.45rem;
+			font-weight: 800;
+			letter-spacing: -0.5px;
+			padding: 4px 0;
+			color: #1a1a1a;
+			background: transparent;
+			border: none;
+			border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+			border-radius: 0;
+			height: auto;
+
+			&:hover {
+				border-bottom-color: rgba(0, 0, 0, 0.3);
+			}
+			&:focus {
+				border-bottom-color: colors.$light-taupe;
+				box-shadow: none;
+			}
+		}
+
+		.header-stats {
+			display: flex;
+			gap: 12px;
+
+			.stat-badge {
+				display: flex;
+				align-items: center;
+				background: rgba(0, 0, 0, 0.04);
+				border: 1px solid rgba(0, 0, 0, 0.12);
+				border-radius: 4px;
+				overflow: hidden;
+				height: 26px;
+
+				.stat-label {
+					display: flex;
+					align-items: center;
+					gap: 6px;
+					padding: 0 8px;
+					font-family: typography.$font-primary;
+					font-size: 11px;
+					font-weight: bold;
+					text-transform: uppercase;
+					color: #555;
+					background: rgba(0, 0, 0, 0.03);
+					border-right: 1px solid rgba(0, 0, 0, 0.12);
+					height: 100%;
+				}
+
+				input {
+					width: 44px;
+					height: 100%;
+					text-align: center;
+					font-weight: bold;
+					border: none;
+					background: transparent;
+				}
+
+				&:focus-within {
+					border-color: colors.$light-taupe;
+					.stat-label {
+						color: colors.$light-taupe;
+						border-right-color: colors.$light-taupe;
+					}
+				}
 			}
 		}
 	}
 
-	.header-fields {
-		flex: 1;
+	/* ==========================================================================
+	   4. BLOCOS DE ATRIBUTOS E LAYOUTS COMUNS
+	   ========================================================================== */
+	.class-attributes-section,
+	.general-attributes-section {
+		background: rgba(0, 0, 0, 0.03);
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		padding: 10px 15px;
+		margin-bottom: 15px;
+
+		.section-title {
+			font-weight: bold;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			margin-bottom: 10px;
+			padding-bottom: 5px;
+			text-transform: uppercase;
+			font-size: 12px;
+			color: #444;
+		}
+	}
+
+	.form-group-row {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 10px;
+	}
+
+	.form-group-textarea {
 		display: flex;
 		flex-direction: column;
+		gap: 5px;
+		margin-bottom: 15px;
+	}
+
+	.grid-2col {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
 		gap: 10px;
 	}
 
-	.document-name input {
-		font-family: typography.$font-primary;
-		font-size: 1.45rem;
-		font-weight: 800;
-		letter-spacing: -0.5px;
-		padding: 4px 0;
-		color: #1a1a1a;
-		background: transparent;
-		border: none;
-		border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-		border-radius: 0;
-		height: auto;
-
-		&:hover {
-			border-bottom-color: rgba(0, 0, 0, 0.3);
-		}
-		&:focus {
-			border-bottom-color: colors.$light-taupe;
-			box-shadow: none;
-		}
-	}
-
-	.header-stats {
+	.categoryCheck {
 		display: flex;
-		gap: 12px;
+		flex-wrap: wrap;
+		gap: 15px;
+		align-items: center;
+		padding: 5px 0;
 
-		.stat-badge {
+		.radio-label,
+		label.radio {
 			display: flex;
 			align-items: center;
-			background: rgba(0, 0, 0, 0.04);
-			border: 1px solid rgba(0, 0, 0, 0.12);
-			border-radius: 4px;
-			overflow: hidden;
-			height: 26px;
+			gap: 6px;
+			font-size: 13px;
+			cursor: pointer;
+			margin: 0;
+			transition: color 0.2s ease;
 
-			.stat-label {
-				display: flex;
-				align-items: center;
-				gap: 6px;
-				padding: 0 8px;
-				font-family: typography.$font-primary;
-				font-size: 11px;
-				font-weight: bold;
-				text-transform: uppercase;
-				color: #555;
-				background: rgba(0, 0, 0, 0.03);
-				border-right: 1px solid rgba(0, 0, 0, 0.12);
-				height: 100%;
+			&:hover {
+				color: #7f7a67;
 			}
 
-			input {
-				width: 44px;
-				height: 100%;
-				text-align: center;
-				font-weight: bold;
-				border: none;
-				background: transparent;
-			}
+			input[type="radio"] {
+				-webkit-appearance: none !important;
+				-moz-appearance: none !important;
+				appearance: none !important;
+				background-image: none !important;
+				background-color: rgba(0, 0, 0, 0.05);
+				width: 16px !important;
+				height: 16px !important;
+				border: 1px solid rgba(0, 0, 0, 0.3) !important;
+				border-radius: 50% !important;
+				margin: 0;
+				flex-shrink: 0;
+				cursor: pointer;
+				transition: all 0.2s ease;
 
-			&:focus-within {
-				border-color: colors.$light-taupe;
-				.stat-label {
-					color: colors.$light-taupe;
-					border-right-color: colors.$light-taupe;
+				outline: none !important;
+				box-shadow: none !important;
+
+				&:hover {
+					border-color: #7f7a67 !important;
+					background-color: rgba(255, 255, 255, 0.5);
+				}
+
+				&:checked {
+					border-color: #7f7a67 !important;
+					background-color: transparent !important;
+					background-image: radial-gradient(circle, #7f7a67 35%, transparent 40%) !important;
+				}
+
+				&:focus {
+					box-shadow: 0 0 4px rgba(127, 122, 103, 0.4) !important;
+				}
+
+				/* ========================================================
+					A MÁGICA: Matando os estilos globais do Foundry V12
+					======================================================== */
+				&::before,
+				&::after {
+					content: none !important;
+					display: none !important;
+					background: transparent !important;
 				}
 			}
 		}
 	}
-}
 
-/* ==========================================================================
-	   4. BLOCOS DE ATRIBUTOS E LAYOUTS COMUNS
+	/* ==========================================================================
+	   5. ABA DE ARMAMENTOS E COMBATE
 	   ========================================================================== */
-.class-attributes-section,
-.general-attributes-section {
-	background: rgba(0, 0, 0, 0.03);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	padding: 10px 15px;
-	margin-bottom: 15px;
+	.armament-fieldset {
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 6px;
+		padding: 10px 12px;
+		margin-bottom: 12px;
+		background: rgba(0, 0, 0, 0.03);
 
-	.section-title {
-		font-weight: bold;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-		margin-bottom: 10px;
-		padding-bottom: 5px;
-		text-transform: uppercase;
-		font-size: 12px;
-		color: #444;
+		legend {
+			font-weight: bold;
+			padding: 0 8px;
+			color: #191813;
+			font-size: 13px;
+			text-transform: uppercase;
+			font-family: typography.$font-primary;
+		}
 	}
-}
 
-.form-group-row {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	margin-bottom: 10px;
-}
+	.armament-grid-2 {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
+	}
 
-.form-group-textarea {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	margin-bottom: 15px;
-}
+	.armament-field {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
 
-.grid-2col {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 10px;
-}
+		label {
+			font-size: 11px;
+			font-weight: bold;
+			color: #444;
+			text-transform: uppercase;
+			margin-left: 2px;
+		}
+	}
 
-.categoryCheck {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 15px;
-	align-items: center;
-	padding: 5px 0;
+	.formula-row {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		background: rgba(0, 0, 0, 0.04);
+		padding: 6px 8px;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 4px;
+		margin-bottom: 6px;
 
-	.radio-label,
-	label.radio {
+		i {
+			color: #555;
+			font-size: 12px;
+		}
+		.flex-grow {
+			flex: 1;
+		}
+		.flex-large {
+			flex: 1.5;
+		}
+	}
+
+	.add-damage-btn {
+		display: block;
+		text-align: center;
+		background: rgba(0, 0, 0, 0.04);
+		padding: 6px;
+		border-radius: 4px;
+		color: #444;
+		border: 1px dashed rgba(0, 0, 0, 0.3);
+		transition: 0.2s;
+		cursor: pointer;
+		margin-top: 8px;
+		font-weight: bold;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.08);
+			color: #111;
+			border-style: solid;
+		}
+	}
+
+	.delete-damage {
+		color: #a33;
+		padding: 0 4px;
+		cursor: pointer;
+		&:hover {
+			color: #ff0000;
+		}
+	}
+
+	.checkbox-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+		margin-top: 4px;
+	}
+
+	.checkbox-pill {
 		display: flex;
 		align-items: center;
 		gap: 6px;
-		font-size: 13px;
+		background: rgba(0, 0, 0, 0.04);
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		padding: 4px 8px;
+		border-radius: 4px;
 		cursor: pointer;
-		margin: 0;
-		transition: color 0.2s ease;
+		transition: all 0.2s;
 
 		&:hover {
-			color: #7f7a67;
+			background: rgba(0, 0, 0, 0.08);
+			border-color: #888;
 		}
-
-		input[type="radio"] {
-			-webkit-appearance: none !important;
-			-moz-appearance: none !important;
-			appearance: none !important;
-			background-image: none !important;
-			background-color: rgba(0, 0, 0, 0.05);
-			width: 16px !important;
-			height: 16px !important;
-			border: 1px solid rgba(0, 0, 0, 0.3) !important;
-			border-radius: 50% !important;
-			margin: 0;
-			flex-shrink: 0;
-			cursor: pointer;
-			transition: all 0.2s ease;
-
-			outline: none !important;
-			box-shadow: none !important;
-
-			&:hover {
-				border-color: #7f7a67 !important;
-				background-color: rgba(255, 255, 255, 0.5);
-			}
-
-			&:checked {
-				border-color: #7f7a67 !important;
-				background-color: transparent !important;
-				background-image: radial-gradient(circle, #7f7a67 35%, transparent 40%) !important;
-			}
-
-			&:focus {
-				box-shadow: 0 0 4px rgba(127, 122, 103, 0.4) !important;
-			}
-
-			/* ========================================================
-					A MÁGICA: Matando os estilos globais do Foundry V12
-					======================================================== */
-			&::before,
-			&::after {
-				content: none !important;
-				display: none !important;
-				background: transparent !important;
-			}
+		span {
+			font-size: 12px;
+			font-weight: bold;
+			color: #222;
 		}
 	}
-}
 
-/* ==========================================================================
-	   5. ABA DE ARMAMENTOS E COMBATE
-	   ========================================================================== */
-.armament-fieldset {
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 6px;
-	padding: 10px 12px;
-	margin-bottom: 12px;
-	background: rgba(0, 0, 0, 0.03);
-
-	legend {
-		font-weight: bold;
-		padding: 0 8px;
-		color: #191813;
-		font-size: 13px;
-		text-transform: uppercase;
-		font-family: typography.$font-primary;
-	}
-}
-
-.armament-grid-2 {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 12px;
-}
-
-.armament-field {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-
-	label {
-		font-size: 11px;
-		font-weight: bold;
-		color: #444;
-		text-transform: uppercase;
-		margin-left: 2px;
-	}
-}
-
-.formula-row {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	background: rgba(0, 0, 0, 0.04);
-	padding: 6px 8px;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	margin-bottom: 6px;
-
-	i {
-		color: #555;
-		font-size: 12px;
-	}
-	.flex-grow {
-		flex: 1;
-	}
-	.flex-large {
-		flex: 1.5;
-	}
-}
-
-.add-damage-btn {
-	display: block;
-	text-align: center;
-	background: rgba(0, 0, 0, 0.04);
-	padding: 6px;
-	border-radius: 4px;
-	color: #444;
-	border: 1px dashed rgba(0, 0, 0, 0.3);
-	transition: 0.2s;
-	cursor: pointer;
-	margin-top: 8px;
-	font-weight: bold;
-
-	&:hover {
-		background: rgba(0, 0, 0, 0.08);
-		color: #111;
-		border-style: solid;
-	}
-}
-
-.delete-damage {
-	color: #a33;
-	padding: 0 4px;
-	cursor: pointer;
-	&:hover {
-		color: #ff0000;
-	}
-}
-
-.checkbox-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 8px;
-	margin-top: 4px;
-}
-
-.checkbox-pill {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	background: rgba(0, 0, 0, 0.04);
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	padding: 4px 8px;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: all 0.2s;
-
-	&:hover {
-		background: rgba(0, 0, 0, 0.08);
-		border-color: #888;
-	}
-	span {
-		font-size: 12px;
-		font-weight: bold;
-		color: #222;
-	}
-}
-
-/* ==========================================================================
+	/* ==========================================================================
 	   6. EDITOR PROSEMIRROR & DESCRIÇÃO
 	   ========================================================================== */
-.description-container {
-	flex: 1 1 auto;
-	height: 100%;
-	overflow-x: hidden;
-	scrollbar-width: thin;
-	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+	.description-container {
+		flex: 1 1 auto;
+		height: 100%;
+		overflow-x: hidden;
+		scrollbar-width: thin;
+		scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 
-	&::-webkit-scrollbar {
-		width: 6px;
-	}
-	&::-webkit-scrollbar-track {
-		background: transparent;
-		margin: 4px 0;
-	}
-	&::-webkit-scrollbar-thumb {
-		background: rgba(0, 0, 0, 0.25);
-		border-radius: 3px;
-	}
-	&::-webkit-scrollbar-thumb:hover {
-		background: rgba(0, 0, 0, 0.45);
-	}
-
-	.description-box {
-		border: 1px solid rgba(0, 0, 0, 0.15);
-		border-radius: 6px;
-		background: rgba(0, 0, 0, 0.03);
-		margin-bottom: 15px;
-		transition: all 0.3s ease;
-
-		summary {
-			position: relative;
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			padding: 12px 40px 12px 12px;
-			font-weight: bold;
-			text-transform: uppercase;
-			font-size: 13px;
-			color: #555;
-			cursor: pointer;
-			list-style: none;
-			background: rgba(0, 0, 0, 0.02);
-			border-radius: 5px;
-
-			&::-webkit-details-marker {
-				display: none;
-			}
-
-			.summary-title {
-				display: flex;
-				align-items: center;
-				gap: 8px;
-			}
-
-			.editor-edit {
-				margin-left: auto;
-				padding: 4px 6px;
-				border-radius: 4px;
-				color: #666;
-				transition: 0.2s;
-				&:hover {
-					background: rgba(0, 0, 0, 0.08);
-					color: #000;
-				}
-			}
-
-			.notes {
-				flex-basis: 100%;
-				margin: 6px 0 0 0;
-				font-size: 11.5px;
-				font-weight: normal;
-				text-transform: none;
-				color: #666;
-				font-style: italic;
-			}
-
-			&::after {
-				content: "\f107";
-				font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
-				font-weight: 900;
-				position: absolute;
-				right: 15px;
-				top: 14px;
-				transition: transform 0.3s ease;
-			}
+		&::-webkit-scrollbar {
+			width: 6px;
 		}
-
-		&[open] summary {
+		&::-webkit-scrollbar-track {
 			background: transparent;
-			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-			border-radius: 5px 5px 0 0;
-			&::after {
-				transform: rotate(180deg);
-			}
+			margin: 4px 0;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: rgba(0, 0, 0, 0.25);
+			border-radius: 3px;
+		}
+		&::-webkit-scrollbar-thumb:hover {
+			background: rgba(0, 0, 0, 0.45);
 		}
 
-		.description-content-inner {
-			padding: 15px;
-		}
-
-		&.fullscreen-editor {
-			display: flex;
-			flex-direction: column;
-			flex: 1 1 auto;
-			min-height: 400px;
-			background: #eeede0;
-			margin: 0;
-			border: none;
-			border-radius: 0;
+		.description-box {
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 6px;
+			background: rgba(0, 0, 0, 0.03);
+			margin-bottom: 15px;
+			transition: all 0.3s ease;
 
 			summary {
-				display: none;
-			}
-
-			.description-content-inner,
-			.content-wrapper {
+				position: relative;
 				display: flex;
-				flex-direction: column;
-				flex: 1;
-				padding: 0;
-			}
-
-			.fullscreen-editor-header {
-				display: flex;
+				flex-wrap: wrap;
 				align-items: center;
-				gap: 15px;
-				padding: 15px 20px;
-				background: rgba(0, 0, 0, 0.05);
-				border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+				padding: 12px 40px 12px 12px;
+				font-weight: bold;
+				text-transform: uppercase;
+				font-size: 13px;
+				color: #555;
+				cursor: pointer;
+				list-style: none;
+				background: rgba(0, 0, 0, 0.02);
+				border-radius: 5px;
 
-				img {
-					width: 48px;
-					height: 48px;
-					border: 1px solid rgba(0, 0, 0, 0.2);
-					border-radius: 4px;
-					object-fit: cover;
+				&::-webkit-details-marker {
+					display: none;
 				}
 
-				h2 {
-					margin: 0;
-					font-family: typography.$font-primary;
-					font-size: 24px;
-					color: #222;
-					border-bottom: none;
+				.summary-title {
+					display: flex;
+					align-items: center;
+					gap: 8px;
+				}
 
-					span {
-						font-size: 16px;
-						color: #666;
-						font-weight: normal;
+				.editor-edit {
+					margin-left: auto;
+					padding: 4px 6px;
+					border-radius: 4px;
+					color: #666;
+					transition: 0.2s;
+					&:hover {
+						background: rgba(0, 0, 0, 0.08);
+						color: #000;
 					}
 				}
+
+				.notes {
+					flex-basis: 100%;
+					margin: 6px 0 0 0;
+					font-size: 11.5px;
+					font-weight: normal;
+					text-transform: none;
+					color: #666;
+					font-style: italic;
+				}
+
+				&::after {
+					content: "\f107";
+					font-family: "Font Awesome 6 Pro", "Font Awesome 7 Pro", "Font Awesome 6 Free", "Font Awesome 7 Free", sans-serif;
+					font-weight: 900;
+					position: absolute;
+					right: 15px;
+					top: 14px;
+					transition: transform 0.3s ease;
+				}
 			}
 
-			prose-mirror {
-				display: flex !important;
-				flex-direction: column !important;
-				flex: 1 1 auto !important;
-				height: 100% !important;
+			&[open] summary {
+				background: transparent;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-radius: 5px 5px 0 0;
+				&::after {
+					transform: rotate(180deg);
+				}
+			}
 
-				.editor,
-				.editor-container {
+			.description-content-inner {
+				padding: 15px;
+			}
+
+			&.fullscreen-editor {
+				display: flex;
+				flex-direction: column;
+				flex: 1 1 auto;
+				min-height: 400px;
+				background: #eeede0;
+				margin: 0;
+				border: none;
+				border-radius: 0;
+
+				summary {
+					display: none;
+				}
+
+				.description-content-inner,
+				.content-wrapper {
+					display: flex;
+					flex-direction: column;
+					flex: 1;
+					padding: 0;
+				}
+
+				.fullscreen-editor-header {
+					display: flex;
+					align-items: center;
+					gap: 15px;
+					padding: 15px 20px;
+					background: rgba(0, 0, 0, 0.05);
+					border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+					img {
+						width: 48px;
+						height: 48px;
+						border: 1px solid rgba(0, 0, 0, 0.2);
+						border-radius: 4px;
+						object-fit: cover;
+					}
+
+					h2 {
+						margin: 0;
+						font-family: typography.$font-primary;
+						font-size: 24px;
+						color: #222;
+						border-bottom: none;
+
+						span {
+							font-size: 16px;
+							color: #666;
+							font-weight: normal;
+						}
+					}
+				}
+
+				prose-mirror {
 					display: flex !important;
 					flex-direction: column !important;
 					flex: 1 1 auto !important;
-					min-height: 300px !important;
+					height: 100% !important;
 
-					.editor-content,
-					.ProseMirror {
+					.editor,
+					.editor-container {
+						display: flex !important;
+						flex-direction: column !important;
 						flex: 1 1 auto !important;
 						min-height: 300px !important;
-						overflow-y: auto !important;
-						padding: 15px 20px !important;
+
+						.editor-content,
+						.ProseMirror {
+							flex: 1 1 auto !important;
+							min-height: 300px !important;
+							overflow-y: auto !important;
+							padding: 15px 20px !important;
+						}
 					}
 				}
 			}
 		}
 	}
-}
 
-/* ==========================================================================
+	/* ==========================================================================
 	   7. COMPORTAMENTO GLOBAL DO FULLSCREEN (Application V2)
 	   ========================================================================== */
-&.op-fullscreen-active {
-	.item-header,
-	nav.tabs,
-	.sheet-navigation,
-	.description-box:not(.fullscreen-editor) {
-		display: none !important;
-	}
+	&.op-fullscreen-active {
+		.item-header,
+		nav.tabs,
+		.sheet-navigation,
+		.description-box:not(.fullscreen-editor) {
+			display: none !important;
+		}
 
-	.window-content,
-	.tab.description,
-	.description-container {
-		display: flex !important;
-		flex-direction: column !important;
-		height: 100% !important;
-		max-height: none !important;
-		overflow: hidden !important;
-		padding: 0 !important;
+		.window-content,
+		.tab.description,
+		.description-container {
+			display: flex !important;
+			flex-direction: column !important;
+			height: 100% !important;
+			max-height: none !important;
+			overflow: hidden !important;
+			padding: 0 !important;
+		}
 	}
 }

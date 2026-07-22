@@ -1,12 +1,9 @@
-@use "../utils/colors";
-@use "../utils/variables";
-
 .op {
 	&.system-badge {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: variables.$spacing-md;
+		gap: 0.5rem;
 
 		img {
 			border: 0;
@@ -21,4 +18,27 @@
 			text-decoration: none;
 		}
 	}
+
+	// &.sidebar-heading {
+	// 	margin: 6px 0;
+	// 	margin-bottom: 0 !important;
+	// 	border-top: 1px solid var(--color-border-dark-4);
+	// 	border-bottom: 1px solid var(--color-border-dark-4);
+	// 	background: rgba(255, 255, 255, 0.1);
+	// 	display: flex;
+	// 	align-items: center;
+
+	// 	.links {
+	// 		list-style: none;
+	// 		display: flex;
+	// 		gap: 8px;
+	// 		margin: 0;
+	// 	}
+
+	// 	h2 {
+	// 		background-color: initial;
+	// 		border: initial;
+	// 		margin: 0;
+	// 	}
+	// }
 }
