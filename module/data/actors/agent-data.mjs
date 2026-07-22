@@ -194,7 +194,7 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 
 	prepareBaseData() {
 		const rule = game.settings.get("ordemparanormal", "globalProgressRules");
-		const isSurvivor = this.class === "survivor";
+		const isSurvivor = this.parent.itemTypes.class[0]?.system?.isSurvivor ?? false;
 		const withoutSanity = game.settings.get("ordemparanormal", "globalPlayingWithoutSanity");
 
 		const progress = calculateProgress(isSurvivor, rule, this.NEX.value, this.nivel.value, this.stage.value);

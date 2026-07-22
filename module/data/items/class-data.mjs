@@ -15,6 +15,7 @@ export class ClassData extends foundry.abstract.TypeDataModel {
 			proficiencies: new fields.StringField({ initial: "" }),
 			abilities: new fields.HTMLField({ initial: "Your text here." }),
 			disableCalculations: new fields.BooleanField({ initial: false }),
+			isSurvivor: new fields.BooleanField({ initial: false }),
 		};
 	}
 

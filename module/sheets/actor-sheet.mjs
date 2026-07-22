@@ -285,8 +285,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	 *
 	 */
 	get isSurvivor() {
-		const system = this.actor.system;
-		return system.class == "survivor";
+		return this.document.system._isSurvivor ?? false;
 	}
 
 	/**

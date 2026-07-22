@@ -31,7 +31,24 @@ Hooks.once("quenchReady", (quench) => {
 			describe("fighter — NEX progress rule (progress=1)", () => {
 				let actor;
 				before(async () => {
-					actor = await createAgent({ class: "fighter", NEX: { value: 5 } });
+					actor = await createAgent({ NEX: { value: 5 } });
+					// Add a Fighter class item to the actor to test the hp/pe/san
+					// calculations with a class that grants additional hp/pe/san per level.
+					await actor.createEmbeddedDocuments("Item", [
+						{
+							name: "[Quench] Test Class (Specialist)",
+							type: "class",
+							system: {
+								hpInitial: 20,
+								hpPerLevel: 4,
+								peInitial: 2,
+								pePerLevel: 2,
+								sanInitial: 12,
+								sanPerLevel: 3,
+								disableCalculations: false,
+							},
+						},
+					]);
 				});
 				after(async () => {
 					await actor?.delete();
@@ -57,7 +74,24 @@ Hooks.once("quenchReady", (quench) => {
 			describe("fighter — NEX progress rule (progress=2)", () => {
 				let actor;
 				before(async () => {
-					actor = await createAgent({ class: "fighter", NEX: { value: 10 } });
+					actor = await createAgent({ NEX: { value: 10 } });
+					// Add a Fighter class item to the actor to test the hp/pe/san
+					// calculations with a class that grants additional hp/pe/san per level.
+					await actor.createEmbeddedDocuments("Item", [
+						{
+							name: "[Quench] Test Class (Specialist)",
+							type: "class",
+							system: {
+								hpInitial: 20,
+								hpPerLevel: 4,
+								peInitial: 2,
+								pePerLevel: 2,
+								sanInitial: 12,
+								sanPerLevel: 3,
+								disableCalculations: false,
+							},
+						},
+					]);
 				});
 				after(async () => {
 					await actor?.delete();
@@ -84,6 +118,23 @@ Hooks.once("quenchReady", (quench) => {
 				let actor;
 				before(async () => {
 					actor = await createAgent({ class: "specialist", NEX: { value: 5 } });
+					// Add a Specialist class item to the actor to test the hp/pe/san
+					// calculations with a class that grants additional hp/pe/san per level.
+					await actor.createEmbeddedDocuments("Item", [
+						{
+							name: "[Quench] Test Class (Specialist)",
+							type: "class",
+							system: {
+								hpInitial: 16,
+								hpPerLevel: 3,
+								peInitial: 3,
+								pePerLevel: 3,
+								sanInitial: 16,
+								sanPerLevel: 4,
+								disableCalculations: false,
+							},
+						},
+					]);
 				});
 				after(async () => {
 					await actor?.delete();
@@ -106,7 +157,24 @@ Hooks.once("quenchReady", (quench) => {
 			describe("occultist — NEX progress rule (progress=1)", () => {
 				let actor;
 				before(async () => {
-					actor = await createAgent({ class: "occultist", NEX: { value: 5 } });
+					actor = await createAgent({ NEX: { value: 5 } });
+					// Add a Occultist class item to the actor to test the hp/pe/san
+					// calculations with a class that grants additional hp/pe/san per level.
+					await actor.createEmbeddedDocuments("Item", [
+						{
+							name: "[Quench] Test Class (Occultist)",
+							type: "class",
+							system: {
+								hpInitial: 12,
+								hpPerLevel: 2,
+								peInitial: 4,
+								pePerLevel: 4,
+								sanInitial: 20,
+								sanPerLevel: 5,
+								disableCalculations: false,
+							},
+						},
+					]);
 				});
 				after(async () => {
 					await actor?.delete();
@@ -130,8 +198,44 @@ Hooks.once("quenchReady", (quench) => {
 				let actorS1;
 				let actorS2;
 				before(async () => {
-					actorS1 = await createAgent({ class: "survivor", stage: { value: 1 } });
-					actorS2 = await createAgent({ class: "survivor", stage: { value: 2 } });
+					actorS1 = await createAgent({ stage: { value: 1 } });
+					actorS2 = await createAgent({ stage: { value: 2 } });
+					// Add a Survivor class item to the actor to test the hp/pe/san
+					// calculations with a class that grants additional hp/pe/san per level.
+					await actorS1.createEmbeddedDocuments("Item", [
+						{
+							name: "[Quench] Test Class (Survivor)",
+							type: "class",
+							system: {
+								hpInitial: 8,
+								hpPerLevel: 2,
+								peInitial: 2,
+								pePerLevel: 1,
+								sanInitial: 8,
+								sanPerLevel: 2,
+								disableCalculations: false,
+								isSurvivor: true,
+							},
+						},
+					]);
+					// Add a Survivor class item to the actor to test the hp/pe/san
+					// calculations with a class that grants additional hp/pe/san per level.
+					await actorS2.createEmbeddedDocuments("Item", [
+						{
+							name: "[Quench] Test Class (Survivor)",
+							type: "class",
+							system: {
+								hpInitial: 8,
+								hpPerLevel: 2,
+								peInitial: 2,
+								pePerLevel: 1,
+								sanInitial: 8,
+								sanPerLevel: 2,
+								disableCalculations: false,
+								isSurvivor: true,
+							},
+						},
+					]);
 				});
 				after(async () => {
 					await actorS1?.delete();
