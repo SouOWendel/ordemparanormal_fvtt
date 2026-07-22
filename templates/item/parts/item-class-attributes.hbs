@@ -1,10 +1,7 @@
 <section class="tab class {{tab.cssClass}} scrollable" data-group="primary" data-tab="classAttr">
 	<div class="content-item scrollable">
 
-		<div
-			class="form-group-row op-shadow"
-			style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; margin-bottom: 15px;"
-		>
+		<div class="form-group-row op-shadow">
 			<input type="checkbox" name="system.disableCalculations" {{checked system.disableCalculations}} />
 			<div>
 				<label class="resource-label">Desativar cálculos derivados</label>
@@ -13,14 +10,11 @@
 			</div>
 		</div>
 
-		<div
-			class="form-group-row op-shadow"
-			style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; margin-bottom: 15px;"
-		>
+		<div class="form-group-row op-shadow">
 			<input type="checkbox" name="system.isSurvivor" {{checked system.isSurvivor}} />
 			<div>
 				<label class="resource-label">É Sobrevivente</label>
-				<p>Marca o personagem como um sobrevivente, o que afeta os cálculos de PV, PE ou PD, e SAN.</p>
+				<p>Faz com que a classe, como um sobrevivente, tenha apenas 5 estágios e o PE/PD limitado.</p>
 			</div>
 		</div>
 

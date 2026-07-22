@@ -1691,6 +1691,10 @@ dialog.ordemparanormal.application {
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 10px;
+	background: rgba(0, 0, 0, 0.05);
+	padding: 8px;
+	border-radius: 4px;
+	margin-bottom: 15px;
 }
 .system-ordemparanormal .op-item-sheet .form-group-textarea {
 	display: flex;
