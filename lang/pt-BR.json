@@ -161,6 +161,8 @@
 	"op.hpPerLevel": "PV por Nível",
 	"op.peInitial": "PE Inicial",
 	"op.pePerLevel": "PE por Nível",
+	"op.pdInitial": "PD Inicial",
+	"op.pdPerLevel": "PD por Nível",
 	"op.sanInitial": "Sanidade Inicial",
 	"op.sanPerLevel": "Sanidade por Nível",
 	"op.skillCount": "Quantidade de Perícias",

@@ -17,11 +17,14 @@
     "skillCount": 0,
     "grantedSkills": "",
     "proficiencies": "",
-    "abilities": "Your text here."
+    "abilities": "Your text here.",
+    "isSurvivor": true,
+    "pdInitial": 4,
+    "pdPerLevel": 2
   },
   "effects": [],
   "folder": null,
-  "sort": 0,
+  "sort": 200000,
   "ownership": {
     "default": 0,
     "mCARmiewelPiv8Ze": 3
@@ -32,8 +35,8 @@
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1784491608694,
-    "modifiedTime": 1784491786252,
-    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "modifiedTime": 1784821133670,
+    "lastModifiedBy": "DnDtVz8d1Mx168x6",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null

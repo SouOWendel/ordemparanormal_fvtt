@@ -26,10 +26,17 @@
 				<label class="resource-label">{{localize "op.hpPerLevel"}}</label>
 				<input type="number" name="system.hpPerLevel" value="{{system.hpPerLevel}}" data-dtype="Number" />
 
-				<label class="resource-label">{{localize "op.peInitial"}}</label>
-				<input type="number" name="system.peInitial" value="{{system.peInitial}}" data-dtype="Number" />
-				<label class="resource-label">{{localize "op.pePerLevel"}}</label>
-				<input type="number" name="system.pePerLevel" value="{{system.pePerLevel}}" data-dtype="Number" />
+				{{#if usingWithoutSanityRule}}
+					<label class="resource-label">{{localize "op.pdInitial"}}</label>
+					<input type="number" name="system.pdInitial" value="{{system.pdInitial}}" data-dtype="Number" />
+					<label class="resource-label">{{localize "op.pdPerLevel"}}</label>
+					<input type="number" name="system.pdPerLevel" value="{{system.pdPerLevel}}" data-dtype="Number" />
+				{{else}}
+					<label class="resource-label">{{localize "op.peInitial"}}</label>
+					<input type="number" name="system.peInitial" value="{{system.peInitial}}" data-dtype="Number" />
+					<label class="resource-label">{{localize "op.pePerLevel"}}</label>
+					<input type="number" name="system.pePerLevel" value="{{system.pePerLevel}}" data-dtype="Number" />
+				{{/if}}
 
 				<label class="resource-label">{{localize "op.sanInitial"}}</label>
 				<input type="number" name="system.sanInitial" value="{{system.sanInitial}}" data-dtype="Number" />

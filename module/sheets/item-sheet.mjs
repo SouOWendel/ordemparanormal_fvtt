@@ -143,7 +143,8 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			flags: this.item.flags,
 			config: CONFIG.op,
 			tabs: this._getTabs(options.parts),
-			// effects: prepareActiveEffectCategories(this.item.effects),
+			usingWithoutSanityRule: this.usingWithoutSanityRule,
+
 			// Armament's Dropdowns
 			optionWeaponType: CONFIG.op.dropdownWeaponType,
 			optionWeaponSubType: CONFIG.op.dropdownWeaponSubType,
@@ -305,6 +306,13 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			tabs[partId] = tab;
 			return tabs;
 		}, {});
+	}
+
+	/**
+	 *
+	 */
+	get usingWithoutSanityRule() {
+		return game.settings.get("ordemparanormal", "globalPlayingWithoutSanity");
 	}
 
 	/**

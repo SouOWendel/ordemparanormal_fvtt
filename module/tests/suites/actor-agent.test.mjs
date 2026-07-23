@@ -31,6 +31,8 @@ Hooks.once("quenchReady", (quench) => {
 					hpPerLevel: 4,
 					peInitial: 2,
 					pePerLevel: 2,
+					pdInitial: 6,
+					pdPerLevel: 3,
 					sanInitial: 12,
 					sanPerLevel: 3,
 					disableCalculations: false,
@@ -40,6 +42,8 @@ Hooks.once("quenchReady", (quench) => {
 					hpPerLevel: 3,
 					peInitial: 3,
 					pePerLevel: 3,
+					pdInitial: 8,
+					pdPerLevel: 4,
 					sanInitial: 16,
 					sanPerLevel: 4,
 					disableCalculations: false,
@@ -49,6 +53,8 @@ Hooks.once("quenchReady", (quench) => {
 					hpPerLevel: 2,
 					peInitial: 4,
 					pePerLevel: 4,
+					pdInitial: 10,
+					pdPerLevel: 5,
 					sanInitial: 20,
 					sanPerLevel: 5,
 					disableCalculations: false,
@@ -58,6 +64,8 @@ Hooks.once("quenchReady", (quench) => {
 					hpPerLevel: 2,
 					peInitial: 2,
 					pePerLevel: 1,
+					pdInitial: 4,
+					pdPerLevel: 2,
 					sanInitial: 8,
 					sanPerLevel: 2,
 					disableCalculations: false,
@@ -247,8 +255,8 @@ Hooks.once("quenchReady", (quench) => {
 					assert.equal(actor.system.PD.perRound, 1);
 				});
 				it("PE.max is NOT set when withoutSanity (PD.max is used)", () => {
-					// PE.max should be schema initial (5), not the computed PE formula
-					assert.equal(actor.system.PE.max, 5);
+					// PE.max should be schema initial (0), not the computed PE formula
+					assert.equal(actor.system.PE.max, 0);
 				});
 			});
 

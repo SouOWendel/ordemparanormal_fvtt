@@ -8,6 +8,8 @@ export class ClassData extends foundry.abstract.TypeDataModel {
 			hpPerLevel: new fields.NumberField({ integer: true, initial: 0 }),
 			peInitial: new fields.NumberField({ integer: true, initial: 0 }),
 			pePerLevel: new fields.NumberField({ integer: true, initial: 0 }),
+			pdInitial: new fields.NumberField({ integer: true, initial: 0 }),
+			pdPerLevel: new fields.NumberField({ integer: true, initial: 0 }),
 			sanInitial: new fields.NumberField({ integer: true, initial: 0 }),
 			sanPerLevel: new fields.NumberField({ integer: true, initial: 0 }),
 			skillCount: new fields.NumberField({ integer: true, initial: 0 }),

@@ -89,7 +89,7 @@ export class OrdemActor extends Actor {
 		const vig = this.system.attributes.vit.value || 0;
 		const pre = this.system.attributes.pre.value || 0;
 		const progress = this.system._progress;
-		const withoutSanity = this.system.flags?.withoutSanity || false;
+		const withoutSanity = this.usingWithoutSanityRule || false;
 
 		// Busca a Classe
 		const classItem = this.itemTypes.class[0];
