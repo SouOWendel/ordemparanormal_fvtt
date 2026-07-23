@@ -16,6 +16,7 @@ export default defineConfig({
 				"module/documents/actor.mjs",
 				"module/documents/chat-message.mjs",
 				"module/documents/item.mjs",
+				"module/settings/enrichers.mjs",
 				"utils/semver-compare.mjs",
 			],
 			reporter: ["text", "lcov"],
