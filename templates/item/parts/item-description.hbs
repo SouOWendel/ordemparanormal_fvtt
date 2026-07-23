@@ -12,7 +12,7 @@
 				</div>
 
 				{{#if editable}}
-					<a class="editor-edit" data-action="editDescription" title="Expandir e Editar">
+					<a class="editor-edit description" data-action="editDescription" title="Expandir e Editar">
 						<i class="fas fa-edit"></i>
 					</a>
 				{{/if}}
@@ -42,7 +42,7 @@
 		</details>
 
 		<details
-			class="description-box op-shadow {{ternary editingChatDescription 'fullscreen-editor' ''}}"
+			class="description-box chat-description op-shadow {{ternary editingChatDescription 'fullscreen-editor' ''}}"
 			{{ternary editingChatDescription "open" ""}}
 		>
 			<summary>
@@ -52,7 +52,7 @@
 				</div>
 
 				{{#if editable}}
-					<a class="editor-edit" data-action="editChatDescription" title="Expandir e Editar">
+					<a class="editor-edit chat-description" data-action="editChatDescription" title="Expandir e Editar">
 						<i class="fas fa-edit"></i>
 					</a>
 				{{/if}}
