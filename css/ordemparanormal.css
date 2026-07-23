@@ -2946,40 +2946,6 @@ dialog.ordemparanormal.application {
 	color: var(--color-text-light-highlight);
 	text-decoration: none;
 }
-.system-ordemparanormal .additionalContent .selectize-input {
-	max-width: 330px !important;
-	height: 40px;
-	display: inline-flex;
-	text-wrap: wrap;
-	overflow: hidden;
-}
-.system-ordemparanormal .additionalContent .selectize-input .item {
-	width: 100px !important;
-}
-.system-ordemparanormal .additionalContent label {
-	font-weight: 400 !important;
-	line-height: 1.25;
-}
-.system-ordemparanormal .additionalContent p {
-	font-size: 12px;
-	line-height: 16px;
-	color: #4b4a44;
-	margin: 3px 0;
-	text-align: justify;
-	hyphens: auto;
-}
-.system-ordemparanormal .additionalContent input {
-	max-height: 10px !important;
-}
-.system-ordemparanormal .additionalContent input::placeholder {
-	opacity: 0.4;
-}
-.system-ordemparanormal .additionalContent .container > div {
-	padding: 10px;
-}
-.system-ordemparanormal .additionalContent .flexe {
-	display: flex !important;
-}
 .system-ordemparanormal {
 	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
 	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
