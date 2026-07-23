@@ -19,6 +19,7 @@ import { OrdemThreatSheet } from "./sheets/threat-sheet.mjs";
 import { op } from "./helpers/config.mjs";
 import displayMessages from "./components/message-system.mjs";
 import registerSystemSettings from "./settings/settings.mjs";
+import registerEnrichers from "./settings/enrichers.mjs";
 import { registerSystemKeybindings } from "./settings/settings.mjs";
 
 import * as dataModels from "./data/_module.mjs";
@@ -109,6 +110,7 @@ Hooks.once("init", function () {
 	// Register System Settings in Other File
 	registerSystemSettings();
 	utils.preloadHandlebarsTemplates();
+	registerEnrichers();
 
 	// Change the logo of Foundry for Ordem Paranormal logo.
 	if (navigator.onLine) document.querySelector("#logo")?.setAttribute("src", "https://i.imgur.com/TTrDGM4.png");
