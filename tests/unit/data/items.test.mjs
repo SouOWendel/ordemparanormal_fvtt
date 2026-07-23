@@ -5,6 +5,9 @@ import { GeneralEquipmentData } from "../../../module/data/items/general-equipme
 import { ProtectionData } from "../../../module/data/items/protection-data.mjs";
 import { AbilityData } from "../../../module/data/items/ability-data.mjs";
 import { RitualData } from "../../../module/data/items/ritual-data.mjs";
+import { ClassData } from "../../../module/data/items/class-data.mjs";
+import { OriginData } from "../../../module/data/items/origin-data.mjs";
+import { PathData } from "../../../module/data/items/path-data.mjs";
 
 describe("ArmamentData.defineSchema()", () => {
 	it("returns all top-level keys", () => {
@@ -131,6 +134,61 @@ describe("RitualData.defineSchema()", () => {
 		expect(areaKeys).toContain("name");
 		expect(areaKeys).toContain("size");
 		expect(areaKeys).toContain("type");
+	});
+});
+
+describe("ClassData.defineSchema()", () => {
+	it("returns all top-level keys", () => {
+		const schema = ClassData.defineSchema();
+		const keys = Object.keys(schema);
+		expect(keys).toContain("id");
+		expect(keys).toContain("description");
+		expect(keys).toContain("hpInitial");
+		expect(keys).toContain("hpPerLevel");
+		expect(keys).toContain("peInitial");
+		expect(keys).toContain("pePerLevel");
+		expect(keys).toContain("sanInitial");
+		expect(keys).toContain("sanPerLevel");
+		expect(keys).toContain("skillCount");
+		expect(keys).toContain("grantedSkills");
+		expect(keys).toContain("proficiencies");
+		expect(keys).toContain("abilities");
+		expect(keys).toContain("disableCalculations");
+		expect(keys).toContain("isSurvivor");
+	});
+
+	it("has singleton metadata enabled", () => {
+		expect(ClassData.metadata.singleton).toBe(true);
+	});
+});
+
+describe("OriginData.defineSchema()", () => {
+	it("returns all top-level keys", () => {
+		const schema = OriginData.defineSchema();
+		const keys = Object.keys(schema);
+		expect(keys).toContain("id");
+		expect(keys).toContain("description");
+		expect(keys).toContain("grantedSkills");
+		expect(keys).toContain("ability");
+	});
+
+	it("has singleton metadata enabled", () => {
+		expect(OriginData.metadata.singleton).toBe(true);
+	});
+});
+
+describe("PathData.defineSchema()", () => {
+	it("returns all top-level keys", () => {
+		const schema = PathData.defineSchema();
+		const keys = Object.keys(schema);
+		expect(keys).toContain("id");
+		expect(keys).toContain("description");
+		expect(keys).toContain("preRequisite");
+		expect(keys).toContain("abilities");
+	});
+
+	it("has singleton metadata enabled", () => {
+		expect(PathData.metadata.singleton).toBe(true);
 	});
 });
 
