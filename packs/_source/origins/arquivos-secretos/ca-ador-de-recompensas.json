@@ -3,7 +3,7 @@
   "name": "Caçador de Recompensas",
   "type": "origin",
   "_id": "viUeZIqD5wOu7wi4",
-  "img": "systems/ordemparanormal/media/icons/origins/ca%C3%A7ador-de-recompensa.svg",
+  "img": "systems/ordemparanormal/media/icons/origins/cacador-de-recompensa.webp",
   "system": {
     "id": 0,
     "grantedSkills": "",
@@ -23,7 +23,7 @@
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1784492526185,
-    "modifiedTime": 1784597466258,
+    "modifiedTime": 1784690599679,
     "lastModifiedBy": "mCARmiewelPiv8Ze",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -1,0 +1,33 @@
+{
+  "folder": "MgSiPI1gI1v3nIdw",
+  "name": "Maledictólogo",
+  "type": "path",
+  "_id": "0SLSIQ14HTyZad6G",
+  "img": "systems/ordemparanormal/media/icons/paths/maledictologo.webp",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 45 do Arquivos Secretos 1</strong>.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784686072409,
+    "modifiedTime": 1784757837405,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!0SLSIQ14HTyZad6G"
+}

@@ -1,9 +1,10 @@
 {
   "name": "Espada",
   "type": "armament",
-  "img": "systems/ordemparanormal/media/icons/armament/Espada.svg",
+  "img": "systems/ordemparanormal/media/icons/armament/espada.svg",
   "system": {
     "description": "<p>Uma arma medieval, como uma espada longa dos cavaleiros europeus ou uma cimitarra sarracena. Voc&ecirc; pode empunhar uma espada com uma m&atilde;o (dano 1d8) ou com as duas (dano 1d10).</p>",
+    "chatDescription": "",
     "weight": 1,
     "category": "1",
     "using": {
@@ -55,12 +56,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.365",
     "systemId": "ordemparanormal",
     "systemVersion": "7.2.4",
     "createdTime": 1768012531614,
-    "modifiedTime": 1768670677938,
-    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+    "modifiedTime": 1784682860779,
+    "lastModifiedBy": "mCARmiewelPiv8Ze"
   },
   "ownership": {
     "default": 0,

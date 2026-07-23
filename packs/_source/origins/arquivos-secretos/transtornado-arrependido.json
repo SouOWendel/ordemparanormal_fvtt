@@ -3,7 +3,7 @@
   "name": "Transtornado Arrependido",
   "type": "origin",
   "_id": "XBv0fs5KnGl6bq7M",
-  "img": "systems/ordemparanormal/media/icons/origins/transtornado-arrependido.svg",
+  "img": "systems/ordemparanormal/media/icons/origins/transtornado-arrependido.webp",
   "system": {
     "id": 0,
     "grantedSkills": "",
@@ -23,7 +23,7 @@
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1784492445140,
-    "modifiedTime": 1784597243033,
+    "modifiedTime": 1784690694046,
     "lastModifiedBy": "mCARmiewelPiv8Ze",
     "compendiumSource": null,
     "duplicateSource": null,

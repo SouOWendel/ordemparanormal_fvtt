@@ -4,7 +4,8 @@
   "img": "systems/ordemparanormal/media/icons/equipments/operational/equipamento-de-sobrevivencia.svg",
   "system": {
     "description": "<p>Uma mochila com saco de dormir, panelas, GPS e outros itens &uacute;teis para sobreviver no mato. Fornece +5 em testes de Sobreviv&ecirc;ncia para acampar e orientar-se e permite que voc&ecirc; fa&ccedil;a esses testes sem treinamento.</p>",
-    "weight": 1,
+    "chatDescription": "",
+    "weight": 2,
     "category": "0",
     "using": {
       "state": true,
@@ -20,12 +21,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.365",
     "systemId": "ordemparanormal",
-    "systemVersion": "7.2.4",
+    "systemVersion": "7.3.3",
     "createdTime": 1768441745795,
-    "modifiedTime": 1768848688162,
-    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+    "modifiedTime": 1784768030342,
+    "lastModifiedBy": "mCARmiewelPiv8Ze"
   },
   "ownership": {
     "default": 0,

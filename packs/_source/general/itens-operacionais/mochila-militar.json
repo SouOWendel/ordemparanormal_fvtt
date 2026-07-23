@@ -6,7 +6,7 @@
     "description": "<p>Uma mochila leve e de alta qualidade. Ela n&atilde;o usa nenhum espa&ccedil;o e aumenta sua capacidade de carga em 2 espa&ccedil;os.</p>",
     "chatDescription": "",
     "weight": 0,
-    "category": "0",
+    "category": 1,
     "using": {
       "state": true,
       "class": "fas"
@@ -67,12 +67,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "14.363",
+    "coreVersion": "14.365",
     "systemId": "ordemparanormal",
-    "systemVersion": "7.2.4",
+    "systemVersion": "7.3.3",
     "createdTime": 1768441745795,
-    "modifiedTime": 1768848688162,
-    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+    "modifiedTime": 1784768013521,
+    "lastModifiedBy": "mCARmiewelPiv8Ze"
   },
   "ownership": {
     "default": 0,

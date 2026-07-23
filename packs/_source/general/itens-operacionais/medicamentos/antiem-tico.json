@@ -4,7 +4,8 @@
   "img": "systems/ordemparanormal/media/icons/equipments/operational/medicine/medicamentos.svg",
   "system": {
     "description": "<p>Remove a condição enjoado e fornece +5 em testes para evitar essa condição até o fim da cena. A critério do mestre, pode funcionar contra outras condições causadas por náuseas e vômitos</p>",
-    "weight": 1,
+    "chatDescription": "",
+    "weight": 0.5,
     "category": "1",
     "using": {
       "state": true,
@@ -20,12 +21,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.365",
     "systemId": "ordemparanormal",
-    "systemVersion": "7.2.4",
+    "systemVersion": "7.3.3",
     "createdTime": 1768441745795,
-    "modifiedTime": 1768446652517,
-    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+    "modifiedTime": 1784767480520,
+    "lastModifiedBy": "mCARmiewelPiv8Ze"
   },
   "ownership": {
     "default": 0,

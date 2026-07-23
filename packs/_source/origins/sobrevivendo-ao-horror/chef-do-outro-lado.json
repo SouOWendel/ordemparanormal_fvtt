@@ -3,7 +3,7 @@
   "name": "Chef do Outro Lado",
   "type": "origin",
   "_id": "at5MKeqOkp5o5NWr",
-  "img": "systems/ordemparanormal/media/icons/origins/chef-do-outro-lado.svg",
+  "img": "systems/ordemparanormal/media/icons/origins/chef-do-outro-lado.webp",
   "system": {
     "id": 0,
     "grantedSkills": "",
@@ -23,7 +23,7 @@
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1784491916128,
-    "modifiedTime": 1784598084362,
+    "modifiedTime": 1784690361996,
     "lastModifiedBy": "mCARmiewelPiv8Ze",
     "compendiumSource": null,
     "duplicateSource": null,

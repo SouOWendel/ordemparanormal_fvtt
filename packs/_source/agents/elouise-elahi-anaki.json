@@ -1,0 +1,699 @@
+{
+  "name": "Elouise Elahi Anaki",
+  "type": "agent",
+  "_id": "IwJae37HUCjpYDkC",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "PV": {
+      "value": 5,
+      "max": 10,
+      "perRound": 1,
+      "nonLethal": 0
+    },
+    "SAN": {
+      "value": 5,
+      "max": 5,
+      "perRound": 1
+    },
+    "PE": {
+      "value": 5,
+      "max": 5,
+      "perRound": 1
+    },
+    "PD": {
+      "value": 5,
+      "max": 5,
+      "perRound": 1
+    },
+    "NEX": {
+      "value": 1
+    },
+    "stage": {
+      "value": 1
+    },
+    "nivel": {
+      "value": 1
+    },
+    "defense": {
+      "value": 10,
+      "bonus": 0,
+      "dodge": 0
+    },
+    "desloc": {
+      "value": 9,
+      "bonus": 0
+    },
+    "spaces": {
+      "bonus": {
+        "value": 0,
+        "max": 0
+      }
+    },
+    "biography": "A personalidade, aparência e história do seu personagem aqui.",
+    "goals": "Os seus objetivos aqui.",
+    "class": "",
+    "ritual": {
+      "DT": 0
+    },
+    "origin": "",
+    "trilha": "",
+    "patent": {
+      "name": "",
+      "prestigePoints": 0,
+      "creditLimit": "",
+      "itemLimit1": null,
+      "itemLimit2": null,
+      "itemLimit3": null,
+      "itemLimit4": null
+    },
+    "skills": {
+      "acrobatics": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "animal": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "arts": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "athleticism": {
+        "value": 0,
+        "attr": [
+          "str"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "relevance": {
+        "value": 0,
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "sciences": {
+        "value": 0,
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "crime": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "diplomacy": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "deception": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "resilience": {
+        "value": 0,
+        "attr": [
+          "vit"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "stealth": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "initiative": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "intimidation": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "intuition": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "investigation": {
+        "value": 0,
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "fighting": {
+        "value": 0,
+        "attr": [
+          "str"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "medicine": {
+        "value": 0,
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "occultism": {
+        "value": 0,
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "perception": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "driving": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "aim": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "reflexes": {
+        "value": 0,
+        "attr": [
+          "dex"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "religion": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "survival": {
+        "value": 0,
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "tactics": {
+        "value": 0,
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "technology": {
+        "value": 0,
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "will": {
+        "value": 0,
+        "attr": [
+          "pre"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false
+        },
+        "mod": 0
+      },
+      "freeSkill": {
+        "value": 0,
+        "name": "",
+        "attr": [
+          "int"
+        ],
+        "degree": {
+          "label": "untrained",
+          "value": 0
+        },
+        "conditions": {
+          "load": false,
+          "trained": false,
+          "open": true
+        },
+        "mod": 0
+      }
+    },
+    "attributes": {
+      "dex": {
+        "value": 1,
+        "bonus": 0
+      },
+      "int": {
+        "value": 1,
+        "bonus": 0
+      },
+      "vit": {
+        "value": 1,
+        "bonus": 0
+      },
+      "pre": {
+        "value": 1,
+        "bonus": 0
+      },
+      "str": {
+        "value": 1,
+        "bonus": 0
+      }
+    },
+    "resources": {
+      "res1": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      },
+      "res2": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      },
+      "res3": {
+        "value": 0,
+        "max": 0,
+        "label": ""
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Elouise Elahi Anaki",
+    "displayName": 0,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "icons/svg/mystery-man.svg",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": 1,
+    "displayBars": 50,
+    "bar1": {
+      "attribute": null
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {
+      "barbrawl": {
+        "resourceBars": {
+          "agentSpaceBar": {
+            "id": "agentSpaceBar",
+            "mincolor": "#000000",
+            "maxcolor": "#FFFFFF",
+            "position": "bottom-outer",
+            "value": 1,
+            "max": 1,
+            "opacity": 0,
+            "label": "",
+            "attribute": "custom",
+            "style": "fraction",
+            "ownerVisibility": 30,
+            "otherVisibility": 0,
+            "hideHud": true
+          },
+          "pv": {
+            "id": "pv",
+            "mincolor": "#ff1a1a",
+            "maxcolor": "#80ff00",
+            "position": "bottom-outer",
+            "attribute": "PV",
+            "label": "PV",
+            "style": "fraction",
+            "ownerVisibility": 30,
+            "otherVisibility": 0
+          },
+          "pe": {
+            "id": "pe",
+            "mincolor": "#242899",
+            "maxcolor": "#66a8ff",
+            "position": "bottom-outer",
+            "attribute": "PE",
+            "label": "PE",
+            "style": "fraction",
+            "ownerVisibility": 30,
+            "otherVisibility": 0
+          },
+          "san": {
+            "id": "san",
+            "mincolor": "#000000",
+            "maxcolor": "#000000",
+            "position": "bottom-outer",
+            "attribute": "SAN",
+            "label": "SAN",
+            "style": "fraction",
+            "ownerVisibility": 30,
+            "otherVisibility": 0
+          }
+        }
+      }
+    },
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vUTMyOH4FOrOifbw": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784768789790,
+    "modifiedTime": 1784768789792,
+    "lastModifiedBy": "vUTMyOH4FOrOifbw",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!IwJae37HUCjpYDkC"
+}

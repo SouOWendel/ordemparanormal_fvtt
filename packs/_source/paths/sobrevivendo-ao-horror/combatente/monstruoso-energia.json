@@ -1,0 +1,33 @@
+{
+  "folder": "lV1ucTTTAhQMYjTg",
+  "name": "Monstruoso - Energia",
+  "type": "path",
+  "_id": "kX76zDp0mVP1okE6",
+  "img": "systems/ordemparanormal/media/icons/paths/monstruoso-de-energia.webp",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 17-21 do suplemento Sobrevivendo ao Horror</strong>.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 400000,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784685570012,
+    "modifiedTime": 1784758418056,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!kX76zDp0mVP1okE6"
+}

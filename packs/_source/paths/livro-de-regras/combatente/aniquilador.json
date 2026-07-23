@@ -1,0 +1,33 @@
+{
+  "name": "Aniquilador",
+  "type": "path",
+  "_id": "fLEwPkAp8W3JR0DY",
+  "img": "systems/ordemparanormal/media/icons/paths/aniquilador.webp",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você é treinado para abater alvos com eficiência e velocidade. Suas armas são suas melhores amigas e você cuida tão bem delas quanto de seus companheiros de equipe. Talvez até melhor.</p><p><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 10% - A Favorita.</strong></span> Escolha uma arma para ser sua favorita, como katana ou fuzil de assalto. A categoria da arma escolhida é reduzida em I.</p><p><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 40% - Técnica Secreta.</strong></span> A categoria da arma favorita passa a ser reduzida em II. Quando faz um ataque com ela, você pode gastar 2 PE para executar um dos efeitos abaixo como parte do ataque. Você pode adicionar mais efeitos gastando +2 PE por efeito adicional.</p><ul><li><p><span style=\"color: rgb(187, 40, 45)\"><em><strong>Amplo.</strong></em></span> O ataque pode atingir um alvo adicional em seu alcance e adjacente ao original (use o mesmo teste de ataque para ambos).</p></li><li><p><span style=\"color: rgb(187, 40, 45)\"><em><strong>Destruidor.</strong></em></span> Aumenta o multiplicador de crítico da arma em +1.</p></li></ul><p><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 65% - Técnica Sublime.</strong></span> Você adiciona os seguintes efeitos à lista de sua Técnica Secreta:</p><ul><li><p><span style=\"color: rgb(187, 40, 45)\"><em><strong>Letal.</strong></em></span> Aumenta a margem de ameaça em +2. Você pode escolher este efeito duas vezes para aumentar a margem de ameaça em +5.</p></li><li><p><span style=\"color: rgb(187, 40, 45)\"><em><strong>Perfurante.</strong></em></span> Ignora até 5 pontos de resistência a dano de qualquer tipo do alvo.</p></li></ul><p><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 99% - Máquina de Matar.</strong></span> A categoria da arma favorita passa a ser reduzida em III, ela recebe +2 na margem de ameaça e seu dano aumenta em um dado do mesmo tipo.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "folder": "BiKMQJL01qBLkxi9",
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "mCARmiewelPiv8Ze": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784408857021,
+    "modifiedTime": 1784757032292,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!fLEwPkAp8W3JR0DY"
+}

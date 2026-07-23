@@ -3,7 +3,7 @@
   "name": "Psicólogo",
   "type": "origin",
   "_id": "kQZj0TkSCFmi0miw",
-  "img": "systems/ordemparanormal/media/icons/origins/psicologo.svg",
+  "img": "systems/ordemparanormal/media/icons/origins/psicologo.webp",
   "system": {
     "id": 0,
     "grantedSkills": "",
@@ -23,7 +23,7 @@
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1784492281579,
-    "modifiedTime": 1784598349068,
+    "modifiedTime": 1784690555129,
     "lastModifiedBy": "mCARmiewelPiv8Ze",
     "compendiumSource": null,
     "duplicateSource": null,

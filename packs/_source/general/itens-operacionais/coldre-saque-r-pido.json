@@ -4,8 +4,9 @@
   "img": "systems/ordemparanormal/media/icons/equipments/operational/coldre-saque-rapido.svg",
   "system": {
     "description": "<p>Este coldre é projetado para que a arma possa ser sacada ou armazenada com um movimento mínimo. Uma vez por rodada, você pode sacar ou guardar uma arma de fogo leve como uma ação livre.</p>",
+    "chatDescription": "",
     "weight": 1,
-    "category": "0",
+    "category": 1,
     "using": {
       "state": true,
       "class": "fas"
@@ -20,12 +21,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.365",
     "systemId": "ordemparanormal",
-    "systemVersion": "7.2.4",
+    "systemVersion": "7.3.3",
     "createdTime": 1768441745795,
-    "modifiedTime": 1768848688162,
-    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+    "modifiedTime": 1784767388141,
+    "lastModifiedBy": "mCARmiewelPiv8Ze"
   },
   "ownership": {
     "default": 0,

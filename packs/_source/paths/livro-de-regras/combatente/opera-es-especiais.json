@@ -1,0 +1,33 @@
+{
+  "name": "Operações Especiais",
+  "type": "path",
+  "_id": "NMGd3Ne1OdlDew8p",
+  "img": "systems/ordemparanormal/media/icons/paths/opera%C3%A7oes-especiais.svg",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você é um combatente eficaz. Suas ações são calculadas e otimizadas, sempre antevendo os movimentos inimigos e se posicionando da maneira mais inteligente no campo de batalha.</p><p><span style=\"color: #bb282d\"><strong>NEX 10% - Iniciativa Aprimorada.</strong></span> Você recebe +5 em Iniciativa e uma ação de movimento adicional na primeira rodada.</p><p><span style=\"color: #bb282d\"><strong>NEX 40% - Ataque Extra.</strong> </span>Uma vez por rodada, quando faz um ataque, você pode gastar 2 PE para fazer um ataque adicional.</p><p><span style=\"color: #bb282d\"><strong>NEX 65% - Surto de Adrenalina.</strong> </span>Uma vez por rodada, você pode gastar 5 PE para realizar uma ação padrão ou de movimento adicional.</p><p><span style=\"color: #bb282d\"><strong>NEX 99% - Sempre Alerta.</strong></span> Você recebe uma ação padrão adicional no início de cada cena de combate.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "folder": "BiKMQJL01qBLkxi9",
+  "sort": 125000,
+  "ownership": {
+    "default": 0,
+    "mCARmiewelPiv8Ze": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784410012304,
+    "modifiedTime": 1784410324452,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!NMGd3Ne1OdlDew8p"
+}

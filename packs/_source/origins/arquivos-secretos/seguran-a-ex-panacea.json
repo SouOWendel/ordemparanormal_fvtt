@@ -3,7 +3,7 @@
   "name": "Segurança Ex-Panacea",
   "type": "origin",
   "_id": "1AXHuPxJEQXFvQCq",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/origins/seguranca-ex-panacea.webp",
   "system": {
     "id": 0,
     "grantedSkills": "",
@@ -23,7 +23,7 @@
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1784597964164,
-    "modifiedTime": 1784597967681,
+    "modifiedTime": 1784690686196,
     "lastModifiedBy": "mCARmiewelPiv8Ze",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "QFYjcfC6iBnVN8kB",
+  "name": "Especialista",
+  "color": null,
+  "sorting": "a",
+  "_id": "96deszKaHT1e3DcK",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784685960528,
+    "modifiedTime": 1784685960528,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!96deszKaHT1e3DcK"
+}

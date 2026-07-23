@@ -4,8 +4,9 @@
   "img": "systems/ordemparanormal/media/icons/equipments/operational/spray-de-pimenta.svg",
   "system": {
     "description": "<p>Este spray dispara um com\u0002posto qu&iacute;mico que causa dor e lacrimejo. Voc&ecirc; pode gastar uma a&ccedil;&atilde;o padr&atilde;o para atingir um ser adjacente. O ser fica cego por 1d4 rodadas (Fortitude DT Agi evita). A carga do spray dura dois usos.</p>",
+    "chatDescription": "",
     "weight": 1,
-    "category": "0",
+    "category": 1,
     "using": {
       "state": true,
       "class": "fas"
@@ -20,12 +21,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.365",
     "systemId": "ordemparanormal",
-    "systemVersion": "7.2.4",
+    "systemVersion": "7.3.3",
     "createdTime": 1768441745795,
-    "modifiedTime": 1768848688162,
-    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+    "modifiedTime": 1784767982988,
+    "lastModifiedBy": "mCARmiewelPiv8Ze"
   },
   "ownership": {
     "default": 0,

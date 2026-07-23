@@ -1,0 +1,33 @@
+{
+  "folder": "QFYjcfC6iBnVN8kB",
+  "name": "Performático",
+  "type": "path",
+  "_id": "Vivb9PyCjR1DcjW5",
+  "img": "systems/ordemparanormal/media/icons/paths/perfomatico.webp",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 119 do Arquivos Secretos 3</strong>.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784686160341,
+    "modifiedTime": 1784757907423,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Vivb9PyCjR1DcjW5"
+}

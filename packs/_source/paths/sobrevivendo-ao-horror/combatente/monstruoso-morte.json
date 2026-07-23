@@ -1,0 +1,33 @@
+{
+  "folder": "lV1ucTTTAhQMYjTg",
+  "name": "Monstruoso - Morte",
+  "type": "path",
+  "_id": "xLM2FoPz7W8bTSnx",
+  "img": "systems/ordemparanormal/media/icons/paths/monstruoso-de-morte.webp",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 17-21 do suplemento Sobrevivendo ao Horror</strong>.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 500000,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784685591595,
+    "modifiedTime": 1784758421725,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!xLM2FoPz7W8bTSnx"
+}

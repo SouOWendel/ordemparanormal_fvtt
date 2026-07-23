@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "QFYjcfC6iBnVN8kB",
+  "name": "Ocultista",
+  "color": null,
+  "sorting": "a",
+  "_id": "MgSiPI1gI1v3nIdw",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784686020211,
+    "modifiedTime": 1784686020211,
+    "lastModifiedBy": "WeXQ2WY27ruZ5VmA",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!MgSiPI1gI1v3nIdw"
+}

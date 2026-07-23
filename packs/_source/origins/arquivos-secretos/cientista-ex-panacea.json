@@ -3,7 +3,7 @@
   "name": "Cientista Ex-Panacea",
   "type": "origin",
   "_id": "sLcxyxW9zznwP1hu",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/origins/cientista-ex-panacea.svg",
   "system": {
     "id": 0,
     "grantedSkills": "",
@@ -23,7 +23,7 @@
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1784597546077,
-    "modifiedTime": 1784597825472,
+    "modifiedTime": 1784690642102,
     "lastModifiedBy": "mCARmiewelPiv8Ze",
     "compendiumSource": null,
     "duplicateSource": null,

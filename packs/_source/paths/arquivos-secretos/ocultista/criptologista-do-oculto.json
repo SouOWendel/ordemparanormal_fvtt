@@ -1,0 +1,33 @@
+{
+  "folder": "MgSiPI1gI1v3nIdw",
+  "name": "Criptologista do Oculto",
+  "type": "path",
+  "_id": "Us32mo15X85w8IpL",
+  "img": "systems/ordemparanormal/media/icons/paths/criptologista-do-oculto.webp",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 58 do Arquivos Secretos 5</strong>.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784686108706,
+    "modifiedTime": 1784757699375,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Us32mo15X85w8IpL"
+}

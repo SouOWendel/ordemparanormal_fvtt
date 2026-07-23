@@ -1,0 +1,33 @@
+{
+  "folder": "lV1ucTTTAhQMYjTg",
+  "name": "Monstruoso - Conhecimento",
+  "type": "path",
+  "_id": "MDNNf58yN6QBfO8m",
+  "img": "systems/ordemparanormal/media/icons/paths/monstruoso-de-conhecimento.webp",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 17-21 do suplemento Sobrevivendo ao Horror</strong>.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 600000,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784685616971,
+    "modifiedTime": 1784758413839,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!MDNNf58yN6QBfO8m"
+}

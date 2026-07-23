@@ -3,7 +3,7 @@
   "name": "Cobaia Sobrevivente",
   "type": "origin",
   "_id": "Vm1MmciQps4ns3LH",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/ordemparanormal/media/icons/origins/cobaia-sobrevivente.svg",
   "system": {
     "id": 0,
     "grantedSkills": "",
@@ -23,7 +23,7 @@
     "systemId": "ordemparanormal",
     "systemVersion": "7.3.3",
     "createdTime": 1784597866332,
-    "modifiedTime": 1784597871394,
+    "modifiedTime": 1784690650645,
     "lastModifiedBy": "mCARmiewelPiv8Ze",
     "compendiumSource": null,
     "duplicateSource": null,

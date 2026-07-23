@@ -1,0 +1,33 @@
+{
+  "folder": "40HBAucSCe6hMYyS",
+  "name": "Exorcista",
+  "type": "path",
+  "_id": "DASTktEkj8Eu7XZ7",
+  "img": "systems/ordemparanormal/media/icons/paths/exorcista.svg",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você pode encontrar esse conteúdo na <strong>página 27 do suplemento Sobrevivendo ao Horror</strong>.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "WeXQ2WY27ruZ5VmA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784685737301,
+    "modifiedTime": 1784758045465,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!DASTktEkj8Eu7XZ7"
+}

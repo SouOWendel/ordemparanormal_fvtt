@@ -1,0 +1,33 @@
+{
+  "folder": "pqOZKp44b7GRyW0N",
+  "name": "Negociador",
+  "type": "path",
+  "_id": "xDaZsKLhKA266hgk",
+  "img": "systems/ordemparanormal/media/icons/paths/negociador.svg",
+  "system": {
+    "id": 0,
+    "preRequisite": "",
+    "description": "<p>Você é um diplomata habilidoso e consegue influenciar outras pessoas, seja por lábia ou intimidação. Sua capacidade de avaliar situações com rapidez e eficiência pode tirar o grupo de apuros que nem a mais poderosa das armas poderia resolver.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 10% - Eloquência</strong></span><strong>. </strong>Você pode usar uma ação completa e 1 PE por alvo em alcance curto para afetar outras pessoas com sua fala. Faça um teste de Diplomacia, Enganação ou Intimidação contra a Vontade dos alvos. Se você vencer, os alvos ficam fascinados enquanto você se concentrar (uma ação padrão por rodada). Um alvo hostil ou que esteja envolvido em combate recebe +5 em seu teste de resistência e tem direito a um novo teste por rodada, sempre que você se concentrar. Uma pessoa que passar no teste fica imune a este efeito por um dia.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 40% - Discurso Motivador</strong></span><strong>. </strong>Você pode gastar uma ação padrão e 4 PE para inspirar seus aliados<span style=\"font-size: 10pt; line-height: 107%; font-family: WarnockPro-Regular, serif; color: black;\"> </span>com suas palavras. Você e todos os seus aliados em alcance curto ganham +1 dado em testes de perícia até o fim da cena. A partir de NEX 65%, você pode gastar 8 PE para fornecer um bônus total de +2 dados.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 65% - Eu Conheço um Cara</strong></span><strong>. </strong>Uma vez por missão, você pode ativar sua rede de contatos para pedir um favor, como por exemplo trocar todo o equipamento do seu grupo (como se tivesse uma segunda fase de preparação de missão), conseguir um local de descanso ou mesmo ser resgatado de uma cena. O mestre tem a palavra final de quando é possível usar essa habilidade e quais favores podem ser obtidos.</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 99% - Truque de Mestre</strong></span><strong>. </strong>Acostumado a uma vida de fingimento e manipulação, você pode gastar 5 PE para simular o efeito de qualquer habilidade que você tenha visto um de seus aliados usar durante a cena. Você ignora os pré-requisitos da habilidade, mas ainda precisa pagar todos os seus custos, incluindo ações, PE e materiais, e ela usa os seus parâmetros de jogo, como se você estivesse usando a habilidade em questão.</p>",
+    "chatDescription": "",
+    "abilities": "Your text here."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "mCARmiewelPiv8Ze": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "ordemparanormal",
+    "systemVersion": "7.3.3",
+    "createdTime": 1784759270715,
+    "modifiedTime": 1784759287987,
+    "lastModifiedBy": "mCARmiewelPiv8Ze",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!xDaZsKLhKA266hgk"
+}

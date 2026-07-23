@@ -4,8 +4,9 @@
   "img": "icons/skills/targeting/crosshair-ringed-gray.webp",
   "system": {
     "description": "<p>Esta mina &eacute; ativada por con\u0002trole remoto. Se voc&ecirc; estiver a at&eacute; alcance longo dela, pode gastar uma a&ccedil;&atilde;o padr&atilde;o para deton&aacute;-la. Ao explodir, a mina dispara centenas de bolas de a&ccedil;o em um cone de 6m, causando 12d6 pontos de dano de perfura&ccedil;&atilde;o em todos os seres na &aacute;rea (Reflexos DT Int reduz &agrave; metade). Voc&ecirc; define a dire&ccedil;&atilde;o do cone quando posiciona a mina no ch&atilde;o. Instalar a mina exige uma a&ccedil;&atilde;o completa e um teste de T&aacute;tica contra DT 15.</p>\n<p>Caso falhe, voc&ecirc; gasta a mina, mas n&atilde;o ela n&atilde;o funciona. Encontrar uma mina instalada exige um teste de Percep&ccedil;&atilde;o (DT igual ao resultado do seu teste para instal&aacute;-la).</p>",
+    "chatDescription": "",
     "weight": 1,
-    "category": "0",
+    "category": 1,
     "using": {
       "state": true,
       "class": "fas"
@@ -20,12 +21,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.365",
     "systemId": "ordemparanormal",
-    "systemVersion": "7.2.4",
+    "systemVersion": "7.3.3",
     "createdTime": 1768441745795,
-    "modifiedTime": 1768441745795,
-    "lastModifiedBy": "uX8kbsijC8bcpBa3"
+    "modifiedTime": 1784767240937,
+    "lastModifiedBy": "mCARmiewelPiv8Ze"
   },
   "ownership": {
     "default": 0,
