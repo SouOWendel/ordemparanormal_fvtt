@@ -770,7 +770,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		const itemId = target.closest(".item").dataset.itemId;
 		const item = this.actor.items.get(itemId);
 
-		if (item.system.description) ChatMessage.create({ content: item.system.description });
+		if (item.system.description) ChatMessage.create({ content: item.system.chatDescription || item.system.description });
 	}
 
 	/**

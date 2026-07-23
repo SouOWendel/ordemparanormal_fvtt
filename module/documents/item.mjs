@@ -241,7 +241,6 @@ export class OrdemItem extends Item {
 	async getChatData(htmlOptions = {}) {
 		const data = this.toObject().system;
 
-		if (data.chatDescription) data.description = data.chatDescription;
 		// Rich text description
 		data.description = await foundry.applications.ux.TextEditor.implementation.enrichHTML(data.description, {
 			relativeTo: this,
@@ -249,12 +248,12 @@ export class OrdemItem extends Item {
 			...htmlOptions,
 		});
 
-		// Type specific properties
-		// data.properties = [
-		//   ...this.system.chatProperties ?? [],
-		//   ...this.system.equippableItemChatProperties ?? [],
-		//   ...this.system.activatedEffectChatProperties ?? []
-		// ].filter(p => p);
+		// Rich text description
+		data.chatDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(data.chatDescription, {
+			relativeTo: this,
+			rollData: this.getRollData(),
+			...htmlOptions,
+		});
 
 		return data;
 	}
@@ -800,10 +799,6 @@ export class OrdemItem extends Item {
 			targetName: targetText,
 		};
 
-		// for (const [key, value] of Object.entries(this.system) ) {
-		// 	if (isNaN(value) && Boolean(value)) {}
-		// }
-
 		if (item.type == "armament") {
 			if (this.system?.proficiency)
 				templateData.info.push(game.i18n.localize("op.proficiencyChoices." + this.system.proficiency));
@@ -838,7 +833,7 @@ export class OrdemItem extends Item {
 		}
 
 		const html = await foundry.applications.handlebars.renderTemplate(
-			"systems/ordemparanormal/templates/chat/item-card.html",
+			"systems/ordemparanormal/templates/chat/item-card.hbs",
 			templateData
 		);
 

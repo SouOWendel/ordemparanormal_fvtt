@@ -3,9 +3,10 @@ export class PathData extends foundry.abstract.TypeDataModel {
 		const fields = foundry.data.fields;
 		return {
 			id: new fields.NumberField({ required: true, integer: true, initial: 0 }),
-			description: new fields.HTMLField({ initial: "Your text here." }),
+			description: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
+			chatDescription: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
 			preRequisite: new fields.StringField({ initial: "" }),
-			abilities: new fields.HTMLField({ initial: "Your text here." }),
+			abilities: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
 		};
 	}
 

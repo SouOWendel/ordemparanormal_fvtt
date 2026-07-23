@@ -3,6 +3,7 @@ export class AmmunitionData extends foundry.abstract.TypeDataModel {
 		const fields = foundry.data.fields;
 		return {
 			description: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
+			chatDescription: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
 			weight: new fields.NumberField({ required: true, integer: false, initial: 1 }),
 			category: new fields.NumberField({ required: true, integer: true, initial: 0 }),
 			using: new fields.SchemaField({

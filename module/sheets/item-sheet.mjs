@@ -31,6 +31,7 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			toggleEffect: this.#toggleEffect,
 			onDamageControl: this.#onDamageControl,
 			editDescription: this.#toggleDescriptionEdit,
+			editChatDescription: this.#toggleDescriptionEdit,
 		},
 		form: {
 			submitOnChange: true,
@@ -393,9 +394,16 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 
 	static #toggleDescriptionEdit(event, target) {
 		event.stopPropagation();
-		this._isEditingDescription = !this._isEditingDescription;
+		const details = target.closest("details");
+		const isChatDescription = details?.classList.contains("chat-description");
 
-		this._toggleWindowSize(this._isEditingDescription);
+		if (isChatDescription) {
+			this._isEditingChatDescription = !this._isEditingChatDescription;
+		} else {
+			this._isEditingDescription = !this._isEditingDescription;
+		}
+
+		this._toggleWindowSize(this._isEditingDescription || this._isEditingChatDescription);
 		this.render();
 	}
 

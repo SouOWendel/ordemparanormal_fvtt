@@ -3,7 +3,8 @@ export class ClassData extends foundry.abstract.TypeDataModel {
 		const fields = foundry.data.fields;
 		return {
 			id: new fields.NumberField({ required: true, integer: true, initial: 0 }),
-			description: new fields.HTMLField({ initial: "Your text here." }),
+			description: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
+			chatDescription: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
 			hpInitial: new fields.NumberField({ integer: true, initial: 0 }),
 			hpPerLevel: new fields.NumberField({ integer: true, initial: 0 }),
 			peInitial: new fields.NumberField({ integer: true, initial: 0 }),
