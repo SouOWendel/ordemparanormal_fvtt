@@ -327,13 +327,30 @@ function makeAgent(overrides = {}) {
 	return Object.assign({}, base, overrides);
 }
 
+function attachClassItemParent(agent, classSystemOverrides = {}) {
+	agent.parent = {
+		itemTypes: {
+			class: [
+				{
+					system: {
+						isSurvivor: false,
+						...classSystemOverrides,
+					},
+				},
+			],
+		},
+	};
+	return agent;
+}
+
 describe("AgentData.prepareBaseData() — progress and resources", () => {
 	it("calculates progress from NEX and assigns PE.perRound", () => {
-		const agent = new AgentData(
-			makeAgent({
-				class: "fighter",
-				NEX: { value: 15 },
-			})
+		const agent = attachClassItemParent(
+			new AgentData(
+				makeAgent({
+					NEX: { value: 15 },
+				})
+			)
 		);
 
 		agent.prepareBaseData();
@@ -344,12 +361,41 @@ describe("AgentData.prepareBaseData() — progress and resources", () => {
 		expect(agent.PE.perRound).toBe(3);
 	});
 
+	it("calculates progress from nivel when nivel rule is enabled", () => {
+		const originalSettingsGet = game.settings.get;
+		game.settings.get = (module, key) => {
+			if (key === "globalProgressRules") return 2;
+			return originalSettingsGet(module, key);
+		};
+
+		try {
+			const agent = attachClassItemParent(
+				new AgentData(
+					makeAgent({
+						NEX: { value: 5 },
+						nivel: { value: 7 },
+					})
+				)
+			);
+
+			agent.prepareBaseData();
+
+			expect(agent._progress).toBe(7);
+			expect(agent._isSurvivor).toBe(false);
+			expect(agent.PE.perRound).toBe(7);
+		} finally {
+			game.settings.get = originalSettingsGet;
+		}
+	});
+
 	it("uses stage as progress and assigns PD.perRound for survivor", () => {
-		const agent = new AgentData(
-			makeAgent({
-				class: "survivor",
-				stage: { value: 4 },
-			})
+		const agent = attachClassItemParent(
+			new AgentData(
+				makeAgent({
+					stage: { value: 4 },
+				})
+			),
+			{ isSurvivor: true }
 		);
 
 		agent.prepareBaseData();
@@ -360,13 +406,15 @@ describe("AgentData.prepareBaseData() — progress and resources", () => {
 	});
 
 	it("leaves status maxima unchanged because OrdemActor calculates them", () => {
-		const agent = new AgentData(
-			makeAgent({
-				PV: { value: 5, max: 23, perRound: 1 },
-				PE: { value: 5, max: 4, perRound: 1 },
-				PD: { value: 5, max: 0, perRound: 1 },
-				SAN: { value: 5, max: 12, perRound: 1 },
-			})
+		const agent = attachClassItemParent(
+			new AgentData(
+				makeAgent({
+					PV: { value: 5, max: 23, perRound: 1 },
+					PE: { value: 5, max: 4, perRound: 1 },
+					PD: { value: 5, max: 0, perRound: 1 },
+					SAN: { value: 5, max: 12, perRound: 1 },
+				})
+			)
 		);
 
 		agent.prepareBaseData();
@@ -380,7 +428,7 @@ describe("AgentData.prepareBaseData() — progress and resources", () => {
 
 describe("AgentData.prepareBaseData() — ritual DT", () => {
 	it("writes DT to this.ritual.DT", () => {
-		const agent = new AgentData(makeAgent({ NEX: { value: 10 } }));
+		const agent = attachClassItemParent(new AgentData(makeAgent({ NEX: { value: 10 } })));
 		agent.prepareBaseData();
 		// not survivor, NEX=10 → calcNEX=2, PRE=2 → DT = 10 + 2 + 2 = 14
 		expect(agent.ritual.DT).toBe(14);
