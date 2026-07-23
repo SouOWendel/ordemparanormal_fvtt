@@ -65,13 +65,10 @@ export async function preloadHandlebarsTemplates() {
 		"systems/ordemparanormal/templates/actor/parts/actor-skills.hbs",
 
 		// Chat Message Partials
-		"systems/ordemparanormal/templates/chat/item-card.html",
+		"systems/ordemparanormal/templates/chat/item-card.hbs",
 		"systems/ordemparanormal/templates/chat/dt-card.hbs",
 		"systems/ordemparanormal/templates/chat/oposto-request.hbs",
 		"systems/ordemparanormal/templates/chat/oposto-results.hbs",
-
-		// Dialog
-		"systems/ordemparanormal/templates/chat/item-card.html",
 
 		// Item Sheet Partials
 		"systems/ordemparanormal/templates/item/item-header.hbs",
