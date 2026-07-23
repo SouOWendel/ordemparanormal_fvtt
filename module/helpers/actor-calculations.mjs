@@ -73,8 +73,8 @@ export function calculateStatusMaxima(VIG, PRE, progress, withoutSanity, classSt
 	SAN_max = sanInitial + progressAdjust * sanPerLevel;
 
 	if (withoutSanity) {
-		const pdInitial = Number(classStats.pdInitial) || pdInitial;
-		const pdPerLevel = Number(classStats.pdPerLevel) || pdPerLevel;
+		const pdInitial = Number(classStats.pdInitial) || 0;
+		const pdPerLevel = Number(classStats.pdPerLevel) || 0;
 		PD_max = pdInitial + PRE + progressAdjust * (pdPerLevel + (classStats.isSurvivor ? 0 : PRE));
 	} else {
 		// Esforço = (PE Inicial + Presença) + (Níveis Seguintes * (PE por Nível + Presença))

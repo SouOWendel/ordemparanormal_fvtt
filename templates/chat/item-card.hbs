@@ -68,7 +68,8 @@
 				<th>{{localize "op.range"}}</th>
 			</tr>
 			<tr>
-				<td>{{item.system.formulas.damage.formula}} {{#each item.system.formulas.damage.parts}}{{this.0}} {{/each}}</td>
+				<td>{{item.system.formulas.damage.formula}}
+					{{#each item.system.formulas.damage.parts}}{{lookup this 0}} {{/each}}</td>
 				<td>{{data.critical}}</td>
 				<td>{{data.range}}</td>
 			</tr>

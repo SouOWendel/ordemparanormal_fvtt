@@ -91,10 +91,11 @@ describe("calculateStatusMaxima", () => {
 				sanPerLevel: 3,
 			};
 
+			// PD_max is calculated using only presence attribute.
 			expect(calculateStatusMaxima(2, 3, 5, true, classStatsWithoutPD)).toEqual({
 				PV_max: 46,
 				PE_max: 0,
-				PD_max: 25,
+				PD_max: 15,
 				SAN_max: 24,
 			});
 		});
