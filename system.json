@@ -15,8 +15,8 @@
 		}
 	],
 	"esmodules": ["module/ordemparanormal.mjs"],
-	"styles": ["css/ordemparanormal.css", "media/vendor/selectize/selectize.default.min.css"],
-	"scripts": ["media/vendor/selectize/selectize.min.js"],
+	"styles": ["css/ordemparanormal.css"],
+	"scripts": [],
 	"packs": [
 		{
 			"name": "others",
