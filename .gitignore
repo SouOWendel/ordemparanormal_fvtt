@@ -10,3 +10,5 @@ packs/*
 .agents/
 .claude/
 skills-lock.json
+*.rar
+*.txt
