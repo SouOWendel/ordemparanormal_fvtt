@@ -36,8 +36,8 @@ Hooks.once("quenchReady", (quench) => {
 					assert.equal(CONFIG.Actor.dataModels.threat.name, "ThreatData");
 				});
 
-				it("all 6 item types are registered in CONFIG.Item.dataModels", () => {
-					const expected = ["ammunition", "armament", "generalEquipment", "protection", "ability", "ritual"];
+				it("all 9 item types are registered in CONFIG.Item.dataModels", () => {
+					const expected = ["armament", "generalEquipment", "protection", "ability", "ritual", "class", "origin", "path"];
 					for (const type of expected) {
 						assert.ok(CONFIG.Item.dataModels[type], `${type} not registered`);
 					}
