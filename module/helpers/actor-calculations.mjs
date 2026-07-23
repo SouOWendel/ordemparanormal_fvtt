@@ -67,19 +67,18 @@ export function calculateStatusMaxima(VIG, PRE, progress, withoutSanity, classSt
 	const sanInitial = Number(classStats.sanInitial) || 0;
 	const sanPerLevel = Number(classStats.sanPerLevel) || 0;
 
-	// Vida = (HP Inicial + Vitalidade) + (Níveis Seguintes * (HP por Nível + Vitalidade))
-	PV_max = hpInitial + VIG + progressAdjust * (hpPerLevel + VIG);
-
+	// Vida = (HP Inicial + Vitalidade) + (Níveis Seguintes * (HP por Nível + bonusSurvivorVIG))
+	PV_max = hpInitial + VIG + progressAdjust * (hpPerLevel + (classStats.isSurvivor ? 0 : VIG));
 	// Sanidade = Sanidade Inicial + (Níveis Seguintes * Sanidade por Nível)
 	SAN_max = sanInitial + progressAdjust * sanPerLevel;
 
 	if (withoutSanity) {
 		const pdInitial = Number(classStats.pdInitial) || peInitial;
 		const pdPerLevel = Number(classStats.pdPerLevel) || pePerLevel;
-		PD_max = pdInitial + PRE + progressAdjust * (pdPerLevel + PRE);
+		PD_max = pdInitial + PRE + progressAdjust * (pdPerLevel + (classStats.isSurvivor ? 0 : PRE));
 	} else {
 		// Esforço = (PE Inicial + Presença) + (Níveis Seguintes * (PE por Nível + Presença))
-		PE_max = peInitial + PRE + progressAdjust * (pePerLevel + PRE);
+		PE_max = peInitial + PRE + progressAdjust * (pePerLevel + (classStats.isSurvivor ? 0 : PRE));
 	}
 
 	return { PV_max, PE_max, PD_max, SAN_max };
