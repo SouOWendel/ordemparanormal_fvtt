@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "class",
     "preRequisite": "",
-    "description": "<p>Sempre que tiver sucesso em um teste para procurar pistas, voc&ecirc; pode gastar 1 PE para receber +1d20 no pr&oacute;ximo teste. Os custos e os b&ocirc;nus s&atilde;o cumulativos (se passar num segundo teste, pode pagar 2 PE para receber um total de +2d20 no pr&oacute;ximo teste, e assim por diante).</p>",
+    "description": "<p>Sempre que tiver sucesso em um teste para procurar pistas, voc&ecirc; pode gastar 1 PE para receber @DisplayDice[qtd:1|sign:plus|dc:d20] no pr&oacute;ximo teste. Os custos e os b&ocirc;nus s&atilde;o cumulativos (se passar num segundo teste, pode pagar 2 PE para receber um total de @DisplayDice[qtd:2|sign:plus|dc:d20] no pr&oacute;ximo teste, e assim por diante).</p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

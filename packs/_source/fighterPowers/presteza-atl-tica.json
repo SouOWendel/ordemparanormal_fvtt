@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "class",
     "preRequisite": "",
-    "description": "<p>Quando faz um teste de facilitar a investiga&ccedil;&atilde;o, voc&ecirc; pode gastar 1 PE para usar For&ccedil;a ou Agilidade no lugar do atributo-base da per&iacute;cia. Se passar no teste, o pr&oacute;ximo aliado que usar seu b&ocirc;nus tamb&eacute;m recebe +1d20 no teste.</p>",
+    "description": "<p>Quando faz um teste de facilitar a investiga&ccedil;&atilde;o, voc&ecirc; pode gastar 1 PE para usar For&ccedil;a ou Agilidade no lugar do atributo-base da per&iacute;cia. Se passar no teste, o pr&oacute;ximo aliado que usar seu b&ocirc;nus tamb&eacute;m recebe @DisplayDice[qtd:1|sign:plus|dc:d20] no teste.</p>",
     "cost": "1",
     "costType": "PE",
     "activation": "Livre"

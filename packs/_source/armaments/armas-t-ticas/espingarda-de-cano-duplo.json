@@ -3,7 +3,7 @@
   "type": "armament",
   "img": "systems/ordemparanormal/media/icons/armament/espingarda-de-cano-duplo.svg",
   "system": {
-    "description": "<p>Geralmente usada para caça, essa versão da espingarda conta com dois canos paralelos, cada um com um gatilho e capacidade para um cartucho. Ao contrário de outras armas de fogo, você precisa gastar uma ação de movimento para recarregar a espingarda de cano duplo após disparar seus dois cartuchos. Quando ataca com essa arma, você pode disparar os dois canos no mesmo alvo; se fizer isso, sofre –1d20 no teste de ataque, mas o dano da arma aumenta para 6d6.</p>",
+    "description": "<p>Geralmente usada para caça, essa versão da espingarda conta com dois canos paralelos, cada um com um gatilho e capacidade para um cartucho. Ao contrário de outras armas de fogo, você precisa gastar uma ação de movimento para recarregar a espingarda de cano duplo após disparar seus dois cartuchos. Quando ataca com essa arma, você pode disparar os dois canos no mesmo alvo; se fizer isso, sofre @DisplayDice[qtd:1|sign:minus|dc:d20] no teste de ataque, mas o dano da arma aumenta para 6d6.</p>",
     "weight": 2,
     "category": "2",
     "using": {

@@ -6,7 +6,7 @@
     "id": "exo40nexDEF456",
     "abilityType": "class",
     "preRequisite": "Trilha: Exorcista",
-    "description": "<p>Sua fé e o estudo de suas doutrinas religiosas alimentam suas defesas mentais e espirituais. Você se torna veterano em <strong>Religião</strong> ou, se já for veterano, recebe <strong>+1d20</strong> nessa perícia. Quando falha em um teste de resistência, você pode gastar <strong>2 PE</strong> para repetir o teste usando <strong>Religião</strong>, mas deve aceitar o resultado da segunda rolagem, mesmo que seja menor que a primeira.</p>",
+    "description": "<p>Sua fé e o estudo de suas doutrinas religiosas alimentam suas defesas mentais e espirituais. Você se torna veterano em <strong>Religião</strong> ou, se já for veterano, recebe <strong>@DisplayDice[qtd:1|sign:plus|dc:d20]</strong> nessa perícia. Quando falha em um teste de resistência, você pode gastar <strong>2 PE</strong> para repetir o teste usando <strong>Religião</strong>, mas deve aceitar o resultado da segunda rolagem, mesmo que seja menor que a primeira.</p>",
     "cost": "4",
     "costType": "PE",
     "activation": ""

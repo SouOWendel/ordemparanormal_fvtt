@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "path",
     "preRequisite": "Trilha: Caçador",
-    "description": "<p>Você aprende a usar as sombras contra o Paranormal. Você não sofre a penalidade de <strong>–1d20</strong> em testes de Furtividade por se mover ao seu deslocamento normal e, se estiver usando uma arma que não faça barulho (como uma faca ou um arco), a penalidade que você sofre em <strong>Furtividade</strong> por atacar na mesma rodada é reduzida para <strong>–1d20</strong>. Além disso, sua visibilidade inicial em <strong>cenas de furtividade</strong> (veja p. 92) é sempre 1 ponto abaixo da inicial (podendo ser negativa).</p>",
+    "description": "<p>Você aprende a usar as sombras contra o Paranormal. Você não sofre a penalidade de <strong>@DisplayDice[qtd:1|sign:minus|dc:d20]</strong> em testes de Furtividade por se mover ao seu deslocamento normal e, se estiver usando uma arma que não faça barulho (como uma faca ou um arco), a penalidade que você sofre em <strong>Furtividade</strong> por atacar na mesma rodada é reduzida para <strong>@DisplayDice[qtd:1|sign:minus|dc:d20]</strong>. Além disso, sua visibilidade inicial em <strong>cenas de furtividade</strong> (veja p. 92) é sempre 1 ponto abaixo da inicial (podendo ser negativa).</p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

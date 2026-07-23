@@ -7,7 +7,7 @@
     "id": 0,
     "abilityType": "",
     "preRequisite": "",
-    "description": "<p>Quando faz um ataque, você pode gastar 1 PE para receber +1d20 no teste de ataque. Se você se tornar um combatente (veja “Treinamento Especial”, a seguir), perde esta habilidade, mas reduz o custo de ativação de Ataque Especial em –1 PE.</p>",
+    "description": "<p>Quando faz um ataque, você pode gastar 1 PE para receber @DisplayDice[qtd:1|sign:plus|dc:d20] no teste de ataque. Se você se tornar um combatente (veja “Treinamento Especial”, a seguir), perde esta habilidade, mas reduz o custo de ativação de Ataque Especial em –1 PE.</p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

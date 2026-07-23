@@ -3,7 +3,7 @@
   "type": "armament",
   "img": "systems/ordemparanormal/media/icons/armament/baioneta.svg",
   "system": {
-    "description": "<p>Uma lâmina projetada para ser fixada em um fuzil ou arma similar. Você pode gastar uma ação de movimento para fixar a baioneta em uma arma de fogo de duas mãos. Se fizer isso, a baioneta se torna uma arma de duas mãos ágil e seu dano aumenta para 1d6. Você ainda pode atacar com a arma de fogo, mas sofre –1d20 em ataques à distância com ela</p>",
+    "description": "<p>Uma lâmina projetada para ser fixada em um fuzil ou arma similar. Você pode gastar uma ação de movimento para fixar a baioneta em uma arma de fogo de duas mãos. Se fizer isso, a baioneta se torna uma arma de duas mãos ágil e seu dano aumenta para 1d6. Você ainda pode atacar com a arma de fogo, mas sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em ataques à distância com ela</p>",
     "weight": 1,
     "category": "0",
     "using": {

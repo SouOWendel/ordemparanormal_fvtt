@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "class",
     "preRequisite": "",
-    "description": "<p>Voc&ecirc; recebe +2d20 no primei\u0002ro teste de Diplomacia, Engana&ccedil;&atilde;o, Intimida&ccedil;&atilde;o ou Intui&ccedil;&atilde;o que fizer em uma cena.</p>",
+    "description": "<p>Voc&ecirc; recebe @DisplayDice[qtd:2|sign:plus|dc:d20] no primei\u0002ro teste de Diplomacia, Engana&ccedil;&atilde;o, Intimida&ccedil;&atilde;o ou Intui&ccedil;&atilde;o que fizer em uma cena.</p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

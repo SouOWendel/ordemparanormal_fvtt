@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "class",
     "preRequisite": "",
-    "description": "<p>Quando usa a a&ccedil;&atilde;o agredir, voc&ecirc; pode combater defensivamente. Se fizer isso, sofre &ndash;1d20 no teste de ataque, mas recebe +5 na Defesa at&eacute; o in&iacute;cio de seu pr&oacute;ximo turno.</p>",
+    "description": "<p>Quando usa a a&ccedil;&atilde;o agredir, voc&ecirc; pode combater defensivamente. Se fizer isso, sofre @DisplayDice[qtd:1|sign:minus|dc:d20] no teste de ataque, mas recebe +5 na Defesa at&eacute; o in&iacute;cio de seu pr&oacute;ximo turno.</p>",
     "cost": "",
     "costType": "PE",
     "activation": "Livre"

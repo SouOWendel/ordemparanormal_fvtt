@@ -3,7 +3,7 @@
   "type": "armament",
   "img": "systems/ordemparanormal/media/icons/armament/motoserra.svg",
   "system": {
-    "description": "<p>Uma ferramenta capaz de causar ferimentos profundos; sempre que rolar um 6 em um dado de dano com uma motosserra, role um dado de dano adicional. Apesar de potente, esta arma &eacute; desajeitada e imp&otilde;e &ndash;1d20 nos seus testes de ataque. Ligar uma motosserra gasta uma a&ccedil;&atilde;o de movimento.</p>",
+    "description": "<p>Uma ferramenta capaz de causar ferimentos profundos; sempre que rolar um 6 em um dado de dano com uma motosserra, role um dado de dano adicional. Apesar de potente, esta arma &eacute; desajeitada e imp&otilde;e @DisplayDice[qtd:1|sign:minus|dc:d20] nos seus testes de ataque. Ligar uma motosserra gasta uma a&ccedil;&atilde;o de movimento.</p>",
     "weight": 2,
     "category": "1",
     "using": {

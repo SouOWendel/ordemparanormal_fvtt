@@ -3,7 +3,7 @@
   "type": "generalEquipment",
   "img": "systems/ordemparanormal/media/icons/equipments/operational/oculos-de-visao-noturna.svg",
   "system": {
-    "description": "<p>Alimentados por uma bateria, estes óculos permitem enxergar no escuro, como se o personagem tivesse visão no escuro. Entretanto, o usuário recebe –1d20 em testes de resistência contra a condição ofuscado e efeitos baseados em luz (como uma granada de atordoamento).</p>",
+    "description": "<p>Alimentados por uma bateria, estes óculos permitem enxergar no escuro, como se o personagem tivesse visão no escuro. Entretanto, o usuário recebe @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de resistência contra a condição ofuscado e efeitos baseados em luz (como uma granada de atordoamento).</p>",
     "chatDescription": "",
     "weight": 1,
     "category": 1,

@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "class",
     "preRequisite": "Agilidade 3 & Luta ou Pontaria",
-    "description": "<p>Se estiver usando duas armas (e pelo menos uma for leve) e fizer a a&ccedil;&atilde;o agredir, voc&ecirc; pode fazer dois ataques, um com cada arma. Se fizer isso, sofre &ndash;1d20 em todos os testes de ataque at&eacute; o seu pr&oacute;ximo turno.<i>Pré-requisitos: Agi 3, treinado em Luta ou Pontaria.</i></p>",
+    "description": "<p>Se estiver usando duas armas (e pelo menos uma for leve) e fizer a a&ccedil;&atilde;o agredir, voc&ecirc; pode fazer dois ataques, um com cada arma. Se fizer isso, sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em todos os testes de ataque at&eacute; o seu pr&oacute;ximo turno.<i>Pré-requisitos: Agi 3, treinado em Luta ou Pontaria.</i></p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

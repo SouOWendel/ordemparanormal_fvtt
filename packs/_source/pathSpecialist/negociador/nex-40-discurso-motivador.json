@@ -7,7 +7,7 @@
     "id": 0,
     "abilityType": "path",
     "preRequisite": "",
-    "description": "<p>Voc&ecirc; pode gas\u0002tar uma a&ccedil;&atilde;o padr&atilde;o e 4 PE para inspirar seus aliados com suas palavras. Voc&ecirc; e todos os seus aliados em alcance curto ganham +1d20 em testes de per&iacute;cia at&eacute; o fim da cena. A partir de NEX 65%, voc&ecirc; pode gastar 8 PE para fornecer um b&ocirc;nus total de +2d20.</p>",
+    "description": "<p>Voc&ecirc; pode gas\u0002tar uma a&ccedil;&atilde;o padr&atilde;o e 4 PE para inspirar seus aliados com suas palavras. Voc&ecirc; e todos os seus aliados em alcance curto ganham @DisplayDice[qtd:1|sign:plus|dc:d20] em testes de per&iacute;cia at&eacute; o fim da cena. A partir de NEX 65%, voc&ecirc; pode gastar 8 PE para fornecer um b&ocirc;nus total de @DisplayDice[qtd:2|sign:plus|dc:d20].</p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

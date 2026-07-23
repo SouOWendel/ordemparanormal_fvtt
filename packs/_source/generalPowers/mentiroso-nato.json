@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "general",
     "preRequisite": "Presença 2",
-    "description": "<p>Você é um cara de pau, capaz de mentir descaradamente sem que ninguém perceba. Você recebe treinamento em Enganação ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, a penalidade que você sofre por mentiras muito implausíveis diminui para –1d20. <i>Pré-requisito: Pre 2.</i></p>",
+    "description": "<p>Você é um cara de pau, capaz de mentir descaradamente sem que ninguém perceba. Você recebe treinamento em Enganação ou, se já for treinado nesta perícia, recebe +2 nela. Além disso, a penalidade que você sofre por mentiras muito implausíveis diminui para @DisplayDice[qtd:1|sign:minus|dc:d20]. <i>Pré-requisito: Pre 2.</i></p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

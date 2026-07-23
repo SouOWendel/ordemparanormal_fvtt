@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "general",
     "preRequisite": "treinado na perícia escolhida",
-    "description": "<p>Você se dedicou a estudar e treinar os vários pormenores de uma área de conhecimento específica. Escolha uma perícia (exceto Luta e Pontaria). Quando faz um teste dessa perícia, você rola +1d20. Você pode escolher este poder outras vezes para perícias diferentes. <em>Pré-requisito: treinado na perícia escolhida.</em></p>",
+    "description": "<p>Você se dedicou a estudar e treinar os vários pormenores de uma área de conhecimento específica. Escolha uma perícia (exceto Luta e Pontaria). Quando faz um teste dessa perícia, você rola @DisplayDice[qtd:1|sign:plus|dc:d20]. Você pode escolher este poder outras vezes para perícias diferentes. <em>Pré-requisito: treinado na perícia escolhida.</em></p>",
     "cost": "",
     "costType": "PE",
     "activation": ""
