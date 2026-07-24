@@ -5,8 +5,6 @@ export class OriginData extends foundry.abstract.TypeDataModel {
 			id: new fields.NumberField({ required: true, integer: true, initial: 0 }),
 			description: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
 			chatDescription: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
-			grantedSkills: new fields.StringField({ initial: "" }),
-			ability: new fields.HTMLField({ initial: "A descrição do seu item aqui." }),
 		};
 	}
 

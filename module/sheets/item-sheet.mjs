@@ -76,14 +76,6 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			template: "systems/ordemparanormal/templates/item/parts/item-ritual-attributes.hbs",
 			scrollable: [".scrollable"],
 		},
-		originAttr: {
-			template: "systems/ordemparanormal/templates/item/parts/item-origin-attributes.hbs",
-			scrollable: [".scrollable"],
-		},
-		pathAttr: {
-			template: "systems/ordemparanormal/templates/item/parts/item-path-attributes.hbs",
-			scrollable: [".scrollable"],
-		},
 		classAttr: {
 			template: "systems/ordemparanormal/templates/item/parts/item-class-attributes.hbs",
 			scrollable: [".scrollable"],
@@ -116,10 +108,10 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 				options.parts.push("description", "ritualAttr", "effects");
 				break;
 			case "origin":
-				options.parts.push("description", "originAttr", "effects");
+				options.parts.push("description", "effects");
 				break;
 			case "path":
-				options.parts.push("description", "pathAttr", "effects");
+				options.parts.push("description", "effects");
 				break;
 			case "class":
 				options.parts.push("description", "classAttr", "effects");
@@ -218,8 +210,6 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			case "generalAttr":
 			case "protectionAttr":
 			case "ritualAttr":
-			case "originAttr":
-			case "pathAttr":
 			case "classAttr":
 				context.tab = context.tabs[partId];
 				break;
@@ -284,14 +274,6 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 					break;
 				case "ritualAttr":
 					tab.id = "ritualAttr";
-					tab.label += "attributes";
-					break;
-				case "originAttr":
-					tab.id = "originAttr";
-					tab.label += "attributes";
-					break;
-				case "pathAttr":
-					tab.id = "pathAttr";
 					tab.label += "attributes";
 					break;
 				case "classAttr":

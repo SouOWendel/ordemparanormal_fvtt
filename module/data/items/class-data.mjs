@@ -14,9 +14,6 @@ export class ClassData extends foundry.abstract.TypeDataModel {
 			sanInitial: new fields.NumberField({ integer: true, initial: 0 }),
 			sanPerLevel: new fields.NumberField({ integer: true, initial: 0 }),
 			skillCount: new fields.NumberField({ integer: true, initial: 0 }),
-			grantedSkills: new fields.StringField({ initial: "" }),
-			proficiencies: new fields.StringField({ initial: "" }),
-			abilities: new fields.HTMLField({ initial: "Your text here." }),
 			isSurvivor: new fields.BooleanField({ initial: false }),
 		};
 	}

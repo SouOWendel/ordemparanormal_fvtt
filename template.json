@@ -630,17 +630,14 @@
 		},
 		"origin": {
 			"id": 0,
-			"grantedSkills": "",
 			"description": "Your text here.",
-			"chatDescription": "",
-			"ability": "Your text here."
+			"chatDescription": ""
 		},
 		"path": {
 			"id": 0,
 			"preRequisite": "",
 			"description": "Your text here.",
-			"chatDescription": "",
-			"abilities": "Your text here."
+			"chatDescription": ""
 		},
 		"class": {
 			"id": 0,
@@ -651,12 +648,10 @@
 			"hpPerLevel": 0,
 			"peInitial": 0,
 			"pePerLevel": 0,
+			"pdInitial": 0,
+			"pdPerLevel": 0,
 			"sanInitial": 0,
-			"sanPerLevel": 0,
-			"skillCount": 0,
-			"grantedSkills": "",
-			"proficiencies": "",
-			"abilities": "Your text here."
+			"sanPerLevel": 0
 		}
 	}
 }
