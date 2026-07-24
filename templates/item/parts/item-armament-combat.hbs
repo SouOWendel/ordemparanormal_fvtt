@@ -40,6 +40,12 @@
 					<input type="text" name="system.critical" value="{{system.critical}}" data-dtype="String" />
 				</div>
 			</div>
+			<div class="armament-field">
+				<label>
+					<input type="checkbox" name="system.nonLethal" {{checked system.nonLethal}} data-dtype="Boolean" />
+					{{localize "op.armamentNonLethal"}}
+				</label>
+			</div>
 		</fieldset>
 
 		<fieldset class="armament-fieldset op-shadow">

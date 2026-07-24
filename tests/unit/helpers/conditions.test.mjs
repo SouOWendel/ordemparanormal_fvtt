@@ -147,3 +147,34 @@ describe("computeHealthConditions — Morrendo/Machucado/Inconsciente", () => {
 		expect(computeHealthConditions(0, 0)).toEqual({ morrendo: true, machucado: false, inconsciente: true });
 	});
 });
+
+describe("computeHealthConditions — dano não letal (livro p. 87)", () => {
+	it("não letal igual ao PV restante derruba inconsciente, sem morrendo", () => {
+		expect(computeHealthConditions(20, 30, 20)).toEqual({
+			morrendo: false,
+			machucado: false,
+			inconsciente: true,
+		});
+	});
+
+	it("não letal acima do PV restante também derruba", () => {
+		expect(computeHealthConditions(20, 30, 25).inconsciente).toBe(true);
+	});
+
+	it("não letal abaixo do PV restante não derruba", () => {
+		expect(computeHealthConditions(20, 30, 19).inconsciente).toBe(false);
+	});
+
+	it("não letal nunca causa morrendo", () => {
+		expect(computeHealthConditions(1, 30, 999).morrendo).toBe(false);
+	});
+
+	it("não letal não altera machucado (é sobre PV totais)", () => {
+		expect(computeHealthConditions(20, 30, 20).machucado).toBe(false);
+	});
+
+	it("ausente ou negativo é tratado como 0", () => {
+		expect(computeHealthConditions(10, 30).inconsciente).toBe(false);
+		expect(computeHealthConditions(10, 30, -5).inconsciente).toBe(false);
+	});
+});
