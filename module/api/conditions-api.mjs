@@ -11,8 +11,15 @@
  * system automates later.
  *
  * @example
- * await game.ordemparanormal.conditions.apply(actor, "abalado");
- * game.ordemparanormal.conditions.isActive(actor, "apavorado"); // true after a second apply
+ * const API = game.ordemparanormal.conditions;
+ * const { id, escalatedFrom } = await API.apply(actor, "abalado");
+ * // applying a second time escalates: id === "apavorado", escalatedFrom === "abalado"
+ *
+ * @example <caption>React to conditions from any source, acting once</caption>
+ * Hooks.on(API.hooks.applied, (actor, conditionId, effect, userId) => {
+ *   if (game.userId !== userId) return; // the hook reaches every client
+ *   console.log(`${actor.name} ficou ${conditionId}`);
+ * });
  */
 
 import { CONDITIONS, CONDITION_IDS, applyCondition, isConditionActive } from "../helpers/conditions.mjs";
@@ -26,21 +33,26 @@ import { CONDITIONS, CONDITION_IDS, applyCondition, isConditionActive } from "..
 export const CONDITIONS_API_VERSION = 1;
 
 /**
- * Hooks the system fires as conditions change. Applied/Removed fire no matter how
- * the condition got there — the API, the Token HUD, or the system's own PV
- * automation — because they are driven by the ActiveEffect documents themselves.
+ * Hooks the system fires as conditions change. Dot-namespaced, as dnd5e and pf2e
+ * do, so system hooks are greppable and cannot collide with another package.
+ *
+ * All three deliver `userId` last — the id of the user whose action caused the
+ * change. Every connected client receives the hook, so gate any write or any
+ * outbound call with `if (game.userId !== userId) return;` or it runs once per
+ * player at the table.
  * @enum {string}
  */
 export const CONDITION_HOOKS = Object.freeze({
-	applied: "ordemparanormalConditionApplied",
-	removed: "ordemparanormalConditionRemoved",
-	escalated: "ordemparanormalConditionEscalated",
+	applied: "ordemparanormal.conditionApplied",
+	removed: "ordemparanormal.conditionRemoved",
+	escalated: "ordemparanormal.conditionEscalated",
 });
 
 /**
  * @typedef {object} ConditionDescriptor
  * @property {string} id                  Condition id, e.g. "abalado".
- * @property {string} label               i18n key — localize it yourself.
+ * @property {string} label               Localized name, ready to display.
+ * @property {string} labelKey            The i18n key behind `label`.
  * @property {string} img                 Icon path.
  * @property {boolean} overlay            Whether it draws as a full token overlay.
  * @property {string|null} escalatesTo    Condition it becomes when re-applied, or null.
@@ -49,22 +61,37 @@ export const CONDITION_HOOKS = Object.freeze({
  *                                        equal penalties do not stack (book p. 312).
  */
 
+/** @type {Map<string, Readonly<ConditionDescriptor>>|null} */
+let _descriptors = null;
+/** @type {ReadonlyArray<Readonly<ConditionDescriptor>>|null} */
+let _list = null;
+
 /**
- * Freeze a descriptor so callers cannot reach the system's condition table.
- * @param {string} id
- * @returns {Readonly<ConditionDescriptor>|null}
+ * Build the descriptor table once, on first use rather than at import time, so
+ * `game.i18n` is loaded and `label` comes out localized. Memoised so descriptors
+ * keep a stable identity — a caller may cache or compare them by reference.
+ * @returns {Map<string, Readonly<ConditionDescriptor>>}
  */
-function describe(id) {
-	const c = CONDITIONS[id];
-	if (!c) return null;
-	return Object.freeze({
-		id: c.id,
-		label: c.label,
-		img: c.img,
-		overlay: Boolean(c.overlay),
-		escalatesTo: c.escalatesTo ?? null,
-		defensePenalty: c.defense ?? 0,
-	});
+function descriptors() {
+	if (_descriptors) return _descriptors;
+	_descriptors = new Map();
+	for (const id of CONDITION_IDS) {
+		const c = CONDITIONS[id];
+		_descriptors.set(
+			id,
+			Object.freeze({
+				id: c.id,
+				label: globalThis.game?.i18n?.localize?.(c.label) ?? c.label,
+				labelKey: c.label,
+				img: c.img,
+				overlay: Boolean(c.overlay),
+				escalatesTo: c.escalatesTo ?? null,
+				defensePenalty: c.defense ?? 0,
+			})
+		);
+	}
+	_list = Object.freeze([..._descriptors.values()]);
+	return _descriptors;
 }
 
 /**
@@ -84,6 +111,25 @@ function resolveActor(target) {
 }
 
 /**
+ * Which condition an effect actually carries, so `apply` can report the result
+ * of an escalation rather than the id that was asked for.
+ * @param {ActiveEffect} effect
+ * @returns {string|null}
+ */
+function conditionIdOf(effect) {
+	for (const statusId of effect?.statuses ?? []) if (CONDITIONS[statusId]) return statusId;
+	return null;
+}
+
+/**
+ * @typedef {object} ApplyResult
+ * @property {string} id                  The condition that ended up on the actor —
+ *                                        differs from the requested one on escalation.
+ * @property {ActiveEffect|null} effect   The resulting effect.
+ * @property {string|null} escalatedFrom  The requested condition when it escalated, else null.
+ */
+
+/**
  * Build the frozen public API object.
  * @returns {Readonly<object>}
  */
@@ -93,11 +139,13 @@ export function buildConditionsApi() {
 		hooks: CONDITION_HOOKS,
 
 		/**
-		 * Every condition the system knows, as frozen descriptors.
+		 * Every condition the system knows, as frozen descriptors. The array and its
+		 * descriptors keep a stable identity between calls.
 		 * @returns {ReadonlyArray<Readonly<ConditionDescriptor>>}
 		 */
 		list() {
-			return Object.freeze(CONDITION_IDS.map(describe));
+			descriptors();
+			return _list;
 		},
 
 		/**
@@ -106,7 +154,7 @@ export function buildConditionsApi() {
 		 * @returns {Readonly<ConditionDescriptor>|null} null when unknown.
 		 */
 		get(conditionId) {
-			return describe(conditionId);
+			return descriptors().get(conditionId) ?? null;
 		},
 
 		/**
@@ -148,8 +196,7 @@ export function buildConditionsApi() {
 		 * @param {string} conditionId
 		 * @param {object} [options]
 		 * @param {boolean} [options.active=true]  Pass false to remove instead.
-		 * @returns {Promise<ActiveEffect|null>} The resulting effect, or null when
-		 *   the actor or condition is unknown.
+		 * @returns {Promise<ApplyResult|null>} null when the actor or condition is unknown.
 		 */
 		async apply(target, conditionId, options = {}) {
 			const actor = resolveActor(target);
@@ -161,14 +208,18 @@ export function buildConditionsApi() {
 				console.warn(`ordemparanormal | conditions.apply: unknown condition "${conditionId}"`);
 				return null;
 			}
-			return (await applyCondition(actor, conditionId, options)) ?? null;
+			const effect = (await applyCondition(actor, conditionId, options)) ?? null;
+			// Read the id back off the effect: escalation can chain several steps
+			// (fatigado -> exausto -> inconsciente) and only the effect knows where it stopped.
+			const id = conditionIdOf(effect) ?? conditionId;
+			return { id, effect, escalatedFrom: id === conditionId ? null : conditionId };
 		},
 
 		/**
 		 * Remove a condition.
 		 * @param {Actor|Token|TokenDocument} target
 		 * @param {string} conditionId
-		 * @returns {Promise<ActiveEffect|null>}
+		 * @returns {Promise<ApplyResult|null>}
 		 */
 		async remove(target, conditionId) {
 			return api.apply(target, conditionId, { active: false });
@@ -185,12 +236,14 @@ export function buildConditionsApi() {
  * @returns {void}
  */
 export function registerConditionHooks() {
-	const emit = (hook) => (effect) => {
+	const emit = (hook) => (effect, _options, userId) => {
 		const actor = effect?.parent;
 		// Effects also live on Items; only actor-owned ones are conditions.
 		if (!actor || actor.documentName !== "Actor") return;
 		for (const statusId of effect.statuses ?? []) {
-			if (CONDITIONS[statusId]) Hooks.callAll(hook, actor, statusId, effect);
+			// userId travels with the event: this fires on every client, and a
+			// listener needs it to do its work exactly once.
+			if (CONDITIONS[statusId]) Hooks.callAll(hook, actor, statusId, effect, userId);
 		}
 	};
 	Hooks.on("createActiveEffect", emit(CONDITION_HOOKS.applied));
