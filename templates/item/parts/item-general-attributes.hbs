@@ -4,10 +4,11 @@
 		<div class="general-attributes-section op-shadow">
 			<div class="section-title">Atributos Gerais</div>
 
-			<div class="grid">
+			<div class="resource grid grid-2col">
 				<label class="resource-label">{{localize "op.category"}}</label>
-				<input type="text" name="system.category" value="{{system.category}}" data-dtype="String" />
-
+				<div class="categoryCheck">
+					{{radioBoxes "system.category" categories checked=system.category}}
+				</div>
 			</div>
 		</div>
 
