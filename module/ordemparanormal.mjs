@@ -31,6 +31,7 @@ import * as hooks from "./hooks.mjs";
 import * as utils from "./utils.mjs";
 import { handleReaction } from "./helpers/reactions.mjs";
 import { buildStatusEffects } from "./helpers/conditions.mjs";
+import { buildConditionsApi, registerConditionHooks } from "./api/conditions-api.mjs";
 import { formatRitualArea } from "./helpers/ritual-area.mjs";
 
 // import { rescueAllPathEffects } from '../utils/__test__/effects.mjs';
@@ -54,7 +55,11 @@ Hooks.once("init", function () {
 		OrdemActor,
 		OrdemItem,
 		dice,
+		// Supported surface for third-party modules. See module/api/conditions-api.mjs;
+		// everything else on this object is internal.
+		conditions: buildConditionsApi(),
 	};
+	registerConditionHooks();
 
 	CONFIG.op = op;
 	CONFIG.ActiveEffect.legacyTransferral = false;
