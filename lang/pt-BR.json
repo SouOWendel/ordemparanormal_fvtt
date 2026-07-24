@@ -2,28 +2,21 @@
 	"op.op": "Ordem Paranormal",
 	"TYPES.Actor.agent": "Agente",
 	"TYPES.Actor.threat": "Ameaça",
-
 	"TYPES.Item.protection": "Proteção",
 	"op.protection.plural": "Proteções",
-
 	"TYPES.Item.generalEquipment": "Equipamento Geral",
 	"op.generalEquipment.plural": "Equipamentos",
-
 	"TYPES.Item.armament": "Armamento",
 	"op.armaments": "Armamentos",
-
 	"TYPES.Item.ritual": "Ritual",
 	"op.ritual.plural": "Rituais",
-
 	"TYPES.Item.ability": "Habilidade",
 	"TYPES.Item.origin": "Origem",
 	"TYPES.Item.path": "Trilha",
 	"TYPES.Item.class": "Classe",
 	"op.ability.plural": "Habilidades",
 	"op.ability.diverse": "Habilidades Diversas",
-
 	"op.OrdemActorSheet": "Ficha de Agente",
-
 	"SETTINGS.opPatchNotes": "Desativar Notas de Atualização",
 	"SETTINGS.opPatchNotesHint": "Ao iniciar um mundo com o sistema Ordem Paranormal, ou, ao atualizar o sistema, notas de atualizações com as novidades são exibidas em uma janela, marque/desmarque essa opção para desativar/ativar.",
 	"SETTINGS.opPatchNotesAllViewed": "Você viu todas as notas de atualização. Não há notas mais recentes.",
@@ -34,7 +27,6 @@
 	"SETTINGS.patentesProgressRule": "Evolução por Patentes",
 	"SETTINGS.globalPlayingWithoutSanity": "Jogando sem Sanidade",
 	"SETTINGS.globalPlayingWithoutSanityHint": "Marcar esta opção funde os pontos de esforço e a sanidade das fichas de agente em pontos de determinação, uma opção que representa ambos PE e SAN.",
-
 	"MACRO.opUnownedWarn": "Você só pode criar botões macro para os seus itens.",
 	"MACRO.opNoActorSelected": "Nenhum ator selecionado ou designado foi encontrado para o macro selecionado",
 	"MACRO.opMissingTargetWarn": "O ator controlado '{actor}' não tem um '{type}' com o nome '{name}'.",
@@ -46,14 +38,12 @@
 	"CHAT.RollPrivate": "Rolagem Privada pro MJ",
 	"CHAT.RollSelf": "Rolagem Pessoal",
 	"CHAT.RollTables": "Tabelas de Rolagem",
-
 	"WORLD.GameSystem": "Sistema de Jogo",
 	"op.sidebar.updateNotes": "Um sistema não-oficial na versão",
 	"op.soon": "Em breve.",
 	"op.sidebar.discord": "Contate-me no Discord",
 	"op.sidebar.bluesky": "Siga-me no Bluesky",
 	"op.sidebar.twitter": "Siga-me no Twitter",
-
 	"op.tab": {
 		"skills": "Perícias",
 		"inventory": "Inventário",
@@ -64,7 +54,6 @@
 		"attacks": "Ataques",
 		"enigmas": "Enigmas"
 	},
-
 	"op.item.tab": {
 		"description": "Descrição",
 		"attributes": "Atributos",
@@ -72,7 +61,6 @@
 		"spec": "Especificações",
 		"effects": "Efeitos"
 	},
-
 	"op.PV": "Pontos de Vida",
 	"op.PE": "Pontos de Esforço",
 	"op.PD": "Pontos de Determinação",
@@ -83,7 +71,6 @@
 	"op.nivel": "Nível",
 	"op.stage": "Estágio",
 	"op.ritualdt": "DT de Ritual é",
-
 	"op.skill": {
 		"acrobatics": "Acrobacia",
 		"animal": "Adestramento",
@@ -114,25 +101,20 @@
 		"will": "Vontade",
 		"freeSkill": "Perícia Livre"
 	},
-
 	"op.attDex": "Agilidade",
 	"op.attStr": "Força",
 	"op.attInt": "Intelecto",
 	"op.attPre": "Presença",
 	"op.attVit": "Vigor",
-
 	"op.dexAbv": "Agi",
 	"op.intAbv": "Int",
 	"op.vitAbv": "Vig",
 	"op.preAbv": "Pre",
 	"op.strAbv": "For",
-
 	"op.agiAbv": "Agi",
 	"op.vigAbv": "Vig",
 	"op.forAbv": "For",
-
 	"op.newItem": "Novo(a)",
-
 	"op.effectCreate": "Criar Efeito",
 	"op.effectToggle": "Trocar Efeito",
 	"op.effectEdit": "Editar Efeito",
@@ -142,9 +124,7 @@
 	"op.inactiveEffects": "Efeitos Inativos",
 	"op.newEffect": "Novo Efeito",
 	"op.sourceEffect": "Fonte",
-
 	"op.add": "Adicionar",
-
 	"op.degreeTrainingChoices": {
 		"dest": "Destreinado",
 		"trei": "Treinado",
@@ -155,7 +135,6 @@
 		"gama": "Gama",
 		"delta": "Delta"
 	},
-
 	"op.className": "Classe",
 	"op.hpInitial": "PV Inicial",
 	"op.hpPerLevel": "PV por Nível",
@@ -175,7 +154,6 @@
 		"occultist": "Ocultista",
 		"survivor": "Sobrevivente"
 	},
-
 	"op.originName": "Origem",
 	"op.originSkills": "Perícias Concedidas pela Origem",
 	"op.originAbility": "Habilidade de Origem",
@@ -238,7 +216,6 @@
 		"universitario": "Universitário",
 		"vítima": "Vítima"
 	},
-
 	"op.trilhasName": "Trilhas",
 	"op.pathAbilities": "Habilidades de Trilha",
 	"op.trilhas": {
@@ -271,16 +248,12 @@
 		"esperto": "Esperto",
 		"esoterico": "Esotérico"
 	},
-
 	"op.weight": "Peso",
 	"op.defense": "Defesa",
 	"op.dodge": "Esquiva",
-
 	"op.deslocamento": "Deslocamento",
-
 	"op.type": "Tipo",
 	"op.area": "Área",
-
 	"op.attributesItem": "Atributos",
 	"op.specificationsItemTab": "Especificações",
 	"op.combatItemTab": "Combate",
@@ -310,7 +283,6 @@
 	"op.execution": "Execução",
 	"op.element": "Elemento",
 	"op.cost": "Custo",
-
 	"op.executionChoices": {
 		"free": "Livre",
 		"movement": "Movimento",
@@ -318,24 +290,20 @@
 		"complete": "Completa",
 		"reaction": "Reação"
 	},
-
 	"op.weaponTypeChoices": {
 		"melee": "Corpo a Corpo",
 		"ranged": "Ataque à Distância"
 	},
-
 	"op.weaponSubTypeChoices": {
 		"throw": "Arma de Arremesso",
 		"shoot": "Arma de Disparo",
 		"fire": "Arma de Fogo"
 	},
-
 	"op.weaponGripTypeChoices": {
 		"light": "Arma Leve",
 		"oneHand": "Uma Mão",
 		"twoHands": "Duas Mãos"
 	},
-
 	"op.weaponAmmunitionChoices": {
 		"shortBullets": "Balas Curtas",
 		"longBullets": "Balas Longas",
@@ -344,59 +312,49 @@
 		"rocket": "Foguetes",
 		"cartridge": "Cartuchos"
 	},
-
 	"op.proficiencyChoices": {
 		"simpleWeapons": "Armas Simples",
 		"tacticalWeapons": "Armas Táticas",
 		"heavyWeapons": "Armas Pesadas"
 	},
-
 	"op.proficiencyChoicesAbbr": {
 		"simpleWeapons": "Simples",
 		"tacticalWeapons": "Tática",
 		"heavyWeapons": "Pesada"
 	},
-
 	"op.damageTypeChoices": {
 		"cuttingDamage": "Corte (C)",
 		"impactDamage": "Impacto (I)",
 		"piercingDamage": "Perfurante (P)",
 		"ballisticDamage": "Balístico (B)",
-
 		"bloodDamage": "Sangue (S)",
 		"deathDamage": "Morte (M)",
 		"knowledgeDamage": "Conhecimento (C)",
 		"energyDamage": "Energia (E)",
 		"fearDamage": "Medo (Me)",
-
 		"fireDamage": "Fogo (F)",
 		"eletricDamage": "Eletricidade (El)",
 		"coldDamage": "Frio (Fr)",
 		"chemicalDamage": "Químico (Q)",
 		"mentalDamage": "Mental (M)"
 	},
-
 	"op.damageTypeAbv": {
 		"cuttingDamage": "Corte",
 		"impactDamage": "Impacto",
 		"piercingDamage": "Perfurante",
 		"ballisticDamage": "Balístico",
-
 		"bloodDamage": "Sangue",
 		"deathDamage": "Morte",
 		"knowledgeDamage": "Conhecimento",
 		"energyDamage": "Energia",
 		"fearDamage": "Medo",
-
 		"fireDamage": "Fogo",
 		"eletricDamage": "Eletricidade",
 		"coldDamage": "Frio",
 		"chemicalDamage": "Químico",
 		"mentalDamage": "Mental"
 	},
-
 	"op.undefined": "Indefinido",
-
 	"op.powerTypeChoices": {
 		"origin": "Poderes de Origem",
 		"class": "Poderes de Classe",
@@ -406,7 +364,6 @@
 		"complication": "Complicações",
 		"ability": "Outras Habilidades"
 	},
-
 	"op.abilitiesAbv": {
 		"origin": "Poderes de Origem",
 		"class": "Poderes de Classe",
@@ -416,14 +373,12 @@
 		"complication": "Complicações",
 		"ability": "Outras Habilidades"
 	},
-
 	"op.improvised": "Improvisada",
 	"op.throwable": "Arremessável",
 	"op.agile": "Ágil",
 	"op.automatic": "Automática",
 	"op.adaptableGrip": "Empunhadura Adaptável",
 	"op.pistolBlow": "Coronhada",
-
 	"op.rangeChoices": {
 		"personal": "Pessoal",
 		"touch": "Toque",
@@ -433,7 +388,6 @@
 		"extreme": "Extremo",
 		"unlimited": "Ilimitado"
 	},
-
 	"op.targetChoices": {
 		"people": "Pessoa(s)",
 		"creatures": "Ser(es)",
@@ -442,21 +396,18 @@
 		"equipment": "Equipamentos",
 		"area": "Área"
 	},
-
 	"op.areaChoices": {
 		"cone": "Cone",
 		"cube": "Cubo",
 		"sphere": "Esfera",
 		"line": "Linha"
 	},
-
 	"op.areaTypeChoices": {
 		"radius": "Raio",
 		"diameter": "Diâmetro"
 	},
 	"op.areaLabelSphereCone": "{name} com {size}m de {type}",
 	"op.areaLabelCubeLine": "{name} de {size}m",
-
 	"op.durationChoices": {
 		"instantaneous": "Instantânea",
 		"scene": "Cena",
@@ -464,14 +415,12 @@
 		"setDuration": "Duração definida",
 		"permanent": "Permanente"
 	},
-
 	"op.resistanceChoices": {
 		"nullifies": "Anula",
 		"discredits": "Desacredita",
 		"partial": "Parcial",
 		"reducesByHalf": "Red. metade"
 	},
-
 	"op.elementChoices": {
 		"blood": "Sangue",
 		"death": "Morte",
@@ -479,13 +428,11 @@
 		"energy": "Energia",
 		"fear": "Medo"
 	},
-
 	"op.threatTypeChoices": {
 		"creature": "Criatura",
 		"person": "Pessoa",
 		"animal": "Animal"
 	},
-
 	"op.threatSizeChoices": {
 		"tiny": "Minúsculo",
 		"small": "Pequeno",
@@ -494,9 +441,7 @@
 		"huge": "Enorme",
 		"colossal": "Colossal"
 	},
-
 	"op.rollDamageChat": "Deu dano com {name} ({types})",
-
 	"op.threatName": "Nome da Ameaça",
 	"op.VD": "VD",
 	"op.size": "Tamanho",
@@ -525,7 +470,6 @@
 	"op.disturbingPresence.noFormula": "Defina um valor para o Dano Mental (Ex: 2d6).",
 	"op.disturbingPresence.mentalDamageRollFlavor": "Dano Mental (Presença Perturbadora)",
 	"op.disturbingPresence.errorFormula": "Erro na fórmula de dano:",
-
 	"op.traitsLabel": "Características",
 	"op.traitsTitle": "Configurar Características da Ameaça",
 	"op.traits": {
@@ -536,14 +480,12 @@
 		"lowLightVision": "Visão na Penumbra",
 		"darkvision": "Visão no Escuro"
 	},
-
 	"op.Notes": "Notas de Atualização",
 	"op.Issues": "Problemas",
 	"op.Wiki": "Wiki",
 	"op.Discord": "Discord do Sistema",
 	"op.Credits": "Créditos & Licenças",
 	"op.Twitter": "Twitter",
-
 	"op.damage": "Dano",
 	"op.rollDmg": "Rolar Dano",
 	"op.rollAtk": "Rolar Ataque",
@@ -562,7 +504,6 @@
 	"op.damageBlocked": "bloqueou {blocked} de RD",
 	"op.effectExpired": "O efeito <strong>{effect}</strong> de <strong>{actor}</strong> expirou.",
 	"op.skillDegreeOverrideTitle": "Valor manual — deixe vazio para usar o derivado do grau de treinamento",
-
 	"op.reaction.panelTitle": "Reação de defesa",
 	"op.reaction.dodge": "Esquiva",
 	"op.reaction.dodgeWithBonus": "Esquiva (+{bonus})",
@@ -588,7 +529,6 @@
 	"op.reaction.confirm": "Confirmar",
 	"op.reaction.needsGM": "Nenhum mestre conectado — reação não pode ser aplicada.",
 	"op.reaction.attackerGone": "O atacante não está mais na cena — contra-ataque cancelado.",
-
 	"op.Advantage": "Vantagem (+1d20)",
 	"op.Normal": "Lançar Dados",
 	"op.Disadvantage": "Desvantagem (-1d20)",
@@ -663,7 +603,6 @@
 	"SETTINGS.tiebreakerDex": "Agilidade (maior valor vence)",
 	"SETTINGS.tiebreakerNone": "Sem desempate automático",
 	"SETTINGS.tiebreakerReroll": "Re-rolar iniciativa em empate",
-
 	"KEYBINDINGS": {
 		"op": {
 			"SkipDialogNormal": "Pular diálogo",
@@ -671,8 +610,59 @@
 			"SkipDialogDisadvantage": "Pular diálogo (rolagem com desvantagem)"
 		}
 	},
-
 	"EFFECT": {
 		"TabDuration": "Duração"
-	}
+	},
+	"op.conditions": {
+		"abalado": "Abalado",
+		"agarrado": "Agarrado",
+		"alquebrado": "Alquebrado",
+		"apavorado": "Apavorado",
+		"asfixiado": "Asfixiado",
+		"atordoado": "Atordoado",
+		"caido": "Caído",
+		"cego": "Cego",
+		"confuso": "Confuso",
+		"debilitado": "Debilitado",
+		"desprevenido": "Desprevenido",
+		"doente": "Doente",
+		"emChamas": "Em Chamas",
+		"enjoado": "Enjoado",
+		"enlouquecendo": "Enlouquecendo",
+		"enredado": "Enredado",
+		"envenenado": "Envenenado",
+		"esmorecido": "Esmorecido",
+		"exausto": "Exausto",
+		"fascinado": "Fascinado",
+		"fatigado": "Fatigado",
+		"fraco": "Fraco",
+		"frustrado": "Frustrado",
+		"imovel": "Imóvel",
+		"inconsciente": "Inconsciente",
+		"indefeso": "Indefeso",
+		"lento": "Lento",
+		"machucado": "Machucado",
+		"morrendo": "Morrendo",
+		"ofuscado": "Ofuscado",
+		"paralisado": "Paralisado",
+		"pasmo": "Pasmo",
+		"perturbado": "Perturbado",
+		"petrificado": "Petrificado",
+		"sangrando": "Sangrando",
+		"surdo": "Surdo",
+		"surpreendido": "Surpreendido",
+		"vulneravel": "Vulnerável",
+		"morto": "Morto"
+	},
+	"op.massiveDamageTitle": "Dano Massivo!",
+	"op.massiveDamageSubtitle": "{name} sofreu dano massivo e deve testar Fortitude (DT {dt}).",
+	"op.massiveDamageButton": "Testar Fortitude",
+	"op.massiveDamageFailed": "{name} falhou no teste de Fortitude contra o Dano Massivo e foi reduzido a 0 PV!",
+	"op.massiveDamagePassed": "{name} resistiu ao Dano Massivo.",
+	"op.massiveDamageNotOwner": "Você não controla este personagem.",
+	"op.lethalDamage": "Letal",
+	"op.nonLethalDamage": "Não letal",
+	"op.lethalityPrompt": "Tipo de dano do ataque",
+	"op.lethalityHint": "Usar a arma contra o que ela normalmente causa custa −{penalty} no teste de ataque.",
+	"op.armamentNonLethal": "Causa dano não letal"
 }

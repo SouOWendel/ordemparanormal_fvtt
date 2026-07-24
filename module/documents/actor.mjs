@@ -4,6 +4,8 @@ import BasicRoll from "../dice/basic-roll.mjs";
 import SkillToolRollConfigurationDialog from "../applications/skill-tool-configuration-dialog.mjs";
 import AttributeRollConfigurationDialog from "../applications/attribute-configuration-dialog.mjs";
 import { calculateSpaces, calculateDefense, calculateStatusMaxima } from "../helpers/actor-calculations.mjs";
+import { getDicePenalty, computeHealthConditions } from "../helpers/conditions.mjs";
+import { isMassiveDamage, massiveDamageDT } from "../helpers/massive-damage.mjs";
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
@@ -57,6 +59,8 @@ export class OrdemActor extends Actor {
 	/** @override */
 	prepareBaseData() {
 		super.prepareBaseData();
+		// Type-specific base data (status maxima, ritual DT, base skills, patent) is
+		// prepared by the TypeDataModels (AgentData/ThreatData), not here.
 	}
 
 	/** @override */
@@ -211,6 +215,24 @@ export class OrdemActor extends Actor {
 	}
 
 	/**
+	 * The set of active condition/status ids, derived fresh from applied effects.
+	 * We compute this on demand instead of reading `this.statuses` because Foundry
+	 * v13 does not keep `this.statuses` populated through this system's prep flow
+	 * (confirmed empirically: it is reset after prepareDerivedData). The condition
+	 * system (P1) uses this for Defense/dice penalties, escalation and morrendo/
+	 * machucado reconciliation.
+	 * @returns {Set<string>}
+	 */
+	_activeConditionIds() {
+		const ids = new Set();
+		for (const effect of this.allApplicableEffects()) {
+			if (effect.disabled || effect.active === false) continue;
+			for (const statusId of effect.statuses ?? []) ids.add(statusId);
+		}
+		return ids;
+	}
+
+	/**
 	 * Override getRollData() that's supplied to rolls.
 	 */
 	getRollData() {
@@ -301,10 +323,109 @@ export class OrdemActor extends Actor {
 		const hpKey = isThreat ? "system.attributes.hp.value" : "system.PV.value";
 		await this.update({ [hpKey]: newPV });
 
-		if (newPV <= 0) conditions.push("morrendo");
-		if (newPV <= resource.max / 2) conditions.push("machucado");
+		// Threats don't get morrendo/machucado auto-toggled (reconcileHealthConditions
+		// no-ops for them), so don't report conditions that will never actually apply.
+		if (!isThreat) {
+			if (newPV <= 0) conditions.push("morrendo", "inconsciente");
+			if (newPV <= resource.max / 2) conditions.push("machucado");
+		}
+
+		// Dano Massivo (book p. 87) — agent-only, mirroring the P1 precedent that
+		// automatic condition toggling doesn't apply to GM-tracked threats.
+		if (!isThreat && isMassiveDamage(finalDamage, resource.max, newPV)) {
+			this._triggerMassiveDamage(finalDamage).catch((err) =>
+				console.error("ordemparanormal | failed to create Dano Massivo card", err)
+			);
+		}
 
 		return { finalDamage, blocked, newPV, conditions };
+	}
+
+	/**
+	 * Post the Dano Massivo chat card prompting a Fortitude save. Resolving the
+	 * roll (via the `rollMassiveDamage` chat action) applies the book's failure
+	 * consequence by setting PV to 0; the updateActor hook then reconciles
+	 * morrendo/machucado on its own.
+	 * @param {number} finalDamage
+	 * @returns {Promise<void>}
+	 */
+	async _triggerMassiveDamage(finalDamage) {
+		const dt = massiveDamageDT(finalDamage);
+		const content = await foundry.applications.handlebars.renderTemplate(
+			"systems/ordemparanormal/templates/chat/massive-damage-card.hbs",
+			{ actorName: this.name, actorUuid: this.uuid, dt }
+		);
+		await ChatMessage.create({
+			speaker: ChatMessage.getSpeaker({ actor: this }),
+			content,
+			flags: { ordemparanormal: { massiveDamageCard: true, actorUuid: this.uuid, dt } },
+		});
+	}
+
+	/**
+	 * Toggle the automatic health conditions (morrendo when PV<=0, machucado when
+	 * PV<=half max) to match the actor's current PV. Called from the updateActor
+	 * hook so both damage and healing reconcile. Agents only.
+	 *
+	 * Runs one at a time per actor: the hook fires this without awaiting it, so two
+	 * PV updates in quick succession would otherwise both read the condition list
+	 * before either toggle resolved, and both create (or both delete) the same
+	 * effect. The queue makes the second run observe the first one's result.
+	 * @returns {Promise<void>}
+	 */
+	async reconcileHealthConditions() {
+		if (this.type === "threat") return;
+		const prev = this.#healthReconcile ?? Promise.resolve();
+		this.#healthReconcile = prev.catch(() => {}).then(() => this.#reconcileHealthNow());
+		return this.#healthReconcile;
+	}
+
+	/** @type {Promise<void>|undefined} */
+	#healthReconcile;
+
+	/**
+	 * The actual toggle pass. Always call through reconcileHealthConditions().
+	 * @returns {Promise<void>}
+	 */
+	async #reconcileHealthNow() {
+		const want = computeHealthConditions(
+			this.system.PV?.value ?? 0,
+			this.system.PV?.max ?? 0,
+			this.system.PV?.nonLethal ?? 0
+		);
+		const active = this._activeConditionIds();
+		const has = {
+			morrendo: active.has("morrendo"),
+			machucado: active.has("machucado"),
+			inconsciente: active.has("inconsciente"),
+		};
+		if (want.morrendo !== has.morrendo) await this.toggleStatusEffect("morrendo", { active: want.morrendo });
+		if (want.machucado !== has.machucado) await this.toggleStatusEffect("machucado", { active: want.machucado });
+		await this.#reconcileInconsciente(want.inconsciente, has.inconsciente);
+	}
+
+	/**
+	 * Toggle `inconsciente` for the 0-PV rule (book p. 88) without touching an
+	 * unconsciousness that came from somewhere else. Unlike morrendo/machucado,
+	 * this condition is also a manual pick and an escalation target
+	 * (fatigado -> exausto -> inconsciente, confuso -> inconsciente), so the
+	 * effect we create is flagged and only a flagged one is cleared on healing.
+	 * @param {boolean} want
+	 * @param {boolean} has
+	 * @returns {Promise<void>}
+	 */
+	async #reconcileInconsciente(want, has) {
+		const FLAG = "healthApplied";
+		if (want && !has) {
+			const created = await this.toggleStatusEffect("inconsciente", { active: true });
+			if (created?.setFlag) await created.setFlag("ordemparanormal", FLAG, true);
+			return;
+		}
+		if (!want && has) {
+			const effect = this.effects.find((e) => e.statuses?.has?.("inconsciente"));
+			// Healing ends it only when the 0-PV rule is what applied it.
+			if (effect?.getFlag?.("ordemparanormal", FLAG)) await effect.delete();
+		}
 	}
 
 	/**
@@ -361,7 +482,9 @@ export class OrdemActor extends Actor {
 			},
 			rollData
 		);
-		const options = {};
+		const options = {
+			dicePenalty: getDicePenalty(this._activeConditionIds(), { kind: "attribute", attribute: config.attribute }),
+		};
 
 		const buildConfig = this._buildAttributesConfig.bind(this, type);
 
@@ -527,6 +650,11 @@ export class OrdemActor extends Actor {
 					options: {
 						advantage: rollConfig.advantage || false,
 						disadvantage: rollConfig.disadvantage || false,
+						dicePenalty: getDicePenalty(this._activeConditionIds(), {
+							kind: "skill",
+							attribute: relevant?.attr[0],
+							skill: config.skill,
+						}),
 					},
 				},
 				config.rolls?.shift()

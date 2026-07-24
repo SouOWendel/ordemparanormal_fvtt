@@ -30,6 +30,9 @@ import * as hooks from "./hooks.mjs";
 
 import * as utils from "./utils.mjs";
 import { handleReaction } from "./helpers/reactions.mjs";
+import { buildStatusEffects } from "./helpers/conditions.mjs";
+import { buildConditionsApi, registerConditionHooks } from "./api/conditions-api.mjs";
+import { formatRitualArea } from "./helpers/ritual-area.mjs";
 
 // import { rescueAllPathEffects } from '../utils/__test__/effects.mjs';
 
@@ -52,7 +55,11 @@ Hooks.once("init", function () {
 		OrdemActor,
 		OrdemItem,
 		dice,
+		// Supported surface for third-party modules. See module/api/conditions-api.mjs;
+		// everything else on this object is internal.
+		conditions: buildConditionsApi(),
 	};
+	registerConditionHooks();
 
 	CONFIG.op = op;
 	CONFIG.ActiveEffect.legacyTransferral = false;
@@ -88,6 +95,10 @@ Hooks.once("init", function () {
 		formula: "@rollInitiative",
 		decimals: 2,
 	};
+
+	// Register the book's conditions on the Token HUD (P1 — Sistema de Condições).
+	CONFIG.statusEffects = buildStatusEffects();
+	CONFIG.specialStatusEffects.DEFEATED = "morto";
 
 	// Register sheet application classes
 	collections.Actors.unregisterSheet("core", sheets.ActorSheet);
@@ -400,6 +411,10 @@ Handlebars.registerHelper("toLowerCase", function (str) {
 	return str.toLowerCase();
 });
 
+Handlebars.registerHelper("ritualAreaLabel", function (system) {
+	return formatRitualArea(system);
+});
+
 Handlebars.registerHelper("toUpperCase", function (str) {
 	return str.toUpperCase();
 });
@@ -544,6 +559,57 @@ async function handleChatCommandClick(event) {
 		}
 
 		ui.notifications.info(game.i18n.format("op.opostoRolled", { actor: actor.name, total: roll.total }));
+		return;
+	}
+
+	const massiveDamageButton = event.target.closest("[data-action='rollMassiveDamage']");
+	if (massiveDamageButton) {
+		const message = game.messages.get(massiveDamageButton.closest(".message")?.dataset.messageId);
+		// Idempotency: the flag (not just DOM disabling, which resets on reload)
+		// prevents re-rolling/re-applying the failure consequence after the fact.
+		if (message?.getFlag("ordemparanormal", "massiveDamageResolved")) return;
+
+		const actorUuid = massiveDamageButton.dataset.actorUuid;
+		const dt = parseInt(massiveDamageButton.dataset.target, 10);
+		const actor = await fromUuid(actorUuid);
+		if (!actor) return;
+		if (!actor.isOwner && !game.user.isGM) {
+			return ui.notifications.warn(game.i18n.localize("op.massiveDamageNotOwner"));
+		}
+
+		// Claim the card only once we know this click can actually roll: after the
+		// actor resolves and the clicker is authorized, but still BEFORE the await
+		// on the roll. Setting it any earlier lets an unauthorized click (or a
+		// deleted actor) lock the card forever with no save made; setting it any
+		// later lets a double-click, or the owner and the GM clicking together,
+		// both pass the guard while the first roll is in flight and apply the
+		// failure consequence twice.
+		await message?.setFlag("ordemparanormal", "massiveDamageResolved", true);
+
+		const rolls = await actor.rollSkill(
+			{ skill: "resilience", rolls: [{ options: { target: dt } }] },
+			{ configure: false }
+		);
+		const roll = Array.isArray(rolls) ? rolls[0] : rolls;
+		if (!roll) return;
+
+		if (roll.isFailure) {
+			// reconcileHealthConditions() is NOT called here — actor.update() below
+			// fires the updateActor hook (hooks.mjs), which already reconciles
+			// morrendo/machucado for any PV change. Calling it again here raced
+			// the hook's own (also un-awaited) call, toggling the same condition
+			// twice concurrently.
+			await actor.update({ "system.PV.value": 0 });
+			await ChatMessage.create({
+				speaker: ChatMessage.getSpeaker({ actor }),
+				content: game.i18n.format("op.massiveDamageFailed", { name: actor.name }),
+			});
+		} else {
+			await ChatMessage.create({
+				speaker: ChatMessage.getSpeaker({ actor }),
+				content: game.i18n.format("op.massiveDamagePassed", { name: actor.name }),
+			});
+		}
 	}
 }
 

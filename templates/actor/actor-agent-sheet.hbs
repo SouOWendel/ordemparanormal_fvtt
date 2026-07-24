@@ -157,6 +157,16 @@
 							{{disabled system.isDerivatedCalcsActive}}
 						/>
 					</div>
+					{{! Dano não letal: acumula à parte e derruba o personagem sem matá-lo.
+					    Precisa ser editável — é o único jeito de curá-lo hoje. }}
+					{{#if system.PV.nonLethal}}
+						<div class="resource-content flexrow flex-center">
+							<label for="system.PV.nonLethal" class="resource-label-small">
+								{{localize "op.nonLethalDamage"}}
+							</label>
+							<input type="text" name="system.PV.nonLethal" value="{{system.PV.nonLethal}}" data-dtype="Number" />
+						</div>
+					{{/if}}
 				</div>
 
 				{{#if usingWithoutSanityRule}}

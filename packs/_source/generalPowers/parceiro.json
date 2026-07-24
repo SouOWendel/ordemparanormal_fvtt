@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "general",
     "preRequisite": "treinado em Diplomacia, NEX 30%",
-    "description": "<p>Em algum momento da sua vida, você conquistou uma amizade fiel e verdadeira; alguém disposto a até mesmo a se arriscar para lhe ajudar. Você possui um parceiro, uma pessoa que o acompanha e o auxilia em suas missões. Escolha os detalhes dele, como nome, aparência e personalidade. Em termos de jogo, é um aliado de um tipo à sua escolha (veja OPRPG, p. 171). O parceiro obedece às suas ordens e se arrisca para ajudá-lo, mas, se for maltratado, pode parar de segui-lo (de acordo com o mestre). Se perder seu aliado, você precisa gastar uma folga da Ordem (veja p. 94) para receber outro. <i>Pré-requisitos: treinado em Diplomacia, NEX 30%.</i></p>",
+    "description": "<p>Em algum momento da sua vida, você conquistou uma amizade fiel e verdadeira; alguém disposto a até mesmo a se arriscar para lhe ajudar. Você possui um parceiro, uma pessoa que o acompanha e o auxilia em suas missões. Escolha os detalhes dele, como nome, aparência e personalidade. Em termos de jogo, é um aliado de um tipo à sua escolha. O parceiro obedece às suas ordens e se arrisca para ajudá-lo, mas, se for maltratado, pode parar de segui-lo (de acordo com o mestre). Se perder seu aliado, você precisa gastar uma folga da Ordem para receber outro. <i>Pré-requisitos: treinado em Diplomacia, NEX 30%.</i></p>",
     "cost": "",
     "costType": "PE",
     "activation": ""

@@ -1,7 +1,7 @@
 {
 	"id": "ordemparanormal",
-	"title": "Ordem Paranormal",
-	"description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT.",
+	"title": "Ordem Paranormal (Não-Oficial)",
+	"description": "Ordem Paranormal é um sistema e universo de investigação paranormal criado por Cellbit. Com base nisso, este é um sistema não-oficial para o FoundryVTT. Este é um conteúdo não oficial, publicado sob a Licença da Comunidade de Ordem Paranormal. O texto de regras proveniente do livro que é Open Game Content permanece coberto pela Open Gaming License.",
 	"version": "7.3.3",
 	"compatibility": {
 		"minimum": "13",
@@ -282,9 +282,9 @@
 			{
 				"id": "barbrawl",
 				"type": "module",
-				"manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/3b5857f4d970d49c176395806a29df502563e364/src/module.json",
+				"manifest": "https://gitlab.com/woodentavern/foundryvtt-bar-brawl/-/raw/v1.8.9/src/module.json",
 				"compatibility": {
-					"verified": "1.9.0"
+					"verified": "1.8.8"
 				}
 			}
 		]

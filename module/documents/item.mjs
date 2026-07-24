@@ -7,6 +7,8 @@
 
 import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
 import { damageRecipients } from "../helpers/visibility.mjs";
+import { getDicePenalty, getConditionDefensePenalty, activeConditionsOf } from "../helpers/conditions.mjs";
+import { formatRitualArea } from "../helpers/ritual-area.mjs";
 
 /**
  * Wrapper sobre `damageRecipients` que injeta `game.users` atual. O helper puro
@@ -174,6 +176,7 @@ export class OrdemItem extends Item {
 				const extraRD = attackMsg?.getFlag("ordemparanormal", "damageBlock")?.amount ?? 0;
 				const result = await targetActor.applyDamage(applyRoll.total, {
 					damageType: damageTarget.damageType,
+					nonLethal: damageTarget.nonLethal === true,
 					extraRD,
 				});
 				const blockedMsg = result.blocked > 0 ? game.i18n.format("op.damageBlocked", { blocked: result.blocked }) : "";
@@ -262,9 +265,54 @@ export class OrdemItem extends Item {
 	 * Place an attack roll using an item (weapon, feat, spell, or equipment)
 	 * Rely upon the d20Roll logic for the core implementation
 	 */
+	/**
+	 * Ask whether this attack is lethal, defaulting to what the weapon does.
+	 * Book p. 87: converting either way costs -5 on the attack roll, applied by
+	 * the caller. Returns the weapon's own setting if the user dismisses.
+	 * @param {object} [options]  The rollAttack options; `event` marks a click.
+	 * @returns {Promise<boolean>} true when the attack deals non-lethal damage
+	 * @private
+	 */
+	async _promptLethality(options = {}) {
+		const weaponDefault = this.system.nonLethal === true;
+		// Only a real click gets a dialog. rollAttack is also driven programmatically
+		// (macros, the Quench suites, the reaction flow) and those callers have no one
+		// to answer it — they would hang waiting on a button.
+		if (!options.event) return weaponDefault;
+		// The book only grants the swap to melee weapons ("Você pode usar uma arma
+		// corpo a corpo para causar dano não letal") and to weapons that already
+		// deal non-lethal. A ranged lethal weapon has no choice to make, so asking
+		// would add a click to every shot for nothing.
+		const melee = this.system.types?.rangeType?.name === "melee";
+		if (!melee && !weaponDefault) return weaponDefault;
+
+		const DialogV2 = foundry.applications?.api?.DialogV2;
+		if (typeof DialogV2?.wait !== "function") return weaponDefault;
+
+		const buttons = [
+			{ action: "lethal", label: game.i18n.localize("op.lethalDamage"), default: !weaponDefault },
+			{ action: "nonLethal", label: game.i18n.localize("op.nonLethalDamage"), default: weaponDefault },
+		];
+		const choice = await DialogV2.wait({
+			window: { title: game.i18n.localize("op.lethalityPrompt") },
+			content: `<p>${game.i18n.format("op.lethalityHint", {
+				penalty: 5,
+			})}</p>`,
+			buttons,
+			rejectClose: false,
+		}).catch(() => null);
+		if (choice === null || choice === undefined) return weaponDefault;
+		return choice === "nonLethal";
+	}
+
 	async rollAttack(options = {}) {
 		if (!this.system.formulas.attack.attr || !this.system.formulas.attack.skill)
 			throw new Error("This Item does not have a formula to roll!");
+
+		// Lethality is decided once for the whole volley: the scheduler below spreads
+		// `options` into every recursive call, so asking here (only when nothing was
+		// decided yet) means one prompt per attack action, not one per die roll.
+		if (options.nonLethal === undefined) options.nonLethal = await this._promptLethality(options);
 
 		// Multi-target + multi-attack scheduling unificado.
 		//
@@ -349,16 +397,30 @@ export class OrdemItem extends Item {
 		let attribute = this.parent.system.attributes[attack.attr];
 		let rollMode = "kh";
 
-		if (attribute.value < 1) {
+		// Condition dice penalty on attacks (agarrado/caído/enredado/ofuscado...),
+		// computed from the attacker's active conditions. Pool < 1 -> 2d20kl.
+		const attackDicePenalty = getDicePenalty(activeConditionsOf(this.parent), {
+			kind: "attack",
+			attribute: attack.attr,
+			melee: this.system.types?.rangeType?.name === "melee",
+		});
+		const effectiveAttr = attribute.value - attackDicePenalty;
+
+		if (effectiveAttr < 1) {
 			attribute = 2;
 			rollMode = "kl";
-		} else attribute = attribute.value;
+		} else attribute = effectiveAttr;
+
+		// Book p. 87: -5 only when going against what the weapon normally does —
+		// a weapon used as it was built takes no penalty either way.
+		const convertedLethality = options.nonLethal !== undefined && options.nonLethal !== (this.system.nonLethal === true);
 
 		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
 			degree: skill.degree.value || null,
 			bonus: skill.value || null,
 			modifier: skill.mod || null,
 			attackBonus: attack.bonus || null,
+			lethalityShift: convertedLethality ? -5 : null,
 		});
 
 		const rollConfig = {
@@ -563,7 +625,13 @@ export class OrdemItem extends Item {
 	 */
 	_compareWithDefense(targetActor, rollTotal, criticalStatus) {
 		if (!targetActor) return null;
-		const defense = targetActor.system?.defense?.value ?? 0;
+		const baseDefense = targetActor.system?.defense?.value ?? 0;
+		// Condition penalties to Defense are applied here (at attack resolution) rather
+		// than in prepareDerivedData: they lower the target's effective Defense against
+		// this attack. Book p. 312: same-effect penalties don't stack — the most severe
+		// applies (MAX, in getConditionDefensePenalty). e.g. desprevenido/indefeso.
+		const condPenalty = getConditionDefensePenalty(activeConditionsOf(targetActor));
+		const defense = baseDefense - condPenalty;
 		return {
 			hit: rollTotal >= defense,
 			targetDefense: defense,
@@ -680,6 +748,7 @@ export class OrdemItem extends Item {
 				flags["ordemparanormal.damageTarget"] = {
 					actorUuid: hitResult.actorUuid,
 					damageType: damage.type,
+					nonLethal: options.nonLethal ?? this.system.nonLethal === true,
 					attackMessageId: options.attackMessageId ?? hitResult.attackMessageId ?? this.lastAttackMessageId ?? null,
 				};
 			}
@@ -807,8 +876,8 @@ export class OrdemItem extends Item {
 				templateData.info.push(game.i18n.localize("op.weaponGripTypeChoices." + this.system.types.gripType));
 			if (this.system.types?.rangeType?.name)
 				templateData.info.push(game.i18n.localize("op.weaponTypeChoices." + this.system.types.rangeType.name));
-			if (this.system.types?.damageType)
-				templateData.info.push(game.i18n.localize("op.damageTypeChoices." + this.system.types.damageType));
+			if (this.system.formulas?.damage?.type)
+				templateData.info.push(game.i18n.localize("op.damageTypeChoices." + this.system.formulas.damage.type));
 			if (this.system.conditions?.improvised) templateData.info.push(game.i18n.localize("op.improvised"));
 			if (this.system.conditions?.throwable) templateData.info.push(game.i18n.localize("op.throwable"));
 			if (this.system.conditions?.agile) templateData.info.push(game.i18n.localize("op.agile"));
@@ -818,18 +887,8 @@ export class OrdemItem extends Item {
 		}
 
 		if (item.type == "ritual") {
-			if (this.system?.area.name && this.system.target == "area") {
-				const area = {
-					name: game.i18n.localize("op.areaChoices." + this.system.area.name),
-					type: game.i18n.localize("op.areaTypeChoices." + this.system.area.type),
-					size: this.system.area.size,
-				};
-				if (this.system?.area.name == "cone" || this.system?.area.name == "sphere") {
-					templateData.i18n.areaLabel = game.i18n.format("op.areaLabelSphereCone", area);
-				} else {
-					templateData.i18n.areaLabel = game.i18n.format("op.areaLabelCubeLine", area);
-				}
-			}
+			const areaLabel = formatRitualArea(this.system);
+			if (areaLabel) templateData.i18n.areaLabel = areaLabel;
 		}
 
 		const html = await foundry.applications.handlebars.renderTemplate(

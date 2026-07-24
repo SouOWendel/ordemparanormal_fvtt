@@ -202,7 +202,10 @@ export default class D20Roll extends BasicRoll {
 	configureModifiers() {
 		if (!this.validD20Roll) return;
 
-		this.d20.number = this.attribute.value;
+		// Subtract the condition dice penalty (-1d/-2d) from the pool. D20Die.applyModifier
+		// already handles a resulting pool < 1 (rolls 2d20kl). Penalty comes from the caller
+		// (actor roll methods) which knows the attribute/skill context.
+		this.d20.number = this.attribute.value - (this.options.dicePenalty ?? 0);
 
 		if (this.options.advantageMode === undefined) {
 			const { advantage, disadvantage } = this.options;
