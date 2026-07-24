@@ -344,7 +344,8 @@ export class OrdemActor extends Actor {
 	/**
 	 * Post the Dano Massivo chat card prompting a Fortitude save. Resolving the
 	 * roll (via the `rollMassiveDamage` chat action) applies the book's failure
-	 * consequence — reduced to 0 PV — by calling `reconcileHealthConditions()`.
+	 * consequence by setting PV to 0; the updateActor hook then reconciles
+	 * morrendo/machucado on its own.
 	 * @param {number} finalDamage
 	 * @returns {Promise<void>}
 	 */
@@ -365,10 +366,28 @@ export class OrdemActor extends Actor {
 	 * Toggle the automatic health conditions (morrendo when PV<=0, machucado when
 	 * PV<=half max) to match the actor's current PV. Called from the updateActor
 	 * hook so both damage and healing reconcile. Agents only.
+	 *
+	 * Runs one at a time per actor: the hook fires this without awaiting it, so two
+	 * PV updates in quick succession would otherwise both read the condition list
+	 * before either toggle resolved, and both create (or both delete) the same
+	 * effect. The queue makes the second run observe the first one's result.
 	 * @returns {Promise<void>}
 	 */
 	async reconcileHealthConditions() {
 		if (this.type === "threat") return;
+		const prev = this.#healthReconcile ?? Promise.resolve();
+		this.#healthReconcile = prev.catch(() => {}).then(() => this.#reconcileHealthNow());
+		return this.#healthReconcile;
+	}
+
+	/** @type {Promise<void>|undefined} */
+	#healthReconcile;
+
+	/**
+	 * The actual toggle pass. Always call through reconcileHealthConditions().
+	 * @returns {Promise<void>}
+	 */
+	async #reconcileHealthNow() {
 		const want = computeHealthConditions(this.system.PV?.value ?? 0, this.system.PV?.max ?? 0);
 		const active = this._activeConditionIds();
 		const has = {

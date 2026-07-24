@@ -562,12 +562,7 @@ async function handleChatCommandClick(event) {
 		const message = game.messages.get(massiveDamageButton.closest(".message")?.dataset.messageId);
 		// Idempotency: the flag (not just DOM disabling, which resets on reload)
 		// prevents re-rolling/re-applying the failure consequence after the fact.
-		// Set BEFORE the roll (not after) — a double-click or a second authorized
-		// client (owner + GM both viewing the card) racing the read-then-write
-		// would otherwise both pass this guard while the first roll is still
-		// in flight and both apply the failure consequence.
 		if (message?.getFlag("ordemparanormal", "massiveDamageResolved")) return;
-		await message?.setFlag("ordemparanormal", "massiveDamageResolved", true);
 
 		const actorUuid = massiveDamageButton.dataset.actorUuid;
 		const dt = parseInt(massiveDamageButton.dataset.target, 10);
@@ -576,6 +571,15 @@ async function handleChatCommandClick(event) {
 		if (!actor.isOwner && !game.user.isGM) {
 			return ui.notifications.warn(game.i18n.localize("op.massiveDamageNotOwner"));
 		}
+
+		// Claim the card only once we know this click can actually roll: after the
+		// actor resolves and the clicker is authorized, but still BEFORE the await
+		// on the roll. Setting it any earlier lets an unauthorized click (or a
+		// deleted actor) lock the card forever with no save made; setting it any
+		// later lets a double-click, or the owner and the GM clicking together,
+		// both pass the guard while the first roll is in flight and apply the
+		// failure consequence twice.
+		await message?.setFlag("ordemparanormal", "massiveDamageResolved", true);
 
 		const rolls = await actor.rollSkill(
 			{ skill: "resilience", rolls: [{ options: { target: dt } }] },

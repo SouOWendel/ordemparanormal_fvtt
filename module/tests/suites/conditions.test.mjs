@@ -1,11 +1,10 @@
 import { installBatchGuards } from "../helpers/fixtures.mjs";
 import { applyCondition, getDicePenalty, isConditionActive, CONDITION_IDS } from "../../helpers/conditions.mjs";
 
-// NOTE: this system's OrdemActor prep does not keep `actor.statuses` populated
-// (Foundry v13 resets it after prepareDerivedData, and prepareBaseData currently
-// throws on agents — see actor.mjs), so condition state is read from applied
-// effects via `isConditionActive` / `actor._activeConditionIds()`. Defense
-// penalties are applied at attack resolution (`_compareWithDefense`).
+// NOTE: condition state is read from applied effects via `isConditionActive` /
+// `actor._activeConditionIds()` rather than `actor.statuses`, because Foundry v13
+// resets `statuses` after prepareDerivedData. Defense penalties are applied at
+// attack resolution (`_compareWithDefense`).
 
 Hooks.once("quenchReady", (quench) => {
 	quench.registerBatch(
