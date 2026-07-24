@@ -353,6 +353,10 @@ export async function applyCondition(actor, id, { active = true } = {}) {
 	const target = escalationTarget(id);
 	if (target && isConditionActive(actor, id)) {
 		await actor.toggleStatusEffect(id, { active: false });
+		// Only this branch knows one condition became another; the applied/removed
+		// hooks come off the effect documents and can't tell escalation from a
+		// plain toggle. Public contract: see module/api/conditions-api.mjs.
+		Hooks?.callAll?.("ordemparanormalConditionEscalated", actor, id, target);
 		return applyCondition(actor, target, { active: true });
 	}
 	return actor.toggleStatusEffect(id, { active: true, overlay: Boolean(CONDITIONS[id].overlay) });
