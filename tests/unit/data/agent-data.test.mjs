@@ -4,6 +4,7 @@ import { AgentData } from "../../../module/data/actors/agent-data.mjs";
 describe("AgentData.defineSchema()", () => {
 	it("returns all resource keys", () => {
 		const schema = AgentData.defineSchema();
+		expect(Object.keys(schema)).toContain("disableCalculations");
 		expect(Object.keys(schema)).toContain("PV");
 		expect(Object.keys(schema)).toContain("SAN");
 		expect(Object.keys(schema)).toContain("PE");

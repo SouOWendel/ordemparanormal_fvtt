@@ -339,22 +339,6 @@ export class OrdemItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
 			},
 		}).bind(this.element);
 
-		const attributesContainer = this.element.querySelector(".class-attributes-section");
-		const disableCheckbox = this.element.querySelector('input[name="system.disableCalculations"]');
-
-		if (disableCheckbox && attributesContainer) {
-			const toggleCombatInputs = () => {
-				const inputs = attributesContainer.querySelectorAll("input");
-
-				inputs.forEach((input) => {
-					input.disabled = disableCheckbox.checked;
-				});
-			};
-
-			disableCheckbox.addEventListener("change", toggleCombatInputs);
-			toggleCombatInputs();
-		}
-
 		// Controle do Fullscreen
 		const isEditing = this._isEditingDescription || this._isEditingChatDescription;
 		this.element.classList.toggle("op-fullscreen-active", isEditing);

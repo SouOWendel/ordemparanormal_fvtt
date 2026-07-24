@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 // TABS: https://foundryvtt.wiki/en/development/guides/Tabs-and-Templates/Tabs-in-AppV2
 
+import { AgentConfigApp } from "../applications/agent-config-app.mjs";
 import { prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 const { api, sheets } = foundry.applications;
@@ -41,6 +42,7 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			onRollSkillCheck: this.#onRollSkillCheck,
 			onRollAttributeTest: this.#onRollAttributeTest,
 			toggleResources: this._onToggleResources,
+			openConfig: this.#openConfig,
 			findItem: this.#findItem,
 		},
 	};
@@ -458,6 +460,26 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 		}
 	}
 
+	/**
+	 * Define os controles extras no cabeçalho (header) da janela.
+	 * @returns {ApplicationHeaderControlsEntry[]}
+	 */
+	_getHeaderControls() {
+		// Puxa os controles padrões do Foundry (Fechar, Configurar Ficha, etc.)
+		const controls = super._getHeaderControls();
+
+		if (this.actor.isOwner) {
+			// unshift() coloca o botão no começo da fila (mais à esquerda entre os botões da direita).
+			controls.unshift({
+				action: "openConfig",
+				icon: "fas fa-id-card",
+				label: "Configurações do Agente",
+			});
+		}
+
+		return controls;
+	}
+
 	/** ************
 	 *
 	 *   ACTIONS
@@ -489,6 +511,18 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 			left: this.position.left + 10,
 		});
 		return fp.browse();
+	}
+
+	/**
+	 * Open the agent configuration dialog.
+	 *
+	 * @this OrdemActorSheet
+	 * @param {PointerEvent} event
+	 * @param {HTMLElement} target
+	 */
+	static #openConfig(event, target) {
+		event.preventDefault();
+		new AgentConfigApp(this.document).render({ force: true });
 	}
 
 	/**

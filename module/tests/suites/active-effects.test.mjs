@@ -172,7 +172,6 @@ Hooks.once("quenchReady", (quench) => {
 								pePerLevel: 2,
 								sanInitial: 12,
 								sanPerLevel: 3,
-								disableCalculations: false,
 							},
 						},
 					]);

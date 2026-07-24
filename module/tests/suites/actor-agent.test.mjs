@@ -35,7 +35,6 @@ Hooks.once("quenchReady", (quench) => {
 					pdPerLevel: 3,
 					sanInitial: 12,
 					sanPerLevel: 3,
-					disableCalculations: false,
 				},
 				specialist: {
 					hpInitial: 16,
@@ -46,7 +45,6 @@ Hooks.once("quenchReady", (quench) => {
 					pdPerLevel: 4,
 					sanInitial: 16,
 					sanPerLevel: 4,
-					disableCalculations: false,
 				},
 				occultist: {
 					hpInitial: 12,
@@ -57,7 +55,6 @@ Hooks.once("quenchReady", (quench) => {
 					pdPerLevel: 5,
 					sanInitial: 20,
 					sanPerLevel: 5,
-					disableCalculations: false,
 				},
 				survivor: {
 					hpInitial: 8,
@@ -68,7 +65,6 @@ Hooks.once("quenchReady", (quench) => {
 					pdPerLevel: 2,
 					sanInitial: 8,
 					sanPerLevel: 2,
-					disableCalculations: false,
 					isSurvivor: true,
 				},
 			};

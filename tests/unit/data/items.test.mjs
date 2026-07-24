@@ -153,7 +153,6 @@ describe("ClassData.defineSchema()", () => {
 		expect(keys).toContain("grantedSkills");
 		expect(keys).toContain("proficiencies");
 		expect(keys).toContain("abilities");
-		expect(keys).toContain("disableCalculations");
 		expect(keys).toContain("isSurvivor");
 	});
 

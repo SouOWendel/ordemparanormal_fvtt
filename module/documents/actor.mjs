@@ -95,7 +95,7 @@ export class OrdemActor extends Actor {
 		const classItem = this.itemTypes.class[0];
 		const classStats = classItem ? classItem.system : null;
 
-		const isCalcActive = classStats ? !classStats.disableCalculations : false;
+		const isCalcActive = Boolean(classStats) && !this.system.disableCalculations;
 
 		this.system.isDerivatedCalcsActive = isCalcActive;
 

@@ -76,6 +76,7 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 	static defineSchema() {
 		const fields = foundry.data.fields;
 		return {
+			disableCalculations: new fields.BooleanField({ initial: false }),
 			PV: resourceField(5, 10, { nonLethal: new foundry.data.fields.NumberField({ integer: true, initial: 0 }) }),
 			SAN: resourceField(5, 5),
 			PE: resourceField(5, 5),

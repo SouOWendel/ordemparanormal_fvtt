@@ -1,0 +1,53 @@
+.agent-config {
+	.config-section {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		.content-item {
+			padding: 10px;
+			flex: 1;
+
+			.config-item {
+				align-items: center;
+				gap: 10px;
+				margin-bottom: 15px;
+
+				input[type="checkbox"] {
+					flex: 0 0 auto;
+					margin: 0;
+				}
+
+				.config-text {
+					display: flex;
+					flex-direction: column;
+
+					.resource-label {
+						font-weight: bold;
+						margin-bottom: 5px;
+						display: block;
+					}
+
+					.notes {
+						font-size: 0.85em;
+						margin: 0;
+						color: var(--color-text-dark-secondary);
+						line-height: 1.3;
+					}
+				}
+			}
+		}
+
+		.sheet-footer {
+			margin-top: 10px;
+			flex: 0 0 auto;
+
+			button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 5px;
+			}
+		}
+	}
+}
