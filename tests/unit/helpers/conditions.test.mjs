@@ -129,18 +129,21 @@ describe("escalationTarget — escalonamento", () => {
 	});
 });
 
-describe("computeHealthConditions — Morrendo/Machucado", () => {
-	it("PV 0 → morrendo + machucado", () => {
-		expect(computeHealthConditions(0, 30)).toEqual({ morrendo: true, machucado: true });
+describe("computeHealthConditions — Morrendo/Machucado/Inconsciente", () => {
+	it("PV 0 → morrendo + machucado + inconsciente (livro p. 88)", () => {
+		expect(computeHealthConditions(0, 30)).toEqual({ morrendo: true, machucado: true, inconsciente: true });
+	});
+	it("PV negativo também conta como 0 PV", () => {
+		expect(computeHealthConditions(-5, 30)).toEqual({ morrendo: true, machucado: true, inconsciente: true });
 	});
 	it("PV na metade → só machucado", () => {
-		expect(computeHealthConditions(15, 30)).toEqual({ morrendo: false, machucado: true });
+		expect(computeHealthConditions(15, 30)).toEqual({ morrendo: false, machucado: true, inconsciente: false });
 	});
 	it("PV acima da metade → nenhum", () => {
-		expect(computeHealthConditions(16, 30)).toEqual({ morrendo: false, machucado: false });
-		expect(computeHealthConditions(30, 30)).toEqual({ morrendo: false, machucado: false });
+		expect(computeHealthConditions(16, 30)).toEqual({ morrendo: false, machucado: false, inconsciente: false });
+		expect(computeHealthConditions(30, 30)).toEqual({ morrendo: false, machucado: false, inconsciente: false });
 	});
 	it("max 0 não marca machucado", () => {
-		expect(computeHealthConditions(0, 0)).toEqual({ morrendo: true, machucado: false });
+		expect(computeHealthConditions(0, 0)).toEqual({ morrendo: true, machucado: false, inconsciente: true });
 	});
 });

@@ -201,11 +201,31 @@ Hooks.once("quenchReady", (quench) => {
 					actor = refetch(actor);
 					assert.isTrue(isConditionActive(actor, "morrendo"));
 					assert.isTrue(isConditionActive(actor, "machucado"));
+					// Book p. 88: 0 PV also makes the character inconsciente.
+					assert.isTrue(isConditionActive(actor, "inconsciente"));
 					await actor.update({ "system.PV.value": actor.system.PV.max });
 					await settleConditions(actor, (a) => !isConditionActive(a, "morrendo"));
 					actor = refetch(actor);
+					assert.isFalse(isConditionActive(actor, "inconsciente"));
 					assert.isFalse(isConditionActive(actor, "morrendo"));
 					assert.isFalse(isConditionActive(actor, "machucado"));
+				});
+
+				it("inconsciente de outra fonte sobrevive à cura", async () => {
+					const other = await makeAgent("HealthEscalated");
+					try {
+						await other.update({ "system.PV.value": other.system.PV.max });
+						// Not the 0-PV rule: applied directly, as escalation or the HUD would.
+						await other.toggleStatusEffect("inconsciente", { active: true });
+						await settleConditions(other, (a) => isConditionActive(a, "inconsciente"));
+						assert.isTrue(isConditionActive(refetch(other), "inconsciente"));
+						// A PV write runs the reconcile pass; it must leave this one alone.
+						await other.update({ "system.PV.value": other.system.PV.max - 1 });
+						await new Promise((r) => setTimeout(r, 400));
+						assert.isTrue(isConditionActive(refetch(other), "inconsciente"));
+					} finally {
+						await other?.delete();
+					}
 				});
 			});
 		},
