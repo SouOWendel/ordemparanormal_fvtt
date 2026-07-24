@@ -176,6 +176,7 @@ export class OrdemItem extends Item {
 				const extraRD = attackMsg?.getFlag("ordemparanormal", "damageBlock")?.amount ?? 0;
 				const result = await targetActor.applyDamage(applyRoll.total, {
 					damageType: damageTarget.damageType,
+					nonLethal: damageTarget.nonLethal === true,
 					extraRD,
 				});
 				const blockedMsg = result.blocked > 0 ? game.i18n.format("op.damageBlocked", { blocked: result.blocked }) : "";
@@ -264,9 +265,54 @@ export class OrdemItem extends Item {
 	 * Place an attack roll using an item (weapon, feat, spell, or equipment)
 	 * Rely upon the d20Roll logic for the core implementation
 	 */
+	/**
+	 * Ask whether this attack is lethal, defaulting to what the weapon does.
+	 * Book p. 87: converting either way costs -5 on the attack roll, applied by
+	 * the caller. Returns the weapon's own setting if the user dismisses.
+	 * @param {object} [options]  The rollAttack options; `event` marks a click.
+	 * @returns {Promise<boolean>} true when the attack deals non-lethal damage
+	 * @private
+	 */
+	async _promptLethality(options = {}) {
+		const weaponDefault = this.system.nonLethal === true;
+		// Only a real click gets a dialog. rollAttack is also driven programmatically
+		// (macros, the Quench suites, the reaction flow) and those callers have no one
+		// to answer it — they would hang waiting on a button.
+		if (!options.event) return weaponDefault;
+		// The book only grants the swap to melee weapons ("Você pode usar uma arma
+		// corpo a corpo para causar dano não letal") and to weapons that already
+		// deal non-lethal. A ranged lethal weapon has no choice to make, so asking
+		// would add a click to every shot for nothing.
+		const melee = this.system.types?.rangeType?.name === "melee";
+		if (!melee && !weaponDefault) return weaponDefault;
+
+		const DialogV2 = foundry.applications?.api?.DialogV2;
+		if (typeof DialogV2?.wait !== "function") return weaponDefault;
+
+		const buttons = [
+			{ action: "lethal", label: game.i18n.localize("op.lethalDamage"), default: !weaponDefault },
+			{ action: "nonLethal", label: game.i18n.localize("op.nonLethalDamage"), default: weaponDefault },
+		];
+		const choice = await DialogV2.wait({
+			window: { title: game.i18n.localize("op.lethalityPrompt") },
+			content: `<p>${game.i18n.format("op.lethalityHint", {
+				penalty: 5,
+			})}</p>`,
+			buttons,
+			rejectClose: false,
+		}).catch(() => null);
+		if (choice === null || choice === undefined) return weaponDefault;
+		return choice === "nonLethal";
+	}
+
 	async rollAttack(options = {}) {
 		if (!this.system.formulas.attack.attr || !this.system.formulas.attack.skill)
 			throw new Error("This Item does not have a formula to roll!");
+
+		// Lethality is decided once for the whole volley: the scheduler below spreads
+		// `options` into every recursive call, so asking here (only when nothing was
+		// decided yet) means one prompt per attack action, not one per die roll.
+		if (options.nonLethal === undefined) options.nonLethal = await this._promptLethality(options);
 
 		// Multi-target + multi-attack scheduling unificado.
 		//
@@ -365,11 +411,16 @@ export class OrdemItem extends Item {
 			rollMode = "kl";
 		} else attribute = effectiveAttr;
 
+		// Book p. 87: -5 only when going against what the weapon normally does —
+		// a weapon used as it was built takes no penalty either way.
+		const convertedLethality = options.nonLethal !== undefined && options.nonLethal !== (this.system.nonLethal === true);
+
 		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
 			degree: skill.degree.value || null,
 			bonus: skill.value || null,
 			modifier: skill.mod || null,
 			attackBonus: attack.bonus || null,
+			lethalityShift: convertedLethality ? -5 : null,
 		});
 
 		const rollConfig = {
@@ -697,6 +748,7 @@ export class OrdemItem extends Item {
 				flags["ordemparanormal.damageTarget"] = {
 					actorUuid: hitResult.actorUuid,
 					damageType: damage.type,
+					nonLethal: options.nonLethal ?? this.system.nonLethal === true,
 					attackMessageId: options.attackMessageId ?? hitResult.attackMessageId ?? this.lastAttackMessageId ?? null,
 				};
 			}

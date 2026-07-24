@@ -325,12 +325,14 @@ export function escalationTarget(id) {
  * @param {number} maxPv
  * @returns {{morrendo: boolean, machucado: boolean}}
  */
-export function computeHealthConditions(pv, maxPv) {
+export function computeHealthConditions(pv, maxPv, nonLethal = 0) {
 	const morrendo = pv <= 0;
 	const machucado = maxPv > 0 && pv <= maxPv / 2;
-	// Book p. 88: "Se for reduzido a 0 PV, você adquire as condições inconsciente
-	// e morrendo." The Dano Massivo failure clause says the same.
-	const inconsciente = pv <= 0;
+	// Book p. 88: 0 PV gives both inconsciente and morrendo. Book p. 87: non-lethal
+	// damage "se soma ao dano letal para determinar quando você fica inconsciente,
+	// mas não para determinar quando você fica morrendo" — lethal damage is
+	// (maxPv - pv), so (maxPv - pv) + nonLethal >= maxPv reduces to pv - nonLethal <= 0.
+	const inconsciente = pv - Math.max(0, nonLethal || 0) <= 0;
 	return { morrendo, machucado, inconsciente };
 }
 

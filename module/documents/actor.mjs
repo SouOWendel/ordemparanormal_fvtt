@@ -388,7 +388,11 @@ export class OrdemActor extends Actor {
 	 * @returns {Promise<void>}
 	 */
 	async #reconcileHealthNow() {
-		const want = computeHealthConditions(this.system.PV?.value ?? 0, this.system.PV?.max ?? 0);
+		const want = computeHealthConditions(
+			this.system.PV?.value ?? 0,
+			this.system.PV?.max ?? 0,
+			this.system.PV?.nonLethal ?? 0
+		);
 		const active = this._activeConditionIds();
 		const has = {
 			morrendo: active.has("morrendo"),

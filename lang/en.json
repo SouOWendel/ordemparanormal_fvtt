@@ -2,28 +2,21 @@
 	"op.op": "Paranormal Order",
 	"TYPES.Actor.agent": "Agent",
 	"TYPES.Actor.threat": "Threat",
-
 	"TYPES.Item.protection": "Protection",
 	"op.protection.plural": "Protections",
-
 	"TYPES.Item.generalEquipment": "General Gear",
 	"op.generalEquipment.plural": "General Gear",
-
 	"TYPES.Item.armament": "Weapon",
 	"op.armaments": "Weapons",
-
 	"TYPES.Item.ritual": "Ritual",
 	"op.ritual.plural": "Rituals",
-
 	"TYPES.Item.ability": "Ability",
 	"TYPES.Item.origin": "Origin",
 	"TYPES.Item.path": "Path",
 	"TYPES.Item.class": "Class",
 	"op.ability.plural": "Abilities",
 	"op.ability.diverse": "Diverse Abilities",
-
 	"op.OrdemActorSheet": "Agent's Sheet",
-
 	"SETTINGS.opPatchNotes": "Deactivate Patch Notes",
 	"SETTINGS.opPatchNotesHint": "When starting a world with the Ordem Paranormal system, or, updating the system, patch notes with news are shown in a window, toggle/untoggle this option to deactivate/activate.",
 	"SETTINGS.opPatchNotesAllViewed": "You have viewed every update note. There are no newer notes.",
@@ -34,7 +27,6 @@
 	"SETTINGS.patentesProgressRule": "Progress by Ranks",
 	"SETTINGS.globalPlayingWithoutSanity": "Playing without Sanity",
 	"SETTINGS.globalPlayingWithoutSanityHint": "Toggling this option fuses effort points and sanity in agent sheets into determination points, an option that represents both EP and SAN.",
-
 	"MACRO.opUnownedWarn": "You can only create macro buttons for owned Items.",
 	"MACRO.opNoActorSelected": "No selected or assigned actor could be found to target with macro.",
 	"MACRO.opMissingTargetWarn": "Your controlled actor '{actor}' does not have an {type} with name '{name}'.",
@@ -46,14 +38,12 @@
 	"CHAT.RollPrivate": "Private GM Roll",
 	"CHAT.RollSelf": "Personal Roll",
 	"CHAT.RollTables": "Roll Tables",
-
 	"WORLD.GameSystem": "System Game",
 	"op.sidebar.updateNotes": "An unofficial system in version",
 	"op.soon": "Soon.",
 	"op.sidebar.discord": "Contact me on Discord",
 	"op.sidebar.bluesky": "Follow me on Bluesky",
 	"op.sidebar.twitter": "Follow me on Twitter",
-
 	"op.tab": {
 		"skills": "Skills",
 		"inventory": "Inventory",
@@ -64,7 +54,6 @@
 		"attacks": "Attacks",
 		"enigmas": "Enigmas"
 	},
-
 	"op.item.tab": {
 		"description": "Description",
 		"attributes": "Attributes",
@@ -72,7 +61,6 @@
 		"spec": "Specifications",
 		"effects": "Effects"
 	},
-
 	"op.PV": "Health Points",
 	"op.PE": "Effort Points",
 	"op.PD": "Determination Points",
@@ -83,7 +71,6 @@
 	"op.nivel": "Level",
 	"op.stage": "Stage",
 	"op.ritualdt": "Ritual DC is",
-
 	"op.skill": {
 		"acrobatics": "Acrobatics",
 		"animal": "Animal Handling",
@@ -114,25 +101,20 @@
 		"will": "Will",
 		"freeSkill": "Profession"
 	},
-
 	"op.attDex": "Agility",
 	"op.attStr": "Strength",
 	"op.attInt": "Intellect",
 	"op.attPre": "Presence",
 	"op.attVit": "Vigor",
-
 	"op.dexAbv": "Agi",
 	"op.intAbv": "Int",
 	"op.vitAbv": "Vig",
 	"op.preAbv": "Pre",
 	"op.strAbv": "Str",
-
 	"op.agiAbv": "Agi",
 	"op.vigAbv": "Vig",
 	"op.forAbv": "Str",
-
 	"op.newItem": "New",
-
 	"op.effectCreate": "Create Effect",
 	"op.effectToggle": "Toggle Effect",
 	"op.effectEdit": "Edit Effect",
@@ -142,7 +124,6 @@
 	"op.inactiveEffects": "Inactive Effects",
 	"op.newEffect": "New Effect",
 	"op.sourceEffect": "Source",
-
 	"op.degreeTrainingChoices": {
 		"dest": "—",
 		"trei": "Trained",
@@ -153,7 +134,6 @@
 		"gama": "Gama",
 		"delta": "Delta"
 	},
-
 	"op.className": "Class",
 	"op.hpInitial": "Initial HP",
 	"op.hpPerLevel": "HP per Level",
@@ -173,7 +153,6 @@
 		"occultist": "Occultist",
 		"survivor": "Survivor"
 	},
-
 	"op.originName": "Origin",
 	"op.originSkills": "Granted Origin Skills",
 	"op.originAbility": "Origin Ability",
@@ -236,7 +215,6 @@
 		"universitario": "Collegiate",
 		"vítima": "Victim"
 	},
-
 	"op.trilhasName": "Paths",
 	"op.pathAbilities": "Path Abilities",
 	"op.trilhas": {
@@ -269,16 +247,12 @@
 		"esperto": "Smart",
 		"esoterico": "Esoteric"
 	},
-
 	"op.weight": "Weight",
 	"op.defense": "Defense",
 	"op.dodge": "Dodge",
-
 	"op.deslocamento": "Speed",
-
 	"op.type": "Type",
 	"op.area": "Area",
-
 	"op.attributesItem": "Attributes",
 	"op.specificationsItemTab": "Specifications",
 	"op.combatItemTab": "Combat",
@@ -308,7 +282,6 @@
 	"op.execution": "Execution",
 	"op.cost": "Cost",
 	"op.element": "Element",
-
 	"op.executionChoices": {
 		"free": "Free",
 		"movement": "Movement",
@@ -316,24 +289,20 @@
 		"complete": "Full",
 		"reaction": "Reaction"
 	},
-
 	"op.weaponTypeChoices": {
 		"melee": "Melee",
 		"ranged": "Ranged"
 	},
-
 	"op.weaponSubTypeChoices": {
 		"throw": "Throwing",
 		"shoot": "Missile",
 		"fire": "Firearm"
 	},
-
 	"op.weaponGripTypeChoices": {
 		"light": "Light Weapon",
 		"oneHand": "One Handed",
 		"twoHands": "Two Handed"
 	},
-
 	"op.weaponAmmunitionChoices": {
 		"shortBullets": "Short Bullets",
 		"longBullets": "Long Bullets",
@@ -342,38 +311,32 @@
 		"rocket": "Rockets",
 		"cartridge": "Shells"
 	},
-
 	"op.proficiencyChoices": {
 		"simpleWeapons": "Simple Weapons",
 		"tacticalWeapons": "Tactical Weapons",
 		"heavyWeapons": "Heavy Weapons"
 	},
-
 	"op.proficiencyChoicesAbbr": {
 		"simpleWeapons": "Simple",
 		"tacticalWeapons": "Tactical",
 		"heavyWeapons": "Heavy"
 	},
-
 	"op.damageTypeChoices": {
 		"cuttingDamage": "Slashing (S)",
 		"impactDamage": "Bludgeoning (B)",
 		"piercingDamage": "Piercing (P)",
 		"ballisticDamage": "Ballistic (Ba)",
-
 		"bloodDamage": "Blood (Bl)",
 		"deathDamage": "Death (De)",
 		"knowledgeDamage": "Knowledge (Kn)",
 		"energyDamage": "Energy (En)",
 		"fearDamage": "Fear (Fe)",
-
 		"fireDamage": "Fire (Fi)",
 		"eletricDamage": "Electricity (El)",
 		"coldDamage": "Cold (Co)",
 		"chemicalDamage": "Chemical (Ch)",
 		"mentalDamage": "Mental (Me)"
 	},
-
 	"op.damageTypeAbv": {
 		"cuttingDamage": "Slashing",
 		"impactDamage": "Bludgeoning",
@@ -390,9 +353,7 @@
 		"chemicalDamage": "Chemical",
 		"mentalDamage": "Mental"
 	},
-
 	"op.undefined": "Undefined",
-
 	"op.powerTypeChoices": {
 		"origin": "Origin Power",
 		"class": "Class Power",
@@ -402,7 +363,6 @@
 		"complication": "Complication",
 		"ability": "Other Ability"
 	},
-
 	"op.abilitiesAbv": {
 		"origin": "Origin Power",
 		"class": "Class Power",
@@ -412,14 +372,12 @@
 		"complication": "Complication",
 		"ability": "Other Ability"
 	},
-
 	"op.improvised": "Improvised",
 	"op.throwable": "Throwable",
 	"op.agile": "Agile",
 	"op.automatic": "Automatic",
 	"op.adaptableGrip": "Adaptable Grip",
 	"op.pistolBlow": "Gun Bash",
-
 	"op.rangeChoices": {
 		"personal": "Personal",
 		"touch": "Touch",
@@ -429,7 +387,6 @@
 		"extreme": "Extreme",
 		"unlimited": "Unlimited"
 	},
-
 	"op.targetChoices": {
 		"people": "People",
 		"creatures": "Being(s)",
@@ -438,21 +395,18 @@
 		"equipment": "Gear",
 		"area": "Area"
 	},
-
 	"op.areaChoices": {
 		"cone": "Cone",
 		"cube": "Cube",
 		"sphere": "Sphere",
 		"line": "Line"
 	},
-
 	"op.areaTypeChoices": {
 		"radius": "Radius",
 		"diameter": "Diameter"
 	},
 	"op.areaLabelSphereCone": "{name} with {size}m {type}",
 	"op.areaLabelCubeLine": "{name} with {size}m",
-
 	"op.durationChoices": {
 		"instantaneous": "Instantaneous",
 		"scene": "Scene",
@@ -460,14 +414,12 @@
 		"setDuration": "Set Duration",
 		"permanent": "Permanent"
 	},
-
 	"op.resistanceChoices": {
 		"nullifies": "Nullifies",
 		"discredits": "Disbelieves",
 		"partial": "Partial",
 		"reducesByHalf": "Halves"
 	},
-
 	"op.elementChoices": {
 		"blood": "Blood",
 		"death": "Death",
@@ -475,13 +427,11 @@
 		"energy": "Energy",
 		"fear": "Fear"
 	},
-
 	"op.threatTypeChoices": {
 		"creature": "Creature",
 		"person": "Person",
 		"animal": "Animal"
 	},
-
 	"op.threatSizeChoices": {
 		"tiny": "Tiny",
 		"small": "Small",
@@ -490,9 +440,7 @@
 		"huge": "Huge",
 		"colossal": "Colossal"
 	},
-
 	"op.rollDamageChat": "Dealt damage with {name} ({types})",
-
 	"op.threatName": "Threat Name",
 	"op.VD": "VD",
 	"op.size": "Size",
@@ -522,7 +470,6 @@
 	"op.disturbingPresence.noFormula": "Define a value for Mental Damage (e.g., 2d6).",
 	"op.disturbingPresence.mentalDamageRollFlavor": "Mental Damage (Disturbing Presence)",
 	"op.disturbingPresence.errorFormula": "Error in damage formula:",
-
 	"op.traitsLabel": "Traits",
 	"op.traitsTitle": "Configure Threat Traits",
 	"op.traits": {
@@ -533,14 +480,12 @@
 		"lowLightVision": "Low Light Vision",
 		"darkvision": "Darkvision"
 	},
-
 	"op.Notes": "Update Notes",
 	"op.Issues": "Issues",
 	"op.Wiki": "Wiki",
 	"op.Discord": "System's Discord",
 	"op.Credits": "Credits & Licenses",
 	"op.Twitter": "Twitter",
-
 	"op.damage": "Damage",
 	"op.rollDmg": "Roll Damage",
 	"op.rollAtk": "Roll Attack",
@@ -559,7 +504,6 @@
 	"op.damageBlocked": "blocked {blocked} DR",
 	"op.effectExpired": "The effect <strong>{effect}</strong> from <strong>{actor}</strong> expired.",
 	"op.skillDegreeOverrideTitle": "Manual override — leave empty to derive from training level",
-
 	"op.reaction.panelTitle": "Defensive Reaction",
 	"op.reaction.dodge": "Dodge",
 	"op.reaction.dodgeWithBonus": "Dodge (+{bonus})",
@@ -585,7 +529,6 @@
 	"op.reaction.confirm": "Confirm",
 	"op.reaction.needsGM": "No GM is connected — reaction cannot be applied.",
 	"op.reaction.attackerGone": "The attacker is no longer on the scene — counter-attack cancelled.",
-
 	"op.Advantage": "Advantage (+1d20)",
 	"op.Normal": "Roll Dice",
 	"op.Disadvantage": "Disadvantage (-1d20)",
@@ -655,13 +598,11 @@
 	"op.bonus": "Bonus",
 	"op.name": "Name",
 	"op.skill.label": "Skill",
-
 	"SETTINGS.initiativeTiebreaker": "Initiative Tiebreaker",
 	"SETTINGS.initiativeTiebreakerHint": "Defines how to resolve initiative ties.",
 	"SETTINGS.tiebreakerDex": "Agility (higher value wins)",
 	"SETTINGS.tiebreakerNone": "No automatic tiebreaker",
 	"SETTINGS.tiebreakerReroll": "Re-roll initiative on tie",
-
 	"KEYBINDINGS": {
 		"op": {
 			"SkipDialogNormal": "Skip Dialog",
@@ -669,7 +610,6 @@
 			"SkipDialogDisadvantage": "Skip Dialog (roll with disadvantage)"
 		}
 	},
-
 	"EFFECT": {
 		"TabDuration": "Duration"
 	},
@@ -719,5 +659,10 @@
 	"op.massiveDamageButton": "Test Fortitude",
 	"op.massiveDamageFailed": "{name} failed the Fortitude test against Massive Damage and was reduced to 0 PV!",
 	"op.massiveDamagePassed": "{name} resisted the Massive Damage.",
-	"op.massiveDamageNotOwner": "You do not control this character."
+	"op.massiveDamageNotOwner": "You do not control this character.",
+	"op.lethalDamage": "Lethal",
+	"op.nonLethalDamage": "Non-lethal",
+	"op.lethalityPrompt": "Attack damage type",
+	"op.lethalityHint": "Using the weapon against what it normally deals costs −{penalty} on the attack roll.",
+	"op.armamentNonLethal": "Deals non-lethal damage"
 }

@@ -172,6 +172,7 @@ export default class ChatMessageOP extends ChatMessage {
 						const extraRD = attackMsg?.getFlag("ordemparanormal", "damageBlock")?.amount ?? 0;
 						const result = await targetActor.applyDamage(applyRoll.total, {
 							damageType: damageTarget.damageType,
+							nonLethal: damageTarget.nonLethal === true,
 							extraRD,
 						});
 						const blockedMsg =
