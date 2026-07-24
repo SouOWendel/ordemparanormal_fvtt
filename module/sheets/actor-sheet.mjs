@@ -1020,32 +1020,28 @@ export class OrdemActorSheet extends api.HandlebarsApplicationMixin(sheets.Actor
 	}
 
 	/**
-	 * Handle finding an available item of a given type.
-	 * @this {CharacterActorSheet}
-	 * @param {Event} event         Triggering click event.
-	 * @param {HTMLElement} target  Button that was clicked.
+	 * Open compendium when clicking on an empty item slot.
+	 * @param {PointerEvent} event
+	 * @param {HTMLElement} target
 	 */
-	static async #findItem(event, target) {
-		const { itemType: type } = target.dataset;
-		console.log(`Finding item of type ${type}`);
-		// if (!this.isEditable) return;
-		// const { classIdentifier, facilityType, itemType: type } = target.dataset;
-		// const filters = { locked: { types: new Set([type]) } };
-		// if (classIdentifier) filters.locked.additional = { class: { [classIdentifier]: 1 } };
-		// if (type === "class") {
-		// 	const existingIdentifiers = new Set(Object.keys(this.actor.classes));
-		// 	filters.initial = { additional: { properties: { sidekick: -1 } } };
-		// 	filters.locked.arbitrary = [{ o: "NOT", v: { k: "system.identifier", o: "in", v: existingIdentifiers } }];
-		// }
-		// if (type === "facility") {
-		// 	const otherType = facilityType === "basic" ? "special" : "basic";
-		// 	filters.locked.additional = {
-		// 		type: { [facilityType]: 1, [otherType]: -1 },
-		// 		level: { max: this.actor.system.details.level },
-		// 	};
-		// }
-		// const result = await CompendiumBrowser.selectOne({ filters }, this._detachOptions());
-		// if (result) this._onDropCreateItems(event, [game.items.fromCompendium(await fromUuid(result), { keepId: true })]);
+	static #findItem(event, target) {
+		event.preventDefault();
+
+		const reference = target.dataset.reference;
+
+		const compendiumMap = CONFIG.op.CompendiumEntries;
+
+		const packKey = compendiumMap[reference];
+
+		if (packKey) {
+			const pack = game.packs.get(packKey);
+			if (pack) {
+				// Abre a janela do compêndio na tela do jogador
+				pack.render(true);
+			} else {
+				ui.notifications.warn(`O compêndio de ${reference} (${packKey}) não foi encontrado no sistema.`);
+			}
+		}
 	}
 
 	/** ******************
