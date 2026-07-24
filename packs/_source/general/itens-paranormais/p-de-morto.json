@@ -3,7 +3,7 @@
   "type": "generalEquipment",
   "img": "systems/ordemparanormal/media/icons/equipments/paranormal/pe-de-morto.svg",
   "system": {
-    "description": "<p>Estas botas macabras foram costuradas com a pele de cadáveres amaldiçoados pela Morte. Com essa matéria grotesca, a bota mantém os passos do usuário leves e quase inaudíveis, como se ele fosse um fantasma se aproximando sem fazer barulho. Você recebe +5 em Furtividade e, em cenas de furtividade, qualquer ação chamativa que envolva apenas se mover (como correr ou saltar) aumenta a visibilidade em apenas +1.</p>",
+    "description": "<p>Estas botas macabras foram costuradas com a pele de cadáveres amaldiçoados pela Morte. Com essa matéria grotesca, a bota mantém os passos do usuário leves e quase inaudíveis, como se ele fosse um fantasma se aproximando sem fazer barulho. Você recebe +5 em Furtividade e, em cenas de furtividade (p. 92), qualquer ação chamativa que envolva apenas se mover (como correr ou saltar) aumenta a visibilidade em apenas +1.</p>",
     "chatDescription": "",
     "weight": 1,
     "category": 2,

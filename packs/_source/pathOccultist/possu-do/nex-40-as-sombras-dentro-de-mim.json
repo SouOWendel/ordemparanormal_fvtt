@@ -7,7 +7,7 @@
     "id": "bW3yA7dX1cE6fH9s",
     "abilityType": "path",
     "preRequisite": "Trilha: Possuído",
-    "description": "<p>Cada vez mais a Entidade cresce dentro de você, tomando seus músculos e guiando seus movimentos. Sua recuperação de PP aumenta para 2 por ação <strong>dormir</strong>. Além disso, você pode gastar <strong>2 PE</strong> para permitir que sua Entidade controle temporariamente seus músculos. Você assume uma postura desnatural que permite movimentos bizarros e silenciosos; você recebe <strong>@DisplayDice[qtd:1|sign:plus|dc:d20]</strong> em <strong>Acrobacia</strong>, <strong>Atletismo</strong> e <strong>Furtividade</strong> por <strong>uma rodada</strong> e, se estiver em uma <strong>cena de furtividade</strong>, nesta rodada o aumento em sua visibilidade por qualquer ação é reduzido em –1.</p>",
+    "description": "<p>Cada vez mais a Entidade cresce dentro de você, tomando seus músculos e guiando seus movimentos. Sua recuperação de PP aumenta para 2 por ação <strong>dormir</strong>. Além disso, você pode gastar <strong>2 PE</strong> para permitir que sua Entidade controle temporariamente seus músculos. Você assume uma postura desnatural que permite movimentos bizarros e silenciosos; você recebe <strong>@DisplayDice[qtd:1|sign:plus|dc:d20]</strong> em <strong>Acrobacia</strong>, <strong>Atletismo</strong> e <strong>Furtividade</strong> por <strong>uma rodada</strong> e, se estiver em uma <strong>cena de furtividade</strong> (veja p. 92), nesta rodada o aumento em sua visibilidade por qualquer ação é reduzido em –1.</p>",
     "cost": "2",
     "costType": "PE",
     "activation": ""

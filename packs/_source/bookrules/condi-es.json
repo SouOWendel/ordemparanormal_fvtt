@@ -1262,7 +1262,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Perturbado.</span> Na primeira vez que isso acontece em uma cena, você recebe um efeito de insanidade.</p><p><strong>Tabela de Rolagem:</strong> @UUID[Compendium.ordemparanormal.others.RollTable.GKt9JswZXY1I2QGd]{5.1: Efeitos de Insanidade}</p>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Perturbado.</span> Na primeira vez que isso acontece em uma cena, você recebe um efeito de insanidade (veja a p. 111).</p><p><strong>Tabela de Rolagem:</strong> @UUID[Compendium.ordemparanormal.others.RollTable.GKt9JswZXY1I2QGd]{5.1: Efeitos de Insanidade}</p>"
       },
       "video": {
         "controls": true,

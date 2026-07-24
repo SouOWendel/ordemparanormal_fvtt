@@ -6,7 +6,7 @@
     "id": 0,
     "abilityType": "class",
     "preRequisite": "Crime",
-    "description": "<p>Se for para alguém do seu grupo ser pego, que seja você. Quando usa a ação sacrifício em uma cena de perseguição, você pode gastar 1 PE para fornecer @DisplayDice[qtd:1|sign:plus|dc:d20] extra (para um total de @DisplayDice[qtd:2|sign:plus|dc:d20]) nos testes dos outros personagens e, quando usa a ação chamar atenção em uma cena de furtividade, você pode gastar 1 PE para diminuir a visibilidade de todos os seus aliados próximos em –2 (em vez de –1).</p>",
+    "description": "<p>Se for para alguém do seu grupo ser pego, que seja você. Quando usa a ação sacrifício em uma cena de perseguição (p. 90), você pode gastar 1 PE para fornecer @DisplayDice[qtd:1|sign:plus|dc:d20] extra (para um total de @DisplayDice[qtd:2|sign:plus|dc:d20]) nos testes dos outros personagens e, quando usa a ação chamar atenção em uma cena de furtividade (p. 92), você pode gastar 1 PE para diminuir a visibilidade de todos os seus aliados próximos em –2 (em vez de –1).</p>",
     "cost": "",
     "costType": "PE",
     "activation": ""
