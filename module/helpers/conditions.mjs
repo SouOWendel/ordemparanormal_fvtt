@@ -356,7 +356,17 @@ export async function applyCondition(actor, id, { active = true } = {}) {
 		// Only this branch knows one condition became another; the applied/removed
 		// hooks come off the effect documents and can't tell escalation from a
 		// plain toggle. Public contract: see module/api/conditions-api.mjs.
-		Hooks?.callAll?.("ordemparanormalConditionEscalated", actor, id, target);
+		//
+		// This runs only on the client doing the write, unlike the document-driven
+		// hooks that reach everyone. Passing the acting user id last keeps the three
+		// events consistent for a listener that gates on `game.userId === userId`.
+		Hooks?.callAll?.(
+			"ordemparanormal.conditionEscalated",
+			actor,
+			id,
+			target,
+			globalThis.game?.userId ?? globalThis.game?.user?.id ?? null
+		);
 		return applyCondition(actor, target, { active: true });
 	}
 	return actor.toggleStatusEffect(id, { active: true, overlay: Boolean(CONDITIONS[id].overlay) });

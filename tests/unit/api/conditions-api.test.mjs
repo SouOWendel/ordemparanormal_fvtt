@@ -16,7 +16,9 @@ function makeActor(active = []) {
 		toggleStatusEffect: vi.fn(async (id, { active = true } = {}) => {
 			if (active) set.add(id);
 			else set.delete(id);
-			return { id, active };
+			// Real toggleStatusEffect hands back an ActiveEffect; the API reads the
+			// applied condition off `statuses`, so the stub has to carry it.
+			return { id, active, statuses: new Set([id]) };
 		}),
 	};
 }
@@ -31,9 +33,9 @@ describe("conditions API — shape", () => {
 
 	it("expõe os nomes dos hooks públicos", () => {
 		expect(api.hooks).toEqual(CONDITION_HOOKS);
-		expect(api.hooks.applied).toBe("ordemparanormalConditionApplied");
-		expect(api.hooks.removed).toBe("ordemparanormalConditionRemoved");
-		expect(api.hooks.escalated).toBe("ordemparanormalConditionEscalated");
+		expect(api.hooks.applied).toBe("ordemparanormal.conditionApplied");
+		expect(api.hooks.removed).toBe("ordemparanormal.conditionRemoved");
+		expect(api.hooks.escalated).toBe("ordemparanormal.conditionEscalated");
 	});
 
 	it("o objeto da API é congelado", () => {
@@ -72,6 +74,17 @@ describe("conditions API — list/get/has", () => {
 			overlay: expect.any(Boolean),
 			defensePenalty: expect.any(Number),
 		});
+	});
+
+	it("label vem localizado e labelKey guarda a chave i18n", () => {
+		const d = api.get("abalado");
+		expect(d.labelKey).toBe("op.conditions.abalado");
+		expect(typeof d.label).toBe("string");
+	});
+
+	it("descritores mantêm identidade estável entre chamadas", () => {
+		expect(api.list()).toBe(api.list());
+		expect(api.get("abalado")).toBe(api.get("abalado"));
 	});
 
 	it("expõe o alvo de escalonamento", () => {
@@ -128,9 +141,18 @@ describe("conditions API — apply/remove", () => {
 
 	it("apply escalona quando a condição já está ativa", async () => {
 		const actor = makeActor(["abalado"]);
-		await api.apply(actor, "abalado");
+		const r = await api.apply(actor, "abalado");
 		expect(api.isActive(actor, "apavorado")).toBe(true);
 		expect(api.isActive(actor, "abalado")).toBe(false);
+		expect(r.id).toBe("apavorado");
+		expect(r.escalatedFrom).toBe("abalado");
+	});
+
+	it("apply sem escalonamento reporta o id pedido e escalatedFrom null", async () => {
+		const actor = makeActor();
+		const r = await api.apply(actor, "abalado");
+		expect(r.id).toBe("abalado");
+		expect(r.escalatedFrom).toBeNull();
 	});
 
 	it("remove tira a condição", async () => {
