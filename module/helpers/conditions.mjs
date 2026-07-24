@@ -328,7 +328,10 @@ export function escalationTarget(id) {
 export function computeHealthConditions(pv, maxPv) {
 	const morrendo = pv <= 0;
 	const machucado = maxPv > 0 && pv <= maxPv / 2;
-	return { morrendo, machucado };
+	// Book p. 88: "Se for reduzido a 0 PV, você adquire as condições inconsciente
+	// e morrendo." The Dano Massivo failure clause says the same.
+	const inconsciente = pv <= 0;
+	return { morrendo, machucado, inconsciente };
 }
 
 /**

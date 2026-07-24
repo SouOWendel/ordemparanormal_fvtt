@@ -326,7 +326,7 @@ export class OrdemActor extends Actor {
 		// Threats don't get morrendo/machucado auto-toggled (reconcileHealthConditions
 		// no-ops for them), so don't report conditions that will never actually apply.
 		if (!isThreat) {
-			if (newPV <= 0) conditions.push("morrendo");
+			if (newPV <= 0) conditions.push("morrendo", "inconsciente");
 			if (newPV <= resource.max / 2) conditions.push("machucado");
 		}
 
@@ -393,9 +393,35 @@ export class OrdemActor extends Actor {
 		const has = {
 			morrendo: active.has("morrendo"),
 			machucado: active.has("machucado"),
+			inconsciente: active.has("inconsciente"),
 		};
 		if (want.morrendo !== has.morrendo) await this.toggleStatusEffect("morrendo", { active: want.morrendo });
 		if (want.machucado !== has.machucado) await this.toggleStatusEffect("machucado", { active: want.machucado });
+		await this.#reconcileInconsciente(want.inconsciente, has.inconsciente);
+	}
+
+	/**
+	 * Toggle `inconsciente` for the 0-PV rule (book p. 88) without touching an
+	 * unconsciousness that came from somewhere else. Unlike morrendo/machucado,
+	 * this condition is also a manual pick and an escalation target
+	 * (fatigado -> exausto -> inconsciente, confuso -> inconsciente), so the
+	 * effect we create is flagged and only a flagged one is cleared on healing.
+	 * @param {boolean} want
+	 * @param {boolean} has
+	 * @returns {Promise<void>}
+	 */
+	async #reconcileInconsciente(want, has) {
+		const FLAG = "healthApplied";
+		if (want && !has) {
+			const created = await this.toggleStatusEffect("inconsciente", { active: true });
+			if (created?.setFlag) await created.setFlag("ordemparanormal", FLAG, true);
+			return;
+		}
+		if (!want && has) {
+			const effect = this.effects.find((e) => e.statuses?.has?.("inconsciente"));
+			// Healing ends it only when the 0-PV rule is what applied it.
+			if (effect?.getFlag?.("ordemparanormal", FLAG)) await effect.delete();
+		}
 	}
 
 	/**
