@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/origins/influencer-paranormal.webp",
   "system": {
     "id": 0,
-    "grantedSkills": "",
     "description": "<p>Você pode encontrar esse conteúdo na <strong>página 64 do Arquivos Secretos 4</strong>.</p>",
-    "chatDescription": "",
-    "ability": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 0,

@@ -5,10 +5,8 @@
   "img": "systems/ordemparanormal/media/icons/origins/mercenario.svg",
   "system": {
     "id": 0,
-    "grantedSkills": "",
     "description": "<p>Você é um soldado de aluguel, que trabalha sozinho ou como parte de alguma organização que vende serviços militares. Escoltas e assassinatos fizeram parte de sua rotina por tempo o suficiente para você se envolver em alguma situação com o paranormal.</p><p class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Perícias Treinadas.</strong></em></span><strong> </strong>Iniciativa e Intimidação.</p><p class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Posição de Combate.</strong></em></span><strong> </strong>No primeiro turno de cada cena de ação, você pode gastar 2 PE para receber uma ação de movimento adicional.</p>",
-    "chatDescription": "",
-    "ability": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "folder": "opgOrgfwBqJNU8Jq",

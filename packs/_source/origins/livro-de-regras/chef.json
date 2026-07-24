@@ -5,10 +5,8 @@
   "img": "systems/ordemparanormal/media/icons/origins/chef.svg",
   "system": {
     "id": 0,
-    "grantedSkills": "",
     "description": "<p>Você é um cozinheiro amador ou profissional. Talvez trabalhasse em um restaurante, talvez simplesmente gostasse de cozinhar para a família e amigos. Como sua comida fez com que você se envolvesse com o paranormal? Ninguém sabe. Mas os outros agentes adoram quando você vai para a missão!</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Perícias Treinadas.</strong></em></span><strong> </strong>Fortitude e Profissão (cozinheiro).</p><p style=\"text-align: justify;\" class=\"MsoNormal\"><span style=\"mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #548235; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; color: rgb(84, 130, 53)\"><em><strong>Ingrediente Secreto.</strong></em></span><strong> </strong>Em cenas de interlúdio, você pode fazer a ação alimentar-se para cozinhar um prato especial. Você, e todos os membros do grupo que fizeram a ação alimentar-se, recebem o benefício de <em>dois </em>pratos (caso o mesmo benefício seja escolhido duas vezes, seus efeitos se acumulam).</p>",
-    "chatDescription": "",
-    "ability": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "folder": "opgOrgfwBqJNU8Jq",

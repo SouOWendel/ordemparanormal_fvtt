@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/origins/reporter-investigativo.svg",
   "system": {
     "id": 0,
-    "grantedSkills": "",
     "description": "<p>Você pode encontrar esse conteúdo na <strong>página 13 do suplemento Sobrevivendo ao Horror</strong>.</p>",
-    "chatDescription": "",
-    "ability": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 0,

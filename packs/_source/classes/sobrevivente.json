@@ -14,10 +14,6 @@
     "pePerLevel": 1,
     "sanInitial": 8,
     "sanPerLevel": 2,
-    "skillCount": 0,
-    "grantedSkills": "",
-    "proficiencies": "",
-    "abilities": "Your text here.",
     "isSurvivor": true,
     "pdInitial": 4,
     "pdPerLevel": 2

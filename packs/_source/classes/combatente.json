@@ -14,10 +14,6 @@
     "pePerLevel": 2,
     "sanInitial": 12,
     "sanPerLevel": 3,
-    "skillCount": 1,
-    "grantedSkills": "",
-    "proficiencies": "",
-    "abilities": "Your text here.",
     "pdInitial": 6,
     "pdPerLevel": 3
   },

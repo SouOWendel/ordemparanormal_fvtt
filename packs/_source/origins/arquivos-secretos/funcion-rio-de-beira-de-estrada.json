@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/origins/funcionario-de-beira-de-estrada.webp",
   "system": {
     "id": 0,
-    "grantedSkills": "",
     "description": "Your text here.",
-    "chatDescription": "",
-    "ability": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 0,

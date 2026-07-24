@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/origins/transtornado-arrependido.webp",
   "system": {
     "id": 0,
-    "grantedSkills": "",
     "description": "<p>Você pode encontrar esse conteúdo na <strong>página 43 do Arquivos Secretos 1</strong>.</p>",
-    "chatDescription": "",
-    "ability": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 0,

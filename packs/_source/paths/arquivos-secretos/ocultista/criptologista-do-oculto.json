@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/paths/criptologista-do-oculto.webp",
   "system": {
     "id": 0,
-    "preRequisite": "",
     "description": "<p>Você pode encontrar esse conteúdo na <strong>página 58 do Arquivos Secretos 5</strong>.</p>",
-    "chatDescription": "",
-    "abilities": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 0,

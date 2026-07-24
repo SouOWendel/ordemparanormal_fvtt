@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/paths/conduite.webp",
   "system": {
     "id": 0,
-    "preRequisite": "",
     "description": "<p>Você domina os aspectos fundamentais da conjuração de rituais e é capaz de aumentar o alcance e velocidade de suas conjurações. Conforme sua conexão com as entidades paranormais aumenta você se torna capaz de interferir com os rituais de outros ocultistas.</p><p><span style=\"color: #bb282d\"><strong>NEX 10% - Ampliar Ritual.</strong></span> Quando lança um ritual, você pode gastar +2 PE para aumentar seu alcance em um passo (de curto para médio, de médio para longo ou de longo para extremo) ou dobrar sua área de efeito.</p><p><span style=\"color: #bb282d\"><strong>NEX 40% - Acelerar Ritual.</strong></span> Uma vez por rodada, você pode aumentar o custo de um ritual em 4 PE para conjurá-lo como uma ação livre.</p><p><span style=\"color: #bb282d\"><strong>NEX 65% - Anular Ritual.</strong></span> Quando for alvo de um ritual, você pode gastar uma quantidade de PE igual ao custo pago por esse ritual e fazer um teste oposto de Ocultismo contra o conjurador. Se vencer, você anula o ritual, cancelando todos os seus efeitos.</p><p><span style=\"color: #bb282d\"><strong>NEX 99% - Canalizar o Medo.</strong></span> Você aprende o ritual Canalizar o Medo.</p>",
-    "chatDescription": "",
-    "abilities": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 0,

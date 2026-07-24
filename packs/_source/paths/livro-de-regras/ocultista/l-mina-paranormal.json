@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/paths/lamina-paranormal.webp",
   "system": {
     "id": 0,
-    "preRequisite": "",
     "description": "<p>Alguns ocultistas preferem ficar fechados em suas bibliotecas estudando livros e rituais. Outros preferem investigar fenômenos paranormais em sua fonte. Já você, prefere usar o paranormal como uma arma. Você aprendeu e dominou técnicas de luta mesclando suas habilidades de conjuração com suas capacidades de combate.</p><p><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 10% - Lâmina Maldita.</strong></span> Você aprende o ritual Amaldiçoar Arma. Se já o conhece, pode gastar +1 PE quando o lança para reduzir seu tempo de conjuração para movimento. Além disso, quando conjura esse ritual, você pode usar Ocultismo, em vez de Luta ou Pontaria, para testes de ataque com a arma amaldiçoada.</p><p><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 40% - Gladiador Paranormal.</strong></span> Sempre que acerta um ataque corpo a corpo em um inimigo, você recebe 2 PE temporários. Você pode ganhar um máximo de PE temporários por cena igual ao seu limite de PE. PE temporários desaparecem no final da cena.</p><p><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 65% - Conjuração Marcial.</strong> </span>Uma vez por rodada, quando você lança um ritual com execução de uma ação padrão, pode gastar 2 PE para fazer um ataque corpo a corpo como uma ação livre.</p><p><span style=\"color: rgb(187, 40, 45)\"><strong>NEX 99% - Lâmina do Medo.</strong></span> Você aprende o ritual <em>Lâmina do Medo</em>.</p>",
-    "chatDescription": "",
-    "abilities": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 0,

@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/paths/monstruoso-de-energia.webp",
   "system": {
     "id": 0,
-    "preRequisite": "",
     "description": "<p>Você pode encontrar esse conteúdo na <strong>página 17-21 do suplemento Sobrevivendo ao Horror</strong>.</p>",
-    "chatDescription": "",
-    "abilities": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 400000,

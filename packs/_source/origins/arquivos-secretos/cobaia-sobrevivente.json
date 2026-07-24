@@ -6,10 +6,8 @@
   "img": "systems/ordemparanormal/media/icons/origins/cobaia-sobrevivente.svg",
   "system": {
     "id": 0,
-    "grantedSkills": "",
     "description": "<p>Você pode encontrar esse conteúdo na <strong>página 66 do Arquivos Secretos 6</strong>.</p>",
-    "chatDescription": "",
-    "ability": "Your text here."
+    "chatDescription": ""
   },
   "effects": [],
   "sort": 0,
