@@ -10,6 +10,9 @@ Hooks.once("quenchReady", (quench) => {
 
 			const refetch = (actor) => game.actors.get(actor.id);
 
+			// PV is set explicitly: derived PV.max only runs when the agent carries a
+			// class Item, and without one an agent starts at 5/10 — too low for the
+			// "half of max PV without dropping to 0" case these tests need.
 			async function makeAgent(name, system = {}) {
 				const actor = await Actor.create({
 					name: `[Quench] ${name}`,
@@ -18,6 +21,7 @@ Hooks.once("quenchReady", (quench) => {
 						class: "fighter",
 						attributes: { vit: { value: 3 }, pre: { value: 1 }, dex: { value: 2 }, str: { value: 2 }, int: { value: 1 } },
 						NEX: { value: 10 },
+						PV: { value: 30, max: 30 },
 						...system,
 					},
 				});
@@ -86,8 +90,13 @@ Hooks.once("quenchReady", (quench) => {
 					assert.isTrue(roll.isFailure);
 
 					// Apply the same consequence the click handler applies on failure.
+					// Like the handler, don't call reconcileHealthConditions() — update()
+					// fires the updateActor hook, which reconciles on its own. Calling it
+					// again races the hook over the same effect.
 					await actor.update({ "system.PV.value": 0 });
-					await actor.reconcileHealthConditions();
+					for (let i = 0; i < 40 && !isConditionActive(refetch(actor), "morrendo"); i++) {
+						await new Promise((r) => setTimeout(r, 25));
+					}
 					actor = refetch(actor);
 					assert.equal(actor.system.PV.value, 0);
 					assert.isTrue(isConditionActive(actor, "morrendo"));

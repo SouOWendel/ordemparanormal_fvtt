@@ -16,6 +16,19 @@ Hooks.once("quenchReady", (quench) => {
 
 			const refetch = (actor) => game.actors.get(actor.id);
 
+			/**
+			 * Wait for the updateActor hook's un-awaited reconcileHealthConditions()
+			 * to settle, instead of calling it again from the test (which races it).
+			 * @param {Actor} actor
+			 * @param {(a: Actor) => boolean} done
+			 */
+			async function settleConditions(actor, done) {
+				for (let i = 0; i < 40; i++) {
+					if (done(refetch(actor))) return;
+					await new Promise((r) => setTimeout(r, 25));
+				}
+			}
+
 			async function makeAgent(name, system = {}) {
 				const actor = await Actor.create({
 					name: `[Quench] ${name}`,
@@ -180,13 +193,17 @@ Hooks.once("quenchReady", (quench) => {
 				after(async () => await actor?.delete());
 
 				it("PV 0 -> morrendo + machucado; heal -> removed", async () => {
+					// Don't call reconcileHealthConditions() here: update() fires the
+					// updateActor hook, which reconciles on its own (fire-and-forget).
+					// Calling it again races the hook and both try to remove the same
+					// effect — the loser throws "ActiveEffect ... does not exist".
 					await actor.update({ "system.PV.value": 0 });
-					await actor.reconcileHealthConditions();
+					await settleConditions(actor, (a) => isConditionActive(a, "morrendo"));
 					actor = refetch(actor);
 					assert.isTrue(isConditionActive(actor, "morrendo"));
 					assert.isTrue(isConditionActive(actor, "machucado"));
 					await actor.update({ "system.PV.value": actor.system.PV.max });
-					await actor.reconcileHealthConditions();
+					await settleConditions(actor, (a) => !isConditionActive(a, "morrendo"));
 					actor = refetch(actor);
 					assert.isFalse(isConditionActive(actor, "morrendo"));
 					assert.isFalse(isConditionActive(actor, "machucado"));
