@@ -15,7 +15,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Abalado.</strong> O personagem sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes. Se ficar abalado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ThV6jSd1m1K6sLXi]{Apavorado}. Condição de medo.</p><blockquote><p><strong style=\"color:#b92a4c\">Apavorado.</strong> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível (mas pode parar de fazê-lo assim que a perder de vista ou se afastar mais do que alcance médio). Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo. Condição de medo.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Abalado.</span> O personagem sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes. Se ficar abalado novamente, em vez disso fica @UUID[.ThV6jSd1m1K6sLXi]{Apavorado}. Condição de medo.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Apavorado.</span> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de perícia e deve fugir da fonte do medo da maneira mais eficiente possível (mas pode parar de fazê-lo assim que a perder de vista ou se afastar mais do que alcance médio). Se não puder, poderá agir, mas não poderá se aproximar voluntariamente da fonte do medo. Condição de medo.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -32,12 +32,12 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675150506,
-        "modifiedTime": 1768676814524,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855001453,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.shBwCY0J58f1HarD"
     },
@@ -53,7 +53,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Agarrado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.RoklJtHposaRZ5pF]{Imóvel}, sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. Condição de paralisia.</p><blockquote><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><strong style=\"color:#b92a4c\">Imóvel.</strong> Todas as formas de deslocamento do personagem são reduzidas a 0m. Condição de paralisia.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Agarrado.</span> O personagem fica @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido} e @UUID[.RoklJtHposaRZ5pF]{Imóvel}, sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de ataque e só pode atacar com armas leves. Um personagem fazendo um ataque à distância contra um alvo envolvido na manobra agarrar tem 50% de chance de acertar o alvo errado. Condição de paralisia.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><span style=\"color:rgb(185, 42, 76)\">Imóvel.</span> Todas as formas de deslocamento do personagem são reduzidas a 0m. Condição de paralisia.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -70,12 +70,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.shBwCY0J58f1HarD",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675320686,
-        "modifiedTime": 1768676912775,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855072348,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "PBNwfnS3Dgkz719I",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.PBNwfnS3Dgkz719I"
@@ -92,7 +92,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Alquebrado.</strong> O custo em pontos de esforço das habilidades e dos rituais do personagem aumenta em +1. Condição mental.</p><blockquote><p>Definição: \"que caminha curvado (vergado) por motivo de doença, fadiga ou velhice.</p><p>Que demonstra cansaço; abatido.\"</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Alquebrado.</span> O custo em pontos de esforço das habilidades e dos rituais do personagem aumenta em +1. Condição mental.</p><blockquote><p>Definição: \"que caminha curvado (vergado) por motivo de doença, fadiga ou velhice.</p><p>Que demonstra cansaço; abatido.\"</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -109,12 +109,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBNwfnS3Dgkz719I",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675357722,
-        "modifiedTime": 1768685088795,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855093909,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "6TvjpG8uDoQEcYxp",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.6TvjpG8uDoQEcYxp"
@@ -209,7 +209,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Atordoado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido} e não pode fazer ações. Condição mental.</p><blockquote><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Atordoado.</span> O personagem fica @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido} e não pode fazer ações. Condição mental.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -226,12 +226,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBNwfnS3Dgkz719I",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675365535,
-        "modifiedTime": 1768676978990,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855117810,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "Bw0UQJ6PuZWnoEYy",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.Bw0UQJ6PuZWnoEYy"
@@ -287,7 +287,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Cego.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PEYDqTNzIiaoP2gI]{Lento}, não pode fazer testes de Percepção para observar e sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de perícias baseadas em Agilidade ou Força. Todos os alvos de seus ataques recebem camuflagem total. Você é considerado cego enquanto estiver em uma área de escuridão total, a menos que algo lhe permita perceber no escuro. Condição de sentidos.</p><blockquote><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><strong style=\"color:#b92a4c\">Lento.</strong> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Cego.</span> O personagem fica @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido} e @UUID[.PEYDqTNzIiaoP2gI]{Lento}, não pode fazer testes de Percepção para observar e sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de perícias baseadas em Agilidade ou Força. Todos os alvos de seus ataques recebem camuflagem total. Você é considerado cego enquanto estiver em uma área de escuridão total, a menos que algo lhe permita perceber no escuro. Condição de sentidos.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><span style=\"color:rgb(185, 42, 76)\">Lento.</span> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -304,12 +304,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.tQpmaUDZU0kRf7PM",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675519648,
-        "modifiedTime": 1768677044343,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855147490,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "JNy15BeIzi6sy8Zg",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.JNy15BeIzi6sy8Zg"
@@ -365,7 +365,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Debilitado.</strong> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente}.</p><blockquote><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Debilitado.</span> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[.ESKcAMVbDybUV71A]{Inconsciente}.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Inconsciente.</span> O personagem fica @UUID[.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><span style=\"color:rgb(185, 42, 76)\">Indefeso.</span> O personagem é considerado @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -382,11 +382,11 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.tQpmaUDZU0kRf7PM",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675522106,
-        "modifiedTime": 1768677154780,
+        "modifiedTime": 1784855220359,
         "lastModifiedBy": "uX8kbsijC8bcpBa3"
       },
       "_id": "m3oSlHuqatyhotB7",
@@ -599,7 +599,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Enredado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PEYDqTNzIiaoP2gI]{Lento}, @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.AdjaRpiAT25HpOds]{Vulnerável} e sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de ataque. Condição de paralisia.</p><blockquote><p><strong style=\"color:#b92a4c\">Lento.</strong> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p><p><strong style=\"color:#b92a4c\">Vulnerável. </strong>O personagem sofre –2 na Defesa.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Enredado.</span> O personagem fica @UUID[.PEYDqTNzIiaoP2gI]{Lento}, @UUID[.AdjaRpiAT25HpOds]{Vulnerável} e sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de ataque. Condição de paralisia.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Lento.</span> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p><p><span style=\"color:rgb(185, 42, 76)\">Vulnerável. </span>O personagem sofre –2 na Defesa.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -616,12 +616,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.SKFVfB4HMcLLt8p9",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675687138,
-        "modifiedTime": 1768677300676,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855284205,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "Aeyta54fQbqXqOfs",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.Aeyta54fQbqXqOfs"
@@ -716,7 +716,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Exausto.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.m3oSlHuqatyhotB7]{Debilitado}, @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PEYDqTNzIiaoP2gI]{Lento} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.AdjaRpiAT25HpOds]{Vulnerável}. Se ficar exausto novamente, em vez disso fica inconsciente. Condição de fadiga.</p><blockquote><p><strong style=\"color:#b92a4c\">Debilitado.</strong> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><strong style=\"color:#b92a4c\">Lento.</strong> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Exausto.</span> O personagem fica @UUID[.m3oSlHuqatyhotB7]{Debilitado}, @UUID[.PEYDqTNzIiaoP2gI]{Lento} e @UUID[.AdjaRpiAT25HpOds]{Vulnerável}. Se ficar exausto novamente, em vez disso fica @UUID[.ESKcAMVbDybUV71A]{Inconsciente}. Condição de fadiga.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Debilitado.</span> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><span style=\"color:rgb(185, 42, 76)\">Inconsciente.</span> O personagem fica @UUID[.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><span style=\"color:rgb(185, 42, 76)\">Indefeso.</span> O personagem é considerado @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p><span style=\"color:rgb(185, 42, 76)\">Lento.</span> Todas as formas de deslocamento do personagem são reduzidas à metade (arredonde para baixo para o primeiro incremento de 1,5m) e ele não pode correr ou fazer investidas. Condição de paralisia.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -733,12 +733,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.Aeyta54fQbqXqOfs",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675888940,
-        "modifiedTime": 1768677481035,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855395948,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "FqkcMa42xT3NJLBo",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.FqkcMa42xT3NJLBo"
@@ -794,7 +794,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Fatigado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.wenLaotyXMIFynuT]{Fraco} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.AdjaRpiAT25HpOds]{Vulnerável}. Se o personagem ficar fatigado novamente, em vez disso fica exausto. Condição de fadiga.</p><blockquote><p><strong style=\"color:#b92a4c\">Fraco.</strong> O personagem sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se ficar fraco novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.m3oSlHuqatyhotB7]{Debilitado}.</p><p><strong style=\"color:#b92a4c\">Vulnerável. </strong>O personagem sofre –2 na Defesa.</p><hr /><p><strong style=\"color:#b92a4c\">Debilitado.</strong> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p></p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Fatigado.</span> O personagem fica @UUID[.wenLaotyXMIFynuT]{Fraco} e @UUID[.AdjaRpiAT25HpOds]{Vulnerável}. Se o personagem ficar fatigado novamente, em vez disso fica exausto. Condição de fadiga.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Fraco.</span> O personagem sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se ficar fraco novamente, em vez disso fica @UUID[.m3oSlHuqatyhotB7]{Debilitado}.</p><p><span style=\"color:rgb(185, 42, 76)\">Vulnerável. </span>O personagem sofre –2 na Defesa.</p><hr><p><span style=\"color:rgb(185, 42, 76)\">Debilitado.</span> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><span style=\"color:rgb(185, 42, 76)\">Inconsciente.</span> O personagem fica @UUID[.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><span style=\"color:rgb(185, 42, 76)\">Indefeso.</span> O personagem é considerado @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p><p></p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -811,12 +811,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.Aeyta54fQbqXqOfs",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675892620,
-        "modifiedTime": 1768677673071,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855498596,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "zP2whsW0tDiBGFtS",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.zP2whsW0tDiBGFtS"
@@ -833,7 +833,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Fraco.</strong> O personagem sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se ficar fraco novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.m3oSlHuqatyhotB7]{Debilitado}.</p><blockquote><p><strong style=\"color:#b92a4c\">Debilitado.</strong> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Fraco.</span> O personagem sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se ficar fraco novamente, em vez disso fica @UUID[.m3oSlHuqatyhotB7]{Debilitado}.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Debilitado.</span> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Agilidade, Força e Vigor. Se o personagem ficar debilitado novamente, em vez disso fica @UUID[.ESKcAMVbDybUV71A]{Inconsciente}.</p><p><span style=\"color:rgb(185, 42, 76)\">Inconsciente.</span> O personagem fica @UUID[.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><span style=\"color:rgb(185, 42, 76)\">Indefeso.</span> O personagem é considerado @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -850,12 +850,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675996414,
-        "modifiedTime": 1768677741183,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855548175,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "wenLaotyXMIFynuT",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.wenLaotyXMIFynuT"
@@ -872,7 +872,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Frustrado.</strong> O personagem sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de Intelecto e Presença. Se ficar frustrado novamente, em vez disso fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.niiNP7SUrzakt9Xn]{Esmorecido}. Condição mental.</p><blockquote><p><strong style=\"color:#b92a4c\">Esmorecido.</strong> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Intelecto e Presença. Condição mental.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Frustrado.</span> O personagem sofre @DisplayDice[qtd:1|sign:minus|dc:d20] em testes de Intelecto e Presença. Se ficar frustrado novamente, em vez disso fica @UUID[.niiNP7SUrzakt9Xn]{Esmorecido}. Condição mental.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Esmorecido.</span> O personagem sofre @DisplayDice[qtd:2|sign:minus|dc:d20] em testes de Intelecto e Presença. Condição mental.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -889,12 +889,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768675998628,
-        "modifiedTime": 1768677776881,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855570667,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "H1HSkm9JP4cCOdKE",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.H1HSkm9JP4cCOdKE"
@@ -950,7 +950,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><blockquote><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Inconsciente.</span> O personagem fica @UUID[.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Indefeso.</span> O personagem é considerado @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -967,12 +967,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768676001607,
-        "modifiedTime": 1768677833751,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855605008,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "ESKcAMVbDybUV71A",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.ESKcAMVbDybUV71A"
@@ -989,7 +989,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><blockquote><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Indefeso.</span> O personagem é considerado @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -1006,12 +1006,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.zP2whsW0tDiBGFtS",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768676002791,
-        "modifiedTime": 1768677872925,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855619675,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "FDttwZmd5h3DFhMA",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.FDttwZmd5h3DFhMA"
@@ -1184,7 +1184,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Paralisado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.RoklJtHposaRZ5pF]{Imóvel} e @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e só pode realizar ações puramente mentais. Condição de paralisia.</p><blockquote><p><strong style=\"color:#b92a4c\">Imóvel.</strong> Todas as formas de deslocamento do personagem são reduzidas a 0m. Condição de paralisia.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Paralisado.</span> O personagem fica @UUID[.RoklJtHposaRZ5pF]{Imóvel} e @UUID[.FDttwZmd5h3DFhMA]{Indefeso} e só pode realizar ações puramente mentais. Condição de paralisia.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Imóvel.</span> Todas as formas de deslocamento do personagem são reduzidas a 0m. Condição de paralisia.</p><p><span style=\"color:rgb(185, 42, 76)\">Indefeso.</span> O personagem é considerado @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -1201,12 +1201,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768676136106,
-        "modifiedTime": 1768677940408,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855655017,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "Sst1Uih53pIKklXW",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.Sst1Uih53pIKklXW"
@@ -1252,7 +1252,7 @@
     },
     {
       "sort": 100000,
-      "name": "Pertubado",
+      "name": "Perturbado",
       "type": "text",
       "system": {},
       "title": {
@@ -1262,7 +1262,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Pertubado.</strong> Na primeira vez que isso acontece em uma cena, você recebe um efeito de insanidade (veja a p. 111).</p><p><strong>Tabela de Rolagem:</strong> @UUID[Compendium.ordemparanormal.generalptbr.RollTable.GKt9JswZXY1I2QGd]{5.1: Efeitos de Insanidade}</p>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Perturbado.</span> Na primeira vez que isso acontece em uma cena, você recebe um efeito de insanidade (veja a p. 111).</p><p><strong>Tabela de Rolagem:</strong> @UUID[Compendium.ordemparanormal.others.RollTable.GKt9JswZXY1I2QGd]{5.1: Efeitos de Insanidade}</p>"
       },
       "video": {
         "controls": true,
@@ -1279,12 +1279,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.3n5OHPs59M30EvJk",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768676268520,
-        "modifiedTime": 1768677977666,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855742318,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "WvQW4H9HxASNmIbe",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.WvQW4H9HxASNmIbe"
@@ -1301,7 +1301,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<p><strong style=\"color:#b92a4c\">Petrificado.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.ESKcAMVbDybUV71A]{Inconsciente} e recebe resistência a dano 10.</p><blockquote><p><strong style=\"color:#b92a4c\">Inconsciente.</strong> O personagem fica @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><strong style=\"color:#b92a4c\">Indefeso.</strong> O personagem é considerado @UUID[Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><strong style=\"color:#b92a4c\">Desprevenido.</strong> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
+        "content": "<p><span style=\"color:rgb(185, 42, 76)\">Petrificado.</span> O personagem fica @UUID[.ESKcAMVbDybUV71A]{Inconsciente} e recebe resistência a dano 10.</p><blockquote><p><span style=\"color:rgb(185, 42, 76)\">Inconsciente.</span> O personagem fica @UUID[.FDttwZmd5h3DFhMA]{Indefeso} e não pode fazer ações, incluindo reações. Balançar um ser para acordá-lo gasta uma ação padrão.</p><p><span style=\"color:rgb(185, 42, 76)\">Indefeso.</span> O personagem é considerado @UUID[.PBsw2LF5mFPkNmnI]{Desprevenido}, mas sofre –10 na Defesa, falha automaticamente em testes de Reflexos e pode sofrer golpes de misericórdia.</p><p><span style=\"color:rgb(185, 42, 76)\">Desprevenido.</span> Despreparado para reagir. O personagem sofre –5 na Defesa e @DisplayDice[qtd:1|sign:minus|dc:d20] Reflexos. Você fica desprevenido contra inimigos que não possa perceber.</p></blockquote>"
       },
       "video": {
         "controls": true,
@@ -1318,12 +1318,12 @@
         "compendiumSource": null,
         "duplicateSource": "Compendium.ordemparanormal.documentation.JournalEntry.6ScuWm5M8qwtUNaH.JournalEntryPage.3n5OHPs59M30EvJk",
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.365",
         "systemId": "ordemparanormal",
         "systemVersion": "7.2.4",
         "createdTime": 1768676270414,
-        "modifiedTime": 1768678629628,
-        "lastModifiedBy": "uX8kbsijC8bcpBa3"
+        "modifiedTime": 1784855870113,
+        "lastModifiedBy": "vUTMyOH4FOrOifbw"
       },
       "_id": "7hS0vJ93WMea5LuX",
       "_key": "!journal.pages!6ScuWm5M8qwtUNaH.7hS0vJ93WMea5LuX"
