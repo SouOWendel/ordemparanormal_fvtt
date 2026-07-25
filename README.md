@@ -68,6 +68,28 @@ As suites disponíveis:
 - **OP | Item: isCritical & getRollData** — parsing de fórmulas críticas, dados de rolagem
 - **OP | Sheets: registration & dataModels** — registro de sheets e TypeDataModels no CONFIG
 
+## Para Desenvolvedores de Módulos
+
+O sistema expõe uma API pública e estável para o sistema de condições em
+`game.ordemparanormal.conditions` — listar, consultar, aplicar e remover condições
+sem acoplar seu módulo aos arquivos internos do sistema, e mantendo as regras do
+sistema (como o escalonamento) em jogo.
+
+```js
+const API = game.ordemparanormal.conditions;
+
+await API.apply(actor, "abalado"); // { id: "abalado", escalatedFrom: null }
+await API.apply(actor, "abalado"); // escalona: { id: "apavorado", escalatedFrom: "abalado" }
+
+Hooks.on(API.hooks.applied, (actor, conditionId, effect, userId) => {
+	if (game.userId !== userId) return; // o hook chega em todos os clientes
+	console.log(`${actor.name} ficou ${conditionId}`);
+});
+```
+
+Referência completa — métodos, formato do descritor, os três hooks e a política de
+estabilidade: **[docs/conditions-api.md](docs/conditions-api.md)**.
+
 ## Modulos Obrigatórios.
 
 - **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
