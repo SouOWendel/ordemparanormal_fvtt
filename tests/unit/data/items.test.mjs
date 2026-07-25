@@ -157,6 +157,7 @@ describe("ClassData.defineSchema()", () => {
 		expect(keys).toContain("sanPerLevel");
 		expect(keys).toContain("pdInitial");
 		expect(keys).toContain("pdPerLevel");
+		expect(keys).toContain("skillCount");
 		expect(keys).toContain("isSurvivor");
 	});
 
