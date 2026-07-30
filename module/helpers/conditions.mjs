@@ -337,6 +337,49 @@ export function computeHealthConditions(pv, maxPv, nonLethal = 0) {
 }
 
 /**
+ * Which connected user is responsible for writing an actor's automatic health
+ * conditions. Document hooks reach every client, so without a single elected
+ * writer four players at the table would each create the same ActiveEffect.
+ *
+ * The active GM is that writer whenever one is connected. With no GM online
+ * (solo play, a player testing alone) the effects would simply never appear, so
+ * an active owner of the actor takes over — they have permission to write the
+ * effect on their own character.
+ * @param {Iterable<User>} users  Every user in the world (`game.users`).
+ * @param {Actor} actor           The actor whose conditions are being reconciled.
+ * @returns {string|null}         Id of the user who should write, or null.
+ */
+export function resolveHealthWriterId(users, actor) {
+	const active = [...(users ?? [])].filter((u) => u?.active);
+	const gm = active.find((u) => u.isGM);
+	if (gm) return gm.id ?? null;
+	const owner = active.find((u) => actor?.testUserPermission?.(u, "OWNER"));
+	return owner?.id ?? null;
+}
+
+/**
+ * Whether a damage roll deals non-lethal damage (book p. 87). Damage is a click
+ * separate from the attack, so the lethality resolved when the attack was rolled
+ * has to be carried over — otherwise an attacker who converted their attack pays
+ * the -5 and still deals lethal damage.
+ *
+ * The in-memory value only counts for the card the attack was rolled from: the
+ * item instance keeps it after the roll, and reading it from an older card would
+ * silently convert an attack that never paid for the conversion.
+ * @param {object} sources
+ * @param {boolean} sources.fromThisAttack   The damage click is on the card the attack was rolled from.
+ * @param {boolean|undefined} sources.inMemory      Lethality from this session's attack.
+ * @param {boolean|undefined} sources.fromCard      Lethality persisted on the item card.
+ * @param {boolean} sources.weaponDefault    The weapon's own non-lethal setting.
+ * @returns {boolean}
+ */
+export function resolveDamageLethality({ fromThisAttack, inMemory, fromCard, weaponDefault } = {}) {
+	if (fromThisAttack && typeof inMemory === "boolean") return inMemory;
+	if (typeof fromCard === "boolean") return fromCard;
+	return weaponDefault === true;
+}
+
+/**
  * Apply (or remove) a condition on an actor, honoring escalation. When applying
  * a condition the actor already has and that escalates (e.g. abalado -> apavorado),
  * the original is removed and the escalation target is applied instead (which may

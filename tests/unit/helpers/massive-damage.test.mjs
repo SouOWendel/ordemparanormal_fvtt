@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { isMassiveDamage, massiveDamageDT } from "../../../module/helpers/massive-damage.mjs";
+import {
+	isMassiveDamage,
+	isMassiveDamageRuleEnabled,
+	massiveDamageDT,
+} from "../../../module/helpers/massive-damage.mjs";
 
 describe("isMassiveDamage — trigger (book p. 87)", () => {
 	it("dano exatamente na metade do PV total, sem zerar, dispara", () => {
@@ -40,5 +44,17 @@ describe("massiveDamageDT — DT 15 +2 a cada 10 pontos de dano", () => {
 
 	it("dano 0 → DT 15", () => {
 		expect(massiveDamageDT(0)).toBe(15);
+	});
+});
+
+describe("isMassiveDamageRuleEnabled — regra opcional", () => {
+	it("ligada por padrão, inclusive antes do init registrar a config", () => {
+		expect(isMassiveDamageRuleEnabled(true)).toBe(true);
+		expect(isMassiveDamageRuleEnabled(undefined)).toBe(true);
+		expect(isMassiveDamageRuleEnabled(null)).toBe(true);
+	});
+
+	it("só um false explícito desliga", () => {
+		expect(isMassiveDamageRuleEnabled(false)).toBe(false);
 	});
 });

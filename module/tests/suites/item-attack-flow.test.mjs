@@ -107,6 +107,18 @@ Hooks.once("quenchReady", (quench) => {
 					await sword.rollAttack({});
 					assert.isAbove(game.messages.size, countBefore, "Deve haver uma nova mensagem no chat");
 				});
+
+				// O dano é um clique separado que reconstrói tudo do item. Sem devolver a
+				// letalidade resolvida, o atacante pagava o -5 da conversão e o dano
+				// entrava letal do mesmo jeito.
+				it("rollAttack devolve a letalidade resolvida", async () => {
+					assert.isTrue((await sword.rollAttack({ nonLethal: true })).nonLethal);
+					assert.isFalse((await sword.rollAttack({ nonLethal: false })).nonLethal);
+				});
+
+				it("sem escolha explícita e sem clique, segue o padrão da arma", async () => {
+					assert.isFalse((await sword.rollAttack({})).nonLethal);
+				});
 			});
 
 			// ----------------------------------------------------------------

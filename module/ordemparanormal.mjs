@@ -209,6 +209,22 @@ Hooks.once("ready", function () {
 			if (actor.isOwner) await actor.applyDamage(data.amount, data.options);
 		}
 
+		// A player resolving a Dano Massivo save on their own character can't write
+		// the card's resolved flag (they didn't author the message), so the GM does
+		// it for them. Validated the same way as applyDamage: the sender must own
+		// the actor the card belongs to.
+		if (data.type === "claimMassiveDamage") {
+			const sender = data.userId ? game.users.get(data.userId) : null;
+			const message = game.messages.get(data.messageId);
+			if (!sender || !message) return;
+			if (message.getFlag("ordemparanormal", "massiveDamageResolved")) return;
+			const actorUuid = message.getFlag("ordemparanormal", "actorUuid");
+			const actor = actorUuid ? await fromUuid(actorUuid) : null;
+			if (!actor) return;
+			if (!sender.isGM && !actor.testUserPermission?.(sender, "OWNER")) return;
+			await message.setFlag("ordemparanormal", "massiveDamageResolved", true);
+		}
+
 		if (data.type === "opostoResult") {
 			if (!utils.isOpostoSenderAuthorized(data)) return;
 			await handleOpostoResult(data);
@@ -568,6 +584,10 @@ async function handleChatCommandClick(event) {
 		// Idempotency: the flag (not just DOM disabling, which resets on reload)
 		// prevents re-rolling/re-applying the failure consequence after the fact.
 		if (message?.getFlag("ordemparanormal", "massiveDamageResolved")) return;
+		// Same-client double-click guard. The persisted flag above can only be
+		// written by the GM (see claimMassiveDamageCard), so on a player's client
+		// it isn't back yet while the first roll is still in flight.
+		if (message && massiveDamageInFlight.has(message.id)) return;
 
 		const actorUuid = massiveDamageButton.dataset.actorUuid;
 		const dt = parseInt(massiveDamageButton.dataset.target, 10);
@@ -575,6 +595,12 @@ async function handleChatCommandClick(event) {
 		if (!actor) return;
 		if (!actor.isOwner && !game.user.isGM) {
 			return ui.notifications.warn(game.i18n.localize("op.massiveDamageNotOwner"));
+		}
+		// A card posted before `dt` reached the template has no usable DT. Rolling
+		// against NaN makes every outcome indeterminate, which used to surface as
+		// "resisted" on a failed save — refuse the click and say why instead.
+		if (!Number.isFinite(dt)) {
+			return ui.notifications.warn(game.i18n.localize("op.massiveDamageStaleCard"));
 		}
 
 		// Claim the card only once we know this click can actually roll: after the
@@ -584,7 +610,8 @@ async function handleChatCommandClick(event) {
 		// later lets a double-click, or the owner and the GM clicking together,
 		// both pass the guard while the first roll is in flight and apply the
 		// failure consequence twice.
-		await message?.setFlag("ordemparanormal", "massiveDamageResolved", true);
+		if (message) massiveDamageInFlight.add(message.id);
+		await claimMassiveDamageCard(message);
 
 		const rolls = await actor.rollSkill(
 			{ skill: "resilience", rolls: [{ options: { target: dt } }] },
@@ -593,6 +620,9 @@ async function handleChatCommandClick(event) {
 		const roll = Array.isArray(rolls) ? rolls[0] : rolls;
 		if (!roll) return;
 
+		// Three-way on purpose. `isFailure` and `isSuccess` are both false for a
+		// roll that never evaluated or lost its target, and folding that state
+		// into an `else` announced "resisted" for a save that never happened.
 		if (roll.isFailure) {
 			// reconcileHealthConditions() is NOT called here — actor.update() below
 			// fires the updateActor hook (hooks.mjs), which already reconciles
@@ -604,13 +634,46 @@ async function handleChatCommandClick(event) {
 				speaker: ChatMessage.getSpeaker({ actor }),
 				content: game.i18n.format("op.massiveDamageFailed", { name: actor.name }),
 			});
-		} else {
+		} else if (roll.isSuccess) {
 			await ChatMessage.create({
 				speaker: ChatMessage.getSpeaker({ actor }),
 				content: game.i18n.format("op.massiveDamagePassed", { name: actor.name }),
 			});
+		} else {
+			console.warn("ordemparanormal | teste de Dano Massivo indeterminado", { dt, total: roll.total });
+			ui.notifications.warn(game.i18n.localize("op.massiveDamageStaleCard"));
 		}
 	}
+}
+
+// Cards being resolved on this client right now. The persisted
+// `massiveDamageResolved` flag is the durable guard (it survives a reload); this
+// only covers the window before that write lands.
+const massiveDamageInFlight = new Set();
+
+/**
+ * Mark a Dano Massivo card as resolved so nobody rolls it twice.
+ *
+ * Players don't author the card and so can't update it. Rather than blocking the
+ * character's own owner from making their save, we hand the write to the GM the
+ * same way `applyDamage` does. With no GM connected the claim simply doesn't
+ * persist — the in-flight set still stops a double-click, and re-rolling a save
+ * whose only consequence is "PV = 0" changes nothing on a second pass.
+ * @param {ChatMessage|undefined} message
+ * @returns {Promise<void>}
+ */
+async function claimMassiveDamageCard(message) {
+	if (!message) return;
+	if (message.canUserModify?.(game.user, "update") ?? game.user.isGM) {
+		await message.setFlag("ordemparanormal", "massiveDamageResolved", true);
+		return;
+	}
+	if (!game.users.some((u) => u.isGM && u.active)) return;
+	game.socket.emit("system.ordemparanormal", {
+		type: "claimMassiveDamage",
+		messageId: message.id,
+		userId: game.user.id,
+	});
 }
 
 // Chat command card buttons (`/dt`, `/oposto`) can render in multiple

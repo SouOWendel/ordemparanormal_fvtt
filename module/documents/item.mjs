@@ -7,7 +7,12 @@
 
 import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
 import { damageRecipients } from "../helpers/visibility.mjs";
-import { getDicePenalty, getConditionDefensePenalty, activeConditionsOf } from "../helpers/conditions.mjs";
+import {
+	getDicePenalty,
+	getConditionDefensePenalty,
+	activeConditionsOf,
+	resolveDamageLethality,
+} from "../helpers/conditions.mjs";
 import { formatRitualArea } from "../helpers/ritual-area.mjs";
 
 /**
@@ -119,13 +124,31 @@ export class OrdemItem extends Item {
 				item.lastMessageId = messageId;
 				item.critical = rollAttack.criticalStatus;
 				item.hitResult = rollAttack.hitResult ?? null;
+				item.lastAttackNonLethal = rollAttack.nonLethal === true;
 				if (rollAttack.hitResult !== null) {
 					game.messages.get(messageId)?.setFlag("ordemparanormal", "hitResult", rollAttack.hitResult);
+				}
+				// Persist it too: the in-memory field is lost on reload, and the damage
+				// button stays clickable after one. Skipped when this client can't write
+				// the card (a player clicking the GM's card) — the in-memory value still
+				// covers the normal attack-then-damage sequence.
+				const attackCard = game.messages.get(messageId);
+				if (attackCard?.canUserModify?.(game.user, "update")) {
+					await attackCard.setFlag("ordemparanormal", "lethality", { nonLethal: item.lastAttackNonLethal });
 				}
 				break;
 			}
 			case "damage": {
 				const persistedHit = message?.getFlag("ordemparanormal", "hitResult") ?? null;
+				// Lethality decided when the attack was rolled: this session's attack on
+				// this card, else the card flag (survives a reload), else the weapon's own
+				// setting for a damage roll with no attack behind it.
+				const nonLethal = resolveDamageLethality({
+					fromThisAttack: item.lastMessageId === messageId,
+					inMemory: item.lastAttackNonLethal,
+					fromCard: message?.getFlag("ordemparanormal", "lethality")?.nonLethal,
+					weaponDefault: item.system.nonLethal === true,
+				});
 				const volleyEntries = persistedHit?.attackResults;
 				if (volleyEntries?.length) {
 					// Multi-attack volley -> one damage roll PER hitting attack. Each
@@ -134,7 +157,7 @@ export class OrdemItem extends Item {
 					// that swing), and each is routed to the actor it struck. A dodged
 					// attack has hit=false (synced by syncItemCardHitResult) so it
 					// simply contributes no damage.
-					await item.rollVolleyDamage(volleyEntries, { event });
+					await item.rollVolleyDamage(volleyEntries, { event, nonLethal });
 				} else {
 					// Single attack (or a chat reload that dropped in-memory state):
 					// fall back to the persisted hitResult so apply-damage keeps working,
@@ -153,6 +176,7 @@ export class OrdemItem extends Item {
 						critical,
 						lastId: item.lastMessageId ? item.lastMessageId === messageId : true,
 						hitResult,
+						nonLethal,
 					});
 				}
 				break;
@@ -613,7 +637,10 @@ export class OrdemItem extends Item {
 		 */
 		Hooks.callAll("ordemparanormal.rollFormula", this, roll);
 
-		return { roll, criticalStatus, hitResult };
+		// Report the lethality this attack resolved to. The damage roll is a separate
+		// click that rebuilds everything from the item, so without carrying this the
+		// attacker would take the -5 conversion penalty and still deal lethal damage.
+		return { roll, criticalStatus, hitResult, nonLethal: options.nonLethal === true };
 	}
 
 	/**
@@ -789,7 +816,7 @@ export class OrdemItem extends Item {
 	 * @param {Event}  [options.event]       Originating click (altKey forces crit).
 	 * @returns {Promise<Roll[]>}            One Roll per hitting attack.
 	 */
-	async rollVolleyDamage(attackResults, { event } = {}) {
+	async rollVolleyDamage(attackResults, { event, nonLethal } = {}) {
 		const entries = attackResults ?? [];
 		const hits = entries.filter((a) => a?.hit === true && a?.revealed !== false);
 		const rolls = [];
@@ -801,6 +828,7 @@ export class OrdemItem extends Item {
 				await this.rollDamage({
 					event,
 					critical,
+					nonLethal,
 					lastId: true,
 					hitResult: {
 						actorUuid: atk.actorUuid ?? null,

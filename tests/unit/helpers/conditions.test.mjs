@@ -7,6 +7,8 @@ import {
 	getConditionDefensePenalty,
 	escalationTarget,
 	computeHealthConditions,
+	resolveHealthWriterId,
+	resolveDamageLethality,
 } from "../../../module/helpers/conditions.mjs";
 
 describe("conditions — catálogo", () => {
@@ -176,5 +178,71 @@ describe("computeHealthConditions — dano não letal (livro p. 87)", () => {
 	it("ausente ou negativo é tratado como 0", () => {
 		expect(computeHealthConditions(10, 30).inconsciente).toBe(false);
 		expect(computeHealthConditions(10, 30, -5).inconsciente).toBe(false);
+	});
+});
+
+describe("resolveHealthWriterId — quem escreve as condições automáticas", () => {
+	const owner = { id: "u-owner", active: true, isGM: false };
+	const other = { id: "u-other", active: true, isGM: false };
+	const gm = { id: "u-gm", active: true, isGM: true };
+	const actor = { testUserPermission: (u) => u.id === "u-owner" };
+
+	it("elege o MJ ativo quando há um conectado", () => {
+		expect(resolveHealthWriterId([owner, gm, other], actor)).toBe("u-gm");
+	});
+
+	it("ignora o MJ desconectado", () => {
+		expect(resolveHealthWriterId([owner, { ...gm, active: false }], actor)).toBe("u-owner");
+	});
+
+	it("sem MJ, elege o dono ativo do ator", () => {
+		expect(resolveHealthWriterId([other, owner], actor)).toBe("u-owner");
+	});
+
+	it("sem MJ e sem dono ativo, ninguém escreve", () => {
+		expect(resolveHealthWriterId([other], actor)).toBeNull();
+		expect(resolveHealthWriterId([{ ...owner, active: false }], actor)).toBeNull();
+	});
+
+	it("é estável: todo cliente elege o mesmo escritor", () => {
+		const users = [owner, gm, other];
+		expect(resolveHealthWriterId(users, actor)).toBe(resolveHealthWriterId([...users].reverse(), actor));
+	});
+
+	it("não estoura sem usuários ou sem ator", () => {
+		expect(resolveHealthWriterId(undefined, actor)).toBeNull();
+		expect(resolveHealthWriterId([other], undefined)).toBeNull();
+	});
+});
+
+describe("resolveDamageLethality — letalidade do ataque no clique de dano", () => {
+	it("a escolha do ataque atual vence o padrão da arma", () => {
+		expect(
+			resolveDamageLethality({ fromThisAttack: true, inMemory: true, fromCard: undefined, weaponDefault: false })
+		).toBe(true);
+		expect(
+			resolveDamageLethality({ fromThisAttack: true, inMemory: false, fromCard: undefined, weaponDefault: true })
+		).toBe(false);
+	});
+
+	it("card antigo não herda o ataque em memória — a conversão não foi paga nele", () => {
+		expect(
+			resolveDamageLethality({ fromThisAttack: false, inMemory: true, fromCard: undefined, weaponDefault: false })
+		).toBe(false);
+	});
+
+	it("depois de um reload, a letalidade vem do card", () => {
+		expect(
+			resolveDamageLethality({ fromThisAttack: true, inMemory: undefined, fromCard: true, weaponDefault: false })
+		).toBe(true);
+		expect(
+			resolveDamageLethality({ fromThisAttack: false, inMemory: undefined, fromCard: false, weaponDefault: true })
+		).toBe(false);
+	});
+
+	it("dano sem ataque por trás cai no padrão da arma", () => {
+		expect(resolveDamageLethality({ weaponDefault: true })).toBe(true);
+		expect(resolveDamageLethality({ weaponDefault: false })).toBe(false);
+		expect(resolveDamageLethality({})).toBe(false);
 	});
 });

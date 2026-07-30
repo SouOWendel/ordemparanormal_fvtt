@@ -73,6 +73,53 @@ Hooks.once("quenchReady", (quench) => {
 				});
 			});
 
+			describe("regra opcional (setting massiveDamageRule)", () => {
+				let actor;
+				let previous;
+				before(async () => {
+					actor = await makeAgent("MassiveDamageOff");
+					previous = game.settings.get("ordemparanormal", "massiveDamageRule");
+				});
+				after(async () => {
+					await game.settings.set("ordemparanormal", "massiveDamageRule", previous);
+					await actor?.delete();
+				});
+
+				// The setting is world state: restore it inside the test, not only in
+				// `after`. A batch that times out skips `after`, and a world left with
+				// the rule off makes every later Dano Massivo assertion pass by absence.
+				it("desligada, o mesmo dano não posta card", async () => {
+					await game.settings.set("ordemparanormal", "massiveDamageRule", false);
+					try {
+						await actor.update({ "system.PV.value": actor.system.PV.max });
+						actor = refetch(actor);
+						const countBefore = [...game.messages].filter((m) => m.getFlag("ordemparanormal", "massiveDamageCard")).length;
+						await actor.applyDamage(Math.ceil(actor.system.PV.max / 2), {});
+						await new Promise((r) => setTimeout(r, 100));
+						const countAfter = [...game.messages].filter((m) => m.getFlag("ordemparanormal", "massiveDamageCard")).length;
+						assert.equal(countAfter, countBefore, "card não deveria existir com a regra desligada");
+						actor = refetch(actor);
+						assert.isAbove(actor.system.PV.value, 0, "o dano em si continua sendo aplicado");
+					} finally {
+						await game.settings.set("ordemparanormal", "massiveDamageRule", previous);
+					}
+				});
+
+				it("religada, volta a postar", async () => {
+					await game.settings.set("ordemparanormal", "massiveDamageRule", true);
+					await actor.update({ "system.PV.value": actor.system.PV.max });
+					actor = refetch(actor);
+					const countBefore = [...game.messages].filter((m) => m.getFlag("ordemparanormal", "massiveDamageCard")).length;
+					await actor.applyDamage(Math.ceil(actor.system.PV.max / 2), {});
+					let countAfter = countBefore;
+					for (let i = 0; i < 20 && countAfter === countBefore; i++) {
+						await new Promise((r) => setTimeout(r, 25));
+						countAfter = [...game.messages].filter((m) => m.getFlag("ordemparanormal", "massiveDamageCard")).length;
+					}
+					assert.equal(countAfter, countBefore + 1);
+				});
+			});
+
 			describe("Fortitude save resolution (rollMassiveDamage action)", () => {
 				let actor;
 				before(async () => (actor = await makeAgent("MassiveDamageSave")));

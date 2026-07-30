@@ -386,6 +386,7 @@ globalThis.game = {
 		get: (module, key) => {
 			if (key === "globalProgressRules") return 1;
 			if (key === "globalPlayingWithoutSanity") return false;
+			if (key === "massiveDamageRule") return true;
 			if (key === "systemMigrationVersion") return "7.3.3";
 			return undefined;
 		},

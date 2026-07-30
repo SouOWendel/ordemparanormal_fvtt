@@ -5,7 +5,7 @@ import SkillToolRollConfigurationDialog from "../applications/skill-tool-configu
 import AttributeRollConfigurationDialog from "../applications/attribute-configuration-dialog.mjs";
 import { calculateSpaces, calculateDefense, calculateStatusMaxima } from "../helpers/actor-calculations.mjs";
 import { getDicePenalty, computeHealthConditions } from "../helpers/conditions.mjs";
-import { isMassiveDamage, massiveDamageDT } from "../helpers/massive-damage.mjs";
+import { isMassiveDamage, isMassiveDamageRuleEnabled, massiveDamageDT } from "../helpers/massive-damage.mjs";
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
@@ -330,8 +330,10 @@ export class OrdemActor extends Actor {
 		}
 
 		// Dano Massivo (book p. 87) — agent-only, mirroring the P1 precedent that
-		// automatic condition toggling doesn't apply to GM-tracked threats.
-		if (!isThreat && isMassiveDamage(finalDamage, resource.max, newPV)) {
+		// automatic condition toggling doesn't apply to GM-tracked threats. Tables
+		// that dropped the rule turn it off in the system settings.
+		const massiveDamageOn = isMassiveDamageRuleEnabled(game.settings?.get?.("ordemparanormal", "massiveDamageRule"));
+		if (!isThreat && massiveDamageOn && isMassiveDamage(finalDamage, resource.max, newPV)) {
 			this._triggerMassiveDamage(finalDamage).catch((err) =>
 				console.error("ordemparanormal | failed to create Dano Massivo card", err)
 			);

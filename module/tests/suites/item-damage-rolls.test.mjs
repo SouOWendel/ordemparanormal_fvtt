@@ -131,6 +131,57 @@ Hooks.once("quenchReady", (quench) => {
 			});
 
 			// ----------------------------------------------------------------
+			// rollDamage — letalidade escolhida no ataque (livro p. 87)
+			// ----------------------------------------------------------------
+			describe("OrdemItem.rollDamage — dano não letal", () => {
+				let actor;
+				let item;
+				before(async () => {
+					({ actor, item } = await createAgentWithSword());
+				});
+				after(async () => {
+					await actor?.delete();
+				});
+
+				const lastDamageTarget = () =>
+					[...game.messages]
+						.reverse()
+						.find((m) => m.getFlag("ordemparanormal", "damageTarget"))
+						?.getFlag("ordemparanormal", "damageTarget") ?? null;
+
+				it("a escolha do ataque vence o padrão da arma", async () => {
+					await item.rollDamage({
+						event: { altKey: false },
+						critical: false,
+						nonLethal: true,
+						hitResult: { actorUuid: actor.uuid, hit: true },
+					});
+					assert.isTrue(lastDamageTarget()?.nonLethal, "arma letal convertida deveria marcar dano não letal");
+				});
+
+				it("sem escolha, cai no padrão da arma", async () => {
+					await item.update({ "system.nonLethal": true });
+					await item.rollDamage({
+						event: { altKey: false },
+						critical: false,
+						hitResult: { actorUuid: actor.uuid, hit: true },
+					});
+					assert.isTrue(lastDamageTarget()?.nonLethal);
+				});
+
+				it("uma arma não letal usada como letal também é respeitada", async () => {
+					await item.update({ "system.nonLethal": true });
+					await item.rollDamage({
+						event: { altKey: false },
+						critical: false,
+						nonLethal: false,
+						hitResult: { actorUuid: actor.uuid, hit: true },
+					});
+					assert.isFalse(lastDamageTarget()?.nonLethal);
+				});
+			});
+
+			// ----------------------------------------------------------------
 			// rollDamage — parts adicionais
 			// ----------------------------------------------------------------
 			describe("OrdemItem.rollDamage — partes adicionais de dano", () => {
