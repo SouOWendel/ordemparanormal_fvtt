@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.3](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v8.0.2...v8.0.3) (2026-08-05)
+
+
+### Bug Fixes
+
+* **localization:** add missing damage type translations in English and Portuguese ([eeb6a7f](https://github.com/SouOWendel/ordemparanormal_fvtt/commit/eeb6a7f557671bd1a2c4819cf985eb7754f50a63))
+
 ## [8.0.2](https://github.com/SouOWendel/ordemparanormal_fvtt/compare/v8.0.1...v8.0.2) (2026-08-05)
 
 
