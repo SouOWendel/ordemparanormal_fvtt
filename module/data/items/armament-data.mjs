@@ -21,6 +21,10 @@ export class ArmamentData extends foundry.abstract.TypeDataModel {
 				gripType: new fields.StringField({ initial: "" }),
 			}),
 			critical: new fields.StringField({ initial: "" }),
+			// Book p. 87: most weapons deal lethal damage; unarmed strikes and a few
+			// weapons deal non-lethal by default. Either can be converted at attack
+			// time for -5 on the roll.
+			nonLethal: new fields.BooleanField({ initial: false }),
 			range: new fields.StringField({ initial: "" }),
 			formulas: new fields.SchemaField({
 				attack: new fields.SchemaField({

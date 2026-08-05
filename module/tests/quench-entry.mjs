@@ -21,3 +21,5 @@ import "./suites/sheets.test.mjs";
 import "./suites/reactions.test.mjs";
 import "./suites/combat-qol-coverage.test.mjs";
 import "./suites/agent-skill-defaults.test.mjs";
+import "./suites/conditions.test.mjs";
+import "./suites/massive-damage.test.mjs";

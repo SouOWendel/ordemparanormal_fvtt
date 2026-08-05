@@ -68,4 +68,12 @@ describe("OrdemItem._compareWithDefense", () => {
 		const result = item._compareWithDefense(makeActor(10), 15, { isCritical: false });
 		expect(result.actorUuid).toBe("Actor.test-uuid");
 	});
+
+	it("subtrai a penalidade de Defesa da condição ativa (desprevenido: -5)", () => {
+		const item = makeItem();
+		const actor = { ...makeActor(10), _activeConditionIds: () => new Set(["desprevenido"]) };
+		const result = item._compareWithDefense(actor, 6, { isCritical: false });
+		expect(result.targetDefense).toBe(5);
+		expect(result.hit).toBe(true);
+	});
 });

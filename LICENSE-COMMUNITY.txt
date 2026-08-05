@@ -1,0 +1,44 @@
+Licença da Comunidade de Ordem Paranormal — aplicação a este sistema
+=====================================================================
+
+Este sistema para Foundry VTT é um CONTEÚDO NÃO OFICIAL para o RPG
+Ordem Paranormal, criado por Rafael "Cellbit" Lange.
+
+O conteúdo de universo e regras derivado de Ordem Paranormal (compêndios,
+descrições, terminologia de sistema) é distribuído sob a Licença da
+Comunidade de Ordem Paranormal v1.0.
+
+  Texto de atribuição obrigatório:
+    "Este é um conteúdo não oficial, publicado sob a Licença da
+     Comunidade de Ordem Paranormal."
+
+O texto integral e AUTORITATIVO da licença está em:
+    https://ordemparanormal.com.br/licenca
+(este arquivo é um resumo de referência e não substitui o texto oficial.)
+
+Resumo dos termos
+-----------------
+PERMITIDO:
+  - Fichas de personagem em VTT.
+  - Mecânicas e terminologia do sistema: os 5 atributos, NEX, Membrana,
+    os 5 Elementos (Sangue, Morte, Conhecimento, Energia, Medo), Ordo
+    Realitas e termos gerais do universo.
+  - Homebrew: regras e missões novas criadas pelo próprio autor.
+
+PROIBIDO:
+  - Reproduzir texto literal dos livros oficiais.
+  - Usar a trademark "Ordem Paranormal", logos oficiais ou a identidade
+    visual da marca.
+  - Usar nomes de personagens, locais ou eventos específicos do cânone.
+  - Sugerir parceria, aprovação ou endosso oficial.
+  - Usar conteúdo protegido de terceiros.
+
+ATRIBUIÇÃO (obrigatória):
+  - Exibir o selo oficial da licença OU o texto de atribuição acima.
+
+Licenciamento duplo deste repositório
+-------------------------------------
+  - CÓDIGO/SOFTWARE (JavaScript, SCSS, templates): CC BY-NC-SA 4.0
+    (ver LICENSE.txt) — autoria do(s) desenvolvedor(es).
+  - CONTEÚDO de Ordem Paranormal: Licença da Comunidade de Ordem
+    Paranormal v1.0 (este arquivo + link oficial acima).

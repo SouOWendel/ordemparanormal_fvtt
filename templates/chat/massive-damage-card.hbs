@@ -1,0 +1,12 @@
+<div class="chat-card dt-card massive-damage-card">
+	<header class="card-header">
+		<h3>{{localize "op.massiveDamageTitle"}}</h3>
+		<p>{{localize "op.massiveDamageSubtitle" name=actorName dt=dt}}</p>
+	</header>
+	<div class="card-buttons">
+		<button type="button" data-action="rollMassiveDamage" data-actor-uuid="{{actorUuid}}" data-target="{{dt}}">
+			<i class="fa-solid fa-skull-crossbones"></i>
+			{{localize "op.massiveDamageButton"}}
+		</button>
+	</div>
+</div>

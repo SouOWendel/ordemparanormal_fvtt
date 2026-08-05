@@ -1,4 +1,5 @@
 import chatCommands from "./chat/chat-commands.mjs";
+import { resolveHealthWriterId } from "./helpers/conditions.mjs";
 import { shouldShowCombatantHP } from "./helpers/visibility.mjs";
 
 // Module-level barrier for async effect expirations.
@@ -378,6 +379,21 @@ export default function () {
 			if (!pending || pending.defenderUuid !== actorUuid) continue;
 			ui.chat?.updateMessage?.(msg);
 		}
+	});
+
+	// Sync the automatic health conditions (morrendo <= PV 0, machucado <= PV half)
+	// when an agent's PV changes — covers both damage and healing. This hook reaches
+	// every connected client, so exactly one of them writes: the active GM, or an
+	// active owner when no GM is online (see resolveHealthWriterId). Which client
+	// *triggered* the change is irrelevant — a player lowering their own PV is
+	// reconciled by the GM's client, which is the common case at the table.
+	Hooks.on("updateActor", (actor, changes) => {
+		if (actor?.type !== "agent") return;
+		const pvChanges = changes?.system?.PV;
+		// nonLethal counts too: it decides inconsciente without touching PV.value.
+		if (pvChanges?.value === undefined && pvChanges?.max === undefined && pvChanges?.nonLethal === undefined) return;
+		if (resolveHealthWriterId(game.users, actor) !== game.user?.id) return;
+		actor.reconcileHealthConditions();
 	});
 
 	// Re-render the most recent item card when targeting changes so target-info stays current

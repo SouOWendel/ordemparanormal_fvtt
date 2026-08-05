@@ -90,6 +90,18 @@ export default function registerSystemSettings() {
 		requiresReload: true, // true if you want to prompt the user to reload
 	});
 
+	// Dano Massivo (livro p. 87) é regra opcional na prática: mesas trocam por
+	// Ferimentos Debilitantes (Sobrevivendo ao Horror) ou simplesmente não usam.
+	// Desligar só impede o card automático — nada do que já foi aplicado muda.
+	game.settings.register("ordemparanormal", "massiveDamageRule", {
+		name: "SETTINGS.massiveDamageRule",
+		hint: "SETTINGS.massiveDamageRuleHint",
+		scope: "world", // "world" = sync to db, "client" = local storage
+		config: true, // false if you dont want it to show in module config
+		type: Boolean, // Number, Boolean, String, Object
+		default: true,
+	});
+
 	game.settings.register("ordemparanormal", "initiativeTiebreaker", {
 		name: "SETTINGS.initiativeTiebreaker",
 		hint: "SETTINGS.initiativeTiebreakerHint",
