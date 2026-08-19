@@ -96,6 +96,20 @@ describe("ThreatData.defineSchema()", () => {
 		expect(Object.keys(schema)).toContain("size");
 		expect(Object.keys(schema.details.fields)).not.toContain("size");
 	});
+
+	it("uses the canonical default attribute for each threat skill", () => {
+		const schema = ThreatData.defineSchema();
+		const skills = schema.skills.fields;
+
+		expect(skills.fighting.fields.attr.initial).toEqual(["str"]);
+		expect(skills.aim.fields.attr.initial).toEqual(["dex"]);
+		expect(skills.resilience.fields.attr.initial).toEqual(["vit"]);
+		expect(skills.reflexes.fields.attr.initial).toEqual(["dex"]);
+		expect(skills.will.fields.attr.initial).toEqual(["pre"]);
+		expect(skills.initiative.fields.attr.initial).toEqual(["dex"]);
+		expect(skills.perception.fields.attr.initial).toEqual(["pre"]);
+		expect(skills.freeSkill.fields.attr.initial).toEqual(["int"]);
+	});
 });
 
 describe("ThreatData.migrateData()", () => {
@@ -144,6 +158,44 @@ describe("ThreatData.migrateData()", () => {
 	it("handles missing details object without throwing", () => {
 		const data = { size: "" };
 		expect(() => ThreatData.migrateData(data)).not.toThrow();
+	});
+
+	it("heals legacy threat skills initialized with dex", () => {
+		const data = {
+			skills: {
+				fighting: { attr: ["dex"] },
+				aim: { attr: ["dex"] },
+				resilience: { attr: ["dex"] },
+				reflexes: { attr: ["dex"] },
+				will: { attr: ["dex"] },
+				initiative: { attr: ["dex"] },
+				perception: { attr: ["dex"] },
+			},
+		};
+
+		ThreatData.migrateData(data);
+
+		expect(data.skills.fighting.attr).toEqual(["str"]);
+		expect(data.skills.aim.attr).toEqual(["dex"]);
+		expect(data.skills.resilience.attr).toEqual(["vit"]);
+		expect(data.skills.reflexes.attr).toEqual(["dex"]);
+		expect(data.skills.will.attr).toEqual(["pre"]);
+		expect(data.skills.initiative.attr).toEqual(["dex"]);
+		expect(data.skills.perception.attr).toEqual(["pre"]);
+	});
+
+	it("preserves non-legacy custom attributes", () => {
+		const data = {
+			skills: {
+				fighting: { attr: ["pre"] },
+				resilience: { attr: ["str"] },
+			},
+		};
+
+		ThreatData.migrateData(data);
+
+		expect(data.skills.fighting.attr).toEqual(["pre"]);
+		expect(data.skills.resilience.attr).toEqual(["str"]);
 	});
 });
 

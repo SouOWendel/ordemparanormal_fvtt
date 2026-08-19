@@ -233,6 +233,32 @@ Hooks.once("quenchReady", (quench) => {
 					assert.equal(threat.system.attributes.hp.value, hpBefore - 5);
 				});
 			});
+
+			describe("ThreatData — canonical skill defaults", () => {
+				let threat;
+
+				before(async () => {
+					threat = await Actor.create({
+						name: "[Quench] Threat Skill Defaults",
+						type: "threat",
+					});
+				});
+
+				after(async () => {
+					await threat?.delete();
+				});
+
+				it("uses the canonical attribute for every built-in skill", () => {
+					assert.equal(threat.system.skills.fighting.attr[0], "str");
+					assert.equal(threat.system.skills.aim.attr[0], "dex");
+					assert.equal(threat.system.skills.resilience.attr[0], "vit");
+					assert.equal(threat.system.skills.reflexes.attr[0], "dex");
+					assert.equal(threat.system.skills.will.attr[0], "pre");
+					assert.equal(threat.system.skills.initiative.attr[0], "dex");
+					assert.equal(threat.system.skills.perception.attr[0], "pre");
+					assert.equal(threat.system.skills.freeSkill.attr[0], "int");
+				});
+			});
 		},
 		{ displayName: "OP | Threat: skills estendidas, elements, disturbingPresence, applyDamage" }
 	);

@@ -11,11 +11,11 @@ const defaultAttrs = {
 	freeSkill: "int",
 };
 
-function skillField() {
+function skillField(defaultAttr = "dex") {
 	const fields = foundry.data.fields;
 	return new fields.SchemaField({
 		value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
-		attr: new fields.ArrayField(new fields.StringField(), { initial: ["dex"] }),
+		attr: new fields.ArrayField(new fields.StringField(), { initial: [defaultAttr] }),
 		degree: new fields.SchemaField({
 			label: new fields.StringField({ initial: "untrained" }),
 			// `value` is *derived* from `label` by default (calculateSkillProficiency),
@@ -87,13 +87,13 @@ export class ThreatData extends foundry.abstract.TypeDataModel {
 			}),
 			attacks: new fields.ObjectField({ initial: {} }),
 			skills: new fields.SchemaField({
-				fighting: skillField(),
-				aim: skillField(),
-				resilience: skillField(),
-				reflexes: skillField(),
-				will: skillField(),
-				initiative: skillField(),
-				perception: skillField(),
+				fighting: skillField(defaultAttrs.fighting),
+				aim: skillField(defaultAttrs.aim),
+				resilience: skillField(defaultAttrs.resilience),
+				reflexes: skillField(defaultAttrs.reflexes),
+				will: skillField(defaultAttrs.will),
+				initiative: skillField(defaultAttrs.initiative),
+				perception: skillField(defaultAttrs.perception),
 				freeSkill: freeSkillField(),
 			}),
 			elements: new fields.SchemaField({
@@ -204,6 +204,19 @@ export class ThreatData extends foundry.abstract.TypeDataModel {
 	}
 
 	static migrateData(data) {
+		if (data?.skills && typeof data.skills === "object") {
+			for (const [key, skill] of Object.entries(data.skills)) {
+				if (key === "freeSkill") continue;
+
+				const canonical = defaultAttrs[key];
+				if (!canonical || canonical === "dex") continue;
+
+				if (Array.isArray(skill?.attr) && skill.attr.length === 1 && skill.attr[0] === "dex") {
+					skill.attr = [canonical];
+				}
+			}
+		}
+
 		// Legacy threats wrote "Tamanho" to system.details.size (ghost path), but
 		// the schema only exposes size at top level. Lift the value back and drop
 		// the orphan key so cleanData stops discarding it on every save.
@@ -213,6 +226,7 @@ export class ThreatData extends foundry.abstract.TypeDataModel {
 		if (data?.details && data.details.size !== undefined) {
 			delete data.details.size;
 		}
+
 		return super.migrateData(data);
 	}
 }
