@@ -68,6 +68,7 @@
 			},
 			"skills": {
 				"acrobatics": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["dex", 1],
 					"degree": {
@@ -80,6 +81,7 @@
 					}
 				},
 				"animal": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -92,6 +94,7 @@
 					}
 				},
 				"arts": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -104,6 +107,7 @@
 					}
 				},
 				"athleticism": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["str", 1],
 					"degree": {
@@ -116,6 +120,7 @@
 					}
 				},
 				"relevance": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": {
@@ -128,6 +133,7 @@
 					}
 				},
 				"sciences": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": {
@@ -140,6 +146,7 @@
 					}
 				},
 				"crime": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["dex", 1],
 					"degree": {
@@ -152,6 +159,7 @@
 					}
 				},
 				"diplomacy": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -164,6 +172,7 @@
 					}
 				},
 				"deception": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -176,6 +185,7 @@
 					}
 				},
 				"resilience": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["vit", 1],
 					"degree": {
@@ -188,6 +198,7 @@
 					}
 				},
 				"stealth": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["dex", 1],
 					"degree": {
@@ -200,6 +211,7 @@
 					}
 				},
 				"initiative": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["dex", 1],
 					"degree": {
@@ -212,6 +224,7 @@
 					}
 				},
 				"intimidation": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -224,6 +237,7 @@
 					}
 				},
 				"intuition": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -236,6 +250,7 @@
 					}
 				},
 				"investigation": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": {
@@ -248,6 +263,7 @@
 					}
 				},
 				"fighting": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["str", 1],
 					"degree": {
@@ -260,6 +276,7 @@
 					}
 				},
 				"medicine": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": {
@@ -272,6 +289,7 @@
 					}
 				},
 				"occultism": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": {
@@ -284,6 +302,7 @@
 					}
 				},
 				"perception": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -296,6 +315,7 @@
 					}
 				},
 				"driving": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["dex", 1],
 					"degree": {
@@ -308,6 +328,7 @@
 					}
 				},
 				"aim": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["dex", 1],
 					"degree": {
@@ -320,6 +341,7 @@
 					}
 				},
 				"reflexes": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["dex", 1],
 					"degree": {
@@ -332,6 +354,7 @@
 					}
 				},
 				"religion": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -344,6 +367,7 @@
 					}
 				},
 				"survival": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": {
@@ -356,6 +380,7 @@
 					}
 				},
 				"tactics": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": {
@@ -368,6 +393,7 @@
 					}
 				},
 				"technology": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["int", 1],
 					"degree": {
@@ -380,6 +406,7 @@
 					}
 				},
 				"will": {
+					"diceBonus": 0,
 					"value": 0,
 					"attr": ["pre", 1],
 					"degree": {
@@ -392,6 +419,7 @@
 					}
 				},
 				"freeSkill": {
+					"diceBonus": 0,
 					"value": 0,
 					"name": "",
 					"attr": ["int", 1],
@@ -408,22 +436,27 @@
 			},
 			"attributes": {
 				"dex": {
+					"diceBonus": 0,
 					"value": 1,
 					"bonus": 0
 				},
 				"int": {
+					"diceBonus": 0,
 					"value": 1,
 					"bonus": 0
 				},
 				"vit": {
+					"diceBonus": 0,
 					"value": 1,
 					"bonus": 0
 				},
 				"pre": {
+					"diceBonus": 0,
 					"value": 1,
 					"bonus": 0
 				},
 				"str": {
+					"diceBonus": 0,
 					"value": 1,
 					"bonus": 0
 				}
@@ -453,11 +486,11 @@
 					"value": 10,
 					"max": 10
 				},
-				"dex": { "value": 1 },
-				"int": { "value": 1 },
-				"pre": { "value": 1 },
-				"str": { "value": 1 },
-				"vit": { "value": 1 },
+				"dex": { "diceBonus": 0, "value": 1 },
+				"int": { "diceBonus": 0, "value": 1 },
+				"pre": { "diceBonus": 0, "value": 1 },
+				"str": { "diceBonus": 0, "value": 1 },
+				"vit": { "diceBonus": 0, "value": 1 },
 				"movement": {
 					"walk": 0,
 					"unit": "m",
@@ -467,14 +500,20 @@
 			},
 			"attacks": {},
 			"skills": {
-				"fighting": { "value": 0, "attr": ["str", 1], "degree": { "label": "untrained", "value": 0 } },
-				"aim": { "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
-				"resilience": { "value": 0, "attr": ["vit", 1], "degree": { "label": "untrained", "value": 0 } },
-				"reflexes": { "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
-				"will": { "value": 0, "attr": ["pre", 1], "degree": { "label": "untrained", "value": 0 } },
-				"initiative": { "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
-				"perception": { "value": 0, "attr": ["pre", 1], "degree": { "label": "untrained", "value": 0 } },
-				"freeSkill": { "value": 0, "name": "", "attr": ["int", 1], "degree": { "label": "untrained", "value": 0 } }
+				"fighting": { "diceBonus": 0, "value": 0, "attr": ["str", 1], "degree": { "label": "untrained", "value": 0 } },
+				"aim": { "diceBonus": 0, "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
+				"resilience": { "diceBonus": 0, "value": 0, "attr": ["vit", 1], "degree": { "label": "untrained", "value": 0 } },
+				"reflexes": { "diceBonus": 0, "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
+				"will": { "diceBonus": 0, "value": 0, "attr": ["pre", 1], "degree": { "label": "untrained", "value": 0 } },
+				"initiative": { "diceBonus": 0, "value": 0, "attr": ["dex", 1], "degree": { "label": "untrained", "value": 0 } },
+				"perception": { "diceBonus": 0, "value": 0, "attr": ["pre", 1], "degree": { "label": "untrained", "value": 0 } },
+				"freeSkill": {
+					"diceBonus": 0,
+					"value": 0,
+					"name": "",
+					"attr": ["int", 1],
+					"degree": { "label": "untrained", "value": 0 }
+				}
 			},
 			"elements": {
 				"main": "",

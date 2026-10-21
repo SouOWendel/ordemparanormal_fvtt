@@ -106,6 +106,25 @@ describe("OrdemItem.rollAttack — numberOfAttacks > 1", () => {
 	});
 });
 
+describe("OrdemItem.rollAttack dice bonuses", () => {
+	it.each([
+		[1, 2, "5d20kh"],
+		[-1, 0, "1d20"],
+		[-2, 0, "2d20kl"],
+		[-4, 0, "2d20kl"],
+	])("uses attack attribute with bonus %s and skill bonus %s", async (attributeBonus, skillBonus, expected) => {
+		const item = makeArmamentItem();
+		item.system.formulas.attack = { attr: "dex", skill: "fighting", bonus: 4 };
+		item.parent.system.attributes.str.diceBonus = 100;
+		item.parent.system.attributes.dex.diceBonus = attributeBonus;
+		Object.assign(item.parent.system.skills.fighting, { diceBonus: skillBonus, value: 3, mod: 2 });
+		const { roll } = await item.rollAttack({ _forcedTarget: null });
+		expect(roll.formula).toBe(`${expected} + @degree + @bonus + @modifier + @attackBonus`);
+		expect(roll.data).toMatchObject({ degree: 5, bonus: 3, modifier: 2, attackBonus: 4 });
+		expect(item.parent.system.attributes.dex.value).toBe(2);
+	});
+});
+
 describe("OrdemItem.rollVolleyDamage — dano por-ataque (multi-ataque)", () => {
 	it("rola uma vez por ataque que ACERTOU; dobra só os que critaram; pula miss e pendente", async () => {
 		const item = makeArmamentItem({ numberOfAttacks: 4 });

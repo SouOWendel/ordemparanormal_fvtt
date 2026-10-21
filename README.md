@@ -66,6 +66,22 @@ As suites disponíveis:
 - **OP | Item: isCritical & getRollData** — parsing de fórmulas críticas, dados de rolagem
 - **OP | Sheets: registration & dataModels** — registro de sheets e TypeDataModels no CONFIG
 
+## Bônus nativos de dados
+
+Atributos e perícias possuem o campo inteiro `diceBonus`, com valor inicial `0`. Para aumentar ou reduzir a quantidade de d20, configure um Active Effect com modo **Adicionar (ADD)** e valor positivo ou negativo:
+
+```text
+system.attributes.pre.diceBonus  →  +1 dado em testes de Presença e perícias que usem Presença
+system.skills.religion.diceBonus →  +2 dados em testes de Religião
+system.skills.freeSkill.diceBonus → -1 dado na perícia personalizada
+```
+
+Os bônus de atributo e perícia se somam, inclusive entre múltiplos efeitos, e deixam de valer quando o efeito é desativado ou removido. Funcionam para agentes e ameaças, nas perícias disponíveis em cada ficha. Não alteram o atributo base, treinamento, modificadores numéricos, defesa ou dano.
+
+A rolagem soma o valor do atributo efetivamente escolhido, seu `diceBonus` e o `diceBonus` da perícia, quando houver. Depois aplica a vantagem/desvantagem existente: acima de um dado usa `kh`, exatamente um usa `1d20`, e zero ou menos usa `2d20kl`. Por exemplo, atributo 2 com bônus total +1 rola `3d20kh`; com vantagem, `4d20kh`; com desvantagem, `2d20kh`.
+
+Ataques usam o atributo e a perícia configurados na arma, preservando o fluxo atual sem novas opções de vantagem/desvantagem. A iniciativa do combate continua usando Destreza e soma os bônus de dados de Destreza e Iniciativa. Fórmulas livres e resultados já rolados não são recalculados.
+
 ## Modulos Obrigatórios.
 
 - **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);

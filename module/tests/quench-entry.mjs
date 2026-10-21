@@ -16,6 +16,7 @@ import "./suites/item-attack-flow.test.mjs";
 import "./suites/threat-attacks.test.mjs";
 import "./suites/chat-commands.test.mjs";
 import "./suites/active-effects.test.mjs";
+import "./suites/dice-bonus.test.mjs";
 import "./suites/migrations.test.mjs";
 import "./suites/sheets.test.mjs";
 import "./suites/reactions.test.mjs";

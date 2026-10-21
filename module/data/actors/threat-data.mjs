@@ -15,6 +15,7 @@ function skillField() {
 	const fields = foundry.data.fields;
 	return new fields.SchemaField({
 		value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
+		diceBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
 		attr: new fields.ArrayField(new fields.StringField(), { initial: ["dex"] }),
 		degree: new fields.SchemaField({
 			label: new fields.StringField({ initial: "untrained" }),
@@ -38,6 +39,7 @@ function freeSkillField() {
 	const fields = foundry.data.fields;
 	return new fields.SchemaField({
 		value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
+		diceBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
 		name: new fields.StringField({ initial: "" }),
 		attr: new fields.ArrayField(new fields.StringField(), { initial: ["int"] }),
 		degree: new fields.SchemaField({
@@ -62,6 +64,14 @@ function resistanceField() {
 	});
 }
 
+function attrField() {
+	const fields = foundry.data.fields;
+	return new fields.SchemaField({
+		value: new fields.NumberField({ integer: true, initial: 1 }),
+		diceBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+	});
+}
+
 export class ThreatData extends foundry.abstract.TypeDataModel {
 	static defineSchema() {
 		const fields = foundry.data.fields;
@@ -71,11 +81,11 @@ export class ThreatData extends foundry.abstract.TypeDataModel {
 					value: new fields.NumberField({ required: true, integer: true, initial: 10 }),
 					max: new fields.NumberField({ required: true, integer: true, initial: 10 }),
 				}),
-				dex: new fields.SchemaField({ value: new fields.NumberField({ integer: true, initial: 1 }) }),
-				int: new fields.SchemaField({ value: new fields.NumberField({ integer: true, initial: 1 }) }),
-				pre: new fields.SchemaField({ value: new fields.NumberField({ integer: true, initial: 1 }) }),
-				str: new fields.SchemaField({ value: new fields.NumberField({ integer: true, initial: 1 }) }),
-				vit: new fields.SchemaField({ value: new fields.NumberField({ integer: true, initial: 1 }) }),
+				dex: attrField(),
+				int: attrField(),
+				pre: attrField(),
+				str: attrField(),
+				vit: attrField(),
 				movement: new fields.SchemaField({
 					walk: new fields.NumberField({ integer: false, initial: 0 }),
 					unit: new fields.StringField({ initial: "m" }),

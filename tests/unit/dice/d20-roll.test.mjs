@@ -142,6 +142,68 @@ describe("D20Roll.configureModifiers", () => {
 		return roll;
 	}
 
+	it.each([
+		[1, ADV.NORMAL, 3, ["kh"]],
+		[1, ADV.ADVANTAGE, 4, ["kh"]],
+		[1, ADV.DISADVANTAGE, 2, ["kh"]],
+		[-1, ADV.NORMAL, 1, []],
+		[-2, ADV.NORMAL, 2, ["kl"]],
+		[-3, ADV.NORMAL, 2, ["kl"]],
+		[-2, ADV.ADVANTAGE, 1, []],
+		[-1, ADV.DISADVANTAGE, 2, ["kl"]],
+	])("applies bonus %s before mode %s", (diceBonus, advantageMode, count, modifiers) => {
+		const roll = makeConfigured({ attributes: { pre: { value: 2, diceBonus } }, attributeId: "pre" }, { advantageMode });
+		roll.configureModifiers();
+		expect(roll.d20.number).toBe(count);
+		expect(roll.d20.modifiers).toEqual(modifiers);
+		roll.configureModifiers();
+		expect(roll.d20.number).toBe(count);
+		expect(roll.d20.modifiers).toEqual(modifiers);
+	});
+
+	it("combines only the identified skill and selected attribute, without accumulating on reconfiguration", () => {
+		const data = {
+			attributes: { pre: { value: 2, diceBonus: 1 }, int: { value: 1, diceBonus: -2 } },
+			skills: { religion: { diceBonus: 2 }, freeSkill: { diceBonus: 50 } },
+			attributeId: "pre",
+			skillId: "religion",
+		};
+		const roll = makeConfigured(data, { advantageMode: ADV.NORMAL });
+		roll.configureModifiers();
+		expect(roll.d20.number).toBe(5);
+		roll.data.attributeId = "int";
+		roll.configureModifiers();
+		expect(roll.d20.number).toBe(1);
+		expect(roll.d20.modifiers).toEqual([]);
+		roll.options.advantageMode = ADV.DISADVANTAGE;
+		roll.configureModifiers();
+		expect(roll.d20.modifiers).toEqual(["kl"]);
+		roll.options.advantageMode = ADV.NORMAL;
+		roll.configureModifiers();
+		expect(roll.d20.number).toBe(1);
+		expect(roll.d20.modifiers).toEqual([]);
+	});
+
+	it("ignores skill data without skillId on direct attribute tests", () => {
+		const roll = makeConfigured({
+			attributes: { pre: { value: 2, diceBonus: 1 } },
+			attributeId: "pre",
+			skills: { religion: { diceBonus: 10 } },
+		});
+		roll.configureModifiers();
+		expect(roll.d20.number).toBe(3);
+	});
+
+	it("cancels simultaneous advantage and disadvantage before normalization", () => {
+		const roll = makeConfigured(
+			{ attributes: { pre: { value: 2, diceBonus: -1 } }, attributeId: "pre" },
+			{ advantage: true, disadvantage: true }
+		);
+		roll.configureModifiers();
+		expect(roll.options.advantageMode).toBe(ADV.NORMAL);
+		expect(roll.d20.number).toBe(1);
+	});
+
 	it("sets d20.number from attribute.value", () => {
 		const roll = makeConfigured({ attributes: { dex: { value: 3 } }, attributeId: "dex" });
 		roll.configureModifiers();

@@ -3,6 +3,7 @@
 
 import D20RollConfigurationDialog from "../applications/d20-configuration-dialog.mjs";
 import BasicRoll from "./basic-roll.mjs";
+import { resolveD20DiceCount } from "./d20-pool.mjs";
 import { areKeysPressed } from "../utils.mjs";
 
 /** */
@@ -202,7 +203,8 @@ export default class D20Roll extends BasicRoll {
 	configureModifiers() {
 		if (!this.validD20Roll) return;
 
-		this.d20.number = this.attribute.value;
+		const skill = this.data.skillId ? this.data.skills?.[this.data.skillId] : undefined;
+		this.d20.number = resolveD20DiceCount(this.attribute, skill);
 
 		if (this.options.advantageMode === undefined) {
 			const { advantage, disadvantage } = this.options;

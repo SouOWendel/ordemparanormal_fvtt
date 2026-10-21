@@ -1,7 +1,25 @@
 import { describe, it, expect } from "vitest";
 import { AgentData } from "../../../module/data/actors/agent-data.mjs";
+import { readFileSync } from "node:fs";
+
+describe("distributed diceBonus defaults", () => {
+	it.each(["agent", "threat"])("includes the new defaults in the %s legacy template", (type) => {
+		const template = JSON.parse(readFileSync(new URL("../../../template.json", import.meta.url), "utf8"));
+		for (const key of ["dex", "int", "pre", "str", "vit"]) {
+			expect(template.Actor[type].attributes[key].diceBonus).toBe(0);
+		}
+		for (const skill of Object.values(template.Actor[type].skills)) expect(skill.diceBonus).toBe(0);
+	});
+});
 
 describe("AgentData.defineSchema()", () => {
+	it("initializes diceBonus on every attribute and skill, including freeSkill", () => {
+		const schema = AgentData.defineSchema();
+		for (const field of [...Object.values(schema.attributes.fields), ...Object.values(schema.skills.fields)]) {
+			expect(field.fields.diceBonus).toBeInstanceOf(foundry.data.fields.NumberField);
+			expect(field.fields.diceBonus.initial).toBe(0);
+		}
+	});
 	it("returns all resource keys", () => {
 		const schema = AgentData.defineSchema();
 		expect(Object.keys(schema)).toContain("disableCalculations");

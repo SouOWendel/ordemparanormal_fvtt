@@ -2,6 +2,7 @@
 import { prepareActiveEffectCategories } from "../helpers/effects.mjs";
 import { ResistanceConfig } from "../applications/resistance-config.mjs";
 import { TraitsConfig } from "../applications/traits-config.mjs";
+import { buildD20DiceFormula } from "../dice/d20-pool.mjs";
 
 const { api, sheets } = foundry.applications;
 
@@ -458,10 +459,8 @@ export class OrdemThreatSheet extends api.HandlebarsApplicationMixin(sheets.Acto
 		// `degree.override` (the input). Read it as the single source of truth
 		// so homebrew threats with off-grid values roll with the correct bonus.
 		const skillValue = skillData.degree?.value ?? 0;
-		const attrValue = this.document.system.attributes[attrKey]?.value || 0;
-
-		// 0 Atributo rola 2d20kl1, senão rola Xd20kh1
-		const diceFormula = attrValue > 0 ? `${attrValue}d20kh` : "2d20kl";
+		const attribute = this.document.system.attributes[attrKey] ?? { value: 0 };
+		const diceFormula = buildD20DiceFormula(attribute, skillData);
 		const formula = `${diceFormula} + ${skillValue}`;
 
 		const roll = await new Roll(formula, this.actor.getRollData()).evaluate();

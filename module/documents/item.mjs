@@ -7,6 +7,7 @@
 
 import { getReactionEligibility } from "../helpers/reaction-helpers.mjs";
 import { damageRecipients } from "../helpers/visibility.mjs";
+import { buildD20DiceFormula } from "../dice/d20-pool.mjs";
 
 /**
  * Wrapper sobre `damageRecipients` que injeta `game.users` atual. O helper puro
@@ -346,13 +347,7 @@ export class OrdemItem extends Item {
 
 		const attack = this.system.formulas.attack;
 		const skill = this.parent.system.skills[attack.skill];
-		let attribute = this.parent.system.attributes[attack.attr];
-		let rollMode = "kh";
-
-		if (attribute.value < 1) {
-			attribute = 2;
-			rollMode = "kl";
-		} else attribute = attribute.value;
+		const attribute = this.parent.system.attributes[attack.attr];
 
 		const { parts, data } = CONFIG.Dice.BasicRoll.constructParts({
 			degree: skill.degree.value || null,
@@ -363,7 +358,7 @@ export class OrdemItem extends Item {
 
 		const rollConfig = {
 			parts: (parts ?? []).join(" + "),
-			formula: `${attribute}d20${rollMode}`,
+			formula: buildD20DiceFormula(attribute, skill),
 			data: this.getRollData(),
 			chatMessage: true,
 		};

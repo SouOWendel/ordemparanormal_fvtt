@@ -52,6 +52,7 @@ function attrField() {
 	return new fields.SchemaField({
 		value: new fields.NumberField({ integer: true, min: 0, initial: 1 }),
 		bonus: new fields.NumberField({ integer: true, initial: 0 }),
+		diceBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
 	});
 }
 
@@ -59,6 +60,7 @@ function agentSkillField(defaultAttr = "dex") {
 	const fields = foundry.data.fields;
 	return new fields.SchemaField({
 		value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
+		diceBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
 		attr: new fields.ArrayField(new fields.StringField(), { initial: [defaultAttr] }),
 		degree: new fields.SchemaField({
 			label: new fields.StringField({ initial: "untrained" }),
@@ -154,6 +156,7 @@ export class AgentData extends foundry.abstract.TypeDataModel {
 				will: agentSkillField(defaultAttrs.will),
 				freeSkill: new fields.SchemaField({
 					value: new fields.NumberField({ required: true, integer: true, initial: 0 }),
+					diceBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
 					attr: new fields.ArrayField(new fields.StringField(), { initial: ["int"] }),
 					degree: new fields.SchemaField({
 						label: new fields.StringField({ initial: "untrained" }),

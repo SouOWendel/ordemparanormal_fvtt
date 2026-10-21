@@ -1,6 +1,7 @@
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable no-unused-vars */
 import BasicRoll from "../dice/basic-roll.mjs";
+import { buildD20DiceFormula } from "../dice/d20-pool.mjs";
 import SkillToolRollConfigurationDialog from "../applications/skill-tool-configuration-dialog.mjs";
 import AttributeRollConfigurationDialog from "../applications/attribute-configuration-dialog.mjs";
 import { calculateSpaces, calculateDefense, calculateStatusMaxima } from "../helpers/actor-calculations.mjs";
@@ -217,8 +218,7 @@ export class OrdemActor extends Actor {
 		const system = super.getRollData();
 
 		// Cálculo da Formula de Iniciativa (@rollInitiative)
-		const agi = system.attributes?.dex?.value || 0;
-		const diceFormula = agi > 0 ? `${agi}d20kh` : "2d20kl";
+		const diceFormula = buildD20DiceFormula(system.attributes?.dex ?? { value: 0 }, system.skills?.initiative);
 
 		let bonus = 0;
 		// Verifica se a perícia de iniciativa existe (vale para Agente e Ameaça)
@@ -605,6 +605,7 @@ export class OrdemActor extends Actor {
 		config.parts = [...(config.parts ?? []), ...parts];
 		config.data = { ...data, ...(config.data ?? {}) };
 		config.data.attributeId = attributeId;
+		config.data.skillId = process.skill;
 	}
 
 	/** */
@@ -630,5 +631,6 @@ export class OrdemActor extends Actor {
 		config.parts = [...(config.parts ?? []), ...parts];
 		config.data = { ...data, ...(config.data ?? {}) };
 		config.data.attributeId = attributeId;
+		delete config.data.skillId;
 	}
 }

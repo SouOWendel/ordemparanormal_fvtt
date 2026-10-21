@@ -1,6 +1,21 @@
 import { describe, it, expect } from "vitest";
 import { ThreatData } from "../../../module/data/actors/threat-data.mjs";
 
+describe("ThreatData dice bonuses", () => {
+	it("initializes bonuses only on rollable attributes and every skill", () => {
+		const schema = ThreatData.defineSchema();
+		for (const key of ["dex", "int", "pre", "str", "vit"]) {
+			expect(schema.attributes.fields[key].fields.diceBonus.initial).toBe(0);
+		}
+		for (const field of Object.values(schema.skills.fields)) {
+			expect(field.fields.diceBonus.initial).toBe(0);
+		}
+		for (const key of ["hp", "movement", "vd"]) {
+			expect(schema.attributes.fields[key].fields).not.toHaveProperty("diceBonus");
+		}
+	});
+});
+
 describe("ThreatData.defineSchema()", () => {
 	it("returns all top-level keys", () => {
 		const schema = ThreatData.defineSchema();
