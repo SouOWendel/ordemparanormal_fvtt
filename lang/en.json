@@ -1,4 +1,7 @@
 {
+	"op.tokenResources.restoreDefaults": "Reapply system resource defaults",
+	"op.tokenResources.updateFailed": "Could not update the resource. Check the value and your permissions before trying again.",
+	"op.tokenResources.syncFailed": "Could not synchronize some resource bars. Check the documents and console before trying again.",
 	"op.op": "Paranormal Order",
 	"TYPES.Actor.agent": "Agent",
 	"TYPES.Actor.threat": "Threat",

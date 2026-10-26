@@ -1,0 +1,8 @@
+<div class="ordem-token-resources">
+	{{#each resources}}
+		<div class="attribute ordem-token-resource">
+			<label>{{label}} <span>/ {{max}}</span></label>
+			<input type="text" data-resource="{{attribute}}" value="{{value}}" aria-label="{{label}}" />
+		</div>
+	{{/each}}
+</div>

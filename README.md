@@ -56,7 +56,7 @@ npm run dev:down    # para o container
 ```
 
 1. Acesse `http://localhost:30000`, crie um mundo com o sistema Ordem Paranormal
-2. Ative os módulos **Quench** e **Bar Brawl** no mundo
+2. Ative o módulo **Quench** no mundo. Execute também a validação com **Bar Brawl** ativo e desativado.
 3. Abra o painel do Quench na sidebar e clique **Run All**
 
 As suites disponíveis:
@@ -66,26 +66,39 @@ As suites disponíveis:
 - **OP | Item: isCritical & getRollData** — parsing de fórmulas críticas, dados de rolagem
 - **OP | Sheets: registration & dataModels** — registro de sheets e TypeDataModels no CONFIG
 
-## Modulos Obrigatórios.
+## Barras de recursos dos tokens
 
-- **Brawl Bar**: módulo utilizado para adicionar uma terceira barra nos tokens, complementando os principais status de personagem do Ordem Paranormal: Pontos de Vida (PV), Sanidade (San), Pontos de Esforço (PE);
+O sistema exibe barras próprias no Foundry 13 e 14, sem exigir módulos: PV, PE e SAN para agentes; PV e PD com **Jogando sem Sanidade**; somente PV para ameaças. Mestre e proprietário do token podem vê-las ao passar o mouse. O Token HUD permite editar os recursos com valores absolutos, deltas (`+5`, `-2`) e percentuais (`50%`, `-10%`).
+
+A mudança de Jogando sem Sanidade atualiza os dados preparados, as fichas abertas e os tokens sem exigir recarregamento ou recriação. Os cálculos e valores persistidos dos recursos continuam sob responsabilidade das regras existentes.
+
+**Bar Brawl é opcional.** Quando ativo, ele assume o desenho, o HUD e suas opções avançadas. Use uma versão compatível com seu Foundry (1.9.0 no v13; 1.9.4 no v14). Ativar ou desativar o módulo exige o recarregamento normal de módulos.
+
+Os padrões fornecidos pelo sistema acompanham a regra selecionada. Em mundos antigos, somente conjuntos reconhecidos integralmente como padrões do sistema são atualizados. Qualquer personalização de barras, inclusive cor, posição, ordem, visibilidade, inclusão ou remoção, preserva o conjunto inteiro e interrompe sua atualização automática. Padrões personalizados salvos no próprio Bar Brawl também têm precedência. Assim, um conjunto personalizado pode continuar mostrando PE e SAN mesmo com a regra de PD ativa.
+
+O mestre pode escolher **Reaplicar padrões de recursos do sistema** na configuração do token ou de seu protótipo para substituir explicitamente o conjunto e voltar à atualização automática. A sincronização é conduzida por um único mestre ativo e não altera compêndios em massa. Flags antigas são preservadas ao desativar o módulo.
+
+Actors novos criados sem Bar Brawl registram apenas a procedência dos padrões nativos, quando não há configuração personalizada. Isso permite fornecer os recursos corretos caso o módulo seja ativado depois, sem migrar os documentos antigos indiscriminadamente.
+
+Valide visualmente nas duas gerações, com Bar Brawl ausente, desativado e ativo: hover, nome, zoom, tokens vinculados e não vinculados, ameaças com proprietário jogador, clientes com permissões distintas, edição pelo HUD, efeitos sobre máximos, cenas fechadas e troca de regra. Testes unitários não substituem essa validação do canvas.
+
+Os testes opcionais de referência aceitam `ORDEM_FOUNDRY_REFERENCE` apontando para `resources/app` de uma instalação Foundry v14. Eles leem seus utilitários para verificar atualização e exclusão de flags, sem modificar a instalação. Sem essa variável, são ignorados explicitamente. A suite Quench **OP | Token resources** valida documentos reais dentro do Foundry.
 
 ## Contribuidores
 
 - Agradecimento ao <a href="https>//twitter.com/ciconiaborns">@jojo</a> pelas traduções do sistema para o Inglês.
 - Agradacimento ao <strong>Dzeta (de discord: arcojin): </strong>
-	tradução e adaptação do sistema para o Inglês;
+  tradução e adaptação do sistema para o Inglês;
 - Agradacimento ao <strong>Marcos Miranda (de discord: .nyazi): </strong>
-	vetorização e criação de ícones para compêndio.
+  vetorização e criação de ícones para compêndio.
 - Agradacimento ao <strong>Gyoko (de discord: fuckpatyo): </strong>
-	grandes contribuições no desenvolvimento da ficha de ameaças.
+  grandes contribuições no desenvolvimento da ficha de ameaças.
 - Agradacimento a <strong>Fresko (de discord: jojoexperiencia): </strong>
-	contribuiu enormemente na criação dos compêndios.
+  contribuiu enormemente na criação dos compêndios.
 - Agradacimento ao <strong>Fabrício (de discord: fabricio): </strong>
-	automatização do sistema de combate, melhrorias gerais e correções de bugs.
+  automatização do sistema de combate, melhrorias gerais e correções de bugs.
 - Agradacimento ao <strong>Mercy (de discord: notnanomercy): </strong>
-	melhorias gerais no sistema e correções de bugs. Criador do módulo Paranormal Toolkit, com automatizações e melhorias no sistema.
-
+  melhorias gerais no sistema e correções de bugs. Criador do módulo Paranormal Toolkit, com automatizações e melhorias no sistema.
 
 ## Demonstração do Sistema
 

@@ -3,3 +3,29 @@
 .resource-label {
 	font-weight: bold;
 }
+
+.ordem-token-resources {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	pointer-events: all;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin-top: 4px;
+
+	.ordem-token-resource {
+		flex: 0 0 auto;
+		height: auto;
+		label {
+			display: block;
+			color: white;
+			font-size: 12px;
+			text-shadow: 1px 1px 2px black;
+		}
+		input {
+			width: 100%;
+		}
+	}
+}

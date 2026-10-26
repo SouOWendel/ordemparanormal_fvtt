@@ -1,4 +1,7 @@
 {
+	"op.tokenResources.restoreDefaults": "Reaplicar padrões de recursos do sistema",
+	"op.tokenResources.updateFailed": "Não foi possível atualizar o recurso. Confira o valor e suas permissões antes de tentar novamente.",
+	"op.tokenResources.syncFailed": "Não foi possível sincronizar algumas barras de recursos. Confira os documentos e o console antes de tentar novamente.",
 	"op.op": "Ordem Paranormal",
 	"TYPES.Actor.agent": "Agente",
 	"TYPES.Actor.threat": "Ameaça",

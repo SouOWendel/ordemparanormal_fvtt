@@ -1492,6 +1492,30 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .resource-label {
 	font-weight: bold;
 }
+.system-ordemparanormal .ordem-token-resources {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	pointer-events: all;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin-top: 4px;
+}
+.system-ordemparanormal .ordem-token-resources .ordem-token-resource {
+	flex: 0 0 auto;
+	height: auto;
+}
+.system-ordemparanormal .ordem-token-resources .ordem-token-resource label {
+	display: block;
+	color: white;
+	font-size: 12px;
+	text-shadow: 1px 1px 2px black;
+}
+.system-ordemparanormal .ordem-token-resources .ordem-token-resource input {
+	width: 100%;
+}
 .system-ordemparanormal {
 	@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&Roboto:wght@400;700&display=swap");
 	@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
@@ -4220,5 +4244,3 @@ dialog.ordemparanormal.application {
 .system-ordemparanormal .dossier-section .dossier-editor-container .locked-content p:last-child {
 	margin: 0;
 }
-
-/*# sourceMappingURL=ordemparanormal.css.map */

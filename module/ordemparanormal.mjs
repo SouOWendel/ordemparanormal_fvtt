@@ -30,6 +30,7 @@ import * as hooks from "./hooks.mjs";
 
 import * as utils from "./utils.mjs";
 import { handleReaction } from "./helpers/reactions.mjs";
+import { registerTokenResources } from "./components/token-resources.mjs";
 
 // import { rescueAllPathEffects } from '../utils/__test__/effects.mjs';
 
@@ -59,6 +60,7 @@ Hooks.once("init", function () {
 	// Define custom Document classes
 	CONFIG.Actor.documentClass = OrdemActor;
 	CONFIG.Item.documentClass = OrdemItem;
+	registerTokenResources();
 	Object.assign(CONFIG.Actor.dataModels, {
 		agent: dataModels.AgentData,
 		threat: dataModels.ThreatData,

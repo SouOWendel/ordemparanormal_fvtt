@@ -1,3 +1,5 @@
+import { refreshTokenResourcesForRule } from "../components/token-resources.mjs";
+
 /**
  * Register all of the system's keybindings.
  */
@@ -87,7 +89,13 @@ export default function registerSystemSettings() {
 		config: true, // false if you dont want it to show in module config
 		type: Boolean, // Number, Boolean, String, Object
 		default: false,
-		requiresReload: true, // true if you want to prompt the user to reload
+		requiresReload: false,
+		onChange: () => {
+			void refreshTokenResourcesForRule().catch((error) => {
+				console.error("ordemparanormal | resource rule refresh failed", error);
+				ui.notifications.error(game.i18n.localize("op.tokenResources.syncFailed"));
+			});
+		},
 	});
 
 	game.settings.register("ordemparanormal", "initiativeTiebreaker", {
