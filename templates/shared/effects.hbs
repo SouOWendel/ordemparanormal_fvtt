@@ -38,7 +38,13 @@
 								<span>{{effect.name}}</span>
 							</div>
 
-							<div class="effect-source">{{effect.parent.name}}</div>
+							<div class="effect-source">
+								{{#if effect.origin}}
+									{{effect.sourceName}}
+								{{else}}
+									{{effect.parent.name}}
+								{{/if}}
+							</div>
 
 							<div class="effect-duration">{{effect.duration.label}}</div>
 
