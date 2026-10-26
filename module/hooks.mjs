@@ -1,4 +1,5 @@
 import chatCommands from "./chat/chat-commands.mjs";
+import { OrdemItem } from "./documents/item.mjs";
 import { shouldShowCombatantHP } from "./helpers/visibility.mjs";
 
 // Module-level barrier for async effect expirations.
@@ -123,6 +124,9 @@ function _expireTemporaryEffects(combat, updateData) {
 export default function () {
 	// Register chat commands (/dt, /oposto)
 	chatCommands();
+
+	// Messages are rendered separately in the chat log, notifications, and popouts.
+	Hooks.on("renderChatMessageHTML", (_message, html) => OrdemItem.chatListeners(html));
 
 	Hooks.on("combatTurn", (combat, updateData) => _expireTemporaryEffects(combat, updateData));
 	Hooks.on("combatRound", (combat, updateData) => _expireTemporaryEffects(combat, updateData));

@@ -81,7 +81,8 @@ export class OrdemItem extends Item {
 	static async _onChatCardAction(event) {
 		event.preventDefault();
 		// Extract card data
-		const button = event.target;
+		const button = event.target.closest(".card-buttons button");
+		if (!button) return;
 		button.disabled = true;
 		const card = button.closest(".chat-card");
 		const messageId = card.closest(".message").dataset.messageId;

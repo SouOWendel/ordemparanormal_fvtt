@@ -565,11 +565,6 @@ function attachChatCommandListenerOnce(host) {
 	host.addEventListener("click", handleChatCommandClick);
 }
 
-// `OrdemItem.chatListeners` uses scoped delegation on the chat log itself, so
-// keep its hook wiring intact — only the command-card listener moves to body.
-Hooks.on("renderChatLog", (_app, html) => OrdemItem.chatListeners(html));
-Hooks.on("renderChatPopout", (_app, html) => OrdemItem.chatListeners(html));
-
 /**
  * Adds a datalist helper for suggesting valid Actor attribute keys in the ActiveEffect config dialog.
  */
@@ -622,8 +617,6 @@ Hooks.once("init", () => {
 		import("./tests/quench-entry.mjs");
 	}
 });
-// Hooks.on('renderChatMessage', (app, html, data) => OrdemItem.chatListeners(html));
-
 /* -------------------------------------------- */
 
 // Load hooks
